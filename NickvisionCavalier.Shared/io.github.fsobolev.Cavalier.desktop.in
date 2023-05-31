@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Cavalier
+Comment=Audio visualizer based on CAVA
+Exec=@EXEC@
+Icon=io.github.fsobolev.Cavalier
+Terminal=false
+Type=Application
+X-GNOME-UsesNotifications=true
+StartupNotify=true

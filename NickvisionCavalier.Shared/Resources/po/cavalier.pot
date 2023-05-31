@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-29 12:00-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:73
+msgid "No Folder Opened"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:341
+msgid "Nicholas Logozzo {0}"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:219
+#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:17
+msgid "Open Folder"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:339
+msgid ""
+"Nicholas Logozzo {0}\n"
+"Contributors on GitHub ❤️ {1}"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:240
+msgid "Are you sure you want to close the folder?"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:240
+msgid "Close Folder?"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:342
+msgid "translator-credits"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:103
+#, csharp-format
+msgid "Folder Opened: {0}"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:81
+msgid "Good Evening!"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Program.cs:50
+#: NickvisionApplication.Shared/org.nickvision.application.desktop.in:5
+#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:8
+msgid "Create new Nickvision applications"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:240
+msgid "Cancel"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Program.cs:49
+#: NickvisionApplication.Shared/org.nickvision.application.desktop.in:4
+#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:6
+msgid "Application"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:340
+msgid ""
+"Nicholas Logozzo {0}\n"
+"Fyodor Sobolev {1}"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:79
+msgctxt "Morning"
+msgid "Good Morning!"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:80
+msgid "Good Afternoon!"
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:227
+#, csharp-format
+msgid "There is {0} file in the folder."
+msgid_plural "There are {0} files in the folder."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../../../Controllers/MainWindowController.cs:78
+msgctxt "Night"
+msgid "Good Morning!"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:116
+msgid "Folder closed."
+msgstr ""
+
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:145
+#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:240
+msgid "Close"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:82
+msgid "Good Day!"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:10
+#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:31
+#: NickvisionApplication.GNOME/Blueprints/window.blp:5
+msgid "Preferences"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:14
+msgid "User Interface"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:15
+msgid "Customize the application's user interface."
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:18
+msgid "Theme"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "Light"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "Dark"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:14
+msgctxt "Shortcut"
+msgid "Folder"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:22
+msgid "Close Folder"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:28
+msgctxt "Shortcut"
+msgid "Application"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:36
+#: NickvisionApplication.GNOME/Blueprints/window.blp:6
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:41
+#: NickvisionApplication.GNOME/Blueprints/window.blp:7
+msgid "About Application"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:46
+msgid "Quit"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/window.blp:22
+msgid "Open Folder (Ctrl+O)"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/window.blp:26
+msgid "Open"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/window.blp:34
+msgid "Close Folder (Ctrl+W)"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/window.blp:43
+msgid "Main Menu"
+msgstr ""
+
+#: NickvisionApplication.GNOME/Blueprints/window.blp:56
+msgid "Open a folder (or drag one into the app) to get started."
+msgstr ""
+
+#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:7
+msgid "Nickvision"
+msgstr ""
+
+#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:10
+msgid "Recipe for the Ultimate Power:"
+msgstr ""
+
+#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:11
+msgid "— C#"
+msgstr ""
+
+#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:12
+msgid "— gir.core"
+msgstr ""
+
+#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:13
+msgid "— Avalonia"
+msgstr ""
+
+#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:14
+msgid "— Shaken, not stirred"
+msgstr ""

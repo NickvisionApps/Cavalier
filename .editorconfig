@@ -1,0 +1,14 @@
+[*.{sln,resx}]
+indent_style = tab
+
+[*.{cs,sh,py,json}]
+indent_style = space
+indent_size = 4
+
+[*.{csproj,xml,css,md,blp}]
+indent_style = space
+indent_size = 2
+
+[justfile]
+indent_style = space
+indent_size = 4

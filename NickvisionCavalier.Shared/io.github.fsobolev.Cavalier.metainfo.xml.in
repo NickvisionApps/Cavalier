@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>io.github.fsobolev.Cavalier.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Cavalier</name>
+  <summary>Audio visualizer based on CAVA.</summary>
+  <description>
+    <p>Cavalier is an audio visualizer based on CAVA with customizable LibAdwaita interface.</p>
+    <ul>
+      <li>4 drawing modes!</li>
+      <li>Set single color or up to 10 colors gradient for background and foreground.</li>
+      <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">io.github.fsobolev.Cavalier.desktop</launchable>
+  <url type="homepage">https://github.com/fsobolev/CavalierNext</url>
+  <url type="bugtracker">https://github.com/fsobolev/CavalierNext/issues</url>
+  <developer_name>Nickvision</developer_name>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/main.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/default.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/levels.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/particles.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/bars.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release type="stable" date="2023-01-29" version="2023.01.29">
+      <description>
+        <p>Second release of Cavalier.</p>
+        <ul>
+          <li>New drawing mode — Particles!</li>
+          <li>Color profiles! Create as many as you want and change between them instantly. Unfortunately, this new feature required to change how the application saves colors, and because of this your previous colors settings will be lost after installing this update.</li>
+          <li>Added keyboard shortcuts to change most of the settings on the fly.</li>
+          <li>Added option to show/hide window controls.</li>
+          <li>Added option to autohide headerbar when the main window is not focused.</li>
+          <li>Added option to change roundness of items in "levels" and "particles" modes.</li>
+          <li>Added option to reverse the order of bars.</li>
+          <li>Import/Export Settings</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1"/>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
+</component>

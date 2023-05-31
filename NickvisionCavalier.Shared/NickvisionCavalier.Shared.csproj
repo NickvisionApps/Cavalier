@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\io.github.fsobolev.Cavalier-devel.svg" />
+    <None Remove="Resources\io.github.fsobolev.Cavalier-symbolic.svg" />
+    <None Remove="Resources\io.github.fsobolev.Cavalier.png" />
+    <None Remove="Resources\io.github.fsobolev.Cavalier.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GetText.NET" Version="1.8.7" />
+    <PackageReference Include="Microsoft.NETCore.Targets" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\io.github.fsobolev.Cavalier-devel.svg" />
+    <Resource Include="Resources\io.github.fsobolev.Cavalier-symbolic.svg" />
+    <Resource Include="Resources\io.github.fsobolev.Cavalier.png" />
+    <Resource Include="Resources\io.github.fsobolev.Cavalier.svg" />
+  </ItemGroup>
+
+</Project>
