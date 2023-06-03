@@ -14,6 +14,11 @@ public class Configuration
     private static Configuration? _instance;
 
     /// <summary>
+    /// Size of drawing area margins in pixels
+    /// </summary>
+    public uint AreaMargin { get; set; }
+
+    /// <summary>
     /// Whether the window should be borderless
     /// </summary>
     public bool Borderless { get; set; }
@@ -52,6 +57,7 @@ public class Configuration
         {
             Directory.CreateDirectory(ConfigDir);
         }
+        AreaMargin = 0;
         Borderless = false;
         SharpCorners = false;
         ShowControls = false;

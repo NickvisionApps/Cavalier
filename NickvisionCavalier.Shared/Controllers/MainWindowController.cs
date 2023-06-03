@@ -20,6 +20,26 @@ public class MainWindowController
     /// The preferred theme of the application
     /// </summary>
     public Theme Theme => Configuration.Current.Theme;
+    /// <summary>
+    /// Size of drawing area margins in pixels
+    /// </summary>
+    public uint AreaMargin => Configuration.Current.AreaMargin;
+    /// <summary>
+    /// Whether the window should be borderless
+    /// </summary>
+    public bool Borderless => Configuration.Current.Borderless;
+    /// <summary>
+    /// Whether the corners of the window should be sharp
+    /// </summary>
+    public bool SharpCorners => Configuration.Current.SharpCorners;
+    /// <summary>
+    /// Whether to show window controls
+    /// </summary>
+    public bool ShowControls => Configuration.Current.ShowControls;
+    /// <summary>
+    /// Whether to autohide the headerbar
+    /// </summary>
+    public bool AutohideHeader => Configuration.Current.AutohideHeader;
 
     /// <summary>
     /// Constructs a MainWindowController

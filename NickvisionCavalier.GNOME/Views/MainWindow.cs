@@ -15,9 +15,12 @@ namespace NickvisionCavalier.GNOME.Views;
 public class MainWindow : Adw.ApplicationWindow
 {
     [Gtk.Connect] private readonly Gtk.Overlay _overlay;
+    [Gtk.Connect] private readonly Gtk.Revealer _headerRevealer;
+    [Gtk.Connect] private readonly Adw.HeaderBar _header;
 
     private readonly MainWindowController _controller;
     private readonly Adw.Application _application;
+    private readonly DrawingView _drawingView;
 
     private MainWindow(Gtk.Builder builder, MainWindowController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
@@ -33,7 +36,16 @@ public class MainWindow : Adw.ApplicationWindow
         }
         //Build UI
         builder.Connect(this);
-        _overlay.SetChild(new DrawingView(new DrawingViewController()));
+        _drawingView = new DrawingView(new DrawingViewController());
+        _overlay.SetChild(_drawingView);
+        UpdateWindowSettings();
+        OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "is-active" && _controller.AutohideHeader)
+            {
+                _headerRevealer.SetRevealChild(GetIsActive());
+            }
+        };
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);
         actPreferences.OnActivate += Preferences;
@@ -81,8 +93,45 @@ public class MainWindow : Adw.ApplicationWindow
     /// <param name="e">EventArgs</param>
     private void Preferences(Gio.SimpleAction sender, EventArgs e)
     {
-        var preferencesDialog = new PreferencesDialog(_controller.CreatePreferencesViewController(), _application, this);
+        var prefController = _controller.CreatePreferencesViewController();
+        prefController.OnWindowSettingsChanged += UpdateWindowSettings;
+        var preferencesDialog = new PreferencesDialog(prefController, _application, this);
+        preferencesDialog.OnCloseRequest += (sender, e) =>
+        {
+            prefController.OnWindowSettingsChanged -= UpdateWindowSettings;
+            return false;
+        };
         preferencesDialog.Present();
+    }
+
+    /// <summary>
+    /// Occurs when settings for the window have changed
+    /// </summary>
+    private void UpdateWindowSettings()
+    {
+        _drawingView.SetMarginTop((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
+        _drawingView.SetMarginStart((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
+        _drawingView.SetMarginEnd((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
+        _drawingView.SetMarginBottom((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
+        if (_controller.Borderless)
+        {
+            AddCssClass("borderless-window");
+        }
+        else
+        {
+            RemoveCssClass("borderless-window");
+        }
+        if (_controller.SharpCorners)
+        {
+            AddCssClass("sharp-corners");
+        }
+        else
+        {
+            RemoveCssClass("sharp-corners");
+        }
+        _header.SetShowStartTitleButtons(_controller.ShowControls);
+        _header.SetShowEndTitleButtons(_controller.ShowControls);
+        _headerRevealer.SetRevealChild(GetIsActive() || !_controller.AutohideHeader);
     }
 
     /// <summary>

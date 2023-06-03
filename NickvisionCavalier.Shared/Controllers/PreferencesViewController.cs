@@ -1,4 +1,5 @@
 using NickvisionCavalier.Shared.Models;
+using System;
 
 namespace NickvisionCavalier.Shared.Controllers;
 
@@ -18,6 +19,16 @@ public class PreferencesViewController
     internal PreferencesViewController()
     {
 
+    }
+
+    /// <summary>
+    /// Size of drawing area margins in pixels
+    /// </summary>
+    public uint AreaMargin
+    {
+        get => Configuration.Current.AreaMargin;
+
+        set => Configuration.Current.AreaMargin = value;
     }
 
     /// <summary>
@@ -70,8 +81,19 @@ public class PreferencesViewController
         set => Configuration.Current.Theme = value;
     }
 
+    public event Action? OnWindowSettingsChanged;
+
     /// <summary>
     /// Saves the configuration to disk
     /// </summary>
-    public void SaveConfiguration() => Configuration.Current.Save();
+    private void SaveConfiguration() => Configuration.Current.Save();
+
+    /// <summary>
+    /// Occurs when a window's setting has changed
+    /// </summary>
+    public void ChangeWindowSettings()
+    {
+        OnWindowSettingsChanged?.Invoke();
+        SaveConfiguration();
+    }
 }

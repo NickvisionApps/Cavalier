@@ -17,18 +17,23 @@ Adw.ApplicationWindow _root {
     Gtk.Box {
       orientation: vertical;
 
-      Adw.HeaderBar _header {
-        title-widget: Adw.WindowTitle _title {};
+      Gtk.Revealer _headerRevealer {
+        reveal-child: true;
+        transition-duration: 1000;
+        transition-type: crossfade;
+        child: Adw.HeaderBar _header {
+          title-widget: Adw.WindowTitle {};
 
-        [start]
-        Gtk.MenuButton {
-          direction: none;
-          menu-model: mainMenu;
-          tooltip-text: _("Main Menu");
-          primary: true;
-        }
+          [start]
+          Gtk.MenuButton {
+            direction: none;
+            menu-model: mainMenu;
+            tooltip-text: _("Main Menu");
+            primary: true;
+          }
 
-        styles ["flat"]
+          styles ["flat"]
+        };
       }
 
       Gtk.WindowHandle {

@@ -4,22 +4,85 @@ using Adw 1;
 Adw.PreferencesWindow _root {
   default-width: 600;
   default-height: 400;
-  modal: true;
-  destroy-with-parent: false;
-  hide-on-close: true;
+  modal: false;
+  destroy-with-parent: true;
+  hide-on-close: false;
   title: _("Preferences");
 
   Adw.PreferencesPage {
-    Adw.PreferencesGroup {
-      title: _("User Interface");
-      description: _("Customize the application's user interface.");
+    title: _("Cavalier");
+    icon-name: "org.nickvision.cavalier-symbolic";
 
-      Adw.ComboRow _themeRow {
-        title: _("Theme");
-        model: Gtk.StringList {
-          strings [C_("Theme", "Light"), C_("Theme", "Dark")]
-        };
+    Adw.PreferencesGroup {
+      Adw.ActionRow {
+        title: _("Drawing area margin");
+        subtitle: _("Size of gaps around drawing area (in pixels).");
+
+        [suffix]
+        Gtk.Scale _marginScale {
+          width-request: 180;
+          draw-value: true;
+          value-pos: left;
+          digits: 0;
+          adjustment: Gtk.Adjustment {
+            lower: 0;
+            upper: 40;
+            step-increment: 1;
+          };
+        }
       }
     }
+
+    Adw.PreferencesGroup {
+      Adw.ActionRow {
+        title: _("Borderless window");
+        subtitle: _("Whether to disable window shadow and borders.");
+
+        [suffix]
+        Gtk.Switch _borderlessSwitch {
+          valign: center;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Sharp corners");
+        subtitle: _("Whether the main window corners should be sharp.");
+
+        [suffix]
+        Gtk.Switch _sharpCornersSwitch {
+          valign: center;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Window controls");
+        subtitle: _("Whether to show window control buttons.");
+
+        [suffix]
+        Gtk.Switch _windowControlsSwitch {
+          valign: center;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Autohide headerbar");
+        subtitle: _("Whether to hide headerbar when main window is not focused.");
+
+        [suffix]
+        Gtk.Switch _autohideHeaderSwitch {
+          valign: center;
+        }
+      }
+    }
+  }
+
+  Adw.PreferencesPage {
+    title: "CAVA";
+    icon-name: "utilities-terminal-symbolic";
+  }
+
+  Adw.PreferencesPage {
+    title: _("Colors");
+    icon-name: "applications-graphics-symbolic";
   }
 }
