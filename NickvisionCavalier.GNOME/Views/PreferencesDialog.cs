@@ -65,10 +65,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _controller.Theme = (Theme)_themeRow.GetSelected();
         _application.StyleManager!.ColorScheme = _controller.Theme switch
         {
-            Theme.System => Adw.ColorScheme.PreferLight,
             Theme.Light => Adw.ColorScheme.ForceLight,
-            Theme.Dark => Adw.ColorScheme.ForceDark,
-            _ => Adw.ColorScheme.PreferLight
+            _ => Adw.ColorScheme.ForceDark
         };
     }
 }

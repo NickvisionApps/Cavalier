@@ -21,6 +21,46 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Whether the window should be borderless
+    /// </summary>
+    public bool Borderless
+    {
+        get => Configuration.Current.Borderless;
+
+        set => Configuration.Current.Borderless = value;
+    }
+
+    /// <summary>
+    /// Whether the corners of the window should be sharp
+    /// </summary>
+    public bool SharpCorners
+    {
+        get => Configuration.Current.SharpCorners;
+
+        set => Configuration.Current.SharpCorners = value;
+    }
+
+    /// <summary>
+    /// Whether to show window controls
+    /// </summary>
+    public bool ShowControls
+    {
+        get => Configuration.Current.ShowControls;
+
+        set => Configuration.Current.ShowControls = value;
+    }
+
+    /// <summary>
+    /// Whether to autohide the headerbar
+    /// </summary>
+    public bool AutohideHeader
+    {
+        get => Configuration.Current.AutohideHeader;
+
+        set => Configuration.Current.AutohideHeader = value;
+    }
+
+    /// <summary>
     /// The preferred theme of the application
     /// </summary>
     public Theme Theme

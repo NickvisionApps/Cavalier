@@ -14,6 +14,26 @@ public class Configuration
     private static Configuration? _instance;
 
     /// <summary>
+    /// Whether the window should be borderless
+    /// </summary>
+    public bool Borderless { get; set; }
+
+    /// <summary>
+    /// Whether the corners of the window should be sharp
+    /// </summary>
+    public bool SharpCorners { get; set; }
+
+    /// <summary>
+    /// Whether to show window controls
+    /// </summary>
+    public bool ShowControls { get; set; }
+
+    /// <summary>
+    /// Whether to autohide the headerbar
+    /// </summary>
+    public bool AutohideHeader { get; set; }
+
+    /// <summary>
     /// The preferred theme for the application
     /// </summary>
     public Theme Theme { get; set; }
@@ -32,7 +52,11 @@ public class Configuration
         {
             Directory.CreateDirectory(ConfigDir);
         }
-        Theme = Theme.System;
+        Borderless = false;
+        SharpCorners = false;
+        ShowControls = false;
+        AutohideHeader = false;
+        Theme = Theme.Dark;
     }
 
     /// <summary>

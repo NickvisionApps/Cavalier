@@ -108,10 +108,8 @@ public partial class Program
         //Set Adw Theme
         _application.StyleManager!.ColorScheme = _mainWindowController.Theme switch
         {
-            Theme.System => Adw.ColorScheme.PreferLight,
             Theme.Light => Adw.ColorScheme.ForceLight,
-            Theme.Dark => Adw.ColorScheme.ForceDark,
-            _ => Adw.ColorScheme.PreferLight
+            _ => Adw.ColorScheme.ForceDark
         };
         //Main Window
         _mainWindow = new MainWindow(_mainWindowController, _application);
