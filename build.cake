@@ -1,6 +1,6 @@
 #addin nuget:?package=Cake.FileHelpers&version=6.1.3
 
-const string appId = "io.github.fsobolev.Cavalier";
+const string appId = "org.nickvision.cavalier";
 const string projectName = "NickvisionCavalier";
 const string shortName = "cavalier";
 

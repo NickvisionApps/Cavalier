@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -6,10 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\io.github.fsobolev.Cavalier-devel.svg" />
-    <None Remove="Resources\io.github.fsobolev.Cavalier-symbolic.svg" />
-    <None Remove="Resources\io.github.fsobolev.Cavalier.png" />
-    <None Remove="Resources\io.github.fsobolev.Cavalier.svg" />
+    <None Remove="Resources\org.nickvision.cavalier-devel.svg" />
+    <None Remove="Resources\org.nickvision.cavalier-symbolic.svg" />
+    <None Remove="Resources\org.nickvision.cavalier.png" />
+    <None Remove="Resources\org.nickvision.cavalier.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,10 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\io.github.fsobolev.Cavalier-devel.svg" />
-    <Resource Include="Resources\io.github.fsobolev.Cavalier-symbolic.svg" />
-    <Resource Include="Resources\io.github.fsobolev.Cavalier.png" />
-    <Resource Include="Resources\io.github.fsobolev.Cavalier.svg" />
+    <Resource Include="Resources\org.nickvision.cavalier-devel.svg" />
+    <Resource Include="Resources\org.nickvision.cavalier-symbolic.svg" />
+    <Resource Include="Resources\org.nickvision.cavalier.png" />
+    <Resource Include="Resources\org.nickvision.cavalier.svg" />
   </ItemGroup>
 
 </Project>

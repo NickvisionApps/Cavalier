@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-  <id>io.github.fsobolev.Cavalier.desktop</id>
+  <id>org.nickvision.cavalier.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <name>Cavalier</name>
@@ -13,7 +13,7 @@
       <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
     </ul>
   </description>
-  <launchable type="desktop-id">io.github.fsobolev.Cavalier.desktop</launchable>
+  <launchable type="desktop-id">org.nickvision.cavalier.desktop</launchable>
   <url type="homepage">https://github.com/fsobolev/CavalierNext</url>
   <url type="bugtracker">https://github.com/fsobolev/CavalierNext/issues</url>
   <developer_name>Nickvision</developer_name>

@@ -1,5 +1,5 @@
 # Application
-<img src="NickvisionCavalier.Shared/Resources/io.github.fsobolev.Cavalier.png" width="100" height="100"/>
+<img src="NickvisionCavalier.Shared/Resources/org.nickvision.cavalier.png" width="100" height="100"/>
 
  **Audio visualizer based on CAVA**
 

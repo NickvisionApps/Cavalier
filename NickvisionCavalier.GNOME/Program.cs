@@ -41,10 +41,10 @@ public partial class Program
     public Program()
     {
         gtk_file_chooser_cell_get_type();
-        _application = Adw.Application.New("io.github.fsobolev.Cavalier", Gio.ApplicationFlags.FlagsNone);
+        _application = Adw.Application.New("org.nickvision.cavalier", Gio.ApplicationFlags.FlagsNone);
         _mainWindow = null;
         _mainWindowController = new MainWindowController();
-        _mainWindowController.AppInfo.ID = "io.github.fsobolev.Cavalier";
+        _mainWindowController.AppInfo.ID = "org.nickvision.cavalier";
         _mainWindowController.AppInfo.Name = "Cavalier";
         _mainWindowController.AppInfo.ShortName = _("Cavalier");
         _mainWindowController.AppInfo.Description = $"{_("Audio visualizer based on CAVA")}.";
@@ -54,10 +54,10 @@ public partial class Program
         _mainWindowController.AppInfo.IssueTracker = new Uri("https://github.com/fsobolev/CavalierNext/issues/new");
         _mainWindowController.AppInfo.SupportUrl = new Uri("https://github.com/fsobolev/CavalierNext/discussions");
         _application.OnActivate += OnActivate;
-        if (File.Exists(Path.GetFullPath(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/io.github.fsobolev.Cavalier.gresource"))
+        if (File.Exists(Path.GetFullPath(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
         {
             //Load file from program directory, required for `dotnet run`
-            g_resources_register(g_resource_load(Path.GetFullPath(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/io.github.fsobolev.Cavalier.gresource"));
+            g_resources_register(g_resource_load(Path.GetFullPath(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"));
         }
         else
         {
@@ -68,9 +68,9 @@ public partial class Program
             };
             foreach (var prefix in prefixes)
             {
-                if (File.Exists(prefix + "/share/io.github.fsobolev.Cavalier/io.github.fsobolev.Cavalier.gresource"))
+                if (File.Exists(prefix + "/share/org.nickvision.cavalier/org.nickvision.cavalier.gresource"))
                 {
-                    g_resources_register(g_resource_load(Path.GetFullPath(prefix + "/share/io.github.fsobolev.Cavalier/io.github.fsobolev.Cavalier.gresource")));
+                    g_resources_register(g_resource_load(Path.GetFullPath(prefix + "/share/org.nickvision.cavalier/org.nickvision.cavalier.gresource")));
                     break;
                 }
             }

@@ -19,7 +19,7 @@
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="echo Compiling extra resources..." />
     <Exec Command="blueprint-compiler batch-compile ./Blueprints ./Blueprints ./Blueprints/*.blp" />
-    <Exec Command="glib-compile-resources --sourcedir ./Resources ./Resources/io.github.fsobolev.Cavalier.gresource.xml --target=$(OutDir)/io.github.fsobolev.Cavalier.gresource" />
+    <Exec Command="glib-compile-resources --sourcedir ./Resources ./Resources/org.nickvision.cavalier.gresource.xml --target=$(OutDir)/org.nickvision.cavalier.gresource" />
     <Exec Command="&#xA;      while read lang_code; do \&#xA;        mkdir -p $(OutDir)/${lang_code}; \&#xA;        msgfmt ../NickvisionCavalier.Shared/Resources/po/${lang_code}.po -o $(OutDir)/${lang_code}/cavalier.mo; \&#xA;      done %3C ../NickvisionCavalier.Shared/Resources/po/LINGUAS" />
   </Target>
 
@@ -28,7 +28,7 @@
   </Target>
 
   <Target Name="PostPublish" AfterTargets="Publish">
-    <Exec Command="cp $(OutDir)/io.github.fsobolev.Cavalier.gresource $(PublishDir)/io.github.fsobolev.Cavalier.gresource" />
+    <Exec Command="cp $(OutDir)/org.nickvision.cavalier.gresource $(PublishDir)/org.nickvision.cavalier.gresource" />
     <Exec Command="&#xA;      while read lang_code; do \&#xA;        cp -r $(OutDir)/${lang_code} $(PublishDir)/; \&#xA;      done %3C ../NickvisionCavalier.Shared/Resources/po/LINGUAS" />
   </Target>
 
