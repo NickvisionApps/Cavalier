@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "dotnet",
+            "name": "Cavalier GNOME",
+            "projectPath": "NickvisionCavalier.GNOME.csproj",
+            "args": [],
+        },
+        
+    ]
+}
