@@ -120,20 +120,6 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.linux-arm/7.0.5/microsoft.netcore.app.host.linux-arm.7.0.5.nupkg",
-        "sha512": "e6164be4ae1c73af4f801f8da328d054c561a9f1ccd1d912f4600e36b960c06e686a49bc3903d6850d235bc785b6fe820003ccfdc3680f9ef99bcc807d7c2114",
-        "dest": "nuget-sources",
-        "dest-filename": "microsoft.netcore.app.host.linux-arm.7.0.5.nupkg"
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.linux-arm64/7.0.5/microsoft.netcore.app.host.linux-arm64.7.0.5.nupkg",
-        "sha512": "23c3bc8a852aafbc30a02fa08dd44a9da135a4120df6c53bfd90bcd35372f69007c57e7e2fa6977b2dce4d0475cec214ba5ff0db3cc591511b1e62c125c09a29",
-        "dest": "nuget-sources",
-        "dest-filename": "microsoft.netcore.app.host.linux-arm64.7.0.5.nupkg"
-    },
-    {
-        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm/7.0.5/microsoft.netcore.app.runtime.linux-arm.7.0.5.nupkg",
         "sha512": "b5190ef75194ab0eb468490fb66aa31225cb982846bafcfe24120e9e937118d59f6d133685a41bd94129b0646264044c3fbf375ed6111a1719fd298584c811ba",
         "dest": "nuget-sources",
@@ -159,5 +145,26 @@
         "sha512": "8581e6dc902340efe7c92c5c9751296616045bed8fdc7d5e2d936bf90c603b94e72d2ea1aad7e2e567218d0ce389de393189a1cb65fb20e99c5ad0cfe1fa4c1b",
         "dest": "nuget-sources",
         "dest-filename": "microsoft.netcore.targets.5.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/skiasharp/2.88.3/skiasharp.2.88.3.nupkg",
+        "sha512": "90e78bb2a0c377a7c72f750e6f9c122aaa24e66b4739930ae473466ca3aa1d03ee241d6b6041627f86a9a518e91d6839db31e1684e73190d968067da6488b743",
+        "dest": "nuget-sources",
+        "dest-filename": "skiasharp.2.88.3.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.macos/2.88.3/skiasharp.nativeassets.macos.2.88.3.nupkg",
+        "sha512": "db5781df92e44449f8cee9fa816c6f6d952e5be3d4890031316a138f9a9aaa98c71d770908401f3d80ef5026400c61c52d55f67646e5f304ef93b688ab5fa60d",
+        "dest": "nuget-sources",
+        "dest-filename": "skiasharp.nativeassets.macos.2.88.3.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/skiasharp.nativeassets.win32/2.88.3/skiasharp.nativeassets.win32.2.88.3.nupkg",
+        "sha512": "91711dda228905361393a39754dd08611b69b556af4725cbe9aef92ec8f11dac822338108aaeb1866e149c1e8b9dfc2dbd70c8f64fef11686ad59f69fc7f4420",
+        "dest": "nuget-sources",
+        "dest-filename": "skiasharp.nativeassets.win32.2.88.3.nupkg"
     }
 ]
