@@ -4,11 +4,11 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <name>Cavalier</name>
-  <summary>Audio visualizer based on CAVA.</summary>
+  <summary>Audio visualizer based on CAVA</summary>
   <description>
-    <p>Cavalier is an audio visualizer based on CAVA with customizable LibAdwaita interface.</p>
+    <p>Cavalier is an audio visualizer based on CAVA with customizable interface.</p>
     <ul>
-      <li>4 drawing modes!</li>
+      <li>5 drawing modes!</li>
       <li>Set single color or up to 10 colors gradient for background and foreground.</li>
       <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
     </ul>
@@ -19,19 +19,19 @@
   <developer_name>Nickvision</developer_name>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/main.png</image>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Main.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/default.png</image>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Default.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/levels.png</image>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Levels.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/particles.png</image>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Particles.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/fsobolev/cavalier/master/data/screenshots/bars.png</image>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Bars.png</image>
     </screenshot>
   </screenshots>
   <releases>
