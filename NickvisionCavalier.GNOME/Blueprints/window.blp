@@ -5,49 +5,36 @@ menu mainMenu {
   item(_("Preferences"), "win.preferences")
   item(_("Keyboard Shortcuts"), "win.keyboardShortcuts")
   item(_("About Application"), "win.about")
+  item(_("Quit"), "win.quit")
 }
 
 Adw.ApplicationWindow _root {
-  default-width: 800;
-  default-height: 600;
+  width-request: 170;
+  height-request: 170;
 
-  Gtk.Box {
-    orientation: vertical;
-    
-    Adw.HeaderBar {
-      title-widget: Adw.WindowTitle _title {};
-      
-      [start]
-      Gtk.Button {
-        tooltip-text: _("Open Folder (Ctrl+O)");
-        action-name: "win.openFolder";
-        
-        Adw.ButtonContent {
-          label: _("Open");
-          icon-name: "folder-open-symbolic";
+  Gtk.Overlay _overlay {
+    [overlay]
+    Gtk.Box {
+      orientation: vertical;
+
+      Adw.HeaderBar _header {
+        title-widget: Adw.WindowTitle _title {};
+
+        [start]
+        Gtk.MenuButton {
+          direction: none;
+          menu-model: mainMenu;
+          tooltip-text: _("Main Menu");
+          primary: true;
         }
+
+        styles ["flat"]
       }
-      
-      [start]
-      Gtk.Button _closeFolderButton {
-        icon-name: "window-close-symbolic";
-        tooltip-text: _("Close Folder (Ctrl+W)");
-        action-name: "win.closeFolder";
-        visible: false;
+
+      Gtk.WindowHandle {
+        hexpand: true;
+        vexpand: true;
       }
-      
-      [end]
-      Gtk.MenuButton {
-        direction: none;
-        menu-model: mainMenu;
-        tooltip-text: _("Main Menu");
-        primary: true;
-      }
-    }
-    
-    Gtk.GLArea _glArea {
-      hexpand: true;
-      vexpand: true;
     }
   }
 }

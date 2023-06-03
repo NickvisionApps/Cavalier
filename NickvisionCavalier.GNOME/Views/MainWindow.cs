@@ -1,16 +1,10 @@
-using NickvisionCavalier.GNOME.Controls;
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
-using NickvisionCavalier.Shared.Events;
-using NickvisionCavalier.Shared.Models;
-using SkiaSharp;
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -18,30 +12,19 @@ namespace NickvisionCavalier.GNOME.Views;
 /// <summary>
 /// The MainWindow for the application
 /// </summary>
-public partial class MainWindow : Adw.ApplicationWindow
+public class MainWindow : Adw.ApplicationWindow
 {
-    private delegate void GAsyncReadyCallback(nint source, nint res, nint user_data);
-
-    [LibraryImport("libEGL.so", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial IntPtr eglGetProcAddress(string name);
-    [LibraryImport("libGL.so", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial void glClear(uint mask);
+    [Gtk.Connect] private readonly Gtk.Overlay _overlay;
 
     private readonly MainWindowController _controller;
     private readonly Adw.Application _application;
-    private GRContext? _ctx;
-    private SKSurface? _skSurface;
-    private float[]? _sample;
-
-    [Gtk.Connect] private readonly Adw.WindowTitle _title;
-    [Gtk.Connect] private readonly Gtk.GLArea _glArea;
 
     private MainWindow(Gtk.Builder builder, MainWindowController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
         //Window Settings
         _controller = controller;
         _application = application;
-        SetDefaultSize(800, 600);
+        SetDefaultSize(400, 200);
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
         if (_controller.IsDevVersion)
@@ -50,20 +33,7 @@ public partial class MainWindow : Adw.ApplicationWindow
         }
         //Build UI
         builder.Connect(this);
-        _title.SetTitle(_controller.AppInfo.ShortName);
-        _glArea.OnRealize += (sender, e) =>
-        {
-            _glArea.MakeCurrent();
-            var grInt = GRGlInterface.Create(eglGetProcAddress);
-            _ctx = GRContext.CreateGl(grInt);
-        };
-        _glArea.OnResize += RecreateImageSurfaces;
-        _controller.Cava.OutputReceived += (sender, sample) =>
-        {
-            _sample = sample;
-            _glArea.QueueRender();
-        };
-        _glArea.OnRender += OnRender;
+        _overlay.SetChild(new DrawingView(new DrawingViewController()));
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);
         actPreferences.OnActivate += Preferences;
@@ -93,34 +63,6 @@ public partial class MainWindow : Adw.ApplicationWindow
     /// <param name="application">The Adw.Application</param>
     public MainWindow(MainWindowController controller, Adw.Application application) : this(Builder.FromFile("window.ui"), controller, application)
     {
-    }
-
-    /// <summary>
-    /// (Re)creates image surfaces
-    /// </summary>
-    /// <param name="sender">Gtk.Widget</param>
-    /// <param name="e">EventArgs</param>
-    private void RecreateImageSurfaces(Gtk.Widget sender, EventArgs e)
-    {
-        _skSurface?.Dispose();
-        var imgInfo = new SKImageInfo(sender.GetAllocatedWidth(), sender.GetAllocatedHeight());
-        _skSurface = SKSurface.Create(_ctx, false, imgInfo);
-        _controller.SetCanvas(_skSurface.Canvas);
-    }
-
-    private bool OnRender(Gtk.GLArea sender, EventArgs e)
-    {
-        if (_skSurface == null)
-        {
-            return false;
-        }
-        glClear(16384);
-        if (_sample != null)
-        {
-            _controller.Render(_sample, (float)sender.GetAllocatedWidth(), (float)sender.GetAllocatedHeight());
-            return true;
-        }
-        return false;
     }
 
     /// <summary>
@@ -219,7 +161,7 @@ public partial class MainWindow : Adw.ApplicationWindow
         dialog.SetWebsite(_controller.AppInfo.GitHubRepo.ToString());
         dialog.SetIssueUrl(_controller.AppInfo.IssueTracker.ToString());
         dialog.SetSupportUrl(_controller.AppInfo.SupportUrl.ToString());
-        dialog.SetDevelopers(string.Format(_("Fyodor Sobolev {0}\nContributors on GitHub ❤️ {1}"), "https://github.com/fsobolev", "https://github.com/fsobolev/CavalierNext/graphs/contributors").Split("\n"));
+        dialog.SetDevelopers(string.Format(_("Fyodor Sobolev {0}\nNicholas Logozzo {1}\nContributors on GitHub ❤️ {2}"), "https://github.com/fsobolev", "https://github.com/nlogozzo", "https://github.com/NickvisionApps/Cavalier/graphs/contributors").Split("\n"));
         dialog.SetDesigners(string.Format(_("Fyodor Sobolev {0}"), "https://github.com/fsobolev").Split("\n"));
         dialog.SetArtists(string.Format(_("Fyodor Sobolev {0}"), "https://github.com/fsobolev").Split("\n"));
         dialog.SetTranslatorCredits(_("translator-credits"));
