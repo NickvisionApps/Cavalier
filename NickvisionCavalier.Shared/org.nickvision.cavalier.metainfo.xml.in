@@ -14,8 +14,8 @@
     </ul>
   </description>
   <launchable type="desktop-id">org.nickvision.cavalier.desktop</launchable>
-  <url type="homepage">https://github.com/fsobolev/CavalierNext</url>
-  <url type="bugtracker">https://github.com/fsobolev/CavalierNext/issues</url>
+  <url type="homepage">https://github.com/NickvisionApps/Cavalier</url>
+  <url type="bugtracker">https://github.com/NickvisionApps/Cavalier/issues</url>
   <developer_name>Nickvision</developer_name>
   <screenshots>
     <screenshot type="default">

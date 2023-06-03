@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/io/github/fsobolev/Cavalier/icons/scalable/status/">
+  <gresource prefix="/org/nickvision/Cavalier/icons/scalable/status/">
     <file preprocess="xml-stripblanks">moon-outline-symbolic.svg</file>
     <file preprocess="xml-stripblanks">sun-outline-symbolic.svg</file>
   </gresource>

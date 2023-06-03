@@ -50,9 +50,9 @@ public partial class Program
         _mainWindowController.AppInfo.Description = $"{_("Audio visualizer based on CAVA")}.";
         _mainWindowController.AppInfo.Version = "2023.6.0-next";
         _mainWindowController.AppInfo.Changelog = "<ul><li>Initial Release</li></ul>";
-        _mainWindowController.AppInfo.GitHubRepo = new Uri("https://github.com/fsobolev/CavalierNext");
-        _mainWindowController.AppInfo.IssueTracker = new Uri("https://github.com/fsobolev/CavalierNext/issues/new");
-        _mainWindowController.AppInfo.SupportUrl = new Uri("https://github.com/fsobolev/CavalierNext/discussions");
+        _mainWindowController.AppInfo.GitHubRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
+        _mainWindowController.AppInfo.IssueTracker = new Uri("https://github.com/NickvisionApps/Cavalier/issues/new");
+        _mainWindowController.AppInfo.SupportUrl = new Uri("https://github.com/NickvisionApps/Cavalier/discussions");
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
         {

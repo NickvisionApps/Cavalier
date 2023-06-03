@@ -6,9 +6,9 @@
 
   <name xml:lang="en">Cavalier</name>
   <shortdesc xml:lang="en">Audio visualizer based on CAVA</shortdesc>
-  <homepage rdf:resource="https://github.com/fsobolev/CavalierNext" />
-  <bug-database rdf:resource="https://github.com/fsobolev/CavalierNext/issues"/>
-  <download-page rdf:resource="https://github.com/fsobolev/CavalierNext" /> <!-- replace with flathub link -->
+  <homepage rdf:resource="https://github.com/NickvisionApps/Cavalier" />
+  <bug-database rdf:resource="https://github.com/NickvisionApps/Cavalier/issues"/>
+  <download-page rdf:resource="https://github.com/NickvisionApps/Cavalier" /> <!-- replace with flathub link -->
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
   <programming-language>C#</programming-language>
 
