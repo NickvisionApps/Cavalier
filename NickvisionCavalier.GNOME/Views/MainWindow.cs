@@ -2,12 +2,15 @@ using NickvisionCavalier.GNOME.Controls;
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Events;
+using NickvisionCavalier.Shared.Models;
+using SkiaSharp;
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Tasks;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -19,47 +22,25 @@ public partial class MainWindow : Adw.ApplicationWindow
 {
     private delegate void GAsyncReadyCallback(nint source, nint res, nint user_data);
 
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial string g_file_get_path(nint file);
-
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial nint gtk_file_dialog_new();
-
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial void gtk_file_dialog_set_title(nint dialog, string title);
-
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial void gtk_file_dialog_select_folder(nint dialog, nint parent, nint cancellable, GAsyncReadyCallback callback, nint user_data);
-
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial nint gtk_file_dialog_select_folder_finish(nint dialog, nint result, nint error);
-
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial nint g_file_new_for_path(string path);
-
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial nint g_file_icon_new(nint gfile);
-
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial void g_notification_set_icon(nint notification, nint icon);
+    [LibraryImport("libEGL.so", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial IntPtr eglGetProcAddress(string name);
+    [LibraryImport("libGL.so", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial void glClear(uint mask);
 
     private readonly MainWindowController _controller;
     private readonly Adw.Application _application;
-    private GAsyncReadyCallback? _saveCallback;
+    private GRContext? _ctx;
+    private SKSurface? _skSurface;
+    private float[]? _sample;
 
     [Gtk.Connect] private readonly Adw.WindowTitle _title;
-    [Gtk.Connect] private readonly Gtk.Button _closeFolderButton;
-    [Gtk.Connect] private readonly Adw.ToastOverlay _toastOverlay;
-    [Gtk.Connect] private readonly Adw.ViewStack _viewStack;
-    [Gtk.Connect] private readonly Gtk.Label _filesLabel;
-    private readonly Gtk.DropTarget _dropTarget;
+    [Gtk.Connect] private readonly Gtk.GLArea _glArea;
 
     private MainWindow(Gtk.Builder builder, MainWindowController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
         //Window Settings
         _controller = controller;
         _application = application;
-        _saveCallback = null;
         SetDefaultSize(800, 600);
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
@@ -70,24 +51,19 @@ public partial class MainWindow : Adw.ApplicationWindow
         //Build UI
         builder.Connect(this);
         _title.SetTitle(_controller.AppInfo.ShortName);
-        _title.SetSubtitle(_controller.FolderPath == "No Folder Opened" ? _("No Folder Opened") : _controller.FolderPath);
-        var greeting = (Adw.StatusPage)builder.GetObject("_greeting");
-        greeting.SetIconName(controller.ShowSun ? "sun-outline-symbolic" : "moon-outline-symbolic");
-        greeting.SetTitle(_controller.Greeting);
-        //Register Events 
-        _controller.NotificationSent += NotificationSent;
-        _controller.ShellNotificationSent += ShellNotificationSent;
-        _controller.FolderChanged += FolderChanged;
-        //Open Folder Action
-        var actOpenFolder = Gio.SimpleAction.New("openFolder", null);
-        actOpenFolder.OnActivate += OpenFolder;
-        AddAction(actOpenFolder);
-        application.SetAccelsForAction("win.openFolder", new string[] { "<Ctrl>O" });
-        //Close Folder Action
-        var actCloseFolder = Gio.SimpleAction.New("closeFolder", null);
-        actCloseFolder.OnActivate += CloseFolder;
-        AddAction(actCloseFolder);
-        application.SetAccelsForAction("win.closeFolder", new string[] { "<Ctrl>W" });
+        _glArea.OnRealize += (sender, e) =>
+        {
+            _glArea.MakeCurrent();
+            var grInt = GRGlInterface.Create(eglGetProcAddress);
+            _ctx = GRContext.CreateGl(grInt);
+        };
+        _glArea.OnResize += RecreateImageSurfaces;
+        _controller.Cava.OutputReceived += (sender, sample) =>
+        {
+            _sample = sample;
+            _glArea.QueueRender();
+        };
+        _glArea.OnRender += OnRender;
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);
         actPreferences.OnActivate += Preferences;
@@ -108,10 +84,6 @@ public partial class MainWindow : Adw.ApplicationWindow
         actAbout.OnActivate += About;
         AddAction(actAbout);
         application.SetAccelsForAction("win.about", new string[] { "F1" });
-        //Drop Target
-        _dropTarget = Gtk.DropTarget.New(Gio.FileHelper.GetGType(), Gdk.DragAction.Copy);
-        _dropTarget.OnDrop += OnDrop;
-        AddController(_dropTarget);
     }
 
     /// <summary>
@@ -124,129 +96,40 @@ public partial class MainWindow : Adw.ApplicationWindow
     }
 
     /// <summary>
+    /// (Re)creates image surfaces
+    /// </summary>
+    /// <param name="sender">Gtk.Widget</param>
+    /// <param name="e">EventArgs</param>
+    private void RecreateImageSurfaces(Gtk.Widget sender, EventArgs e)
+    {
+        _skSurface?.Dispose();
+        var imgInfo = new SKImageInfo(sender.GetAllocatedWidth(), sender.GetAllocatedHeight());
+        _skSurface = SKSurface.Create(_ctx, false, imgInfo);
+        _controller.SetCanvas(_skSurface.Canvas);
+    }
+
+    private bool OnRender(Gtk.GLArea sender, EventArgs e)
+    {
+        if (_skSurface == null)
+        {
+            return false;
+        }
+        glClear(16384);
+        if (_sample != null)
+        {
+            _controller.Render(_sample, (float)sender.GetAllocatedWidth(), (float)sender.GetAllocatedHeight());
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
     /// Starts the MainWindow
     /// </summary>
     public void Start()
     {
         _application.AddWindow(this);
         Present();
-    }
-
-    /// <summary>
-    /// Occurs when a notification is sent from the controller
-    /// </summary>
-    /// <param name="sender">object?</param>
-    /// <param name="e">NotificationSentEventArgs</param>
-    private void NotificationSent(object? sender, NotificationSentEventArgs e)
-    {
-        var toast = Adw.Toast.New(e.Message);
-        if (e.Action == "close")
-        {
-            toast.SetButtonLabel(_("Close"));
-            toast.OnButtonClicked += (sender, ex) => _controller.CloseFolder();
-        }
-        _toastOverlay.AddToast(toast);
-    }
-
-    /// <summary>
-    /// Occurs when a shell notification is sent from the controller
-    /// </summary>
-    /// <param name="sender">object?</param>
-    /// <param name="e">ShellNotificationSentEventArgs</param>
-    private void ShellNotificationSent(object? sender, ShellNotificationSentEventArgs? e)
-    {
-        var notification = Gio.Notification.New(e.Title);
-        notification.SetBody(e.Message);
-        notification.SetPriority(e.Severity switch
-        {
-            NotificationSeverity.Success => Gio.NotificationPriority.High,
-            NotificationSeverity.Warning => Gio.NotificationPriority.Urgent,
-            NotificationSeverity.Error => Gio.NotificationPriority.Urgent,
-            _ => Gio.NotificationPriority.Normal
-        });
-        if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("SNAP")))
-        {
-            notification.SetIcon(Gio.ThemedIcon.New($"{_controller.AppInfo.ID}-symbolic"));
-        }
-        else
-        {
-            var iconHandle = g_file_icon_new(g_file_new_for_path($"{Environment.GetEnvironmentVariable("SNAP")}/usr/share/icons/hicolor/symbolic/apps/{_controller.AppInfo.ID}-symbolic.svg"));
-            g_notification_set_icon(notification.Handle, iconHandle);
-        }
-        _application.SendNotification(_controller.AppInfo.ID, notification);
-    }
-
-    /// <summary>
-    /// Occurs when something is dropped onto the window
-    /// </summary>
-    /// <param name="sender">Gtk.DropTarget</param>
-    /// <param name="e">Gtk.DropTarget.DropSignalArgs</param>
-    private bool OnDrop(Gtk.DropTarget sender, Gtk.DropTarget.DropSignalArgs e)
-    {
-        var obj = e.Value.GetObject();
-        if (obj != null)
-        {
-            var path = g_file_get_path(obj.Handle);
-            if (Directory.Exists(path))
-            {
-                _controller.OpenFolder(path);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /// <summary>
-    /// Occurs when the folder is changed
-    /// </summary>
-    /// <param name="sender">object?</param>
-    /// <param name="e">EventArgs</param>
-    private void FolderChanged(object? sender, EventArgs e)
-    {
-        _title.SetSubtitle(_controller.FolderPath);
-        _closeFolderButton.SetVisible(_controller.IsFolderOpened);
-        _viewStack.SetVisibleChildName(_controller.IsFolderOpened ? "Folder" : "NoFolder");
-    }
-
-    /// <summary>
-    /// Occurs when the open folder action is triggered
-    /// </summary>
-    /// <param name="sender">Gio.SimpleAction</param>
-    /// <param name="e">EventArgs</param>
-    private void OpenFolder(Gio.SimpleAction sender, EventArgs e)
-    {
-        var folderDialog = gtk_file_dialog_new();
-        gtk_file_dialog_set_title(folderDialog, _("Open Folder"));
-        _saveCallback = (source, res, data) =>
-        {
-            var fileHandle = gtk_file_dialog_select_folder_finish(folderDialog, res, IntPtr.Zero);
-            if (fileHandle != IntPtr.Zero)
-            {
-                var path = g_file_get_path(fileHandle);
-                _controller.OpenFolder(path);
-                _filesLabel.SetLabel(_n("There is {0} file in the folder.", "There are {0} files in the folder.", Directory.GetFiles(path, "*", SearchOption.TopDirectoryOnly).Length));
-            }
-        };
-        gtk_file_dialog_select_folder(folderDialog, Handle, IntPtr.Zero, _saveCallback, IntPtr.Zero);
-    }
-
-    /// <summary>
-    /// Occurs when the close folder action is triggered
-    /// </summary>
-    /// <param name="sender">Gio.SimpleAction</param>
-    /// <param name="e">EventArgs</param>
-    private void CloseFolder(Gio.SimpleAction sender, EventArgs e)
-    {
-        var dialog = new MessageDialog(this, _controller.AppInfo.ID, _("Close Folder?"), _("Are you sure you want to close the folder?"), _("Cancel"), _("Close"));
-        dialog.Present();
-        dialog.OnResponse += (sender, e) =>
-        {
-            if (dialog.Response == MessageDialogResponse.Destructive)
-            {
-                _controller.CloseFolder();
-            }
-            dialog.Destroy();
-        };
     }
 
     /// <summary>

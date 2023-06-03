@@ -45,30 +45,9 @@ Adw.ApplicationWindow _root {
       }
     }
     
-    Adw.ToastOverlay _toastOverlay {
+    Gtk.GLArea _glArea {
       hexpand: true;
       vexpand: true;
-      
-      Adw.ViewStack _viewStack {
-        Adw.ViewStackPage {
-          name: "NoFolder";
-          child: Adw.StatusPage _greeting {
-            description: _("Open a folder (or drag one into the app) to get started.");
-          };
-        }
-
-        Adw.ViewStackPage {
-          name: "Folder";
-          child: Gtk.Box {
-            orientation: vertical;
-
-            Gtk.Label _filesLabel {
-              hexpand: true;
-              vexpand: true;
-            }
-          };
-        }
-      }
     }
   }
 }

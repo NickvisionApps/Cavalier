@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="GetText.NET" Version="1.8.7" />
     <PackageReference Include="Microsoft.NETCore.Targets" Version="5.0.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.3" />
   </ItemGroup>
 
   <ItemGroup>
