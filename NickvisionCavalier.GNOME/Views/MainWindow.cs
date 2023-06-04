@@ -27,7 +27,7 @@ public class MainWindow : Adw.ApplicationWindow
         //Window Settings
         _controller = controller;
         _application = application;
-        SetDefaultSize(400, 200);
+        SetDefaultSize((int)_controller.WindowWidth, (int)_controller.WindowHeight);
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
         if (_controller.IsDevVersion)
@@ -45,6 +45,11 @@ public class MainWindow : Adw.ApplicationWindow
             {
                 _headerRevealer.SetRevealChild(GetIsActive());
             }
+        };
+        OnCloseRequest += (sender, e) =>
+        {
+            _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight);
+            return false;
         };
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);

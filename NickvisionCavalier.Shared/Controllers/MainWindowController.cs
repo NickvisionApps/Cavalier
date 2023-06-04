@@ -16,14 +16,27 @@ public class MainWindowController
     /// Whether or not the version is a development version or not
     /// </summary>
     public bool IsDevVersion => AppInfo.Current.Version.IndexOf('-') != -1;
+
     /// <summary>
     /// The preferred theme of the application
     /// </summary>
     public Theme Theme => Configuration.Current.Theme;
+
+    /// <summary>
+    /// The MainWindow width
+    /// </summary>
+    public uint WindowWidth => Configuration.Current.WindowWidth;
+
+    /// <summary>
+    /// The MainWindow height
+    /// </summary>
+    public uint WindowHeight => Configuration.Current.WindowHeight;
+
     /// <summary>
     /// Size of drawing area margins in pixels
     /// </summary>
     public uint AreaMargin => Configuration.Current.AreaMargin;
+
     /// <summary>
     /// Whether the window should be borderless
     /// </summary>
@@ -53,4 +66,14 @@ public class MainWindowController
     /// </summary>
     /// <returns>The PreferencesViewController</returns>
     public PreferencesViewController CreatePreferencesViewController() => new PreferencesViewController();
+
+    /// <summary>
+    /// Saves the MainWindow size to configuration
+    /// </summary>
+    public void SaveWindowSize(uint width, uint height)
+    {
+        Configuration.Current.WindowWidth = width;
+        Configuration.Current.WindowHeight = height;
+        Configuration.Current.Save();
+    }
 }
