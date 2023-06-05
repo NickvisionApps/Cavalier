@@ -47,7 +47,7 @@ public partial class Program
         _mainWindowController.AppInfo.ID = "org.nickvision.cavalier";
         _mainWindowController.AppInfo.Name = "Cavalier";
         _mainWindowController.AppInfo.ShortName = _("Cavalier");
-        _mainWindowController.AppInfo.Description = $"{_("Audio visualizer based on CAVA")}.";
+        _mainWindowController.AppInfo.Description = $"{_("Visualize audio with CAVA")}.";
         _mainWindowController.AppInfo.Version = "2023.6.0-next";
         _mainWindowController.AppInfo.Changelog = "<ul><li>Initial Release</li></ul>";
         _mainWindowController.AppInfo.GitHubRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
