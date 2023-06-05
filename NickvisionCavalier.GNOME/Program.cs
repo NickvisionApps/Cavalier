@@ -45,7 +45,7 @@ public partial class Program
         _mainWindow = null;
         _mainWindowController = new MainWindowController();
         _mainWindowController.AppInfo.ID = "org.nickvision.cavalier";
-        _mainWindowController.AppInfo.Name = "Cavalier";
+        _mainWindowController.AppInfo.Name = "Nickvision Cavalier";
         _mainWindowController.AppInfo.ShortName = _("Cavalier");
         _mainWindowController.AppInfo.Description = $"{_("Visualize audio with CAVA")}.";
         _mainWindowController.AppInfo.Version = "2023.6.0-next";
