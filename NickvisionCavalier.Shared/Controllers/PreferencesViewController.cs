@@ -13,12 +13,24 @@ public class PreferencesViewController
     /// </summary>
     public AppInfo AppInfo => AppInfo.Current;
 
+    public event EventHandler? OnWindowSettingsChanged;
+
     /// <summary>
     /// Constructs a PreferencesViewController
     /// </summary>
     internal PreferencesViewController()
     {
 
+    }
+
+    /// <summary>
+    /// The preferred theme of the application
+    /// </summary>
+    public Theme Theme
+    {
+        get => Configuration.Current.Theme;
+
+        set => Configuration.Current.Theme = value;
     }
 
     /// <summary>
@@ -72,28 +84,11 @@ public class PreferencesViewController
     }
 
     /// <summary>
-    /// The preferred theme of the application
-    /// </summary>
-    public Theme Theme
-    {
-        get => Configuration.Current.Theme;
-
-        set => Configuration.Current.Theme = value;
-    }
-
-    public event Action? OnWindowSettingsChanged;
-
-    /// <summary>
-    /// Saves the configuration to disk
-    /// </summary>
-    private void SaveConfiguration() => Configuration.Current.Save();
-
-    /// <summary>
     /// Occurs when a window's setting has changed
     /// </summary>
     public void ChangeWindowSettings()
     {
-        OnWindowSettingsChanged?.Invoke();
-        SaveConfiguration();
+        OnWindowSettingsChanged?.Invoke(this, EventArgs.Empty);
+        Configuration.Current.Save();
     }
 }

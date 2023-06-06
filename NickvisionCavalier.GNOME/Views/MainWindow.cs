@@ -38,7 +38,7 @@ public class MainWindow : Adw.ApplicationWindow
         builder.Connect(this);
         _drawingView = new DrawingView(new DrawingViewController());
         _overlay.SetChild(_drawingView);
-        UpdateWindowSettings();
+        UpdateWindowSettings(null, EventArgs.Empty);
         OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "is-active" && _controller.AutohideHeader)
@@ -112,7 +112,7 @@ public class MainWindow : Adw.ApplicationWindow
     /// <summary>
     /// Occurs when settings for the window have changed
     /// </summary>
-    private void UpdateWindowSettings()
+    private void UpdateWindowSettings(object? sender, EventArgs e)
     {
         _drawingView.SetMarginTop((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
         _drawingView.SetMarginStart((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));

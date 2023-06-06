@@ -14,6 +14,10 @@ public class Configuration
     private static Configuration? _instance;
 
     /// <summary>
+    /// The preferred theme for the application
+    /// </summary>
+    public Theme Theme { get; set; }
+    /// <summary>
     /// Main window width
     /// </summary>
     public uint WindowWidth { get; set; }
@@ -21,12 +25,10 @@ public class Configuration
     /// Main window width
     /// </summary>
     public uint WindowHeight { get; set; }
-
     /// <summary>
     /// Size of drawing area margins in pixels
     /// </summary>
     public uint AreaMargin { get; set; }
-
     /// <summary>
     /// Whether the window should be borderless
     /// </summary>
@@ -43,11 +45,6 @@ public class Configuration
     /// Whether to autohide the headerbar
     /// </summary>
     public bool AutohideHeader { get; set; }
-
-    /// <summary>
-    /// The preferred theme for the application
-    /// </summary>
-    public Theme Theme { get; set; }
 
     /// <summary>
     /// Occurs when the configuration is saved to disk
@@ -70,7 +67,6 @@ public class Configuration
         SharpCorners = false;
         ShowControls = false;
         AutohideHeader = false;
-        Theme = Theme.Dark;
     }
 
     /// <summary>

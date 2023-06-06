@@ -1,14 +1,14 @@
 using SkiaSharp;
-using System;
-using System.Collections.Generic;
 
 namespace NickvisionCavalier.Shared.Models;
 
-public class Renderer {
-    public SKCanvas? Canvas;
+public class Renderer
+{
+    public SKCanvas? Canvas { get; set; }
     
     public Renderer()
     {
+        Canvas = null;
     }
     
     public void Draw(float[] sample, float width, float height)

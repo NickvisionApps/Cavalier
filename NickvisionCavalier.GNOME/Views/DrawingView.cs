@@ -62,7 +62,7 @@ public partial class DrawingView : Gtk.Overlay
         _skSurface?.Dispose();
         var imgInfo = new SKImageInfo(sender.GetAllocatedWidth(), sender.GetAllocatedHeight());
         _skSurface = SKSurface.Create(_ctx, false, imgInfo);
-        _controller.SetCanvas(_skSurface.Canvas);
+        _controller.Canvas = _skSurface.Canvas;
     }
 
     /// <summary>

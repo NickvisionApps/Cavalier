@@ -5,15 +5,12 @@ namespace NickvisionCavalier.Shared.Controllers;
 
 public class DrawingViewController
 {
-    /// <summary>
-    /// Renderer object for DrawingView
-    /// <summary>
     private readonly Renderer _renderer;
     
     /// <summary>
     /// Cava instance
     /// </summary>
-    public readonly Cava Cava;
+    public Cava Cava { get; init; }
     
     public DrawingViewController()
     {
@@ -22,9 +19,11 @@ public class DrawingViewController
         Cava.Start();
     }
 
-    public void SetCanvas(SKCanvas canvas)
+    public SKCanvas? Canvas
     {
-        _renderer.Canvas = canvas;
+        get => _renderer.Canvas;
+
+        set => _renderer.Canvas = value;
     }
 
     public void Render(float[] sample, float width, float height) => _renderer.Draw(sample, width, height);
