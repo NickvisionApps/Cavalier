@@ -25,10 +25,10 @@ public class Cava
         File.WriteAllText(configPath, config);
         _proc = new Process
         {
-            StartInfo =
+            StartInfo = new ProcessStartInfo()
             {
                 FileName = "cava",
-                Arguments = $"-p {configPath}",
+                Arguments = $"-p \"{configPath}\"",
                 RedirectStandardOutput = true,
                 UseShellExecute = false
             }

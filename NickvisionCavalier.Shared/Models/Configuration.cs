@@ -60,6 +60,7 @@ public class Configuration
         {
             Directory.CreateDirectory(ConfigDir);
         }
+        Theme = Theme.Dark;
         WindowWidth = 400;
         WindowHeight = 200;
         AreaMargin = 0;
