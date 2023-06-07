@@ -6,3 +6,7 @@
 .sharp-corners {
   border-radius: 0px;
 }
+
+.load-bin {
+  background-color: @window_bg_color;
+}

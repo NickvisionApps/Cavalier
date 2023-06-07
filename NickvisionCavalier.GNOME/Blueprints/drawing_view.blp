@@ -1,8 +1,25 @@
 using Gtk 4.0;
+using Adw 1;
 
-Gtk.Overlay _root {
-  Gtk.GLArea _glArea {
-    hexpand: true;
-    vexpand: true;
+Gtk.Stack _root {
+  Gtk.StackPage _loadPage {
+    name: "load";
+    child: Adw.Bin {
+      Gtk.Spinner {
+        halign: center;
+        width-request: 50;
+        spinning: true;
+      }
+
+      styles ["load-bin"]
+    };
+  }
+
+  Gtk.StackPage _glPage {
+    name: "gl";
+    child: Gtk.GLArea _glArea {
+      hexpand: true;
+      vexpand: true;
+    };
   }
 }

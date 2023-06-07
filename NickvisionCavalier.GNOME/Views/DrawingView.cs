@@ -9,7 +9,7 @@ namespace NickvisionCavalier.GNOME.Views;
 /// <summary>
 /// The DrawingView to render CAVA's output
 /// </summary>
-public partial class DrawingView : Gtk.Overlay
+public partial class DrawingView : Gtk.Stack
 {
     [LibraryImport("libEGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial IntPtr eglGetProcAddress(string name);
@@ -38,6 +38,10 @@ public partial class DrawingView : Gtk.Overlay
         _glArea.OnResize += OnResize;
         _controller.Cava.OutputReceived += (sender, sample) =>
         {
+            if (GetVisibleChildName() != "gl")
+            {
+                SetVisibleChildName("gl");
+            }
             _sample = sample;
             _glArea.QueueRender();
         };
@@ -88,6 +92,7 @@ public partial class DrawingView : Gtk.Overlay
     /// </summary>
     public void UpdateCavaSettings(object? sender, EventArgs e)
     {
+        SetVisibleChildName("load");
         _controller.Cava.Restart();
     }
 }
