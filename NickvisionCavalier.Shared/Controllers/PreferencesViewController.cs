@@ -115,7 +115,7 @@ public class PreferencesViewController
     }
 
     /// <summary>
-    /// Manual sesitivity (will be squared when passed to CAVA)
+    /// Manual sensitivity (will be squared when passed to CAVA)
     /// </summary>
     public uint Sensitivity
     {

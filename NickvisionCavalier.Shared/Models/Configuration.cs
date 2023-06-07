@@ -58,7 +58,7 @@ public class Configuration
     /// </summary>
     public bool Autosens { get; set; }
     /// <summary>
-    /// Manual sesitivity (will be squared when passed to CAVA)
+    /// Manual sensitivity (will be squared when passed to CAVA)
     /// </summary>
     public uint Sensitivity { get; set; }
     /// <summary>
