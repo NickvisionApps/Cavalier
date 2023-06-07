@@ -102,12 +102,6 @@ public class MainWindow : Adw.ApplicationWindow
         prefController.OnWindowSettingsChanged += UpdateWindowSettings;
         prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
         var preferencesDialog = new PreferencesDialog(prefController, _application, this);
-        preferencesDialog.OnCloseRequest += (sender, e) =>
-        {
-            prefController.OnWindowSettingsChanged -= UpdateWindowSettings;
-            prefController.OnCavaSettingsChanged -= _drawingView.UpdateCavaSettings;
-            return false;
-        };
         preferencesDialog.Present();
     }
 
