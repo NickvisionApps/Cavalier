@@ -155,6 +155,16 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Whether to reverse bars order for each channel
+    /// </summary>
+    public bool ReverseOrder
+    {
+        get => Configuration.Current.ReverseOrder;
+
+        set => Configuration.Current.ReverseOrder = value;
+    }
+
+    /// <summary>
     /// Occurs when a window's setting has changed
     /// </summary>
     public void ChangeWindowSettings()

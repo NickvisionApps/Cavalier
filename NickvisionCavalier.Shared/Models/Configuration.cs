@@ -74,7 +74,7 @@ public class Configuration
     /// </summary>
     public float NoiseReduction { get; set; } // Note: noise reduction will be int (0-100) in the next stable release of CAVA
     /// <summary>
-    /// Reverse bars order
+    /// Whether to reverse bars order for each channel
     /// </summary>
     public bool ReverseOrder { get; set; }
 

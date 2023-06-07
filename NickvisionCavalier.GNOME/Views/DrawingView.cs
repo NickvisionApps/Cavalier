@@ -82,4 +82,12 @@ public partial class DrawingView : Gtk.Overlay
         }
         return false;
     }
+
+    /// <summary>
+    /// Occurs when settings for CAVA have changed
+    /// </summary>
+    public void UpdateCavaSettings(object? sender, EventArgs e)
+    {
+        _controller.Cava.Restart();
+    }
 }

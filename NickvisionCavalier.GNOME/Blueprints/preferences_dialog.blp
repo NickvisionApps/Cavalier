@@ -79,6 +79,118 @@ Adw.PreferencesWindow _root {
   Adw.PreferencesPage {
     title: "CAVA";
     icon-name: "utilities-terminal-symbolic";
+
+    Adw.PreferencesGroup {
+      Adw.ComboRow _framerateRow {
+        title: _("Framerate");
+        subtitle: _("Number of frames per second.");
+        model: Gtk.StringList {
+          strings ["30", "60", "90", "120"]
+        };
+      }
+
+      Adw.ActionRow {
+        title: _("Number of bars");
+        subtitle: _("Number of bars in CAVA config.");
+
+        [suffix]
+        Gtk.Scale _barsScale {
+          width-request: 180;
+          draw-value: true;
+          value-pos: left;
+          digits: 0;
+          adjustment: Gtk.Adjustment {
+            lower: 6;
+            upper: 50;
+            step-increment: 2;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Automatic sensitivity");
+        subtitle: _("Attempt to decrease sensitivity if the bars peak.");
+
+        [suffix]
+        Gtk.Switch _autosensSwitch {
+          valign: center;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Sensitivity");
+        subtitle: _("Manual sensitivity. If automatic sensitivity is enabled, this will only be the initial value.");
+
+        [suffix]
+        Gtk.Scale _sensitivityScale {
+          width-request: 150;
+          draw-value: false;
+          adjustment: Gtk.Adjustment {
+            lower: 10;
+            upper: 250;
+            step-increment: 10;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Channels");
+
+        [suffix]
+        Gtk.Box {
+          valign: center;
+
+          Gtk.ToggleButton _monoButton {
+            label: _("Mono");
+          }
+
+          Gtk.ToggleButton _stereoButton {
+            label: _("Stereo");
+            active: bind _monoButton.active inverted bidirectional;
+          }
+
+          styles ["linked"]
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Monstercat smoothing");
+        subtitle: _("Whether to enable the so-called «Monstercat smoothing».");
+
+        [suffix]
+        Gtk.Switch _monstercatSwitch {
+          valign: center;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Noise reduction");
+        subtitle: _("This factor adjusts the integral and gravity filters to keep the signal smooth.\n1 will be very slow and smooth, 0 will be fast but noisy.");
+
+        [suffix]
+        Gtk.Scale _noiseReductionScale {
+          width-request: 190;
+          draw-value: true;
+          value-pos: left;
+          digits: 2;
+          adjustment: Gtk.Adjustment {
+            lower: 0.0;
+            upper: 1.0;
+            step-increment: 0.01;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Reverse order");
+        subtitle: _("Whether to reverse order of bars for each channel.");
+
+        [suffix]
+        Gtk.Switch _reverseSwitch {
+          valign: center;
+        }
+      }
+    }
   }
 
   Adw.PreferencesPage {

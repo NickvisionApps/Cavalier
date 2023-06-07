@@ -57,6 +57,7 @@ public class Cava
     public void Restart()
     {
         _proc.Kill();
+        UpdateConfig();
         Start();
     }
 
