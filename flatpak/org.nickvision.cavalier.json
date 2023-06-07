@@ -27,9 +27,41 @@
         "*.a"
     ],
     "modules" : [
+        "fftw3f/fftw3f.json",
+        {
+            "name" : "iniparser",
+            "buildsystem" : "simple",
+            "build-commands" :
+            [
+                "make PREFIX=/app",
+                "install -Dm0644 src/iniparser.h /app/include/iniparser.h",
+                "install -Dm0644 src/dictionary.h /app/include/dictionary.h",
+                "install -Dm0644 libiniparser.so.1 /app/lib/libiniparser.so.1",
+                "ln -sf libiniparser.so.1 /app/lib/libiniparser.so"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/ndevilla/iniparser.git",
+                    "commit" : "deb85ad4936d4ca32cc2260ce43323d47936410d"
+                }
+            ]
+        },
+        {
+            "name" : "cava",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/karlstav/cava.git",
+                    "tag" : "0.8.3",
+                    "commit" : "746a3b1e6021e383aea9d0000f49d71fb24e1856"
+                }
+            ]
+        },
         {
             "name": "blueprint-compiler",
             "buildsystem": "meson",
+            "cleanup": [ "*" ],
             "sources": [
                 {
                     "type": "git",

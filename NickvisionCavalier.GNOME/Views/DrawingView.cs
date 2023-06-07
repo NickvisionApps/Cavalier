@@ -11,10 +11,10 @@ namespace NickvisionCavalier.GNOME.Views;
 /// </summary>
 public partial class DrawingView : Gtk.Overlay
 {
-    [LibraryImport("libEGL.so", StringMarshalling = StringMarshalling.Utf8)]
+    [LibraryImport("libEGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial IntPtr eglGetProcAddress(string name);
     //TODO: GLX and WGL
-    [LibraryImport("libGL.so", StringMarshalling = StringMarshalling.Utf8)]
+    [LibraryImport("libGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial void glClear(uint mask);
     
     [Gtk.Connect] private readonly Gtk.GLArea _glArea;
