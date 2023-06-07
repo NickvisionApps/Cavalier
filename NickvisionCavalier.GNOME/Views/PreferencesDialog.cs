@@ -1,7 +1,5 @@
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
-using NickvisionCavalier.Shared.Models;
-using System;
 
 namespace NickvisionCavalier.GNOME.Views;
 
@@ -13,27 +11,61 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     private readonly PreferencesViewController _controller;
     private readonly Adw.Application _application;
 
-    [Gtk.Connect] private readonly Adw.ComboRow _themeRow;
+    [Gtk.Connect] private readonly Gtk.Scale _marginScale;
+    [Gtk.Connect] private readonly Gtk.Switch _borderlessSwitch;
+    [Gtk.Connect] private readonly Gtk.Switch _sharpCornersSwitch;
+    [Gtk.Connect] private readonly Gtk.Switch _windowControlsSwitch;
+    [Gtk.Connect] private readonly Gtk.Switch _autohideHeaderSwitch;
 
     private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller, Adw.Application application, Gtk.Window parent) : base(builder.GetPointer("_root"), false)
     {
         //Window Settings
         _controller = controller;
-        _application = application;
-        SetTransientFor(parent);
         SetIconName(_controller.AppInfo.ID);
         //Build UI
         builder.Connect(this);
-        _themeRow.OnNotify += (sender, e) =>
+        _marginScale.SetValue((int)_controller.AreaMargin);
+        _marginScale.OnValueChanged += (sender, e) =>
         {
-            if (e.Pspec.GetName() == "selected-item")
+            _controller.AreaMargin = (uint)_marginScale.GetValue();
+            _controller.ChangeWindowSettings();
+        };
+        _borderlessSwitch.SetActive(_controller.Borderless);
+        _borderlessSwitch.OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "active")
             {
-                OnThemeChanged();
+                _controller.Borderless = _borderlessSwitch.GetActive();
+                _controller.ChangeWindowSettings();
             }
         };
-        _themeRow.SetSelected((uint)_controller.Theme);
-        //Layout
-        OnHide += Hide;
+        _sharpCornersSwitch.SetActive(_controller.SharpCorners);
+        _sharpCornersSwitch.OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "active")
+            {
+                _controller.SharpCorners = _sharpCornersSwitch.GetActive();
+                _controller.ChangeWindowSettings();
+            }
+        };
+        _windowControlsSwitch.SetActive(_controller.ShowControls);
+        _windowControlsSwitch.OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "active")
+            {
+                _controller.ShowControls = _windowControlsSwitch.GetActive();
+                _controller.ChangeWindowSettings();
+            }
+        };
+        _autohideHeaderSwitch.SetActive(_controller.AutohideHeader);
+        _autohideHeaderSwitch.OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "active")
+            {
+                _controller.AutohideHeader = _autohideHeaderSwitch.GetActive();
+                _controller.ChangeWindowSettings();
+            }
+        };
     }
 
     /// <summary>
@@ -44,31 +76,5 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// <param name="parent">Gtk.Window</param>
     public PreferencesDialog(PreferencesViewController controller, Adw.Application application, Gtk.Window parent) : this(Builder.FromFile("preferences_dialog.ui"), controller, application, parent)
     {
-    }
-
-    /// <summary>
-    /// Occurs when the dialog is hidden
-    /// </summary>
-    /// <param name="sender">Gtk.Widget</param>
-    /// <param name="e">EventArgs</param>
-    private void Hide(Gtk.Widget sender, EventArgs e)
-    {
-        _controller.SaveConfiguration();
-        Destroy();
-    }
-
-    /// <summary>
-    /// Occurs when the theme selection is changed
-    /// </summary>
-    private void OnThemeChanged()
-    {
-        _controller.Theme = (Theme)_themeRow.GetSelected();
-        _application.StyleManager!.ColorScheme = _controller.Theme switch
-        {
-            Theme.System => Adw.ColorScheme.PreferLight,
-            Theme.Light => Adw.ColorScheme.ForceLight,
-            Theme.Dark => Adw.ColorScheme.ForceDark,
-            _ => Adw.ColorScheme.PreferLight
-        };
     }
 }

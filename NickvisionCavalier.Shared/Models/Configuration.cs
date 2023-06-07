@@ -17,6 +17,34 @@ public class Configuration
     /// The preferred theme for the application
     /// </summary>
     public Theme Theme { get; set; }
+    /// <summary>
+    /// Main window width
+    /// </summary>
+    public uint WindowWidth { get; set; }
+    /// <summary>
+    /// Main window width
+    /// </summary>
+    public uint WindowHeight { get; set; }
+    /// <summary>
+    /// Size of drawing area margins in pixels
+    /// </summary>
+    public uint AreaMargin { get; set; }
+    /// <summary>
+    /// Whether the window should be borderless
+    /// </summary>
+    public bool Borderless { get; set; }
+    /// <summary>
+    /// Whether the corners of the window should be sharp
+    /// </summary>
+    public bool SharpCorners { get; set; }
+    /// <summary>
+    /// Whether to show window controls
+    /// </summary>
+    public bool ShowControls { get; set; }
+    /// <summary>
+    /// Whether to autohide the headerbar
+    /// </summary>
+    public bool AutohideHeader { get; set; }
 
     /// <summary>
     /// Occurs when the configuration is saved to disk
@@ -32,7 +60,14 @@ public class Configuration
         {
             Directory.CreateDirectory(ConfigDir);
         }
-        Theme = Theme.System;
+        Theme = Theme.Dark;
+        WindowWidth = 400;
+        WindowHeight = 200;
+        AreaMargin = 0;
+        Borderless = false;
+        SharpCorners = false;
+        ShowControls = false;
+        AutohideHeader = false;
     }
 
     /// <summary>

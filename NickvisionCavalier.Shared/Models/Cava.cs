@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NickvisionCavalier.Shared.Models;
 
-public class Cava {
-    public float[] Sample;
-    public event EventHandler<float[]>? OutputReceived;
-
+public class Cava
+{
     private readonly Process _proc;
+
+    public event EventHandler<float[]>? OutputReceived;
     
     public Cava()
     {
@@ -25,15 +25,14 @@ public class Cava {
         File.WriteAllText(configPath, config);
         _proc = new Process
         {
-            StartInfo =
+            StartInfo = new ProcessStartInfo()
             {
                 FileName = "cava",
-                Arguments = $"-p {configPath}",
+                Arguments = $"-p \"{configPath}\"",
                 RedirectStandardOutput = true,
                 UseShellExecute = false
             }
         };
-        Sample = new float[] {};
     }
     
     public void Start()
@@ -47,14 +46,14 @@ public class Cava {
         var br = new BinaryReader(_proc.StandardOutput.BaseStream);
         while(!_proc.HasExited)
         {
-            Sample = new float[20];
+            var sample = new float[20];
             var len = 40;
             var ba = br.ReadBytes(len);
             for (var i = 0; i < len; i += 2)
             {
-                Sample[i/2] = BitConverter.ToUInt16(ba, i) / 65535.0f;
+                sample[i/2] = BitConverter.ToUInt16(ba, i) / 65535.0f;
             }
-            OutputReceived?.Invoke(this, Sample);
+            OutputReceived?.Invoke(this, sample);
         }
     }
 }

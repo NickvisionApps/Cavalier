@@ -45,9 +45,9 @@ public partial class Program
         _mainWindow = null;
         _mainWindowController = new MainWindowController();
         _mainWindowController.AppInfo.ID = "org.nickvision.cavalier";
-        _mainWindowController.AppInfo.Name = "Cavalier";
+        _mainWindowController.AppInfo.Name = "Nickvision Cavalier";
         _mainWindowController.AppInfo.ShortName = _("Cavalier");
-        _mainWindowController.AppInfo.Description = $"{_("Audio visualizer based on CAVA")}.";
+        _mainWindowController.AppInfo.Description = $"{_("Visualize audio with CAVA")}.";
         _mainWindowController.AppInfo.Version = "2023.6.0-next";
         _mainWindowController.AppInfo.Changelog = "<ul><li>Initial Release</li></ul>";
         _mainWindowController.AppInfo.GitHubRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
@@ -108,10 +108,8 @@ public partial class Program
         //Set Adw Theme
         _application.StyleManager!.ColorScheme = _mainWindowController.Theme switch
         {
-            Theme.System => Adw.ColorScheme.PreferLight,
             Theme.Light => Adw.ColorScheme.ForceLight,
-            Theme.Dark => Adw.ColorScheme.ForceDark,
-            _ => Adw.ColorScheme.PreferLight
+            _ => Adw.ColorScheme.ForceDark
         };
         //Main Window
         _mainWindow = new MainWindow(_mainWindowController, _application);

@@ -5,7 +5,7 @@
          xmlns="http://usefulinc.com/ns/doap#">
 
   <name xml:lang="en">Cavalier</name>
-  <shortdesc xml:lang="en">Audio visualizer based on CAVA</shortdesc>
+  <shortdesc xml:lang="en">Visualize audio with CAVA</shortdesc>
   <homepage rdf:resource="https://github.com/NickvisionApps/Cavalier" />
   <bug-database rdf:resource="https://github.com/NickvisionApps/Cavalier/issues"/>
   <download-page rdf:resource="https://github.com/NickvisionApps/Cavalier" /> <!-- replace with flathub link -->

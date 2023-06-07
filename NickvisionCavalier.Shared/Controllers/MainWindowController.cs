@@ -20,6 +20,34 @@ public class MainWindowController
     /// The preferred theme of the application
     /// </summary>
     public Theme Theme => Configuration.Current.Theme;
+    /// <summary>
+    /// The MainWindow width
+    /// </summary>
+    public uint WindowWidth => Configuration.Current.WindowWidth;
+    /// <summary>
+    /// The MainWindow height
+    /// </summary>
+    public uint WindowHeight => Configuration.Current.WindowHeight;
+    /// <summary>
+    /// Size of drawing area margins in pixels
+    /// </summary>
+    public uint AreaMargin => Configuration.Current.AreaMargin;
+    /// <summary>
+    /// Whether the window should be borderless
+    /// </summary>
+    public bool Borderless => Configuration.Current.Borderless;
+    /// <summary>
+    /// Whether the corners of the window should be sharp
+    /// </summary>
+    public bool SharpCorners => Configuration.Current.SharpCorners;
+    /// <summary>
+    /// Whether to show window controls
+    /// </summary>
+    public bool ShowControls => Configuration.Current.ShowControls;
+    /// <summary>
+    /// Whether to autohide the headerbar
+    /// </summary>
+    public bool AutohideHeader => Configuration.Current.AutohideHeader;
 
     /// <summary>
     /// Constructs a MainWindowController
@@ -33,4 +61,14 @@ public class MainWindowController
     /// </summary>
     /// <returns>The PreferencesViewController</returns>
     public PreferencesViewController CreatePreferencesViewController() => new PreferencesViewController();
+
+    /// <summary>
+    /// Saves the MainWindow size to configuration
+    /// </summary>
+    public void SaveWindowSize(uint width, uint height)
+    {
+        Configuration.Current.WindowWidth = width;
+        Configuration.Current.WindowHeight = height;
+        Configuration.Current.Save();
+    }
 }

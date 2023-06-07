@@ -1,0 +1,8 @@
+.borderless-window {
+  box-shadow: none;
+  outline: none;
+}
+
+.sharp-corners {
+  border-radius: 0px;
+}
