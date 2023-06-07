@@ -45,6 +45,38 @@ public class Configuration
     /// Whether to autohide the headerbar
     /// </summary>
     public bool AutohideHeader { get; set; }
+    /// <summary>
+    /// CAVA framerate
+    /// </summary>
+    public uint Framerate { get; set; }
+    /// <summary>
+    /// Number of bar pairs in CAVA
+    /// </summary>
+    public uint BarPairs { get; set; }
+    /// <summary>
+    /// Whether to enable autosens in CAVA
+    /// </summary>
+    public bool Autosens { get; set; }
+    /// <summary>
+    /// Manual sensitivity (will be squared when passed to CAVA)
+    /// </summary>
+    public uint Sensitivity { get; set; }
+    /// <summary>
+    /// Whether to set channels to stereo (mono if false)
+    /// </summary>
+    public bool Stereo { get; set; }
+    /// <summary>
+    /// Whether to enable monstercat smoothing
+    /// </summary>
+    public bool Monstercat { get; set; }
+    /// <summary>
+    /// Noise reduction value (0.0-1.0)
+    /// </summary>
+    public float NoiseReduction { get; set; } // Note: noise reduction will be int (0-100) in the next stable release of CAVA
+    /// <summary>
+    /// Whether to reverse bars order for each channel
+    /// </summary>
+    public bool ReverseOrder { get; set; }
 
     /// <summary>
     /// Occurs when the configuration is saved to disk
@@ -68,6 +100,14 @@ public class Configuration
         SharpCorners = false;
         ShowControls = false;
         AutohideHeader = false;
+        Framerate = 60;
+        BarPairs = 6;
+        Autosens = true;
+        Sensitivity = 10;
+        Stereo = true;
+        Monstercat = true;
+        NoiseReduction = 0.77f;
+        ReverseOrder = true;
     }
 
     /// <summary>

@@ -14,6 +14,7 @@ public class PreferencesViewController
     public AppInfo AppInfo => AppInfo.Current;
 
     public event EventHandler? OnWindowSettingsChanged;
+    public event EventHandler? OnCavaSettingsChanged;
 
     /// <summary>
     /// Constructs a PreferencesViewController
@@ -84,11 +85,100 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// CAVA framerate
+    /// </summary>
+    public uint Framerate
+    {
+        get => Configuration.Current.Framerate;
+
+        set => Configuration.Current.Framerate = value;
+    }
+
+    /// <summary>
+    /// Number of bar pairs in CAVA
+    /// </summary>
+    public uint BarPairs
+    {
+        get => Configuration.Current.BarPairs;
+
+        set => Configuration.Current.BarPairs = value;
+    }
+
+    /// <summary>
+    /// Whether to enable autosens in CAVA
+    /// </summary>
+    public bool Autosens
+    {
+        get => Configuration.Current.Autosens;
+
+        set => Configuration.Current.Autosens = value;
+    }
+
+    /// <summary>
+    /// Manual sensitivity (will be squared when passed to CAVA)
+    /// </summary>
+    public uint Sensitivity
+    {
+        get => Configuration.Current.Sensitivity;
+
+        set => Configuration.Current.Sensitivity = value;
+    }
+
+    /// <summary>
+    /// Whether to set channels to stereo (mono if false)
+    /// </summary>
+    public bool Stereo
+    {
+        get => Configuration.Current.Stereo;
+
+        set => Configuration.Current.Stereo = value;
+    }
+
+    /// <summary>
+    /// Whether to enable monstercat smoothing
+    /// </summary>
+    public bool Monstercat
+    {
+        get => Configuration.Current.Monstercat;
+
+        set => Configuration.Current.Monstercat = value;
+    }
+
+    /// <summary>
+    /// Noise reduction value (0.0-1.0)
+    /// </summary>
+    public float NoiseReduction
+    {
+        get => Configuration.Current.NoiseReduction;
+
+        set => Configuration.Current.NoiseReduction = value;
+    }
+
+    /// <summary>
+    /// Whether to reverse bars order for each channel
+    /// </summary>
+    public bool ReverseOrder
+    {
+        get => Configuration.Current.ReverseOrder;
+
+        set => Configuration.Current.ReverseOrder = value;
+    }
+
+    /// <summary>
     /// Occurs when a window's setting has changed
     /// </summary>
     public void ChangeWindowSettings()
     {
         OnWindowSettingsChanged?.Invoke(this, EventArgs.Empty);
+        Configuration.Current.Save();
+    }
+
+    /// <summary>
+    /// Occurs when a CAVA setting has changed
+    /// </summary>
+    public void ChangeCavaSettings()
+    {
+        OnCavaSettingsChanged?.Invoke(this, EventArgs.Empty);
         Configuration.Current.Save();
     }
 }
