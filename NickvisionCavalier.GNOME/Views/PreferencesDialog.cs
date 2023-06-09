@@ -12,9 +12,13 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     private readonly PreferencesViewController _controller;
     private readonly Adw.Application _application;
 
+    [Gtk.Connect] private readonly Gtk.CheckButton _waveCheckButton;
+    [Gtk.Connect] private readonly Gtk.CheckButton _barsCheckButton;
     [Gtk.Connect] private readonly Gtk.Scale _marginScale;
     [Gtk.Connect] private readonly Adw.ComboRow _directionRow;
+    [Gtk.Connect] private readonly Adw.ActionRow _offsetRow;
     [Gtk.Connect] private readonly Gtk.Scale _offsetScale;
+    [Gtk.Connect] private readonly Adw.ActionRow _roundnessRow;
     [Gtk.Connect] private readonly Gtk.Scale _roundnessScale;
     [Gtk.Connect] private readonly Gtk.Switch _fillingSwitch;
     [Gtk.Connect] private readonly Adw.ActionRow _thicknessRow;
@@ -39,6 +43,33 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         SetIconName(_controller.AppInfo.ID);
         //Build UI
         builder.Connect(this);
+        _waveCheckButton.OnToggled += (sender, e) =>
+        {
+            if (_waveCheckButton.GetActive())
+            {
+                _controller.Mode = DrawingMode.WaveBox;
+                _offsetRow.SetSensitive(false);
+                _roundnessRow.SetSensitive(false);
+            }
+        };
+        _barsCheckButton.OnToggled += (sender, e) =>
+        {
+            if (_barsCheckButton.GetActive())
+            {
+                _controller.Mode = DrawingMode.BarsBox;
+                _offsetRow.SetSensitive(true);
+                _roundnessRow.SetSensitive(false);
+            }
+        };
+        switch (_controller.Mode)
+        {
+            case DrawingMode.WaveBox:
+                _waveCheckButton.SetActive(true);
+                break;
+            case DrawingMode.BarsBox:
+                _barsCheckButton.SetActive(true);
+                break;
+        }
         _marginScale.SetValue((int)_controller.AreaMargin);
         _marginScale.OnValueChanged += (sender, e) =>
         {
@@ -72,7 +103,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Pspec.GetName() == "active")
             {
                 _controller.Filling = _fillingSwitch.GetActive();
-                _thicknessRow.SetSensitive(!_fillingSwitch.GetActive());
                 _controller.Save();
             }
         };

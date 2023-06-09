@@ -3,7 +3,7 @@ using Adw 1;
 
 Adw.PreferencesWindow _root {
   default-width: 600;
-  default-height: 400;
+  default-height: 500;
   modal: false;
   destroy-with-parent: true;
   hide-on-close: true;
@@ -12,6 +12,28 @@ Adw.PreferencesWindow _root {
   Adw.PreferencesPage {
     title: _("Cavalier");
     icon-name: "org.nickvision.cavalier-symbolic";
+
+    Adw.PreferencesGroup {
+      title: _("Drawing mode");
+
+      Adw.ActionRow {
+        title: _("Wave");
+        activatable-widget: _waveCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _waveCheckButton {}
+      }
+
+      Adw.ActionRow {
+        title: _("Bars");
+        activatable-widget: _barsCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _barsCheckButton {
+          group: _waveCheckButton;
+        }
+      }
+    }
 
     Adw.PreferencesGroup {
       Adw.ActionRow {
@@ -39,7 +61,7 @@ Adw.PreferencesWindow _root {
         };
       }
 
-      Adw.ActionRow {
+      Adw.ActionRow _offsetRow {
         title: _("Offset between items");
         subtitle: _("The size of spaces between elements (in percent).");
 
@@ -57,7 +79,7 @@ Adw.PreferencesWindow _root {
         }
       }
 
-      Adw.ActionRow {
+      Adw.ActionRow _roundnessRow {
         title: _("Roundness of items");
         subtitle: _("How much rounded the elements should be (in percent).");
 
@@ -89,6 +111,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow _thicknessRow {
         title: _("Thickness of lines");
         subtitle: _("Thickness of lines when filling is off (in pixels).");
+        sensitive: bind _fillingSwitch.active inverted;
 
         [suffix]
         Gtk.Scale _thicknessScale {
