@@ -78,6 +78,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Filling");
         subtitle: _("Whether shapes should be filled or outlined.");
+        activatable-widget: _fillingSwitch;
 
         [suffix]
         Gtk.Switch _fillingSwitch {
@@ -108,6 +109,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Borderless window");
         subtitle: _("Whether to disable window shadow and borders.");
+        activatable-widget: _borderlessSwitch;
 
         [suffix]
         Gtk.Switch _borderlessSwitch {
@@ -118,6 +120,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Sharp corners");
         subtitle: _("Whether the main window corners should be sharp.");
+        activatable-widget: _sharpCornersSwitch;
 
         [suffix]
         Gtk.Switch _sharpCornersSwitch {
@@ -128,6 +131,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Window controls");
         subtitle: _("Whether to show window control buttons.");
+        activatable-widget: _windowControlsSwitch;
 
         [suffix]
         Gtk.Switch _windowControlsSwitch {
@@ -138,6 +142,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Autohide headerbar");
         subtitle: _("Whether to hide headerbar when main window is not focused.");
+        activatable-widget: _autohideHeaderSwitch;
 
         [suffix]
         Gtk.Switch _autohideHeaderSwitch {
@@ -180,6 +185,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Automatic sensitivity");
         subtitle: _("Attempt to decrease sensitivity if the bars peak.");
+        activatable-widget: _autosensSwitch;
 
         [suffix]
         Gtk.Switch _autosensSwitch {
@@ -226,6 +232,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Monstercat smoothing");
         subtitle: _("Whether to enable the so-called «Monstercat smoothing».");
+        activatable-widget: _monstercatSwitch;
 
         [suffix]
         Gtk.Switch _monstercatSwitch {
@@ -254,6 +261,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Reverse order");
         subtitle: _("Whether to reverse order of bars for each channel.");
+        activatable-widget: _reverseSwitch;
 
         [suffix]
         Gtk.Switch _reverseSwitch {
