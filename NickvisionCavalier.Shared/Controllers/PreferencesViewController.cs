@@ -165,12 +165,67 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Drawing direction
+    /// </summary>
+    public DrawingDirection Direction
+    {
+        get => Configuration.Current.Direction;
+
+        set => Configuration.Current.Direction = value;
+    }
+
+    /// <summary>
+    /// The size of spaces between elements
+    /// </summary>
+    public float ItemsOffset
+    {
+        get => Configuration.Current.ItemsOffset;
+
+        set => Configuration.Current.ItemsOffset = value;
+    }
+
+    /// <summary>
+    /// Roundness of items (0 - square, 1 - round)
+    /// </summary>
+    public float ItemsRoundness
+    {
+        get => Configuration.Current.ItemsRoundness;
+
+        set => Configuration.Current.ItemsRoundness = value;
+    }
+
+    /// <summary>
+    /// Whether to fill or draw lines
+    /// </summary>
+    public bool Filling
+    {
+        get => Configuration.Current.Filling;
+
+        set => Configuration.Current.Filling = value;
+    }
+
+    /// <summary>
+    /// Thickness of lines when filling is off (in pixels)
+    /// </summary>
+    public uint LinesThickness
+    {
+        get => Configuration.Current.LinesThickness;
+
+        set => Configuration.Current.LinesThickness = value;
+    }
+
+    /// <summary>
+    /// Saves the configuration to disk
+    /// </summary>
+    public void Save() => Configuration.Current.Save();
+
+    /// <summary>
     /// Occurs when a window's setting has changed
     /// </summary>
     public void ChangeWindowSettings()
     {
         OnWindowSettingsChanged?.Invoke(this, EventArgs.Empty);
-        Configuration.Current.Save();
+        Save();
     }
 
     /// <summary>
@@ -179,6 +234,6 @@ public class PreferencesViewController
     public void ChangeCavaSettings()
     {
         OnCavaSettingsChanged?.Invoke(this, EventArgs.Empty);
-        Configuration.Current.Save();
+        Save();
     }
 }
