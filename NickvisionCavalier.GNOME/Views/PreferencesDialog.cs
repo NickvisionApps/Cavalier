@@ -17,6 +17,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Scale _offsetScale;
     [Gtk.Connect] private readonly Gtk.Scale _roundnessScale;
     [Gtk.Connect] private readonly Gtk.Switch _fillingSwitch;
+    [Gtk.Connect] private readonly Adw.ActionRow _thicknessRow;
     [Gtk.Connect] private readonly Gtk.Scale _thicknessScale;
     [Gtk.Connect] private readonly Gtk.Switch _borderlessSwitch;
     [Gtk.Connect] private readonly Gtk.Switch _sharpCornersSwitch;
@@ -71,13 +72,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Pspec.GetName() == "active")
             {
                 _controller.Filling = _fillingSwitch.GetActive();
+                _thicknessRow.SetSensitive(!_fillingSwitch.GetActive());
                 _controller.Save();
             }
         };
+        _thicknessRow.SetSensitive(!_fillingSwitch.GetActive());
         _thicknessScale.SetValue((int)_controller.LinesThickness);
         _thicknessScale.OnValueChanged += (sender, e) =>
         {
-            _controller.LinesThickness = (uint)_thicknessScale.GetValue();
+            _controller.LinesThickness = (float)_thicknessScale.GetValue();
             _controller.Save();
         };
         _borderlessSwitch.SetActive(_controller.Borderless);

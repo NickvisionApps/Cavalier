@@ -96,7 +96,7 @@ public class Configuration
     /// <summary>
     /// Thickness of lines when filling is off (in pixels)
     /// </summary>
-    public uint LinesThickness { get; set; }
+    public float LinesThickness { get; set; }
 
     /// <summary>
     /// Occurs when the configuration is saved to disk

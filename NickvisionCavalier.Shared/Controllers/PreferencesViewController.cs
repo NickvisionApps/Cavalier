@@ -207,7 +207,7 @@ public class PreferencesViewController
     /// <summary>
     /// Thickness of lines when filling is off (in pixels)
     /// </summary>
-    public uint LinesThickness
+    public float LinesThickness
     {
         get => Configuration.Current.LinesThickness;
 

@@ -8,7 +8,7 @@ public class Renderer
     private float _offset => Configuration.Current.ItemsOffset;
     private float _roundness => Configuration.Current.ItemsRoundness;
     private bool _fill => Configuration.Current.Filling;
-    private uint _thickness => Configuration.Current.LinesThickness;
+    private float _thickness => (float)Configuration.Current.LinesThickness;
 
     public SKCanvas? Canvas { get; set; }
     
@@ -33,6 +33,7 @@ public class Renderer
         var paint = new SKPaint
         {
             Style = _fill ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
+            StrokeWidth = _thickness,
             Color = SKColors.Blue
         };
         var step = (_direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
@@ -47,32 +48,32 @@ public class Renderer
                 case DrawingDirection.TopBottom:
                     Canvas.DrawRect(
                         step * (i + _offset / 2) + (_fill ? 0 : _thickness / 2),
-                        0,
+                        _fill ? 0 : _thickness / 2,
                         step * (1 - _offset) - (_fill ? 0 : _thickness),
-                        height * sample[i],
+                        height * sample[i] - (_fill ? 0 : _thickness),
                         paint);
                     break;
                 case DrawingDirection.BottomTop:
                     Canvas.DrawRect(
                         step * (i + _offset / 2) + (_fill ? 0 : _thickness / 2),
-                        height * (1 - sample[i]),
+                        height * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
                         step * (1 - _offset) - (_fill ? 0 : _thickness),
-                        height * sample[i],
+                        height * sample[i] - (_fill ? 0 : _thickness),
                         paint);
                     break;
                 case DrawingDirection.LeftRight:
                     Canvas.DrawRect(
-                        0,
+                        _fill ? 0 : _thickness / 2,
                         step * (i + _offset / 2) + (_fill ? 0 : _thickness / 2),
-                        width * sample[i],
+                        width * sample[i] - (_fill ? 0 : _thickness),
                         step * (1 - _offset) - (_fill ? 0 : _thickness),
                         paint);
                     break;
                 case DrawingDirection.RightLeft:
                     Canvas.DrawRect(
-                        width * (1 - sample[i]),
+                        width * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
                         step * (i + _offset / 2) + (_fill ? 0 : _thickness / 2),
-                        width * sample[i],
+                        width * sample[i] - (_fill ? 0 : _thickness),
                         step * (1 - _offset) - (_fill ? 0 : _thickness),
                         paint);
                     break;

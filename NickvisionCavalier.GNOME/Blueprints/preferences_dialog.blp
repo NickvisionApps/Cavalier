@@ -85,7 +85,7 @@ Adw.PreferencesWindow _root {
         }
       }
 
-      Adw.ActionRow {
+      Adw.ActionRow _thicknessRow {
         title: _("Thickness of lines");
         subtitle: _("Thickness of lines when filling is off (in pixels).");
 
@@ -97,7 +97,7 @@ Adw.PreferencesWindow _root {
           digits: 0;
           adjustment: Gtk.Adjustment {
             lower: 1;
-            upper: 40;
+            upper: 10;
             step-increment: 1;
           };
         }
