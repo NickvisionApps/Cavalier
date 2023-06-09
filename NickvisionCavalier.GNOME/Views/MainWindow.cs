@@ -30,10 +30,6 @@ public class MainWindow : Adw.ApplicationWindow
         SetDefaultSize((int)_controller.WindowWidth, (int)_controller.WindowHeight);
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
-        if (_controller.IsDevVersion)
-        {
-            AddCssClass("devel");
-        }
         //Build UI
         builder.Connect(this);
         _drawingView = new DrawingView(new DrawingViewController());
