@@ -97,6 +97,10 @@ public class Configuration
     /// Thickness of lines when filling is off (in pixels)
     /// </summary>
     public float LinesThickness { get; set; }
+    /// <summary>
+    /// Active drawing mode
+    /// </summary>
+    public DrawingMode Mode { get; set; }
 
     /// <summary>
     /// Occurs when the configuration is saved to disk
@@ -133,6 +137,7 @@ public class Configuration
         ItemsRoundness = 0.5f;
         Filling = true;
         LinesThickness = 15;
+        Mode = DrawingMode.WaveBox;
     }
 
     /// <summary>

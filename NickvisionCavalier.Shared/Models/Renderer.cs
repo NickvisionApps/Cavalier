@@ -24,18 +24,113 @@ public class Renderer
             return;
         }
         Canvas.Clear();
-        DrawBarsBox(sample, width, height);
-        Canvas.Flush();
-    }
-
-    private void DrawBarsBox(float[] sample, float width, float height)
-    {
-        var paint = new SKPaint
+        var fgPaint = new SKPaint
         {
             Style = _fill ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
             StrokeWidth = _thickness,
             Color = SKColors.Blue
         };
+        switch (Configuration.Current.Mode)
+        {
+            case DrawingMode.WaveBox:
+                DrawWaveBox(sample, width, height, fgPaint);
+                break;
+            case DrawingMode.BarsBox:
+                DrawBarsBox(sample, width, height, fgPaint);
+                break;
+        }
+        Canvas.Flush();
+    }
+
+    private void DrawWaveBox(float[] sample, float width, float height, SKPaint paint)
+    {
+        var step = (_direction < DrawingDirection.LeftRight ? width : height) / (sample.Length - 1);
+        var path = new SKPath();
+        switch (_direction)
+        {
+            case DrawingDirection.TopBottom:
+                path.MoveTo(0, height * sample[0] - (_fill ? 0 : _thickness / 2));
+                for (var i = 0; i < sample.Length - 1; i++)
+                {
+                    path.CubicTo(
+                        step * (i + 0.5f),
+                        height * sample[i] - (_fill ? 0 : _thickness / 2),
+                        step * (i + 0.5f),
+                        height * sample[i+1] - (_fill ? 0 : _thickness / 2),
+                        step * (i + 1),
+                        height * sample[i+1] - (_fill ? 0 : _thickness / 2));
+                }
+                if (_fill)
+                {
+                    path.LineTo(width, 0);
+                    path.LineTo(0, 0);
+                    path.Close();
+                }
+                break;
+            case DrawingDirection.BottomTop:
+                path.MoveTo(0, height * (1 - sample[0]) + (_fill ? 0 : _thickness / 2));
+                for (var i = 0; i < sample.Length - 1; i++)
+                {
+                    path.CubicTo(
+                        step * (i + 0.5f),
+                        height * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
+                        step * (i + 0.5f),
+                        height * (1 - sample[i+1]) + (_fill ? 0 : _thickness / 2),
+                        step * (i + 1),
+                        height * (1 - sample[i+1]) + (_fill ? 0 : _thickness / 2));
+                }
+                if (_fill)
+                {
+                    path.LineTo(width, height);
+                    path.LineTo(0, height);
+                    path.Close();
+                }
+                break;
+            case DrawingDirection.LeftRight:
+                path.MoveTo(width * sample[0] - (_fill ? 0 : _thickness / 2), 0);
+                for (var i = 0; i < sample.Length - 1; i++)
+                {
+                    path.CubicTo(
+                        width * sample[i] - (_fill ? 0 : _thickness / 2),
+                        step * (i + 0.5f),
+                        width * sample[i+1] - (_fill ? 0 : _thickness / 2),
+                        step * (i + 0.5f),
+                        width * sample[i+1] - (_fill ? 0 : _thickness / 2),
+                        step * (i + 1));
+                }
+                if (_fill)
+                {
+                    path.LineTo(0, height);
+                    path.LineTo(0, 0);
+                    path.Close();
+                }
+                break;
+            case DrawingDirection.RightLeft:
+                path.MoveTo(width * (1 - sample[0]) + (_fill ? 0 : _thickness / 2), 0);
+                for (var i = 0; i < sample.Length - 1; i++)
+                {
+                    path.CubicTo(
+                        width * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
+                        step * (i + 0.5f),
+                        width * (1 - sample[i+1]) + (_fill ? 0 : _thickness / 2),
+                        step * (i + 0.5f),
+                        width * (1 - sample[i+1]) + (_fill ? 0 : _thickness / 2),
+                        step * (i + 1));
+                }
+                if (_fill)
+                {
+                    path.LineTo(width, height);
+                    path.LineTo(width, 0);
+                    path.Close();
+                }
+                break;
+        }
+        Canvas.DrawPath(path, paint);
+        path.Dispose();
+    }
+
+    private void DrawBarsBox(float[] sample, float width, float height, SKPaint paint)
+    {
         var step = (_direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         for (var i = 0; i < sample.Length; i++)
         {

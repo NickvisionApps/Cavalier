@@ -215,6 +215,16 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Active drawing mode
+    /// </summary>
+    public DrawingMode Mode
+    {
+        get => Configuration.Current.Mode;
+
+        set => Configuration.Current.Mode = value;
+    }
+
+    /// <summary>
     /// Saves the configuration to disk
     /// </summary>
     public void Save() => Configuration.Current.Save();
