@@ -31,6 +31,77 @@ Adw.PreferencesWindow _root {
           };
         }
       }
+
+      Adw.ComboRow _directionRow {
+        title: _("Drawing direction");
+        model: Gtk.StringList {
+          strings ["Top to bottom", "Bottom to top", "Left to right", "Right to left" ]
+        };
+      }
+
+      Adw.ActionRow {
+        title: _("Offset between items");
+        subtitle: _("The size of spaces between elements (in percent).");
+
+        [suffix]
+        Gtk.Scale _offsetScale {
+          width-request: 180;
+          draw-value: true;
+          value-pos: left;
+          digits: 0;
+          adjustment: Gtk.Adjustment {
+            lower: 0;
+            upper: 20;
+            step-increment: 1;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Roundness of items");
+        subtitle: _("How much rounded the elements should be (in percent).");
+
+        [suffix]
+        Gtk.Scale _roundnessScale {
+          width-request: 180;
+          draw-value: true;
+          value-pos: left;
+          digits: 0;
+          adjustment: Gtk.Adjustment {
+            lower: 0;
+            upper: 100;
+            step-increment: 1;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Filling");
+        subtitle: _("Whether shapes should be filled or outlined.");
+
+        [suffix]
+        Gtk.Switch _fillingSwitch {
+          valign: center;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Thickness of lines");
+        subtitle: _("Thickness of lines when filling is off (in pixels).");
+
+        [suffix]
+        Gtk.Scale _thicknessScale {
+          width-request: 180;
+          draw-value: true;
+          value-pos: left;
+          digits: 0;
+          adjustment: Gtk.Adjustment {
+            lower: 1;
+            upper: 40;
+            step-increment: 1;
+          };
+        }
+      }
     }
 
     Adw.PreferencesGroup {
