@@ -242,7 +242,7 @@ Adw.PreferencesWindow _root {
 
       Adw.ActionRow {
         title: _("Noise reduction");
-        subtitle: _("This factor adjusts the integral and gravity filters to keep the signal smooth.\n1 will be very slow and smooth, 0 will be fast but noisy.");
+        subtitle: _("This factor adjusts the integral and gravity filters to keep the signal smooth.\nHigher value leads to a slower and smoother result.");
 
         [suffix]
         Gtk.Scale _noiseReductionScale {
@@ -251,8 +251,8 @@ Adw.PreferencesWindow _root {
           value-pos: left;
           digits: 2;
           adjustment: Gtk.Adjustment {
-            lower: 0.0;
-            upper: 1.0;
+            lower: 0.15;
+            upper: 0.95;
             step-increment: 0.01;
           };
         }
