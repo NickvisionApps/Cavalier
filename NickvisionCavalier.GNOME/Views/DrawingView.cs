@@ -12,8 +12,7 @@ namespace NickvisionCavalier.GNOME.Views;
 public partial class DrawingView : Gtk.Stack
 {
     [LibraryImport("libEGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial IntPtr eglGetProcAddress(string name);
-    //TODO: GLX and WGL
+    private static partial nint eglGetProcAddress(string name);
     [LibraryImport("libGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial void glClear(uint mask);
     
@@ -23,10 +22,20 @@ public partial class DrawingView : Gtk.Stack
     private GRContext? _ctx;
     private SKSurface? _skSurface;
     private float[]? _sample;
+    private System.Timers.Timer _antiFreezeTimer;
     
     private DrawingView(Gtk.Builder builder, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
     {
         _controller = controller;
+        _antiFreezeTimer = new System.Timers.Timer(50);
+        _antiFreezeTimer.AutoReset = false;
+        _antiFreezeTimer.Elapsed += (sender, e) =>
+        {
+            // GLArea can randomly freeze, stopping to react on QueueRender()
+            // Changing visibility is a workaround
+            SetVisible(false);
+            SetVisible(true);
+        };
         //Build UI
         builder.Connect(this);
         _glArea.OnRealize += (sender, e) =>
@@ -44,6 +53,7 @@ public partial class DrawingView : Gtk.Stack
             }
             _sample = sample;
             _glArea.QueueRender();
+            _antiFreezeTimer.Start();
         };
         _glArea.OnRender += OnRender;
     }
@@ -74,6 +84,7 @@ public partial class DrawingView : Gtk.Stack
     /// </summary>
     private bool OnRender(Gtk.GLArea sender, EventArgs e)
     {
+        _antiFreezeTimer.Stop();
         if (_skSurface == null)
         {
             return false;
