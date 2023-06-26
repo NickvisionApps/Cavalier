@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-29 12:00-0400\n"
+"POT-Creation-Date: 2023-06-22 23:19-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,205 +16,263 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:73
-msgid "No Folder Opened"
+#: ../../../../NickvisionCavalier.GNOME/Program.cs:49
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:6
+msgid "Cavalier"
 msgstr ""
 
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:341
-msgid "Nicholas Logozzo {0}"
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:214
+msgid "GitHub Repo"
 msgstr ""
 
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:219
-#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:17
-msgid "Open Folder"
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:217
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:218
+msgid "Fyodor Sobolev {0}"
 msgstr ""
 
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:339
-msgid ""
-"Nicholas Logozzo {0}\n"
-"Contributors on GitHub ❤️ {1}"
+#: ../../../../NickvisionCavalier.GNOME/Program.cs:50
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
+msgid "Visualize audio with CAVA"
 msgstr ""
 
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:240
-msgid "Are you sure you want to close the folder?"
-msgstr ""
-
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:240
-msgid "Close Folder?"
-msgstr ""
-
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:342
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:219
 msgid "translator-credits"
 msgstr ""
 
-#: ../../../Controllers/MainWindowController.cs:103
-#, csharp-format
-msgid "Folder Opened: {0}"
-msgstr ""
-
-#: ../../../Controllers/MainWindowController.cs:81
-msgid "Good Evening!"
-msgstr ""
-
-#: ../../../../NickvisionApplication.GNOME/Program.cs:50
-#: NickvisionApplication.Shared/org.nickvision.application.desktop.in:5
-#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:8
-msgid "Create new Nickvision applications"
-msgstr ""
-
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:240
-msgid "Cancel"
-msgstr ""
-
-#: ../../../../NickvisionApplication.GNOME/Program.cs:49
-#: NickvisionApplication.Shared/org.nickvision.application.desktop.in:4
-#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:6
-msgid "Application"
-msgstr ""
-
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:340
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:216
 msgid ""
-"Nicholas Logozzo {0}\n"
-"Fyodor Sobolev {1}"
+"Fyodor Sobolev {0}\n"
+"Nicholas Logozzo {1}\n"
+"Contributors on GitHub ❤️ {2}"
 msgstr ""
 
-#: ../../../Controllers/MainWindowController.cs:79
-msgctxt "Morning"
-msgid "Good Morning!"
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:215
+msgid "Matrix Chat"
 msgstr ""
 
-#: ../../../Controllers/MainWindowController.cs:80
-msgid "Good Afternoon!"
-msgstr ""
-
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:227
-#, csharp-format
-msgid "There is {0} file in the folder."
-msgid_plural "There are {0} files in the folder."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../../../Controllers/MainWindowController.cs:78
-msgctxt "Night"
-msgid "Good Morning!"
-msgstr ""
-
-#: ../../../Controllers/MainWindowController.cs:116
-msgid "Folder closed."
-msgstr ""
-
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:145
-#: ../../../../NickvisionApplication.GNOME/Views/MainWindow.cs:240
-msgid "Close"
-msgstr ""
-
-#: ../../../Controllers/MainWindowController.cs:82
-msgid "Good Day!"
-msgstr ""
-
-#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:10
-#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:31
-#: NickvisionApplication.GNOME/Blueprints/window.blp:5
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
+#: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:14
-msgid "User Interface"
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:18
+msgid "Drawing area margin"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:15
-msgid "Customize the application's user interface."
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:19
+msgid "Size of gaps around drawing area (in pixels)."
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:18
-msgid "Theme"
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:38
+msgid "Borderless window"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:20
-msgctxt "Theme"
-msgid "Light"
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:39
+msgid "Whether to disable window shadow and borders."
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:20
-msgctxt "Theme"
-msgid "Dark"
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:48
+msgid "Sharp corners"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/preferences_dialog.blp:20
-msgctxt "Theme"
-msgid "System"
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:49
+msgid "Whether the main window corners should be sharp."
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:14
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:58
+msgid "Window controls"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:59
+msgid "Whether to show window control buttons."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:68
+msgid "Autohide headerbar"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:69
+msgid "Whether to hide headerbar when main window is not focused."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:85
+msgid "Framerate"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:86
+msgid "Number of frames per second."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:93
+msgid "Number of bars"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:110
+msgid "Automatic sensitivity"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:111
+msgid "Attempt to decrease sensitivity if the bars peak."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:120
+msgid "Sensitivity"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:121
+msgid ""
+"Manual sensitivity. If automatic sensitivity is enabled, this will only be "
+"the initial value."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:136
+msgid "Channels"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
+msgid "Mono"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:147
+msgid "Stereo"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:156
+msgid "Monstercat smoothing"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:157
+msgid "Whether to enable the so-called «Monstercat smoothing»."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:166
+msgid "Noise reduction"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:167
+msgid ""
+"This factor adjusts the integral and gravity filters to keep the signal "
+"smooth.\n"
+"1 will be very slow and smooth, 0 will be fast but noisy."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:184
+msgid "Reverse order"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:185
+msgid "Whether to reverse order of bars for each channel."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:196
+msgid "Colors"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:14
 msgctxt "Shortcut"
 msgid "Folder"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:22
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:17
+msgid "Open Folder"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:22
 msgid "Close Folder"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:28
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:28
 msgctxt "Shortcut"
 msgid "Application"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:36
-#: NickvisionApplication.GNOME/Blueprints/window.blp:6
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
+#: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:41
-#: NickvisionApplication.GNOME/Blueprints/window.blp:7
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
+#: NickvisionCavalier.GNOME/Blueprints/window.blp:7
 msgid "About Application"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/shortcuts_dialog.blp:46
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
+#: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/window.blp:22
-msgid "Open Folder (Ctrl+O)"
-msgstr ""
-
-#: NickvisionApplication.GNOME/Blueprints/window.blp:26
-msgid "Open"
-msgstr ""
-
-#: NickvisionApplication.GNOME/Blueprints/window.blp:34
-msgid "Close Folder (Ctrl+W)"
-msgstr ""
-
-#: NickvisionApplication.GNOME/Blueprints/window.blp:43
+#: NickvisionCavalier.GNOME/Blueprints/window.blp:31
 msgid "Main Menu"
 msgstr ""
 
-#: NickvisionApplication.GNOME/Blueprints/window.blp:56
-msgid "Open a folder (or drag one into the app) to get started."
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
+msgid "Audio visualizer based on CAVA"
 msgstr ""
 
-#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:7
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:9
+msgid ""
+"Cavalier is an audio visualizer based on CAVA with customizable interface."
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
+msgid "5 drawing modes!"
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
+msgid ""
+"Set single color or up to 10 colors gradient for background and foreground."
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
+msgid "Configure smoothing, noise reduction and a few other CAVA settings."
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:19
 msgid "Nickvision"
 msgstr ""
 
-#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:10
-msgid "Recipe for the Ultimate Power:"
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:40
+msgid "Second release of Cavalier."
 msgstr ""
 
-#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:11
-msgid "— C#"
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:42
+msgid "New drawing mode — Particles!"
 msgstr ""
 
-#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:12
-msgid "— gir.core"
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:43
+msgid ""
+"Color profiles! Create as many as you want and change between them "
+"instantly. Unfortunately, this new feature required to change how the "
+"application saves colors, and because of this your previous colors settings "
+"will be lost after installing this update."
 msgstr ""
 
-#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:13
-msgid "— Avalonia"
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:44
+msgid "Added keyboard shortcuts to change most of the settings on the fly."
 msgstr ""
 
-#: NickvisionApplication.Shared/org.nickvision.application.metainfo.xml.in:14
-msgid "— Shaken, not stirred"
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:45
+msgid "Added option to show/hide window controls."
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:46
+msgid "Added option to autohide headerbar when the main window is not focused."
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:47
+msgid ""
+"Added option to change roundness of items in \"levels\" and \"particles\" "
+"modes."
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:48
+msgid "Added option to reverse the order of bars."
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:49
+msgid "Import/Export Settings"
 msgstr ""

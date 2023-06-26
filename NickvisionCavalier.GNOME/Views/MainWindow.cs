@@ -195,9 +195,11 @@ public class MainWindow : Adw.ApplicationWindow
         dialog.SetDeveloperName("Nickvision");
         dialog.SetLicenseType(Gtk.License.MitX11);
         dialog.SetCopyright("© Nickvision 2023");
-        dialog.SetWebsite(_controller.AppInfo.GitHubRepo.ToString());
+        dialog.SetWebsite("https://nickvision.org/");
         dialog.SetIssueUrl(_controller.AppInfo.IssueTracker.ToString());
         dialog.SetSupportUrl(_controller.AppInfo.SupportUrl.ToString());
+        dialog.AddLink(_("GitHub Repo"), _controller.AppInfo.GitHubRepo.ToString());
+        dialog.AddLink(_("Matrix Chat"), "https://matrix.to/#/#nickvision:matrix.org");
         dialog.SetDevelopers(string.Format(_("Fyodor Sobolev {0}\nNicholas Logozzo {1}\nContributors on GitHub ❤️ {2}"), "https://github.com/fsobolev", "https://github.com/nlogozzo", "https://github.com/NickvisionApps/Cavalier/graphs/contributors").Split("\n"));
         dialog.SetDesigners(string.Format(_("Fyodor Sobolev {0}"), "https://github.com/fsobolev").Split("\n"));
         dialog.SetArtists(string.Format(_("Fyodor Sobolev {0}"), "https://github.com/fsobolev").Split("\n"));
