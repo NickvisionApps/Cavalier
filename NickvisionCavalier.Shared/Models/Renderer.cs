@@ -111,7 +111,7 @@ public class Renderer
     private void DrawWaveBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / (sample.Length - 1);
-        var path = new SKPath();
+        using var path = new SKPath();
         switch (direction)
         {
             case DrawingDirection.TopBottom:
@@ -192,7 +192,6 @@ public class Renderer
                 break;
         }
         Canvas.DrawPath(path, paint);
-        path.Dispose();
     }
 
     private void DrawLevelsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
