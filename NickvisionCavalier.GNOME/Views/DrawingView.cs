@@ -15,15 +15,17 @@ public partial class DrawingView : Gtk.Stack
     private static partial nint eglGetProcAddress(string name);
     [LibraryImport("libGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial void glClear(uint mask);
-    
+
     [Gtk.Connect] private readonly Gtk.GLArea _glArea;
 
     private readonly DrawingViewController _controller;
     private GRContext? _ctx;
     private SKSurface? _skSurface;
     private float[]? _sample;
-    private System.Timers.Timer _antiFreezeTimer;
+    private readonly System.Timers.Timer _antiFreezeTimer;
     
+    public event Action? OnFreeze;
+
     private DrawingView(Gtk.Builder builder, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
     {
         _controller = controller;
@@ -32,9 +34,7 @@ public partial class DrawingView : Gtk.Stack
         _antiFreezeTimer.Elapsed += (sender, e) =>
         {
             // GLArea can randomly freeze, stopping to react on QueueRender()
-            // Changing visibility is a workaround
-            SetVisible(false);
-            SetVisible(true);
+            OnFreeze?.Invoke();
         };
         //Build UI
         builder.Connect(this);
@@ -44,16 +44,16 @@ public partial class DrawingView : Gtk.Stack
             var grInt = GRGlInterface.Create(eglGetProcAddress);
             _ctx = GRContext.CreateGl(grInt);
         };
-        _glArea.OnResize += OnResize;
+        _glArea.OnResize += (sender, e) => CreateSurface();
         _controller.Cava.OutputReceived += (sender, sample) =>
         {
             if (GetVisibleChildName() != "gl")
             {
                 SetVisibleChildName("gl");
             }
+            _antiFreezeTimer.Start();
             _sample = sample;
             _glArea.QueueRender();
-            _antiFreezeTimer.Start();
         };
         _glArea.OnRender += OnRender;
     }
@@ -67,16 +67,17 @@ public partial class DrawingView : Gtk.Stack
     }
 
     /// <summary>
-    /// (Re)creates surface on area resize
+    /// (Re)creates drawing surface
     /// </summary>
-    /// <param name="sender">Gtk.GLArea</param>
-    /// <param name="e">EventArgs</param>
-    private void OnResize(Gtk.GLArea sender, EventArgs e)
+    private void CreateSurface()
     {
         _skSurface?.Dispose();
-        var imgInfo = new SKImageInfo(sender.GetAllocatedWidth(), sender.GetAllocatedHeight());
+        var imgInfo = new SKImageInfo(_glArea.GetAllocatedWidth(), _glArea.GetAllocatedHeight());
         _skSurface = SKSurface.Create(_ctx, false, imgInfo);
-        _controller.Canvas = _skSurface.Canvas;
+        if (_skSurface != null)
+        {
+            _controller.Canvas = _skSurface.Canvas;
+        }
     }
 
     /// <summary>

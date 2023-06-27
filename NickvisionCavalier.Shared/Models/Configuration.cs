@@ -101,6 +101,10 @@ public class Configuration
     /// Active drawing mode
     /// </summary>
     public DrawingMode Mode { get; set; }
+    /// <summary>
+    /// Mirror mode
+    /// </summary>
+    public Mirror Mirror { get; set; }
 
     /// <summary>
     /// Occurs when the configuration is saved to disk
@@ -138,6 +142,7 @@ public class Configuration
         Filling = true;
         LinesThickness = 15;
         Mode = DrawingMode.WaveBox;
+        Mirror = Mirror.Off;
     }
 
     /// <summary>

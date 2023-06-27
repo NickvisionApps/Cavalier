@@ -36,6 +36,12 @@ Adw.PreferencesWindow _root {
     }
 
     Adw.PreferencesGroup {
+      Adw.ComboRow _mirrorRow {
+        title: _("Mirror");
+      }
+    }
+
+    Adw.PreferencesGroup {
       Adw.ActionRow {
         title: _("Drawing area margin");
         subtitle: _("Size of gaps around drawing area (in pixels).");

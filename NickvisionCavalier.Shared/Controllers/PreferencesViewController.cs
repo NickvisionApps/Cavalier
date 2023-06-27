@@ -225,6 +225,16 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Mirror mode
+    /// </summary>
+    public Mirror Mirror
+    {
+        get => Configuration.Current.Mirror;
+
+        set => Configuration.Current.Mirror = value;
+    }
+
+    /// <summary>
     /// Saves the configuration to disk
     /// </summary>
     public void Save() => Configuration.Current.Save();

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Runtime.InteropServices;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -12,8 +13,14 @@ namespace NickvisionCavalier.GNOME.Views;
 /// <summary>
 /// The MainWindow for the application
 /// </summary>
-public class MainWindow : Adw.ApplicationWindow
+public partial class MainWindow : Adw.ApplicationWindow
 {
+    [LibraryImport("libadwaita.so.1", StringMarshalling = StringMarshalling.Utf8)]
+    [return:MarshalAs(UnmanagedType.I1)]
+    private static partial bool g_main_context_iteration(nint context, [MarshalAs(UnmanagedType.I1)]bool mayBlock);
+    [LibraryImport("libadwaita.so.1", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial nint g_main_context_default();
+
     [Gtk.Connect] private readonly Gtk.Overlay _overlay;
     [Gtk.Connect] private readonly Gtk.Revealer _headerRevealer;
     [Gtk.Connect] private readonly Adw.HeaderBar _header;
@@ -28,12 +35,17 @@ public class MainWindow : Adw.ApplicationWindow
         //Window Settings
         _controller = controller;
         _application = application;
+        //Build UI
+        builder.Connect(this);
         SetDefaultSize((int)_controller.WindowWidth, (int)_controller.WindowHeight);
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
-        //Build UI
-        builder.Connect(this);
         _drawingView = new DrawingView(new DrawingViewController());
+        _drawingView.OnFreeze += () =>
+        {
+            g_main_context_iteration(g_main_context_default(), true);
+            QueueDraw();
+        };
         _overlay.SetChild(_drawingView);
         var prefController = _controller.CreatePreferencesViewController();
         prefController.OnWindowSettingsChanged += UpdateWindowSettings;

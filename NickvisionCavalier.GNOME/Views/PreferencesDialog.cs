@@ -1,6 +1,7 @@
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
+using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
 
@@ -14,6 +15,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
 
     [Gtk.Connect] private readonly Gtk.CheckButton _waveCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _barsCheckButton;
+    [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
     [Gtk.Connect] private readonly Gtk.Scale _marginScale;
     [Gtk.Connect] private readonly Adw.ComboRow _directionRow;
     [Gtk.Connect] private readonly Adw.ActionRow _offsetRow;
@@ -70,6 +72,31 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _barsCheckButton.SetActive(true);
                 break;
         }
+        if (_controller.Stereo)
+        {
+            _mirrorRow.SetModel(Gtk.StringList.New(new string[] { _("Off"), _("Full"), _("Split Channels") }));
+            _mirrorRow.SetSelected((uint)_controller.Mirror);
+        }
+        else
+        {
+            _mirrorRow.SetModel(Gtk.StringList.New(new string[] { _("Off"), _("On") }));
+            if (_controller.Mirror == Mirror.SplitChannels)
+            {
+                _mirrorRow.SetSelected(1u);
+            }
+            else
+            {
+                _mirrorRow.SetSelected((uint)_controller.Mirror);
+            }
+        }
+        _mirrorRow.OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "selected")
+            {
+                _controller.Mirror = (Mirror)_mirrorRow.GetSelected();
+                _controller.Save();
+            }
+        };
         _marginScale.SetValue((int)_controller.AreaMargin);
         _marginScale.OnValueChanged += (sender, e) =>
         {
@@ -187,7 +214,16 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _stereoButton.SetActive(_controller.Stereo);
         _stereoButton.OnToggled += (sender, e) =>
         {
-            _controller.Stereo = _stereoButton.GetActive();
+            if (_stereoButton.GetActive())
+            {
+                _controller.Stereo = true;
+                _mirrorRow.SetModel(Gtk.StringList.New(new string[] { _("Off"), _("Full"), _("Split Channels") }));
+            }
+            else
+            {
+                _controller.Stereo = false;
+                _mirrorRow.SetModel(Gtk.StringList.New(new string[] { _("Off"), _("On") }));
+            }
             _controller.ChangeCavaSettings();
         };
         _monstercatSwitch.SetActive(_controller.Monstercat);
