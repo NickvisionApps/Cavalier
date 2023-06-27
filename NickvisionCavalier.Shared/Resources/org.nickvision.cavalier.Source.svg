@@ -29,6 +29,30 @@
      id="defs3">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient1040">
+      <stop
+         style="stop-color:#f6d32d;stop-opacity:1;"
+         offset="0"
+         id="stop1036" />
+      <stop
+         style="stop-color:#f8e45c;stop-opacity:1;"
+         offset="1"
+         id="stop1038" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient985">
+      <stop
+         style="stop-color:#ff7800;stop-opacity:1;"
+         offset="0"
+         id="stop981" />
+      <stop
+         style="stop-color:#ffa348;stop-opacity:1;"
+         offset="1"
+         id="stop983" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient26678">
       <stop
          style="stop-color:#c0bfbc;stop-opacity:1;"
@@ -144,6 +168,25 @@
          rx="6"
          ry="6" />
     </clipPath>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient985"
+       id="linearGradient987"
+       x1="26"
+       y1="258"
+       x2="26"
+       y2="278"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1040"
+       id="linearGradient1042"
+       x1="268.00003"
+       y1="-60.000011"
+       x2="268.00003"
+       y2="-40.000011"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-218.00002,318.00001)" />
   </defs>
   <sodipodi:namedview
      stroke="#ef2929"
@@ -518,15 +561,6 @@
          rx="8"
          ry="8" />
       <rect
-         style="fill:#3d3846;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect25178"
-         width="4"
-         height="20"
-         x="72"
-         y="260"
-         rx="1"
-         ry="1" />
-      <rect
          style="fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
          id="rect2453"
          width="104"
@@ -684,194 +718,221 @@
            x="96"
            y="232" />
       </g>
-      <circle
-         style="fill:#e66100;fill-opacity:1;stroke-width:2.5;stroke-linecap:square"
-         id="circle18509"
-         cx="26"
-         cy="270"
-         r="10" />
-      <circle
-         style="fill:#ff7800;fill-opacity:1;stroke-width:2.5;stroke-linecap:square"
-         id="circle20556"
-         cx="26"
-         cy="268"
-         r="10" />
-      <rect
-         style="fill:#c64600;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect21102"
-         width="2"
-         height="5.9498596"
-         x="25"
-         y="260.05014"
-         rx="1"
-         ry="1" />
-      <circle
-         style="fill:#f5c211;fill-opacity:1;stroke-width:2.5;stroke-linecap:square"
-         id="circle22142"
-         cx="50"
-         cy="270"
-         r="10" />
-      <circle
-         style="fill:#f6d32d;fill-opacity:1;stroke-width:2.5;stroke-linecap:square"
-         id="circle22144"
-         cx="268"
-         cy="-50.000004"
-         r="10"
-         transform="rotate(90)" />
-      <rect
-         style="fill:#e5a50a;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect22146"
-         width="2"
-         height="5.9498596"
-         x="267"
-         y="-57.949863"
-         rx="1"
-         ry="1"
-         transform="rotate(90)" />
-      <path
-         id="rect28754"
-         style="fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         d="m 73,260 c -0.553999,0 -1,0.446 -1,1 v 2 c 0,-0.554 0.446001,-1 1,-1 h 2 c 0.553999,0 1,0.446 1,1 v -2 c 0,-0.554 -0.446001,-1 -1,-1 z" />
-      <rect
-         style="fill:#3d3846;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect29264"
-         width="4"
-         height="20"
-         x="86"
-         y="260"
-         rx="1"
-         ry="1" />
-      <path
-         id="path29270"
-         style="fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         d="m 87,260 c -0.553999,0 -1,0.446 -1,1 v 2 c 0,-0.554 0.446001,-1 1,-1 h 2 c 0.553999,0 1,0.446 1,1 v -2 c 0,-0.554 -0.446001,-1 -1,-1 z" />
-      <rect
-         style="fill:#3d3846;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect29274"
-         width="4"
-         height="20"
-         x="100"
-         y="260"
-         rx="1"
-         ry="1" />
-      <path
-         id="path29280"
-         style="fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         d="m 101,260 c -0.554,0 -1,0.446 -1,1 v 2 c 0,-0.554 0.446,-1 1,-1 h 2 c 0.554,0 1,0.446 1,1 v -2 c 0,-0.554 -0.446,-1 -1,-1 z" />
-      <rect
-         style="fill:#000000;fill-opacity:0.2;stroke-width:2;stroke-linecap:square"
-         id="rect29276"
-         width="12"
-         height="4"
-         x="96"
-         y="264"
-         rx="2"
-         ry="2" />
-      <rect
-         style="fill:url(#linearGradient29282);fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect29278"
-         width="12"
-         height="4"
-         x="96"
-         y="262"
-         rx="2"
-         ry="2" />
-      <rect
-         style="fill:#000000;fill-opacity:0.2;stroke-width:2;stroke-linecap:square"
-         id="rect29266"
-         width="12"
-         height="4"
-         x="82"
-         y="272"
-         rx="2"
-         ry="2" />
-      <rect
-         style="fill:url(#linearGradient29272);fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect29268"
-         width="12"
-         height="4"
-         x="82"
-         y="270"
-         rx="2"
-         ry="2" />
-      <rect
-         style="fill:#000000;fill-opacity:0.2;stroke-width:2;stroke-linecap:square"
-         id="rect26684"
-         width="12"
-         height="4"
-         x="68"
-         y="268"
-         rx="2"
-         ry="2" />
-      <rect
-         style="fill:url(#linearGradient26680);fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect25124"
-         width="12"
-         height="4"
-         x="68"
-         y="266"
-         rx="2"
-         ry="2" />
-      <rect
-         style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect43164"
-         width="4"
-         height="2"
-         x="160"
-         y="185" />
-      <rect
-         style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect43166"
-         width="4"
-         height="2"
-         x="165"
-         y="185" />
-      <rect
-         style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect43168"
-         width="4"
-         height="2"
-         x="170"
-         y="185" />
-      <rect
-         style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect43178"
-         width="4"
-         height="2"
-         x="165"
-         y="182" />
-      <rect
-         style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect43180"
-         width="4"
-         height="2"
-         x="165"
-         y="179" />
-      <rect
-         style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect43182"
-         width="4"
-         height="2"
-         x="165"
-         y="176" />
-      <rect
-         style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect43186"
-         width="4"
-         height="2"
-         x="160"
-         y="182" />
-      <rect
-         style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
-         id="rect43188"
-         width="4"
-         height="2"
-         x="160"
-         y="179" />
-      <path
-         d="m 173,177 v 3.26953 C 172.69531,180.09375 172.35156,180 172,180 c -1.10547,0 -2,0.89453 -2,2 0,1.10547 0.89453,2 2,2 1.10547,0 2,-0.89453 2,-2 v -3 h 2 v -2 z m 0,0"
-         id="path50155"
-         style="fill:#241f31" />
+      <g
+         id="g3649">
+        <circle
+           style="fill:#f5c211;fill-opacity:1;stroke-width:2.5;stroke-linecap:square"
+           id="circle22142"
+           cx="50"
+           cy="270"
+           r="10" />
+        <circle
+           style="fill:url(#linearGradient1042);fill-opacity:1;stroke-width:2.5;stroke-linecap:square"
+           id="circle22144"
+           cx="50"
+           cy="268"
+           r="10" />
+        <rect
+           style="fill:#e5a50a;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect22146"
+           width="2"
+           height="5.9498596"
+           x="267"
+           y="-57.949863"
+           rx="1"
+           ry="1"
+           transform="rotate(90)" />
+      </g>
+      <g
+         id="g3654"
+         style="display:inline;enable-background:new">
+        <circle
+           style="fill:#e66100;fill-opacity:1;stroke-width:2.5;stroke-linecap:square"
+           id="circle18509"
+           cx="26"
+           cy="270"
+           r="10" />
+        <circle
+           style="fill:url(#linearGradient987);fill-opacity:1;stroke-width:2.5;stroke-linecap:square"
+           id="circle20556"
+           cx="26"
+           cy="268"
+           r="10" />
+        <rect
+           style="fill:#c64600;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect21102"
+           width="2"
+           height="5.9498596"
+           x="25"
+           y="260.05014"
+           rx="1"
+           ry="1" />
+      </g>
+      <g
+         id="g3672">
+        <rect
+           style="fill:#3d3846;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect29274"
+           width="4"
+           height="20"
+           x="100"
+           y="260"
+           rx="1"
+           ry="1" />
+        <path
+           id="path29280"
+           style="fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           d="m 101,260 c -0.554,0 -1,0.446 -1,1 v 2 c 0,-0.554 0.446,-1 1,-1 h 2 c 0.554,0 1,0.446 1,1 v -2 c 0,-0.554 -0.446,-1 -1,-1 z" />
+        <rect
+           style="fill:#000000;fill-opacity:0.2;stroke-width:2;stroke-linecap:square"
+           id="rect29276"
+           width="12"
+           height="4"
+           x="96"
+           y="264"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:url(#linearGradient29282);fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect29278"
+           width="12"
+           height="4"
+           x="96"
+           y="262"
+           rx="2"
+           ry="2" />
+      </g>
+      <g
+         id="g3678">
+        <rect
+           style="fill:#3d3846;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect29264"
+           width="4"
+           height="20"
+           x="86"
+           y="260"
+           rx="1"
+           ry="1" />
+        <path
+           id="path29270"
+           style="fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           d="m 87,260 c -0.553999,0 -1,0.446 -1,1 v 2 c 0,-0.554 0.446001,-1 1,-1 h 2 c 0.553999,0 1,0.446 1,1 v -2 c 0,-0.554 -0.446001,-1 -1,-1 z" />
+        <rect
+           style="fill:#000000;fill-opacity:0.2;stroke-width:2;stroke-linecap:square"
+           id="rect29266"
+           width="12"
+           height="4"
+           x="82"
+           y="272"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:url(#linearGradient29272);fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect29268"
+           width="12"
+           height="4"
+           x="82"
+           y="270"
+           rx="2"
+           ry="2" />
+      </g>
+      <g
+         id="g3684">
+        <rect
+           style="fill:#3d3846;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect25178"
+           width="4"
+           height="20"
+           x="72"
+           y="260"
+           rx="1"
+           ry="1" />
+        <path
+           id="rect28754"
+           style="fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           d="m 73,260 c -0.553999,0 -1,0.446 -1,1 v 2 c 0,-0.554 0.446001,-1 1,-1 h 2 c 0.553999,0 1,0.446 1,1 v -2 c 0,-0.554 -0.446001,-1 -1,-1 z" />
+        <rect
+           style="fill:#000000;fill-opacity:0.2;stroke-width:2;stroke-linecap:square"
+           id="rect26684"
+           width="12"
+           height="4"
+           x="68"
+           y="268"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:url(#linearGradient26680);fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect25124"
+           width="12"
+           height="4"
+           x="68"
+           y="266"
+           rx="2"
+           ry="2" />
+      </g>
+      <g
+         id="g3630">
+        <rect
+           style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect43164"
+           width="4"
+           height="2"
+           x="160"
+           y="185" />
+        <rect
+           style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect43166"
+           width="4"
+           height="2"
+           x="165"
+           y="185" />
+        <rect
+           style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect43168"
+           width="4"
+           height="2"
+           x="170"
+           y="185" />
+        <rect
+           style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect43178"
+           width="4"
+           height="2"
+           x="165"
+           y="182" />
+        <rect
+           style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect43180"
+           width="4"
+           height="2"
+           x="165"
+           y="179" />
+        <rect
+           style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect43182"
+           width="4"
+           height="2"
+           x="165"
+           y="176" />
+        <rect
+           style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect43186"
+           width="4"
+           height="2"
+           x="160"
+           y="182" />
+        <rect
+           style="opacity:1;fill:#241f31;fill-opacity:1;stroke-width:2;stroke-linecap:square"
+           id="rect43188"
+           width="4"
+           height="2"
+           x="160"
+           y="179" />
+        <path
+           d="m 173,177 v 3.26953 C 172.69531,180.09375 172.35156,180 172,180 c -1.10547,0 -2,0.89453 -2,2 0,1.10547 0.89453,2 2,2 1.10547,0 2,-0.89453 2,-2 v -3 h 2 v -2 z m 0,0"
+           id="path50155"
+           style="fill:#241f31" />
+      </g>
     </g>
     <g
        inkscape:groupmode="layer"
