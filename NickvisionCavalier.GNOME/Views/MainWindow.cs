@@ -15,12 +15,6 @@ namespace NickvisionCavalier.GNOME.Views;
 /// </summary>
 public partial class MainWindow : Adw.ApplicationWindow
 {
-    [LibraryImport("libadwaita.so.1", StringMarshalling = StringMarshalling.Utf8)]
-    [return:MarshalAs(UnmanagedType.I1)]
-    private static partial bool g_main_context_iteration(nint context, [MarshalAs(UnmanagedType.I1)]bool mayBlock);
-    [LibraryImport("libadwaita.so.1", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial nint g_main_context_default();
-
     [Gtk.Connect] private readonly Gtk.Overlay _overlay;
     [Gtk.Connect] private readonly Gtk.Revealer _headerRevealer;
     [Gtk.Connect] private readonly Adw.HeaderBar _header;
@@ -41,11 +35,6 @@ public partial class MainWindow : Adw.ApplicationWindow
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
         _drawingView = new DrawingView(new DrawingViewController());
-        _drawingView.OnFreeze += () =>
-        {
-            g_main_context_iteration(g_main_context_default(), true);
-            QueueDraw();
-        };
         _overlay.SetChild(_drawingView);
         var prefController = _controller.CreatePreferencesViewController();
         prefController.OnWindowSettingsChanged += UpdateWindowSettings;

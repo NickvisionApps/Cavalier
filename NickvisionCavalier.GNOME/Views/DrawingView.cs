@@ -11,10 +11,14 @@ namespace NickvisionCavalier.GNOME.Views;
 /// </summary>
 public partial class DrawingView : Gtk.Stack
 {
+    public delegate bool GSourceFunc(nint data);
+
     [LibraryImport("libEGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial nint eglGetProcAddress(string name);
     [LibraryImport("libGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial void glClear(uint mask);
+    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial void g_main_context_invoke(nint context, GSourceFunc function, nint data);
 
     [Gtk.Connect] private readonly Gtk.GLArea _glArea;
 
@@ -22,19 +26,19 @@ public partial class DrawingView : Gtk.Stack
     private GRContext? _ctx;
     private SKSurface? _skSurface;
     private float[]? _sample;
-    private readonly System.Timers.Timer _antiFreezeTimer;
-    
-    public event Action? OnFreeze;
+    private readonly GSourceFunc _queueRender;
 
     private DrawingView(Gtk.Builder builder, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
     {
         _controller = controller;
-        _antiFreezeTimer = new System.Timers.Timer(50);
-        _antiFreezeTimer.AutoReset = false;
-        _antiFreezeTimer.Elapsed += (sender, e) =>
+        _queueRender = (x) =>
         {
-            // GLArea can randomly freeze, stopping to react on QueueRender()
-            OnFreeze?.Invoke();
+            if (GetVisibleChildName() != "gl")
+            {
+                SetVisibleChildName("gl");
+            }
+            _glArea.QueueRender();
+            return false;
         };
         //Build UI
         builder.Connect(this);
@@ -47,13 +51,8 @@ public partial class DrawingView : Gtk.Stack
         _glArea.OnResize += (sender, e) => CreateSurface();
         _controller.Cava.OutputReceived += (sender, sample) =>
         {
-            if (GetVisibleChildName() != "gl")
-            {
-                SetVisibleChildName("gl");
-            }
-            _antiFreezeTimer.Start();
             _sample = sample;
-            _glArea.QueueRender();
+            g_main_context_invoke(0, _queueRender, 0);
         };
         _glArea.OnRender += OnRender;
     }
@@ -85,7 +84,6 @@ public partial class DrawingView : Gtk.Stack
     /// </summary>
     private bool OnRender(Gtk.GLArea sender, EventArgs e)
     {
-        _antiFreezeTimer.Stop();
         if (_skSurface == null)
         {
             return false;
