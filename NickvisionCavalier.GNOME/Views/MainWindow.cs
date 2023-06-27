@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Text;
-using System.Runtime.InteropServices;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -13,7 +12,7 @@ namespace NickvisionCavalier.GNOME.Views;
 /// <summary>
 /// The MainWindow for the application
 /// </summary>
-public partial class MainWindow : Adw.ApplicationWindow
+public class MainWindow : Adw.ApplicationWindow
 {
     [Gtk.Connect] private readonly Gtk.Overlay _overlay;
     [Gtk.Connect] private readonly Gtk.Revealer _headerRevealer;
