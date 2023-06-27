@@ -1,4 +1,5 @@
 using SkiaSharp;
+using System;
 using System.Linq;
 
 namespace NickvisionCavalier.Shared.Models;
@@ -11,6 +12,9 @@ public class Renderer
     private float _roundness => Configuration.Current.ItemsRoundness;
     private bool _fill => Configuration.Current.Filling;
     private float _thickness => (float)Configuration.Current.LinesThickness;
+
+    private delegate void DrawFunc(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint);
+    private DrawFunc? _drawFunc;
 
     public SKCanvas? Canvas { get; set; }
     
@@ -32,56 +36,26 @@ public class Renderer
             StrokeWidth = _thickness,
             Color = SKColors.Blue
         };
-        switch (Configuration.Current.Mode)
+        _drawFunc = Configuration.Current.Mode switch
         {
-            case DrawingMode.WaveBox:
-                if (_mirror == Mirror.Full)
-                {
-                    DrawWaveBox(sample, _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                    DrawWaveBox(sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                }
-                else if (_mirror == Mirror.SplitChannels)
-                {
-                    DrawWaveBox(sample.Take(sample.Length / 2).ToArray(), _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                    DrawWaveBox(sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                }
-                else
-                {
-                    DrawWaveBox(sample, _direction, 0, 0, width, height, fgPaint);
-                }
-                break;
-            case DrawingMode.ParticlesBox:
-                if (_mirror == Mirror.Full)
-                {
-                    DrawParticlesBox(sample, _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                    DrawParticlesBox(sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                }
-                else if (_mirror == Mirror.SplitChannels)
-                {
-                    DrawParticlesBox(sample.Take(sample.Length / 2).ToArray(), _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                    DrawParticlesBox(sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                }
-                else
-                {
-                    DrawParticlesBox(sample, _direction, 0, 0, width, height, fgPaint);
-                }
-                break;
-            case DrawingMode.BarsBox:
-                if (_mirror == Mirror.Full)
-                {
-                    DrawBarsBox(sample, _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                    DrawBarsBox(sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                }
-                else if (_mirror == Mirror.SplitChannels)
-                {
-                    DrawBarsBox(sample.Take(sample.Length / 2).ToArray(), _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                    DrawBarsBox(sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-                }
-                else
-                {
-                    DrawBarsBox(sample, _direction, 0, 0, width, height, fgPaint);
-                }
-                break;
+            DrawingMode.LevelsBox => DrawLevelsBox,
+            DrawingMode.ParticlesBox => DrawParticlesBox,
+            DrawingMode.BarsBox => DrawBarsBox,
+            _ => DrawWaveBox,
+        };
+        if (_mirror == Mirror.Full)
+        {
+            _drawFunc(sample, _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+        }
+        else if (_mirror == Mirror.SplitChannels)
+        {
+            _drawFunc(sample.Take(sample.Length / 2).ToArray(), _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+        }
+        else
+        {
+            _drawFunc(sample, _direction, 0, 0, width, height, fgPaint);
         }
         Canvas.Flush();
     }
@@ -218,6 +192,54 @@ public class Renderer
         }
         Canvas.DrawPath(path, paint);
         path.Dispose();
+    }
+
+    private void DrawLevelsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
+        var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 10) * (1 - _offset * 2) - (_fill ? 0 : _thickness / 2);
+        var itemHeight = (direction < DrawingDirection.LeftRight ? height / 10 : step) * (1 - _offset * 2) - (_fill ? 0 : _thickness / 2);
+        for (var i = 0; i < sample.Length; i++)
+        {
+            for (var j = 0; j < Math.Floor(sample[i] * 10); j++)
+            {
+                switch (direction)
+                {
+                    case DrawingDirection.TopBottom:
+                        Canvas.DrawRoundRect(
+                            x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                            y + height / 10 * j + height / 10 * _offset + (_fill ? 0 : _thickness / 2),
+                            itemWidth, itemHeight,
+                            itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                            paint);
+                        break;
+                    case DrawingDirection.BottomTop:
+                        Canvas.DrawRoundRect(
+                            x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                            y + height / 10 * (9 - j) + height / 10 * _offset + (_fill ? 0 : _thickness / 2),
+                            itemWidth, itemHeight,
+                            itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                            paint);
+                        break;
+                    case DrawingDirection.LeftRight:
+                        Canvas.DrawRoundRect(
+                            x + width / 10 * j + width / 10 * _offset + (_fill ? 0 : _thickness / 2),
+                            y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                            itemWidth, itemHeight,
+                            itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                            paint);
+                        break;
+                    case DrawingDirection.RightLeft:
+                        Canvas.DrawRoundRect(
+                            x + width / 10 * (9 - j) + width / 10 * _offset + (_fill ? 0 : _thickness / 2),
+                            y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                            itemWidth, itemHeight,
+                            itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                            paint);
+                        break;
+                }
+            }
+        }
     }
 
     private void DrawParticlesBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)

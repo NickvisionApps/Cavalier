@@ -14,6 +14,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     private readonly Adw.Application _application;
 
     [Gtk.Connect] private readonly Gtk.CheckButton _waveCheckButton;
+    [Gtk.Connect] private readonly Gtk.CheckButton _levelsCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _particlesCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _barsCheckButton;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
@@ -55,6 +56,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _roundnessRow.SetSensitive(false);
             }
         };
+        _levelsCheckButton.OnToggled += (sender, e) =>
+        {
+            if (_levelsCheckButton.GetActive())
+            {
+                _controller.Mode = DrawingMode.LevelsBox;
+                _offsetRow.SetSensitive(true);
+                _roundnessRow.SetSensitive(true);
+            }
+        };
         _particlesCheckButton.OnToggled += (sender, e) =>
         {
             if (_particlesCheckButton.GetActive())
@@ -77,6 +87,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             case DrawingMode.WaveBox:
                 _waveCheckButton.SetActive(true);
+                break;
+            case DrawingMode.LevelsBox:
+                _levelsCheckButton.SetActive(true);
                 break;
             case DrawingMode.ParticlesBox:
                 _particlesCheckButton.SetActive(true);
