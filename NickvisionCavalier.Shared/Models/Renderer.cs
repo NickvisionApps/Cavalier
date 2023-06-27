@@ -6,13 +6,6 @@ namespace NickvisionCavalier.Shared.Models;
 
 public class Renderer
 {
-    private Mirror _mirror => Configuration.Current.Mirror;
-    private DrawingDirection _direction => Configuration.Current.Direction;
-    private float _offset => Configuration.Current.ItemsOffset;
-    private float _roundness => Configuration.Current.ItemsRoundness;
-    private bool _fill => Configuration.Current.Filling;
-    private float _thickness => (float)Configuration.Current.LinesThickness;
-
     private delegate void DrawFunc(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint);
     private DrawFunc? _drawFunc;
 
@@ -32,8 +25,8 @@ public class Renderer
         Canvas.Clear();
         var fgPaint = new SKPaint
         {
-            Style = _fill ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
-            StrokeWidth = _thickness,
+            Style = Configuration.Current.Filling ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
+            StrokeWidth = Configuration.Current.LinesThickness,
             Color = SKColors.Blue
         };
         _drawFunc = Configuration.Current.Mode switch
@@ -44,26 +37,26 @@ public class Renderer
             DrawingMode.SpineBox => DrawSpineBox,
             _ => DrawWaveBox,
         };
-        if (_mirror == Mirror.Full)
+        if (Configuration.Current.Mirror == Mirror.Full)
         {
-            _drawFunc(sample, _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
             _drawFunc(sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
         }
-        else if (_mirror == Mirror.SplitChannels)
+        else if (Configuration.Current.Mirror == Mirror.SplitChannels)
         {
-            _drawFunc(sample.Take(sample.Length / 2).ToArray(), _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
             _drawFunc(sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
         }
         else
         {
-            _drawFunc(sample, _direction, 0, 0, width, height, fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction, 0, 0, width, height, fgPaint);
         }
         Canvas.Flush();
     }
 
     private DrawingDirection GetMirrorDirection()
     {
-        return _direction switch
+        return Configuration.Current.Direction switch
         {
             DrawingDirection.TopBottom => DrawingDirection.BottomTop,
             DrawingDirection.BottomTop => DrawingDirection.TopBottom,
@@ -74,7 +67,7 @@ public class Renderer
 
     private float GetMirrorX(float width)
     {
-        if (_direction == DrawingDirection.LeftRight || _direction == DrawingDirection.RightLeft)
+        if (Configuration.Current.Direction == DrawingDirection.LeftRight || Configuration.Current.Direction == DrawingDirection.RightLeft)
         {
             return width / 2.0f;
         }
@@ -83,7 +76,7 @@ public class Renderer
 
     private float GetMirrorY(float height)
     {
-        if (_direction == DrawingDirection.TopBottom || _direction == DrawingDirection.BottomTop)
+        if (Configuration.Current.Direction == DrawingDirection.TopBottom || Configuration.Current.Direction == DrawingDirection.BottomTop)
         {
             return height / 2.0f;
         }
@@ -92,7 +85,7 @@ public class Renderer
 
     private float GetMirrorWidth(float width)
     {
-        if (_direction == DrawingDirection.LeftRight || _direction == DrawingDirection.RightLeft)
+        if (Configuration.Current.Direction == DrawingDirection.LeftRight || Configuration.Current.Direction == DrawingDirection.RightLeft)
         {
             return width / 2.0f;
         }
@@ -101,7 +94,7 @@ public class Renderer
 
     private float GetMirrorHeight(float height)
     {
-        if (_direction == DrawingDirection.TopBottom || _direction == DrawingDirection.BottomTop)
+        if (Configuration.Current.Direction == DrawingDirection.TopBottom || Configuration.Current.Direction == DrawingDirection.BottomTop)
         {
             return height / 2.0f;
         }
@@ -115,18 +108,18 @@ public class Renderer
         switch (direction)
         {
             case DrawingDirection.TopBottom:
-                path.MoveTo(x, y + height * sample[0] - (_fill ? 0 : _thickness / 2));
+                path.MoveTo(x, y + height * sample[0] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
                 for (var i = 0; i < sample.Length - 1; i++)
                 {
                     path.CubicTo(
                         x + step * (i + 0.5f),
-                        y + height * sample[i] - (_fill ? 0 : _thickness / 2),
+                        y + height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         x + step * (i + 0.5f),
-                        y + height * sample[i+1] - (_fill ? 0 : _thickness / 2),
+                        y + height * sample[i+1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         x + step * (i + 1),
-                        y + height * sample[i+1] - (_fill ? 0 : _thickness / 2));
+                        y + height * sample[i+1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
                 }
-                if (_fill)
+                if (Configuration.Current.Filling)
                 {
                     path.LineTo(x + width, y);
                     path.LineTo(x, y);
@@ -134,18 +127,18 @@ public class Renderer
                 }
                 break;
             case DrawingDirection.BottomTop:
-                path.MoveTo(x, y + height * (1 - sample[0]) + (_fill ? 0 : _thickness / 2));
+                path.MoveTo(x, y + height * (1 - sample[0]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
                 for (var i = 0; i < sample.Length - 1; i++)
                 {
                     path.CubicTo(
                         x + step * (i + 0.5f),
-                        y + height * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
+                        y + height * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         x + step * (i + 0.5f),
-                        y + height * (1 - sample[i+1]) + (_fill ? 0 : _thickness / 2),
+                        y + height * (1 - sample[i+1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         x + step * (i + 1),
-                        y + height * (1 - sample[i+1]) + (_fill ? 0 : _thickness / 2));
+                        y + height * (1 - sample[i+1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
                 }
-                if (_fill)
+                if (Configuration.Current.Filling)
                 {
                     path.LineTo(x + width, y + height);
                     path.LineTo(x, y + height);
@@ -153,18 +146,18 @@ public class Renderer
                 }
                 break;
             case DrawingDirection.LeftRight:
-                path.MoveTo(x + width * sample[0] - (_fill ? 0 : _thickness / 2), y);
+                path.MoveTo(x + width * sample[0] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2), y);
                 for (var i = 0; i < sample.Length - 1; i++)
                 {
                     path.CubicTo(
-                        x + width * sample[i] - (_fill ? 0 : _thickness / 2),
+                        x + width * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 0.5f),
-                        x + width * sample[i+1] - (_fill ? 0 : _thickness / 2),
+                        x + width * sample[i+1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 0.5f),
-                        x + width * sample[i+1] - (_fill ? 0 : _thickness / 2),
+                        x + width * sample[i+1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 1));
                 }
-                if (_fill)
+                if (Configuration.Current.Filling)
                 {
                     path.LineTo(x, y + height);
                     path.LineTo(x, y);
@@ -172,18 +165,18 @@ public class Renderer
                 }
                 break;
             case DrawingDirection.RightLeft:
-                path.MoveTo(x + width * (1 - sample[0]) + (_fill ? 0 : _thickness / 2), y);
+                path.MoveTo(x + width * (1 - sample[0]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2), y);
                 for (var i = 0; i < sample.Length - 1; i++)
                 {
                     path.CubicTo(
-                        x + width * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
+                        x + width * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 0.5f),
-                        x + width * (1 - sample[i+1]) + (_fill ? 0 : _thickness / 2),
+                        x + width * (1 - sample[i+1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 0.5f),
-                        x + width * (1 - sample[i+1]) + (_fill ? 0 : _thickness / 2),
+                        x + width * (1 - sample[i+1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 1));
                 }
-                if (_fill)
+                if (Configuration.Current.Filling)
                 {
                     path.LineTo(x + width, y + height);
                     path.LineTo(x + width, y);
@@ -197,8 +190,8 @@ public class Renderer
     private void DrawLevelsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
-        var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 10) * (1 - _offset * 2) - (_fill ? 0 : _thickness / 2);
-        var itemHeight = (direction < DrawingDirection.LeftRight ? height / 10 : step) * (1 - _offset * 2) - (_fill ? 0 : _thickness / 2);
+        var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 10) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
+        var itemHeight = (direction < DrawingDirection.LeftRight ? height / 10 : step) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
         for (var i = 0; i < sample.Length; i++)
         {
             for (var j = 0; j < Math.Floor(sample[i] * 10); j++)
@@ -207,34 +200,34 @@ public class Renderer
                 {
                     case DrawingDirection.TopBottom:
                         Canvas.DrawRoundRect(
-                            x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
-                            y + height / 10 * j + height / 10 * _offset + (_fill ? 0 : _thickness / 2),
+                            x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                            y + height / 10 * j + height / 10 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                             itemWidth, itemHeight,
-                            itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                            itemWidth / 2 * Configuration.Current.ItemsRoundness, itemHeight / 2 * Configuration.Current.ItemsRoundness,
                             paint);
                         break;
                     case DrawingDirection.BottomTop:
                         Canvas.DrawRoundRect(
-                            x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
-                            y + height / 10 * (9 - j) + height / 10 * _offset + (_fill ? 0 : _thickness / 2),
+                            x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                            y + height / 10 * (9 - j) + height / 10 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                             itemWidth, itemHeight,
-                            itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                            itemWidth / 2 * Configuration.Current.ItemsRoundness, itemHeight / 2 * Configuration.Current.ItemsRoundness,
                             paint);
                         break;
                     case DrawingDirection.LeftRight:
                         Canvas.DrawRoundRect(
-                            x + width / 10 * j + width / 10 * _offset + (_fill ? 0 : _thickness / 2),
-                            y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                            x + width / 10 * j + width / 10 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                            y + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                             itemWidth, itemHeight,
-                            itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                            itemWidth / 2 * Configuration.Current.ItemsRoundness, itemHeight / 2 * Configuration.Current.ItemsRoundness,
                             paint);
                         break;
                     case DrawingDirection.RightLeft:
                         Canvas.DrawRoundRect(
-                            x + width / 10 * (9 - j) + width / 10 * _offset + (_fill ? 0 : _thickness / 2),
-                            y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                            x + width / 10 * (9 - j) + width / 10 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                            y + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                             itemWidth, itemHeight,
-                            itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                            itemWidth / 2 * Configuration.Current.ItemsRoundness, itemHeight / 2 * Configuration.Current.ItemsRoundness,
                             paint);
                         break;
                 }
@@ -245,42 +238,42 @@ public class Renderer
     private void DrawParticlesBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
-        var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 11) * (1 - _offset * 2) - (_fill ? 0 : _thickness / 2);
-        var itemHeight = (direction < DrawingDirection.LeftRight ? height / 11 : step) * (1 - _offset * 2) - (_fill ? 0 : _thickness / 2);
+        var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 11) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
+        var itemHeight = (direction < DrawingDirection.LeftRight ? height / 11 : step) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
         for (var i = 0; i < sample.Length; i++)
         {
             switch (direction)
             {
                 case DrawingDirection.TopBottom:
                     Canvas.DrawRoundRect(
-                        x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
-                        y + height / 11 * 10 * sample[i] + height / 11 * _offset + (_fill ? 0 : _thickness / 2),
+                        x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        y + height / 11 * 10 * sample[i] + height / 11 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         itemWidth, itemHeight,
-                        itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                        itemWidth / 2 * Configuration.Current.ItemsRoundness, itemHeight / 2 * Configuration.Current.ItemsRoundness,
                         paint);
                     break;
                 case DrawingDirection.BottomTop:
                     Canvas.DrawRoundRect(
-                        x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
-                        y + height / 11 * 10 * (1 - sample[i]) + height / 11 * _offset + (_fill ? 0 : _thickness / 2),
+                        x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        y + height / 11 * 10 * (1 - sample[i]) + height / 11 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         itemWidth, itemHeight,
-                        itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                        itemWidth / 2 * Configuration.Current.ItemsRoundness, itemHeight / 2 * Configuration.Current.ItemsRoundness,
                         paint);
                     break;
                 case DrawingDirection.LeftRight:
                     Canvas.DrawRoundRect(
-                        x + width / 11 * 10 * sample[i] + width / 11 * _offset + (_fill ? 0 : _thickness / 2),
-                        y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                        x + width / 11 * 10 * sample[i] + width / 11 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        y + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         itemWidth, itemHeight,
-                        itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                        itemWidth / 2 * Configuration.Current.ItemsRoundness, itemHeight / 2 * Configuration.Current.ItemsRoundness,
                         paint);
                     break;
                 case DrawingDirection.RightLeft:
                     Canvas.DrawRoundRect(
-                        x + width / 11 * 10 * (1 - sample[i]) + width / 11 * _offset + (_fill ? 0 : _thickness / 2),
-                        y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                        x + width / 11 * 10 * (1 - sample[i]) + width / 11 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        y + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         itemWidth, itemHeight,
-                        itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                        itemWidth / 2 * Configuration.Current.ItemsRoundness, itemHeight / 2 * Configuration.Current.ItemsRoundness,
                         paint);
                     break;
             }
@@ -300,34 +293,34 @@ public class Renderer
             {
                 case DrawingDirection.TopBottom:
                     Canvas.DrawRect(
-                        x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
-                        _fill ? y : y + _thickness / 2,
-                        step * (1 - _offset * 2) - (_fill ? 0 : _thickness),
-                        height * sample[i] - (_fill ? 0 : _thickness),
+                        x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        Configuration.Current.Filling ? y : y + Configuration.Current.LinesThickness / 2,
+                        step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
                         paint);
                     break;
                 case DrawingDirection.BottomTop:
                     Canvas.DrawRect(
-                        x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
-                        y + height * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
-                        step * (1 - _offset * 2) - (_fill ? 0 : _thickness),
-                        height * sample[i] - (_fill ? 0 : _thickness),
+                        x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        y + height * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
                         paint);
                     break;
                 case DrawingDirection.LeftRight:
                     Canvas.DrawRect(
-                        _fill ? x : x + _thickness / 2,
-                        y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
-                        width * sample[i] - (_fill ? 0 : _thickness),
-                        step * (1 - _offset * 2) - (_fill ? 0 : _thickness),
+                        Configuration.Current.Filling ? x : x + Configuration.Current.LinesThickness / 2,
+                        y + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        width * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
                         paint);
                     break;
                 case DrawingDirection.RightLeft:
                     Canvas.DrawRect(
-                        x + width * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
-                        y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
-                        width * sample[i] - (_fill ? 0 : _thickness),
-                        step * (1 - _offset * 2) - (_fill ? 0 : _thickness),
+                        x + width * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        y + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        width * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
                         paint);
                     break;
             };
@@ -337,7 +330,7 @@ public class Renderer
     private void DrawSpineBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
-        var itemSize = step * (1 - _offset * 2) - (_fill ? 0 : _thickness);
+        var itemSize = step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness);
         for (var i = 0; i < sample.Length; i++)
         {
             if (sample[i] == 0)
@@ -352,7 +345,7 @@ public class Renderer
                         x + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
                         y + height / 2 - itemSize * sample[i] / 2,
                         itemSize * sample[i], itemSize * sample[i],
-                        itemSize * sample[i] / 2 * _roundness, itemSize * sample[i] / 2 * _roundness,
+                        itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness, itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
                         paint);
                     break;
                 case DrawingDirection.LeftRight:
@@ -361,7 +354,7 @@ public class Renderer
                         x + width / 2 - itemSize * sample[i] / 2,
                         y + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
                         itemSize * sample[i], itemSize * sample[i],
-                        itemSize * sample[i] / 2 * _roundness, itemSize * sample[i] / 2 * _roundness,
+                        itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness, itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
                         paint);
                     break;
             }
