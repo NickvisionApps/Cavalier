@@ -41,6 +41,7 @@ public class Renderer
             DrawingMode.LevelsBox => DrawLevelsBox,
             DrawingMode.ParticlesBox => DrawParticlesBox,
             DrawingMode.BarsBox => DrawBarsBox,
+            DrawingMode.SpineBox => DrawSpineBox,
             _ => DrawWaveBox,
         };
         if (_mirror == Mirror.Full)
@@ -331,6 +332,40 @@ public class Renderer
                         paint);
                     break;
             };
+        }
+    }
+
+    private void DrawSpineBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
+        var itemSize = step * (1 - _offset * 2) - (_fill ? 0 : _thickness);
+        for (var i = 0; i < sample.Length; i++)
+        {
+            if (sample[i] == 0)
+            {
+                continue;
+            }
+            switch (direction)
+            {
+                case DrawingDirection.TopBottom:
+                case DrawingDirection.BottomTop:
+                    Canvas.DrawRoundRect(
+                        x + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
+                        y + height / 2 - itemSize * sample[i] / 2,
+                        itemSize * sample[i], itemSize * sample[i],
+                        itemSize * sample[i] / 2 * _roundness, itemSize * sample[i] / 2 * _roundness,
+                        paint);
+                    break;
+                case DrawingDirection.LeftRight:
+                case DrawingDirection.RightLeft:
+                    Canvas.DrawRoundRect(
+                        x + width / 2 - itemSize * sample[i] / 2,
+                        y + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
+                        itemSize * sample[i], itemSize * sample[i],
+                        itemSize * sample[i] / 2 * _roundness, itemSize * sample[i] / 2 * _roundness,
+                        paint);
+                    break;
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.CheckButton _levelsCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _particlesCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _barsCheckButton;
+    [Gtk.Connect] private readonly Gtk.CheckButton _spineCheckButton;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
     [Gtk.Connect] private readonly Gtk.Scale _marginScale;
     [Gtk.Connect] private readonly Adw.ComboRow _directionRow;
@@ -83,6 +84,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _roundnessRow.SetSensitive(false);
             }
         };
+        _spineCheckButton.OnToggled += (sender, e) =>
+        {
+            if (_spineCheckButton.GetActive())
+            {
+                _controller.Mode = DrawingMode.SpineBox;
+                _offsetRow.SetSensitive(true);
+                _roundnessRow.SetSensitive(true);
+            }
+        };
         switch (_controller.Mode)
         {
             case DrawingMode.WaveBox:
@@ -96,6 +106,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 break;
             case DrawingMode.BarsBox:
                 _barsCheckButton.SetActive(true);
+                break;
+            case DrawingMode.SpineBox:
+                _spineCheckButton.SetActive(true);
                 break;
         }
         if (_controller.Stereo)

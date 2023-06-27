@@ -53,6 +53,16 @@ Adw.PreferencesWindow _root {
           group: _waveCheckButton;
         }
       }
+
+      Adw.ActionRow {
+        title: _("Spine");
+        activatable-widget: _spineCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _spineCheckButton {
+          group: _waveCheckButton;
+        }
+      }
     }
 
     Adw.PreferencesGroup {
