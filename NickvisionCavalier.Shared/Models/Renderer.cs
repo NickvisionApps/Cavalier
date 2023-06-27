@@ -50,6 +50,22 @@ public class Renderer
                     DrawWaveBox(sample, _direction, 0, 0, width, height, fgPaint);
                 }
                 break;
+            case DrawingMode.ParticlesBox:
+                if (_mirror == Mirror.Full)
+                {
+                    DrawParticlesBox(sample, _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+                    DrawParticlesBox(sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+                }
+                else if (_mirror == Mirror.SplitChannels)
+                {
+                    DrawParticlesBox(sample.Take(sample.Length / 2).ToArray(), _direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+                    DrawParticlesBox(sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+                }
+                else
+                {
+                    DrawParticlesBox(sample, _direction, 0, 0, width, height, fgPaint);
+                }
+                break;
             case DrawingMode.BarsBox:
                 if (_mirror == Mirror.Full)
                 {
@@ -204,6 +220,51 @@ public class Renderer
         path.Dispose();
     }
 
+    private void DrawParticlesBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
+        var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 11) * (1 - _offset * 2) - (_fill ? 0 : _thickness / 2);
+        var itemHeight = (direction < DrawingDirection.LeftRight ? height / 11 : step) * (1 - _offset * 2) - (_fill ? 0 : _thickness / 2);
+        for (var i = 0; i < sample.Length; i++)
+        {
+            switch (direction)
+            {
+                case DrawingDirection.TopBottom:
+                    Canvas.DrawRoundRect(
+                        x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                        y + height / 11 * 10 * sample[i] + height / 11 * _offset + (_fill ? 0 : _thickness / 2),
+                        itemWidth, itemHeight,
+                        itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                        paint);
+                    break;
+                case DrawingDirection.BottomTop:
+                    Canvas.DrawRoundRect(
+                        x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                        y + height / 11 * 10 * (1 - sample[i]) + height / 11 * _offset + (_fill ? 0 : _thickness / 2),
+                        itemWidth, itemHeight,
+                        itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                        paint);
+                    break;
+                case DrawingDirection.LeftRight:
+                    Canvas.DrawRoundRect(
+                        x + width / 11 * 10 * sample[i] + width / 11 * _offset + (_fill ? 0 : _thickness / 2),
+                        y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                        itemWidth, itemHeight,
+                        itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                        paint);
+                    break;
+                case DrawingDirection.RightLeft:
+                    Canvas.DrawRoundRect(
+                        x + width / 11 * 10 * (1 - sample[i]) + width / 11 * _offset + (_fill ? 0 : _thickness / 2),
+                        y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
+                        itemWidth, itemHeight,
+                        itemWidth / 2 * _roundness, itemHeight / 2 * _roundness,
+                        paint);
+                    break;
+            }
+        }
+    }
+
     private void DrawBarsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
@@ -217,34 +278,34 @@ public class Renderer
             {
                 case DrawingDirection.TopBottom:
                     Canvas.DrawRect(
-                        x + step * (i + _offset / 2) + (_fill ? 0 : _thickness / 2),
+                        x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
                         _fill ? y : y + _thickness / 2,
-                        step * (1 - _offset) - (_fill ? 0 : _thickness),
+                        step * (1 - _offset * 2) - (_fill ? 0 : _thickness),
                         height * sample[i] - (_fill ? 0 : _thickness),
                         paint);
                     break;
                 case DrawingDirection.BottomTop:
                     Canvas.DrawRect(
-                        x + step * (i + _offset / 2) + (_fill ? 0 : _thickness / 2),
+                        x + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
                         y + height * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
-                        step * (1 - _offset) - (_fill ? 0 : _thickness),
+                        step * (1 - _offset * 2) - (_fill ? 0 : _thickness),
                         height * sample[i] - (_fill ? 0 : _thickness),
                         paint);
                     break;
                 case DrawingDirection.LeftRight:
                     Canvas.DrawRect(
                         _fill ? x : x + _thickness / 2,
-                        y + step * (i + _offset / 2) + (_fill ? 0 : _thickness / 2),
+                        y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
                         width * sample[i] - (_fill ? 0 : _thickness),
-                        step * (1 - _offset) - (_fill ? 0 : _thickness),
+                        step * (1 - _offset * 2) - (_fill ? 0 : _thickness),
                         paint);
                     break;
                 case DrawingDirection.RightLeft:
                     Canvas.DrawRect(
                         x + width * (1 - sample[i]) + (_fill ? 0 : _thickness / 2),
-                        y + step * (i + _offset / 2) + (_fill ? 0 : _thickness / 2),
+                        y + step * (i + _offset) + (_fill ? 0 : _thickness / 2),
                         width * sample[i] - (_fill ? 0 : _thickness),
-                        step * (1 - _offset) - (_fill ? 0 : _thickness),
+                        step * (1 - _offset * 2) - (_fill ? 0 : _thickness),
                         paint);
                     break;
             };

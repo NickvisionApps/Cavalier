@@ -25,6 +25,16 @@ Adw.PreferencesWindow _root {
       }
 
       Adw.ActionRow {
+        title: _("Particles");
+        activatable-widget: _particlesCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _particlesCheckButton {
+          group: _waveCheckButton;
+        }
+      }
+
+      Adw.ActionRow {
         title: _("Bars");
         activatable-widget: _barsCheckButton;
 
