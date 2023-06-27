@@ -77,6 +77,34 @@ public class Configuration
     /// Whether to reverse bars order for each channel
     /// </summary>
     public bool ReverseOrder { get; set; }
+    /// <summary>
+    /// Drawing direction
+    /// </summary>
+    public DrawingDirection Direction { get; set; }
+    /// <summary>
+    /// The size of spaces between elements
+    /// </summary>
+    public float ItemsOffset { get; set; }
+    /// <summary>
+    /// Roundness of items (0 - square, 1 - round)
+    /// </summary>
+    public float ItemsRoundness { get; set; }
+    /// <summary>
+    /// Whether to fill or draw lines
+    /// </summary>
+    public bool Filling { get; set; }
+    /// <summary>
+    /// Thickness of lines when filling is off (in pixels)
+    /// </summary>
+    public float LinesThickness { get; set; }
+    /// <summary>
+    /// Active drawing mode
+    /// </summary>
+    public DrawingMode Mode { get; set; }
+    /// <summary>
+    /// Mirror mode
+    /// </summary>
+    public Mirror Mirror { get; set; }
 
     /// <summary>
     /// Occurs when the configuration is saved to disk
@@ -108,6 +136,13 @@ public class Configuration
         Monstercat = true;
         NoiseReduction = 0.77f;
         ReverseOrder = true;
+        Direction = DrawingDirection.BottomTop;
+        ItemsOffset = 0.1f;
+        ItemsRoundness = 0.5f;
+        Filling = true;
+        LinesThickness = 15;
+        Mode = DrawingMode.WaveBox;
+        Mirror = Mirror.Off;
     }
 
     /// <summary>

@@ -21,23 +21,24 @@ public class MainWindow : Adw.ApplicationWindow
     private readonly MainWindowController _controller;
     private readonly Adw.Application _application;
     private readonly DrawingView _drawingView;
+    private readonly PreferencesDialog _preferencesDialog;
 
     private MainWindow(Gtk.Builder builder, MainWindowController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
         //Window Settings
         _controller = controller;
         _application = application;
+        //Build UI
+        builder.Connect(this);
         SetDefaultSize((int)_controller.WindowWidth, (int)_controller.WindowHeight);
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
-        if (_controller.IsDevVersion)
-        {
-            AddCssClass("devel");
-        }
-        //Build UI
-        builder.Connect(this);
         _drawingView = new DrawingView(new DrawingViewController());
         _overlay.SetChild(_drawingView);
+        var prefController = _controller.CreatePreferencesViewController();
+        prefController.OnWindowSettingsChanged += UpdateWindowSettings;
+        prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
+        _preferencesDialog = new PreferencesDialog(prefController, _application, this);
         UpdateWindowSettings(null, EventArgs.Empty);
         OnNotify += (sender, e) =>
         {
@@ -53,7 +54,7 @@ public class MainWindow : Adw.ApplicationWindow
         };
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);
-        actPreferences.OnActivate += Preferences;
+        actPreferences.OnActivate += (sender, e) => _preferencesDialog.Present();
         AddAction(actPreferences);
         application.SetAccelsForAction("win.preferences", new string[] { "<Ctrl>comma" });
         //Keyboard Shortcuts Action
@@ -89,20 +90,6 @@ public class MainWindow : Adw.ApplicationWindow
     {
         _application.AddWindow(this);
         Present();
-    }
-
-    /// <summary>
-    /// Occurs when the preferences action is triggered
-    /// </summary>
-    /// <param name="sender">Gio.SimpleAction</param>
-    /// <param name="e">EventArgs</param>
-    private void Preferences(Gio.SimpleAction sender, EventArgs e)
-    {
-        var prefController = _controller.CreatePreferencesViewController();
-        prefController.OnWindowSettingsChanged += UpdateWindowSettings;
-        prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
-        var preferencesDialog = new PreferencesDialog(prefController, _application, this);
-        preferencesDialog.Present();
     }
 
     /// <summary>

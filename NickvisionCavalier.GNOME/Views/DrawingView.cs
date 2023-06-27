@@ -11,22 +11,35 @@ namespace NickvisionCavalier.GNOME.Views;
 /// </summary>
 public partial class DrawingView : Gtk.Stack
 {
+    public delegate bool GSourceFunc(nint data);
+
     [LibraryImport("libEGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial IntPtr eglGetProcAddress(string name);
-    //TODO: GLX and WGL
+    private static partial nint eglGetProcAddress(string name);
     [LibraryImport("libGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial void glClear(uint mask);
-    
+    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial void g_main_context_invoke(nint context, GSourceFunc function, nint data);
+
     [Gtk.Connect] private readonly Gtk.GLArea _glArea;
 
     private readonly DrawingViewController _controller;
     private GRContext? _ctx;
     private SKSurface? _skSurface;
     private float[]? _sample;
-    
+    private readonly GSourceFunc _queueRender;
+
     private DrawingView(Gtk.Builder builder, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
     {
         _controller = controller;
+        _queueRender = (x) =>
+        {
+            if (GetVisibleChildName() != "gl")
+            {
+                SetVisibleChildName("gl");
+            }
+            _glArea.QueueRender();
+            return false;
+        };
         //Build UI
         builder.Connect(this);
         _glArea.OnRealize += (sender, e) =>
@@ -35,15 +48,11 @@ public partial class DrawingView : Gtk.Stack
             var grInt = GRGlInterface.Create(eglGetProcAddress);
             _ctx = GRContext.CreateGl(grInt);
         };
-        _glArea.OnResize += OnResize;
+        _glArea.OnResize += (sender, e) => CreateSurface();
         _controller.Cava.OutputReceived += (sender, sample) =>
         {
-            if (GetVisibleChildName() != "gl")
-            {
-                SetVisibleChildName("gl");
-            }
             _sample = sample;
-            _glArea.QueueRender();
+            g_main_context_invoke(0, _queueRender, 0);
         };
         _glArea.OnRender += OnRender;
     }
@@ -57,16 +66,17 @@ public partial class DrawingView : Gtk.Stack
     }
 
     /// <summary>
-    /// (Re)creates surface on area resize
+    /// (Re)creates drawing surface
     /// </summary>
-    /// <param name="sender">Gtk.GLArea</param>
-    /// <param name="e">EventArgs</param>
-    private void OnResize(Gtk.GLArea sender, EventArgs e)
+    private void CreateSurface()
     {
         _skSurface?.Dispose();
-        var imgInfo = new SKImageInfo(sender.GetAllocatedWidth(), sender.GetAllocatedHeight());
+        var imgInfo = new SKImageInfo(_glArea.GetAllocatedWidth(), _glArea.GetAllocatedHeight());
         _skSurface = SKSurface.Create(_ctx, false, imgInfo);
-        _controller.Canvas = _skSurface.Canvas;
+        if (_skSurface != null)
+        {
+            _controller.Canvas = _skSurface.Canvas;
+        }
     }
 
     /// <summary>

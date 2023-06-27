@@ -2,16 +2,74 @@ using Gtk 4.0;
 using Adw 1;
 
 Adw.PreferencesWindow _root {
-  default-width: 600;
-  default-height: 400;
+  default-width: 780;
+  default-height: 500;
   modal: false;
   destroy-with-parent: true;
-  hide-on-close: false;
+  hide-on-close: true;
   title: _("Preferences");
 
   Adw.PreferencesPage {
     title: _("Cavalier");
     icon-name: "org.nickvision.cavalier-symbolic";
+
+    Adw.PreferencesGroup {
+      title: _("Drawing mode");
+
+      Adw.ActionRow {
+        title: _("Wave");
+        activatable-widget: _waveCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _waveCheckButton {}
+      }
+
+      Adw.ActionRow {
+        title: _("Levels");
+        activatable-widget: _levelsCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _levelsCheckButton {
+          group: _waveCheckButton;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Particles");
+        activatable-widget: _particlesCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _particlesCheckButton {
+          group: _waveCheckButton;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Bars");
+        activatable-widget: _barsCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _barsCheckButton {
+          group: _waveCheckButton;
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Spine");
+        activatable-widget: _spineCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _spineCheckButton {
+          group: _waveCheckButton;
+        }
+      }
+    }
+
+    Adw.PreferencesGroup {
+      Adw.ComboRow _mirrorRow {
+        title: _("Mirror");
+      }
+    }
 
     Adw.PreferencesGroup {
       Adw.ActionRow {
@@ -31,12 +89,86 @@ Adw.PreferencesWindow _root {
           };
         }
       }
+
+      Adw.ComboRow _directionRow {
+        title: _("Drawing direction");
+        model: Gtk.StringList {
+          strings ["Top to bottom", "Bottom to top", "Left to right", "Right to left" ]
+        };
+      }
+
+      Adw.ActionRow _offsetRow {
+        title: _("Offset between items");
+        subtitle: _("The size of spaces between elements (in percent).");
+
+        [suffix]
+        Gtk.Scale _offsetScale {
+          width-request: 180;
+          draw-value: true;
+          value-pos: left;
+          digits: 0;
+          adjustment: Gtk.Adjustment {
+            lower: 0;
+            upper: 20;
+            step-increment: 1;
+          };
+        }
+      }
+
+      Adw.ActionRow _roundnessRow {
+        title: _("Roundness of items");
+        subtitle: _("How much rounded the elements should be (in percent).");
+
+        [suffix]
+        Gtk.Scale _roundnessScale {
+          width-request: 180;
+          draw-value: true;
+          value-pos: left;
+          digits: 0;
+          adjustment: Gtk.Adjustment {
+            lower: 0;
+            upper: 100;
+            step-increment: 1;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Filling");
+        subtitle: _("Whether shapes should be filled or outlined.");
+        activatable-widget: _fillingSwitch;
+
+        [suffix]
+        Gtk.Switch _fillingSwitch {
+          valign: center;
+        }
+      }
+
+      Adw.ActionRow _thicknessRow {
+        title: _("Thickness of lines");
+        subtitle: _("Thickness of lines when filling is off (in pixels).");
+        sensitive: bind _fillingSwitch.active inverted;
+
+        [suffix]
+        Gtk.Scale _thicknessScale {
+          width-request: 180;
+          draw-value: true;
+          value-pos: left;
+          digits: 0;
+          adjustment: Gtk.Adjustment {
+            lower: 1;
+            upper: 10;
+            step-increment: 1;
+          };
+        }
+      }
     }
 
     Adw.PreferencesGroup {
       Adw.ActionRow {
         title: _("Borderless window");
         subtitle: _("Whether to disable window shadow and borders.");
+        activatable-widget: _borderlessSwitch;
 
         [suffix]
         Gtk.Switch _borderlessSwitch {
@@ -47,6 +179,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Sharp corners");
         subtitle: _("Whether the main window corners should be sharp.");
+        activatable-widget: _sharpCornersSwitch;
 
         [suffix]
         Gtk.Switch _sharpCornersSwitch {
@@ -57,6 +190,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Window controls");
         subtitle: _("Whether to show window control buttons.");
+        activatable-widget: _windowControlsSwitch;
 
         [suffix]
         Gtk.Switch _windowControlsSwitch {
@@ -67,6 +201,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Autohide headerbar");
         subtitle: _("Whether to hide headerbar when main window is not focused.");
+        activatable-widget: _autohideHeaderSwitch;
 
         [suffix]
         Gtk.Switch _autohideHeaderSwitch {
@@ -109,6 +244,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Automatic sensitivity");
         subtitle: _("Attempt to decrease sensitivity if the bars peak.");
+        activatable-widget: _autosensSwitch;
 
         [suffix]
         Gtk.Switch _autosensSwitch {
@@ -155,6 +291,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Monstercat smoothing");
         subtitle: _("Whether to enable the so-called «Monstercat smoothing».");
+        activatable-widget: _monstercatSwitch;
 
         [suffix]
         Gtk.Switch _monstercatSwitch {
@@ -164,7 +301,7 @@ Adw.PreferencesWindow _root {
 
       Adw.ActionRow {
         title: _("Noise reduction");
-        subtitle: _("This factor adjusts the integral and gravity filters to keep the signal smooth.\n1 will be very slow and smooth, 0 will be fast but noisy.");
+        subtitle: _("This factor adjusts the integral and gravity filters to keep the signal smooth.\nHigher value leads to a slower and smoother result.");
 
         [suffix]
         Gtk.Scale _noiseReductionScale {
@@ -173,8 +310,8 @@ Adw.PreferencesWindow _root {
           value-pos: left;
           digits: 2;
           adjustment: Gtk.Adjustment {
-            lower: 0.0;
-            upper: 1.0;
+            lower: 0.15;
+            upper: 0.95;
             step-increment: 0.01;
           };
         }
@@ -183,6 +320,7 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Reverse order");
         subtitle: _("Whether to reverse order of bars for each channel.");
+        activatable-widget: _reverseSwitch;
 
         [suffix]
         Gtk.Switch _reverseSwitch {
