@@ -23,12 +23,54 @@ public class Renderer
             return;
         }
         Canvas.Clear();
+
+        var profile = Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile];
         var fgPaint = new SKPaint
+            {
+                Style = Configuration.Current.Filling ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
+                StrokeWidth = Configuration.Current.LinesThickness,
+            };
+        if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox)
         {
-            Style = Configuration.Current.Filling ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
-            StrokeWidth = Configuration.Current.LinesThickness,
-            Color = SKColors.Blue
-        };
+            var colors = profile.FgColors.Select(c => SKColor.Parse(c)).ToArray();
+            if (Configuration.Current.Mirror != Mirror.Off)
+            {
+                var mirrorColors = new SKColor[colors.Length * 2];
+                if (Configuration.Current.Direction == DrawingDirection.BottomTop || Configuration.Current.Direction == DrawingDirection.RightLeft)
+                {
+                    Array.Reverse(colors);
+                }
+                colors.CopyTo(mirrorColors, 0);
+                Array.Reverse(colors);
+                colors.CopyTo(mirrorColors, colors.Length);
+                colors = mirrorColors;
+            }
+            SKShader shader;
+            switch (Configuration.Current.Direction)
+            {
+                case DrawingDirection.TopBottom:
+                    shader = SKShader.CreateLinearGradient(new SKPoint(0, 0), new SKPoint(0, height), colors, SKShaderTileMode.Clamp);
+                    fgPaint.Shader = shader;
+                    break;
+                case DrawingDirection.BottomTop:
+                    shader = SKShader.CreateLinearGradient(new SKPoint(0, height), new SKPoint(0, 0), colors, SKShaderTileMode.Clamp);
+                    fgPaint.Shader = shader;
+                    break;
+                case DrawingDirection.LeftRight:
+                    shader = SKShader.CreateLinearGradient(new SKPoint(0, 0), new SKPoint(width, 0), colors, SKShaderTileMode.Clamp);
+                    fgPaint.Shader = shader;
+                    break;
+                case DrawingDirection.RightLeft:
+                    shader = SKShader.CreateLinearGradient(new SKPoint(width, 0), new SKPoint(0, 0), colors, SKShaderTileMode.Clamp);
+                    fgPaint.Shader = shader;
+                    break;
+            }
+        }
+        else
+        {
+            fgPaint.Color = SKColor.Parse(profile.FgColors[0]);
+        }
+
         _drawFunc = Configuration.Current.Mode switch
         {
             DrawingMode.LevelsBox => DrawLevelsBox,
@@ -346,7 +388,7 @@ public class Renderer
                         y + height / 2 - itemSize * sample[i] / 2,
                         itemSize * sample[i], itemSize * sample[i],
                         itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness, itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
-                        paint);
+                        GetSpinePaint(paint, sample[i]));
                     break;
                 case DrawingDirection.LeftRight:
                 case DrawingDirection.RightLeft:
@@ -355,9 +397,30 @@ public class Renderer
                         y + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
                         itemSize * sample[i], itemSize * sample[i],
                         itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness, itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
-                        paint);
+                        GetSpinePaint(paint, sample[i]));
                     break;
             }
         }
+    }
+
+    /// <summary>
+    /// Sets paint color for Spine element
+    /// </summary>
+    private SKPaint GetSpinePaint(SKPaint paint, float sample)
+    {
+        var profile = Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile];
+        if (profile.FgColors.Count > 1)
+        {
+            var pos = (profile.FgColors.Count - 1) * sample;
+            var color1 = SKColor.Parse(profile.FgColors[(int)Math.Floor(pos)]);
+            var color2 = SKColor.Parse(profile.FgColors[(int)Math.Ceiling(pos)]);
+            var weight = sample < 1 ? pos % 1 : 1;
+            paint.Color = new SKColor(
+                (byte)(color1.Red * (1 - weight) + color2.Red * weight),
+                (byte)(color1.Green * (1 - weight) + color2.Green * weight),
+                (byte)(color1.Blue * (1 - weight) + color2.Blue * weight),
+                (byte)(color1.Alpha * (1 - weight) + color2.Alpha * weight));
+        }
+        return paint;
     }
 }

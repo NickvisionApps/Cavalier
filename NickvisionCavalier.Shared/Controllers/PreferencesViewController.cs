@@ -25,16 +25,6 @@ public class PreferencesViewController
     }
 
     /// <summary>
-    /// The preferred theme of the application
-    /// </summary>
-    public Theme Theme
-    {
-        get => Configuration.Current.Theme;
-
-        set => Configuration.Current.Theme = value;
-    }
-
-    /// <summary>
     /// Size of drawing area margins in pixels
     /// </summary>
     public uint AreaMargin

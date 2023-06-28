@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
@@ -13,10 +14,6 @@ public class Configuration
     private static readonly string ConfigPath = $"{ConfigDir}{Path.DirectorySeparatorChar}config.json";
     private static Configuration? _instance;
 
-    /// <summary>
-    /// The preferred theme for the application
-    /// </summary>
-    public Theme Theme { get; set; }
     /// <summary>
     /// Main window width
     /// </summary>
@@ -105,6 +102,14 @@ public class Configuration
     /// Mirror mode
     /// </summary>
     public Mirror Mirror { get; set; }
+    /// <summary>
+    /// List of color profiles
+    /// </summary>
+    public List<ColorProfile> ColorProfiles { get; set; }
+    /// <summary>
+    /// Active color profile index
+    /// </summary>
+    public int ActiveProfile { get; set; }
 
     /// <summary>
     /// Occurs when the configuration is saved to disk
@@ -120,7 +125,6 @@ public class Configuration
         {
             Directory.CreateDirectory(ConfigDir);
         }
-        Theme = Theme.Dark;
         WindowWidth = 400;
         WindowHeight = 200;
         AreaMargin = 0;
@@ -143,6 +147,8 @@ public class Configuration
         LinesThickness = 15;
         Mode = DrawingMode.WaveBox;
         Mirror = Mirror.Off;
+        ColorProfiles = new List<ColorProfile> { new ColorProfile() };
+        ActiveProfile = 0;
     }
 
     /// <summary>
@@ -157,6 +163,11 @@ public class Configuration
                 try
                 {
                     _instance = JsonSerializer.Deserialize<Configuration>(File.ReadAllText(ConfigPath)) ?? new Configuration();
+                    if (_instance.ColorProfiles.Count == 0) // Color profiles list should not be empty
+                    {
+                        _instance.ColorProfiles = new List<ColorProfile> { new ColorProfile() };
+                        _instance.ActiveProfile = 0;
+                    }
                 }
                 catch
                 {
