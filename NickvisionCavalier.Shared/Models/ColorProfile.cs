@@ -31,7 +31,7 @@ public class ColorProfile {
     {
         Name = _("Default");
         FgColors = new List<string> { "#ff3584e4" };
-        BgColors = new List<string> {};
+        BgColors = new List<string> { "#ff242424" };
         Theme = Theme.Dark;
     }
 }

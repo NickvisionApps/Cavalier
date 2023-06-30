@@ -1,3 +1,7 @@
+.main-window {
+  background-color: @transparent;
+}
+
 .borderless-window {
   box-shadow: none;
   outline: none;
