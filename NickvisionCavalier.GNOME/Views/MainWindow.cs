@@ -39,6 +39,11 @@ public class MainWindow : Adw.ApplicationWindow
         prefController.OnWindowSettingsChanged += UpdateWindowSettings;
         prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
         _preferencesDialog = new PreferencesDialog(prefController, _application, this);
+        OnCloseRequest += (sender, e) =>
+        {
+            prefController.Save(); // Save configuration in case preferences dialog is opened
+            return false;
+        };
         UpdateWindowSettings(null, EventArgs.Empty);
         OnNotify += (sender, e) =>
         {

@@ -1,6 +1,7 @@
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
+using System;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -48,6 +49,11 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         SetIconName(_controller.AppInfo.ID);
         //Build UI
         builder.Connect(this);
+        OnCloseRequest += (sender, e) =>
+        {
+            _controller.Save();
+            return false;
+        };
         _waveCheckButton.OnToggled += (sender, e) =>
         {
             if (_waveCheckButton.GetActive())
@@ -133,7 +139,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Pspec.GetName() == "selected")
             {
                 _controller.Mirror = (Mirror)_mirrorRow.GetSelected();
-                _controller.Save();
             }
         };
         _marginScale.SetValue((int)_controller.AreaMargin);
@@ -148,20 +153,17 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Pspec.GetName() == "selected")
             {
                 _controller.Direction = (DrawingDirection)_directionRow.GetSelected();
-                _controller.Save();
             }
         };
         _offsetScale.SetValue((int)(_controller.ItemsOffset * 100));
         _offsetScale.OnValueChanged += (sender, e) =>
         {
             _controller.ItemsOffset = (float)_offsetScale.GetValue() / 100.0f;
-            _controller.Save();
         };
         _roundnessScale.SetValue((int)(_controller.ItemsRoundness * 100));
         _roundnessScale.OnValueChanged += (sender, e) =>
         {
             _controller.ItemsRoundness = (float)_roundnessScale.GetValue() / 100.0f;
-            _controller.Save();
         };
         _fillingSwitch.SetActive(_controller.Filling);
         _fillingSwitch.OnNotify += (sender, e) =>
@@ -169,7 +171,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Pspec.GetName() == "active")
             {
                 _controller.Filling = _fillingSwitch.GetActive();
-                _controller.Save();
             }
         };
         _thicknessRow.SetSensitive(!_fillingSwitch.GetActive());
@@ -177,7 +178,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _thicknessScale.OnValueChanged += (sender, e) =>
         {
             _controller.LinesThickness = (float)_thicknessScale.GetValue();
-            _controller.Save();
         };
         _borderlessSwitch.SetActive(_controller.Borderless);
         _borderlessSwitch.OnNotify += (sender, e) =>
@@ -288,7 +288,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Pspec.GetName() == "active")
             {
                 _controller.ReverseOrder = _reverseSwitch.GetActive();
-                _controller.Save();
             }
         };
     }

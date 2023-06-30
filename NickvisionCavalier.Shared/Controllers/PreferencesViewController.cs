@@ -235,7 +235,6 @@ public class PreferencesViewController
     public void ChangeWindowSettings()
     {
         OnWindowSettingsChanged?.Invoke(this, EventArgs.Empty);
-        Save();
     }
 
     /// <summary>
@@ -244,6 +243,5 @@ public class PreferencesViewController
     public void ChangeCavaSettings()
     {
         OnCavaSettingsChanged?.Invoke(this, EventArgs.Empty);
-        Save();
     }
 }
