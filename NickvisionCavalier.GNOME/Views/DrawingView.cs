@@ -24,6 +24,7 @@ public partial class DrawingView : Gtk.Stack
 
     private readonly DrawingViewController _controller;
     private GRContext? _ctx;
+    private SKSurface? _glSurface;
     private SKSurface? _skSurface;
     private float[]? _sample;
     private readonly GSourceFunc _queueRender;
@@ -70,11 +71,13 @@ public partial class DrawingView : Gtk.Stack
     /// </summary>
     private void CreateSurface()
     {
+        _glSurface?.Dispose();
         _skSurface?.Dispose();
         var imgInfo = new SKImageInfo(_glArea.GetAllocatedWidth(), _glArea.GetAllocatedHeight());
-        _skSurface = SKSurface.Create(_ctx, false, imgInfo);
-        if (_skSurface != null)
+        _glSurface = SKSurface.Create(_ctx, false, imgInfo);
+        if (_glSurface != null)
         {
+            _skSurface = SKSurface.Create(imgInfo);
             _controller.Canvas = _skSurface.Canvas;
         }
     }
@@ -92,6 +95,10 @@ public partial class DrawingView : Gtk.Stack
         if (_sample != null)
         {
             _controller.Render(_sample, (float)sender.GetAllocatedWidth(), (float)sender.GetAllocatedHeight());
+            _glSurface.Canvas.Clear();
+            using var image = _skSurface.Snapshot();
+            _glSurface.Canvas.DrawImage(image, 0, 0);
+            _glSurface.Canvas.Flush();
             return true;
         }
         return false;
