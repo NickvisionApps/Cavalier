@@ -1,5 +1,6 @@
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
+using NickvisionCavalier.Shared.Models;
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -38,7 +39,7 @@ public class MainWindow : Adw.ApplicationWindow
         var prefController = _controller.CreatePreferencesViewController();
         prefController.OnWindowSettingsChanged += UpdateWindowSettings;
         prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
-        _preferencesDialog = new PreferencesDialog(prefController, _application, this);
+        _preferencesDialog = new PreferencesDialog(prefController);
         OnCloseRequest += (sender, e) =>
         {
             prefController.Save(); // Save configuration in case preferences dialog is opened
@@ -102,6 +103,11 @@ public class MainWindow : Adw.ApplicationWindow
     /// </summary>
     private void UpdateWindowSettings(object? sender, EventArgs e)
     {
+        _application.StyleManager!.ColorScheme = _controller.Theme switch
+        {
+            Theme.Light => Adw.ColorScheme.ForceLight,
+            _ => Adw.ColorScheme.ForceDark
+        };
         _drawingView.SetMarginTop(_controller.Borderless ? 0 : 1);
         _drawingView.SetMarginStart(_controller.Borderless ? 0 : 1);
         _drawingView.SetMarginEnd(_controller.Borderless ? 0 : 1);

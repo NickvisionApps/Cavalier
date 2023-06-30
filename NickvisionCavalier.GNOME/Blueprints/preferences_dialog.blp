@@ -333,5 +333,124 @@ Adw.PreferencesWindow _root {
   Adw.PreferencesPage {
     title: _("Colors");
     icon-name: "applications-graphics-symbolic";
+
+    Gtk.Box {
+      Gtk.Box {
+        orientation: vertical;
+
+        Gtk.ScrolledWindow {
+          hscrollbar-policy: never;
+
+          child: Gtk.ListBox _profilesList {
+            vexpand: true;
+            width-request: 140;
+          };
+        }
+
+        Gtk.Button _addProfileButton {
+          margin-top: 6;
+          margin-start: 6;
+          margin-end: 6;
+          margin-bottom: 6;
+
+          child: Adw.ButtonContent {
+            label: _("Add Profile");
+            icon-name: "list-add-symbolic";
+          };
+
+          styles [ "flat" ]
+        }
+      }
+
+      Gtk.Separator {}
+
+      Gtk.ScrolledWindow {
+        hscrollbar-policy: never;
+
+        child: Gtk.Box {
+          orientation: vertical;
+          spacing: 12;
+          margin-top: 12;
+          margin-start: 12;
+          margin-end: 12;
+          margin-bottom: 12;
+
+          Adw.PreferencesGroup {
+            Adw.ActionRow {
+              title: _("Application Theme");
+              title-lines: 1;
+
+              [suffix]
+              Gtk.Box {
+                valign: center;
+
+                Gtk.ToggleButton _lightThemeButton {
+                  label: _("Light");
+                }
+
+                Gtk.ToggleButton {
+                  label: _("Dark");
+                  active: bind _lightThemeButton.active bidirectional inverted;
+                }
+
+                styles [ "linked" ]
+              }
+            }
+          }
+
+          Gtk.Grid _colorsGrid {
+            hexpand: true;
+            vexpand: true;
+            column-homogeneous: true;
+            column-spacing: 8;
+
+            Gtk.Box {
+              halign: center;
+              spacing: 8;
+              margin-top: 8;
+              margin-start: 8;
+              margin-end: 8;
+              margin-bottom: 8;
+
+              Gtk.Label {
+                label: _("Foreground Colors");
+                ellipsize: end;
+
+                styles [ "heading" ]
+              }
+
+              Gtk.Button _addFgColorButton {
+                icon-name: "list-add-symbolic";
+
+                styles [ "circular" ]
+              }
+            }
+
+            Gtk.Box {
+              halign: center;
+              spacing: 8;
+              margin-top: 8;
+              margin-start: 8;
+              margin-end: 8;
+              margin-bottom: 8;
+
+              Gtk.Label {
+                label: _("Background Colors");
+
+                styles [ "heading" ]
+              }
+
+              Gtk.Button _addBgColorButton {
+                icon-name: "list-add-symbolic";
+
+                styles [ "circular" ]
+              }
+            }
+
+            styles [ "card" ]
+          }
+        };
+      }
+    }
   }
 }

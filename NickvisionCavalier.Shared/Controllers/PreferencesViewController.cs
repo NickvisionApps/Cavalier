@@ -1,5 +1,6 @@
 using NickvisionCavalier.Shared.Models;
 using System;
+using System.Collections.Generic;
 
 namespace NickvisionCavalier.Shared.Controllers;
 
@@ -225,6 +226,21 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// List of color profiles
+    /// </summary>
+    public List<ColorProfile> ColorProfiles => Configuration.Current.ColorProfiles;
+
+    /// <summary>
+    /// Active color profile index
+    /// </summary>
+    public int ActiveProfile
+    {
+        get => Configuration.Current.ActiveProfile;
+
+        set => Configuration.Current.ActiveProfile = value;
+    }
+
+    /// <summary>
     /// Saves the configuration to disk
     /// </summary>
     public void Save() => Configuration.Current.Save();
@@ -243,5 +259,69 @@ public class PreferencesViewController
     public void ChangeCavaSettings()
     {
         OnCavaSettingsChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    /// <summary>
+    /// Adds new color profile
+    /// </summary>
+    /// <param name="name">New profile name</param>
+    public void AddColorProfile(string name)
+    {
+        var newProfile = (ColorProfile)ColorProfiles[ActiveProfile].Clone();
+        newProfile.Name = name;
+        ColorProfiles.Add(newProfile);
+        ActiveProfile = ColorProfiles.Count - 1;
+    }
+
+    /// <summary>
+    /// Add color to active profile
+    /// </summary>
+    /// <param name="type">Color type</param>
+    /// <param name="color">Color string (#aarrggbb)</param>
+    public void AddColor(ColorType type, string color)
+    {
+        if (type == ColorType.Foreground)
+        {
+            ColorProfiles[ActiveProfile].FgColors.Add(color);
+        }
+        else
+        {
+            ColorProfiles[ActiveProfile].BgColors.Add(color);
+        }
+    }
+
+    /// <summary>
+    /// Edit color in active profile
+    /// </summary>
+    /// <param name="type">Color type</param>
+    /// <param name="index">Color index</param>
+    /// <param name="color">Color string (#aarrggbb)</param>
+    public void EditColor(ColorType type, int index, string color)
+    {
+        if (type == ColorType.Foreground)
+        {
+            ColorProfiles[ActiveProfile].FgColors[index] = color;
+        }
+        else
+        {
+            ColorProfiles[ActiveProfile].BgColors[index] = color;
+        }
+    }
+
+    /// <summary>
+    /// Deletes a color from active profile
+    /// </summary>
+    /// <param name="type">Color type</param>
+    /// <param name="index">Color index</param>
+    public void DeleteColor(ColorType type, int index)
+    {
+        if (type == ColorType.Foreground)
+        {
+            ColorProfiles[ActiveProfile].FgColors.RemoveAt(index);
+        }
+        else
+        {
+            ColorProfiles[ActiveProfile].BgColors.RemoveAt(index);
+        }
     }
 }

@@ -1,7 +1,9 @@
+using NickvisionCavalier.GNOME.Controls;
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
 using System;
+using System.Runtime.InteropServices;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -11,8 +13,19 @@ namespace NickvisionCavalier.GNOME.Views;
 /// </summary>
 public partial class PreferencesDialog : Adw.PreferencesWindow
 {
+    private delegate void GAsyncReadyCallback(nint source_object, nint res, nint data);
+
+    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial nint gtk_color_dialog_new();
+    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial void gtk_color_dialog_choose_rgba(nint dialog, nint parent, nint initial_color, nint cancellable, GAsyncReadyCallback callback, nint user_data);
+    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial nint gtk_color_dialog_choose_rgba_finish(nint dialog, nint result, nint error);
+
+    private readonly GAsyncReadyCallback _fgColorDialogCallback;
+    private readonly GAsyncReadyCallback _bgColorDialogCallback;
+    private readonly nint _colorDialog;
     private readonly PreferencesViewController _controller;
-    private readonly Adw.Application _application;
 
     [Gtk.Connect] private readonly Gtk.CheckButton _waveCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _levelsCheckButton;
@@ -41,8 +54,14 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Switch _monstercatSwitch;
     [Gtk.Connect] private readonly Gtk.Scale _noiseReductionScale;
     [Gtk.Connect] private readonly Gtk.Switch _reverseSwitch;
+    [Gtk.Connect] private readonly Gtk.ListBox _profilesList;
+    [Gtk.Connect] private readonly Gtk.Button _addProfileButton;
+    [Gtk.Connect] private readonly Gtk.ToggleButton _lightThemeButton;
+    [Gtk.Connect] private readonly Gtk.Grid _colorsGrid;
+    [Gtk.Connect] private readonly Gtk.Button _addFgColorButton;
+    [Gtk.Connect] private readonly Gtk.Button _addBgColorButton;
 
-    private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller, Adw.Application application, Gtk.Window parent) : base(builder.GetPointer("_root"), false)
+    private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller) : base(builder.GetPointer("_root"), false)
     {
         //Window Settings
         _controller = controller;
@@ -289,15 +308,148 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _controller.ReverseOrder = _reverseSwitch.GetActive();
             }
         };
+        _profilesList.OnRowSelected += (sender, e) =>
+        {
+            if (e.Row != null)
+            {
+                _controller.ActiveProfile = ((ProfileBox)e.Row.GetChild()).Index;
+                _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
+                UpdateColorsGrid();
+            }
+        };
+        _addProfileButton.OnClicked += OnAddProfile;
+        _lightThemeButton.OnToggled += (sender, e) =>
+        {
+            _controller.ColorProfiles[_controller.ActiveProfile].Theme = _lightThemeButton.GetActive() ? Theme.Light : Theme.Dark;
+            _controller.ChangeWindowSettings();
+        };
+        _colorDialog = gtk_color_dialog_new();
+        _fgColorDialogCallback = (source, res, data) =>
+        {
+            var colorPtr = gtk_color_dialog_choose_rgba_finish(_colorDialog, res, IntPtr.Zero);
+            if (colorPtr != IntPtr.Zero)
+            {
+                var color = (Color)Marshal.PtrToStructure(colorPtr, typeof(Color));
+                if (color.Alpha <= 0.0001f)
+                {
+                    color.Red = 0;
+                    color.Green = 0;
+                    color.Blue = 0;
+                }
+                _controller.AddColor(ColorType.Foreground, $"#{((int)(color.Alpha * 255)).ToString("x2")}{((int)(color.Red * 255)).ToString("x2")}{((int)(color.Green * 255)).ToString("x2")}{((int)(color.Blue * 255)).ToString("x2")}");
+                UpdateColorsGrid();
+            }
+        };
+        _bgColorDialogCallback = (source, res, data) =>
+        {
+            var colorPtr = gtk_color_dialog_choose_rgba_finish(_colorDialog, res, IntPtr.Zero);
+            if (colorPtr != IntPtr.Zero)
+            {
+                var color = (Color)Marshal.PtrToStructure(colorPtr, typeof(Color));
+                if (color.Alpha <= 0.0001f)
+                {
+                    color.Red = 0;
+                    color.Green = 0;
+                    color.Blue = 0;
+                }
+                _controller.AddColor(ColorType.Background, $"#{((int)(color.Alpha * 255)).ToString("x2")}{((int)(color.Red * 255)).ToString("x2")}{((int)(color.Green * 255)).ToString("x2")}{((int)(color.Blue * 255)).ToString("x2")}");
+                UpdateColorsGrid();
+            }
+        };
+        _addFgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Foreground);
+        _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
+        UpdateColorProfiles();
     }
 
     /// <summary>
     /// Constructs a PreferencesDialog
     /// </summary>
     /// <param name="controller">PreferencesViewController</param>
-    /// <param name="application">Adw.Application</param>
-    /// <param name="parent">Gtk.Window</param>
-    public PreferencesDialog(PreferencesViewController controller, Adw.Application application, Gtk.Window parent) : this(Builder.FromFile("preferences_dialog.ui"), controller, application, parent)
+    public PreferencesDialog(PreferencesViewController controller) : this(Builder.FromFile("preferences_dialog.ui"), controller)
     {
+    }
+
+    private void UpdateColorProfiles()
+    {
+        _profilesList.SelectRow(null);
+        while (_profilesList.GetRowAtIndex(0) != null)
+        {
+            _profilesList.Remove(_profilesList.GetRowAtIndex(0));
+        }
+        for (var i = 0; i < _controller.ColorProfiles.Count; i++)
+        {
+            var profileBox = new ProfileBox(_controller.ColorProfiles[i].Name, i);
+            _profilesList.Append(profileBox);
+            profileBox.OnDelete += OnDeleteProfile;
+        }
+        _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile));
+    }
+
+    private void OnAddProfile(object sender, EventArgs e)
+    {
+        var dialog = new AddProfileDialog(this, _controller.AppInfo.ID);
+        dialog.OnDialogClosed += (sender, response) =>
+        {
+            if (response == MessageDialogResponse.Suggested)
+            {
+                _controller.AddColorProfile(dialog.ProfileName);
+                UpdateColorProfiles();
+            }
+        };
+        dialog.Present();
+    }
+
+    private void OnDeleteProfile(object sender, int index)
+    {
+        var dialog = new MessageDialog(
+            this, _controller.AppInfo.ID,
+            _("Delete Profile"), _("Are you sure you want to delete profile \"{0}\"?", _controller.ColorProfiles[index].Name),
+            _("Cancel"), _("Delete"));
+        dialog.OnDialogClosed += (sender, response) =>
+        {
+            if (response == MessageDialogResponse.Destructive)
+            {
+                _controller.ActiveProfile -= 1;
+                _controller.ColorProfiles.RemoveAt(index);
+                UpdateColorProfiles();
+            }
+        };
+        dialog.Present();
+    }
+
+    private void UpdateColorsGrid()
+    {
+        while (_colorsGrid.GetChildAt(0, 1) != null || _colorsGrid.GetChildAt(1, 1) != null)
+        {
+            _colorsGrid.RemoveRow(1);
+        }
+        for (var i = 0; i < _controller.ColorProfiles[_controller.ActiveProfile].FgColors.Count; i++)
+        {
+            var colorButton = new ColorBox(
+                _controller.ColorProfiles[_controller.ActiveProfile].FgColors[i],
+                ColorType.Foreground, i, i != 0);
+            colorButton.OnEdit += OnEditColor;
+            colorButton.OnDelete += OnDeleteColor;
+            _colorsGrid.Attach(colorButton, 0, i + 1, 1, 1);
+        }
+        for (var i = 0; i < _controller.ColorProfiles[_controller.ActiveProfile].BgColors.Count; i++)
+        {
+            var colorButton = new ColorBox(
+                _controller.ColorProfiles[_controller.ActiveProfile].BgColors[i],
+                ColorType.Background, i, i != 0);
+            colorButton.OnEdit += OnEditColor;
+            colorButton.OnDelete += OnDeleteColor;
+            _colorsGrid.Attach(colorButton, 1, i + 1, 1, 1);
+        }
+    }
+
+    private void AddColor(ColorType type) => gtk_color_dialog_choose_rgba(_colorDialog, Handle, IntPtr.Zero, IntPtr.Zero, type == ColorType.Foreground ? _fgColorDialogCallback : _bgColorDialogCallback, IntPtr.Zero);
+
+    private void OnEditColor(object sender, ColorEventArgs e) => _controller.EditColor(e.Type, e.Index, e.Color);
+
+    private void OnDeleteColor(object sender, ColorEventArgs e)
+    {
+        _controller.DeleteColor(e.Type, e.Index);
+        UpdateColorsGrid();
     }
 }

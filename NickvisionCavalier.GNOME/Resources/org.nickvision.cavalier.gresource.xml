@@ -3,4 +3,7 @@
   <gresource prefix="/org/nickvision/cavalier">
     <file alias="style.css">org.nickvision.cavalier.css</file>
   </gresource>
+  <gresource prefix="/org/nickvision/cavalier/icons/scalable/status/">
+    <file preprocess="xml-stripblanks">cross-symbolic.svg</file>
+  </gresource>
 </gresources>
