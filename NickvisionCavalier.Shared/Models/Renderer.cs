@@ -42,6 +42,8 @@ public class Renderer
         }
         Canvas.DrawRect(0, 0, width, height, bgPaint);
 
+        width = width - Configuration.Current.AreaMargin * 2;
+        height = height - Configuration.Current.AreaMargin * 2;
         var fgPaint = new SKPaint
         {
             Style = Configuration.Current.Filling ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
@@ -49,7 +51,7 @@ public class Renderer
         };
         if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox)
         {
-            fgPaint.Shader = CreateGradient(profile.FgColors, width, height);
+            fgPaint.Shader = CreateGradient(profile.FgColors, width, height, Configuration.Current.AreaMargin);
         }
         else
         {
@@ -66,17 +68,17 @@ public class Renderer
         };
         if (Configuration.Current.Mirror == Mirror.Full)
         {
-            _drawFunc(sample, Configuration.Current.Direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
             _drawFunc(sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
         }
         else if (Configuration.Current.Mirror == Mirror.SplitChannels)
         {
-            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
             _drawFunc(sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
         }
         else
         {
-            _drawFunc(sample, Configuration.Current.Direction, 0, 0, width, height, fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, width, height, fgPaint);
         }
         Canvas.Flush();
     }
@@ -88,7 +90,7 @@ public class Renderer
     /// <param name="width">Canvas width</param>
     /// <param name="height">Canvas height</param>
     /// <returns>Skia Shader</returns>
-    private SKShader CreateGradient(List<string> colorStrings, float width, float height)
+    private SKShader CreateGradient(List<string> colorStrings, float width, float height, uint margin = 0)
     {
         var colors = colorStrings.Select(c => SKColor.Parse(c)).Reverse().ToArray();
         if (Configuration.Current.Mirror != Mirror.Off)
@@ -107,16 +109,16 @@ public class Renderer
         switch (Configuration.Current.Direction)
         {
             case DrawingDirection.TopBottom:
-                shader = SKShader.CreateLinearGradient(new SKPoint(0, 0), new SKPoint(0, height), colors, SKShaderTileMode.Clamp);
+                shader = SKShader.CreateLinearGradient(new SKPoint(margin, margin), new SKPoint(margin, height), colors, SKShaderTileMode.Clamp);
                 break;
             case DrawingDirection.BottomTop:
-                shader = SKShader.CreateLinearGradient(new SKPoint(0, height), new SKPoint(0, 0), colors, SKShaderTileMode.Clamp);
+                shader = SKShader.CreateLinearGradient(new SKPoint(margin, height), new SKPoint(margin, margin), colors, SKShaderTileMode.Clamp);
                 break;
             case DrawingDirection.LeftRight:
-                shader = SKShader.CreateLinearGradient(new SKPoint(0, 0), new SKPoint(width, 0), colors, SKShaderTileMode.Clamp);
+                shader = SKShader.CreateLinearGradient(new SKPoint(margin, margin), new SKPoint(width, margin), colors, SKShaderTileMode.Clamp);
                 break;
             default: // DrawingDirection.RightLeft
-                shader = SKShader.CreateLinearGradient(new SKPoint(width, 0), new SKPoint(0, 0), colors, SKShaderTileMode.Clamp);
+                shader = SKShader.CreateLinearGradient(new SKPoint(width, margin), new SKPoint(margin, margin), colors, SKShaderTileMode.Clamp);
                 break;
         }
         return shader;
@@ -137,18 +139,18 @@ public class Renderer
     {
         if (Configuration.Current.Direction == DrawingDirection.LeftRight || Configuration.Current.Direction == DrawingDirection.RightLeft)
         {
-            return width / 2.0f;
+            return width / 2.0f + Configuration.Current.AreaMargin;
         }
-        return 0;
+        return Configuration.Current.AreaMargin;
     }
 
     private float GetMirrorY(float height)
     {
         if (Configuration.Current.Direction == DrawingDirection.TopBottom || Configuration.Current.Direction == DrawingDirection.BottomTop)
         {
-            return height / 2.0f;
+            return height / 2.0f + Configuration.Current.AreaMargin;
         }
-        return 0;
+        return Configuration.Current.AreaMargin;
     }
 
     private float GetMirrorWidth(float width)

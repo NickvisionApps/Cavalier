@@ -102,10 +102,10 @@ public class MainWindow : Adw.ApplicationWindow
     /// </summary>
     private void UpdateWindowSettings(object? sender, EventArgs e)
     {
-        _drawingView.SetMarginTop((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
-        _drawingView.SetMarginStart((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
-        _drawingView.SetMarginEnd((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
-        _drawingView.SetMarginBottom((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
+        _drawingView.SetMarginTop(_controller.Borderless ? 0 : 1);
+        _drawingView.SetMarginStart(_controller.Borderless ? 0 : 1);
+        _drawingView.SetMarginEnd(_controller.Borderless ? 0 : 1);
+        _drawingView.SetMarginBottom(_controller.Borderless ? 0 : 1);
         if (_controller.Borderless)
         {
             AddCssClass("borderless-window");

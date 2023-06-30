@@ -145,7 +145,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _marginScale.OnValueChanged += (sender, e) =>
         {
             _controller.AreaMargin = (uint)_marginScale.GetValue();
-            _controller.ChangeWindowSettings();
         };
         _directionRow.SetSelected((uint)_controller.Direction);
         _directionRow.OnNotify += (sender, e) =>
