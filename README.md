@@ -3,6 +3,8 @@
 
 **Visualize audio with CAVA**
 
+ [![Translation status](https://hosted.weblate.org/widgets/nickvision-cavalier/-/app/svg-badge.svg)](https://hosted.weblate.org/engage/nickvision-cavalier/) ✨Powered by [Weblate](https://weblate.org/en/)✨
+
 # Features
 
 * 4 drawing modes!
