@@ -18,11 +18,13 @@ public class MainWindow : Adw.ApplicationWindow
     [Gtk.Connect] private readonly Gtk.Overlay _overlay;
     [Gtk.Connect] private readonly Gtk.Revealer _headerRevealer;
     [Gtk.Connect] private readonly Adw.HeaderBar _header;
+    [Gtk.Connect] private readonly Adw.Bin _resizeBin;
 
     private readonly MainWindowController _controller;
     private readonly Adw.Application _application;
     private readonly DrawingView _drawingView;
     private readonly PreferencesDialog _preferencesDialog;
+    private readonly System.Timers.Timer _resizeTimer;
 
     private MainWindow(Gtk.Builder builder, MainWindowController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
@@ -57,6 +59,18 @@ public class MainWindow : Adw.ApplicationWindow
         {
             _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight);
             return false;
+        };
+        _resizeTimer = new System.Timers.Timer(400);
+        _resizeTimer.AutoReset = false;
+        _resizeTimer.Elapsed += (sender, e) => _resizeBin.SetVisible(false);
+        OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "default-width" || e.Pspec.GetName() == "default-height")
+            {
+                _resizeTimer.Stop();
+                _resizeTimer.Start();
+                _resizeBin.SetVisible(true);
+            }
         };
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);
