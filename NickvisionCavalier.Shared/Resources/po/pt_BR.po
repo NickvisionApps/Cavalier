@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-01 06:49+0300\n"
+"POT-Creation-Date: 2023-07-01 18:21+0300\n"
 "PO-Revision-Date: 2023-03-27 20:28-0300\n"
 "Last-Translator: Wagner Costa Gottschald <Wagnercostag@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <wagnercostag@gmail.com>\n"
@@ -71,6 +71,7 @@ msgstr "Cancelar"
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:6
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:13
 msgid "Cavalier"
 msgstr "Cavalier"
 
@@ -130,6 +131,7 @@ msgstr "Desligado"
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:17
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -337,23 +339,27 @@ msgid "Background Colors"
 msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:14
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:96
 msgctxt "Shortcut"
 msgid "Application"
 msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:22
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:109
 msgid "Keyboard Shortcuts"
 msgstr "Atalhos de teclado"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:27
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
 #, fuzzy
 msgid "About Cavalier"
 msgstr "Cavalier"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:32
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:119
 msgid "Quit"
 msgstr "Sair"
 
@@ -380,6 +386,80 @@ msgstr ""
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
+#, fuzzy
+msgid "Change Drawing Mode"
+msgstr "Ondas"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:21
+#, fuzzy
+msgid "Change Mirror Mode"
+msgstr "Mudar Cores do perfil"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
+#, fuzzy
+msgid "Change Drawing Area Margin"
+msgstr "Marge da onda"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
+#, fuzzy
+msgid "Change Drawing Direction"
+msgstr "Ondas"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
+msgid "Change Offset Between Items"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
+msgid "Change Items Roundness"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
+msgid "Toggle Filling"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:51
+msgid "Change Lines Thickness"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:56
+msgid "Toggle Window Borders"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:61
+msgid "Toggle Sharp Corners"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:66
+#, fuzzy
+msgid "Toggle Window Controls"
+msgstr "Controle de janela"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:71
+msgid "Toggle Autohide Headerbar"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:80
+msgid "Change Number of Bars"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
+#, fuzzy
+msgid "Toggle Channels"
+msgstr "Canais"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:90
+msgid "Toggle Reverse Order"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
+msgid "Toggle Fullscreen"
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
+msgid "Set any color or a gradient for background and foreground."
 msgstr ""
 
 #, fuzzy
@@ -445,6 +525,3 @@ msgstr ""
 
 #~ msgid "About"
 #~ msgstr "Sobre"
-
-#~ msgid "Change Colors Profile"
-#~ msgstr "Mudar Cores do perfil"

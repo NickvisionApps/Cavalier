@@ -7,8 +7,8 @@
 
 # Features
 
-* 4 drawing modes!
-* Set single color or up to 10 colors gradient for background and foreground.
+* 5 drawing modes!
+* Set any single color or a gradient for background and foreground.
 * Configure smoothing, noise reduction and a few other CAVA settings.
 
 # Chat

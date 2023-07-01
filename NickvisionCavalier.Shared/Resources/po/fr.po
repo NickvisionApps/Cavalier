@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-01 06:49+0300\n"
+"POT-Creation-Date: 2023-07-01 18:21+0300\n"
 "PO-Revision-Date: 2023-01-30 10:59+0100\n"
 "Last-Translator: Irénée Thirion <irenee.thirion@e.email>\n"
 "Language-Team: \n"
@@ -71,6 +71,7 @@ msgstr "Annuler"
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:6
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:13
 msgid "Cavalier"
 msgstr "Cavalier"
 
@@ -130,6 +131,7 @@ msgstr "Désactivé"
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:17
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -352,23 +354,27 @@ msgid "Background Colors"
 msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:14
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:96
 msgctxt "Shortcut"
 msgid "Application"
 msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:22
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:109
 msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:27
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
 #, fuzzy
 msgid "About Cavalier"
 msgstr "Cavalier"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:32
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:119
 msgid "Quit"
 msgstr "Quitter"
 
@@ -400,6 +406,81 @@ msgstr ""
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
 msgstr ""
 "Configurez le lissage, la réduction du bruit et d’autres paramètres CAVA."
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
+msgid "Change Drawing Mode"
+msgstr "Changer le mode de dessin"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:21
+#, fuzzy
+msgid "Change Mirror Mode"
+msgstr "Changer le mode de dessin"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
+msgid "Change Drawing Area Margin"
+msgstr "Modifier la marge autour de l’aire de dessin"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
+#, fuzzy
+msgid "Change Drawing Direction"
+msgstr "Mode de dessin"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
+msgid "Change Offset Between Items"
+msgstr "Modifier l’espace entre les éléments"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
+#, fuzzy
+msgid "Change Items Roundness"
+msgstr "Modifier la rondeur des éléments"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
+msgid "Toggle Filling"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:51
+msgid "Change Lines Thickness"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:56
+#, fuzzy
+msgid "Toggle Window Borders"
+msgstr "Afficher / masquer les contrôles de la fenêtre"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:61
+msgid "Toggle Sharp Corners"
+msgstr "Activer / désactiver les angles saillants"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:66
+msgid "Toggle Window Controls"
+msgstr "Afficher / masquer les contrôles de la fenêtre"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:71
+msgid "Toggle Autohide Headerbar"
+msgstr "Masquage automatique de la barre supérieure"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:80
+msgid "Change Number of Bars"
+msgstr "Changer le nombre de barres"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
+msgid "Toggle Channels"
+msgstr "Changer le canal"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:90
+msgid "Toggle Reverse Order"
+msgstr "Inverser l’ordre"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
+msgid "Toggle Fullscreen"
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
+#, fuzzy
+msgid "Set any color or a gradient for background and foreground."
+msgstr ""
+"Définissez une couleur unique ou un dégradé pouvant aller jusqu’à 10 "
+"couleurs, pour l’arrière-plan et le premier plan."
 
 #, fuzzy
 #~ msgid "Audio visualizer based on CAVA"
@@ -551,36 +632,6 @@ msgstr ""
 
 #~ msgid "About"
 #~ msgstr "À propos"
-
-#~ msgid "Change Drawing Mode"
-#~ msgstr "Changer le mode de dessin"
-
-#~ msgid "Change Drawing Area Margin"
-#~ msgstr "Modifier la marge autour de l’aire de dessin"
-
-#~ msgid "Change Offset Between Items"
-#~ msgstr "Modifier l’espace entre les éléments"
-
-#~ msgid "Change Roundness of Items"
-#~ msgstr "Modifier la rondeur des éléments"
-
-#~ msgid "Toggle Sharp Corners"
-#~ msgstr "Activer / désactiver les angles saillants"
-
-#~ msgid "Toggle Window Controls"
-#~ msgstr "Afficher / masquer les contrôles de la fenêtre"
-
-#~ msgid "Toggle Autohide Headerbar"
-#~ msgstr "Masquage automatique de la barre supérieure"
-
-#~ msgid "Change Number of Bars"
-#~ msgstr "Changer le nombre de barres"
-
-#~ msgid "Toggle Channels"
-#~ msgstr "Changer le canal"
-
-#~ msgid "Toggle Reverse Order"
-#~ msgstr "Inverser l’ordre"
 
 #~ msgid "Change Colors Profile"
 #~ msgstr "Changer le profil de couleurs"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-01 06:49+0300\n"
+"POT-Creation-Date: 2023-07-01 18:21+0300\n"
 "PO-Revision-Date: 2023-01-28 12:44+0100\n"
 "Last-Translator: albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -69,6 +69,7 @@ msgstr "Cancella"
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:6
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:13
 msgid "Cavalier"
 msgstr "Cavalier"
 
@@ -128,6 +129,7 @@ msgstr "Off"
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:17
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
 msgid "Preferences"
 msgstr "Preferenze"
 
@@ -352,23 +354,27 @@ msgid "Background Colors"
 msgstr "Colori di sfondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:14
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:96
 msgctxt "Shortcut"
 msgid "Application"
 msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:22
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:109
 msgid "Keyboard Shortcuts"
 msgstr "Scorciatoie da tastiera"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:27
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
 #, fuzzy
 msgid "About Cavalier"
 msgstr "Cavalier"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:32
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:119
 msgid "Quit"
 msgstr "Esci"
 
@@ -401,6 +407,81 @@ msgid "Configure smoothing, noise reduction and a few other CAVA settings."
 msgstr ""
 "Configura il livellamento, la riduzione del rumore e alcune altre "
 "impostazioni CAVA."
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
+msgid "Change Drawing Mode"
+msgstr "Cambia modalità di disegno"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:21
+#, fuzzy
+msgid "Change Mirror Mode"
+msgstr "Cambia modalità di disegno"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
+msgid "Change Drawing Area Margin"
+msgstr "Modifica margine area di disegno"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
+#, fuzzy
+msgid "Change Drawing Direction"
+msgstr "Modalità disegno"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
+msgid "Change Offset Between Items"
+msgstr "Modifica scostamento tra gli elementi"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
+#, fuzzy
+msgid "Change Items Roundness"
+msgstr "Cambia rotondità degli oggetti"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
+msgid "Toggle Filling"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:51
+msgid "Change Lines Thickness"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:56
+#, fuzzy
+msgid "Toggle Window Borders"
+msgstr "Attiva/disattiva i controlli della finestra"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:61
+msgid "Toggle Sharp Corners"
+msgstr "Attiva/disattiva angoli acuti"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:66
+msgid "Toggle Window Controls"
+msgstr "Attiva/disattiva i controlli della finestra"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:71
+msgid "Toggle Autohide Headerbar"
+msgstr "Attiva/disattiva automaticamente la barra di intestazione"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:80
+msgid "Change Number of Bars"
+msgstr "Cambia numero di barre"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
+msgid "Toggle Channels"
+msgstr "Abilita/disabilita canali"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:90
+msgid "Toggle Reverse Order"
+msgstr "Attiva/disattiva ordine inverso"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
+msgid "Toggle Fullscreen"
+msgstr ""
+
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
+#, fuzzy
+msgid "Set any color or a gradient for background and foreground."
+msgstr ""
+"Imposta un singolo colore o fino a 10 sfumature di colori per lo sfondo e il "
+"primo piano."
 
 #, fuzzy
 #~ msgid "Audio visualizer based on CAVA"
@@ -446,8 +527,8 @@ msgstr ""
 #~ "Added option to change roundness of items in \"levels\" and \"particles\" "
 #~ "modes."
 #~ msgstr ""
-#~ "Aggiunta opzione per modificare la rotondità degli elementi in \"livelli"
-#~ "\" e modalità \"particelle\"."
+#~ "Aggiunta opzione per modificare la rotondità degli elementi in "
+#~ "\"livelli\" e modalità \"particelle\"."
 
 #~ msgid "Import/Export Settings"
 #~ msgstr "Impostazioni di importazione/esportazione"
@@ -466,8 +547,8 @@ msgstr ""
 
 #~ msgid "This setting only affects \"levels\" and \"particles\" modes."
 #~ msgstr ""
-#~ "Questa impostazione riguarda solo le modalità \"livelli\" e \"particelle"
-#~ "\"."
+#~ "Questa impostazione riguarda solo le modalità \"livelli\" e "
+#~ "\"particelle\"."
 
 #~ msgid "Number of bars in CAVA config"
 #~ msgstr "Numero di barre nella configurazione CAVA"
@@ -494,8 +575,8 @@ msgstr ""
 #~ "This setting only affects \"levels\" and \"particles\" modes.\n"
 #~ "0 - square, 1 - round"
 #~ msgstr ""
-#~ "Questa impostazione riguarda solo le modalità \"livelli\" e \"particelle"
-#~ "\".\n"
+#~ "Questa impostazione riguarda solo le modalità \"livelli\" e "
+#~ "\"particelle\".\n"
 #~ "0 - quadrato, 1 - rotondo"
 
 #~ msgid "Import"
@@ -554,36 +635,6 @@ msgstr ""
 
 #~ msgid "About"
 #~ msgstr "Informazioni"
-
-#~ msgid "Change Drawing Mode"
-#~ msgstr "Cambia modalità di disegno"
-
-#~ msgid "Change Drawing Area Margin"
-#~ msgstr "Modifica margine area di disegno"
-
-#~ msgid "Change Offset Between Items"
-#~ msgstr "Modifica scostamento tra gli elementi"
-
-#~ msgid "Change Roundness of Items"
-#~ msgstr "Cambia rotondità degli oggetti"
-
-#~ msgid "Toggle Sharp Corners"
-#~ msgstr "Attiva/disattiva angoli acuti"
-
-#~ msgid "Toggle Window Controls"
-#~ msgstr "Attiva/disattiva i controlli della finestra"
-
-#~ msgid "Toggle Autohide Headerbar"
-#~ msgstr "Attiva/disattiva automaticamente la barra di intestazione"
-
-#~ msgid "Change Number of Bars"
-#~ msgstr "Cambia numero di barre"
-
-#~ msgid "Toggle Channels"
-#~ msgstr "Abilita/disabilita canali"
-
-#~ msgid "Toggle Reverse Order"
-#~ msgstr "Attiva/disattiva ordine inverso"
 
 #~ msgid "Change Colors Profile"
 #~ msgstr "Cambia profilo colori"
