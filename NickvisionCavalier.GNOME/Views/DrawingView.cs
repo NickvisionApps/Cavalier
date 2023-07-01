@@ -3,6 +3,7 @@ using NickvisionCavalier.Shared.Controllers;
 using SkiaSharp;
 using System;
 using System.Runtime.InteropServices;
+using System.Timers;
 
 namespace NickvisionCavalier.GNOME.Views;
 
@@ -23,21 +24,27 @@ public partial class DrawingView : Gtk.Stack
     [Gtk.Connect] private readonly Gtk.GLArea _glArea;
 
     private readonly DrawingViewController _controller;
+    private readonly GSourceFunc _showGl;
+    private readonly GSourceFunc _queueRender;
+    private readonly Timer _renderTimer;
     private GRContext? _ctx;
     private SKSurface? _glSurface;
     private SKSurface? _skSurface;
     private float[]? _sample;
-    private readonly GSourceFunc _queueRender;
 
     private DrawingView(Gtk.Builder builder, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
     {
         _controller = controller;
-        _queueRender = (x) =>
+        _showGl = (x) =>
         {
             if (GetVisibleChildName() != "gl")
             {
                 SetVisibleChildName("gl");
             }
+            return false;
+        };
+        _queueRender = (x) =>
+        {
             _glArea.QueueRender();
             return false;
         };
@@ -53,9 +60,16 @@ public partial class DrawingView : Gtk.Stack
         _controller.Cava.OutputReceived += (sender, sample) =>
         {
             _sample = sample;
-            g_main_context_invoke(0, _queueRender, 0);
+            g_main_context_invoke(0, _showGl, 0);
         };
         _glArea.OnRender += OnRender;
+        _renderTimer = new Timer(1000.0 / _controller.Framerate);
+        _renderTimer.Elapsed += (sender, e) =>
+        {
+            _renderTimer.Interval = 1000.0 / _controller.Framerate;
+            g_main_context_invoke(0, _queueRender, 0);
+        };
+        _renderTimer.Start();
     }
     
     /// <summary>

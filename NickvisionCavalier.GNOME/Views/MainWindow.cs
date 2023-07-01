@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Timers;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -24,7 +25,7 @@ public class MainWindow : Adw.ApplicationWindow
     private readonly Adw.Application _application;
     private readonly DrawingView _drawingView;
     private readonly PreferencesDialog _preferencesDialog;
-    private readonly System.Timers.Timer _resizeTimer;
+    private readonly Timer _resizeTimer;
 
     private MainWindow(Gtk.Builder builder, MainWindowController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
@@ -60,7 +61,7 @@ public class MainWindow : Adw.ApplicationWindow
             _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight);
             return false;
         };
-        _resizeTimer = new System.Timers.Timer(400);
+        _resizeTimer = new Timer(400);
         _resizeTimer.AutoReset = false;
         _resizeTimer.Elapsed += (sender, e) => _resizeBin.SetVisible(false);
         OnNotify += (sender, e) =>

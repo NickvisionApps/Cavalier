@@ -19,6 +19,8 @@ public class DrawingViewController
         Cava.Start();
     }
 
+    public uint Framerate => Configuration.Current.Framerate;
+
     public SKCanvas? Canvas
     {
         get => _renderer.Canvas;
