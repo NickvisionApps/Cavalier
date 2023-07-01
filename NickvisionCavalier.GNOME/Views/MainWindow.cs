@@ -240,7 +240,7 @@ public class MainWindow : Adw.ApplicationWindow
         dialog.AddLink(_("Matrix Chat"), "https://matrix.to/#/#nickvision:matrix.org");
         dialog.SetDevelopers(_("Fyodor Sobolev {0}\nNicholas Logozzo {1}\nContributors on GitHub ❤️ {2}", "https://github.com/fsobolev", "https://github.com/nlogozzo", "https://github.com/NickvisionApps/Cavalier/graphs/contributors").Split("\n"));
         dialog.SetDesigners(_("Fyodor Sobolev {0}", "https://github.com/fsobolev").Split("\n"));
-        dialog.SetArtists(_("Fyodor Sobolev {0}\nDavid Lapshin {1}", "https://github.com/fsobolev", "https://github.com/daudix-UFO").Split("\n"));
+        dialog.SetArtists(_("David Lapshin {0}", "https://github.com/daudix-UFO").Split("\n"));
         dialog.SetTranslatorCredits(_("translator-credits"));
         dialog.SetReleaseNotes(_controller.AppInfo.Changelog);
         dialog.Present();

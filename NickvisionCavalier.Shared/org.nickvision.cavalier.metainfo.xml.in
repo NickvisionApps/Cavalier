@@ -9,7 +9,7 @@
     <p>Cavalier is an audio visualizer based on CAVA with customizable interface.</p>
     <ul>
       <li>5 drawing modes!</li>
-      <li>Set single color or up to 10 colors gradient for background and foreground.</li>
+      <li>Set any color or gradient for background and foreground.</li>
       <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
     </ul>
   </description>
@@ -36,7 +36,7 @@
   </screenshots>
   <releases>
     <release type="stable" date="2023-01-29" version="2023.01.29">
-      <description>
+      <description translatable="no">
         <p>Second release of Cavalier.</p>
         <ul>
           <li>New drawing mode — Particles!</li>
