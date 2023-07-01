@@ -5,12 +5,21 @@ using System.Runtime.InteropServices;
 
 namespace NickvisionCavalier.GNOME.Controls;
 
+/// <summary>
+/// Arguments for color deletion and editing events
+/// </summary>
 public class ColorEventArgs : EventArgs
 {
-    public readonly ColorType Type;
-    public readonly int Index;
-    public readonly string Color;
+    public ColorType Type { get; init; }
+    public int Index { get; init; }
+    public string Color { get; init; }
     
+    /// <summary>
+    /// Creates ColorEventArgs
+    /// </summary>
+    /// <param name="type">Color type (background or foreground)</param>
+    /// <param name="index">Color index in profile's list</param>
+    /// <param name="color">Color string (#aarrggbb)</param>
     public ColorEventArgs(ColorType type, int index, string color = "")
     {
         Type = type;
@@ -19,6 +28,9 @@ public class ColorEventArgs : EventArgs
     }
 }
 
+/// <summary>
+/// A widget to control a color
+/// </summary>
 public partial class ColorBox : Gtk.Box
 {
     [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
@@ -47,9 +59,22 @@ public partial class ColorBox : Gtk.Box
     
     private readonly GCallback _colorButtonNotify;
     
+    /// <summary>
+    /// Occurs on color deletion request
+    /// </summary>
     public event EventHandler<ColorEventArgs>? OnDelete;
+    /// <summary>
+    /// Occurs on color editing request
+    /// </summary>
     public event EventHandler<ColorEventArgs>? OnEdit;
     
+    /// <summary>
+    /// Creates color box
+    /// </summary>
+    /// <param name="color">Color string (#aarrggbb)</param>
+    /// <param name="type">Color type (background or foreground)</param>
+    /// <param name="index">Color index in profile's list</param>
+    /// <param name="canDelete">Whether the color can be deleted</param>
     public ColorBox(string color, ColorType type, int index, bool canDelete = true)
     {
         SetHalign(Gtk.Align.Center);

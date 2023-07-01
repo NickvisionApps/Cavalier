@@ -19,8 +19,14 @@ public class DrawingViewController
         Cava.Start();
     }
 
+    /// <summary>
+    /// CAVA framerate
+    /// </summary>
     public uint Framerate => Configuration.Current.Framerate;
 
+    /// <summary>
+    /// SKCanvas to draw on
+    /// </summary>
     public SKCanvas? Canvas
     {
         get => _renderer.Canvas;

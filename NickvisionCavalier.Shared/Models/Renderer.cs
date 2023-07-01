@@ -24,9 +24,8 @@ public class Renderer
             return;
         }
         Canvas.Clear();
-
         var profile = Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile];
-
+        // Draw background
         var bgPaint = new SKPaint
         {
             Style = SKPaintStyle.Fill,
@@ -41,7 +40,7 @@ public class Renderer
             bgPaint.Color = SKColor.Parse(profile.BgColors[0]);
         }
         Canvas.DrawRect(0, 0, width, height, bgPaint);
-
+        // Draw foreground
         width = width - Configuration.Current.AreaMargin * 2;
         height = height - Configuration.Current.AreaMargin * 2;
         var fgPaint = new SKPaint
@@ -57,7 +56,6 @@ public class Renderer
         {
             fgPaint.Color = SKColor.Parse(profile.FgColors[0]);
         }
-
         _drawFunc = Configuration.Current.Mode switch
         {
             DrawingMode.LevelsBox => DrawLevelsBox,
@@ -105,23 +103,13 @@ public class Renderer
             colors.CopyTo(mirrorColors, colors.Length);
             colors = mirrorColors;
         }
-        SKShader shader;
-        switch (Configuration.Current.Direction)
+        return Configuration.Current.Direction switch
         {
-            case DrawingDirection.TopBottom:
-                shader = SKShader.CreateLinearGradient(new SKPoint(margin, margin), new SKPoint(margin, height), colors, SKShaderTileMode.Clamp);
-                break;
-            case DrawingDirection.BottomTop:
-                shader = SKShader.CreateLinearGradient(new SKPoint(margin, height), new SKPoint(margin, margin), colors, SKShaderTileMode.Clamp);
-                break;
-            case DrawingDirection.LeftRight:
-                shader = SKShader.CreateLinearGradient(new SKPoint(margin, margin), new SKPoint(width, margin), colors, SKShaderTileMode.Clamp);
-                break;
-            default: // DrawingDirection.RightLeft
-                shader = SKShader.CreateLinearGradient(new SKPoint(width, margin), new SKPoint(margin, margin), colors, SKShaderTileMode.Clamp);
-                break;
-        }
-        return shader;
+            DrawingDirection.TopBottom => SKShader.CreateLinearGradient(new SKPoint(margin, margin), new SKPoint(margin, height), colors, SKShaderTileMode.Clamp),
+            DrawingDirection.BottomTop => SKShader.CreateLinearGradient(new SKPoint(margin, height), new SKPoint(margin, margin), colors, SKShaderTileMode.Clamp),
+            DrawingDirection.LeftRight => SKShader.CreateLinearGradient(new SKPoint(margin, margin), new SKPoint(width, margin), colors, SKShaderTileMode.Clamp),
+            _ => SKShader.CreateLinearGradient(new SKPoint(width, margin), new SKPoint(margin, margin), colors, SKShaderTileMode.Clamp)
+        };
     }
 
     private DrawingDirection GetMirrorDirection()

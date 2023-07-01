@@ -10,8 +10,10 @@ public class AddProfileDialog
 {
     private readonly Adw.MessageDialog _dialog;
 
-    public string ProfileName;
-    public event EventHandler<MessageDialogResponse>? OnDialogClosed;
+    /// <summary>
+    /// New profile name
+    /// </summary>
+    public string ProfileName { get; set; }
     
     /// <summary>
     /// Constructs a MessageDialog
@@ -42,7 +44,6 @@ public class AddProfileDialog
         _dialog.AddResponse("suggested", _("Add"));
         _dialog.SetResponseAppearance("suggested", Adw.ResponseAppearance.Suggested);
         _dialog.SetResponseEnabled("suggested", false);
-        _dialog.OnResponse += (sender, e) => SetResponse(e.Response);
     }
     
     public event GObject.SignalHandler<Adw.MessageDialog, Adw.MessageDialog.ResponseSignalArgs> OnResponse
@@ -61,19 +62,4 @@ public class AddProfileDialog
     /// Presents the dialog
     /// </summary>
     public void Present() => _dialog.Present();
-    
-    /// <summary>
-    /// Sets the response of the dialog as a MessageDialogResponse
-    /// </summary>
-    /// <param name="response">The string response of the dialog</param>
-    private void SetResponse(string response)
-    {
-        var result = response switch
-        {
-            "suggested" => MessageDialogResponse.Suggested,
-            "destructive" => MessageDialogResponse.Destructive,
-            _ => MessageDialogResponse.Cancel
-        };
-        OnDialogClosed?.Invoke(this, result);
-    }
 }

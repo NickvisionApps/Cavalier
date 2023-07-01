@@ -2,11 +2,20 @@ using System;
 
 namespace NickvisionCavalier.GNOME.Controls;
 
+/// <summary>
+/// A widget to control a profile
+/// </summary>
 public class ProfileBox : Gtk.Box
 {
-    public int Index;
+    public int Index { get; set; }
+
     public event EventHandler<int>? OnDelete;
     
+    /// <summary>
+    /// Creates ProfileBox
+    /// </summary>
+    /// <param name="name">Profile name</param>
+    /// <param name="index">Profile index</param>
     public ProfileBox(string name, int index)
     {
         Index = index;

@@ -3,23 +3,11 @@ using System;
 namespace NickvisionCavalier.GNOME.Controls;
 
 /// <summary>
-/// Responses for the MessageDialog
-/// </summary>
-public enum MessageDialogResponse
-{
-    Suggested,
-    Destructive,
-    Cancel
-}
-
-/// <summary>
 /// A dialog for showing a message
 /// </summary>
 public class MessageDialog
 {
     private readonly Adw.MessageDialog _dialog;
-    
-    public event EventHandler<MessageDialogResponse>? OnDialogClosed;
 
     /// <summary>
     /// Constructs a MessageDialog
@@ -51,7 +39,6 @@ public class MessageDialog
             _dialog.AddResponse("suggested", suggestedText);
             _dialog.SetResponseAppearance("suggested", Adw.ResponseAppearance.Suggested);
         }
-        _dialog.OnResponse += (sender, e) => SetResponse(e.Response);
     }
 
     public event GObject.SignalHandler<Adw.MessageDialog, Adw.MessageDialog.ResponseSignalArgs> OnResponse
@@ -80,19 +67,4 @@ public class MessageDialog
     /// Resets the suggested response appearance to default
     /// </summary>
     public void UnsetSuggestedApperance() => _dialog.SetResponseAppearance("suggested", Adw.ResponseAppearance.Default);
-
-    /// <summary>
-    /// Sets the response of the dialog as a MessageDialogResponse
-    /// </summary>
-    /// <param name="response">The string response of the dialog</param>
-    private void SetResponse(string response)
-    {
-        var result = response switch
-        {
-            "suggested" => MessageDialogResponse.Suggested,
-            "destructive" => MessageDialogResponse.Destructive,
-            _ => MessageDialogResponse.Cancel
-        };
-        OnDialogClosed?.Invoke(this, result);
-    }
 }

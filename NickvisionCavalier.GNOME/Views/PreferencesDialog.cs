@@ -388,9 +388,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     private void OnAddProfile(object sender, EventArgs e)
     {
         var dialog = new AddProfileDialog(this, _controller.AppInfo.ID);
-        dialog.OnDialogClosed += (sender, response) =>
+        dialog.OnResponse += (sender, e) =>
         {
-            if (response == MessageDialogResponse.Suggested)
+            if (e.Response == "suggested")
             {
                 _controller.AddColorProfile(dialog.ProfileName);
                 UpdateColorProfiles();
@@ -405,9 +405,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             this, _controller.AppInfo.ID,
             _("Delete Profile"), _("Are you sure you want to delete profile \"{0}\"?", _controller.ColorProfiles[index].Name),
             _("Cancel"), _("Delete"));
-        dialog.OnDialogClosed += (sender, response) =>
+        dialog.OnResponse += (sender, e) =>
         {
-            if (response == MessageDialogResponse.Destructive)
+            if (e.Response == "destructive")
             {
                 _controller.ActiveProfile -= 1;
                 _controller.ColorProfiles.RemoveAt(index);
