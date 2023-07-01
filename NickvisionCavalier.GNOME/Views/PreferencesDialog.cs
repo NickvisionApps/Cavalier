@@ -61,11 +61,272 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Button _addFgColorButton;
     [Gtk.Connect] private readonly Gtk.Button _addBgColorButton;
 
-    private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller) : base(builder.GetPointer("_root"), false)
+    private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
         //Window Settings
         _controller = controller;
         SetIconName(_controller.AppInfo.ID);
+        //Next Drawing Mode Action
+        var actNextMode = Gio.SimpleAction.New("next-mode", null);
+        actNextMode.OnActivate += (sender, e) =>
+        {
+            if (_controller.Mode < DrawingMode.SpineBox)
+            {
+                switch (_controller.Mode + 1)
+                {
+                    case DrawingMode.LevelsBox:
+                        _levelsCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.ParticlesBox:
+                        _particlesCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.BarsBox:
+                        _barsCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.SpineBox:
+                        _spineCheckButton.SetActive(true);
+                        break;
+                }
+            }
+            else
+            {
+                _waveCheckButton.SetActive(true);
+            }
+        };
+        application.AddAction(actNextMode);
+        application.SetAccelsForAction("app.next-mode", new string[] { "d" });
+        //Previous Drawing Mode Action
+        var actPrevMode = Gio.SimpleAction.New("prev-mode", null);
+        actPrevMode.OnActivate += (sender, e) =>
+        {
+            if (_controller.Mode > DrawingMode.WaveBox)
+            {
+                switch (_controller.Mode - 1)
+                {
+                    case DrawingMode.WaveBox:
+                        _waveCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.LevelsBox:
+                        _levelsCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.ParticlesBox:
+                        _particlesCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.BarsBox:
+                        _barsCheckButton.SetActive(true);
+                        break;
+                }
+            }
+            else
+            {
+                _spineCheckButton.SetActive(true);
+            }
+        };
+        application.AddAction(actPrevMode);
+        application.SetAccelsForAction("app.prev-mode", new string[] { "<Shift>d" });
+        //Next Mirror Mode Action
+        var actNextMirror = Gio.SimpleAction.New("next-mirror", null);
+        actNextMirror.OnActivate += (sender, e) =>
+        {
+            var maxMirror = _controller.Stereo ? Mirror.SplitChannels : Mirror.Full;
+            _mirrorRow.SetSelected(_controller.Mirror < maxMirror ? (uint)_controller.Mirror + 1 : 0);
+        };
+        application.AddAction(actNextMirror);
+        application.SetAccelsForAction("app.next-mirror", new string[] { "m" });
+        //Previous Mirror Mode Action
+        var actPrevMirror = Gio.SimpleAction.New("prev-mirror", null);
+        actPrevMirror.OnActivate += (sender, e) =>
+        {
+            var maxMirror = _controller.Stereo ? Mirror.SplitChannels : Mirror.Full;
+            _mirrorRow.SetSelected(_controller.Mirror > Mirror.Off ? (uint)_controller.Mirror - 1 : (uint)maxMirror);
+        };
+        application.AddAction(actPrevMirror);
+        application.SetAccelsForAction("app.prev-mirror", new string[] { "<Shift>m" });
+        //Increase Area Margin Action
+        var actIncMargin = Gio.SimpleAction.New("inc-margin", null);
+        actIncMargin.OnActivate += (sender, e) =>
+        {
+            if (_marginScale.GetValue() < 40)
+            {
+                _marginScale.SetValue(_marginScale.GetValue() + 1);
+            }
+        };
+        application.AddAction(actIncMargin);
+        application.SetAccelsForAction("app.inc-margin", new string[] { "n" });
+        //Decrease Area Margin Action
+        var actDecMargin = Gio.SimpleAction.New("dec-margin", null);
+        actDecMargin.OnActivate += (sender, e) =>
+        {
+            if (_marginScale.GetValue() > 0)
+            {
+                _marginScale.SetValue(_marginScale.GetValue() - 1);
+            }
+        };
+        application.AddAction(actDecMargin);
+        application.SetAccelsForAction("app.dec-margin", new string[] { "<Shift>n" });
+        //Next Direction Action
+        var actNextDir = Gio.SimpleAction.New("next-direction", null);
+        actNextDir.OnActivate += (sender, e) => _directionRow.SetSelected(_controller.Direction < DrawingDirection.RightLeft ? (uint)_controller.Direction + 1 : (uint)DrawingDirection.TopBottom);
+        application.AddAction(actNextDir);
+        application.SetAccelsForAction("app.next-direction", new string[] { "o" });
+        //Previous Direction Action
+        var actPrevDir = Gio.SimpleAction.New("prev-direction", null);
+        actPrevDir.OnActivate += (sender, e) => _directionRow.SetSelected(_controller.Direction > DrawingDirection.TopBottom ? (uint)_controller.Direction - 1 : (uint)DrawingDirection.RightLeft);
+        application.AddAction(actPrevDir);
+        application.SetAccelsForAction("app.prev-direction", new string[] { "<Shift>o" });
+        //Increase Items Offset Action
+        var actIncOffset = Gio.SimpleAction.New("inc-offset", null);
+        actIncOffset.OnActivate += (sender, e) =>
+        {
+            if (_offsetScale.GetValue() < 20)
+            {
+                _offsetScale.SetValue(_offsetScale.GetValue() + 1);
+            }
+        };
+        application.AddAction(actIncOffset);
+        application.SetAccelsForAction("app.inc-offset", new string[] { "t" });
+        //Decrease Items Offset Action
+        var actDecOffset = Gio.SimpleAction.New("dec-offset", null);
+        actDecOffset.OnActivate += (sender, e) =>
+        {
+            if (_offsetScale.GetValue() > 0)
+            {
+                _offsetScale.SetValue(_offsetScale.GetValue() - 1);
+            }
+        };
+        application.AddAction(actDecOffset);
+        application.SetAccelsForAction("app.dec-offset", new string[] { "<Shift>t" });
+        //Increase Items Roundness Action
+        var actIncRound = Gio.SimpleAction.New("inc-roundness", null);
+        actIncRound.OnActivate += (sender, e) =>
+        {
+            if (_roundnessScale.GetValue() < 100)
+            {
+                _roundnessScale.SetValue(_roundnessScale.GetValue() + 1);
+            }
+        };
+        application.AddAction(actIncRound);
+        application.SetAccelsForAction("app.inc-roundness", new string[] { "r" });
+        //Decrease Items Roundness Action
+        var actDecRound = Gio.SimpleAction.New("dec-roundness", null);
+        actDecRound.OnActivate += (sender, e) =>
+        {
+            if (_roundnessScale.GetValue() > 0)
+            {
+                _roundnessScale.SetValue(_roundnessScale.GetValue() - 1);
+            }
+        };
+        application.AddAction(actDecRound);
+        application.SetAccelsForAction("app.dec-roundness", new string[] { "<Shift>r" });
+        //Toggle Filling Action
+        var actFill = Gio.SimpleAction.New("toggle-filling", null);
+        actFill.OnActivate += (sender, e) => _fillingSwitch.SetActive(!_fillingSwitch.GetActive());
+        application.AddAction(actFill);
+        application.SetAccelsForAction("app.toggle-filling", new string[] { "f" });
+        //Increase Lines Thickness Action
+        var actIncThick = Gio.SimpleAction.New("inc-thickness", null);
+        actIncThick.OnActivate += (sender, e) =>
+        {
+            if (_thicknessScale.GetValue() < 10)
+            {
+                _thicknessScale.SetValue(_thicknessScale.GetValue() + 1);
+            }
+        };
+        application.AddAction(actIncThick);
+        application.SetAccelsForAction("app.inc-thickness", new string[] { "l" });
+        //Decrease Lines Thickness Action
+        var actDecThick = Gio.SimpleAction.New("dec-thickness", null);
+        actDecThick.OnActivate += (sender, e) =>
+        {
+            if (_thicknessScale.GetValue() > 0)
+            {
+                _thicknessScale.SetValue(_thicknessScale.GetValue() - 1);
+            }
+        };
+        application.AddAction(actDecThick);
+        application.SetAccelsForAction("app.dec-thickness", new string[] { "<Shift>l" });
+        //Toggle Window Borders Action
+        var actBorders = Gio.SimpleAction.New("toggle-borders", null);
+        actBorders.OnActivate += (sender, e) => _borderlessSwitch.SetActive(!_borderlessSwitch.GetActive());
+        application.AddAction(actBorders);
+        application.SetAccelsForAction("app.toggle-borders", new string[] { "W" });
+        //Toggle Sharp Corners Action
+        var actCorners = Gio.SimpleAction.New("toggle-corners", null);
+        actCorners.OnActivate += (sender, e) => _sharpCornersSwitch.SetActive(!_sharpCornersSwitch.GetActive());
+        application.AddAction(actCorners);
+        application.SetAccelsForAction("app.toggle-corners", new string[] { "S" });
+        //Toggle Sharp Corners Action
+        var actControls = Gio.SimpleAction.New("toggle-controls", null);
+        actControls.OnActivate += (sender, e) => _windowControlsSwitch.SetActive(!_windowControlsSwitch.GetActive());
+        application.AddAction(actControls);
+        application.SetAccelsForAction("app.toggle-controls", new string[] { "H" });
+        //Toggle Autohide Headerbar Action
+        var actHeader = Gio.SimpleAction.New("toggle-headerbar", null);
+        actHeader.OnActivate += (sender, e) => _autohideHeaderSwitch.SetActive(!_autohideHeaderSwitch.GetActive());
+        application.AddAction(actHeader);
+        application.SetAccelsForAction("app.toggle-headerbar", new string[] { "A" });
+        //Increase Bars Action
+        var actIncBars = Gio.SimpleAction.New("inc-bars", null);
+        actIncBars.OnActivate += (sender, e) =>
+        {
+            if (_controller.BarPairs < 25)
+            {
+                _barsScale.SetValue((_controller.BarPairs + 1) * 2);
+            }
+        };
+        application.AddAction(actIncBars);
+        application.SetAccelsForAction("app.inc-bars", new string[] { "b" });
+        //Decrease Bars Action
+        var actDecBars = Gio.SimpleAction.New("dec-bars", null);
+        actDecBars.OnActivate += (sender, e) =>
+        {
+            if (_controller.BarPairs > 3)
+            {
+                _barsScale.SetValue((_controller.BarPairs - 1) * 2);
+            }
+        };
+        application.AddAction(actDecBars);
+        application.SetAccelsForAction("app.dec-bars", new string[] { "<Shift>b" });
+        //Toggle Stereo Action
+        var actStereo = Gio.SimpleAction.New("toggle-stereo", null);
+        actStereo.OnActivate += (sender, e) => _stereoButton.SetActive(!_stereoButton.GetActive());
+        application.AddAction(actStereo);
+        application.SetAccelsForAction("app.toggle-stereo", new string[] { "c" });
+        //Toggle Reverse Order Action
+        var actReverse = Gio.SimpleAction.New("toggle-reverse", null);
+        actReverse.OnActivate += (sender, e) => _reverseSwitch.SetActive(!_reverseSwitch.GetActive());
+        application.AddAction(actReverse);
+        application.SetAccelsForAction("app.toggle-reverse", new string[] { "e" });
+        //Next Color Profile Action
+        var actNextProfile = Gio.SimpleAction.New("next-profile", null);
+        actNextProfile.OnActivate += (sender, e) =>
+        {
+            if (_controller.ActiveProfile < _controller.ColorProfiles.Count - 1)
+            {
+                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile + 1));
+            }
+            else
+            {
+                _profilesList.SelectRow(_profilesList.GetRowAtIndex(0));
+            }
+        };
+        application.AddAction(actNextProfile);
+        application.SetAccelsForAction("app.next-profile", new string[] { "p" });
+        //Previous Color Profile Action
+        var actPrevProfile = Gio.SimpleAction.New("prev-profile", null);
+        actPrevProfile.OnActivate += (sender, e) =>
+        {
+            if (_controller.ActiveProfile > 0)
+            {
+                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile - 1));
+            }
+            else
+            {
+                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ColorProfiles.Count - 1));
+            }
+        };
+        application.AddAction(actPrevProfile);
+        application.SetAccelsForAction("app.prev-profile", new string[] { "<Shift>p" });
         //Build UI
         builder.Connect(this);
         OnCloseRequest += (sender, e) =>
@@ -365,7 +626,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// Constructs a PreferencesDialog
     /// </summary>
     /// <param name="controller">PreferencesViewController</param>
-    public PreferencesDialog(PreferencesViewController controller) : this(Builder.FromFile("preferences_dialog.ui"), controller)
+    public PreferencesDialog(PreferencesViewController controller, Adw.Application application) : this(Builder.FromFile("preferences_dialog.ui"), controller, application)
     {
     }
 

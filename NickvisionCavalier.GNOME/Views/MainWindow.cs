@@ -42,7 +42,7 @@ public class MainWindow : Adw.ApplicationWindow
         var prefController = _controller.CreatePreferencesViewController();
         prefController.OnWindowSettingsChanged += UpdateWindowSettings;
         prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
-        _preferencesDialog = new PreferencesDialog(prefController);
+        _preferencesDialog = new PreferencesDialog(prefController, application);
         OnCloseRequest += (sender, e) =>
         {
             prefController.Save(); // Save configuration in case preferences dialog is opened
@@ -97,6 +97,21 @@ public class MainWindow : Adw.ApplicationWindow
         actAbout.OnActivate += About;
         AddAction(actAbout);
         application.SetAccelsForAction("win.about", new string[] { "F1" });
+        //Fullscreen Action
+        var actFullscreen = Gio.SimpleAction.New("fullscreen", null);
+        actFullscreen.OnActivate += (sender, e) =>
+        {
+            if(Fullscreened)
+            {
+                Unfullscreen();
+            }
+            else
+            {
+                Fullscreen();
+            }
+        };
+        AddAction(actFullscreen);
+        application.SetAccelsForAction("win.fullscreen", new string[] { "F11" });
     }
 
     /// <summary>
@@ -169,7 +184,6 @@ public class MainWindow : Adw.ApplicationWindow
     {
         var builder = Builder.FromFile("shortcuts_dialog.ui");
         var shortcutsWindow = (Gtk.ShortcutsWindow)builder.GetObject("_shortcuts");
-        shortcutsWindow.SetTransientFor(this);
         shortcutsWindow.SetIconName(_controller.AppInfo.ID);
         shortcutsWindow.Present();
     }
