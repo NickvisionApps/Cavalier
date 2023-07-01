@@ -205,7 +205,7 @@ msgstr "Отключить границы окна"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:170
 msgid "Whether to disable window shadow and borders."
-msgstr "Тени и границы окна не будут отображаться."
+msgstr "Следует ли скрыть тени и границы окна."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:180
 msgid "Sharp corners"
