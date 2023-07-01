@@ -1,22 +1,20 @@
-# Russian translation for Nickvision Application
-# Copyright (C) 2023 Nicholas Logozzo
-# This file is distributed under the same license as the Nickvision Application package.
-# Fyodor Sobolev, 2023
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-22 23:19-0400\n"
-"PO-Revision-Date: 2023-05-23 06:33+0300\n"
-"Last-Translator: Fyodor Sobolev\n"
-"Language-Team: Russian\n"
-"Language: ru\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Program.cs:49
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
@@ -41,20 +39,14 @@ msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:219
 msgid "translator-credits"
-msgstr "Фёдор Соболев https://github.com/fsobolev"
+msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:216
-#, fuzzy
-#| msgid ""
-#| "Nicholas Logozzo {0}\n"
-#| "Contributors on GitHub ❤️ {1}"
 msgid ""
 "Fyodor Sobolev {0}\n"
 "Nicholas Logozzo {1}\n"
 "Contributors on GitHub ❤️ {2}"
 msgstr ""
-"Nicholas Logozzo {0}\n"
-"Соавторы на GitHub ❤️ {1}"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:215
 msgid "Matrix Chat"
@@ -64,7 +56,7 @@ msgstr ""
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
-msgstr "Параметры"
+msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:18
 msgid "Drawing area margin"
@@ -182,39 +174,39 @@ msgstr ""
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:14
 msgctxt "Shortcut"
 msgid "Folder"
-msgstr "Папка"
+msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:17
 msgid "Open Folder"
-msgstr "Открыть Папку"
+msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:22
 msgid "Close Folder"
-msgstr "Закрыть папку"
+msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:28
 msgctxt "Shortcut"
 msgid "Application"
-msgstr "Приложение"
+msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
-msgstr "Комбинации клавиш"
+msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
 msgid "About Application"
-msgstr "О приложении"
+msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
-msgstr "Выход"
+msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:31
 msgid "Main Menu"
-msgstr "Главное меню"
+msgstr ""
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
 msgid "Audio visualizer based on CAVA"
@@ -240,7 +232,7 @@ msgstr ""
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:19
 msgid "Nickvision"
-msgstr "Nickvision"
+msgstr ""
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:40
 msgid "Second release of Cavalier."
@@ -283,113 +275,3 @@ msgstr ""
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:49
 msgid "Import/Export Settings"
 msgstr ""
-
-#~ msgid "Folder closed."
-#~ msgstr "Папка закрыта."
-
-#~ msgid ""
-#~ "Nicholas Logozzo {0}\n"
-#~ "Fyodor Sobolev {1}"
-#~ msgstr ""
-#~ "Nicholas Logozzo {0}\n"
-#~ "Фёдор Соболев {1}"
-
-#~ msgid "Application"
-#~ msgstr "Application"
-
-#~ msgid "Create new Nickvision applications"
-#~ msgstr "Создавайте новые приложения Nickvision"
-
-#~ msgid "Good Evening!"
-#~ msgstr "Добрый вечер!"
-
-#~ msgctxt "Night"
-#~ msgid "Good Morning!"
-#~ msgstr "Доброй ночи!"
-
-#~ msgid "Close"
-#~ msgstr "Закрыть"
-
-#, csharp-format
-#~ msgid "Folder Opened: {0}"
-#~ msgstr "Папка открыта: {0}"
-
-#~ msgid "Close Folder?"
-#~ msgstr "Закрыть папку?"
-
-#, csharp-format
-#~ msgid "There is {0} file in the folder."
-#~ msgid_plural "There are {0} files in the folder."
-#~ msgstr[0] "В папке {0} файл."
-#~ msgstr[1] "В папке {0} файла."
-#~ msgstr[2] "В папке {0} файлов."
-
-#~ msgid "Cancel"
-#~ msgstr "Отмена"
-
-#~ msgid "No Folder Opened"
-#~ msgstr "Папка не открыта"
-
-#~ msgctxt "Morning"
-#~ msgid "Good Morning!"
-#~ msgstr "Доброе утро!"
-
-#~ msgid "Good Day!"
-#~ msgstr "Здравствуйте!"
-
-#~ msgid "Nicholas Logozzo {0}"
-#~ msgstr "Nicholas Logozzo {0}"
-
-#~ msgid "Are you sure you want to close the folder?"
-#~ msgstr "Вы уверены, что хотите закрыть папку?"
-
-#~ msgid "Good Afternoon!"
-#~ msgstr "Добрый день!"
-
-#~ msgid "User Interface"
-#~ msgstr "Интерфейс"
-
-#~ msgid "Customize the application's user interface."
-#~ msgstr "Настройте интерфейс приложения."
-
-#~ msgid "Theme"
-#~ msgstr "Тема"
-
-#~ msgctxt "Theme"
-#~ msgid "Light"
-#~ msgstr "Светлая"
-
-#~ msgctxt "Theme"
-#~ msgid "Dark"
-#~ msgstr "Тёмная"
-
-#~ msgctxt "Theme"
-#~ msgid "System"
-#~ msgstr "Системная"
-
-#~ msgid "Open Folder (Ctrl+O)"
-#~ msgstr "Открыть папку (Ctrl+O)"
-
-#~ msgid "Open"
-#~ msgstr "Открыть"
-
-#~ msgid "Close Folder (Ctrl+W)"
-#~ msgstr "Закрыть папку (Ctrl+W)"
-
-#~ msgid "Open a folder (or drag one into the app) to get started."
-#~ msgstr "Откройте или перетащите папку, чтобы начать."
-
-#~ msgid "Recipe for the Ultimate Power:"
-#~ msgstr "Рецепт Безграничной Мощи:"
-
-#~ msgid "— C#"
-#~ msgstr "— C#"
-
-#~ msgid "— gir.core"
-#~ msgstr "— gir.core"
-
-#~ msgid "— Avalonia"
-#~ msgstr "— Avalonia"
-
-#~ msgid "— Shaken, not stirred"
-#~ msgstr "— Смешать, но не взбалтывать"
