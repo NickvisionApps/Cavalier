@@ -41,7 +41,7 @@ public partial class Program
     public Program()
     {
         gtk_file_chooser_cell_get_type();
-        _application = Adw.Application.New("org.nickvision.cavalier", Gio.ApplicationFlags.FlagsNone);
+        _application = Adw.Application.New("io.github.fsobolev.Cavalier", Gio.ApplicationFlags.FlagsNone);
         _mainWindow = null;
         _mainWindowController = new MainWindowController();
         _mainWindowController.AppInfo.ID = "org.nickvision.cavalier";
