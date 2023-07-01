@@ -72,6 +72,10 @@ public class MainWindow : Adw.ApplicationWindow
                 _resizeTimer.Start();
                 _resizeBin.SetVisible(true);
             }
+            else if (e.Pspec.GetName() == "maximized")
+            {
+                SetDrawingAreaMargins();
+            }
         };
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);
@@ -123,10 +127,7 @@ public class MainWindow : Adw.ApplicationWindow
             Theme.Light => Adw.ColorScheme.ForceLight,
             _ => Adw.ColorScheme.ForceDark
         };
-        _drawingView.SetMarginTop(_controller.Borderless ? 0 : 1);
-        _drawingView.SetMarginStart(_controller.Borderless ? 0 : 1);
-        _drawingView.SetMarginEnd(_controller.Borderless ? 0 : 1);
-        _drawingView.SetMarginBottom(_controller.Borderless ? 0 : 1);
+        SetDrawingAreaMargins();
         if (_controller.Borderless)
         {
             AddCssClass("borderless-window");
@@ -146,6 +147,17 @@ public class MainWindow : Adw.ApplicationWindow
         _header.SetShowStartTitleButtons(_controller.ShowControls);
         _header.SetShowEndTitleButtons(_controller.ShowControls);
         _headerRevealer.SetRevealChild(GetIsActive() || !_controller.AutohideHeader);
+    }
+
+    /// <summary>
+    /// Sets correct margins for drawing area
+    /// </summary>
+    private void SetDrawingAreaMargins()
+    {
+        _drawingView.SetMarginTop(_controller.Borderless || IsMaximized() ? 0 : 1);
+        _drawingView.SetMarginStart(_controller.Borderless || IsMaximized() ? 0 : 1);
+        _drawingView.SetMarginEnd(_controller.Borderless || IsMaximized() ? 0 : 1);
+        _drawingView.SetMarginBottom(_controller.Borderless || IsMaximized() ? 0 : 1);
     }
 
     /// <summary>
