@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Cavalier
+Comment=Visualize audio with CAVA
+Exec=@EXEC@
+Icon=org.nickvision.cavalier
+Terminal=false
+Type=Application
+X-GNOME-UsesNotifications=true
+StartupNotify=true

@@ -226,7 +226,7 @@ private void FinishPublishLinux(string outDir, string prefix, string libDir, boo
     CreateDirectory(iconsSymbolicDir);
     CopyFileToDirectory($".{sep}{projectName}.Shared{sep}Resources{sep}{appId}-symbolic.svg", iconsSymbolicDir);
 
-    var desktopDir = $"{shareDir}/applications";
+    /*var desktopDir = $"{shareDir}/applications";
     CreateDirectory(desktopDir);
     CopyFileToDirectory($"./{projectName}.Shared/{appId}.desktop.in", desktopDir);
     ReplaceTextInFiles($"{desktopDir}/{appId}.desktop.in", "@EXEC@", $"{prefix}/bin/{appId}");
@@ -242,7 +242,25 @@ private void FinishPublishLinux(string outDir, string prefix, string libDir, boo
     StartProcess("msgfmt", new ProcessSettings {
         Arguments = $"--xml --template={metainfoDir}/{appId}.metainfo.xml.in -o {metainfoDir}/{appId}.metainfo.xml -d ./{projectName}.Shared/Resources/po/"
     });
-    DeleteFile($"{metainfoDir}/{appId}.metainfo.xml.in");
+    DeleteFile($"{metainfoDir}/{appId}.metainfo.xml.in");*/
+
+    var desktopDir = $"{shareDir}/applications";
+    CreateDirectory(desktopDir);
+    CopyFileToDirectory($"./{projectName}.Shared/io.github.fsobolev.Cavalier.desktop.in", desktopDir);
+    ReplaceTextInFiles($"{desktopDir}/io.github.fsobolev.Cavalier.desktop.in", "@EXEC@", $"{prefix}/bin/{appId}");
+    StartProcess("msgfmt", new ProcessSettings {
+        Arguments = $"--desktop --template={desktopDir}/io.github.fsobolev.Cavalier.desktop.in -o {desktopDir}/io.github.fsobolev.Cavalier.desktop -d ./{projectName}.Shared/Resources/po/"
+    });
+    DeleteFile($"{desktopDir}/io.github.fsobolev.Cavalier.desktop.in");
+
+    var metainfoDir = $"{shareDir}/metainfo";
+    CreateDirectory(metainfoDir);
+    CopyFileToDirectory($"./{projectName}.Shared/io.github.fsobolev.Cavalier.metainfo.xml.in", metainfoDir);
+    ReplaceTextInFiles($"{metainfoDir}/io.github.fsobolev.Cavalier.metainfo.xml.in", "@PROJECT@", $"{projectName}.{projectSuffix}");
+    StartProcess("msgfmt", new ProcessSettings {
+        Arguments = $"--xml --template={metainfoDir}/io.github.fsobolev.Cavalier.metainfo.xml.in -o {metainfoDir}/io.github.fsobolev.Cavalier.metainfo.xml -d ./{projectName}.Shared/Resources/po/"
+    });
+    DeleteFile($"{metainfoDir}/io.github.fsobolev.Cavalier.metainfo.xml.in");
 }
 
 private void PostPublishGNOME(string outDir, string prefix, string libDir)

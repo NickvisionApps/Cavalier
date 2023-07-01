@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>io.github.fsobolev.Cavalier.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Cavalier</name>
+  <summary>Visualize audio with CAVA</summary>
+  <description>
+    <p>Cavalier is an audio visualizer based on CAVA with customizable interface.</p>
+    <ul>
+      <li>5 drawing modes!</li>
+      <li>Set any color or a gradient for background and foreground.</li>
+      <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">io.github.fsobolev.Cavalier.desktop</launchable>
+  <url type="homepage">https://github.com/NickvisionApps/Cavalier</url>
+  <url type="bugtracker">https://github.com/NickvisionApps/Cavalier/issues</url>
+  <developer_name>Nickvision</developer_name>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Main.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Default.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Levels.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Particles.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/@PROJECT@/Screenshots/Bars.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release type="stable" date="2023-07-01" version="2023.07.0-beta1">
+      <description translatable="no">
+        <p>New Cavalier!</p>
+        <ul>
+          <li>Cavalier is reborn as part of Nickvision apps family! Completely rewritten in C#, gaining better performance and solid base to grow in future!</li>
+          <li>New notable features compared to previous stable release of Cavalier: Spine drawing mode, drawing direction selection and mirror.</li>
+          <li>Translations were moved to Weblate.</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1"/>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
+</component>
