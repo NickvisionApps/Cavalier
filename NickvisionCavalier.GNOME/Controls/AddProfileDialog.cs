@@ -25,6 +25,7 @@ public class AddProfileDialog
         ProfileName = "";
         _dialog = Adw.MessageDialog.New(parentWindow, _("Add New Profile"), _("New color profile will be a copy of the current active profile."));
         _dialog.SetIconName(iconName);
+        _dialog.SetSizeRequest(360, -1);
         var prefGroup = Adw.PreferencesGroup.New();
         _dialog.SetExtraChild(prefGroup);
         var nameEntry = Adw.EntryRow.New();
