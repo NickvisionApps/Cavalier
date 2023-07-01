@@ -238,9 +238,9 @@ public class MainWindow : Adw.ApplicationWindow
         dialog.SetSupportUrl(_controller.AppInfo.SupportUrl.ToString());
         dialog.AddLink(_("GitHub Repo"), _controller.AppInfo.GitHubRepo.ToString());
         dialog.AddLink(_("Matrix Chat"), "https://matrix.to/#/#nickvision:matrix.org");
-        dialog.SetDevelopers(string.Format(_("Fyodor Sobolev {0}\nNicholas Logozzo {1}\nContributors on GitHub ❤️ {2}"), "https://github.com/fsobolev", "https://github.com/nlogozzo", "https://github.com/NickvisionApps/Cavalier/graphs/contributors").Split("\n"));
-        dialog.SetDesigners(string.Format(_("Fyodor Sobolev {0}"), "https://github.com/fsobolev").Split("\n"));
-        dialog.SetArtists(string.Format(_("Fyodor Sobolev {0}"), "https://github.com/fsobolev").Split("\n"));
+        dialog.SetDevelopers(_("Fyodor Sobolev {0}\nNicholas Logozzo {1}\nContributors on GitHub ❤️ {2}", "https://github.com/fsobolev", "https://github.com/nlogozzo", "https://github.com/NickvisionApps/Cavalier/graphs/contributors").Split("\n"));
+        dialog.SetDesigners(_("Fyodor Sobolev {0}", "https://github.com/fsobolev").Split("\n"));
+        dialog.SetArtists(_("Fyodor Sobolev {0}\nDavid Lapshin {1}", "https://github.com/fsobolev", "https://github.com/daudix-UFO").Split("\n"));
         dialog.SetTranslatorCredits(_("translator-credits"));
         dialog.SetReleaseNotes(_controller.AppInfo.Changelog);
         dialog.Present();
