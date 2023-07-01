@@ -364,9 +364,9 @@ public class Renderer
                 case DrawingDirection.TopBottom:
                     Canvas.DrawRect(
                         x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                        Configuration.Current.Filling ? y : y + Configuration.Current.LinesThickness / 2,
+                        (Configuration.Current.Filling ? y : y + Configuration.Current.LinesThickness / 2) - 1,
                         step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
-                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness) + 1,
                         paint);
                     break;
                 case DrawingDirection.BottomTop:
@@ -374,7 +374,7 @@ public class Renderer
                         x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + height * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
-                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness) + 1,
                         paint);
                     break;
                 case DrawingDirection.LeftRight:
