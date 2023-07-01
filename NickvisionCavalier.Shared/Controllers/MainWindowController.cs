@@ -29,10 +29,6 @@ public class MainWindowController
     /// </summary>
     public uint WindowHeight => Configuration.Current.WindowHeight;
     /// <summary>
-    /// Size of drawing area margins in pixels
-    /// </summary>
-    public uint AreaMargin => Configuration.Current.AreaMargin;
-    /// <summary>
     /// Whether the window should be borderless
     /// </summary>
     public bool Borderless => Configuration.Current.Borderless;

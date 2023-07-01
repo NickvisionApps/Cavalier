@@ -4,14 +4,101 @@ using Adw 1;
 Gtk.ShortcutsWindow _shortcuts {
   default-width: 600;
   default-height: 500;
-  modal: true;
   resizable: true;
   destroy-with-parent: false;
   hide-on-close: true;
 
   Gtk.ShortcutsSection {
     Gtk.ShortcutsGroup {
+      title: _("Cavalier");
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Drawing Mode");
+        accelerator: "D <Shift>D";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Mirror Mode");
+        accelerator: "M <Shift>M";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Drawing Area Margin");
+        accelerator: "N <Shift>N";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Drawing Direction");
+        accelerator: "O <Shift>O";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Offset Between Items");
+        accelerator: "T <Shift>T";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Items Roundness");
+        accelerator: "R <Shift>R";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Toggle Filling");
+        accelerator: "F";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Lines Thickness");
+        accelerator: "L <Shift>L";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Toggle Window Borders");
+        accelerator: "W";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Toggle Sharp Corners");
+        accelerator: "S";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Toggle Window Controls");
+        accelerator: "H";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Toggle Autohide Headerbar");
+        accelerator: "A";
+      }
+    }
+
+    Gtk.ShortcutsGroup {
+      title: "CAVA";
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Number of Bars");
+        accelerator: "B <Shift>B";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Toggle Channels");
+        accelerator: "C";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Toggle Reverse Order");
+        accelerator: "E";
+      }
+    }
+
+    Gtk.ShortcutsGroup {
       title: C_("Shortcut", "Application");
+
+      Gtk.ShortcutsShortcut {
+        title: _("Toggle Fullscreen");
+        accelerator: "F11";
+      }
 
       Gtk.ShortcutsShortcut {
         title: _("Preferences");

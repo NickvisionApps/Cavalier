@@ -9,7 +9,7 @@
     <p>Cavalier is an audio visualizer based on CAVA with customizable interface.</p>
     <ul>
       <li>5 drawing modes!</li>
-      <li>Set any color or gradient for background and foreground.</li>
+      <li>Set any color or a gradient for background and foreground.</li>
       <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
     </ul>
   </description>
@@ -35,18 +35,13 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release type="stable" date="2023-01-29" version="2023.01.29">
+    <release type="stable" date="2023-07-01" version="2023.07.0-beta1">
       <description translatable="no">
-        <p>Second release of Cavalier.</p>
+        <p>New Cavalier!</p>
         <ul>
-          <li>New drawing mode — Particles!</li>
-          <li>Color profiles! Create as many as you want and change between them instantly. Unfortunately, this new feature required to change how the application saves colors, and because of this your previous colors settings will be lost after installing this update.</li>
-          <li>Added keyboard shortcuts to change most of the settings on the fly.</li>
-          <li>Added option to show/hide window controls.</li>
-          <li>Added option to autohide headerbar when the main window is not focused.</li>
-          <li>Added option to change roundness of items in "levels" and "particles" modes.</li>
-          <li>Added option to reverse the order of bars.</li>
-          <li>Import/Export Settings</li>
+          <li>Cavalier is reborn as part of Nickvision apps family! Completely rewritten in C#, gaining better performance and solid base to grow in future!</li>
+          <li>New notable features compared to previous stable release of Cavalier: Spine drawing mode, drawing direction selection and mirror.</li>
+          <li>Translations were moved to Weblate.</li>
         </ul>
       </description>
     </release>

@@ -83,7 +83,7 @@
                     "type": "dir",
                     "path": ".."
                 },
-                "cake-sources.json",
+                "cake.json",
                 "../NickvisionCavalier.GNOME/nuget-sources.json"
             ]
         }

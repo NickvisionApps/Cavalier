@@ -46,8 +46,8 @@ public class ColorProfile : ICloneable
         return new ColorProfile()
         {
             Name = Name,
-            FgColors = FgColors,
-            BgColors = BgColors,
+            FgColors = new List<string>(FgColors),
+            BgColors = new List<string>(BgColors),
             Theme = Theme
         };
     }

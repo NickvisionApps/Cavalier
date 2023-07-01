@@ -42,7 +42,7 @@ public class MainWindow : Adw.ApplicationWindow
         var prefController = _controller.CreatePreferencesViewController();
         prefController.OnWindowSettingsChanged += UpdateWindowSettings;
         prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
-        _preferencesDialog = new PreferencesDialog(prefController);
+        _preferencesDialog = new PreferencesDialog(prefController, application);
         OnCloseRequest += (sender, e) =>
         {
             prefController.Save(); // Save configuration in case preferences dialog is opened
@@ -72,7 +72,7 @@ public class MainWindow : Adw.ApplicationWindow
                 _resizeTimer.Start();
                 _resizeBin.SetVisible(true);
             }
-            else if (e.Pspec.GetName() == "maximized")
+            else if (e.Pspec.GetName() == "maximized" || e.Pspec.GetName() == "fullscreened")
             {
                 SetDrawingAreaMargins();
             }
@@ -97,6 +97,21 @@ public class MainWindow : Adw.ApplicationWindow
         actAbout.OnActivate += About;
         AddAction(actAbout);
         application.SetAccelsForAction("win.about", new string[] { "F1" });
+        //Fullscreen Action
+        var actFullscreen = Gio.SimpleAction.New("fullscreen", null);
+        actFullscreen.OnActivate += (sender, e) =>
+        {
+            if(Fullscreened)
+            {
+                Unfullscreen();
+            }
+            else
+            {
+                Fullscreen();
+            }
+        };
+        AddAction(actFullscreen);
+        application.SetAccelsForAction("win.fullscreen", new string[] { "F11" });
     }
 
     /// <summary>
@@ -154,10 +169,10 @@ public class MainWindow : Adw.ApplicationWindow
     /// </summary>
     private void SetDrawingAreaMargins()
     {
-        _drawingView.SetMarginTop(_controller.Borderless || IsMaximized() ? 0 : 1);
-        _drawingView.SetMarginStart(_controller.Borderless || IsMaximized() ? 0 : 1);
-        _drawingView.SetMarginEnd(_controller.Borderless || IsMaximized() ? 0 : 1);
-        _drawingView.SetMarginBottom(_controller.Borderless || IsMaximized() ? 0 : 1);
+        _drawingView.SetMarginTop(_controller.Borderless || IsMaximized() || Fullscreened ? 0 : 1);
+        _drawingView.SetMarginStart(_controller.Borderless || IsMaximized() || Fullscreened ? 0 : 1);
+        _drawingView.SetMarginEnd(_controller.Borderless || IsMaximized() || Fullscreened ? 0 : 1);
+        _drawingView.SetMarginBottom(_controller.Borderless || IsMaximized() || Fullscreened ? 0 : 1);
     }
 
     /// <summary>
@@ -169,7 +184,6 @@ public class MainWindow : Adw.ApplicationWindow
     {
         var builder = Builder.FromFile("shortcuts_dialog.ui");
         var shortcutsWindow = (Gtk.ShortcutsWindow)builder.GetObject("_shortcuts");
-        shortcutsWindow.SetTransientFor(this);
         shortcutsWindow.SetIconName(_controller.AppInfo.ID);
         shortcutsWindow.Present();
     }
