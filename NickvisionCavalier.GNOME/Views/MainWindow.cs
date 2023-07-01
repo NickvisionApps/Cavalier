@@ -72,7 +72,7 @@ public class MainWindow : Adw.ApplicationWindow
                 _resizeTimer.Start();
                 _resizeBin.SetVisible(true);
             }
-            else if (e.Pspec.GetName() == "maximized")
+            else if (e.Pspec.GetName() == "maximized" || e.Pspec.GetName() == "fullscreened")
             {
                 SetDrawingAreaMargins();
             }
@@ -169,10 +169,10 @@ public class MainWindow : Adw.ApplicationWindow
     /// </summary>
     private void SetDrawingAreaMargins()
     {
-        _drawingView.SetMarginTop(_controller.Borderless || IsMaximized() ? 0 : 1);
-        _drawingView.SetMarginStart(_controller.Borderless || IsMaximized() ? 0 : 1);
-        _drawingView.SetMarginEnd(_controller.Borderless || IsMaximized() ? 0 : 1);
-        _drawingView.SetMarginBottom(_controller.Borderless || IsMaximized() ? 0 : 1);
+        _drawingView.SetMarginTop(_controller.Borderless || IsMaximized() || Fullscreened ? 0 : 1);
+        _drawingView.SetMarginStart(_controller.Borderless || IsMaximized() || Fullscreened ? 0 : 1);
+        _drawingView.SetMarginEnd(_controller.Borderless || IsMaximized() || Fullscreened ? 0 : 1);
+        _drawingView.SetMarginBottom(_controller.Borderless || IsMaximized() || Fullscreened ? 0 : 1);
     }
 
     /// <summary>
