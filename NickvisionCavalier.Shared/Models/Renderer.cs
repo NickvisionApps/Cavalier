@@ -1,5 +1,6 @@
 using SkiaSharp;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NickvisionCavalier.Shared.Models;
@@ -23,12 +24,38 @@ public class Renderer
             return;
         }
         Canvas.Clear();
+        var profile = Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile];
+        // Draw background
+        var bgPaint = new SKPaint
+        {
+            Style = SKPaintStyle.Fill,
+            Color = SKColors.Red
+        };
+        if (profile.BgColors.Count > 1)
+        {
+            bgPaint.Shader = CreateGradient(profile.BgColors, width, height);
+        }
+        else
+        {
+            bgPaint.Color = SKColor.Parse(profile.BgColors[0]);
+        }
+        Canvas.DrawRect(0, 0, width, height, bgPaint);
+        // Draw foreground
+        width = width - Configuration.Current.AreaMargin * 2;
+        height = height - Configuration.Current.AreaMargin * 2;
         var fgPaint = new SKPaint
         {
             Style = Configuration.Current.Filling ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
             StrokeWidth = Configuration.Current.LinesThickness,
-            Color = SKColors.Blue
         };
+        if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox)
+        {
+            fgPaint.Shader = CreateGradient(profile.FgColors, width, height, Configuration.Current.AreaMargin);
+        }
+        else
+        {
+            fgPaint.Color = SKColor.Parse(profile.FgColors[0]);
+        }
         _drawFunc = Configuration.Current.Mode switch
         {
             DrawingMode.LevelsBox => DrawLevelsBox,
@@ -39,19 +66,50 @@ public class Renderer
         };
         if (Configuration.Current.Mirror == Mirror.Full)
         {
-            _drawFunc(sample, Configuration.Current.Direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
             _drawFunc(sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
         }
         else if (Configuration.Current.Mirror == Mirror.SplitChannels)
         {
-            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction, 0, 0, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
             _drawFunc(sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
         }
         else
         {
-            _drawFunc(sample, Configuration.Current.Direction, 0, 0, width, height, fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, width, height, fgPaint);
         }
         Canvas.Flush();
+    }
+
+    /// <summary>
+    /// Creates gradient shader
+    /// </summary>
+    /// <param name="colorStrings">List of colors as strings</param>
+    /// <param name="width">Canvas width</param>
+    /// <param name="height">Canvas height</param>
+    /// <returns>Skia Shader</returns>
+    private SKShader CreateGradient(List<string> colorStrings, float width, float height, uint margin = 0)
+    {
+        var colors = colorStrings.Select(c => SKColor.Parse(c)).Reverse().ToArray();
+        if (Configuration.Current.Mirror != Mirror.Off)
+        {
+            var mirrorColors = new SKColor[colors.Length * 2];
+            if (Configuration.Current.Direction == DrawingDirection.BottomTop || Configuration.Current.Direction == DrawingDirection.RightLeft)
+            {
+                Array.Reverse(colors);
+            }
+            colors.CopyTo(mirrorColors, 0);
+            Array.Reverse(colors);
+            colors.CopyTo(mirrorColors, colors.Length);
+            colors = mirrorColors;
+        }
+        return Configuration.Current.Direction switch
+        {
+            DrawingDirection.TopBottom => SKShader.CreateLinearGradient(new SKPoint(margin, margin), new SKPoint(margin, height), colors, SKShaderTileMode.Clamp),
+            DrawingDirection.BottomTop => SKShader.CreateLinearGradient(new SKPoint(margin, height), new SKPoint(margin, margin), colors, SKShaderTileMode.Clamp),
+            DrawingDirection.LeftRight => SKShader.CreateLinearGradient(new SKPoint(margin, margin), new SKPoint(width, margin), colors, SKShaderTileMode.Clamp),
+            _ => SKShader.CreateLinearGradient(new SKPoint(width, margin), new SKPoint(margin, margin), colors, SKShaderTileMode.Clamp)
+        };
     }
 
     private DrawingDirection GetMirrorDirection()
@@ -69,18 +127,18 @@ public class Renderer
     {
         if (Configuration.Current.Direction == DrawingDirection.LeftRight || Configuration.Current.Direction == DrawingDirection.RightLeft)
         {
-            return width / 2.0f;
+            return width / 2.0f + Configuration.Current.AreaMargin;
         }
-        return 0;
+        return Configuration.Current.AreaMargin;
     }
 
     private float GetMirrorY(float height)
     {
         if (Configuration.Current.Direction == DrawingDirection.TopBottom || Configuration.Current.Direction == DrawingDirection.BottomTop)
         {
-            return height / 2.0f;
+            return height / 2.0f + Configuration.Current.AreaMargin;
         }
-        return 0;
+        return Configuration.Current.AreaMargin;
     }
 
     private float GetMirrorWidth(float width)
@@ -294,9 +352,9 @@ public class Renderer
                 case DrawingDirection.TopBottom:
                     Canvas.DrawRect(
                         x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                        Configuration.Current.Filling ? y : y + Configuration.Current.LinesThickness / 2,
+                        (Configuration.Current.Filling ? y : y + Configuration.Current.LinesThickness / 2) - 1,
                         step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
-                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness) + 1,
                         paint);
                     break;
                 case DrawingDirection.BottomTop:
@@ -304,7 +362,7 @@ public class Renderer
                         x + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + height * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
-                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness) + 1,
                         paint);
                     break;
                 case DrawingDirection.LeftRight:
@@ -346,7 +404,7 @@ public class Renderer
                         y + height / 2 - itemSize * sample[i] / 2,
                         itemSize * sample[i], itemSize * sample[i],
                         itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness, itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
-                        paint);
+                        GetSpinePaint(paint, sample[i]));
                     break;
                 case DrawingDirection.LeftRight:
                 case DrawingDirection.RightLeft:
@@ -355,9 +413,33 @@ public class Renderer
                         y + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
                         itemSize * sample[i], itemSize * sample[i],
                         itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness, itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
-                        paint);
+                        GetSpinePaint(paint, sample[i]));
                     break;
             }
         }
+    }
+
+    /// <summary>
+    /// Sets paint color for Spine element
+    /// </summary>
+    /// <param name="paint">Skia paint</param>
+    /// <param name="sample">CAVA value for element</param>
+    /// <returns>Modified Skia paint</returns>
+    private SKPaint GetSpinePaint(SKPaint paint, float sample)
+    {
+        var profile = Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile];
+        if (profile.FgColors.Count > 1)
+        {
+            var pos = (profile.FgColors.Count - 1) * sample;
+            var color1 = SKColor.Parse(profile.FgColors[(int)Math.Floor(pos)]);
+            var color2 = SKColor.Parse(profile.FgColors[(int)Math.Ceiling(pos)]);
+            var weight = sample < 1 ? pos % 1 : 1;
+            paint.Color = new SKColor(
+                (byte)(color1.Red * (1 - weight) + color2.Red * weight),
+                (byte)(color1.Green * (1 - weight) + color2.Green * weight),
+                (byte)(color1.Blue * (1 - weight) + color2.Blue * weight),
+                (byte)(color1.Alpha * (1 - weight) + color2.Alpha * weight));
+        }
+        return paint;
     }
 }

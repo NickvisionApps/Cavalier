@@ -19,7 +19,7 @@ public class MainWindowController
     /// <summary>
     /// The preferred theme of the application
     /// </summary>
-    public Theme Theme => Configuration.Current.Theme;
+    public Theme Theme => Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile].Theme;
     /// <summary>
     /// The MainWindow width
     /// </summary>

@@ -1,395 +1,559 @@
-# Russian translation for Nickvision Application
-# Copyright (C) 2023 Nicholas Logozzo
-# This file is distributed under the same license as the Nickvision Application package.
-# Fyodor Sobolev, 2023
+# Russian translation for Cavalier
+# Copyright (C) 2022 Fyodor Sobolev
+# This file is distributed under the same license as the PACKAGE package.
+# Fyodor Sobolev, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 23:19-0400\n"
-"PO-Revision-Date: 2023-05-23 06:33+0300\n"
+"POT-Creation-Date: 2023-07-01 06:49+0300\n"
+"PO-Revision-Date: 2022-12-04 23:26+0300\n"
 "Last-Translator: Fyodor Sobolev\n"
-"Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:239
+msgid "GitHub Repo"
+msgstr "Репозиторий GitHub"
+
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:29
+msgid "Profile Name"
+msgstr "Имя профиля"
+
+#: ../../../Models/ColorProfile.cs:34
+msgid "Default"
+msgstr "По умолчанию"
+
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:24
+msgid "Add New Profile"
+msgstr "Добавить новый профиль"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:146
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:282
+msgid "On"
+msgstr "Включено"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:240
+msgid "Matrix Chat"
+msgstr "Чат Matrix"
+
+#: ../../../../NickvisionCavalier.GNOME/Program.cs:50
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
+#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
+msgid "Visualize audio with CAVA"
+msgstr "Визуализируйте аудио с помощью CAVA"
+
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:24
+msgid "New color profile will be a copy of the current active profile."
+msgstr "Новый цветовой профиль будет копией текущего активного профиля."
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:141
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:277
+msgid "Full"
+msgstr "Полное"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:39
+msgid "Cancel"
+msgstr "Отмена"
 
 #: ../../../../NickvisionCavalier.GNOME/Program.cs:49
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:6
 msgid "Cavalier"
-msgstr ""
+msgstr "Cavalier"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:214
-msgid "GitHub Repo"
-msgstr ""
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
+msgid "Add"
+msgstr "Добавить"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:217
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:218
-msgid "Fyodor Sobolev {0}"
-msgstr ""
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:141
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:277
+msgid "Split Channels"
+msgstr "Разделить каналы"
 
-#: ../../../../NickvisionCavalier.GNOME/Program.cs:50
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
-msgid "Visualize audio with CAVA"
-msgstr ""
-
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:219
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:244
 msgid "translator-credits"
 msgstr "Фёдор Соболев https://github.com/fsobolev"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:216
-#, fuzzy
-#| msgid ""
-#| "Nicholas Logozzo {0}\n"
-#| "Contributors on GitHub ❤️ {1}"
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:243
+#, csharp-format
+msgid "David Lapshin {0}"
+msgstr "Давид Лапшин {0}"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
+msgid "Delete"
+msgstr "Удалить"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:406
+#, csharp-format
+msgid "Are you sure you want to delete profile \"{0}\"?"
+msgstr "Вы уверены, что хотите удалить профиль \"{0}\"?"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:406
+msgid "Delete Profile"
+msgstr "Удалить профиль"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:241
+#, csharp-format
 msgid ""
 "Fyodor Sobolev {0}\n"
 "Nicholas Logozzo {1}\n"
 "Contributors on GitHub ❤️ {2}"
 msgstr ""
-"Nicholas Logozzo {0}\n"
-"Соавторы на GitHub ❤️ {1}"
+"Фёдор Соболев {0}\n"
+"Nicholas Logozzo {1}\n"
+"Соавторы на GitHub ❤️ {2}"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:215
-msgid "Matrix Chat"
-msgstr ""
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:242
+#, csharp-format
+msgid "Fyodor Sobolev {0}"
+msgstr "Фёдор Соболев {0}"
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:141
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:146
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:277
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:282
+msgid "Off"
+msgstr "Выключено"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:17
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
-msgstr "Параметры"
+msgstr "Настройки"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:18
-msgid "Drawing area margin"
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:17
+msgid "Drawing mode"
+msgstr "Режим отрисовки"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:19
-msgid "Size of gaps around drawing area (in pixels)."
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:20
+msgid "Wave"
+msgstr "Волна"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
+msgid "Levels"
+msgstr "Уровни"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:38
-msgid "Borderless window"
-msgstr ""
-
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:39
-msgid "Whether to disable window shadow and borders."
-msgstr ""
+msgid "Particles"
+msgstr "Частицы"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:48
-msgid "Sharp corners"
-msgstr ""
-
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:49
-msgid "Whether the main window corners should be sharp."
-msgstr ""
+msgid "Bars"
+msgstr "Шкалы"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:58
-msgid "Window controls"
-msgstr ""
+msgid "Spine"
+msgstr "Хребет"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:59
-msgid "Whether to show window control buttons."
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:70
+msgid "Mirror"
+msgstr "Зеркало"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:68
-msgid "Autohide headerbar"
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:76
+msgid "Drawing area margin"
+msgstr "Отступ области отрисовки"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:69
-msgid "Whether to hide headerbar when main window is not focused."
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:77
+msgid "Size of gaps around drawing area (in pixels)."
+msgstr "Размер отступа вокруг области отрисовки (в пикселях)."
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:85
-msgid "Framerate"
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:94
+msgid "Drawing direction"
+msgstr "Направление отрисовки"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:86
-msgid "Number of frames per second."
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:101
+msgid "Offset between items"
+msgstr "Расстояние между элементами"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:93
-msgid "Number of bars"
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:102
+msgid "The size of spaces between elements (in percent)."
+msgstr "Размер пространства между элементами (в процентах)."
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:110
-msgid "Automatic sensitivity"
-msgstr ""
-
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:111
-msgid "Attempt to decrease sensitivity if the bars peak."
-msgstr ""
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:119
+msgid "Roundness of items"
+msgstr "Округлость элементов"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:120
-msgid "Sensitivity"
-msgstr ""
+msgid "How much rounded the elements should be (in percent)."
+msgstr "Насколько элементы должны быть скруглены (в процентах)."
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:121
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:137
+msgid "Filling"
+msgstr "Заполнение"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:138
+msgid "Whether shapes should be filled or outlined."
+msgstr "Должны ли формы быть заполнены или обведены."
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:148
+msgid "Thickness of lines"
+msgstr "Толщина линий"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
+msgid "Thickness of lines when filling is off (in pixels)."
+msgstr "Толщина линий при выключенном заполнении (в пикселях)."
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:169
+msgid "Borderless window"
+msgstr "Отключить границы окна"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:170
+msgid "Whether to disable window shadow and borders."
+msgstr "Следует ли скрыть тени и границы окна."
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:180
+msgid "Sharp corners"
+msgstr "Острые углы"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:181
+msgid "Whether the main window corners should be sharp."
+msgstr "Должны ли углы главного окна быть острыми."
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:191
+msgid "Window controls"
+msgstr "Кнопки управления окном"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:192
+msgid "Whether to show window control buttons."
+msgstr "Должны ли отображаться кнопки управления окном."
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:202
+msgid "Autohide headerbar"
+msgstr "Автоскрытие заголовка"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:203
+msgid "Whether to hide headerbar when main window is not focused."
+msgstr "Должен ли отображаться заголовок главного окна, когда оно не в фокусе."
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:220
+msgid "Framerate"
+msgstr "Частота кадров"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:221
+msgid "Number of frames per second."
+msgstr "Число кадров в секунду."
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:228
+msgid "Number of bars"
+msgstr "Количество шкал"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:245
+msgid "Automatic sensitivity"
+msgstr "Автоматическая чувствительность"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:246
+msgid "Attempt to decrease sensitivity if the bars peak."
+msgstr ""
+"Пытаться снижать чувствительность, если показатели достигают максимума."
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:256
+msgid "Sensitivity"
+msgstr "Чувствительность"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:257
 msgid ""
 "Manual sensitivity. If automatic sensitivity is enabled, this will only be "
 "the initial value."
 msgstr ""
+"Ручная настройка чувствительности. Если автоматическая чувствительность "
+"включена, этот параметр задаёт только начальное значение."
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:136
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:272
 msgid "Channels"
-msgstr ""
+msgstr "Каналы"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:279
 msgid "Mono"
-msgstr ""
+msgstr "Моно"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:147
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:283
 msgid "Stereo"
-msgstr ""
+msgstr "Стерео"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:156
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:292
 msgid "Monstercat smoothing"
-msgstr ""
+msgstr "Сглаживание Monstercat"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:157
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:293
 msgid "Whether to enable the so-called «Monstercat smoothing»."
-msgstr ""
+msgstr "Следуюет ли включить так называемое «сглаживание Monstercat»."
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:166
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:303
 msgid "Noise reduction"
-msgstr ""
+msgstr "Шумоподавление"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:167
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:304
 msgid ""
 "This factor adjusts the integral and gravity filters to keep the signal "
 "smooth.\n"
-"1 will be very slow and smooth, 0 will be fast but noisy."
+"Higher value leads to a slower and smoother result."
 msgstr ""
+"Этот параметр регулирует интегральные и гравитационные фильтры, делающие "
+"сигнал гладким.\n"
+"Высокое значение приведёт к более медленному и гладкому результату."
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:184
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:321
 msgid "Reverse order"
-msgstr ""
+msgstr "Обратный порядок"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:185
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:322
 msgid "Whether to reverse order of bars for each channel."
-msgstr ""
+msgstr "Следует ли изменить порядок шкал для каждого канала."
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:196
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:334
 msgid "Colors"
-msgstr ""
+msgstr "Цвета"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:357
+msgid "Add Profile"
+msgstr "Добавить профиль"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:380
+msgid "Application Theme"
+msgstr "Тема приложения"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:388
+msgid "Light"
+msgstr "Светлая"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:392
+msgid "Dark"
+msgstr "Тёмная"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:416
+msgid "Foreground Colors"
+msgstr "Цвета переднего плана"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:438
+msgid "Background Colors"
+msgstr "Цвета фона"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:14
-msgctxt "Shortcut"
-msgid "Folder"
-msgstr "Папка"
-
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:17
-msgid "Open Folder"
-msgstr "Открыть Папку"
-
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:22
-msgid "Close Folder"
-msgstr "Закрыть папку"
-
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:28
 msgctxt "Shortcut"
 msgid "Application"
 msgstr "Приложение"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:22
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
 msgstr "Комбинации клавиш"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:27
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
-msgid "About Application"
+msgid "About Cavalier"
 msgstr "О приложении"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:32
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
 msgstr "Выход"
 
-#: NickvisionCavalier.GNOME/Blueprints/window.blp:31
+#: NickvisionCavalier.GNOME/Blueprints/window.blp:42
 msgid "Main Menu"
 msgstr "Главное меню"
-
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
-msgid "Audio visualizer based on CAVA"
-msgstr ""
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:9
 msgid ""
 "Cavalier is an audio visualizer based on CAVA with customizable interface."
 msgstr ""
+"Cavalier - аудио визуализатор, использующий CAVA, с настраиваемым "
+"интерфейсом."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
 msgid "5 drawing modes!"
-msgstr ""
+msgstr "5 режимов отрисовки!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
-msgid ""
-"Set single color or up to 10 colors gradient for background and foreground."
-msgstr ""
+msgid "Set any color or gradient for background and foreground."
+msgstr "Установите любой цвет или градиент для фона или переднего плана."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
 msgstr ""
+"Настраивайте сглаживание, шумоподавление и парочку других параметров CAVA."
 
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:19
-msgid "Nickvision"
-msgstr "Nickvision"
+#~ msgid "Audio visualizer based on CAVA"
+#~ msgstr "Аудио визуализатор, основанный на CAVA"
 
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:40
-msgid "Second release of Cavalier."
-msgstr ""
+#~ msgid "Audio Visualizer"
+#~ msgstr "Аудио визуализатор"
 
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:42
-msgid "New drawing mode — Particles!"
-msgstr ""
+#~ msgid "Second release of Cavalier."
+#~ msgstr "Второй выпуск Cavalier."
 
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:43
-msgid ""
-"Color profiles! Create as many as you want and change between them "
-"instantly. Unfortunately, this new feature required to change how the "
-"application saves colors, and because of this your previous colors settings "
-"will be lost after installing this update."
-msgstr ""
-
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:44
-msgid "Added keyboard shortcuts to change most of the settings on the fly."
-msgstr ""
-
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:45
-msgid "Added option to show/hide window controls."
-msgstr ""
-
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:46
-msgid "Added option to autohide headerbar when the main window is not focused."
-msgstr ""
-
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:47
-msgid ""
-"Added option to change roundness of items in \"levels\" and \"particles\" "
-"modes."
-msgstr ""
-
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:48
-msgid "Added option to reverse the order of bars."
-msgstr ""
-
-#: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:49
-msgid "Import/Export Settings"
-msgstr ""
-
-#~ msgid "Folder closed."
-#~ msgstr "Папка закрыта."
+#~ msgid "New drawing mode — Particles!"
+#~ msgstr "Новый режим отрисовки — Частицы!"
 
 #~ msgid ""
-#~ "Nicholas Logozzo {0}\n"
-#~ "Fyodor Sobolev {1}"
+#~ "Color profiles! Create as many as you want and change between them "
+#~ "instantly. Unfortunately, this new feature required to change how the "
+#~ "application saves colors, and because of this your previous colors "
+#~ "settings will be lost after installing this update."
 #~ msgstr ""
-#~ "Nicholas Logozzo {0}\n"
-#~ "Фёдор Соболев {1}"
+#~ "Профили цветов! Создайте столько профилей, сколько захотите, и "
+#~ "переключайтесь между ними мгновенно! К сожалению, эта функция потребовала "
+#~ "изменить, как приложение сохраняет цвета, поэтому после установки этого "
+#~ "обновления ваши предыдущие настройки цветов будут утеряны."
 
-#~ msgid "Application"
-#~ msgstr "Application"
+#~ msgid "Added keyboard shortcuts to change most of the settings on the fly."
+#~ msgstr ""
+#~ "Добавлены сочетания клавиш для изменения большинства настроек на лету."
 
-#~ msgid "Create new Nickvision applications"
-#~ msgstr "Создавайте новые приложения Nickvision"
+#~ msgid "Added option to show/hide window controls."
+#~ msgstr "Добавлена опция для скрытия/отображения кнопок управления окном."
 
-#~ msgid "Good Evening!"
-#~ msgstr "Добрый вечер!"
+#~ msgid ""
+#~ "Added option to autohide headerbar when the main window is not focused."
+#~ msgstr ""
+#~ "Добавлена опция автоматического скрытия заголовка, когда окно не в фокусе."
 
-#~ msgctxt "Night"
-#~ msgid "Good Morning!"
-#~ msgstr "Доброй ночи!"
+#~ msgid ""
+#~ "Added option to change roundness of items in \"levels\" and \"particles\" "
+#~ "modes."
+#~ msgstr ""
+#~ "Добавлена опция изменения округлости элементов в режимах Уровни и Частицы."
 
-#~ msgid "Close"
-#~ msgstr "Закрыть"
+#~ msgid "Import/Export Settings"
+#~ msgstr "Импорт/Экспорт настроек"
 
-#, csharp-format
-#~ msgid "Folder Opened: {0}"
-#~ msgstr "Папка открыта: {0}"
+#~ msgid "Window size"
+#~ msgstr "Размер окна"
 
-#~ msgid "Close Folder?"
-#~ msgstr "Закрыть папку?"
+#~ msgid "Window maximized state"
+#~ msgstr "Развёрнутое состояние окна"
 
-#, csharp-format
-#~ msgid "There is {0} file in the folder."
-#~ msgid_plural "There are {0} files in the folder."
-#~ msgstr[0] "В папке {0} файл."
-#~ msgstr[1] "В папке {0} файла."
-#~ msgstr[2] "В папке {0} файлов."
+#~ msgid "Whether main window is maximized or not"
+#~ msgstr "Является ли окно развёрнутым или нет"
 
-#~ msgid "Cancel"
-#~ msgstr "Отмена"
+#~ msgid "Defines what the visualizer looks like."
+#~ msgstr "Определяет, как выглядит визуализатор."
 
-#~ msgid "No Folder Opened"
-#~ msgstr "Папка не открыта"
+#~ msgid "This setting only affects \"levels\" and \"particles\" modes."
+#~ msgstr "Эта настройка влияет только на режимы Уровни и Частицы."
 
-#~ msgctxt "Morning"
-#~ msgid "Good Morning!"
-#~ msgstr "Доброе утро!"
+#~ msgid "Number of bars in CAVA config"
+#~ msgstr "Количество шкал в конфигурации CAVA"
 
-#~ msgid "Good Day!"
-#~ msgstr "Здравствуйте!"
+#~ msgid "Mono or stereo"
+#~ msgstr "Моно или стерео"
 
-#~ msgid "Nicholas Logozzo {0}"
-#~ msgstr "Nicholas Logozzo {0}"
+#~ msgid "Smoothing"
+#~ msgstr "Сглаживание"
 
-#~ msgid "Are you sure you want to close the folder?"
-#~ msgstr "Вы уверены, что хотите закрыть папку?"
+#~ msgid "Widgets style"
+#~ msgstr "Стиль виджетов"
 
-#~ msgid "Good Afternoon!"
-#~ msgstr "Добрый день!"
+#~ msgid "Style used by Adwaita widgets."
+#~ msgstr "Стиль, используемый виджетами Adwaita."
 
-#~ msgid "User Interface"
-#~ msgstr "Интерфейс"
+#~ msgid "Index of active color profile"
+#~ msgstr "Номер активного профиля цветов"
 
-#~ msgid "Customize the application's user interface."
-#~ msgstr "Настройте интерфейс приложения."
+#~ msgid "Drawing Mode"
+#~ msgstr "Режим отрисовки"
 
-#~ msgid "Theme"
-#~ msgstr "Тема"
+#~ msgid ""
+#~ "This setting only affects \"levels\" and \"particles\" modes.\n"
+#~ "0 - square, 1 - round"
+#~ msgstr ""
+#~ "Эта настройка влияет только на режимы Уровни и Частицы.\n"
+#~ "0 - квадратные, 1 - круглые"
 
-#~ msgctxt "Theme"
-#~ msgid "Light"
-#~ msgstr "Светлая"
+#~ msgid "Import"
+#~ msgstr "Импорт"
 
-#~ msgctxt "Theme"
-#~ msgid "Dark"
-#~ msgstr "Тёмная"
+#~ msgid "Export"
+#~ msgstr "Экспорт"
 
-#~ msgctxt "Theme"
-#~ msgid "System"
-#~ msgstr "Системная"
+#~ msgid "Noise Reduction"
+#~ msgstr "Шумоподавление"
 
-#~ msgid "Open Folder (Ctrl+O)"
-#~ msgstr "Открыть папку (Ctrl+O)"
+#~ msgid "0 - noisy, 1 - smooth"
+#~ msgstr "0 - шумно, 1 - гладко"
 
-#~ msgid "Open"
-#~ msgstr "Открыть"
+#~ msgid "Type a name for a new profile"
+#~ msgstr "Введите имя нового профиля"
 
-#~ msgid "Close Folder (Ctrl+W)"
-#~ msgstr "Закрыть папку (Ctrl+W)"
+#~ msgid "Remove profile"
+#~ msgstr "Удалить профиль"
 
-#~ msgid "Open a folder (or drag one into the app) to get started."
-#~ msgstr "Откройте или перетащите папку, чтобы начать."
+#~ msgid "Remove"
+#~ msgstr "Удалить"
 
-#~ msgid "Recipe for the Ultimate Power:"
-#~ msgstr "Рецепт Безграничной Мощи:"
+#~ msgid "<b>Foreground</b>"
+#~ msgstr "<b>Передний план</b>"
 
-#~ msgid "— C#"
-#~ msgstr "— C#"
+#~ msgid "<b>Background</b>"
+#~ msgstr "<b>Фон</b>"
 
-#~ msgid "— gir.core"
-#~ msgstr "— gir.core"
+#~ msgid "Select color"
+#~ msgstr "Выбрать цвет"
 
-#~ msgid "— Avalonia"
-#~ msgstr "— Avalonia"
+#~ msgid "Remove color"
+#~ msgstr "Удалить цвет"
 
-#~ msgid "— Shaken, not stirred"
-#~ msgstr "— Смешать, но не взбалтывать"
+#~ msgid "Add color"
+#~ msgstr "Добавить цвет"
+
+#~ msgid "This name is already in use."
+#~ msgstr "Это имя уже используется."
+
+#~ msgid "Import Settings"
+#~ msgstr "Импорт Настроек"
+
+#~ msgid "Cavalier Settings File (*.cavalier)"
+#~ msgstr "Файл настроек Cavalier (*.cavalier)"
+
+#~ msgid "All Files"
+#~ msgstr "Все файлы"
+
+#~ msgid "Export Settings"
+#~ msgstr "Экспорт Настроек"
+
+#~ msgid "Save"
+#~ msgstr "Сохранить"
+
+#~ msgid "About"
+#~ msgstr "О приложении"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "Изменить режим отрисовки"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "Изменить отступ области отрисовки"
+
+#~ msgid "Change Offset Between Items"
+#~ msgstr "Изменить расстояние между элементами"
+
+#~ msgid "Change Roundness of Items"
+#~ msgstr "Изменить округлость элементов"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "Переключить острые углы"
+
+#~ msgid "Toggle Window Controls"
+#~ msgstr "Переключить кнопки управления окном"
+
+#~ msgid "Toggle Autohide Headerbar"
+#~ msgstr "Переключить автоскрытие заголовка"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "Изменить количество шкал"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "Переключить каналы"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "Переключить обратный порядок"
+
+#~ msgid "Change Colors Profile"
+#~ msgstr "Изменить профиль цветов"
+
+#~ msgid "Toggle Widgets Style"
+#~ msgstr "Переключить стиль виджетов"

@@ -1,10 +1,12 @@
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
+using NickvisionCavalier.Shared.Models;
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Timers;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -17,11 +19,13 @@ public class MainWindow : Adw.ApplicationWindow
     [Gtk.Connect] private readonly Gtk.Overlay _overlay;
     [Gtk.Connect] private readonly Gtk.Revealer _headerRevealer;
     [Gtk.Connect] private readonly Adw.HeaderBar _header;
+    [Gtk.Connect] private readonly Adw.Bin _resizeBin;
 
     private readonly MainWindowController _controller;
     private readonly Adw.Application _application;
     private readonly DrawingView _drawingView;
     private readonly PreferencesDialog _preferencesDialog;
+    private readonly Timer _resizeTimer;
 
     private MainWindow(Gtk.Builder builder, MainWindowController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
@@ -38,7 +42,12 @@ public class MainWindow : Adw.ApplicationWindow
         var prefController = _controller.CreatePreferencesViewController();
         prefController.OnWindowSettingsChanged += UpdateWindowSettings;
         prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
-        _preferencesDialog = new PreferencesDialog(prefController, _application, this);
+        _preferencesDialog = new PreferencesDialog(prefController);
+        OnCloseRequest += (sender, e) =>
+        {
+            prefController.Save(); // Save configuration in case preferences dialog is opened
+            return false;
+        };
         UpdateWindowSettings(null, EventArgs.Empty);
         OnNotify += (sender, e) =>
         {
@@ -51,6 +60,22 @@ public class MainWindow : Adw.ApplicationWindow
         {
             _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight);
             return false;
+        };
+        _resizeTimer = new Timer(400);
+        _resizeTimer.AutoReset = false;
+        _resizeTimer.Elapsed += (sender, e) => _resizeBin.SetVisible(false);
+        OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "default-width" || e.Pspec.GetName() == "default-height")
+            {
+                _resizeTimer.Stop();
+                _resizeTimer.Start();
+                _resizeBin.SetVisible(true);
+            }
+            else if (e.Pspec.GetName() == "maximized")
+            {
+                SetDrawingAreaMargins();
+            }
         };
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);
@@ -97,10 +122,12 @@ public class MainWindow : Adw.ApplicationWindow
     /// </summary>
     private void UpdateWindowSettings(object? sender, EventArgs e)
     {
-        _drawingView.SetMarginTop((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
-        _drawingView.SetMarginStart((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
-        _drawingView.SetMarginEnd((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
-        _drawingView.SetMarginBottom((int)_controller.AreaMargin + (_controller.Borderless ? 0 : 1));
+        _application.StyleManager!.ColorScheme = _controller.Theme switch
+        {
+            Theme.Light => Adw.ColorScheme.ForceLight,
+            _ => Adw.ColorScheme.ForceDark
+        };
+        SetDrawingAreaMargins();
         if (_controller.Borderless)
         {
             AddCssClass("borderless-window");
@@ -120,6 +147,17 @@ public class MainWindow : Adw.ApplicationWindow
         _header.SetShowStartTitleButtons(_controller.ShowControls);
         _header.SetShowEndTitleButtons(_controller.ShowControls);
         _headerRevealer.SetRevealChild(GetIsActive() || !_controller.AutohideHeader);
+    }
+
+    /// <summary>
+    /// Sets correct margins for drawing area
+    /// </summary>
+    private void SetDrawingAreaMargins()
+    {
+        _drawingView.SetMarginTop(_controller.Borderless || IsMaximized() ? 0 : 1);
+        _drawingView.SetMarginStart(_controller.Borderless || IsMaximized() ? 0 : 1);
+        _drawingView.SetMarginEnd(_controller.Borderless || IsMaximized() ? 0 : 1);
+        _drawingView.SetMarginBottom(_controller.Borderless || IsMaximized() ? 0 : 1);
     }
 
     /// <summary>
@@ -200,9 +238,9 @@ public class MainWindow : Adw.ApplicationWindow
         dialog.SetSupportUrl(_controller.AppInfo.SupportUrl.ToString());
         dialog.AddLink(_("GitHub Repo"), _controller.AppInfo.GitHubRepo.ToString());
         dialog.AddLink(_("Matrix Chat"), "https://matrix.to/#/#nickvision:matrix.org");
-        dialog.SetDevelopers(string.Format(_("Fyodor Sobolev {0}\nNicholas Logozzo {1}\nContributors on GitHub ❤️ {2}"), "https://github.com/fsobolev", "https://github.com/nlogozzo", "https://github.com/NickvisionApps/Cavalier/graphs/contributors").Split("\n"));
-        dialog.SetDesigners(string.Format(_("Fyodor Sobolev {0}"), "https://github.com/fsobolev").Split("\n"));
-        dialog.SetArtists(string.Format(_("Fyodor Sobolev {0}"), "https://github.com/fsobolev").Split("\n"));
+        dialog.SetDevelopers(_("Fyodor Sobolev {0}\nNicholas Logozzo {1}\nContributors on GitHub ❤️ {2}", "https://github.com/fsobolev", "https://github.com/nlogozzo", "https://github.com/NickvisionApps/Cavalier/graphs/contributors").Split("\n"));
+        dialog.SetDesigners(_("Fyodor Sobolev {0}", "https://github.com/fsobolev").Split("\n"));
+        dialog.SetArtists(_("David Lapshin {0}", "https://github.com/daudix-UFO").Split("\n"));
         dialog.SetTranslatorCredits(_("translator-credits"));
         dialog.SetReleaseNotes(_controller.AppInfo.Changelog);
         dialog.Present();

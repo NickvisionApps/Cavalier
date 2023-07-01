@@ -1,20 +1,21 @@
-# ITALIAN TRANSLATION FOR CAVALIER
 # Copyright (C) 2022 Fyodor Sobolev
 # This file is distributed under the same license as the PACKAGE package.
-# ALBANO BATTISTELLA <ALBANO_BATTISTELLA@HOTMAIL.COM>, 2022,2023.
 #
+# Heimen Stoffels <vistausss@fastmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-01 06:49+0300\n"
-"PO-Revision-Date: 2023-01-28 12:44+0100\n"
-"Last-Translator: albano Battistella <albano_battistella@hotmail.com>\n"
-"Language-Team: Italian <LL@li.org>\n"
-"Language: it\n"
+"PO-Revision-Date: 2023-01-29 13:35+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:239
 msgid "GitHub Repo"
@@ -23,7 +24,7 @@ msgstr ""
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:29
 #, fuzzy
 msgid "Profile Name"
-msgstr "Profilo:"
+msgstr "Profiel:"
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
@@ -32,13 +33,13 @@ msgstr ""
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:24
 #, fuzzy
 msgid "Add New Profile"
-msgstr "Aggiungi nuovo profilo"
+msgstr "Profiel toevoegen"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:146
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:282
 #, fuzzy
 msgid "On"
-msgstr "Apri"
+msgstr "Openen"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:240
 msgid "Matrix Chat"
@@ -49,7 +50,7 @@ msgstr ""
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
 #, fuzzy
 msgid "Visualize audio with CAVA"
-msgstr "Visualizzatore audio basato su CAVA."
+msgstr "Audiovisualisatie, gebaseerd op CAVA."
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:24
 msgid "New color profile will be a copy of the current active profile."
@@ -63,7 +64,7 @@ msgstr ""
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:39
 msgid "Cancel"
-msgstr "Cancella"
+msgstr "Annuleren"
 
 #: ../../../../NickvisionCavalier.GNOME/Program.cs:49
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
@@ -74,13 +75,13 @@ msgstr "Cavalier"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 msgid "Add"
-msgstr "Aggiungi"
+msgstr "Toevoegen"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:141
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:277
 #, fuzzy
 msgid "Split Channels"
-msgstr "Canali"
+msgstr "Kanalen"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:244
 msgid "translator-credits"
@@ -98,12 +99,12 @@ msgstr ""
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:406
 #, fuzzy, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
-msgstr "Sei sicuro di voler rimuovere questo profilo?"
+msgstr "Weet u zeker dat u dit profiel wilt verwijderen?"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:406
 #, fuzzy
 msgid "Delete Profile"
-msgstr "Profili colore"
+msgstr "Kleurenprofielen"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:241
 #, csharp-format
@@ -123,33 +124,33 @@ msgstr "Fyodor Sobolev"
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:277
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:282
 msgid "Off"
-msgstr "Off"
+msgstr "Uit"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:17
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
-msgstr "Preferenze"
+msgstr "Voorkeuren"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:17
 msgid "Drawing mode"
-msgstr "Modalità disegno"
+msgstr "Weergavemodus"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:20
 msgid "Wave"
-msgstr "Onda"
+msgstr "Golf"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
 msgid "Levels"
-msgstr "Livelli"
+msgstr "Niveaus"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:38
 msgid "Particles"
-msgstr "Particelle"
+msgstr "Deeltjes"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:48
 msgid "Bars"
-msgstr "Barre"
+msgstr "Balken"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:58
 msgid "Spine"
@@ -161,31 +162,30 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:76
 msgid "Drawing area margin"
-msgstr "Margine dell'area di disegno"
+msgstr "Weergavemodusmarge"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:77
 msgid "Size of gaps around drawing area (in pixels)."
-msgstr "Dimensione degli spazi attorno all'area di disegno (in pixel)."
+msgstr "De grootte van ruimtes om het weergavegebied heen (in pixels)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:94
 #, fuzzy
 msgid "Drawing direction"
-msgstr "Modalità disegno"
+msgstr "Weergavemodus"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:101
 msgid "Offset between items"
-msgstr "Scostamento tra gli elementi"
+msgstr "Verschuiving tussen items"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:102
 #, fuzzy
 msgid "The size of spaces between elements (in percent)."
 msgstr ""
-"La dimensione degli spazi tra gli elementi nelle modalità \"livelli\","
-"\"particelle\" e \"barre\" (in percentuale)."
+"De ruimte tussen elementen in niveau-, balk- en deeltjesmodi (in procenten)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:119
 msgid "Roundness of items"
-msgstr "Rotondità degli oggetti"
+msgstr "Rondheid van items"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:120
 msgid "How much rounded the elements should be (in percent)."
@@ -202,7 +202,7 @@ msgstr ""
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:148
 #, fuzzy
 msgid "Thickness of lines"
-msgstr "Rotondità degli oggetti"
+msgstr "Rondheid van items"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Thickness of lines when filling is off (in pixels)."
@@ -215,33 +215,33 @@ msgstr ""
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:170
 #, fuzzy
 msgid "Whether to disable window shadow and borders."
-msgstr "Se mostrare i pulsanti di controllo della finestra."
+msgstr "Of de titelbalkknoppen getoond dienen te worden."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:180
 msgid "Sharp corners"
-msgstr "Angoli acuti"
+msgstr "Scherpe hoeken"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:181
 msgid "Whether the main window corners should be sharp."
-msgstr "Se gli angoli della finestra principale devono essere nitidi."
+msgstr "Of het hoofdvenster scherpe hoeken dient te hebben."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:191
 msgid "Window controls"
-msgstr "Controlli finestra"
+msgstr "Titelbalkknoppen"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:192
 msgid "Whether to show window control buttons."
-msgstr "Se mostrare i pulsanti di controllo della finestra."
+msgstr "Of de titelbalkknoppen getoond dienen te worden."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:202
 msgid "Autohide headerbar"
-msgstr "Nascondi automaticamente barra di intestazione"
+msgstr "Kopbalk automatisch verbergen"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:203
 msgid "Whether to hide headerbar when main window is not focused."
 msgstr ""
-"Se nascondere la barra di intestazione quando la finestra principale non è "
-"focalizzata."
+"Of de kopbalk automatisch moet worden verborgen als het hoofdvenster niet "
+"gefocust is."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:220
 msgid "Framerate"
@@ -250,35 +250,37 @@ msgstr ""
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:221
 #, fuzzy
 msgid "Number of frames per second."
-msgstr "Numero di barre"
+msgstr "Aantal balken"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:228
 msgid "Number of bars"
-msgstr "Numero di barre"
+msgstr "Aantal balken"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:245
 msgid "Automatic sensitivity"
-msgstr "Sensibilità automatica"
+msgstr "Automatische gevoeligheid"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:246
 msgid "Attempt to decrease sensitivity if the bars peak."
-msgstr "Tenta di ridurre la sensibilità se le barre raggiungono il picco."
+msgstr ""
+"Probeer de gevoeligheid te verlagen zodra het maximale aantal balken bereikt "
+"is."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:256
 msgid "Sensitivity"
-msgstr "Sensibilità"
+msgstr "Gevoeligheidsgraad"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:257
 msgid ""
 "Manual sensitivity. If automatic sensitivity is enabled, this will only be "
 "the initial value."
 msgstr ""
-"Sensibilità manuale. Se la sensibilità automatica è abilitata, sarà solo il "
-"valore iniziale."
+"De handmatige gevoeligheidsgraad. Als de automatische modus is ingeschakeld, "
+"dan wordt dit als startwaarde gebruikt."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:272
 msgid "Channels"
-msgstr "Canali"
+msgstr "Kanalen"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:279
 msgid "Mono"
@@ -291,7 +293,7 @@ msgstr "Stereo"
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:292
 #, fuzzy
 msgid "Monstercat smoothing"
-msgstr "Gatto mostruoso"
+msgstr "Monstercat"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:293
 msgid "Whether to enable the so-called «Monstercat smoothing»."
@@ -299,7 +301,7 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:303
 msgid "Noise reduction"
-msgstr "Riduzione del rumore"
+msgstr "Ruisonderdrukking"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:304
 #, fuzzy
@@ -308,26 +310,26 @@ msgid ""
 "smooth.\n"
 "Higher value leads to a slower and smoother result."
 msgstr ""
-"Questo fattore regola i filtri integrale e gravitazionale per mantenere il "
-"segnale regolare. 1 sarà molto lento e regolare, 0 sarà veloce ma rumoroso."
+"Deze factor bepaalt de zwaarte van de filters om het signaal vloeiend door "
+"te laten komen. 1 = erg zwaar, maar vloeiend - 0 = licht, maar met ruis."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:321
 msgid "Reverse order"
-msgstr "Ordine inverso"
+msgstr "Volgorde omdraaien"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:322
 #, fuzzy
 msgid "Whether to reverse order of bars for each channel."
-msgstr "Aggiunta opzione per invertire l'ordine delle barre."
+msgstr "Nieuw: optie om de volgorde van balken aan te passen."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:334
 msgid "Colors"
-msgstr "Colori"
+msgstr "Kleuren"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:357
 #, fuzzy
 msgid "Add Profile"
-msgstr "Aggiungi nuovo profilo"
+msgstr "Profiel toevoegen"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:380
 msgid "Application Theme"
@@ -335,21 +337,21 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:388
 msgid "Light"
-msgstr "Chiaro"
+msgstr "Licht"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:392
 msgid "Dark"
-msgstr "Scuro"
+msgstr "Donker"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:416
 #, fuzzy
 msgid "Foreground Colors"
-msgstr "Colori in primo piano"
+msgstr "Voorgrondkleuren"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:438
 #, fuzzy
 msgid "Background Colors"
-msgstr "Colori di sfondo"
+msgstr "Achtergrondkleuren"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:14
 msgctxt "Shortcut"
@@ -359,7 +361,7 @@ msgstr ""
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:22
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
-msgstr "Scorciatoie da tastiera"
+msgstr "Sneltoetsen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:27
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
@@ -370,7 +372,7 @@ msgstr "Cavalier"
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:32
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
-msgstr "Esci"
+msgstr "Afsluiten"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:42
 msgid "Main Menu"
@@ -381,39 +383,36 @@ msgstr ""
 msgid ""
 "Cavalier is an audio visualizer based on CAVA with customizable interface."
 msgstr ""
-"Cavalier è un visualizzatore audio basato su CAVA con interfaccia "
-"personalizzabile LibAdwaita."
+"Cavalier is een audiovisualisatietoepassing, gemaakt met LibAdwaita en "
+"gebaseerd op CAVA."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
 #, fuzzy
 msgid "5 drawing modes!"
-msgstr "4 modalità di disegno!"
+msgstr "4 weergavemodi!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
 #, fuzzy
 msgid "Set any color or gradient for background and foreground."
-msgstr ""
-"Imposta un singolo colore o fino a 10 sfumature di colori per lo sfondo e il "
-"primo piano."
+msgstr "Stel een of maximaal tien kleurverlopen in voor voor- en achtergrond."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
 msgstr ""
-"Configura il livellamento, la riduzione del rumore e alcune altre "
-"impostazioni CAVA."
+"Stel vloeiendheid, ruisonderdrukking en enkele andere CAVA-voorkeuren in."
 
 #, fuzzy
 #~ msgid "Audio visualizer based on CAVA"
-#~ msgstr "Visualizzatore audio basato su CAVA."
+#~ msgstr "Audiovisualisatie, gebaseerd op CAVA."
 
 #~ msgid "Audio Visualizer"
-#~ msgstr "Visualizzatore audio"
+#~ msgstr "Audiovisualisatie"
 
 #~ msgid "Second release of Cavalier."
-#~ msgstr "Secondo rilascio di Cavalier."
+#~ msgstr "De tweede versie van Cavalier."
 
 #~ msgid "New drawing mode — Particles!"
-#~ msgstr "Nuova modalità di disegno — Particelle!"
+#~ msgstr "Nieuwe weergavemodus: deeltjes!"
 
 #~ msgid ""
 #~ "Color profiles! Create as many as you want and change between them "
@@ -421,185 +420,178 @@ msgstr ""
 #~ "application saves colors, and because of this your previous colors "
 #~ "settings will be lost after installing this update."
 #~ msgstr ""
-#~ "Profili colore! Creane quanti ne vuoi e cambia da uno "
-#~ "all'altroall'istante. Sfortunatamente, questa nuova funzionalità "
-#~ "richiedeva di modificare il modo in cui l'applicazione salva i colori e, "
-#~ "per questo motivo, le impostazioni dei colori precedenti andranno perse "
-#~ "dopo l'installazione di questo aggiornamento."
+#~ "Kleurenprofielen! Maak zo veel profielen als u wilt en wissel met één "
+#~ "muisklik van profiel. Helaas moest hiervoor code worden aangepast, dus uw "
+#~ "huidige kleurvoorkeuren worden door deze update gewist."
 
 #~ msgid "Added keyboard shortcuts to change most of the settings on the fly."
-#~ msgstr ""
-#~ "Aggiunte scorciatoie da tastiera per modificare la maggior parte delle "
-#~ "impostazioni al volo."
+#~ msgstr "Nieuw: sneltoetsen om de meeste voorkeuren aan te passen."
 
 #~ msgid "Added option to show/hide window controls."
-#~ msgstr ""
-#~ "Aggiunta opzione per mostrare/nascondere i controlli della finestra."
+#~ msgstr "Nieuw: optie om de titelbalkknoppen te tonen/verbergen."
 
 #~ msgid ""
 #~ "Added option to autohide headerbar when the main window is not focused."
 #~ msgstr ""
-#~ "Aggiunta opzione per nascondere automaticamente la barra "
-#~ "dell'intestazione quando la finestra principale non è focalizzata."
+#~ "Nieuw: optie om de kopbalk te verbergen als het hoofdvenster niet "
+#~ "gefocust is."
 
 #~ msgid ""
 #~ "Added option to change roundness of items in \"levels\" and \"particles\" "
 #~ "modes."
 #~ msgstr ""
-#~ "Aggiunta opzione per modificare la rotondità degli elementi in "
-#~ "\"livelli\" e modalità \"particelle\"."
+#~ "Nieuw: optie om de rondheid van items aan te passen in de niveau- en "
+#~ "deeltjesmodi."
 
 #~ msgid "Import/Export Settings"
-#~ msgstr "Impostazioni di importazione/esportazione"
+#~ msgstr "Voorkeuren ex-/importeren"
 
 #~ msgid "Window size"
-#~ msgstr "Dimensione finestra"
+#~ msgstr "Vensterafmetingen"
 
 #~ msgid "Window maximized state"
-#~ msgstr "Stato della finestra massimizzato"
+#~ msgstr "Venstermaximalisatie"
 
 #~ msgid "Whether main window is maximized or not"
-#~ msgstr "Se la finestra principale è massimizzata o meno"
+#~ msgstr "Of het venster gemaximaliseerd moet worden."
 
 #~ msgid "Defines what the visualizer looks like."
-#~ msgstr "Definisce l'aspetto del visualizzatore."
+#~ msgstr "Geef aan hoe de visualisatie er uit moet zien."
 
 #~ msgid "This setting only affects \"levels\" and \"particles\" modes."
 #~ msgstr ""
-#~ "Questa impostazione riguarda solo le modalità \"livelli\" e "
-#~ "\"particelle\"."
+#~ "Deze voorkeur is alleen van toepassing op de niveau- en deeltjesmodi."
 
 #~ msgid "Number of bars in CAVA config"
-#~ msgstr "Numero di barre nella configurazione CAVA"
+#~ msgstr "Het aantal CAVA-balken"
 
 #~ msgid "Mono or stereo"
-#~ msgstr "Mono o stereo"
+#~ msgstr "Mono of stereo"
 
 #~ msgid "Smoothing"
-#~ msgstr "Regolazione"
+#~ msgstr "Vloeiendheid"
 
 #~ msgid "Widgets style"
-#~ msgstr "Stile widget"
+#~ msgstr "Itemstijl"
 
 #~ msgid "Style used by Adwaita widgets."
-#~ msgstr "Stile utilizzato dai widget Adwaita."
+#~ msgstr "De door Adwaita gebruikte itemstijl."
 
 #~ msgid "Index of active color profile"
-#~ msgstr "Indice del profilo colore attivo"
+#~ msgstr "Index van actief profiel"
 
 #~ msgid "Drawing Mode"
-#~ msgstr "Modalità disegno"
+#~ msgstr "Weergavemodus"
 
 #~ msgid ""
 #~ "This setting only affects \"levels\" and \"particles\" modes.\n"
 #~ "0 - square, 1 - round"
 #~ msgstr ""
-#~ "Questa impostazione riguarda solo le modalità \"livelli\" e "
-#~ "\"particelle\".\n"
-#~ "0 - quadrato, 1 - rotondo"
+#~ "Deze voorkeur is alleen van toepassing op de niveau- en deeltjesmodi.\n"
+#~ "0 = vierkant; 1 = rond"
 
 #~ msgid "Import"
-#~ msgstr "Importa"
+#~ msgstr "Importeren"
 
 #~ msgid "Export"
-#~ msgstr "Esporta"
+#~ msgstr "Exporteren"
 
 #~ msgid "Noise Reduction"
-#~ msgstr "Riduzione del rumore"
+#~ msgstr "Ruisonderdrukking"
 
 #~ msgid "0 - noisy, 1 - smooth"
-#~ msgstr "0 - rumoroso, 1 - regolare"
+#~ msgstr "0 - ruis - 1 - vloeiend"
 
 #~ msgid "Type a name for a new profile"
-#~ msgstr "Digitare un nome per un nuovo profilo"
+#~ msgstr "Geef het nieuwe profiel een naam"
 
 #~ msgid "Remove profile"
-#~ msgstr "Rimuovi profilo"
+#~ msgstr "Profiel verwijderen"
 
 #~ msgid "Remove"
-#~ msgstr "Rimuovi"
+#~ msgstr "Verwijderen"
 
 #~ msgid "<b>Foreground</b>"
-#~ msgstr "<b>In primo piano</b>"
+#~ msgstr "<b>Voorgrond</b>"
 
 #~ msgid "<b>Background</b>"
-#~ msgstr "<b>Sfondo</b>"
+#~ msgstr "<b>Achtergrond</b>"
 
 #~ msgid "Select color"
-#~ msgstr "Seleziona colore"
+#~ msgstr "Kies een kleur"
 
 #~ msgid "Remove color"
-#~ msgstr "Rimuovi colore"
+#~ msgstr "Kleur verwijderen"
 
 #~ msgid "Add color"
-#~ msgstr "Aggiungi colore"
+#~ msgstr "Kleur toevoegen"
 
 #~ msgid "This name is already in use."
-#~ msgstr "Questo nome è già in uso."
+#~ msgstr "Deze naam is al in gebruik."
 
 #~ msgid "Import Settings"
-#~ msgstr "Impostazioni di importazione"
+#~ msgstr "Voorkeuren importeren"
 
 #~ msgid "Cavalier Settings File (*.cavalier)"
-#~ msgstr "File impostazioni di Cavalier (*.cavalier)"
+#~ msgstr "Cavalier-voorkeurenbestand (*.cavalier)"
 
 #~ msgid "All Files"
-#~ msgstr "Tutti i file"
+#~ msgstr "Alle bestanden"
 
 #~ msgid "Export Settings"
-#~ msgstr "Impostazioni di esportazione"
+#~ msgstr "Voorkeuren exporteren"
 
 #~ msgid "Save"
-#~ msgstr "Salva"
+#~ msgstr "Opslaan"
 
 #~ msgid "About"
-#~ msgstr "Informazioni"
+#~ msgstr "Over"
 
 #~ msgid "Change Drawing Mode"
-#~ msgstr "Cambia modalità di disegno"
+#~ msgstr "Weergavemodus aanpassen"
 
 #~ msgid "Change Drawing Area Margin"
-#~ msgstr "Modifica margine area di disegno"
+#~ msgstr "Weergavemodusmarge aanpassen"
 
 #~ msgid "Change Offset Between Items"
-#~ msgstr "Modifica scostamento tra gli elementi"
+#~ msgstr "Verschuiving tussen items aanpassen"
 
 #~ msgid "Change Roundness of Items"
-#~ msgstr "Cambia rotondità degli oggetti"
+#~ msgstr "Rondheid van items aanpassen"
 
 #~ msgid "Toggle Sharp Corners"
-#~ msgstr "Attiva/disattiva angoli acuti"
+#~ msgstr "Scherpe hoeken aan/uit"
 
 #~ msgid "Toggle Window Controls"
-#~ msgstr "Attiva/disattiva i controlli della finestra"
+#~ msgstr "Titelbalkknoppen tonen/verbergen"
 
 #~ msgid "Toggle Autohide Headerbar"
-#~ msgstr "Attiva/disattiva automaticamente la barra di intestazione"
+#~ msgstr "Kopbalk automatisch verbergen aan/uit"
 
 #~ msgid "Change Number of Bars"
-#~ msgstr "Cambia numero di barre"
+#~ msgstr "Aantal balken aanpassen"
 
 #~ msgid "Toggle Channels"
-#~ msgstr "Abilita/disabilita canali"
+#~ msgstr "Aantal kanalen aanpassen"
 
 #~ msgid "Toggle Reverse Order"
-#~ msgstr "Attiva/disattiva ordine inverso"
+#~ msgstr "Volgorde omdraaien aan/uit"
 
 #~ msgid "Change Colors Profile"
-#~ msgstr "Cambia profilo colori"
+#~ msgstr "Ander kleurenprofiel kiezen"
 
 #~ msgid "Toggle Widgets Style"
-#~ msgstr "Attiva/disattiva lo stile dei widget"
+#~ msgstr "Itemstijl aanpassen"
 
 #~ msgid ""
 #~ "3 drawing modes: weird Wave, retro-ish Levels and classic CAVA look - "
 #~ "Bars!"
 #~ msgstr ""
-#~ "3 modalità di disegno: strana onda, livelli retrò e aspetto classico "
-#~ "Barre - CAVA!"
+#~ "Er zijn drie weergavemodi beschikbaar: dansende golf, retro-achtige "
+#~ "volumeniveaubalken en klassieke CAVA-balken."
 
 #~ msgid "The array of foregound colors (RGBA)."
-#~ msgstr "La matrice dei colori di primo piano (RGBA)."
+#~ msgstr "Het voorgrondkleurbereik (rgba)."
 
 #~ msgid "The array of background colors (RGBA)."
-#~ msgstr "La matrice dei colori di sfondo (RGBA)."
+#~ msgstr "Het achtergrondkleurbereik (rgba)."

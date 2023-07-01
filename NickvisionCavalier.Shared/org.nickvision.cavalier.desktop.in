@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Cavalier
-Comment=Audio visualizer based on CAVA
+Comment=Visualize audio with CAVA
 Exec=@EXEC@
 Icon=org.nickvision.cavalier
 Terminal=false
