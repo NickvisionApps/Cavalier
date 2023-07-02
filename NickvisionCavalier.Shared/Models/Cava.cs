@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -7,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace NickvisionCavalier.Shared.Models;
 
-public class Cava
+public class Cava : IDisposable
 {
+    private bool _disposed;
     private readonly Process _proc;
     private readonly string _configPath;
 
@@ -16,6 +16,7 @@ public class Cava
     
     public Cava()
     {
+        _disposed = false;
         _configPath = $"{Configuration.ConfigDir}{Path.DirectorySeparatorChar}cava_config";
         UpdateConfig();
         _proc = new Process
@@ -28,6 +29,36 @@ public class Cava
                 UseShellExecute = false
             }
         };
+    }
+
+    /// <summary>
+    /// Finalizes the Cava object
+    /// </summary>
+    ~Cava() => Dispose(false);
+
+    /// <summary>
+    /// Frees resources used by the Cava object
+    /// </summary>
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Frees resources used by the Cava object
+    /// </summary>
+    protected virtual void Dispose(bool disposing)
+    {
+        if (_disposed)
+        {
+            return;
+        }
+        if (disposing)
+        {
+            _proc.Kill();
+        }
+        _disposed = true;
     }
 
     private void UpdateConfig()
