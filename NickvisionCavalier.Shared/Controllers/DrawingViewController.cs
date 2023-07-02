@@ -1,10 +1,12 @@
+using System;
 using NickvisionCavalier.Shared.Models;
 using SkiaSharp;
 
 namespace NickvisionCavalier.Shared.Controllers;
 
-public class DrawingViewController
+public class DrawingViewController : IDisposable
 {
+    private bool _disposed;
     private readonly Renderer _renderer;
     
     /// <summary>
@@ -14,10 +16,16 @@ public class DrawingViewController
     
     public DrawingViewController()
     {
+        _disposed = false;
         _renderer = new Renderer();
         Cava = new Cava();
         Cava.Start();
     }
+
+    /// <summary>
+    /// Finalizes the DrawingViewController
+    /// </summary>
+    ~DrawingViewController() => Dispose(false);
 
     /// <summary>
     /// CAVA framerate
@@ -32,6 +40,31 @@ public class DrawingViewController
         get => _renderer.Canvas;
 
         set => _renderer.Canvas = value;
+    }
+
+    /// <summary>
+    /// Frees resources used by the Account object
+    /// </summary>
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Frees resources used by the Account object
+    /// </summary>
+    protected virtual void Dispose(bool disposing)
+    {
+        if (_disposed)
+        {
+            return;
+        }
+        if (disposing)
+        {
+            Cava.Dispose();
+        }
+        _disposed = true;
     }
 
     public void Render(float[] sample, float width, float height) => _renderer.Draw(sample, width, height);

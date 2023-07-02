@@ -10,7 +10,7 @@ namespace NickvisionCavalier.GNOME.Views;
 /// <summary>
 /// The DrawingView to render CAVA's output
 /// </summary>
-public partial class DrawingView : Gtk.Stack
+public partial class DrawingView : Gtk.Stack, IDisposable
 {
     public delegate bool GSourceFunc(nint data);
 
@@ -23,6 +23,7 @@ public partial class DrawingView : Gtk.Stack
 
     [Gtk.Connect] private readonly Gtk.GLArea _glArea;
 
+    private bool _disposed;
     private readonly DrawingViewController _controller;
     private readonly GSourceFunc _showGl;
     private readonly GSourceFunc _queueRender;
@@ -34,6 +35,7 @@ public partial class DrawingView : Gtk.Stack
 
     private DrawingView(Gtk.Builder builder, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
     {
+        _disposed = false;
         _controller = controller;
         _showGl = (x) =>
         {
@@ -71,13 +73,43 @@ public partial class DrawingView : Gtk.Stack
         };
         _renderTimer.Start();
     }
-    
+
     /// <summary>
     /// Constructs a DrawingView
     /// </summary>
     /// <param name="controller">The DrawingViewController</param>
     public DrawingView(DrawingViewController controller) : this(Builder.FromFile("drawing_view.ui"), controller)
     {
+    }
+
+    /// <summary>
+    /// Finalizes the DrawingView
+    /// </summary>
+    ~DrawingView() => Dispose(false);
+
+    /// <summary>
+    /// Frees resources used by the DrawingView object
+    /// </summary>
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Frees resources used by the DrawingView object
+    /// </summary>
+    protected virtual void Dispose(bool disposing)
+    {
+        if (_disposed)
+        {
+            return;
+        }
+        if (disposing)
+        {
+            _controller.Dispose();
+        }
+        _disposed = true;
     }
 
     /// <summary>

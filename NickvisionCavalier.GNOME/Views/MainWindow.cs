@@ -46,6 +46,7 @@ public class MainWindow : Adw.ApplicationWindow
         OnCloseRequest += (sender, e) =>
         {
             prefController.Save(); // Save configuration in case preferences dialog is opened
+            _drawingView.Dispose();
             return false;
         };
         UpdateWindowSettings(null, EventArgs.Empty);
