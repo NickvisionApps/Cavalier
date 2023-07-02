@@ -1,0 +1,16 @@
+.main-window {
+  background-color: @transparent;
+}
+
+.borderless-window {
+  box-shadow: none;
+  outline: none;
+}
+
+.sharp-corners {
+  border-radius: 0px;
+}
+
+.load-bin {
+  background-color: @window_bg_color;
+}

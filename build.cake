@@ -220,12 +220,13 @@ private void FinishPublishLinux(string outDir, string prefix, string libDir, boo
 
     var iconsScalableDir = $"{shareDir}{sep}icons{sep}hicolor{sep}scalable{sep}apps";
     CreateDirectory(iconsScalableDir);
-    //CopyFileToDirectory($".{sep}{projectName}.Shared{sep}Resources{sep}{appId}.svg", iconsScalableDir);
+    CopyFileToDirectory($".{sep}{projectName}.Shared{sep}Resources{sep}{appId}.svg", iconsScalableDir);
     CopyFileToDirectory($".{sep}{projectName}.Shared{sep}Resources{sep}io.github.fsobolev.Cavalier.svg", iconsScalableDir);
     CopyFileToDirectory($".{sep}{projectName}.Shared{sep}Resources{sep}{appId}-devel.svg", iconsScalableDir);
     var iconsSymbolicDir = $"{shareDir}{sep}icons{sep}hicolor{sep}symbolic{sep}apps";
     CreateDirectory(iconsSymbolicDir);
     CopyFileToDirectory($".{sep}{projectName}.Shared{sep}Resources{sep}{appId}-symbolic.svg", iconsSymbolicDir);
+    CopyFileToDirectory($".{sep}{projectName}.Shared{sep}Resources{sep}io.github.fsobolev.Cavalier-symbolic.svg", iconsSymbolicDir);
 
     /*var desktopDir = $"{shareDir}/applications";
     CreateDirectory(desktopDir);

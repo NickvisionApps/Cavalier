@@ -6,4 +6,10 @@
   <gresource prefix="/org/nickvision/cavalier/icons/scalable/status/">
     <file preprocess="xml-stripblanks">cross-symbolic.svg</file>
   </gresource>
+  <gresource prefix="/io/github/fsobolev/Cavalier">
+    <file alias="style.css">io.github.fsobolev.Cavalier.css</file>
+  </gresource>
+  <gresource prefix="/io/github/fsobolev/Cavalier/icons/scalable/status/">
+    <file preprocess="xml-stripblanks">cross-symbolic.svg</file>
+  </gresource>
 </gresources>
