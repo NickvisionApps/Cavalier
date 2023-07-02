@@ -32,7 +32,7 @@ jobs:
       - name: Upload and release tube-converter Snap
         uses: snapcore/action-publish@v1
         env:
-        SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
         with:
         snap: ${{ steps.snapcraft-build.outputs.snap }}
         release: ${{'edge'}}
