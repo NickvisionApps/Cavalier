@@ -1,0 +1,26 @@
+diff -Naur a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in b/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in
+--- a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in	2023-07-02 06:04:52.689899772 +0530
++++ b/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in	2023-07-02 06:05:29.868235172 +0530
+@@ -3,8 +3,8 @@
+ Name=Cavalier
+ Comment=Visualize audio with CAVA
+ Exec=@EXEC@
+-Icon=org.nickvision.cavalier
++Icon=snap.cavalier.org.nickvision.cavalier
+ Terminal=false
+ Type=Application
+ X-GNOME-UsesNotifications=true
+-StartupNotify=true
+\ No newline at end of file
++StartupNotify=true
+diff -Naur a/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in b/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in
+--- a/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in	2023-07-02 06:04:17.867526042 +0530
++++ b/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in	2023-07-02 06:05:56.163097155 +0530
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <component type="desktop">
+   <id>org.nickvision.cavalier.desktop</id>
++  <icon type="stock">snap.cavalier.org.nickvision.cavalier</icon>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>MIT</project_license>
+   <name>Cavalier</name>
