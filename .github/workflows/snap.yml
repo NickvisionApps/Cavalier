@@ -34,5 +34,5 @@ jobs:
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
         with:
-        snap: ${{ steps.snapcraft-build.outputs.snap }}
-        release: ${{'edge'}}
+          snap: ${{ steps.snapcraft-build.outputs.snap }}
+          release: ${{'edge'}}
