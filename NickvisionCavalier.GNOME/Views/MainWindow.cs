@@ -24,7 +24,7 @@ public class MainWindow : Adw.ApplicationWindow
     private readonly MainWindowController _controller;
     private readonly Adw.Application _application;
     private readonly DrawingView _drawingView;
-    private readonly PreferencesDialog _preferencesDialog;
+    private readonly PreferencesViewController _preferencesController;
     private readonly Timer _resizeTimer;
 
     private MainWindow(Gtk.Builder builder, MainWindowController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
@@ -39,13 +39,13 @@ public class MainWindow : Adw.ApplicationWindow
         SetIconName(_controller.AppInfo.ID);
         _drawingView = new DrawingView(new DrawingViewController());
         _overlay.SetChild(_drawingView);
-        var prefController = _controller.CreatePreferencesViewController();
-        prefController.OnWindowSettingsChanged += UpdateWindowSettings;
-        prefController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
-        _preferencesDialog = new PreferencesDialog(prefController, application);
+        _preferencesController = _controller.CreatePreferencesViewController();
+        _preferencesController.OnWindowSettingsChanged += UpdateWindowSettings;
+        _preferencesController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
+        var preferencesDialog = new PreferencesDialog(_preferencesController, application);
         OnCloseRequest += (sender, e) =>
         {
-            prefController.Save(); // Save configuration in case preferences dialog is opened
+            _preferencesController.Save(); // Save configuration in case preferences dialog is opened
             _drawingView.Dispose();
             return false;
         };
@@ -80,7 +80,7 @@ public class MainWindow : Adw.ApplicationWindow
         };
         //Preferences Action
         var actPreferences = Gio.SimpleAction.New("preferences", null);
-        actPreferences.OnActivate += (sender, e) => _preferencesDialog.Present();
+        actPreferences.OnActivate += (sender, e) => preferencesDialog.Present();
         AddAction(actPreferences);
         application.SetAccelsForAction("win.preferences", new string[] { "<Ctrl>comma" });
         //Keyboard Shortcuts Action
@@ -194,7 +194,12 @@ public class MainWindow : Adw.ApplicationWindow
     /// </summary>
     /// <param name="sender">Gio.SimpleAction</param>
     /// <param name="e">EventArgs</param>
-    private void Quit(Gio.SimpleAction sender, EventArgs e) => _application.Quit();
+    private void Quit(Gio.SimpleAction sender, EventArgs e)
+    {
+        _preferencesController.Save(); // Save configuration in case preferences dialog is opened
+        _drawingView.Dispose();
+        _application.Quit();
+    }
 
     /// <summary>
     /// Occurs when the about action is triggered
