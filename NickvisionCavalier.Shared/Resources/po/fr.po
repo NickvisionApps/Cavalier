@@ -8,29 +8,29 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-02 15:21+0300\n"
-"PO-Revision-Date: 2023-01-30 10:59+0100\n"
-"Last-Translator: Irénée Thirion <irenee.thirion@e.email>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-07-03 09:16+0000\n"
+"Last-Translator: rene-coty <irenee.thirion@e.email>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:45
 msgid "Add"
 msgstr "Ajouter"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:26
-#, fuzzy
 msgid "Add New Profile"
 msgstr "Ajouter un nouveau profil"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:667
-#, fuzzy, csharp-format
+#, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce profil ?"
+msgstr "Êtes-vous sûr⋅e de vouloir supprimer le profil « {0} » ?"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:668
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
@@ -48,30 +48,29 @@ msgstr "Cavalier"
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:258
 #, csharp-format
 msgid "David Lapshin {0}"
-msgstr ""
+msgstr "David Lapshin {0}"
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:668
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:667
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Profils de couleur"
+msgstr "Supprimer le profil"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:402
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:538
 msgid "Full"
-msgstr ""
+msgstr "Intégral"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:257
-#, fuzzy, csharp-format
+#, csharp-format
 msgid "Fyodor Sobolev {0}"
-msgstr "Fyodor Sobolev"
+msgstr "Fyodor Sobolev {0}"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:256
 #, csharp-format
@@ -80,18 +79,21 @@ msgid ""
 "Nicholas Logozzo {1}\n"
 "Contributors on GitHub ❤️ {2}"
 msgstr ""
+"Fyodor Sobolev {0}\n"
+"Nicholas Logozzo {1}\n"
+"Contributeurs sur GitHub ❤️ {2}"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:254
 msgid "GitHub Repo"
-msgstr ""
+msgstr "Dépôt GitHub"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:255
 msgid "Matrix Chat"
-msgstr ""
+msgstr "Discussion Matrix"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:26
 msgid "New color profile will be a copy of the current active profile."
-msgstr ""
+msgstr "Le nouveau profil de couleur sera une copie du profil actif actuel."
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:402
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
@@ -102,31 +104,27 @@ msgstr "Désactivé"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:543
-#, fuzzy
 msgid "On"
-msgstr "Ouvrir"
+msgstr "Activé"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:32
-#, fuzzy
 msgid "Profile Name"
-msgstr "Profil :"
+msgstr "Nom du profil"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:402
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:538
-#, fuzzy
 msgid "Split Channels"
-msgstr "Canaux"
+msgstr "Séparer les canaux"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:259
 msgid "translator-credits"
-msgstr ""
+msgstr "Irénée Thirion"
 
 #: ../../../../NickvisionCavalier.GNOME/Program.cs:50
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
-#, fuzzy
 msgid "Visualize audio with CAVA"
-msgstr "Visualiseur audio basé sur CAVA."
+msgstr "Visualisez de l’audio avec CAVA"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
@@ -156,11 +154,11 @@ msgstr "Barres"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:58
 msgid "Spine"
-msgstr ""
+msgstr "Colonne vertébrale"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:70
 msgid "Mirror"
-msgstr ""
+msgstr "Miroir"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:76
 msgid "Drawing area margin"
@@ -171,36 +169,32 @@ msgid "Size of gaps around drawing area (in pixels)."
 msgstr "Espace (en pixels) laissé autour de l’aire dessinée."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:94
-#, fuzzy
 msgid "Drawing direction"
-msgstr "Mode de dessin"
+msgstr "Direction du dessin"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:96
 msgid "Top to bottom"
-msgstr ""
+msgstr "De haut en bas"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:96
 msgid "Bottom to top"
-msgstr ""
+msgstr "De bas en haut"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:96
 msgid "Left to right"
-msgstr ""
+msgstr "De gauche à droite"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:96
 msgid "Right to left"
-msgstr ""
+msgstr "De droite à gauche"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:101
 msgid "Offset between items"
 msgstr "Espace entre les éléments"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:102
-#, fuzzy
 msgid "The size of spaces between elements (in percent)."
-msgstr ""
-"Espace laissé entre les éléments dans les modes « niveaux », « particules » "
-"et « barres » (en pourcentages)."
+msgstr "Taille des espaces entre les éléments (en pourcentages)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:119
 msgid "Roundness of items"
@@ -208,33 +202,31 @@ msgstr "Rondeur des éléments"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:120
 msgid "How much rounded the elements should be (in percent)."
-msgstr ""
+msgstr "Ajuste la rondeur des éléments (en pourcentages)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:137
 msgid "Filling"
-msgstr ""
+msgstr "Remplissage"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:138
 msgid "Whether shapes should be filled or outlined."
-msgstr ""
+msgstr "Indique si les formes devraient être remplies délimitées."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:148
-#, fuzzy
 msgid "Thickness of lines"
-msgstr "Rondeur des éléments"
+msgstr "Épaisseur des lignes"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Thickness of lines when filling is off (in pixels)."
-msgstr ""
+msgstr "Épaisseur des lignes quand le remplissage est désactivé (en pixels)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:169
 msgid "Borderless window"
-msgstr ""
+msgstr "Fenêtre sans bordures"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:170
-#, fuzzy
 msgid "Whether to disable window shadow and borders."
-msgstr "Indique s’il faut afficher les boutons de contrôle de la fenêtre."
+msgstr "Indique s’il faut désactiver l’ombre et les bordures de la fenêtre."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:180
 msgid "Sharp corners"
@@ -264,12 +256,11 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:220
 msgid "Framerate"
-msgstr ""
+msgstr "Fréquence"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:221
-#, fuzzy
 msgid "Number of frames per second."
-msgstr "Nombre de barres"
+msgstr "Nombre d’images par secondes."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:228
 msgid "Number of bars"
@@ -308,49 +299,46 @@ msgid "Stereo"
 msgstr "Stéréo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:292
-#, fuzzy
 msgid "Monstercat smoothing"
-msgstr "Monstercat"
+msgstr "Lissage Monstercat"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:293
 msgid "Whether to enable the so-called «Monstercat smoothing»."
-msgstr ""
+msgstr "Indique s’il faut activer le « lissage Monstercat »."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:303
 msgid "Noise reduction"
 msgstr "Réduction de bruit"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:304
-#, fuzzy
 msgid ""
 "This factor adjusts the integral and gravity filters to keep the signal "
 "smooth.\n"
 "Higher value leads to a slower and smoother result."
 msgstr ""
 "Ce facteur ajuste les filtres de gravité et d’intégrale pour garder un "
-"signal lisse. 1 sera très lent et lisse, 0 sera vif mais bruyant."
+"signal lisse.\n"
+"Plus la valeur est élevée, plus le rendu sera lent et lisse."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:321
 msgid "Reverse order"
 msgstr "Inverser l’ordre"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:322
-#, fuzzy
 msgid "Whether to reverse order of bars for each channel."
-msgstr "Ajout d’une option pour inverser l’ordre des barres."
+msgstr "Indique s’il faut inverser l’ordre des barres pour chaque canal."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:334
 msgid "Colors"
 msgstr "Couleurs"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:357
-#, fuzzy
 msgid "Add Profile"
-msgstr "Ajouter un nouveau profil"
+msgstr "Ajouter un profil"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:380
 msgid "Application Theme"
-msgstr ""
+msgstr "Thème de l’application"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:388
 msgid "Light"
@@ -362,51 +350,47 @@ msgstr "Sombre"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:416
 msgid "Foreground Colors"
-msgstr ""
+msgstr "Couleurs de premier-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:438
 msgid "Background Colors"
-msgstr ""
+msgstr "Couleurs d’arrière-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
 msgstr "Changer le mode de dessin"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:21
-#, fuzzy
 msgid "Change Mirror Mode"
-msgstr "Changer le mode de dessin"
+msgstr "Changer le mode du miroir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
 msgid "Change Drawing Area Margin"
 msgstr "Modifier la marge autour de l’aire de dessin"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
-#, fuzzy
 msgid "Change Drawing Direction"
-msgstr "Mode de dessin"
+msgstr "Changer la direction du dessin"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
 msgid "Change Offset Between Items"
 msgstr "Modifier l’espace entre les éléments"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
-#, fuzzy
 msgid "Change Items Roundness"
 msgstr "Modifier la rondeur des éléments"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
 msgid "Toggle Filling"
-msgstr ""
+msgstr "Activer/désactiver le remplissage"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:51
 msgid "Change Lines Thickness"
-msgstr ""
+msgstr "Modifier l’épaisseur des lignes"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:56
-#, fuzzy
 msgid "Toggle Window Borders"
-msgstr "Afficher / masquer les contrôles de la fenêtre"
+msgstr "Afficher/masquer les bordures de la fenêtre"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:61
 msgid "Toggle Sharp Corners"
@@ -430,16 +414,16 @@ msgstr "Changer le canal"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:90
 msgid "Toggle Reverse Order"
-msgstr "Inverser l’ordre"
+msgstr "Basculer l’inversion de l’ordre"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:96
 msgctxt "Shortcut"
 msgid "Application"
-msgstr ""
+msgstr "Application"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
 msgid "Toggle Fullscreen"
-msgstr ""
+msgstr "Basculer en plein écran"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:109
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
@@ -448,9 +432,8 @@ msgstr "Raccourcis clavier"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
-#, fuzzy
 msgid "About Cavalier"
-msgstr "Cavalier"
+msgstr "À propos de Cavalier"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:119
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
@@ -459,38 +442,33 @@ msgstr "Quitter"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:42
 msgid "Main Menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:9
-#, fuzzy
 msgid ""
 "Cavalier is an audio visualizer based on CAVA with customizable interface."
 msgstr ""
 "Cavalier est un visualiseur audio basé sur CAVA avec une interface "
-"LibAdwaita personnalisable."
+"personnalisable."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
-#, fuzzy
 msgid "5 drawing modes!"
-msgstr "4 modes de dessin !"
+msgstr "5 modes de dessin !"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
-#, fuzzy
 msgid "Set any color or a gradient for background and foreground."
 msgstr ""
-"Définissez une couleur unique ou un dégradé pouvant aller jusqu’à 10 "
-"couleurs, pour l’arrière-plan et le premier plan."
+"Définissez une couleur ou un dégradé pour l’arrière-plan et le premier-plan."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
 msgstr ""
 "Configurez le lissage, la réduction du bruit et d’autres paramètres CAVA."
 
-#, fuzzy
 #~ msgid "Set any color or gradient for background and foreground."
 #~ msgstr ""
-#~ "Définissez une couleur unique ou un dégradé pouvant aller jusqu’à 10 "
-#~ "couleurs, pour l’arrière-plan et le premier plan."
+#~ "Définissez une couleur ou un dégradé pour l’arrière-plan et le premier-"
+#~ "plan."
 
 #, fuzzy
 #~ msgid "Audio visualizer based on CAVA"
