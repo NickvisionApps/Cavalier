@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-02 15:21+0300\n"
-"PO-Revision-Date: 2023-07-08 13:19+0000\n"
-"Last-Translator: Písek Pískovec <pisekpiskovec@gmail.com>\n"
+"PO-Revision-Date: 2023-07-11 14:52+0000\n"
+"Last-Translator: Fjuro <ifjuro@proton.me>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/cs/>\n"
 "Language: cs\n"
@@ -25,12 +25,12 @@ msgstr "Přidat"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:26
 msgid "Add New Profile"
-msgstr "Přidat Nový Profil"
+msgstr "Přidat nový profil"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:667
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
-msgstr "Jste si jisti, že chcete odstranit profil \"{0}\"?"
+msgstr "Opravdu chcete odstranit profil „{0}“?"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:668
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
@@ -85,7 +85,7 @@ msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:254
 msgid "GitHub Repo"
-msgstr "GitHub Repo"
+msgstr "Repozitář GitHub"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:255
 msgid "Matrix Chat"
@@ -109,12 +109,12 @@ msgstr "Zapnuto"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:32
 msgid "Profile Name"
-msgstr "Název Profilu"
+msgstr "Název profilu"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:402
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:538
 msgid "Split Channels"
-msgstr "Rozdělit Kanály"
+msgstr "Rozdělit kanály"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:259
 msgid "translator-credits"
@@ -123,9 +123,8 @@ msgstr "Písek Pískovec"
 #: ../../../../NickvisionCavalier.GNOME/Program.cs:50
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
-#, fuzzy
 msgid "Visualize audio with CAVA"
-msgstr "Vizualizujte audio s CAVA"
+msgstr "Vizualizace zvuku s CAVA"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
@@ -278,12 +277,11 @@ msgid "Sensitivity"
 msgstr "Citlivost"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:257
-#, fuzzy
 msgid ""
 "Manual sensitivity. If automatic sensitivity is enabled, this will only be "
 "the initial value."
 msgstr ""
-"Ruční citlivost. Pokud je zapnuta automatická citlivost, toto bude jen "
+"Ruční citlivost. Pokud je povolena automatická citlivost, toto bude pouze "
 "prvotní hodnota."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:272
@@ -334,11 +332,11 @@ msgstr "Barvy"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:357
 msgid "Add Profile"
-msgstr "Přidat Profil"
+msgstr "Přidat profil"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:380
 msgid "Application Theme"
-msgstr "Vzhled Aplikace"
+msgstr "Vzhled aplikace"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:388
 msgid "Light"
@@ -350,71 +348,71 @@ msgstr "Tmavý"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:416
 msgid "Foreground Colors"
-msgstr "Barvy Popředí"
+msgstr "Barvy popředí"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:438
 msgid "Background Colors"
-msgstr "Barvy Pozadí"
+msgstr "Barvy pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
-msgstr "Změnit Vykreslovací Režim"
+msgstr "Změnit režim vykreslování"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:21
 msgid "Change Mirror Mode"
-msgstr "Změnit Zrcadlový Režim"
+msgstr "Změnit režim zrcadlení"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
 msgid "Change Drawing Area Margin"
-msgstr "Změnit Odsazení Vykreslovací Oblasti"
+msgstr "Změnit odsazení vykreslované oblasti"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
 msgid "Change Drawing Direction"
-msgstr "Změnit Směr Vykreslování"
+msgstr "Změnit směr vykreslování"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
 msgid "Change Offset Between Items"
-msgstr "Změnit Odsazení Mezi Položkami"
+msgstr "Změnit odsazení mezi položkami"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
 msgid "Change Items Roundness"
-msgstr "Změnit Zaoblení Položek"
+msgstr "Změnit zaoblení položek"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
 msgid "Toggle Filling"
-msgstr "Přepnout Výplň"
+msgstr "Přepnout výplň"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:51
 msgid "Change Lines Thickness"
-msgstr "Změnit Tloušťku Čar"
+msgstr "Změnit tloušťku čar"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:56
 msgid "Toggle Window Borders"
-msgstr "Přepnout Rám Okna"
+msgstr "Přepnout okraje okna"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:61
 msgid "Toggle Sharp Corners"
-msgstr "Přepnout Ostré Rohy"
+msgstr "Přepnout ostré rohy"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:66
 msgid "Toggle Window Controls"
-msgstr "Přepnout Ovládání Oken"
+msgstr "Přepnout ovládání okna"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:71
 msgid "Toggle Autohide Headerbar"
-msgstr "Přepnout Automatické skrývání záhlaví"
+msgstr "Přepnout automatické skrývání záhlaví"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:80
 msgid "Change Number of Bars"
-msgstr "Změnit Počet Tyčí"
+msgstr "Změnit počet sloupců"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
 msgid "Toggle Channels"
-msgstr "Přepnout Kanály"
+msgstr "Přepnout kanály"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:90
 msgid "Toggle Reverse Order"
-msgstr "Přepnout Opačné pořadí"
+msgstr "Přepnout opačné pořadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:96
 msgctxt "Shortcut"
@@ -423,12 +421,12 @@ msgstr "Aplikace"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
 msgid "Toggle Fullscreen"
-msgstr "Přepnout na Celou obrazovku"
+msgstr "Přepnout na celou obrazovku"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:109
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
-msgstr "Klávesové Zkratky"
+msgstr "Klávesové zkratky"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
@@ -442,13 +440,13 @@ msgstr "Ukončit"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:42
 msgid "Main Menu"
-msgstr "Hlavní Nabídka"
+msgstr "Hlavní nabídka"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:9
 msgid ""
 "Cavalier is an audio visualizer based on CAVA with customizable interface."
 msgstr ""
-"Cavalier je audio vizualizér založený na CAVA s přizpůsobitelným prostředím."
+"Cavalier je vizualizér zvuku založený na CAVA s přizpůsobitelným prostředím."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
 msgid "5 drawing modes!"
