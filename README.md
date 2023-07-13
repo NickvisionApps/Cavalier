@@ -25,9 +25,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how can you help the proje
  <summary>GNOME</summary>
 
  ![GNOMEDefault](NickvisionCavalier.GNOME/Screenshots/Default.png)
- ![GNOMELevels](NickvisionCavalier.GNOME/Screenshots/Levels.png)
- ![GNOMEParticles](NickvisionCavalier.GNOME/Screenshots/Particles.png)
  ![GNOMEBars](NickvisionCavalier.GNOME/Screenshots/Bars.png)
+ ![GNOMESpine](NickvisionCavalier.GNOME/Screenshots/Spine.png)
+ ![GNOMELevels](NickvisionCavalier.GNOME/Screenshots/Levels.png)
 </details>
 
 # Dependencies
