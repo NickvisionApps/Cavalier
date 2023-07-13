@@ -1,7 +1,4 @@
-# Cavalier
-<img src="NickvisionCavalier.Shared/Resources/org.nickvision.cavalier.png" width="100" height="100"/>
-
-**Visualize audio with CAVA**
+![](NickvisionCavalier.Shared/Resources/banner.png)
 
  [![Translation status](https://hosted.weblate.org/widgets/nickvision-cavalier/-/app/svg-badge.svg)](https://hosted.weblate.org/engage/nickvision-cavalier/) ✨Powered by [Weblate](https://weblate.org/en/)✨
 
