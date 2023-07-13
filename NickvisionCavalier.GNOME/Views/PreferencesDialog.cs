@@ -33,6 +33,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.CheckButton _barsCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _spineCheckButton;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
+    [Gtk.Connect] private readonly Adw.ActionRow _reverseMirrorRow;
+    [Gtk.Connect] private readonly Gtk.Switch _reverseMirrorSwitch;
     [Gtk.Connect] private readonly Gtk.Scale _marginScale;
     [Gtk.Connect] private readonly Adw.ComboRow _directionRow;
     [Gtk.Connect] private readonly Adw.ActionRow _offsetRow;
@@ -142,6 +144,11 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         application.AddAction(actPrevMirror);
         application.SetAccelsForAction("app.prev-mirror", new string[] { "<Shift>m" });
+        //Toggle Reverse Mirror Action
+        var actReverseMirror = Gio.SimpleAction.New("toggle-reverse-mirror", null);
+        actReverseMirror.OnActivate += (sender, e) => _reverseMirrorSwitch.SetActive(!_reverseMirrorSwitch.GetActive());
+        application.AddAction(actReverseMirror);
+        application.SetAccelsForAction("app.toggle-reverse-mirror", new string[] { "v" });
         //Increase Area Margin Action
         var actIncMargin = Gio.SimpleAction.New("inc-margin", null);
         actIncMargin.OnActivate += (sender, e) =>
@@ -400,6 +407,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         if (_controller.Stereo)
         {
             _mirrorRow.SetModel(Gtk.StringList.New(new string[] { _("Off"), _("Full"), _("Split Channels") }));
+            _reverseMirrorRow.SetVisible(_controller.Mirror == Mirror.SplitChannels);
             _mirrorRow.SetSelected((uint)_controller.Mirror);
         }
         else
@@ -419,6 +427,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Pspec.GetName() == "selected")
             {
                 _controller.Mirror = (Mirror)_mirrorRow.GetSelected();
+                _reverseMirrorRow.SetVisible(_controller.Mirror == Mirror.SplitChannels);
+            }
+        };
+        _reverseMirrorSwitch.SetActive(_controller.ReverseMirror);
+        _reverseMirrorSwitch.OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "active")
+            {
+                _controller.ReverseMirror = _reverseMirrorSwitch.GetActive();
             }
         };
         _marginScale.SetValue((int)_controller.AreaMargin);

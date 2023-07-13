@@ -25,17 +25,17 @@
       <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@PROJECT@/Screenshots/Default.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@PROJECT@/Screenshots/Levels.png</image>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@PROJECT@/Screenshots/Particles.png</image>
-    </screenshot>
-    <screenshot>
       <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@PROJECT@/Screenshots/Bars.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@PROJECT@/Screenshots/Spine.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@PROJECT@/Screenshots/Levels.png</image>
     </screenshot>
   </screenshots>
   <releases>
-    <release type="stable" date="2023-07-01" version="2023.07.0-beta1">
+    <release type="stable" date="2023-07-13" version="2023.07.0-rc1">
       <description translatable="no">
         <p>New Cavalier!</p>
         <ul>

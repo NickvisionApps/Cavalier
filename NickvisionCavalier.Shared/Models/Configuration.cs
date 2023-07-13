@@ -103,6 +103,10 @@ public class Configuration
     /// </summary>
     public Mirror Mirror { get; set; }
     /// <summary>
+    /// Whether to reverse mirrored bars
+    /// </summary>
+    public bool ReverseMirror { get; set; }
+    /// <summary>
     /// List of color profiles
     /// </summary>
     public List<ColorProfile> ColorProfiles { get; set; }
@@ -144,9 +148,10 @@ public class Configuration
         ItemsOffset = 0.1f;
         ItemsRoundness = 0.5f;
         Filling = true;
-        LinesThickness = 15;
+        LinesThickness = 5;
         Mode = DrawingMode.WaveBox;
         Mirror = Mirror.Off;
+        ReverseMirror = false;
         ColorProfiles = new List<ColorProfile> { new ColorProfile() };
         ActiveProfile = 0;
     }
