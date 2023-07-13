@@ -69,6 +69,16 @@ Adw.PreferencesWindow _root {
       Adw.ComboRow _mirrorRow {
         title: _("Mirror");
       }
+
+      Adw.ActionRow _reverseMirrorRow {
+        title: _("Reverse mirror");
+        activatable-widget: _reverseMirrorSwitch;
+
+        [suffix]
+        Gtk.Switch _reverseMirrorSwitch {
+          valign: center;
+        }
+      }
     }
 
     Adw.PreferencesGroup {

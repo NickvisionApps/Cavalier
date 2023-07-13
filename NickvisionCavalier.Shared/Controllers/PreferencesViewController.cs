@@ -226,6 +226,16 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Whether to reverse mirrored bars
+    /// </summary>
+    public bool ReverseMirror
+    {
+        get => Configuration.Current.ReverseMirror;
+
+        set => Configuration.Current.ReverseMirror = value;
+    }
+
+    /// <summary>
     /// List of color profiles
     /// </summary>
     public List<ColorProfile> ColorProfiles => Configuration.Current.ColorProfiles;
