@@ -35,7 +35,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release type="stable" date="2023-07-01" version="2023.07.0-beta1">
+    <release type="stable" date="2023-07-13" version="2023.07.0-rc1">
       <description translatable="no">
         <p>New Cavalier!</p>
         <ul>
