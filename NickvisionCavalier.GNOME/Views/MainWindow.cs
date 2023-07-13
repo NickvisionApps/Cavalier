@@ -43,12 +43,7 @@ public class MainWindow : Adw.ApplicationWindow
         _preferencesController.OnWindowSettingsChanged += UpdateWindowSettings;
         _preferencesController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
         var preferencesDialog = new PreferencesDialog(_preferencesController, application);
-        OnCloseRequest += (sender, e) =>
-        {
-            _preferencesController.Save(); // Save configuration in case preferences dialog is opened
-            _drawingView.Dispose();
-            return false;
-        };
+        OnCloseRequest += OnClose;
         UpdateWindowSettings(null, EventArgs.Empty);
         OnNotify += (sender, e) =>
         {
@@ -56,11 +51,6 @@ public class MainWindow : Adw.ApplicationWindow
             {
                 _headerRevealer.SetRevealChild(GetIsActive());
             }
-        };
-        OnCloseRequest += (sender, e) =>
-        {
-            _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight);
-            return false;
         };
         _resizeTimer = new Timer(400);
         _resizeTimer.AutoReset = false;
@@ -190,14 +180,26 @@ public class MainWindow : Adw.ApplicationWindow
     }
 
     /// <summary>
+    /// Occurs when closing the window
+    /// </summary>
+    /// <param name="sender">Gtk.Window</param>
+    /// <param name="e">EventArgs</param>
+    private bool OnClose(Gtk.Window sender, EventArgs e)
+    {
+        _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight);
+        _preferencesController.Save(); // Save configuration in case preferences dialog is opened
+        _drawingView.Dispose();
+        return false;
+    }
+
+    /// <summary>
     /// Occurs when quit action is triggered
     /// </summary>
     /// <param name="sender">Gio.SimpleAction</param>
     /// <param name="e">EventArgs</param>
     private void Quit(Gio.SimpleAction sender, EventArgs e)
     {
-        _preferencesController.Save(); // Save configuration in case preferences dialog is opened
-        _drawingView.Dispose();
+        OnClose(this, EventArgs.Empty);
         _application.Quit();
     }
 
