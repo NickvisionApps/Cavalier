@@ -148,7 +148,7 @@ public class Configuration
         ItemsOffset = 0.1f;
         ItemsRoundness = 0.5f;
         Filling = true;
-        LinesThickness = 15;
+        LinesThickness = 5;
         Mode = DrawingMode.WaveBox;
         Mirror = Mirror.Off;
         ReverseMirror = false;
