@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-02 15:21+0300\n"
-"PO-Revision-Date: 2023-01-28 13:37+0100\n"
-"Last-Translator: gregorni <gregorniehl@web.de>\n"
-"Language-Team: German <gnome-de@gnome.org>\n"
+"PO-Revision-Date: 2023-07-16 12:06+0000\n"
+"Last-Translator: Renner03 <Renner03@protonmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:45
 msgid "Add"
@@ -50,11 +53,11 @@ msgstr ""
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:668
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:667
 #, fuzzy
