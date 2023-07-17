@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-02 15:21+0300\n"
-"PO-Revision-Date: 2023-07-16 12:06+0000\n"
+"PO-Revision-Date: 2023-07-17 09:43+0000\n"
 "Last-Translator: Renner03 <Renner03@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/de/>\n"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:26
 msgid "New color profile will be a copy of the current active profile."
-msgstr ""
+msgstr "Neues Farbprofil wird eine Kopie vom aktuellen Profil sein."
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:402
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
@@ -120,7 +120,7 @@ msgstr "Kanäle"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:259
 msgid "translator-credits"
-msgstr ""
+msgstr "Mitwirkende Übersetzer"
 
 #: ../../../../NickvisionCavalier.GNOME/Program.cs:50
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
