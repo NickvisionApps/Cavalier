@@ -18,8 +18,6 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     private static partial nint eglGetProcAddress(string name);
     [LibraryImport("libGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial void glClear(uint mask);
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial void g_main_context_invoke(nint context, GSourceFunc function, nint data);
 
     [Gtk.Connect] private readonly Gtk.GLArea _glArea;
 
@@ -37,19 +35,6 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     {
         _disposed = false;
         _controller = controller;
-        _showGl = (x) =>
-        {
-            if (GetVisibleChildName() != "gl")
-            {
-                SetVisibleChildName("gl");
-            }
-            return false;
-        };
-        _queueRender = (x) =>
-        {
-            _glArea.QueueRender();
-            return false;
-        };
         //Build UI
         builder.Connect(this);
         _glArea.OnRealize += (sender, e) =>
@@ -62,14 +47,25 @@ public partial class DrawingView : Gtk.Stack, IDisposable
         _controller.Cava.OutputReceived += (sender, sample) =>
         {
             _sample = sample;
-            g_main_context_invoke(0, _showGl, 0);
+            GLib.Functions.IdleAdd(0, () =>
+            {
+                if (GetVisibleChildName() != "gl")
+                {
+                    SetVisibleChildName("gl");
+                }
+                return false;
+            });
         };
         _glArea.OnRender += OnRender;
         _renderTimer = new Timer(1000.0 / _controller.Framerate);
         _renderTimer.Elapsed += (sender, e) =>
         {
             _renderTimer.Interval = 1000.0 / _controller.Framerate;
-            g_main_context_invoke(0, _queueRender, 0);
+            GLib.Functions.IdleAdd(0, () =>
+            {
+                _glArea.QueueRender();
+                return false;
+            });
         };
         _renderTimer.Start();
     }

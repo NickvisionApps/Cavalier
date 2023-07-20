@@ -112,7 +112,15 @@ public partial class Program
             _ => Adw.ColorScheme.ForceDark
         };
         //Main Window
-        _mainWindow = new MainWindow(_mainWindowController, _application);
-        _mainWindow.Start();
+        if (_mainWindow != null)
+        {
+            _mainWindow!.SetVisible(true);
+            _mainWindow.Present();
+        }
+        else
+        {
+            _mainWindow = new MainWindow(_mainWindowController, _application);
+            _mainWindow.Start();
+        }
     }
 }

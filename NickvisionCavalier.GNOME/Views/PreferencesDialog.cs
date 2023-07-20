@@ -16,15 +16,13 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     private delegate void GAsyncReadyCallback(nint source_object, nint res, nint data);
 
     [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial nint gtk_color_dialog_new();
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
     private static partial void gtk_color_dialog_choose_rgba(nint dialog, nint parent, nint initial_color, nint cancellable, GAsyncReadyCallback callback, nint user_data);
     [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
     private static partial nint gtk_color_dialog_choose_rgba_finish(nint dialog, nint result, nint error);
 
     private readonly GAsyncReadyCallback _fgColorDialogCallback;
     private readonly GAsyncReadyCallback _bgColorDialogCallback;
-    private readonly nint _colorDialog;
+    private readonly Gtk.ColorDialog _colorDialog;
     private readonly PreferencesViewController _controller;
 
     [Gtk.Connect] private readonly Gtk.CheckButton _waveCheckButton;
@@ -601,10 +599,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.ColorProfiles[_controller.ActiveProfile].Theme = _lightThemeButton.GetActive() ? Theme.Light : Theme.Dark;
             _controller.ChangeWindowSettings();
         };
-        _colorDialog = gtk_color_dialog_new();
+        _colorDialog = Gtk.ColorDialog.New();
         _fgColorDialogCallback = (source, res, data) =>
         {
-            var colorPtr = gtk_color_dialog_choose_rgba_finish(_colorDialog, res, IntPtr.Zero);
+            var colorPtr = gtk_color_dialog_choose_rgba_finish(_colorDialog.Handle, res, IntPtr.Zero);
             if (colorPtr != IntPtr.Zero)
             {
                 var color = (Color)Marshal.PtrToStructure(colorPtr, typeof(Color));
@@ -620,7 +618,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         _bgColorDialogCallback = (source, res, data) =>
         {
-            var colorPtr = gtk_color_dialog_choose_rgba_finish(_colorDialog, res, IntPtr.Zero);
+            var colorPtr = gtk_color_dialog_choose_rgba_finish(_colorDialog.Handle, res, IntPtr.Zero);
             if (colorPtr != IntPtr.Zero)
             {
                 var color = (Color)Marshal.PtrToStructure(colorPtr, typeof(Color));
@@ -721,7 +719,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         }
     }
 
-    private void AddColor(ColorType type) => gtk_color_dialog_choose_rgba(_colorDialog, Handle, IntPtr.Zero, IntPtr.Zero, type == ColorType.Foreground ? _fgColorDialogCallback : _bgColorDialogCallback, IntPtr.Zero);
+    private void AddColor(ColorType type) => gtk_color_dialog_choose_rgba(_colorDialog.Handle, Handle, IntPtr.Zero, IntPtr.Zero, type == ColorType.Foreground ? _fgColorDialogCallback : _bgColorDialogCallback, IntPtr.Zero);
 
     private void OnEditColor(object sender, ColorEventArgs e) => _controller.EditColor(e.Type, e.Index, e.Color);
 
