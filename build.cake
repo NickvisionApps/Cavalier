@@ -249,7 +249,7 @@ private void PostPublishGNOME(string outDir, string prefix, string libDir)
 {
     var shareDir = string.IsNullOrEmpty(prefix) ? $"{outDir}{sep}share" : $"{outDir}{prefix}{sep}share";
 
-    ReplaceTextInFiles($"{shareDir}/applications/{appId}.desktop", "Categories=AudioVideo;Audio;", "Categories=AudioVideo;Audio;GTK;");
+    ReplaceRegexInFiles($"{shareDir}/applications/{appId}.desktop", "Categories=.*", "Categories=AudioVideo;Audio;GTK;");
 
     CreateDirectory($"{shareDir}{sep}{appId}");
     MoveFileToDirectory($"{outDir}{libDir}{sep}{appId}{sep}{appId}.gresource", $"{shareDir}{sep}{appId}");
