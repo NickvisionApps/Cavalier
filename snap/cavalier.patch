@@ -1,7 +1,7 @@
 diff -Naur a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in b/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in
---- a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in	2023-07-02 06:04:52.689899772 +0530
-+++ b/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in	2023-07-02 06:05:29.868235172 +0530
-@@ -3,8 +3,8 @@
+--- a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in	2023-07-21 11:48:44.565563047 +0530
++++ b/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in	2023-07-21 12:15:59.543186260 +0530
+@@ -3,9 +3,9 @@
  Name=Cavalier
  Comment=Visualize audio with CAVA
  Exec=@EXEC@
@@ -10,12 +10,13 @@ diff -Naur a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in b/Nick
  Terminal=false
  Type=Application
  X-GNOME-UsesNotifications=true
--StartupNotify=true
+ StartupNotify=true
+-Categories=AudioVideo;Audio;
 \ No newline at end of file
-+StartupNotify=true
++Categories=AudioVideo;Audio;
 diff -Naur a/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in b/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in
---- a/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in	2023-07-02 06:04:17.867526042 +0530
-+++ b/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in	2023-07-02 06:05:56.163097155 +0530
+--- a/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in	2023-07-21 11:48:44.565563047 +0530
++++ b/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in	2023-07-21 12:14:33.584013059 +0530
 @@ -1,6 +1,7 @@
  <?xml version="1.0" encoding="UTF-8"?>
  <component type="desktop">
