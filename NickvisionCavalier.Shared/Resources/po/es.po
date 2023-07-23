@@ -8,11 +8,11 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-20 05:18+0300\n"
-"PO-Revision-Date: 2023-07-03 09:16+0000\n"
-"Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted."
-"weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/es/>\n"
+"PO-Revision-Date: 2023-07-23 13:02+0000\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate"
+".org>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,7 +94,7 @@ msgstr "Chat de Matrix"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:26
 msgid "New color profile will be a copy of the current active profile."
-msgstr "El nuevo perfil de color será una copia del perfil activo actual."
+msgstr "El perfil de color nuevo será una copia del perfil activo actual."
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:413
@@ -162,17 +162,16 @@ msgid "Mirror"
 msgstr "Espejo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:74
-#, fuzzy
 msgid "Reverse mirror"
-msgstr "Orden inverso"
+msgstr "Espejo inverso"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:86
 msgid "Drawing area margin"
-msgstr "Márgen del área de dibujado"
+msgstr "Margen del área de dibujado"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:87
 msgid "Size of gaps around drawing area (in pixels)."
-msgstr "Tamaño del espacio alrededor del area de dibujado (en píxeles)."
+msgstr "Tamaño del espacio alrededor del área de dibujado (en píxeles)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:104
 msgid "Drawing direction"
@@ -350,7 +349,7 @@ msgstr "Claro"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:402
 msgid "Dark"
-msgstr "Obscuro"
+msgstr "Oscuro"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:426
 msgid "Foreground Colors"
@@ -362,20 +361,19 @@ msgstr "Colores de fondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
-msgstr "Cambiar Modo de Dibujado"
+msgstr "Cambiar modo de dibujado"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:21
 msgid "Change Mirror Mode"
 msgstr "Cambiar modo espejo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
-#, fuzzy
 msgid "Toggle Reverse Mirror"
-msgstr "Alternar Orden Inverso"
+msgstr "Conmutar espejo inverso"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
 msgid "Change Drawing Area Margin"
-msgstr "Cambiar Margen del Area de Dibujado"
+msgstr "Cambiar margen del área de dibujado"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
 msgid "Change Drawing Direction"
@@ -383,7 +381,7 @@ msgstr "Cambiar dirección del dibujo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
 msgid "Change Offset Between Items"
-msgstr "Cambiar Espacio Entre Elementos"
+msgstr "Cambiar espacio entre elementos"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
 msgid "Change Items Roundness"
@@ -403,27 +401,27 @@ msgstr "Conmutar bordes de ventana"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:66
 msgid "Toggle Sharp Corners"
-msgstr "Alternar Bordes Planos"
+msgstr "Conmutar bordes planos"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:71
 msgid "Toggle Window Controls"
-msgstr "Alternar Controles de Ventana"
+msgstr "Conmutar controles de ventana"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:76
 msgid "Toggle Autohide Headerbar"
-msgstr "Alternar Ocultar Barra de Título Automáticamente"
+msgstr "Conmutar ocultar barra de título automáticamente"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
 msgid "Change Number of Bars"
-msgstr "Cambiar Número de Barras"
+msgstr "Cambiar número de barras"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:90
 msgid "Toggle Channels"
-msgstr "Alternar Canales"
+msgstr "Conmutar canales"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:95
 msgid "Toggle Reverse Order"
-msgstr "Alternar Orden Inverso"
+msgstr "Conmutar orden inverso"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:101
 msgctxt "Shortcut"
@@ -437,7 +435,7 @@ msgstr "Conmutar pantalla completa"
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
-msgstr "Atajos de Teclado"
+msgstr "Atajos del teclado"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:119
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
