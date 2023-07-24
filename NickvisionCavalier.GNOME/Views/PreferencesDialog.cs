@@ -3,7 +3,8 @@ using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
 using System;
-using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using static Nickvision.GirExt.GtkExt;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
@@ -13,15 +14,6 @@ namespace NickvisionCavalier.GNOME.Views;
 /// </summary>
 public partial class PreferencesDialog : Adw.PreferencesWindow
 {
-    private delegate void GAsyncReadyCallback(nint source_object, nint res, nint data);
-
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial void gtk_color_dialog_choose_rgba(nint dialog, nint parent, nint initial_color, nint cancellable, GAsyncReadyCallback callback, nint user_data);
-    [LibraryImport("libadwaita-1.so.0", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial nint gtk_color_dialog_choose_rgba_finish(nint dialog, nint result, nint error);
-
-    private readonly GAsyncReadyCallback _fgColorDialogCallback;
-    private readonly GAsyncReadyCallback _bgColorDialogCallback;
     private readonly Gtk.ColorDialog _colorDialog;
     private readonly PreferencesViewController _controller;
 
@@ -600,38 +592,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.ChangeWindowSettings();
         };
         _colorDialog = Gtk.ColorDialog.New();
-        _fgColorDialogCallback = (source, res, data) =>
-        {
-            var colorPtr = gtk_color_dialog_choose_rgba_finish(_colorDialog.Handle, res, IntPtr.Zero);
-            if (colorPtr != IntPtr.Zero)
-            {
-                var color = (Color)Marshal.PtrToStructure(colorPtr, typeof(Color));
-                if (color.Alpha <= 0.0001f)
-                {
-                    color.Red = 0;
-                    color.Green = 0;
-                    color.Blue = 0;
-                }
-                _controller.AddColor(ColorType.Foreground, $"#{((int)(color.Alpha * 255)).ToString("x2")}{((int)(color.Red * 255)).ToString("x2")}{((int)(color.Green * 255)).ToString("x2")}{((int)(color.Blue * 255)).ToString("x2")}");
-                UpdateColorsGrid();
-            }
-        };
-        _bgColorDialogCallback = (source, res, data) =>
-        {
-            var colorPtr = gtk_color_dialog_choose_rgba_finish(_colorDialog.Handle, res, IntPtr.Zero);
-            if (colorPtr != IntPtr.Zero)
-            {
-                var color = (Color)Marshal.PtrToStructure(colorPtr, typeof(Color));
-                if (color.Alpha <= 0.0001f)
-                {
-                    color.Red = 0;
-                    color.Green = 0;
-                    color.Blue = 0;
-                }
-                _controller.AddColor(ColorType.Background, $"#{((int)(color.Alpha * 255)).ToString("x2")}{((int)(color.Red * 255)).ToString("x2")}{((int)(color.Green * 255)).ToString("x2")}{((int)(color.Blue * 255)).ToString("x2")}");
-                UpdateColorsGrid();
-            }
-        };
         _addFgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Foreground);
         _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
         UpdateColorProfiles();
@@ -719,7 +679,26 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         }
     }
 
-    private void AddColor(ColorType type) => gtk_color_dialog_choose_rgba(_colorDialog.Handle, Handle, IntPtr.Zero, IntPtr.Zero, type == ColorType.Foreground ? _fgColorDialogCallback : _bgColorDialogCallback, IntPtr.Zero);
+    private async Task AddColor(ColorType type)
+    {
+        try
+        {
+            var color = await _colorDialog.ChooseRgbaAsync(this);
+            var alpha = color?.Alpha ?? 0;
+            var red = color?.Red ?? 0;
+            var green = color?.Green ?? 0;
+            var blue = color?.Blue ?? 0;
+            if (alpha <= 0.0001f)
+            {
+                red = 0;
+                green = 0;
+                blue = 0;
+            }
+            _controller.AddColor(type, $"#{((int)(alpha * 255)).ToString("x2")}{((int)(red * 255)).ToString("x2")}{((int)(green * 255)).ToString("x2")}{((int)(blue * 255)).ToString("x2")}");
+            UpdateColorsGrid();
+        }
+        catch { }
+    }
 
     private void OnEditColor(object sender, ColorEventArgs e) => _controller.EditColor(e.Type, e.Index, e.Color);
 
