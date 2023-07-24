@@ -48,8 +48,8 @@ public partial class Program
         _mainWindowController.AppInfo.Name = "Nickvision Cavalier";
         _mainWindowController.AppInfo.ShortName = _("Cavalier");
         _mainWindowController.AppInfo.Description = $"{_("Visualize audio with CAVA")}.";
-        _mainWindowController.AppInfo.Version = "2023.7.0-rc1";
-        _mainWindowController.AppInfo.Changelog = "<ul><li>Cavalier is reborn as part of Nickvision apps family! Completely rewritten in C#, gaining better performance and solid base to grow in future!</li><li>New notable features comparing to previous stable release of Cavalier: Spine drawing mode, drawing direction selection and mirror.</li><li>Translations were moved to Weblate.</li><li>Compared to 2023.7.0-beta1: fixed an issue where CAVA was still running after Cavalier quits, added Reverse mirror option, fixed other minor issues.</li></ul>";
+        _mainWindowController.AppInfo.Version = "2023.7.0";
+        _mainWindowController.AppInfo.Changelog = "<ul><li>Cavalier is reborn as part of Nickvision apps family! Completely rewritten in C#, gaining better performance and solid base to grow in future!</li><li>New notable features comparing to previous stable release of Cavalier: Spine drawing mode, drawing direction selection and mirror.</li><li>Translations were moved to Weblate.</li></ul>";
         _mainWindowController.AppInfo.GitHubRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
         _mainWindowController.AppInfo.IssueTracker = new Uri("https://github.com/NickvisionApps/Cavalier/issues/new");
         _mainWindowController.AppInfo.SupportUrl = new Uri("https://github.com/NickvisionApps/Cavalier/discussions");
@@ -85,10 +85,7 @@ public partial class Program
     {
         try
         {
-            var argv = new string[args.Length + 1];
-            argv[0] = $"{_mainWindowController.AppInfo.Name}.GNOME";
-            args.CopyTo(argv, 1);
-            return _application.Run(args.Length + 1, argv);
+            return _application.RunWithSynchronizationContext();
         }
         catch (Exception ex)
         {

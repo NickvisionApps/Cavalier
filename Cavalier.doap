@@ -8,7 +8,7 @@
   <shortdesc xml:lang="en">Visualize audio with CAVA</shortdesc>
   <homepage rdf:resource="https://github.com/NickvisionApps/Cavalier" />
   <bug-database rdf:resource="https://github.com/NickvisionApps/Cavalier/issues"/>
-  <download-page rdf:resource="https://github.com/NickvisionApps/Cavalier" /> <!-- replace with flathub link -->
+  <download-page rdf:resource="https://flathub.org/apps/org.nickvision.cavalier" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
   <programming-language>C#</programming-language>
 
