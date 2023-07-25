@@ -14,6 +14,7 @@ namespace NickvisionCavalier.GNOME.Views;
 /// </summary>
 public partial class PreferencesDialog : Adw.PreferencesWindow
 {
+    private bool _avoidCAVAReload;
     private readonly Gtk.ColorDialog _colorDialog;
     private readonly PreferencesViewController _controller;
 
@@ -55,6 +56,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
 
     private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
+        _avoidCAVAReload = false;
         //Window Settings
         _controller = controller;
         SetIconName(_controller.ID);
@@ -331,6 +333,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.Save();
             return false;
         };
+        LoadInstantSettings();
+        LoadCAVASettings();
         _waveCheckButton.OnToggled += (sender, e) =>
         {
             if (_waveCheckButton.GetActive())
@@ -376,6 +380,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _roundnessRow.SetSensitive(true);
             }
         };
+        _offsetRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox);
+        _roundnessRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox && _controller.Mode != DrawingMode.BarsBox);
         _mirrorRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "selected")
@@ -421,6 +427,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             _controller.LinesThickness = (float)_thicknessScale.GetValue();
         };
+        _thicknessRow.SetSensitive(!_controller.Filling);
         _borderlessSwitch.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
@@ -458,7 +465,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Pspec.GetName() == "selected")
             {
                 _controller.Framerate = (_framerateRow.GetSelected() + 1u) * 30u;
-                _controller.ChangeCavaSettings();
+                if (!_avoidCAVAReload)
+                {
+                    _controller.ChangeCavaSettings();
+                }
             }
         };
         _barsScale.OnValueChanged += (sender, e) =>
@@ -469,20 +479,29 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 return;
             }
             _controller.BarPairs = (uint)(_barsScale.GetValue() / 2);
-            _controller.ChangeCavaSettings();
+            if (!_avoidCAVAReload)
+            {
+                _controller.ChangeCavaSettings();
+            }
         };
         _autosensSwitch.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
                 _controller.Autosens = _autosensSwitch.GetActive();
-                _controller.ChangeCavaSettings();
+                if (!_avoidCAVAReload)
+                {
+                    _controller.ChangeCavaSettings();
+                }
             }
         };
         _sensitivityScale.OnValueChanged += (sender, e) =>
         {
             _controller.Sensitivity = (uint)_sensitivityScale.GetValue();
-            _controller.ChangeCavaSettings();
+            if (!_avoidCAVAReload)
+            {
+                _controller.ChangeCavaSettings();
+            }
         };
         _stereoButton.OnToggled += (sender, e) =>
         {
@@ -496,14 +515,20 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _controller.Stereo = false;
                 _mirrorRow.SetModel(Gtk.StringList.New(new string[] { _("Off"), _("On") }));
             }
-            _controller.ChangeCavaSettings();
+            if (!_avoidCAVAReload)
+            {
+                _controller.ChangeCavaSettings();
+            }
         };
         _monstercatSwitch.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
                 _controller.Monstercat = _monstercatSwitch.GetActive();
-                _controller.ChangeCavaSettings();
+                if (!_avoidCAVAReload)
+                {
+                    _controller.ChangeCavaSettings();
+                }
             }
         };
         _noiseReductionScale.GetFirstChild().SetMarginBottom(12);
@@ -511,7 +536,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _noiseReductionScale.OnValueChanged += (sender, e) =>
         {
             _controller.NoiseReduction = (float)_noiseReductionScale.GetValue();
-            _controller.ChangeCavaSettings();
+            if (!_avoidCAVAReload)
+            {
+                _controller.ChangeCavaSettings();
+            }
         };
         _reverseSwitch.OnNotify += (sender, e) =>
         {
@@ -538,8 +566,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _colorDialog = Gtk.ColorDialog.New();
         _addFgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Foreground);
         _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
-        LoadInstantSettings();
-        LoadCAVASettings();
         // Update view when controller has changed by cmd options
         _controller.OnUpdateViewInstant += () => GLib.Functions.IdleAdd(0, LoadInstantSettings);
         _controller.OnUpdateViewCAVA += () => GLib.Functions.IdleAdd(0, LoadCAVASettings);
@@ -609,6 +635,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// </summary>
     public bool LoadCAVASettings()
     {
+        _avoidCAVAReload = true;
         _framerateRow.SetSelected(_controller.Framerate / 30u - 1u);
         _barsScale.SetValue((int)_controller.BarPairs * 2);
         _autosensSwitch.SetActive(_controller.Autosens);
@@ -616,6 +643,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _stereoButton.SetActive(_controller.Stereo);
         _monstercatSwitch.SetActive(_controller.Monstercat);
         _noiseReductionScale.SetValue(_controller.NoiseReduction);
+        _avoidCAVAReload = false;
+        _controller.ChangeCavaSettings();
         return false;
     }
 
