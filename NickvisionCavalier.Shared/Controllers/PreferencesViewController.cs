@@ -33,7 +33,7 @@ public class PreferencesViewController
     /// <summary>
     /// Occurs when CAVA settings were changed from the view
     /// </summary>
-    public event Action? OnCavaSettingsChanged;
+    public event Action? OnCAVASettingsChanged;
 
     /// <summary>
     /// Constructs a PreferencesViewController
@@ -405,7 +405,7 @@ public class PreferencesViewController
     /// <summary>
     /// Occurs when a CAVA setting has changed
     /// </summary>
-    public void ChangeCavaSettings() => OnCavaSettingsChanged?.Invoke();
+    public void ChangeCAVASettings() => OnCAVASettingsChanged?.Invoke();
 
     /// <summary>
     /// Adds new color profile

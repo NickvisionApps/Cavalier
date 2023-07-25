@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NickvisionCavalier.Shared.Models;
 
-public class Cava : IDisposable
+public class CAVA : IDisposable
 {
     private bool _disposed;
     private readonly Process _proc;
@@ -15,7 +15,7 @@ public class Cava : IDisposable
 
     public event EventHandler<float[]>? OutputReceived;
     
-    public Cava()
+    public CAVA()
     {
         _disposed = false;
         _configPath = $"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}cava_config";
@@ -33,12 +33,12 @@ public class Cava : IDisposable
     }
 
     /// <summary>
-    /// Finalizes the Cava object
+    /// Finalizes the CAVA object
     /// </summary>
-    ~Cava() => Dispose(false);
+    ~CAVA() => Dispose(false);
 
     /// <summary>
-    /// Frees resources used by the Cava object
+    /// Frees resources used by the CAVA object
     /// </summary>
     public void Dispose()
     {
@@ -47,7 +47,7 @@ public class Cava : IDisposable
     }
 
     /// <summary>
-    /// Frees resources used by the Cava object
+    /// Frees resources used by the CAVA object
     /// </summary>
     protected virtual void Dispose(bool disposing)
     {
@@ -95,13 +95,13 @@ public class Cava : IDisposable
         catch (InvalidOperationException) { }
         UpdateConfig();
         _proc.Start();
-        Task.Run(ReadCavaOutput);
+        Task.Run(ReadCAVAOutput);
     }
 
     /// <summary>
     /// Read what CAVA prints to stdout
     /// </summary>
-    private void ReadCavaOutput()
+    private void ReadCAVAOutput()
     {
         var br = new BinaryReader(_proc.StandardOutput.BaseStream);
         while(!_proc.HasExited)

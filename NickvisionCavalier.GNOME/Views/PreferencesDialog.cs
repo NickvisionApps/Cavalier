@@ -467,7 +467,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _controller.Framerate = (_framerateRow.GetSelected() + 1u) * 30u;
                 if (!_avoidCAVAReload)
                 {
-                    _controller.ChangeCavaSettings();
+                    _controller.ChangeCAVASettings();
                 }
             }
         };
@@ -481,7 +481,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.BarPairs = (uint)(_barsScale.GetValue() / 2);
             if (!_avoidCAVAReload)
             {
-                _controller.ChangeCavaSettings();
+                _controller.ChangeCAVASettings();
             }
         };
         _autosensSwitch.OnNotify += (sender, e) =>
@@ -491,7 +491,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _controller.Autosens = _autosensSwitch.GetActive();
                 if (!_avoidCAVAReload)
                 {
-                    _controller.ChangeCavaSettings();
+                    _controller.ChangeCAVASettings();
                 }
             }
         };
@@ -500,7 +500,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.Sensitivity = (uint)_sensitivityScale.GetValue();
             if (!_avoidCAVAReload)
             {
-                _controller.ChangeCavaSettings();
+                _controller.ChangeCAVASettings();
             }
         };
         _stereoButton.OnToggled += (sender, e) =>
@@ -517,7 +517,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             }
             if (!_avoidCAVAReload)
             {
-                _controller.ChangeCavaSettings();
+                _controller.ChangeCAVASettings();
             }
         };
         _monstercatSwitch.OnNotify += (sender, e) =>
@@ -527,7 +527,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _controller.Monstercat = _monstercatSwitch.GetActive();
                 if (!_avoidCAVAReload)
                 {
-                    _controller.ChangeCavaSettings();
+                    _controller.ChangeCAVASettings();
                 }
             }
         };
@@ -538,7 +538,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.NoiseReduction = (float)_noiseReductionScale.GetValue();
             if (!_avoidCAVAReload)
             {
-                _controller.ChangeCavaSettings();
+                _controller.ChangeCAVASettings();
             }
         };
         _reverseSwitch.OnNotify += (sender, e) =>
@@ -644,7 +644,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _monstercatSwitch.SetActive(_controller.Monstercat);
         _noiseReductionScale.SetValue(_controller.NoiseReduction);
         _avoidCAVAReload = false;
-        _controller.ChangeCavaSettings();
+        _controller.ChangeCAVASettings();
         return false;
     }
 
