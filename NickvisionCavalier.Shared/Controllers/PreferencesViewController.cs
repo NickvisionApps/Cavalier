@@ -34,6 +34,10 @@ public class PreferencesViewController
     /// Occurs when CAVA settings were changed from the view
     /// </summary>
     public event Action? OnCAVASettingsChanged;
+    /// <summary>
+    /// Occurs when Help screen needs to be shown
+    /// </summary>
+    public event EventHandler<string> OnShowHelpScreen;
 
     /// <summary>
     /// Constructs a PreferencesViewController
@@ -145,26 +149,33 @@ public class PreferencesViewController
             }
         }).WithNotParsed(_ =>
         {
-            DisplayHelp(parserResult);
+            var help = GenerateHelp(parserResult);
             if (sender is MainWindowController)
             {
-                // Help screen was caused by first instance on start, let's exit
+                // Help screen was caused by first instance on start, let's show and exit
+                Console.WriteLine(help);
                 Environment.Exit(1);
             }
+            OnShowHelpScreen?.Invoke(this, help);
         });
     }
 
-    private void DisplayHelp<T>(ParserResult<T> result)
+    /// <summary>
+    /// Create help text
+    /// </summary>
+    /// <param name="result">Command line parser result</param>
+    /// <returns>Help text</returns>
+    private string GenerateHelp<T>(ParserResult<T> result)
     {
         var helpText = HelpText.AutoBuild(result, h =>
         {
-            h.AdditionalNewLineAfterOption = false;
+            h.AdditionalNewLineAfterOption = true;
             h.Heading = $"{Aura.Active.AppInfo.ShortName} {Aura.Active.AppInfo.Version}";
             h.Copyright = "Copyright (c) 2023 Nickvision";
             h.AutoVersion = false;
             return HelpText.DefaultParsingErrorsHandler(result, h);
         }, e => e);
-        Console.WriteLine(helpText);
+        return helpText;
     }
 
     /// <summary>

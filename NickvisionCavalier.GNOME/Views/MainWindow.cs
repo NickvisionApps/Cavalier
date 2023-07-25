@@ -1,8 +1,8 @@
+using NickvisionCavalier.GNOME.Controls;
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -44,6 +44,15 @@ public class MainWindow : Adw.ApplicationWindow
         _preferencesController = _controller.GetPreferencesViewController();
         _preferencesController.OnWindowSettingsChanged += UpdateWindowSettings;
         _preferencesController.OnCAVASettingsChanged += _drawingView.UpdateCAVASettings;
+        _preferencesController.OnShowHelpScreen += (sender, help) =>
+        {
+            Present();
+            GLib.Functions.IdleAdd(0, () =>
+            {
+                new CommandHelpDialog(this, help).Present();
+                return false;
+            });
+        };
         var preferencesDialog = new PreferencesDialog(_preferencesController, application);
         OnCloseRequest += OnClose;
         UpdateWindowSettings();
