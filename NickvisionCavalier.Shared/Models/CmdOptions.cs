@@ -47,7 +47,7 @@ public class CmdOptions {
     [Option('t', "items-offset", Required = false, HelpText = "Offset between items (0-20)")]
     public uint? ItemsOffset { get; set; }
     /// <summary>
-    /// Roundness of items (0 - square, 1 - round)
+    /// Roundness of items (0 - square, 100 - round)
     /// </summary>
     [Option('r', "items-roundness", Required = false, HelpText = "Roundness of items (0-100)")]
     public uint? ItemsRoundness { get; set; }
