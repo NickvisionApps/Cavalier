@@ -46,9 +46,9 @@ public class MainWindow : Adw.ApplicationWindow
         _preferencesController.OnCAVASettingsChanged += _drawingView.UpdateCAVASettings;
         _preferencesController.OnShowHelpScreen += (sender, help) =>
         {
-            Present();
             GLib.Functions.IdleAdd(0, () =>
             {
+                Present();
                 new CommandHelpDialog(this, help).Present();
                 return false;
             });
