@@ -254,16 +254,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         actCorners.OnActivate += (sender, e) => _sharpCornersSwitch.SetActive(!_sharpCornersSwitch.GetActive());
         application.AddAction(actCorners);
         application.SetAccelsForAction("app.toggle-corners", new string[] { "S" });
-        //Toggle Show Controls Action
-        var actControls = Gio.SimpleAction.New("toggle-controls", null);
-        actControls.OnActivate += (sender, e) => _windowControlsSwitch.SetActive(!_windowControlsSwitch.GetActive());
-        application.AddAction(actControls);
-        application.SetAccelsForAction("app.toggle-controls", new string[] { "H" });
-        //Toggle Autohide Headerbar Action
-        var actHeader = Gio.SimpleAction.New("toggle-headerbar", null);
-        actHeader.OnActivate += (sender, e) => _autohideHeaderSwitch.SetActive(!_autohideHeaderSwitch.GetActive());
-        application.AddAction(actHeader);
-        application.SetAccelsForAction("app.toggle-headerbar", new string[] { "A" });
         //Increase Bars Action
         var actIncBars = Gio.SimpleAction.New("inc-bars", null);
         actIncBars.OnActivate += (sender, e) =>
