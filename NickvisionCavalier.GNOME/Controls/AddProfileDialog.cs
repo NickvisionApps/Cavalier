@@ -1,4 +1,3 @@
-using System;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Controls;

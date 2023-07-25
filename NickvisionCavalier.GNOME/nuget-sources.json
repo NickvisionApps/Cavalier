@@ -155,6 +155,13 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/nickvision.girext/2023.7.1/nickvision.girext.2023.7.1.nupkg",
+        "sha512": "fa55e3402bd6d9c46834dbc7c117230a6304a04a54ba7cf86fa4b4383d83862dc455dce6a175b590a20021c288760980905a24fc07e282e351fad3a13d202d75",
+        "dest": "nuget-sources",
+        "dest-filename": "nickvision.girext.2023.7.1.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/skiasharp/2.88.3/skiasharp.2.88.3.nupkg",
         "sha512": "90e78bb2a0c377a7c72f750e6f9c122aaa24e66b4739930ae473466ca3aa1d03ee241d6b6041627f86a9a518e91d6839db31e1684e73190d968067da6488b743",
         "dest": "nuget-sources",
