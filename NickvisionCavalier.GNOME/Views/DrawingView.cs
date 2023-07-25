@@ -149,7 +149,7 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     /// <summary>
     /// Occurs when settings for CAVA have changed
     /// </summary>
-    public void UpdateCavaSettings(object? sender, EventArgs e)
+    public void UpdateCavaSettings()
     {
         SetVisibleChildName("load");
         _controller.Cava.Restart();

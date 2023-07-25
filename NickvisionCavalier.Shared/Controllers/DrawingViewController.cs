@@ -19,7 +19,6 @@ public class DrawingViewController : IDisposable
         _disposed = false;
         _renderer = new Renderer();
         Cava = new Cava();
-        Cava.Start();
     }
 
     /// <summary>

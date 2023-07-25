@@ -1,3 +1,6 @@
+using CommandLine;
+using CommandLine.Text;
+using Nickvision.Aura;
 using NickvisionCavalier.Shared.Models;
 using System;
 using System.Collections.Generic;
@@ -9,20 +12,159 @@ namespace NickvisionCavalier.Shared.Controllers;
 /// </summary>
 public class PreferencesViewController
 {
+    private readonly Parser _parser;
     /// <summary>
     /// Gets the AppInfo object
     /// </summary>
-    public AppInfo AppInfo => AppInfo.Current;
+    public string ID => Aura.Active.AppInfo.ID;
 
-    public event EventHandler? OnWindowSettingsChanged;
-    public event EventHandler? OnCavaSettingsChanged;
+    /// <summary>
+    /// Occurs when the view needs to be updated (instant settings)
+    /// </summary>
+    public event Action? OnUpdateViewInstant;
+    /// <summary>
+    /// Occurs when the view needs to be updated (CAVA settings)
+    /// </summary>
+    public event Action? OnUpdateViewCAVA;
+    /// <summary>
+    /// Occurs when window settings were changed from the view
+    /// </summary>
+    public event Action? OnWindowSettingsChanged;
+    /// <summary>
+    /// Occurs when CAVA settings were changed from the view
+    /// </summary>
+    public event Action? OnCavaSettingsChanged;
 
     /// <summary>
     /// Constructs a PreferencesViewController
     /// </summary>
     internal PreferencesViewController()
     {
+        _parser = new Parser(with =>
+        {
+            with.AutoVersion = false;
+            with.HelpWriter = null;
+        });
+    }
 
+    /// <summary>
+    /// Process command-line arguments passed when starting the app or from other instances
+    /// </summary>
+    public void HandleCommandLine(object? sender, string[] args)
+    {
+        var parserResult = _parser.ParseArguments<CmdOptions>(args);
+        parserResult.WithParsed((o) =>
+        {
+            var updateCavalier = false;
+            var updateCAVA = false;
+            if (o.AreaMargin.HasValue)
+            {
+                Configuration.Current.AreaMargin = Math.Min(o.AreaMargin.Value, 40);
+                updateCavalier = true;
+            }
+            if (o.Borderless.HasValue)
+            {
+                Configuration.Current.Borderless = o.Borderless.Value;
+                updateCavalier = true;
+            }
+            if (o.SharpCorners.HasValue)
+            {
+                Configuration.Current.SharpCorners = o.SharpCorners.Value;
+                updateCavalier = true;
+            }
+            if (o.BarPairs.HasValue)
+            {
+                Configuration.Current.BarPairs = Math.Max(3, Math.Min(o.BarPairs.Value, 25));
+                updateCAVA = true;
+            }
+            if (o.Stereo.HasValue)
+            {
+                Configuration.Current.Stereo = o.Stereo.Value;
+                updateCAVA = true;
+            }
+            if (o.ReverseOrder.HasValue)
+            {
+                Configuration.Current.ReverseOrder = o.ReverseOrder.Value;
+                updateCavalier = true;
+            }
+            if (o.Direction.HasValue)
+            {
+                Configuration.Current.Direction = o.Direction.Value;
+                updateCavalier = true;
+            }
+            if (o.ItemsOffset.HasValue)
+            {
+                Configuration.Current.ItemsOffset = Math.Min(o.ItemsOffset.Value, 20) / 100.0f;
+                updateCavalier = true;
+            }
+            if (o.ItemsRoundness.HasValue)
+            {
+                Configuration.Current.ItemsRoundness = Math.Min(o.ItemsRoundness.Value, 100) / 100.0f;
+                updateCavalier = true;
+            }
+            if (o.Filling.HasValue)
+            {
+                Configuration.Current.Filling = o.Filling.Value;
+                updateCavalier = true;
+            }
+            if (o.LinesThickness.HasValue)
+            {
+                Configuration.Current.LinesThickness = Math.Min(o.LinesThickness.Value, 10);
+                updateCavalier = true;
+            }
+            if (o.Mode.HasValue)
+            {
+                Configuration.Current.Mode = o.Mode.Value;
+                updateCavalier = true;
+            }
+            if (o.Mirror.HasValue)
+            {
+                Configuration.Current.Mirror = o.Mirror.Value;
+                updateCavalier = true;
+            }
+            if (o.ReverseMirror.HasValue)
+            {
+                Configuration.Current.ReverseMirror = o.ReverseMirror.Value;
+                updateCavalier = true;
+            }
+            if (o.ActiveProfile.HasValue)
+            {
+                if (o.ActiveProfile.Value < Configuration.Current.ColorProfiles.Count)
+                {
+                    Configuration.Current.ActiveProfile = (int)o.ActiveProfile.Value;
+                    updateCavalier = true;
+                }
+            }
+            if (updateCavalier)
+            {
+                OnUpdateViewInstant?.Invoke();
+            }
+            if (updateCAVA)
+            {
+                OnUpdateViewCAVA?.Invoke();
+            }
+        }).WithNotParsed(_ =>
+        {
+            DisplayHelp(parserResult);
+            if (sender is MainWindowController)
+            {
+                // Help screen was caused by first instance on start, let's exit
+                Environment.Exit(1);
+            }
+        });
+    }
+
+    private void DisplayHelp<T>(ParserResult<T> result)
+    {
+        var helpText = HelpText.AutoBuild(result, h =>
+        {
+            h.AdditionalNewLineAfterOption = false;
+            h.Heading = $"{Aura.Active.AppInfo.ShortName} {Aura.Active.AppInfo.Version}";
+            h.Copyright = "Copyright (c) 2023 Nickvision";
+            h.AutoVersion = false;
+            return HelpText.DefaultParsingErrorsHandler(result, h);
+        }, e => e);
+        Console.WriteLine(helpText);
     }
 
     /// <summary>
@@ -253,23 +395,17 @@ public class PreferencesViewController
     /// <summary>
     /// Saves the configuration to disk
     /// </summary>
-    public void Save() => Configuration.Current.Save();
+    public void Save() => Aura.Active.SaveConfig("config");
 
     /// <summary>
     /// Occurs when a window's setting has changed
     /// </summary>
-    public void ChangeWindowSettings()
-    {
-        OnWindowSettingsChanged?.Invoke(this, EventArgs.Empty);
-    }
+    public void ChangeWindowSettings() => OnWindowSettingsChanged?.Invoke();
 
     /// <summary>
     /// Occurs when a CAVA setting has changed
     /// </summary>
-    public void ChangeCavaSettings()
-    {
-        OnCavaSettingsChanged?.Invoke(this, EventArgs.Empty);
-    }
+    public void ChangeCavaSettings() => OnCavaSettingsChanged?.Invoke();
 
     /// <summary>
     /// Adds new color profile

@@ -1,3 +1,4 @@
+using Nickvision.Aura;
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -17,7 +18,7 @@ public class Cava : IDisposable
     public Cava()
     {
         _disposed = false;
-        _configPath = $"{Configuration.ConfigDir}{Path.DirectorySeparatorChar}cava_config";
+        _configPath = $"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}cava_config";
         UpdateConfig();
         _proc = new Process
         {
@@ -61,6 +62,9 @@ public class Cava : IDisposable
         _disposed = true;
     }
 
+    /// <summary>
+    /// Update CAVA configuration file
+    /// </summary>
     private void UpdateConfig()
     {
         var config = @$"[general]
@@ -79,19 +83,24 @@ public class Cava : IDisposable
         File.WriteAllText(_configPath, config);
     }
 
-    public void Start()
+    /// <summary>
+    /// (Re)start CAVA
+    /// </summary>
+    public void Restart()
     {
+        try
+        {
+            _proc.Kill();
+        }
+        catch (InvalidOperationException) { }
+        UpdateConfig();
         _proc.Start();
         Task.Run(ReadCavaOutput);
     }
-    
-    public void Restart()
-    {
-        _proc.Kill();
-        UpdateConfig();
-        Start();
-    }
 
+    /// <summary>
+    /// Read what CAVA prints to stdout
+    /// </summary>
     private void ReadCavaOutput()
     {
         var br = new BinaryReader(_proc.StandardOutput.BaseStream);

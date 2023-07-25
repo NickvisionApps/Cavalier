@@ -1,25 +1,19 @@
-using System;
+using Nickvision.Aura;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
 
 namespace NickvisionCavalier.Shared.Models;
 
 /// <summary>
 /// A model for the configuration of the application
 /// </summary>
-public class Configuration
+public class Configuration : IConfiguration
 {
-    public static readonly string ConfigDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}{Path.DirectorySeparatorChar}{AppInfo.Current.Name}";
-    private static readonly string ConfigPath = $"{ConfigDir}{Path.DirectorySeparatorChar}config.json";
-    private static Configuration? _instance;
-
     /// <summary>
     /// Main window width
     /// </summary>
     public uint WindowWidth { get; set; }
     /// <summary>
-    /// Main window width
+    /// Main window height
     /// </summary>
     public uint WindowHeight { get; set; }
     /// <summary>
@@ -116,19 +110,10 @@ public class Configuration
     public int ActiveProfile { get; set; }
 
     /// <summary>
-    /// Occurs when the configuration is saved to disk
-    /// </summary>
-    public event EventHandler? Saved;
-
-    /// <summary>
     /// Constructs a Configuration
     /// </summary>
     public Configuration()
     {
-        if (!Directory.Exists(ConfigDir))
-        {
-            Directory.CreateDirectory(ConfigDir);
-        }
         WindowWidth = 400;
         WindowHeight = 200;
         AreaMargin = 0;
@@ -163,32 +148,14 @@ public class Configuration
     {
         get
         {
-            if (_instance == null)
+            var obj = (Configuration)Aura.Active.ConfigFiles["config"];
+            // Ensure that we have at least 1 color profile
+            if (obj.ColorProfiles.Count == 0)
             {
-                try
-                {
-                    _instance = JsonSerializer.Deserialize<Configuration>(File.ReadAllText(ConfigPath)) ?? new Configuration();
-                    if (_instance.ColorProfiles.Count == 0) // Color profiles list should not be empty
-                    {
-                        _instance.ColorProfiles = new List<ColorProfile> { new ColorProfile() };
-                        _instance.ActiveProfile = 0;
-                    }
-                }
-                catch
-                {
-                    _instance = new Configuration();
-                }
+                obj.ColorProfiles = new List<ColorProfile> { new ColorProfile() };
+                obj.ActiveProfile = 0;
             }
-            return _instance;
+            return obj;
         }
-    }
-
-    /// <summary>
-    /// Saves the configuration to disk
-    /// </summary>
-    public void Save()
-    {
-        File.WriteAllText(ConfigPath, JsonSerializer.Serialize(this));
-        Saved?.Invoke(this, EventArgs.Empty);
     }
 }
