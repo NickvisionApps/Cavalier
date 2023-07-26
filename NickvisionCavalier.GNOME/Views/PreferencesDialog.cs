@@ -454,7 +454,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             if (e.Pspec.GetName() == "selected")
             {
-                _controller.Framerate = (_framerateRow.GetSelected() + 1u) * 30u;
+                _controller.Framerate = new []{ 30u, 60u, 90u, 120u, 144u }[_framerateRow.GetSelected()];
                 if (!_avoidCAVAReload)
                 {
                     _controller.ChangeCAVASettings();
