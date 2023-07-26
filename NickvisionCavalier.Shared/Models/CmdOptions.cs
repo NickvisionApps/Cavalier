@@ -64,7 +64,7 @@ public class CmdOptions {
     /// <summary>
     /// Number of bar pairs in CAVA
     /// </summary>
-    [Option('b', "bars", Required = false, HelpText = "Number of bar pairs (3-25)")]
+    [Option('b', "bar-pairs", Required = false, HelpText = "Number of bar pairs (3-25)")]
     public uint? BarPairs { get; set; }
     /// <summary>
     /// Whether to set channels to stereo (mono if false)

@@ -49,7 +49,7 @@ public class MainWindow : Adw.ApplicationWindow
             GLib.Functions.IdleAdd(0, () =>
             {
                 Present();
-                new CommandHelpDialog(this, help).Present();
+                new CommandHelpDialog(this, _controller.AppInfo.ID, help).Present();
                 return false;
             });
         };
