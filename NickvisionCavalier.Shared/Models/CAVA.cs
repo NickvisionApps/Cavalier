@@ -58,6 +58,7 @@ public class CAVA : IDisposable
         if (disposing)
         {
             _proc.Kill();
+            _proc.WaitForExit();
         }
         _disposed = true;
     }
