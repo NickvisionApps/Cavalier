@@ -29,7 +29,7 @@ public class Renderer
         var bgPaint = new SKPaint
         {
             Style = SKPaintStyle.Fill,
-            Color = SKColors.Red
+            IsAntialias = true
         };
         if (profile.BgColors.Count > 1)
         {
@@ -41,12 +41,13 @@ public class Renderer
         }
         Canvas.DrawRect(0, 0, width, height, bgPaint);
         // Draw foreground
-        width = width - Configuration.Current.AreaMargin * 2;
-        height = height - Configuration.Current.AreaMargin * 2;
+        width -= Configuration.Current.AreaMargin * 2;
+        height -= Configuration.Current.AreaMargin * 2;
         var fgPaint = new SKPaint
         {
             Style = Configuration.Current.Filling ? SKPaintStyle.Fill : SKPaintStyle.Stroke,
             StrokeWidth = Configuration.Current.LinesThickness,
+            IsAntialias = true
         };
         if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox)
         {
