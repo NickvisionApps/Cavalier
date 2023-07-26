@@ -17,6 +17,10 @@ public class Configuration : IConfiguration
     /// </summary>
     public uint WindowHeight { get; set; }
     /// <summary>
+    /// Whether main window is maximized or not
+    /// </summary>
+    public bool WindowMaximized { get; set; }
+    /// <summary>
     /// Size of drawing area margins in pixels
     /// </summary>
     public uint AreaMargin { get; set; }
