@@ -79,6 +79,6 @@ public class CmdOptions {
     /// <summary>
     /// Active color profile index
     /// </summary>
-    [Option('p', "profile", Required = false, HelpText = "Index of profile to activate")]
+    [Option('p', "profile", Required = false, HelpText = "Zero-based index of profile to activate")]
     public uint? ActiveProfile { get; set; }
 }
