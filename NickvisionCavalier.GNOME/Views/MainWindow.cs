@@ -41,7 +41,7 @@ public class MainWindow : Adw.ApplicationWindow
         SetIconName(_controller.AppInfo.ID);
         _drawingView = new DrawingView(new DrawingViewController());
         _overlay.SetChild(_drawingView);
-        _preferencesController = _controller.GetPreferencesViewController();
+        _preferencesController = _controller.PreferencesViewController;
         _preferencesController.OnWindowSettingsChanged += UpdateWindowSettings;
         _preferencesController.OnCAVASettingsChanged += _drawingView.UpdateCAVASettings;
         _preferencesController.OnShowHelpScreen += (sender, help) =>

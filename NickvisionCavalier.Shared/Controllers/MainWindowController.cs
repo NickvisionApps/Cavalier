@@ -44,7 +44,7 @@ public class MainWindowController
     /// </summary>
     public bool AutohideHeader => Configuration.Current.AutohideHeader;
 
-    private readonly PreferencesViewController _preferencesViewController;
+    public PreferencesViewController PreferencesViewController { get; init; }
 
     public event Action? RaiseCommandReceived;
 
@@ -66,7 +66,7 @@ public class MainWindowController
         AppInfo.Designers[_("Fyodor Sobolev")] = new Uri("https://github.com/fsobolev");
         AppInfo.Artists[_("David Lapshin")] = new Uri("https://github.com/daudix-UFO");
         AppInfo.TranslatorCredits = _("translator-credits");
-        _preferencesViewController = new PreferencesViewController();
+        PreferencesViewController = new PreferencesViewController();
         var ipc = Aura.Communicate(args);
         ipc.CommandReceived += HandleCommandLine;
         HandleCommandLine(this, args);
@@ -83,15 +83,9 @@ public class MainWindowController
         }
         else
         {
-            _preferencesViewController.HandleCommandLine(sender, args);
+            PreferencesViewController.HandleCommandLine(sender, args);
         }
     }
-
-    /// <summary>
-    /// Creates a new PreferencesViewController
-    /// </summary>
-    /// <returns>The PreferencesViewController</returns>
-    public PreferencesViewController GetPreferencesViewController() => _preferencesViewController;
 
     /// <summary>
     /// Saves the MainWindow size to configuration
