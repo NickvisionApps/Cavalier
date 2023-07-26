@@ -556,6 +556,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _colorDialog = Gtk.ColorDialog.New();
         _addFgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Foreground);
         _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
+        UpdateColorsGrid();
         // Update view when controller has changed by cmd options
         _controller.OnUpdateViewInstant += () => GLib.Functions.IdleAdd(0, LoadInstantSettings);
         _controller.OnUpdateViewCAVA += () => GLib.Functions.IdleAdd(0, LoadCAVASettings);
