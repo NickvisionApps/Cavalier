@@ -34,10 +34,8 @@ public partial class Program
         _mainWindow = null;
         _mainWindowController = new MainWindowController(args);
         _mainWindowController.AppInfo.Changelog =
-            @"* Cavalier is reborn as part of Nickvision apps family! Completely rewritten in C#, gaining better performance and solid base to grow in future!
-            * New notable features comparing to previous stable release of Cavalier: Spine drawing mode, drawing direction selection and mirror.
-            * Translations were moved to Weblate.
-            * Compared to 2023.7.0-beta1: fixed an issue where CAVA was still running after Cavalier quits, added Reverse mirror option, fixed other minor issues.";
+            @"* Cavalier can now be controlled from command line. Run the app with --help option to see full list of available options.
+              * Reverse mirror option is now available with full mirror.";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
         {
