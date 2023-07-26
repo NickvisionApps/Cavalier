@@ -1,3 +1,4 @@
+using NickvisionCavalier.GNOME.Controls;
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
@@ -34,17 +35,27 @@ public class MainWindow : Adw.ApplicationWindow
         _application = application;
         //Build UI
         builder.Connect(this);
+        _controller.RaiseCommandReceived += Present;
         SetDefaultSize((int)_controller.WindowWidth, (int)_controller.WindowHeight);
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
         _drawingView = new DrawingView(new DrawingViewController());
         _overlay.SetChild(_drawingView);
-        _preferencesController = _controller.CreatePreferencesViewController();
+        _preferencesController = _controller.PreferencesViewController;
         _preferencesController.OnWindowSettingsChanged += UpdateWindowSettings;
-        _preferencesController.OnCavaSettingsChanged += _drawingView.UpdateCavaSettings;
+        _preferencesController.OnCAVASettingsChanged += _drawingView.UpdateCAVASettings;
+        _preferencesController.OnShowHelpScreen += (sender, help) =>
+        {
+            GLib.Functions.IdleAdd(0, () =>
+            {
+                Present();
+                new CommandHelpDialog(this, _controller.AppInfo.ID, help).Present();
+                return false;
+            });
+        };
         var preferencesDialog = new PreferencesDialog(_preferencesController, application);
         OnCloseRequest += OnClose;
-        UpdateWindowSettings(null, EventArgs.Empty);
+        UpdateWindowSettings();
         OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "is-active" && _controller.AutohideHeader)
@@ -126,7 +137,7 @@ public class MainWindow : Adw.ApplicationWindow
     /// <summary>
     /// Occurs when settings for the window have changed
     /// </summary>
-    private void UpdateWindowSettings(object? sender, EventArgs e)
+    private void UpdateWindowSettings()
     {
         _application.StyleManager!.ColorScheme = _controller.Theme switch
         {
@@ -248,7 +259,7 @@ public class MainWindow : Adw.ApplicationWindow
         dialog.SetTransientFor(this);
         dialog.SetIconName(_controller.AppInfo.ID);
         dialog.SetApplicationName(_controller.AppInfo.ShortName);
-        dialog.SetApplicationIcon(_controller.AppInfo.ID + (_controller.AppInfo.GetIsDevelVersion() ? "-devel" : ""));
+        dialog.SetApplicationIcon(_controller.AppInfo.ID + (_controller.AppInfo.IsDevVersion ? "-devel" : ""));
         dialog.SetVersion(_controller.AppInfo.Version);
         dialog.SetDebugInfo(debugInfo.ToString());
         dialog.SetComments(_controller.AppInfo.Description);
@@ -258,13 +269,16 @@ public class MainWindow : Adw.ApplicationWindow
         dialog.SetWebsite("https://nickvision.org/");
         dialog.SetIssueUrl(_controller.AppInfo.IssueTracker.ToString());
         dialog.SetSupportUrl(_controller.AppInfo.SupportUrl.ToString());
-        dialog.AddLink(_("GitHub Repo"), _controller.AppInfo.GitHubRepo.ToString());
-        dialog.AddLink(_("Matrix Chat"), "https://matrix.to/#/#nickvision:matrix.org");
-        dialog.SetDevelopers(_("Fyodor Sobolev {0}\nNicholas Logozzo {1}\nContributors on GitHub ❤️ {2}", "https://github.com/fsobolev", "https://github.com/nlogozzo", "https://github.com/NickvisionApps/Cavalier/graphs/contributors").Split("\n"));
-        dialog.SetDesigners(_("Fyodor Sobolev {0}", "https://github.com/fsobolev").Split("\n"));
-        dialog.SetArtists(_("David Lapshin {0}", "https://github.com/daudix-UFO").Split("\n"));
-        dialog.SetTranslatorCredits(_("translator-credits"));
-        dialog.SetReleaseNotes(_controller.AppInfo.Changelog);
+        dialog.AddLink(_("GitHub Repo"), _controller.AppInfo.SourceRepo.ToString());
+        foreach (var pair in _controller.AppInfo.ExtraLinks)
+        {
+            dialog.AddLink(pair.Key, pair.Value.ToString());
+        }
+        dialog.SetDevelopers(_controller.AppInfo.ConvertURLDictToArray(_controller.AppInfo.Developers));
+        dialog.SetDesigners(_controller.AppInfo.ConvertURLDictToArray(_controller.AppInfo.Designers));
+        dialog.SetArtists(_controller.AppInfo.ConvertURLDictToArray(_controller.AppInfo.Artists));
+        dialog.SetTranslatorCredits(_controller.AppInfo.TranslatorCredits);
+        dialog.SetReleaseNotes(_controller.AppInfo.HTMLChangelog);
         dialog.Present();
     }
 }

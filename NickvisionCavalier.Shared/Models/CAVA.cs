@@ -1,3 +1,4 @@
+using Nickvision.Aura;
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NickvisionCavalier.Shared.Models;
 
-public class Cava : IDisposable
+public class CAVA : IDisposable
 {
     private bool _disposed;
     private readonly Process _proc;
@@ -14,10 +15,10 @@ public class Cava : IDisposable
 
     public event EventHandler<float[]>? OutputReceived;
     
-    public Cava()
+    public CAVA()
     {
         _disposed = false;
-        _configPath = $"{Configuration.ConfigDir}{Path.DirectorySeparatorChar}cava_config";
+        _configPath = $"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}cava_config";
         UpdateConfig();
         _proc = new Process
         {
@@ -32,12 +33,12 @@ public class Cava : IDisposable
     }
 
     /// <summary>
-    /// Finalizes the Cava object
+    /// Finalizes the CAVA object
     /// </summary>
-    ~Cava() => Dispose(false);
+    ~CAVA() => Dispose(false);
 
     /// <summary>
-    /// Frees resources used by the Cava object
+    /// Frees resources used by the CAVA object
     /// </summary>
     public void Dispose()
     {
@@ -46,7 +47,7 @@ public class Cava : IDisposable
     }
 
     /// <summary>
-    /// Frees resources used by the Cava object
+    /// Frees resources used by the CAVA object
     /// </summary>
     protected virtual void Dispose(bool disposing)
     {
@@ -57,10 +58,14 @@ public class Cava : IDisposable
         if (disposing)
         {
             _proc.Kill();
+            _proc.WaitForExit();
         }
         _disposed = true;
     }
 
+    /// <summary>
+    /// Update CAVA configuration file
+    /// </summary>
     private void UpdateConfig()
     {
         var config = @$"[general]
@@ -79,20 +84,25 @@ public class Cava : IDisposable
         File.WriteAllText(_configPath, config);
     }
 
-    public void Start()
-    {
-        _proc.Start();
-        Task.Run(ReadCavaOutput);
-    }
-    
+    /// <summary>
+    /// (Re)start CAVA
+    /// </summary>
     public void Restart()
     {
-        _proc.Kill();
+        try
+        {
+            _proc.Kill();
+        }
+        catch (InvalidOperationException) { }
         UpdateConfig();
-        Start();
+        _proc.Start();
+        Task.Run(ReadCAVAOutput);
     }
 
-    private void ReadCavaOutput()
+    /// <summary>
+    /// Read what CAVA prints to stdout
+    /// </summary>
+    private void ReadCAVAOutput()
     {
         var br = new BinaryReader(_proc.StandardOutput.BaseStream);
         while(!_proc.HasExited)

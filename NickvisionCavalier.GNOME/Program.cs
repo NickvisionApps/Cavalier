@@ -23,25 +23,19 @@ public partial class Program
     /// </summary>
     /// <param name="args">string[]</param>
     /// <returns>Return code from Adw.Application.Run()</returns>
-    public static int Main(string[] args) => new Program().Run(args);
+    public static int Main(string[] args) => new Program(args).Run();
 
     /// <summary>
     /// Constructs a Program
     /// </summary>
-    public Program()
+    public Program(string[] args)
     {
-        _application = Adw.Application.New("org.nickvision.cavalier", Gio.ApplicationFlags.FlagsNone);
+        _application = Adw.Application.New("org.nickvision.cavalier", Gio.ApplicationFlags.NonUnique);
         _mainWindow = null;
-        _mainWindowController = new MainWindowController();
-        _mainWindowController.AppInfo.ID = "org.nickvision.cavalier";
-        _mainWindowController.AppInfo.Name = "Nickvision Cavalier";
-        _mainWindowController.AppInfo.ShortName = _("Cavalier");
-        _mainWindowController.AppInfo.Description = $"{_("Visualize audio with CAVA")}.";
-        _mainWindowController.AppInfo.Version = "2023.8.0-next";
-        _mainWindowController.AppInfo.Changelog = "";
-        _mainWindowController.AppInfo.GitHubRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
-        _mainWindowController.AppInfo.IssueTracker = new Uri("https://github.com/NickvisionApps/Cavalier/issues/new");
-        _mainWindowController.AppInfo.SupportUrl = new Uri("https://github.com/NickvisionApps/Cavalier/discussions");
+        _mainWindowController = new MainWindowController(args);
+        _mainWindowController.AppInfo.Changelog =
+            @"* Cavalier can now be controlled from command line. Run the app with --help option to see full list of available options.
+              * Reverse mirror option is now available with full mirror.";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
         {
@@ -70,7 +64,7 @@ public partial class Program
     /// Runs the program
     /// </summary>
     /// <returns>Return code from Adw.Application.Run()</returns>
-    public int Run(string[] args)
+    public int Run()
     {
         try
         {

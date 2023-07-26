@@ -662,7 +662,7 @@ msgstr "Ebenung, Lärmreduktion und andere CAVA-Einstellungen konfigurieren."
 #~ "Bars!"
 #~ msgstr ""
 #~ "3 Zeichenmodi: seltsame Welle, retro-artige Stufen und der klassische "
-#~ "Cava-Look - Säulen!"
+#~ "CAVA-Look - Säulen!"
 
 #~ msgid "The array of foregound colors (RGBA)."
 #~ msgstr "Palette der Vordergrundfarben"

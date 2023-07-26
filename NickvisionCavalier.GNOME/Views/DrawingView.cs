@@ -44,7 +44,7 @@ public partial class DrawingView : Gtk.Stack, IDisposable
             _ctx = GRContext.CreateGl(grInt);
         };
         _glArea.OnResize += (sender, e) => CreateSurface();
-        _controller.Cava.OutputReceived += (sender, sample) =>
+        _controller.CAVA.OutputReceived += (sender, sample) =>
         {
             _sample = sample;
             GLib.Functions.IdleAdd(0, () =>
@@ -149,9 +149,9 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     /// <summary>
     /// Occurs when settings for CAVA have changed
     /// </summary>
-    public void UpdateCavaSettings(object? sender, EventArgs e)
+    public void UpdateCAVASettings()
     {
         SetVisibleChildName("load");
-        _controller.Cava.Restart();
+        _controller.CAVA.Restart();
     }
 }

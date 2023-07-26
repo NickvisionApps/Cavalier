@@ -10,16 +10,16 @@ public class DrawingViewController : IDisposable
     private readonly Renderer _renderer;
     
     /// <summary>
-    /// Cava instance
+    /// CAVA instance
     /// </summary>
-    public Cava Cava { get; init; }
+    public CAVA CAVA { get; init; }
     
     public DrawingViewController()
     {
         _disposed = false;
         _renderer = new Renderer();
-        Cava = new Cava();
-        Cava.Start();
+        CAVA = new CAVA();
+        CAVA.Restart();
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public class DrawingViewController : IDisposable
         }
         if (disposing)
         {
-            Cava.Dispose();
+            CAVA.Dispose();
         }
         _disposed = true;
     }
