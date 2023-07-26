@@ -1,6 +1,13 @@
 [
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/commandlineparser/2.9.1/commandlineparser.2.9.1.nupkg",
+        "sha512": "4f364e45c9668c7e7cc6a922b488f3fa523033c20d7a432694f0a6af05ce528ea0481d8375e2f4f1032c6990347b4803ce9a0e48068c6fe15ec46fb1254f085d",
+        "dest": "nuget-sources",
+        "dest-filename": "commandlineparser.2.9.1.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/gettext.net/1.8.7/gettext.net.1.8.7.nupkg",
         "sha512": "f998a8437b52b406141c65f0d132ddc5dd04b85635b5b410f508b851ad7a5108b623ea615aa58a0dec2825e6e0420cd2f9f6f2689646aa71afafb172303dceaa",
         "dest": "nuget-sources",
@@ -106,6 +113,13 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/markdig/0.31.0/markdig.0.31.0.nupkg",
+        "sha512": "55f37379d3e7f972ccd1eb354e1c8868b915d88aef4fbb903bc781ffe200236672270ff3314c9e79f14a94fae1e188933b22e6effc5eb598a279259969fc49c6",
+        "dest": "nuget-sources",
+        "dest-filename": "markdig.0.31.0.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm/7.0.9/microsoft.aspnetcore.app.runtime.linux-arm.7.0.9.nupkg",
         "sha512": "ae0aba73add6441f4785217ad14507703b2d4d9cc5de0ae54cc1d08cfea932b9de4e3c762c765187cb7c6a7156c2883dcb8afaf6d2fd82e958e476b0db8b5dc8",
         "dest": "nuget-sources",
@@ -152,6 +166,13 @@
         "sha512": "8581e6dc902340efe7c92c5c9751296616045bed8fdc7d5e2d936bf90c603b94e72d2ea1aad7e2e567218d0ce389de393189a1cb65fb20e99c5ad0cfe1fa4c1b",
         "dest": "nuget-sources",
         "dest-filename": "microsoft.netcore.targets.5.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/nickvision.aura/2023.7.1/nickvision.aura.2023.7.1.nupkg",
+        "sha512": "125f12782991f2cd575fd4e2f78a1d9c21cae3dcfd6145d2df5b4e2fdefecf9a0d37a47573564e89ac70486d5829c3aeefffdc0013c574c11e6a252c8823ffa2",
+        "dest": "nuget-sources",
+        "dest-filename": "nickvision.aura.2023.7.1.nupkg"
     },
     {
         "type": "file",
