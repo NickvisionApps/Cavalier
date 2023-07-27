@@ -119,7 +119,7 @@ public class Configuration : IConfiguration
     /// <summary>
     /// Background image scale (0.1-1.0, 1.0 - fill the window)
     /// </summary>
-    public float ImageScale;
+    public float ImageScale { get; set; }
 
     /// <summary>
     /// Constructs a Configuration

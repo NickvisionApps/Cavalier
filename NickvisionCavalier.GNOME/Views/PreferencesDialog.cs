@@ -560,7 +560,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.ColorProfiles[_controller.ActiveProfile].Theme = _lightThemeButton.GetActive() ? Theme.Light : Theme.Dark;
             _controller.ChangeWindowSettings();
         };
-        _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
         _colorDialog = Gtk.ColorDialog.New();
         _addFgColorButton.OnClicked += (sender, e) => AddColorAsync(ColorType.Foreground);
         _addBgColorButton.OnClicked += (sender, e) => AddColorAsync(ColorType.Background);
@@ -635,7 +634,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _autohideHeaderSwitch.SetActive(_controller.AutohideHeader);
         _reverseSwitch.SetActive(_controller.ReverseOrder);
         UpdateColorProfiles();
+        _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
         UpdateImagesList();
+        _imageScale.SetValue(_controller.ImageScale);
         return false;
     }
 
