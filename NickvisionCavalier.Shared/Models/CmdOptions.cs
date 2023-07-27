@@ -84,7 +84,7 @@ public class CmdOptions {
     /// <summary>
     /// Index of a background image to load (-1 to not load anything)
     /// </summary>
-    [Option('i', "image-index", Required = false, HelpText = "Zero-based index of image to draw (-1 to not draw image)")]
+    [Option('i', "image-index", Required = false, HelpText = "Index of image to draw (0 to not draw image)")]
     public int? ImageIndex { get; set; }
     /// <summary>
     /// Background image scale (10-100, 100 - fill the window)

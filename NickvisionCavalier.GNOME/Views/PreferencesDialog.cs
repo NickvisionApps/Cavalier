@@ -370,6 +370,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.Save();
             return false;
         };
+        UpdateImagesList();
         LoadInstantSettings();
         LoadCAVASettings();
         _waveCheckButton.OnToggled += (sender, e) =>
@@ -673,7 +674,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _autohideHeaderSwitch.SetActive(_controller.AutohideHeader);
         _reverseSwitch.SetActive(_controller.ReverseOrder);
         UpdateColorProfiles();
-        UpdateImagesList();
+        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
         _imageScale.SetValue(_controller.ImageScale);
         return false;
     }
@@ -853,36 +854,19 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _imageScale.SetSensitive(true);
         _imagesStack.SetVisibleChildName("images");
         _removingImages = true;
-        while (_imagesFlowBox.GetFirstChild() != null)
+        while (_imagesFlowBox.GetChildAtIndex(1) != null)
         {
-            _imagesFlowBox.Remove(_imagesFlowBox.GetFirstChild()!);
+            ((ImageItem)_imagesFlowBox.GetChildAtIndex(1)!.GetChild()!).Dispose();
+            _imagesFlowBox.Remove(_imagesFlowBox.GetChildAtIndex(1)!);
         }
         _removingImages = false;
-        var emptyImage = Gtk.Image.NewFromIconName("x-circular-symbolic");
-        emptyImage.SetTooltipText(_("No Image"));
-        emptyImage.AddCssClass("cavalier-image");
-        emptyImage.SetSizeRequest(160, 120);
-        emptyImage.SetPixelSize(42);
-        emptyImage.SetMarginTop(2);
-        emptyImage.SetMarginStart(2);
-        emptyImage.SetMarginEnd(2);
-        emptyImage.SetMarginBottom(2);
-        _imagesFlowBox.Append(emptyImage);
         for (var i = 0; i < paths.Count; i++)
         {
             var image = new ImageItem(paths[i], i);
             image.OnRemoveImage += RemoveImage;
             _imagesFlowBox.Append(image);
         }
-        try
-        {
-            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1)!);
-        }
-        catch (IndexOutOfRangeException)
-        {
-            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(0)!);
-        }
-        _imageScale.SetValue(_controller.ImageScale);
+        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
     }
 
     /// <summary>
@@ -917,6 +901,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// <param name="index">Index of image to remove</param>
     public void RemoveImage(int index)
     {
+        _controller.ImageIndex = -1;
         var paths = _controller.ImagesList;
         File.Delete(paths[index]);
         UpdateImagesList();

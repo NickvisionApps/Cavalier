@@ -167,9 +167,9 @@ public class PreferencesViewController
             }
             if (o.ImageIndex.HasValue)
             {
-                if (o.ImageIndex.Value > -2 && o.ImageIndex.Value < ImagesList.Count)
+                if (o.ImageIndex.Value > -1 && o.ImageIndex.Value <= ImagesList.Count)
                 {
-                    Configuration.Current.ImageIndex = o.ImageIndex.Value;
+                    Configuration.Current.ImageIndex = o.ImageIndex.Value - 1;
                     updateCavalier = true;
                 }
             }
