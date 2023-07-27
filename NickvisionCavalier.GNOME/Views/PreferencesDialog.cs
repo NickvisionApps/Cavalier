@@ -323,6 +323,46 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         application.AddAction(actPrevProfile);
         application.SetAccelsForAction("app.prev-profile", new string[] { "<Shift>p" });
+        //Next Image Action
+        var actNextImage = Gio.SimpleAction.New("next-image", null);
+        actNextImage.OnActivate += (sender, e) =>
+        {
+            if (_controller.ImageIndex < _controller.ImagesList.Count - 1)
+            {
+                _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 2));
+            }
+            else
+            {
+                _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(0));
+            }
+        };
+        application.AddAction(actNextImage);
+        application.SetAccelsForAction("app.next-image", new string[] { "i" });
+        //Previous Image Action
+        var actPrevImage = Gio.SimpleAction.New("prev-image", null);
+        actPrevImage.OnActivate += (sender, e) =>
+        {
+            if (_controller.ImageIndex > -1)
+            {
+                _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex));
+            }
+            else
+            {
+                _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImagesList.Count));
+            }
+        };
+        application.AddAction(actPrevImage);
+        application.SetAccelsForAction("app.prev-image", new string[] { "<Shift>i" });
+        // Increase Image Scale
+        var actIncImgScale = Gio.SimpleAction.New("inc-img-scale", null);
+        actIncImgScale.OnActivate += (sender, e) => _imageScale.SetValue(_imageScale.GetValue() + 0.1f);
+        application.AddAction(actIncImgScale);
+        application.SetAccelsForAction("app.inc-img-scale", new string[] { "a" });
+        // Decrease Image Scale
+        var actDecImgScale = Gio.SimpleAction.New("dec-img-scale", null);
+        actDecImgScale.OnActivate += (sender, e) => _imageScale.SetValue(_imageScale.GetValue() - 0.1f);
+        application.AddAction(actDecImgScale);
+        application.SetAccelsForAction("app.dec-img-scale", new string[] { "<Shift>a" });
         //Build UI
         builder.Connect(this);
         OnCloseRequest += (sender, e) =>
