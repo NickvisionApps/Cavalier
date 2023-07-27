@@ -405,6 +405,16 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Index of a background image to load (-1 to not load anything)
+    /// </summary>
+    public int ImageIndex
+    {
+        get => Configuration.Current.ImageIndex;
+
+        set => Configuration.Current.ImageIndex = value;
+    }
+
+    /// <summary>
     /// Saves the configuration to disk
     /// </summary>
     public void Save() => Aura.Active.SaveConfig("config");

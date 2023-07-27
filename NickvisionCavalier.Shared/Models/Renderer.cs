@@ -1,7 +1,9 @@
+using Nickvision.Aura;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace NickvisionCavalier.Shared.Models;
 
@@ -9,12 +11,20 @@ public class Renderer
 {
     private delegate void DrawFunc(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint);
     private DrawFunc? _drawFunc;
+    private int _imageIndex;
+    private SKBitmap? _imageBitmap;
+    private SKBitmap? _targetBitmap;
+    private float _oldWidth;
+    private float _oldHeight;
 
     public SKCanvas? Canvas { get; set; }
     
     public Renderer()
     {
         Canvas = null;
+        _imageIndex = -1;
+        _oldWidth = 0;
+        _oldHeight = 0;
     }
     
     public void Draw(float[] sample, float width, float height)
@@ -40,6 +50,52 @@ public class Renderer
             bgPaint.Color = SKColor.Parse(profile.BgColors[0]);
         }
         Canvas.DrawRect(0, 0, width, height, bgPaint);
+        // Draw image
+        if (_imageIndex != Configuration.Current.ImageIndex)
+        {
+            if (Configuration.Current.ImageIndex == -1)
+            {
+                _imageBitmap?.Dispose();
+                _targetBitmap?.Dispose();
+            }
+            else
+            {
+                var images = new List<string>();
+                foreach (var file in Directory.GetFiles($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+                {
+                    if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
+                    {
+                        images.Add(file);
+                    }
+                }
+                images.Sort();
+                if (Configuration.Current.ImageIndex < images.Count)
+                {
+                    _imageBitmap = SKBitmap.Decode(images[Configuration.Current.ImageIndex]);
+                    _oldWidth = 0; // To enforce redraw
+                    _oldHeight = 0;
+                }
+                else
+                {
+                    Configuration.Current.ImageIndex = -1;
+                }
+            }
+            _imageIndex = Configuration.Current.ImageIndex;
+        }
+        if (_imageIndex != -1)
+        {
+            if ((int)_oldWidth != (int)width || (int)_oldHeight != (int)height)
+            {
+                _oldWidth = width;
+                _oldHeight = height;
+                var scale = Math.Max(width / _imageBitmap!.Width, height / _imageBitmap.Height);
+                var rect = new SKRect(0, 0, _imageBitmap.Width * scale, _imageBitmap.Height * scale);
+                _targetBitmap?.Dispose();
+                _targetBitmap = new SKBitmap((int)rect.Width, (int)rect.Height);
+                _imageBitmap.ScalePixels(_targetBitmap, SKFilterQuality.Medium);
+            }
+            Canvas.DrawBitmap(_targetBitmap, width / 2 - _targetBitmap!.Width / 2f, height / 2 - _targetBitmap.Height / 2f);
+        }
         // Draw foreground
         width -= Configuration.Current.AreaMargin * 2;
         height -= Configuration.Current.AreaMargin * 2;

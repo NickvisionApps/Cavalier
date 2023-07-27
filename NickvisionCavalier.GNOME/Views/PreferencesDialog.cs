@@ -16,6 +16,7 @@ namespace NickvisionCavalier.GNOME.Views;
 public partial class PreferencesDialog : Adw.PreferencesWindow
 {
     private bool _avoidCAVAReload;
+    private bool _removingImages;
     private readonly Gtk.ColorDialog _colorDialog;
     private readonly PreferencesViewController _controller;
 
@@ -61,6 +62,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
         _avoidCAVAReload = false;
+        _removingImages = false;
         //Window Settings
         _controller = controller;
         SetIconName(_controller.ID);
@@ -562,6 +564,13 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
         UpdateColorsGrid();
         _addImageButton.OnClicked += async (sender, e) => await AddImageAsync();
+        _imagesFlowBox.OnSelectedChildrenChanged += (sender, e) =>
+        {
+            if (!_removingImages)
+            {
+                _controller.ImageIndex = _imagesFlowBox.GetSelectedChildrenIndices()[0] - 1;
+            }
+        };
         UpdateImagesList();
         // Update view when controller has changed by cmd options
         _controller.OnUpdateViewInstant += () => GLib.Functions.IdleAdd(0, LoadInstantSettings);
@@ -798,11 +807,14 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             return;
         }
         _imagesStack.SetVisibleChildName("images");
+        _removingImages = true;
         while (_imagesFlowBox.GetFirstChild() != null)
         {
             _imagesFlowBox.Remove(_imagesFlowBox.GetFirstChild()!);
         }
+        _removingImages = false;
         var emptyImage = Gtk.Image.NewFromIconName("x-circular-symbolic");
+        emptyImage.SetTooltipText(_("No Image"));
         emptyImage.AddCssClass("cavalier-image");
         emptyImage.SetSizeRequest(160, 120);
         emptyImage.SetPixelSize(42);
@@ -817,6 +829,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             image.OnRemoveImage += RemoveImage;
             _imagesFlowBox.Append(image);
         }
+        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(0));
     }
 
     /// <summary>
