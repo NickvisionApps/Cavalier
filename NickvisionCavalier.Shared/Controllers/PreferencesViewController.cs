@@ -63,7 +63,7 @@ public class PreferencesViewController
     /// <summary>
     /// Occurs when Help screen needs to be shown
     /// </summary>
-    public event EventHandler<string> OnShowHelpScreen;
+    public event EventHandler<string>? OnShowHelpScreen;
 
     /// <summary>
     /// Constructs a PreferencesViewController
@@ -164,6 +164,19 @@ public class PreferencesViewController
                     Configuration.Current.ActiveProfile = (int)o.ActiveProfile.Value;
                     updateCavalier = true;
                 }
+            }
+            if (o.ImageIndex.HasValue)
+            {
+                if (o.ImageIndex.Value > -2 && o.ImageIndex.Value < ImagesList.Count)
+                {
+                    Configuration.Current.ImageIndex = o.ImageIndex.Value;
+                    updateCavalier = true;
+                }
+            }
+            if (o.ImageScale.HasValue)
+            {
+                Configuration.Current.ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
+                updateCavalier = true;
             }
             if (updateCavalier)
             {
