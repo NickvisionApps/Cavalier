@@ -560,9 +560,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.ColorProfiles[_controller.ActiveProfile].Theme = _lightThemeButton.GetActive() ? Theme.Light : Theme.Dark;
             _controller.ChangeWindowSettings();
         };
+        _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
         _colorDialog = Gtk.ColorDialog.New();
-        _addFgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Foreground);
-        _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
+        _addFgColorButton.OnClicked += (sender, e) => AddColorAsync(ColorType.Foreground);
+        _addBgColorButton.OnClicked += (sender, e) => AddColorAsync(ColorType.Background);
         UpdateColorsGrid();
         _addImageButton.OnClicked += async (sender, e) => await AddImageAsync();
         _imageScale.OnValueChanged += (sender, e) => _controller.ImageScale = (float)_imageScale.GetValue();
@@ -573,7 +574,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _controller.ImageIndex = _imagesFlowBox.GetSelectedChildrenIndices()[0] - 1;
             }
         };
-        UpdateImagesList();
         // Update view when controller has changed by cmd options
         _controller.OnUpdateViewInstant += () => GLib.Functions.IdleAdd(0, LoadInstantSettings);
         _controller.OnUpdateViewCAVA += () => GLib.Functions.IdleAdd(0, LoadCAVASettings);
@@ -635,6 +635,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _autohideHeaderSwitch.SetActive(_controller.AutohideHeader);
         _reverseSwitch.SetActive(_controller.ReverseOrder);
         UpdateColorProfiles();
+        UpdateImagesList();
         return false;
     }
 
@@ -758,7 +759,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// Add color to grid
     /// </summary>
     /// <param name="type">Color type (background or foreground)</param>
-    private async Task AddColor(ColorType type)
+    private async Task AddColorAsync(ColorType type)
     {
         try
         {
@@ -802,7 +803,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// </summary>
     public void UpdateImagesList()
     {
-        var paths = _controller.GetImagesList();
+        var paths = _controller.ImagesList;
         if (paths.Count == 0)
         {
             _imagesStack.SetVisibleChildName("empty");
@@ -833,7 +834,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         }
         try
         {
-            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex)!);
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1)!);
         }
         catch (IndexOutOfRangeException)
         {
@@ -847,27 +848,25 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// </summary>
     public async Task AddImageAsync()
     {
+        var dialog = Gtk.FileDialog.New();
+        dialog.SetTitle(_("Select an image"));
+        dialog.SetAcceptLabel(_("Add"));
+        var filter = Gtk.FileFilter.New();
+        filter.SetName(_("JPEG and PNG images"));
+        filter.AddPattern("*.jpg");
+        filter.AddPattern("*.jpeg");
+        filter.AddPattern("*.png");
+        var filters = Gio.ListStore.New(Gtk.FileFilter.GetGType());
+        filters.Append(filter);
+        dialog.SetFilters(filters);
+        dialog.SetDefaultFilter(filter);
         try
         {
-            var dialog = Gtk.FileDialog.New();
-            dialog.SetTitle(_("Select an image"));
-            dialog.SetAcceptLabel(_("Add"));
-            var filter = Gtk.FileFilter.New();
-            filter.SetName(_("JPEG and PNG images"));
-            filter.AddPattern("*.jpg");
-            filter.AddPattern("*.jpeg");
-            filter.AddPattern("*.png");
-            var filters = Gio.ListStore.New(Gtk.FileFilter.GetGType());
-            filters.Append(filter);
-            dialog.SetFilters(filters);
             var file = await dialog.OpenAsync(this);
             _controller.AddImage(file.GetPath());
             UpdateImagesList();
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-        }
+        catch { }
     }
 
     /// <summary>
@@ -876,7 +875,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// <param name="index">Index of image to remove</param>
     public void RemoveImage(int index)
     {
-        var paths = _controller.GetImagesList();
+        var paths = _controller.ImagesList;
         File.Delete(paths[index]);
         UpdateImagesList();
     }

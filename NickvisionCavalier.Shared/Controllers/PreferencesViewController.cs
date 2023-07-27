@@ -18,6 +18,31 @@ public class PreferencesViewController
     /// Gets the AppInfo object
     /// </summary>
     public string ID => Aura.Active.AppInfo.ID;
+    /// <summary>
+    /// The list of images that can be used as background images
+    /// </summary>
+    /// <returns>List of paths</returns>
+    public List<string> ImagesList
+    {
+        get
+        {
+            var result = new List<string>();
+            if (!Directory.Exists($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+            {
+                Directory.CreateDirectory($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images");
+                return result;
+            }
+            foreach (var file in Directory.GetFiles($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+            {
+                if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
+                {
+                    result.Add(file);
+                }
+            }
+            result.Sort();
+            return result;
+        }
+    }
 
     /// <summary>
     /// Occurs when the view needs to be updated (instant settings)
@@ -501,29 +526,6 @@ public class PreferencesViewController
         {
             ColorProfiles[ActiveProfile].BgColors.RemoveAt(index);
         }
-    }
-
-    /// <summary>
-    /// Get list of images that can be used as background images
-    /// </summary>
-    /// <returns>List of paths</returns>
-    public List<string> GetImagesList()
-    {
-        var result = new List<string>();
-        if (!Directory.Exists($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
-        {
-            Directory.CreateDirectory($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images");
-            return result;
-        }
-        foreach (var file in Directory.GetFiles($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
-        {
-            if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
-            {
-                result.Add(file);
-            }
-        }
-        result.Sort();
-        return result;
     }
 
     /// <summary>

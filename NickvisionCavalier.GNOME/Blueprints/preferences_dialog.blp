@@ -492,11 +492,13 @@ Adw.PreferencesWindow _root {
         }
 
         Gtk.Label {
+          margin-top: 6;
           label: _("Scale");
         }
 
         Gtk.Scale _imageScale {
           hexpand: true;
+          margin-top: 6;
           margin-end: 6;
           adjustment: Gtk.Adjustment {
             lower: 0.10;

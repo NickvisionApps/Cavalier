@@ -37,6 +37,7 @@ public class ImageItem : Gtk.Overlay
             GLib.Functions.IdleAdd(0, () =>
             {
                 _picture.SetPaintable(texture);
+                texture.Dispose();
                 return false;
             });
         });
