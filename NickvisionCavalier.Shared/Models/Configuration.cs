@@ -116,6 +116,10 @@ public class Configuration : IConfiguration
     /// Index of a background image to load (-1 to not load anything)
     /// </summary>
     public int ImageIndex { get; set; }
+    /// <summary>
+    /// Background image scale (0.1-1.0, 1.0 - fill the window)
+    /// </summary>
+    public float ImageScale;
 
     /// <summary>
     /// Constructs a Configuration
@@ -148,6 +152,7 @@ public class Configuration : IConfiguration
         ColorProfiles = new List<ColorProfile> { new ColorProfile() };
         ActiveProfile = 0;
         ImageIndex = -1;
+        ImageScale = 1.0f;
     }
 
     /// <summary>

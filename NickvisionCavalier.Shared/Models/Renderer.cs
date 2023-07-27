@@ -16,6 +16,7 @@ public class Renderer
     private SKBitmap? _targetBitmap;
     private float _oldWidth;
     private float _oldHeight;
+    private float _oldScale;
 
     public SKCanvas? Canvas { get; set; }
     
@@ -25,6 +26,7 @@ public class Renderer
         _imageIndex = -1;
         _oldWidth = 0;
         _oldHeight = 0;
+        _oldScale = 0.0f;
     }
     
     public void Draw(float[] sample, float width, float height)
@@ -53,12 +55,9 @@ public class Renderer
         // Draw image
         if (_imageIndex != Configuration.Current.ImageIndex)
         {
-            if (Configuration.Current.ImageIndex == -1)
-            {
-                _imageBitmap?.Dispose();
-                _targetBitmap?.Dispose();
-            }
-            else
+            _imageBitmap?.Dispose();
+            _targetBitmap?.Dispose();
+            if (Configuration.Current.ImageIndex != -1)
             {
                 var images = new List<string>();
                 foreach (var file in Directory.GetFiles($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
@@ -72,8 +71,7 @@ public class Renderer
                 if (Configuration.Current.ImageIndex < images.Count)
                 {
                     _imageBitmap = SKBitmap.Decode(images[Configuration.Current.ImageIndex]);
-                    _oldWidth = 0; // To enforce redraw
-                    _oldHeight = 0;
+                    _oldScale = 0.0f; // To enforce redraw
                 }
                 else
                 {
@@ -84,14 +82,15 @@ public class Renderer
         }
         if (_imageIndex != -1)
         {
-            if ((int)_oldWidth != (int)width || (int)_oldHeight != (int)height)
+            if (_oldWidth != width || _oldHeight != height || Math.Abs(_oldScale - Configuration.Current.ImageScale) > 0.01f)
             {
                 _oldWidth = width;
                 _oldHeight = height;
+                _oldScale = Configuration.Current.ImageScale;
                 var scale = Math.Max(width / _imageBitmap!.Width, height / _imageBitmap.Height);
                 var rect = new SKRect(0, 0, _imageBitmap.Width * scale, _imageBitmap.Height * scale);
                 _targetBitmap?.Dispose();
-                _targetBitmap = new SKBitmap((int)rect.Width, (int)rect.Height);
+                _targetBitmap = new SKBitmap((int)(rect.Width * Configuration.Current.ImageScale), (int)(rect.Height * Configuration.Current.ImageScale));
                 _imageBitmap.ScalePixels(_targetBitmap, SKFilterQuality.Medium);
             }
             Canvas.DrawBitmap(_targetBitmap, width / 2 - _targetBitmap!.Width / 2f, height / 2 - _targetBitmap.Height / 2f);

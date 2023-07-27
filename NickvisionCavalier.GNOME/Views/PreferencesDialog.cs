@@ -56,6 +56,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Button _addFgColorButton;
     [Gtk.Connect] private readonly Gtk.Button _addBgColorButton;
     [Gtk.Connect] private readonly Gtk.Button _addImageButton;
+    [Gtk.Connect] private readonly Gtk.Scale _imageScale;
     [Gtk.Connect] private readonly Gtk.Stack _imagesStack;
     [Gtk.Connect] private readonly Gtk.FlowBox _imagesFlowBox;
 
@@ -564,6 +565,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
         UpdateColorsGrid();
         _addImageButton.OnClicked += async (sender, e) => await AddImageAsync();
+        _imageScale.OnValueChanged += (sender, e) => _controller.ImageScale = (float)_imageScale.GetValue();
         _imagesFlowBox.OnSelectedChildrenChanged += (sender, e) =>
         {
             if (!_removingImages)
@@ -829,7 +831,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             image.OnRemoveImage += RemoveImage;
             _imagesFlowBox.Append(image);
         }
-        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(0));
+        try
+        {
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex)!);
+        }
+        catch (IndexOutOfRangeException)
+        {
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(0)!);
+        }
+        _imageScale.SetValue(_controller.ImageScale);
     }
 
     /// <summary>

@@ -471,16 +471,38 @@ Adw.PreferencesWindow _root {
     Gtk.Box {
       orientation: vertical;
 
-      Gtk.Button _addImageButton {
-        halign: start;
-        margin-top: 12;
-        margin-start: 12;
-        margin-end: 12;
-        margin-bottom: 6;
+      Gtk.Box {
+        spacing: 6;
 
-        Adw.ButtonContent {
-          label: _("Add Image");
-          icon-name: "list-add-symbolic";
+        Gtk.Button _addImageButton {
+          halign: start;
+          margin-top: 12;
+          margin-start: 12;
+          margin-end: 12;
+          margin-bottom: 6;
+
+          Adw.ButtonContent {
+            label: _("Add Image");
+            icon-name: "list-add-symbolic";
+          }
+        }
+
+        Gtk.Separator {
+          styles [ "spacer" ]
+        }
+
+        Gtk.Label {
+          label: _("Scale");
+        }
+
+        Gtk.Scale _imageScale {
+          hexpand: true;
+          margin-end: 6;
+          adjustment: Gtk.Adjustment {
+            lower: 0.10;
+            upper: 1.0;
+            step-increment: 0.05;
+          };
         }
       }
 

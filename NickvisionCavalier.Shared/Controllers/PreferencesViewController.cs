@@ -415,6 +415,16 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Background image scale (0.1-1.0, 1.0 - fill the window)
+    /// </summary>
+    public float ImageScale
+    {
+        get => Configuration.Current.ImageScale;
+        
+        set => Configuration.Current.ImageScale = value;
+    }
+
+    /// <summary>
     /// Saves the configuration to disk
     /// </summary>
     public void Save() => Aura.Active.SaveConfig("config");
