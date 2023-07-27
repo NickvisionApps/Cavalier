@@ -550,7 +550,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Row != null)
             {
                 _controller.ActiveProfile = ((ProfileBox)e.Row.GetChild()).Index;
-                _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
                 UpdateColorsGrid();
             }
         };
@@ -634,7 +633,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _autohideHeaderSwitch.SetActive(_controller.AutohideHeader);
         _reverseSwitch.SetActive(_controller.ReverseOrder);
         UpdateColorProfiles();
-        _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
         UpdateImagesList();
         _imageScale.SetValue(_controller.ImageScale);
         return false;
@@ -732,6 +730,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// </summary>
     private void UpdateColorsGrid()
     {
+        _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
         while (_colorsGrid.GetChildAt(0, 1) != null || _colorsGrid.GetChildAt(1, 1) != null)
         {
             _colorsGrid.RemoveRow(1);
