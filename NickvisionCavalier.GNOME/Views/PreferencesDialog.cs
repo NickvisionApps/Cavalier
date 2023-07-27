@@ -807,8 +807,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         if (paths.Count == 0)
         {
             _imagesStack.SetVisibleChildName("empty");
+            _imageScale.SetSensitive(false);
             return;
         }
+        _imageScale.SetSensitive(true);
         _imagesStack.SetVisibleChildName("images");
         _removingImages = true;
         while (_imagesFlowBox.GetFirstChild() != null)
