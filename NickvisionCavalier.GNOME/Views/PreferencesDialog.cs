@@ -3,6 +3,7 @@ using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using static Nickvision.GirExt.GtkExt;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
@@ -53,6 +54,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Grid _colorsGrid;
     [Gtk.Connect] private readonly Gtk.Button _addFgColorButton;
     [Gtk.Connect] private readonly Gtk.Button _addBgColorButton;
+    [Gtk.Connect] private readonly Gtk.Button _addImageButton;
+    [Gtk.Connect] private readonly Gtk.Stack _imagesStack;
+    [Gtk.Connect] private readonly Gtk.FlowBox _imagesFlowBox;
 
     private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
@@ -557,6 +561,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _addFgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Foreground);
         _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
         UpdateColorsGrid();
+        _addImageButton.OnClicked += async (sender, e) => await AddImageAsync();
+        UpdateImagesList();
         // Update view when controller has changed by cmd options
         _controller.OnUpdateViewInstant += () => GLib.Functions.IdleAdd(0, LoadInstantSettings);
         _controller.OnUpdateViewCAVA += () => GLib.Functions.IdleAdd(0, LoadCAVASettings);
@@ -647,6 +653,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     {
     }
 
+    /// <summary>
+    /// Reload color profiles
+    /// </summary>
     private void UpdateColorProfiles()
     {
         _profilesList.SelectRow(null);
@@ -663,6 +672,11 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile));
     }
 
+    /// <summary>
+    /// Occurs when add profile button was clicked
+    /// </summary>
+    /// <param name="sender">Button</param>
+    /// <param name="e">EventArgs</param>
     private void OnAddProfile(object sender, EventArgs e)
     {
         var dialog = new AddProfileDialog(this, _controller.ID);
@@ -677,6 +691,11 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         dialog.Present();
     }
 
+    /// <summary>
+    /// Occurs when delete profile button was clicked
+    /// </summary>
+    /// <param name="sender">Profile box of profile that should be deleted</param>
+    /// <param name="index">Profile index</param>
     private void OnDeleteProfile(object sender, int index)
     {
         var dialog = new MessageDialog(
@@ -695,6 +714,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         dialog.Present();
     }
 
+    /// <summary>
+    /// Reload colors grid
+    /// </summary>
     private void UpdateColorsGrid()
     {
         while (_colorsGrid.GetChildAt(0, 1) != null || _colorsGrid.GetChildAt(1, 1) != null)
@@ -721,6 +743,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         }
     }
 
+    /// <summary>
+    /// Add color to grid
+    /// </summary>
+    /// <param name="type">Color type (background or foreground)</param>
     private async Task AddColor(ColorType type)
     {
         try
@@ -742,11 +768,93 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         catch { }
     }
 
+    /// <summary>
+    /// Occurs when color button was clicked
+    /// </summary>
+    /// <param name="sender">Color box that should be edited</param>
+    /// <param name="e">Color args for controller</param>
     private void OnEditColor(object sender, ColorEventArgs e) => _controller.EditColor(e.Type, e.Index, e.Color);
 
+    /// <summary>
+    /// Occurs when delete color button was clicked
+    /// </summary>
+    /// <param name="sender">Color box that should be deleted</param>
+    /// <param name="e">Color args for controller</param>
     private void OnDeleteColor(object sender, ColorEventArgs e)
     {
         _controller.DeleteColor(e.Type, e.Index);
         UpdateColorsGrid();
+    }
+
+    /// <summary>
+    /// Update flowbox with images
+    /// </summary>
+    public void UpdateImagesList()
+    {
+        var paths = _controller.GetImagesList();
+        if (paths.Count == 0)
+        {
+            _imagesStack.SetVisibleChildName("empty");
+            return;
+        }
+        _imagesStack.SetVisibleChildName("images");
+        while (_imagesFlowBox.GetFirstChild() != null)
+        {
+            _imagesFlowBox.Remove(_imagesFlowBox.GetFirstChild()!);
+        }
+        var emptyImage = Gtk.Image.NewFromIconName("x-circular-symbolic");
+        emptyImage.AddCssClass("cavalier-image");
+        emptyImage.SetSizeRequest(160, 120);
+        emptyImage.SetPixelSize(42);
+        emptyImage.SetMarginTop(2);
+        emptyImage.SetMarginStart(2);
+        emptyImage.SetMarginEnd(2);
+        emptyImage.SetMarginBottom(2);
+        _imagesFlowBox.Append(emptyImage);
+        for (var i = 0; i < paths.Count; i++)
+        {
+            var image = new ImageItem(paths[i], i);
+            image.OnRemoveImage += RemoveImage;
+            _imagesFlowBox.Append(image);
+        }
+    }
+
+    /// <summary>
+    /// Add an image to the images list
+    /// </summary>
+    public async Task AddImageAsync()
+    {
+        try
+        {
+            var dialog = Gtk.FileDialog.New();
+            dialog.SetTitle(_("Select an image"));
+            dialog.SetAcceptLabel(_("Add"));
+            var filter = Gtk.FileFilter.New();
+            filter.SetName(_("JPEG and PNG images"));
+            filter.AddPattern("*.jpg");
+            filter.AddPattern("*.jpeg");
+            filter.AddPattern("*.png");
+            var filters = Gio.ListStore.New(Gtk.FileFilter.GetGType());
+            filters.Append(filter);
+            dialog.SetFilters(filters);
+            var file = await dialog.OpenAsync(this);
+            _controller.AddImage(file.GetPath());
+            UpdateImagesList();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    /// <summary>
+    /// Remove an image from the images list
+    /// </summary>
+    /// <param name="index">Index of image to remove</param>
+    public void RemoveImage(int index)
+    {
+        var paths = _controller.GetImagesList();
+        File.Delete(paths[index]);
+        UpdateImagesList();
     }
 }

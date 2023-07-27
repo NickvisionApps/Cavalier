@@ -4,6 +4,7 @@ using Nickvision.Aura;
 using NickvisionCavalier.Shared.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace NickvisionCavalier.Shared.Controllers;
 
@@ -480,5 +481,44 @@ public class PreferencesViewController
         {
             ColorProfiles[ActiveProfile].BgColors.RemoveAt(index);
         }
+    }
+
+    /// <summary>
+    /// Get list of images that can be used as background images
+    /// </summary>
+    /// <returns>List of paths</returns>
+    public List<string> GetImagesList()
+    {
+        var result = new List<string>();
+        if (!Directory.Exists($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+        {
+            Directory.CreateDirectory($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images");
+            return result;
+        }
+        foreach (var file in Directory.GetFiles($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+        {
+            if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
+            {
+                result.Add(file);
+            }
+        }
+        result.Sort();
+        return result;
+    }
+
+    /// <summary>
+    /// Copy image from given path to Cavalier's images folder
+    /// </summary>
+    public void AddImage(string path)
+    {
+        var filename = Path.GetFileName(path);
+        var i = 0;
+        while (File.Exists($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}"))
+        {
+            filename = $"{Path.GetFileNameWithoutExtension(filename)}-{i}{Path.GetExtension(filename)}";
+            i++;
+        }
+        File.Copy(path, $"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}");
+
     }
 }
