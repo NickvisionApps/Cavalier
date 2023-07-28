@@ -14,3 +14,8 @@
 .load-bin {
   background-color: @window_bg_color;
 }
+
+.cavalier-image {
+  border-radius: 6px;
+  background-color: @card_bg_color;
+}

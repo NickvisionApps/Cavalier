@@ -88,6 +88,25 @@ Gtk.ShortcutsWindow _shortcuts {
     }
 
     Gtk.ShortcutsGroup {
+      title: _("Other");
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Color Profile");
+        accelerator: "P <Shift>P";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Background Image");
+        accelerator: "I <Shift>I";
+      }
+
+      Gtk.ShortcutsShortcut {
+        title: _("Change Image Scale");
+        accelerator: "A <Shift>A";
+      }
+    }
+
+    Gtk.ShortcutsGroup {
       title: C_("Shortcut", "Application");
 
       Gtk.ShortcutsShortcut {

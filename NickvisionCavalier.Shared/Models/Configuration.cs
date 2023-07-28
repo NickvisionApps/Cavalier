@@ -17,6 +17,10 @@ public class Configuration : IConfiguration
     /// </summary>
     public uint WindowHeight { get; set; }
     /// <summary>
+    /// Whether main window is maximized or not
+    /// </summary>
+    public bool WindowMaximized { get; set; }
+    /// <summary>
     /// Size of drawing area margins in pixels
     /// </summary>
     public uint AreaMargin { get; set; }
@@ -108,6 +112,14 @@ public class Configuration : IConfiguration
     /// Active color profile index
     /// </summary>
     public int ActiveProfile { get; set; }
+    /// <summary>
+    /// Index of a background image to load (-1 to not load anything)
+    /// </summary>
+    public int ImageIndex { get; set; }
+    /// <summary>
+    /// Background image scale (0.1-1.0, 1.0 - fill the window)
+    /// </summary>
+    public float ImageScale { get; set; }
 
     /// <summary>
     /// Constructs a Configuration
@@ -139,6 +151,8 @@ public class Configuration : IConfiguration
         ReverseMirror = false;
         ColorProfiles = new List<ColorProfile> { new ColorProfile() };
         ActiveProfile = 0;
+        ImageIndex = -1;
+        ImageScale = 1.0f;
     }
 
     /// <summary>

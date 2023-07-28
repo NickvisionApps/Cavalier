@@ -3,6 +3,7 @@ using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using static Nickvision.GirExt.GtkExt;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
@@ -15,6 +16,7 @@ namespace NickvisionCavalier.GNOME.Views;
 public partial class PreferencesDialog : Adw.PreferencesWindow
 {
     private bool _avoidCAVAReload;
+    private bool _removingImages;
     private readonly Gtk.ColorDialog _colorDialog;
     private readonly PreferencesViewController _controller;
 
@@ -53,10 +55,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Grid _colorsGrid;
     [Gtk.Connect] private readonly Gtk.Button _addFgColorButton;
     [Gtk.Connect] private readonly Gtk.Button _addBgColorButton;
+    [Gtk.Connect] private readonly Gtk.Button _addImageButton;
+    [Gtk.Connect] private readonly Gtk.Scale _imageScale;
+    [Gtk.Connect] private readonly Gtk.Stack _imagesStack;
+    [Gtk.Connect] private readonly Gtk.FlowBox _imagesFlowBox;
 
     private PreferencesDialog(Gtk.Builder builder, PreferencesViewController controller, Adw.Application application) : base(builder.GetPointer("_root"), false)
     {
         _avoidCAVAReload = false;
+        _removingImages = false;
         //Window Settings
         _controller = controller;
         SetIconName(_controller.ID);
@@ -290,14 +297,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         var actNextProfile = Gio.SimpleAction.New("next-profile", null);
         actNextProfile.OnActivate += (sender, e) =>
         {
-            if (_controller.ActiveProfile < _controller.ColorProfiles.Count - 1)
-            {
-                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile + 1));
-            }
-            else
-            {
-                _profilesList.SelectRow(_profilesList.GetRowAtIndex(0));
-            }
+            _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile < _controller.ColorProfiles.Count - 1 ? _controller.ActiveProfile + 1 : 0));
         };
         application.AddAction(actNextProfile);
         application.SetAccelsForAction("app.next-profile", new string[] { "p" });
@@ -305,17 +305,36 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         var actPrevProfile = Gio.SimpleAction.New("prev-profile", null);
         actPrevProfile.OnActivate += (sender, e) =>
         {
-            if (_controller.ActiveProfile > 0)
-            {
-                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile - 1));
-            }
-            else
-            {
-                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ColorProfiles.Count - 1));
-            }
+            _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile > 0 ? _controller.ActiveProfile - 1 : _controller.ColorProfiles.Count - 1));
         };
         application.AddAction(actPrevProfile);
         application.SetAccelsForAction("app.prev-profile", new string[] { "<Shift>p" });
+        //Next Image Action
+        var actNextImage = Gio.SimpleAction.New("next-image", null);
+        actNextImage.OnActivate += (sender, e) =>
+        {
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex < _controller.ImagesList.Count - 1 ? _controller.ImageIndex + 2 : 0));
+        };
+        application.AddAction(actNextImage);
+        application.SetAccelsForAction("app.next-image", new string[] { "i" });
+        //Previous Image Action
+        var actPrevImage = Gio.SimpleAction.New("prev-image", null);
+        actPrevImage.OnActivate += (sender, e) =>
+        {
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex > -1 ? _controller.ImageIndex : _controller.ImagesList.Count));
+        };
+        application.AddAction(actPrevImage);
+        application.SetAccelsForAction("app.prev-image", new string[] { "<Shift>i" });
+        // Increase Image Scale
+        var actIncImgScale = Gio.SimpleAction.New("inc-img-scale", null);
+        actIncImgScale.OnActivate += (sender, e) => _imageScale.SetValue(_imageScale.GetValue() + 0.1f);
+        application.AddAction(actIncImgScale);
+        application.SetAccelsForAction("app.inc-img-scale", new string[] { "a" });
+        // Decrease Image Scale
+        var actDecImgScale = Gio.SimpleAction.New("dec-img-scale", null);
+        actDecImgScale.OnActivate += (sender, e) => _imageScale.SetValue(_imageScale.GetValue() - 0.1f);
+        application.AddAction(actDecImgScale);
+        application.SetAccelsForAction("app.dec-img-scale", new string[] { "<Shift>a" });
         //Build UI
         builder.Connect(this);
         OnCloseRequest += (sender, e) =>
@@ -323,6 +342,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.Save();
             return false;
         };
+        UpdateImagesList();
         LoadInstantSettings();
         LoadCAVASettings();
         _waveCheckButton.OnToggled += (sender, e) =>
@@ -454,7 +474,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             if (e.Pspec.GetName() == "selected")
             {
-                _controller.Framerate = (_framerateRow.GetSelected() + 1u) * 30u;
+                _controller.Framerate = new []{ 30u, 60u, 90u, 120u, 144u }[_framerateRow.GetSelected()];
                 if (!_avoidCAVAReload)
                 {
                     _controller.ChangeCAVASettings();
@@ -543,7 +563,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (e.Row != null)
             {
                 _controller.ActiveProfile = ((ProfileBox)e.Row.GetChild()).Index;
-                _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
                 UpdateColorsGrid();
             }
         };
@@ -554,9 +573,18 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.ChangeWindowSettings();
         };
         _colorDialog = Gtk.ColorDialog.New();
-        _addFgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Foreground);
-        _addBgColorButton.OnClicked += (sender, e) => AddColor(ColorType.Background);
+        _addFgColorButton.OnClicked += (sender, e) => AddColorAsync(ColorType.Foreground);
+        _addBgColorButton.OnClicked += (sender, e) => AddColorAsync(ColorType.Background);
         UpdateColorsGrid();
+        _addImageButton.OnClicked += async (sender, e) => await AddImageAsync();
+        _imageScale.OnValueChanged += (sender, e) => _controller.ImageScale = (float)_imageScale.GetValue();
+        _imagesFlowBox.OnSelectedChildrenChanged += (sender, e) =>
+        {
+            if (!_removingImages)
+            {
+                _controller.ImageIndex = _imagesFlowBox.GetSelectedChildrenIndices()[0] - 1;
+            }
+        };
         // Update view when controller has changed by cmd options
         _controller.OnUpdateViewInstant += () => GLib.Functions.IdleAdd(0, LoadInstantSettings);
         _controller.OnUpdateViewCAVA += () => GLib.Functions.IdleAdd(0, LoadCAVASettings);
@@ -618,6 +646,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _autohideHeaderSwitch.SetActive(_controller.AutohideHeader);
         _reverseSwitch.SetActive(_controller.ReverseOrder);
         UpdateColorProfiles();
+        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
+        _imageScale.SetValue(_controller.ImageScale);
         return false;
     }
 
@@ -647,6 +677,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     {
     }
 
+    /// <summary>
+    /// Reload color profiles
+    /// </summary>
     private void UpdateColorProfiles()
     {
         _profilesList.SelectRow(null);
@@ -663,6 +696,11 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile));
     }
 
+    /// <summary>
+    /// Occurs when add profile button was clicked
+    /// </summary>
+    /// <param name="sender">Button</param>
+    /// <param name="e">EventArgs</param>
     private void OnAddProfile(object sender, EventArgs e)
     {
         var dialog = new AddProfileDialog(this, _controller.ID);
@@ -677,6 +715,11 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         dialog.Present();
     }
 
+    /// <summary>
+    /// Occurs when delete profile button was clicked
+    /// </summary>
+    /// <param name="sender">Profile box of profile that should be deleted</param>
+    /// <param name="index">Profile index</param>
     private void OnDeleteProfile(object sender, int index)
     {
         var dialog = new MessageDialog(
@@ -695,8 +738,12 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         dialog.Present();
     }
 
+    /// <summary>
+    /// Reload colors grid
+    /// </summary>
     private void UpdateColorsGrid()
     {
+        _lightThemeButton.SetActive(_controller.ColorProfiles[_controller.ActiveProfile].Theme == Theme.Light);
         while (_colorsGrid.GetChildAt(0, 1) != null || _colorsGrid.GetChildAt(1, 1) != null)
         {
             _colorsGrid.RemoveRow(1);
@@ -721,7 +768,11 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         }
     }
 
-    private async Task AddColor(ColorType type)
+    /// <summary>
+    /// Add color to grid
+    /// </summary>
+    /// <param name="type">Color type (background or foreground)</param>
+    private async Task AddColorAsync(ColorType type)
     {
         try
         {
@@ -742,11 +793,88 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         catch { }
     }
 
+    /// <summary>
+    /// Occurs when color button was clicked
+    /// </summary>
+    /// <param name="sender">Color box that should be edited</param>
+    /// <param name="e">Color args for controller</param>
     private void OnEditColor(object sender, ColorEventArgs e) => _controller.EditColor(e.Type, e.Index, e.Color);
 
+    /// <summary>
+    /// Occurs when delete color button was clicked
+    /// </summary>
+    /// <param name="sender">Color box that should be deleted</param>
+    /// <param name="e">Color args for controller</param>
     private void OnDeleteColor(object sender, ColorEventArgs e)
     {
         _controller.DeleteColor(e.Type, e.Index);
         UpdateColorsGrid();
+    }
+
+    /// <summary>
+    /// Update flowbox with images
+    /// </summary>
+    public void UpdateImagesList()
+    {
+        var paths = _controller.ImagesList;
+        if (paths.Count == 0)
+        {
+            _imagesStack.SetVisibleChildName("empty");
+            _imageScale.SetSensitive(false);
+            return;
+        }
+        _imageScale.SetSensitive(true);
+        _imagesStack.SetVisibleChildName("images");
+        _removingImages = true;
+        while (_imagesFlowBox.GetChildAtIndex(1) != null)
+        {
+            ((ImageItem)_imagesFlowBox.GetChildAtIndex(1)!.GetChild()!).Dispose();
+            _imagesFlowBox.Remove(_imagesFlowBox.GetChildAtIndex(1)!);
+        }
+        _removingImages = false;
+        for (var i = 0; i < paths.Count; i++)
+        {
+            var image = new ImageItem(paths[i], i);
+            image.OnRemoveImage += RemoveImage;
+            _imagesFlowBox.Append(image);
+        }
+        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
+    }
+
+    /// <summary>
+    /// Add an image to the images list
+    /// </summary>
+    public async Task AddImageAsync()
+    {
+        var dialog = Gtk.FileDialog.New();
+        dialog.SetTitle(_("Select an image"));
+        dialog.SetAcceptLabel(_("Add"));
+        var filter = Gtk.FileFilter.New();
+        filter.SetName(_("JPEG and PNG images"));
+        filter.AddPattern("*.jpg");
+        filter.AddPattern("*.jpeg");
+        filter.AddPattern("*.png");
+        var filters = Gio.ListStore.New(Gtk.FileFilter.GetGType());
+        filters.Append(filter);
+        dialog.SetFilters(filters);
+        dialog.SetDefaultFilter(filter);
+        try
+        {
+            var file = await dialog.OpenAsync(this);
+            _controller.AddImage(file.GetPath());
+            UpdateImagesList();
+        }
+        catch { }
+    }
+
+    /// <summary>
+    /// Remove an image from the images list
+    /// </summary>
+    /// <param name="index">Index of image to remove</param>
+    public void RemoveImage(int index)
+    {
+        _controller.ImageIndex = -1;
+        File.Delete(_controller.ImagesList[index]);
+        UpdateImagesList();
     }
 }
