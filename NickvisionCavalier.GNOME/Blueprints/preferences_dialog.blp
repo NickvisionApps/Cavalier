@@ -63,6 +63,16 @@ Adw.PreferencesWindow _root {
           group: _waveCheckButton;
         }
       }
+
+      Adw.ActionRow {
+        title: _("Splitter");
+        activatable-widget: _splitterCheckButton;
+
+        [prefix]
+        Gtk.CheckButton _splitterCheckButton {
+          group: _waveCheckButton;
+        }
+      }
     }
 
     Adw.PreferencesGroup {

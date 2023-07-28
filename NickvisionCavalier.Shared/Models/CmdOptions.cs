@@ -9,7 +9,7 @@ public class CmdOptions {
     /// <summary>
     /// Active drawing mode
     /// </summary>
-    [Option('d', "drawing-mode", Required = false, HelpText = "Drawing mode, one of: wavebox, levelsbox, particlesbox, spinebox, barsbox")]
+    [Option('d', "drawing-mode", Required = false, HelpText = "Drawing mode, one of: wavebox, levelsbox, particlesbox, barsbox, spinebox, splitterbox")]
     public DrawingMode? Mode { get; set; }
     /// <summary>
     /// Mirror mode

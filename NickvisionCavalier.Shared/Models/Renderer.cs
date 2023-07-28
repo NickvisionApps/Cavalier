@@ -118,6 +118,7 @@ public class Renderer
             DrawingMode.ParticlesBox => DrawParticlesBox,
             DrawingMode.BarsBox => DrawBarsBox,
             DrawingMode.SpineBox => DrawSpineBox,
+            DrawingMode.SplitterBox => DrawSplitterBox,
             _ => DrawWaveBox,
         };
         if (Configuration.Current.Mirror == Mirror.Full)
@@ -497,5 +498,85 @@ public class Renderer
                 (byte)(color1.Alpha * (1 - weight) + color2.Alpha * weight));
         }
         return paint;
+    }
+
+    private void DrawSplitterBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
+        var path = new SKPath();
+        var orient = 1;
+        switch (direction)
+        {
+            case DrawingDirection.TopBottom:
+                path.MoveTo(x, y + height / 2 * (1 + sample[0]));
+                break;
+            case DrawingDirection.BottomTop:
+                orient = -1;
+                path.MoveTo(x, y + height / 2 * (1 + sample[0] * orient));
+                break;
+            case DrawingDirection.LeftRight:
+                path.MoveTo(x + width / 2 * (1 + sample[0]), y);
+                break;
+            case DrawingDirection.RightLeft:
+                orient = -1;
+                path.MoveTo(x + width / 2 * (1 + sample[0] * orient), y);
+                break;
+        }
+        for (var i = 0; i < sample.Length; i++)
+        {
+            switch (direction)
+            {
+                case DrawingDirection.TopBottom:
+                case DrawingDirection.BottomTop:
+                    if (i > 0)
+                    {
+                        path.LineTo(x + step * i, y + height / 2);
+                    }
+                    path.LineTo(x + step * i, y + height / 2 * (1 + sample[i] * (i % 2 == 0 ? orient : -orient)));
+                    path.LineTo(x + step * (i + 1), y + height / 2 * (1 + sample[i] * (i % 2 == 0 ? orient : -orient)));
+                    if (i < sample.Length - 1)
+                    {
+                        path.LineTo(x + step * (i + 1), y + height / 2);
+                    }
+                    break;
+                case DrawingDirection.LeftRight:
+                case DrawingDirection.RightLeft:
+                    if (i > 0)
+                    {
+                        path.LineTo(x + width / 2, y + step * i);
+                    }
+                    path.LineTo(x + width / 2 * (1 + sample [i] * (i % 2 == 0 ? orient : -orient)), y + step * i);
+                    path.LineTo(x + width / 2 * (1 + sample [i] * (i % 2 == 0 ? orient : -orient)), y + step * (i + 1));
+                    if (i < sample.Length - 1)
+                    {
+                        path.LineTo(x + width / 2, y + step * (i + 1));
+                    }
+                    break;
+            }
+        }
+        if (Configuration.Current.Filling)
+        {
+            switch (direction)
+            {
+                case DrawingDirection.TopBottom:
+                    path.LineTo(x + width, y);
+                    path.LineTo(x, y);
+                    break;
+                case DrawingDirection.BottomTop:
+                    path.LineTo(x + width, y + height);
+                    path.LineTo(x, y + height);
+                    break;
+                case DrawingDirection.LeftRight:
+                    path.LineTo(x, y + height);
+                    path.LineTo(x, y);
+                    break;
+                case DrawingDirection.RightLeft:
+                    path.LineTo(x + width, y + height);
+                    path.LineTo(x + width, y);
+                    break;
+            }
+            path.Close();
+        }
+        Canvas.DrawPath(path, paint);
     }
 }

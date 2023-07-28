@@ -25,6 +25,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.CheckButton _particlesCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _barsCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _spineCheckButton;
+    [Gtk.Connect] private readonly Gtk.CheckButton _splitterCheckButton;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
     [Gtk.Connect] private readonly Adw.ActionRow _reverseMirrorRow;
     [Gtk.Connect] private readonly Gtk.Switch _reverseMirrorSwitch;
@@ -390,6 +391,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 _roundnessRow.SetSensitive(true);
             }
         };
+        _splitterCheckButton.OnToggled += (sender, e) =>
+        {
+            if (_splitterCheckButton.GetActive())
+            {
+                _controller.Mode = DrawingMode.SplitterBox;
+                _offsetRow.SetSensitive(false);
+                _roundnessRow.SetSensitive(false);
+            }
+        };
         _offsetRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox);
         _roundnessRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox && _controller.Mode != DrawingMode.BarsBox);
         _mirrorRow.OnNotify += (sender, e) =>
@@ -611,6 +621,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 break;
             case DrawingMode.SpineBox:
                 _spineCheckButton.SetActive(true);
+                break;
+            case DrawingMode.SplitterBox:
+                _splitterCheckButton.SetActive(true);
                 break;
         }
         var mirror = (uint)_controller.Mirror; // saving mirror state to apply after changing the model
