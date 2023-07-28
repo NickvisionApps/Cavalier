@@ -28,6 +28,10 @@ public class MainWindowController
     /// </summary>
     public uint WindowHeight => Configuration.Current.WindowHeight;
     /// <summary>
+    /// Whether the main window is maximized or not
+    /// </summary>
+    public bool WindowMaximized => Configuration.Current.WindowMaximized;
+    /// <summary>
     /// Whether the window should be borderless
     /// </summary>
     public bool Borderless => Configuration.Current.Borderless;
@@ -51,6 +55,7 @@ public class MainWindowController
     /// <summary>
     /// Constructs a MainWindowController
     /// </summary>
+    /// <param name="args">Command-line arguments</param>
     public MainWindowController(string[] args)
     {
         Aura = new Aura("org.nickvision.cavalier", "Nickvision Cavalier", _("Cavalier"), _("Visualize audio with CAVA"));
@@ -59,7 +64,7 @@ public class MainWindowController
         AppInfo.SourceRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
         AppInfo.IssueTracker = new Uri("https://github.com/NickvisionApps/Cavalier/issues/new");
         AppInfo.SupportUrl = new Uri("https://github.com/NickvisionApps/Cavalier/discussions");
-        AppInfo.ExtraLinks["Matrix Chat"] = new Uri("https://matrix.to/#/#nickvision:matrix.org");
+        AppInfo.ExtraLinks[_("Matrix Chat")] = new Uri("https://matrix.to/#/#nickvision:matrix.org");
         AppInfo.Developers[_("Fyodor Sobolev")] = new Uri("https://github.com/fsobolev");
         AppInfo.Developers[_("Nicholas Logozzo")] = new Uri("https://github.com/nlogozzo");
         AppInfo.Developers[_("Contributors on GitHub ❤️")] = new Uri("https://github.com/NickvisionApps/Cavalier/graphs/contributors");
@@ -75,6 +80,8 @@ public class MainWindowController
     /// <summary>
     /// Process command-line arguments passed when starting the app or from other instances
     /// </summary>
+    /// <param name="sender">Sender or event, either this or IPCServer</param>
+    /// <param name="args">Command-line arguments</param>
     public void HandleCommandLine(object? sender, string[] args)
     {
         if (args.Length == 0)
@@ -90,10 +97,14 @@ public class MainWindowController
     /// <summary>
     /// Saves the MainWindow size to configuration
     /// </summary>
-    public void SaveWindowSize(uint width, uint height)
+    /// <param name="width">Window width</param>
+    /// <param name="height">Windiw height</param>
+    /// <param name="maximized">Whether the window is maximized or not</param>
+    public void SaveWindowSize(uint width, uint height, bool maximized)
     {
         Configuration.Current.WindowWidth = width;
         Configuration.Current.WindowHeight = height;
+        Configuration.Current.WindowMaximized = maximized;
         Aura.Active.SaveConfig("config");
     }
 }

@@ -4,6 +4,7 @@ using Nickvision.Aura;
 using NickvisionCavalier.Shared.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace NickvisionCavalier.Shared.Controllers;
 
@@ -17,6 +18,32 @@ public class PreferencesViewController
     /// Gets the AppInfo object
     /// </summary>
     public string ID => Aura.Active.AppInfo.ID;
+    /// <summary>
+    /// The list of images that can be used as background images
+    /// </summary>
+    /// <returns>List of paths</returns>
+    public List<string> ImagesList
+    {
+        get
+        {
+            var result = new List<string>();
+            if (!Directory.Exists($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+            {
+                Directory.CreateDirectory($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images");
+                return result;
+            }
+            foreach (var file in Directory.GetFiles($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+            {
+                var extension = Path.GetExtension(file);
+                if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
+                {
+                    result.Add(file);
+                }
+            }
+            result.Sort();
+            return result;
+        }
+    }
 
     /// <summary>
     /// Occurs when the view needs to be updated (instant settings)
@@ -37,7 +64,7 @@ public class PreferencesViewController
     /// <summary>
     /// Occurs when Help screen needs to be shown
     /// </summary>
-    public event EventHandler<string> OnShowHelpScreen;
+    public event EventHandler<string>? OnShowHelpScreen;
 
     /// <summary>
     /// Constructs a PreferencesViewController
@@ -138,6 +165,19 @@ public class PreferencesViewController
                     Configuration.Current.ActiveProfile = (int)o.ActiveProfile.Value;
                     updateCavalier = true;
                 }
+            }
+            if (o.ImageIndex.HasValue)
+            {
+                if (o.ImageIndex.Value > -1 && o.ImageIndex.Value <= ImagesList.Count)
+                {
+                    Configuration.Current.ImageIndex = o.ImageIndex.Value - 1;
+                    updateCavalier = true;
+                }
+            }
+            if (o.ImageScale.HasValue)
+            {
+                Configuration.Current.ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
+                updateCavalier = true;
             }
             if (updateCavalier)
             {
@@ -404,6 +444,26 @@ public class PreferencesViewController
     }
 
     /// <summary>
+    /// Index of a background image to load (-1 to not load anything)
+    /// </summary>
+    public int ImageIndex
+    {
+        get => Configuration.Current.ImageIndex;
+
+        set => Configuration.Current.ImageIndex = value;
+    }
+
+    /// <summary>
+    /// Background image scale (0.1-1.0, 1.0 - fill the window)
+    /// </summary>
+    public float ImageScale
+    {
+        get => Configuration.Current.ImageScale;
+        
+        set => Configuration.Current.ImageScale = value;
+    }
+
+    /// <summary>
     /// Saves the configuration to disk
     /// </summary>
     public void Save() => Aura.Active.SaveConfig("config");
@@ -480,5 +540,21 @@ public class PreferencesViewController
         {
             ColorProfiles[ActiveProfile].BgColors.RemoveAt(index);
         }
+    }
+
+    /// <summary>
+    /// Copy image from given path to Cavalier's images folder
+    /// </summary>
+    public void AddImage(string path)
+    {
+        var baseFilename = Path.GetFileName(path);
+        var filename = baseFilename;
+        var i = 0;
+        while (File.Exists($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}"))
+        {
+            i++;
+            filename = $"{Path.GetFileNameWithoutExtension(baseFilename)}-{i}{Path.GetExtension(baseFilename)}";
+        }
+        File.Copy(path, $"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}");
     }
 }

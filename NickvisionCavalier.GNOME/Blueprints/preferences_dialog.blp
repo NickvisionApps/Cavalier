@@ -2,7 +2,7 @@ using Gtk 4.0;
 using Adw 1;
 
 Adw.PreferencesWindow _root {
-  default-width: 780;
+  default-width: 620;
   default-height: 500;
   modal: false;
   destroy-with-parent: true;
@@ -230,7 +230,7 @@ Adw.PreferencesWindow _root {
         title: _("Framerate");
         subtitle: _("Number of frames per second.");
         model: Gtk.StringList {
-          strings ["30", "60", "90", "120"]
+          strings ["30", "60", "90", "120", "144"]
         };
       }
 
@@ -460,6 +460,102 @@ Adw.PreferencesWindow _root {
             styles [ "card" ]
           }
         };
+      }
+    }
+  }
+
+  Adw.PreferencesPage {
+    title: _("Image");
+    icon-name: "image-x-generic-symbolic";
+
+    Gtk.Box {
+      orientation: vertical;
+
+      Gtk.Box {
+        spacing: 6;
+
+        Gtk.Button _addImageButton {
+          halign: start;
+          margin-top: 12;
+          margin-start: 12;
+          margin-end: 12;
+          margin-bottom: 6;
+
+          Adw.ButtonContent {
+            label: _("Add Image");
+            icon-name: "list-add-symbolic";
+          }
+        }
+
+        Gtk.Separator {
+          styles [ "spacer" ]
+        }
+
+        Gtk.Label {
+          margin-top: 6;
+          label: _("Scale");
+        }
+
+        Gtk.Scale _imageScale {
+          hexpand: true;
+          margin-top: 6;
+          margin-end: 6;
+          adjustment: Gtk.Adjustment {
+            lower: 0.10;
+            upper: 1.0;
+            step-increment: 0.05;
+          };
+        }
+      }
+
+      Gtk.Stack _imagesStack
+      {
+        margin-top: 6;
+        margin-start: 12;
+        margin-end: 12;
+        margin-bottom: 12;
+
+        Gtk.StackPage {
+          name: "empty";
+          child: Adw.StatusPage {
+            vexpand: true;
+            title: "No Images";
+            description: "Add an image to use it in Cavalier.";
+            icon-name: "image-x-generic-symbolic";
+          };
+        }
+
+        Gtk.StackPage {
+          name: "images";
+          child: Gtk.ScrolledWindow {
+            vexpand: true;
+            hscrollbar-policy: never;
+
+            Gtk.FlowBox _imagesFlowBox {
+              valign: start;
+              margin-top: 6;
+              margin-start: 6;
+              margin-end: 6;
+              margin-bottom: 6;
+              homogeneous: true;
+              min-children-per-line: 3;
+
+              Gtk.Image {
+                icon-name: "x-circular-symbolic";
+                tooltip-text: _("No Image");
+                pixel-size: 42;
+                margin-top: 2;
+                margin-start: 2;
+                margin-end: 2;
+                margin-bottom: 2;
+
+                styles ["cavalier-image"]
+              }
+            }
+
+            styles ["card"]
+          };
+        }
       }
     }
   }

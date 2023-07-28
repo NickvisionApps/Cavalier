@@ -35,7 +35,10 @@ public partial class Program
         _mainWindowController = new MainWindowController(args);
         _mainWindowController.AppInfo.Changelog =
             @"* Cavalier can now be controlled from command line. Run the app with --help option to see full list of available options.
-              * Reverse mirror option is now available with full mirror.";
+              * Reverse mirror option is now available with full mirror.
+              * It's now possible to set frames per second to 144.
+              * Added anti-aliasing, so rounded items now look less pixelated.
+              * Added ability to set background image.";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
         {

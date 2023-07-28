@@ -37,6 +37,10 @@ public class MainWindow : Adw.ApplicationWindow
         builder.Connect(this);
         _controller.RaiseCommandReceived += Present;
         SetDefaultSize((int)_controller.WindowWidth, (int)_controller.WindowHeight);
+        if (_controller.WindowMaximized)
+        {
+            Maximize();
+        }
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
         _drawingView = new DrawingView(new DrawingViewController());
@@ -197,7 +201,7 @@ public class MainWindow : Adw.ApplicationWindow
     /// <param name="e">EventArgs</param>
     private bool OnClose(Gtk.Window sender, EventArgs e)
     {
-        _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight);
+        _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight, IsMaximized());
         _preferencesController.Save(); // Save configuration in case preferences dialog is opened
         _drawingView.Dispose();
         return false;
