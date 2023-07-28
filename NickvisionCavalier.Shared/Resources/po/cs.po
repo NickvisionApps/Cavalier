@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 05:18+0300\n"
+"POT-Creation-Date: 2023-07-28 16:11+0300\n"
 "PO-Revision-Date: 2023-07-23 13:02+0000\n"
 "Last-Translator: Fjuro <ifjuro@proton.me>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/"
-"nickvision-cavalier/app/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,25 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 5.0-dev\n"
 
-#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:45
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:851
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
 msgid "Add"
 msgstr "Přidat"
 
-#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:26
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25
 msgid "Add New Profile"
 msgstr "Přidat nový profil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:682
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:727
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
 msgstr "Opravdu chcete odstranit profil „{0}“?"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:683
-#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:728
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: ../../../../NickvisionCavalier.GNOME/Program.cs:49
+#: ../../../Controllers/MainWindowController.cs:61
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:13
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
@@ -45,89 +46,95 @@ msgstr "Zrušit"
 msgid "Cavalier"
 msgstr "Cavalier"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:265
-#, csharp-format
-msgid "David Lapshin {0}"
+#: ../../../Controllers/MainWindowController.cs:70
+msgid "Contributors on GitHub ❤️"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:72
+#, fuzzy
+msgid "David Lapshin"
 msgstr "David Lapshin {0}"
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
 msgstr "Výchozí"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:683
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:728
 msgid "Delete"
 msgstr "Smazat"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:682
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:727
 msgid "Delete Profile"
 msgstr "Smazat Profil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:553
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:521
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:619
 msgid "Full"
 msgstr "Plný"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:264
-#, csharp-format
-msgid "Fyodor Sobolev {0}"
+#: ../../../Controllers/MainWindowController.cs:68
+#: ../../../Controllers/MainWindowController.cs:71
+#, fuzzy
+msgid "Fyodor Sobolev"
 msgstr "Fyodor Sobolev {0}"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:263
-#, csharp-format
-msgid ""
-"Fyodor Sobolev {0}\n"
-"Nicholas Logozzo {1}\n"
-"Contributors on GitHub ❤️ {2}"
-msgstr ""
-"Fyodor Sobolev {0}\n"
-"Nicholas Logozzo {1}\n"
-"Přispěvatelé na GitHubu ❤️ {2}"
-
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:261
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:276
 msgid "GitHub Repo"
 msgstr "Repozitář GitHub"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:262
-msgid "Matrix Chat"
-msgstr "Matrix Chat"
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:853
+msgid "JPEG and PNG images"
+msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:26
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25
 msgid "New color profile will be a copy of the current active profile."
 msgstr "Nový barevný profil bude kopie současně aktivního profilu."
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:413
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:553
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:558
+#: ../../../Controllers/MainWindowController.cs:69
+msgid "Nicholas Logozzo"
+msgstr ""
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:521
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:526
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:619
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:624
 msgid "Off"
 msgstr "Vypnuto"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:413
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:558
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:526
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:624
 msgid "On"
 msgstr "Zapnuto"
 
-#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:32
+#: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:31
 msgid "Profile Name"
 msgstr "Název profilu"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:407
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:553
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:850
+msgid "Select an image"
+msgstr ""
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:521
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:619
 msgid "Split Channels"
 msgstr "Rozdělit kanály"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:266
+#: ../../../Controllers/MainWindowController.cs:73
 msgid "translator-credits"
 msgstr "Písek Pískovec"
 
-#: ../../../../NickvisionCavalier.GNOME/Program.cs:50
+#: ../../../Controllers/MainWindowController.cs:61
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
 msgid "Visualize audio with CAVA"
 msgstr "Vizualizace zvuku s CAVA"
 
+#: NickvisionCavalier.GNOME/Blueprints/command_help_dialog.blp:23
+msgid "Command Help"
+msgstr ""
+
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:109
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:118
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
 msgstr "Předvolby"
@@ -358,6 +365,22 @@ msgstr "Barvy popředí"
 msgid "Background Colors"
 msgstr "Barvy pozadí"
 
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:468
+msgid "Image"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:485
+msgid "Add Image"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:496
+msgid "Scale"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:545
+msgid "No Image"
+msgstr ""
+
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
 msgstr "Změnit režim vykreslování"
@@ -402,46 +425,55 @@ msgstr "Přepnout okraje okna"
 msgid "Toggle Sharp Corners"
 msgstr "Přepnout ostré rohy"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:71
-msgid "Toggle Window Controls"
-msgstr "Přepnout ovládání okna"
-
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:76
-msgid "Toggle Autohide Headerbar"
-msgstr "Přepnout automatické skrývání záhlaví"
-
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:75
 msgid "Change Number of Bars"
 msgstr "Změnit počet sloupců"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:90
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:80
 msgid "Toggle Channels"
 msgstr "Přepnout kanály"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:95
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
 msgid "Toggle Reverse Order"
 msgstr "Přepnout opačné pořadí"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:101
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:91
+msgid "Other"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:94
+#, fuzzy
+msgid "Change Color Profile"
+msgstr "Změnit režim zrcadlení"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
+msgid "Change Background Image"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
+msgid "Change Image Scale"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:110
 msgctxt "Shortcut"
 msgid "Application"
 msgstr "Aplikace"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:113
 msgid "Toggle Fullscreen"
 msgstr "Přepnout na celou obrazovku"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:123
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
 msgstr "Klávesové zkratky"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:119
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:128
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
 msgid "About Cavalier"
 msgstr "O aplikaci Cavalier"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:124
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:133
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
 msgstr "Ukončit"
@@ -467,3 +499,22 @@ msgstr "Nastavte jakoukoliv barvu nebo jako pozadí nebo popředí."
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
 msgstr "Nastavte vyhlazení, redukci šumu a pár dalších CAVA nastavení."
+
+#, csharp-format
+#~ msgid ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Contributors on GitHub ❤️ {2}"
+#~ msgstr ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Přispěvatelé na GitHubu ❤️ {2}"
+
+#~ msgid "Matrix Chat"
+#~ msgstr "Matrix Chat"
+
+#~ msgid "Toggle Window Controls"
+#~ msgstr "Přepnout ovládání okna"
+
+#~ msgid "Toggle Autohide Headerbar"
+#~ msgstr "Přepnout automatické skrývání záhlaví"
