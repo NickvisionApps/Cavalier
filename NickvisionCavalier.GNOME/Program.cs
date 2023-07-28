@@ -38,7 +38,9 @@ public partial class Program
               * Reverse mirror option is now available with full mirror.
               * It's now possible to set frames per second to 144.
               * Added anti-aliasing, so rounded items now look less pixelated.
-              * Added ability to set background image.";
+              * Added ability to set background image.
+              * New drawing mode - Splitter.
+              * Bars limit was increased to 100.";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
         {

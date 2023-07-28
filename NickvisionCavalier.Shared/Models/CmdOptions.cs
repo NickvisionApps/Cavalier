@@ -9,7 +9,7 @@ public class CmdOptions {
     /// <summary>
     /// Active drawing mode
     /// </summary>
-    [Option('d', "drawing-mode", Required = false, HelpText = "Drawing mode, one of: wavebox, levelsbox, particlesbox, spinebox, barsbox")]
+    [Option('d', "drawing-mode", Required = false, HelpText = "Drawing mode, one of: wavebox, levelsbox, particlesbox, barsbox, spinebox, splitterbox")]
     public DrawingMode? Mode { get; set; }
     /// <summary>
     /// Mirror mode
@@ -64,7 +64,7 @@ public class CmdOptions {
     /// <summary>
     /// Number of bar pairs in CAVA
     /// </summary>
-    [Option('b', "bar-pairs", Required = false, HelpText = "Number of bar pairs (3-25)")]
+    [Option('b', "bar-pairs", Required = false, HelpText = "Number of bar pairs (3-50)")]
     public uint? BarPairs { get; set; }
     /// <summary>
     /// Whether to set channels to stereo (mono if false)

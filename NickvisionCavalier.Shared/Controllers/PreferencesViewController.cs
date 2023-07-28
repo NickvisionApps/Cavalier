@@ -105,7 +105,7 @@ public class PreferencesViewController
             }
             if (o.BarPairs.HasValue)
             {
-                Configuration.Current.BarPairs = Math.Max(3, Math.Min(o.BarPairs.Value, 25));
+                Configuration.Current.BarPairs = Math.Max(3, Math.Min(o.BarPairs.Value, 50));
                 updateCAVA = true;
             }
             if (o.Stereo.HasValue)
