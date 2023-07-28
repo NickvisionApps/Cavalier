@@ -297,14 +297,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         var actNextProfile = Gio.SimpleAction.New("next-profile", null);
         actNextProfile.OnActivate += (sender, e) =>
         {
-            if (_controller.ActiveProfile < _controller.ColorProfiles.Count - 1)
-            {
-                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile + 1));
-            }
-            else
-            {
-                _profilesList.SelectRow(_profilesList.GetRowAtIndex(0));
-            }
+            _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile < _controller.ColorProfiles.Count - 1 ? _controller.ActiveProfile + 1 : 0));
         };
         application.AddAction(actNextProfile);
         application.SetAccelsForAction("app.next-profile", new string[] { "p" });
@@ -312,14 +305,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         var actPrevProfile = Gio.SimpleAction.New("prev-profile", null);
         actPrevProfile.OnActivate += (sender, e) =>
         {
-            if (_controller.ActiveProfile > 0)
-            {
-                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile - 1));
-            }
-            else
-            {
-                _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ColorProfiles.Count - 1));
-            }
+            _profilesList.SelectRow(_profilesList.GetRowAtIndex(_controller.ActiveProfile > 0 ? _controller.ActiveProfile - 1 : _controller.ColorProfiles.Count - 1));
         };
         application.AddAction(actPrevProfile);
         application.SetAccelsForAction("app.prev-profile", new string[] { "<Shift>p" });
@@ -327,14 +313,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         var actNextImage = Gio.SimpleAction.New("next-image", null);
         actNextImage.OnActivate += (sender, e) =>
         {
-            if (_controller.ImageIndex < _controller.ImagesList.Count - 1)
-            {
-                _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 2));
-            }
-            else
-            {
-                _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(0));
-            }
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex < _controller.ImagesList.Count - 1 ? _controller.ImageIndex + 2 : 0));
         };
         application.AddAction(actNextImage);
         application.SetAccelsForAction("app.next-image", new string[] { "i" });
@@ -342,14 +321,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         var actPrevImage = Gio.SimpleAction.New("prev-image", null);
         actPrevImage.OnActivate += (sender, e) =>
         {
-            if (_controller.ImageIndex > -1)
-            {
-                _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex));
-            }
-            else
-            {
-                _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImagesList.Count));
-            }
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex > -1 ? _controller.ImageIndex : _controller.ImagesList.Count));
         };
         application.AddAction(actPrevImage);
         application.SetAccelsForAction("app.prev-image", new string[] { "<Shift>i" });
@@ -902,8 +874,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     public void RemoveImage(int index)
     {
         _controller.ImageIndex = -1;
-        var paths = _controller.ImagesList;
-        File.Delete(paths[index]);
+        File.Delete(_controller.ImagesList[index]);
         UpdateImagesList();
     }
 }

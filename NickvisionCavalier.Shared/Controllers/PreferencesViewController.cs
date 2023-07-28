@@ -34,7 +34,8 @@ public class PreferencesViewController
             }
             foreach (var file in Directory.GetFiles($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
             {
-                if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
+                var extension = Path.GetExtension(file);
+                if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
                 {
                     result.Add(file);
                 }
