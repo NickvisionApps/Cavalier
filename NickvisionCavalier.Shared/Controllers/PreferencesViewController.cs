@@ -546,14 +546,14 @@ public class PreferencesViewController
     /// </summary>
     public void AddImage(string path)
     {
-        var filename = Path.GetFileName(path);
+        var baseFilename = Path.GetFileName(path);
+        var filename = baseFilename;
         var i = 0;
         while (File.Exists($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}"))
         {
-            filename = $"{Path.GetFileNameWithoutExtension(filename)}-{i}{Path.GetExtension(filename)}";
             i++;
+            filename = $"{Path.GetFileNameWithoutExtension(baseFilename)}-{i}{Path.GetExtension(baseFilename)}";
         }
         File.Copy(path, $"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}");
-
     }
 }

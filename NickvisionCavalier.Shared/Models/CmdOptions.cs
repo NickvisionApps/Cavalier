@@ -82,9 +82,9 @@ public class CmdOptions {
     [Option('p', "profile", Required = false, HelpText = "Zero-based index of profile to activate")]
     public uint? ActiveProfile { get; set; }
     /// <summary>
-    /// Index of a background image to load (-1 to not load anything)
+    /// Index of a background image to load (0 to not load anything)
     /// </summary>
-    [Option('i', "image-index", Required = false, HelpText = "Index of image to draw (0 to not draw image)")]
+    [Option('i', "image-index", Required = false, HelpText = "Index of image to draw (0 for no image)")]
     public int? ImageIndex { get; set; }
     /// <summary>
     /// Background image scale (10-100, 100 - fill the window)
