@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-28 16:11+0300\n"
+"POT-Creation-Date: 2023-07-28 16:18+0300\n"
 "PO-Revision-Date: 2023-07-18 15:01+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
@@ -85,6 +85,10 @@ msgstr "GitHub Deposu"
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:853
 msgid "JPEG and PNG images"
 msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:67
+msgid "Matrix Chat"
+msgstr "Matrix Sohbet"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25
 msgid "New color profile will be a copy of the current active profile."
@@ -513,9 +517,6 @@ msgstr "Yumuşatma, gürültü azaltma ve diğer birkaç CAVA ayarını yapılan
 #~ "Fyodor Sobolev {0}\n"
 #~ "Nicholas Logozzo {1}\n"
 #~ "GitHub Katkıcıları ❤️ {2}"
-
-#~ msgid "Matrix Chat"
-#~ msgstr "Matrix Sohbet"
 
 #~ msgid "Toggle Window Controls"
 #~ msgstr "Pencere Denetimlerini Aç/Kapat"

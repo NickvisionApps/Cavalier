@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-28 16:11+0300\n"
+"POT-Creation-Date: 2023-07-28 16:18+0300\n"
 "PO-Revision-Date: 2023-07-17 09:43+0000\n"
 "Last-Translator: Renner03 <Renner03@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/nickvision-"
@@ -85,6 +85,10 @@ msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:853
 msgid "JPEG and PNG images"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:67
+msgid "Matrix Chat"
 msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25

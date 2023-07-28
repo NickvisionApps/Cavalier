@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-28 16:11+0300\n"
+"POT-Creation-Date: 2023-07-28 16:18+0300\n"
 "PO-Revision-Date: 2023-07-23 13:02+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted."
 "weblate.org>\n"
@@ -86,6 +86,10 @@ msgstr "Repo de GitHub"
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:853
 msgid "JPEG and PNG images"
 msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:67
+msgid "Matrix Chat"
+msgstr "Chat de Matrix"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25
 msgid "New color profile will be a copy of the current active profile."
@@ -512,9 +516,6 @@ msgstr "Configure suavizado, reducción de ruido y otros ajustes de CAVA."
 #~ "Fyodor Sobolev {0}\n"
 #~ "Nicholas Logozzo {1}\n"
 #~ "Colaboradores en GitHub ❤️ {2}"
-
-#~ msgid "Matrix Chat"
-#~ msgstr "Chat de Matrix"
 
 #~ msgid "Toggle Window Controls"
 #~ msgstr "Conmutar controles de ventana"

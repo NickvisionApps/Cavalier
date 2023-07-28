@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-28 16:11+0300\n"
+"POT-Creation-Date: 2023-07-28 16:18+0300\n"
 "PO-Revision-Date: 2023-07-23 13:02+0000\n"
 "Last-Translator: Fjuro <ifjuro@proton.me>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
@@ -85,6 +85,10 @@ msgstr "Repozitář GitHub"
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:853
 msgid "JPEG and PNG images"
 msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:67
+msgid "Matrix Chat"
+msgstr "Matrix Chat"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25
 msgid "New color profile will be a copy of the current active profile."
@@ -509,9 +513,6 @@ msgstr "Nastavte vyhlazení, redukci šumu a pár dalších CAVA nastavení."
 #~ "Fyodor Sobolev {0}\n"
 #~ "Nicholas Logozzo {1}\n"
 #~ "Přispěvatelé na GitHubu ❤️ {2}"
-
-#~ msgid "Matrix Chat"
-#~ msgstr "Matrix Chat"
 
 #~ msgid "Toggle Window Controls"
 #~ msgstr "Přepnout ovládání okna"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-28 16:11+0300\n"
+"POT-Creation-Date: 2023-07-28 16:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,6 +80,10 @@ msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:853
 msgid "JPEG and PNG images"
+msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:67
+msgid "Matrix Chat"
 msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25

@@ -64,7 +64,7 @@ public class MainWindowController
         AppInfo.SourceRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
         AppInfo.IssueTracker = new Uri("https://github.com/NickvisionApps/Cavalier/issues/new");
         AppInfo.SupportUrl = new Uri("https://github.com/NickvisionApps/Cavalier/discussions");
-        AppInfo.ExtraLinks["Matrix Chat"] = new Uri("https://matrix.to/#/#nickvision:matrix.org");
+        AppInfo.ExtraLinks[_("Matrix Chat")] = new Uri("https://matrix.to/#/#nickvision:matrix.org");
         AppInfo.Developers[_("Fyodor Sobolev")] = new Uri("https://github.com/fsobolev");
         AppInfo.Developers[_("Nicholas Logozzo")] = new Uri("https://github.com/nlogozzo");
         AppInfo.Developers[_("Contributors on GitHub ❤️")] = new Uri("https://github.com/NickvisionApps/Cavalier/graphs/contributors");

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-28 16:11+0300\n"
+"POT-Creation-Date: 2023-07-28 16:18+0300\n"
 "PO-Revision-Date: 2023-07-03 09:16+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/nickvision-"
@@ -85,6 +85,10 @@ msgstr "Dépôt GitHub"
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:853
 msgid "JPEG and PNG images"
 msgstr ""
+
+#: ../../../Controllers/MainWindowController.cs:67
+msgid "Matrix Chat"
+msgstr "Discussion Matrix"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25
 msgid "New color profile will be a copy of the current active profile."
@@ -516,9 +520,6 @@ msgstr ""
 #~ "Fyodor Sobolev {0}\n"
 #~ "Nicholas Logozzo {1}\n"
 #~ "Contributeurs sur GitHub ❤️ {2}"
-
-#~ msgid "Matrix Chat"
-#~ msgstr "Discussion Matrix"
 
 #~ msgid "Toggle Window Controls"
 #~ msgstr "Afficher / masquer les contrôles de la fenêtre"
