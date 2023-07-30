@@ -8,11 +8,11 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-28 19:43+0300\n"
-"PO-Revision-Date: 2023-07-23 13:02+0000\n"
-"Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted."
-"weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/es/>\n"
+"PO-Revision-Date: 2023-07-30 22:04+0000\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate"
+".org>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,12 +49,11 @@ msgstr "Cavalier"
 
 #: ../../../Controllers/MainWindowController.cs:70
 msgid "Contributors on GitHub ❤️"
-msgstr ""
+msgstr "Colaboradores en GitHub ❤️"
 
 #: ../../../Controllers/MainWindowController.cs:72
-#, fuzzy
 msgid "David Lapshin"
-msgstr "David Lapshin {0}"
+msgstr "David Lapshin"
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
@@ -75,9 +74,8 @@ msgstr "Completo"
 
 #: ../../../Controllers/MainWindowController.cs:68
 #: ../../../Controllers/MainWindowController.cs:71
-#, fuzzy
 msgid "Fyodor Sobolev"
-msgstr "Fyodor Sobolev {0}"
+msgstr "Fyodor Sobolev"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:276
 msgid "GitHub Repo"
@@ -85,7 +83,7 @@ msgstr "Repo de GitHub"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:866
 msgid "JPEG and PNG images"
-msgstr ""
+msgstr "Imágenes JPEG y PNG"
 
 #: ../../../Controllers/MainWindowController.cs:67
 msgid "Matrix Chat"
@@ -97,7 +95,7 @@ msgstr "El perfil de color nuevo será una copia del perfil activo actual."
 
 #: ../../../Controllers/MainWindowController.cs:69
 msgid "Nicholas Logozzo"
-msgstr ""
+msgstr "Nicholas Logozzo"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:531
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:536
@@ -117,7 +115,7 @@ msgstr "Nombre del perfil"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:863
 msgid "Select an image"
-msgstr ""
+msgstr "Seleccione una imagen"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:531
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:632
@@ -136,7 +134,7 @@ msgstr "Visualice el audio con CAVA"
 
 #: NickvisionCavalier.GNOME/Blueprints/command_help_dialog.blp:23
 msgid "Command Help"
-msgstr ""
+msgstr "Ayuda de comandos"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:118
@@ -170,7 +168,7 @@ msgstr "Columna"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:68
 msgid "Splitter"
-msgstr ""
+msgstr "Divisor"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:80
 msgid "Mirror"
@@ -376,19 +374,19 @@ msgstr "Colores de fondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:478
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:495
 msgid "Add Image"
-msgstr ""
+msgstr "Añadir imagen"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:506
 msgid "Scale"
-msgstr ""
+msgstr "Escala"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:555
 msgid "No Image"
-msgstr ""
+msgstr "Sin imagen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
@@ -448,20 +446,19 @@ msgstr "Conmutar orden inverso"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:91
 msgid "Other"
-msgstr ""
+msgstr "Otros"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:94
-#, fuzzy
 msgid "Change Color Profile"
-msgstr "Cambiar Perfil de Colores"
+msgstr "Cambiar perfil de color"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
 msgid "Change Background Image"
-msgstr ""
+msgstr "Cambiar imagen de fondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
 msgid "Change Image Scale"
-msgstr ""
+msgstr "Cambiar escala de la imagen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:110
 msgctxt "Shortcut"
