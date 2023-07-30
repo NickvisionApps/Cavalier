@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-28 19:43+0300\n"
+"POT-Creation-Date: 2023-07-31 02:42+0300\n"
 "PO-Revision-Date: 2023-03-27 20:28-0300\n"
 "Last-Translator: Wagner Costa Gottschald <Wagnercostag@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <wagnercostag@gmail.com>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "X-Generator: Gtranslator 42.0\n"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:864
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:905
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
 msgid "Add"
 msgstr "Adicione"
@@ -28,12 +28,12 @@ msgstr "Adicione"
 msgid "Add New Profile"
 msgstr "Adicione um novo perfil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:740
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:781
 #, fuzzy, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
 msgstr "Têm certeza que deseja remover esse perfil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:741
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:782
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
 msgstr "Cancelar"
@@ -58,17 +58,17 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:741
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:782
 msgid "Delete"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:740
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:781
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Remover perfil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:531
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:632
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
 msgid "Full"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "GitHub Repo"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:866
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:907
 msgid "JPEG and PNG images"
 msgstr ""
 
@@ -97,15 +97,15 @@ msgstr ""
 msgid "Nicholas Logozzo"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:531
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:536
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:632
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:637
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:569
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:670
 msgid "Off"
 msgstr "Desligado"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:536
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:637
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:569
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:670
 #, fuzzy
 msgid "On"
 msgstr "Abrir"
@@ -115,12 +115,12 @@ msgstr "Abrir"
 msgid "Profile Name"
 msgstr "Perfil:"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:863
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:904
 msgid "Select an image"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:531
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:632
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
 #, fuzzy
 msgid "Split Channels"
 msgstr "Canais"
@@ -283,109 +283,117 @@ msgstr ""
 msgid "Number of frames per second."
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:248
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:243
+msgid "Custom"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:249
+msgid "Custom Framerate"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:254
 msgid "Number of bars"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:265
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:271
 msgid "Automatic sensitivity"
 msgstr "Sensibilidade automática"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:266
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:272
 msgid "Attempt to decrease sensitivity if the bars peak."
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:276
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:282
 msgid "Sensitivity"
 msgstr "Sensibilidade"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:277
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:283
 msgid ""
 "Manual sensitivity. If automatic sensitivity is enabled, this will only be "
 "the initial value."
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:292
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:298
 msgid "Channels"
 msgstr "Canais"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:299
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:305
 msgid "Mono"
 msgstr "Mono"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:303
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:309
 msgid "Stereo"
 msgstr "Stereo"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:312
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:318
 msgid "Monstercat smoothing"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:313
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:319
 msgid "Whether to enable the so-called «Monstercat smoothing»."
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:323
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:329
 msgid "Noise reduction"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:324
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:330
 msgid ""
 "This factor adjusts the integral and gravity filters to keep the signal "
 "smooth.\n"
 "Higher value leads to a slower and smoother result."
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:341
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:347
 msgid "Reverse order"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:342
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:348
 msgid "Whether to reverse order of bars for each channel."
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:354
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:360
 msgid "Colors"
 msgstr "Cores"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:377
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:383
 #, fuzzy
 msgid "Add Profile"
 msgstr "Adicione um novo perfil"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:400
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:406
 msgid "Application Theme"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:408
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:414
 msgid "Light"
 msgstr "Claro"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:412
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:418
 msgid "Dark"
 msgstr "Escuro"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:436
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:442
 msgid "Foreground Colors"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:458
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:464
 msgid "Background Colors"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:478
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:484
 msgid "Image"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:495
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:501
 msgid "Add Image"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:506
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:512
 msgid "Scale"
 msgstr ""
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:555
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:561
 msgid "No Image"
 msgstr ""
 
