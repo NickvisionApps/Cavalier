@@ -9,7 +9,6 @@ diff -Naur a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in b/Nick
 +Icon=snap.cavalier.org.nickvision.cavalier
  Terminal=false
  Type=Application
- X-GNOME-UsesNotifications=true
  StartupNotify=true
 -Categories=AudioVideo;Audio;
 \ No newline at end of file

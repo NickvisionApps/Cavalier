@@ -4,6 +4,7 @@ using NickvisionCavalier.Shared.Controllers;
 using NickvisionCavalier.Shared.Models;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using static Nickvision.GirExt.GtkExt;
 using static NickvisionCavalier.Shared.Helpers.Gettext;
@@ -19,6 +20,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     private bool _removingImages;
     private readonly Gtk.ColorDialog _colorDialog;
     private readonly PreferencesViewController _controller;
+    private readonly uint[] _framerates;
 
     [Gtk.Connect] private readonly Gtk.CheckButton _waveCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _levelsCheckButton;
@@ -43,6 +45,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Switch _windowControlsSwitch;
     [Gtk.Connect] private readonly Gtk.Switch _autohideHeaderSwitch;
     [Gtk.Connect] private readonly Adw.ComboRow _framerateRow;
+    [Gtk.Connect] private readonly Adw.EntryRow _customFramerateRow;
     [Gtk.Connect] private readonly Gtk.Scale _barsScale;
     [Gtk.Connect] private readonly Gtk.Switch _autosensSwitch;
     [Gtk.Connect] private readonly Gtk.Scale _sensitivityScale;
@@ -65,6 +68,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     {
         _avoidCAVAReload = false;
         _removingImages = false;
+        _framerates = new []{ 30u, 60u, 90u, 120u, 144u };
         //Window Settings
         _controller = controller;
         SetIconName(_controller.ID);
@@ -484,11 +488,40 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             if (e.Pspec.GetName() == "selected")
             {
-                _controller.Framerate = new []{ 30u, 60u, 90u, 120u, 144u }[_framerateRow.GetSelected()];
+                _customFramerateRow.SetVisible(_framerateRow.GetSelected() == 5);
+                _customFramerateRow.SetText("");
+                if (_framerateRow.GetSelected() < 5)
+                {
+                    _controller.Framerate = _framerates[_framerateRow.GetSelected()];
+                    if (!_avoidCAVAReload)
+                    {
+                        _controller.ChangeCAVASettings();
+                    }
+                }
+            }
+        };
+        _customFramerateRow.SetVisible(_framerateRow.GetSelected() == 5);
+        _customFramerateRow.OnNotify += (sender, e) =>
+        {
+            if (e.Pspec.GetName() == "text")
+            {
+                _customFramerateRow.RemoveCssClass("error");
+            }
+        };
+        _customFramerateRow.OnApply += (sender, e) =>
+        {
+            var valid = uint.TryParse(_customFramerateRow.GetText(), out var fps);
+            if (valid)
+            {
+                _controller.Framerate = fps;
                 if (!_avoidCAVAReload)
                 {
                     _controller.ChangeCAVASettings();
                 }
+            }
+            else
+            {
+                _customFramerateRow.AddCssClass("error");
             }
         };
         _barsScale.OnValueChanged += (sender, e) =>
@@ -670,7 +703,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     public bool LoadCAVASettings()
     {
         _avoidCAVAReload = true;
-        _framerateRow.SetSelected(_controller.Framerate / 30u - 1u);
+        if (_framerates.Contains(_controller.Framerate))
+        {
+            _framerateRow.SetSelected((uint)Array.IndexOf(_framerates, _controller.Framerate));
+        }
+        else
+        {
+            _framerateRow.SetSelected(5u);
+            _customFramerateRow.SetText(_controller.Framerate.ToString());
+        }
         _barsScale.SetValue((int)_controller.BarPairs * 2);
         _autosensSwitch.SetActive(_controller.Autosens);
         _sensitivityScale.SetValue((int)_controller.Sensitivity);

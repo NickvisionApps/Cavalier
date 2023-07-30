@@ -240,8 +240,14 @@ Adw.PreferencesWindow _root {
         title: _("Framerate");
         subtitle: _("Number of frames per second.");
         model: Gtk.StringList {
-          strings ["30", "60", "90", "120", "144"]
+          strings ["30", "60", "90", "120", "144", _("Custom")]
         };
+      }
+
+      Adw.EntryRow _customFramerateRow {
+        show-apply-button: true;
+        title: _("Custom Framerate");
+        visible: false;
       }
 
       Adw.ActionRow {

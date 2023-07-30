@@ -6,6 +6,5 @@ Exec=@EXEC@
 Icon=org.nickvision.cavalier
 Terminal=false
 Type=Application
-X-GNOME-UsesNotifications=true
 StartupNotify=true
 Categories=AudioVideo;Audio;
