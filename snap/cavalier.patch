@@ -1,18 +1,3 @@
-diff -Naur a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in b/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in
---- a/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in	2023-07-21 11:48:44.565563047 +0530
-+++ b/NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in	2023-07-21 12:15:59.543186260 +0530
-@@ -3,9 +3,9 @@
- Name=Cavalier
- Comment=Visualize audio with CAVA
- Exec=@EXEC@
--Icon=org.nickvision.cavalier
-+Icon=snap.cavalier.org.nickvision.cavalier
- Terminal=false
- Type=Application
- StartupNotify=true
--Categories=AudioVideo;Audio;
-\ No newline at end of file
-+Categories=AudioVideo;Audio;
 diff -Naur a/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in b/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in
 --- a/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in	2023-07-21 11:48:44.565563047 +0530
 +++ b/NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in	2023-07-21 12:14:33.584013059 +0530
