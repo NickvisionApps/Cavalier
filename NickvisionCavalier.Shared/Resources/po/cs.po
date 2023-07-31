@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-31 02:42+0300\n"
-"PO-Revision-Date: 2023-07-23 13:02+0000\n"
+"PO-Revision-Date: 2023-07-31 13:53+0000\n"
 "Last-Translator: Fjuro <ifjuro@proton.me>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,12 +48,11 @@ msgstr "Cavalier"
 
 #: ../../../Controllers/MainWindowController.cs:70
 msgid "Contributors on GitHub ❤️"
-msgstr ""
+msgstr "Přispěvatelě na GitHubu ❤️"
 
 #: ../../../Controllers/MainWindowController.cs:72
-#, fuzzy
 msgid "David Lapshin"
-msgstr "David Lapshin {0}"
+msgstr "David Lapshin"
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
@@ -74,9 +73,8 @@ msgstr "Plný"
 
 #: ../../../Controllers/MainWindowController.cs:68
 #: ../../../Controllers/MainWindowController.cs:71
-#, fuzzy
 msgid "Fyodor Sobolev"
-msgstr "Fyodor Sobolev {0}"
+msgstr "Fyodor Sobolev"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:276
 msgid "GitHub Repo"
@@ -84,7 +82,7 @@ msgstr "Repozitář GitHub"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:907
 msgid "JPEG and PNG images"
-msgstr ""
+msgstr "Obrázky JPEG a PNG"
 
 #: ../../../Controllers/MainWindowController.cs:67
 msgid "Matrix Chat"
@@ -96,7 +94,7 @@ msgstr "Nový barevný profil bude kopie současně aktivního profilu."
 
 #: ../../../Controllers/MainWindowController.cs:69
 msgid "Nicholas Logozzo"
-msgstr ""
+msgstr "Nicholas Logozzo"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:569
@@ -116,7 +114,7 @@ msgstr "Název profilu"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:904
 msgid "Select an image"
-msgstr ""
+msgstr "Vybrat obrázek"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
@@ -135,7 +133,7 @@ msgstr "Vizualizace zvuku s CAVA"
 
 #: NickvisionCavalier.GNOME/Blueprints/command_help_dialog.blp:23
 msgid "Command Help"
-msgstr ""
+msgstr "Nápověda k příkazům"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:118
@@ -169,7 +167,7 @@ msgstr "Páteř"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:68
 msgid "Splitter"
-msgstr ""
+msgstr "Rozdělovač"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:80
 msgid "Mirror"
@@ -281,12 +279,11 @@ msgstr "Počet snímků za vteřinu."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:243
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:249
-#, fuzzy
 msgid "Custom Framerate"
-msgstr "Snímková frekvence"
+msgstr "Vlastní snímková frekvence"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:254
 msgid "Number of bars"
@@ -384,19 +381,19 @@ msgstr "Barvy pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:484
 msgid "Image"
-msgstr ""
+msgstr "Obrázek"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:501
 msgid "Add Image"
-msgstr ""
+msgstr "Přidat obrázek"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:512
 msgid "Scale"
-msgstr ""
+msgstr "Měřítko"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:561
 msgid "No Image"
-msgstr ""
+msgstr "Žádný obrázek"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
@@ -456,20 +453,19 @@ msgstr "Přepnout opačné pořadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:91
 msgid "Other"
-msgstr ""
+msgstr "Jiné"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:94
-#, fuzzy
 msgid "Change Color Profile"
-msgstr "Změnit režim zrcadlení"
+msgstr "Změnit barevný profil"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
 msgid "Change Background Image"
-msgstr ""
+msgstr "Změnit obrázek na pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
 msgid "Change Image Scale"
-msgstr ""
+msgstr "Změnit velikost obrázku"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:110
 msgctxt "Shortcut"

@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-31 02:42+0300\n"
-"PO-Revision-Date: 2023-07-18 15:01+0000\n"
+"PO-Revision-Date: 2023-07-31 13:53+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,12 +48,11 @@ msgstr "Cavalier"
 
 #: ../../../Controllers/MainWindowController.cs:70
 msgid "Contributors on GitHub ❤️"
-msgstr ""
+msgstr "GitHub Katkıcıları ❤️"
 
 #: ../../../Controllers/MainWindowController.cs:72
-#, fuzzy
 msgid "David Lapshin"
-msgstr "David Lapshin {0}"
+msgstr "David Lapshin"
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
@@ -74,9 +73,8 @@ msgstr "Tam"
 
 #: ../../../Controllers/MainWindowController.cs:68
 #: ../../../Controllers/MainWindowController.cs:71
-#, fuzzy
 msgid "Fyodor Sobolev"
-msgstr "Fyodor Sobolev {0}"
+msgstr "Fyodor Sobolev"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:276
 msgid "GitHub Repo"
@@ -84,7 +82,7 @@ msgstr "GitHub Deposu"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:907
 msgid "JPEG and PNG images"
-msgstr ""
+msgstr "JPEG ve PNG resimler"
 
 #: ../../../Controllers/MainWindowController.cs:67
 msgid "Matrix Chat"
@@ -96,7 +94,7 @@ msgstr "Yeni renk profili, geçerli etkin profilin bir kopyası olacaktır."
 
 #: ../../../Controllers/MainWindowController.cs:69
 msgid "Nicholas Logozzo"
-msgstr ""
+msgstr "Nicholas Logozzo"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:569
@@ -116,7 +114,7 @@ msgstr "Profil Adı"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:904
 msgid "Select an image"
-msgstr ""
+msgstr "Resim seç"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
@@ -135,7 +133,7 @@ msgstr "CAVA ile sesleri görselleştirin"
 
 #: NickvisionCavalier.GNOME/Blueprints/command_help_dialog.blp:23
 msgid "Command Help"
-msgstr ""
+msgstr "Komut Yardımı"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:118
@@ -169,16 +167,15 @@ msgstr "Omurga"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:68
 msgid "Splitter"
-msgstr ""
+msgstr "Ayırıcı"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:80
 msgid "Mirror"
 msgstr "Aynala"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:84
-#, fuzzy
 msgid "Reverse mirror"
-msgstr "Ters sırada"
+msgstr "Ters ayna"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:96
 msgid "Drawing area margin"
@@ -282,12 +279,11 @@ msgstr "Saniyedeki kare sayısı."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:243
 msgid "Custom"
-msgstr ""
+msgstr "Özel"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:249
-#, fuzzy
 msgid "Custom Framerate"
-msgstr "Kare hızı"
+msgstr "Özel Kare Hızı"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:254
 msgid "Number of bars"
@@ -385,19 +381,19 @@ msgstr "Arka Plan Rengi"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:484
 msgid "Image"
-msgstr ""
+msgstr "Resim"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:501
 msgid "Add Image"
-msgstr ""
+msgstr "Resim Ekle"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:512
 msgid "Scale"
-msgstr ""
+msgstr "Ölçekle"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:561
 msgid "No Image"
-msgstr ""
+msgstr "Resim Yok"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
@@ -408,9 +404,8 @@ msgid "Change Mirror Mode"
 msgstr "Ayna Kipini Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
-#, fuzzy
 msgid "Toggle Reverse Mirror"
-msgstr "Ters Sıralamayı Aç/Kapat"
+msgstr "Ters Aynayı Aç/Kapat"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
 msgid "Change Drawing Area Margin"
@@ -458,20 +453,19 @@ msgstr "Ters Sıralamayı Aç/Kapat"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:91
 msgid "Other"
-msgstr ""
+msgstr "Diğer"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:94
-#, fuzzy
 msgid "Change Color Profile"
-msgstr "Ayna Kipini Değiştir"
+msgstr "Renk Profilini Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
 msgid "Change Background Image"
-msgstr ""
+msgstr "Arka Plan Resmini Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
 msgid "Change Image Scale"
-msgstr ""
+msgstr "Resim Ölçeğini Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:110
 msgctxt "Shortcut"
