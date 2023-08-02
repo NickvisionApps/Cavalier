@@ -35,7 +35,7 @@ public class MainWindow : Adw.ApplicationWindow
         _application = application;
         //Build UI
         builder.Connect(this);
-        _controller.RaiseCommandReceived += Present;
+        _controller.RaiseCommandReceived += (sender, e) => Present();
         SetDefaultSize((int)_controller.WindowWidth, (int)_controller.WindowHeight);
         if (_controller.WindowMaximized)
         {

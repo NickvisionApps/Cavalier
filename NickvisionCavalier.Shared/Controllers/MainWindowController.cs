@@ -50,7 +50,7 @@ public class MainWindowController
 
     public PreferencesViewController PreferencesViewController { get; init; }
 
-    public event Action? RaiseCommandReceived;
+    public event EventHandler<EventArgs>? RaiseCommandReceived;
 
     /// <summary>
     /// Constructs a MainWindowController
@@ -86,7 +86,7 @@ public class MainWindowController
     {
         if (args.Length == 0)
         {
-            RaiseCommandReceived?.Invoke();
+            RaiseCommandReceived?.Invoke(this, EventArgs.Empty);
         }
         else
         {
