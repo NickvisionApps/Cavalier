@@ -35,13 +35,18 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release type="stable" date="2023-07-24" version="2023.7.0">
+    <release type="stable" date="2023-07-04" version="2023.8.0">
       <description translatable="no">
         <p>New Cavalier!</p>
         <ul>
-          <li>Cavalier is reborn as part of Nickvision apps family! Completely rewritten in C#, gaining better performance and solid base to grow in future!</li>
-          <li>New notable features compared to previous stable release of Cavalier: Spine drawing mode, drawing direction selection and mirror.</li>
-          <li>Translations were moved to Weblate.</li>
+          <li>Cavalier can now be controlled from command line. Run the app with --help option to see full list of available options</li>
+          <li>Reverse mirror option is now available with full mirror</li>
+          <li>It's now possible to set frames per second to 144 or to a custom value</li>
+          <li>Added anti-aliasing, so rounded items now look less pixelated</li>
+          <li>Added ability to set background image</li>
+          <li>New drawing mode - Splitter</li>
+          <li>Bars limit was increased to 100</li>
+          <li>Updated translations (Thanks everyone on Weblate!)</li>
         </ul>
       </description>
     </release>
