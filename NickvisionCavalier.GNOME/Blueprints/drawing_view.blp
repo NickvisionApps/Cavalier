@@ -23,4 +23,12 @@ Gtk.Stack _root {
       auto-render: false;
     };
   }
+
+  Gtk.StackPage _cairoPage {
+    name: "cairo";
+    child: Gtk.DrawingArea _cairoArea {
+      hexpand: true;
+      vexpand: true;
+    };
+  }
 }

@@ -35,17 +35,11 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release type="stable" date="2023-07-04" version="2023.8.0">
+    <release type="stable" date="2023-07-04" version="2023.8.1-next">
       <description translatable="no">
         <p>New Cavalier!</p>
         <ul>
-          <li>Cavalier can now be controlled from command line. Run the app with --help option to see full list of available options</li>
-          <li>Reverse mirror option is now available with full mirror</li>
-          <li>It's now possible to set frames per second to 144 or to a custom value</li>
-          <li>Added anti-aliasing, so rounded items now look less pixelated</li>
-          <li>Added ability to set background image</li>
-          <li>New drawing mode - Splitter</li>
-          <li>Bars limit was increased to 100</li>
+          <li>Added Cairo backend that can be used in case of problems with OpenGL. To activate, run the program with environment variable CAVALIER_RENDERER=cairo</li>
           <li>Updated translations (Thanks everyone on Weblate!)</li>
         </ul>
       </description>

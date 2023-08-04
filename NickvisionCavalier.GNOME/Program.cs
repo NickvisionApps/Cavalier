@@ -34,13 +34,7 @@ public partial class Program
         _mainWindow = null;
         _mainWindowController = new MainWindowController(args);
         _mainWindowController.AppInfo.Changelog =
-            @"* Cavalier can now be controlled from command line. Run the app with --help option to see full list of available options
-              * Reverse mirror option is now available with full mirror
-              * It's now possible to set frames per second to 144 or to a custom value
-              * Added anti-aliasing, so rounded items now look less pixelated
-              * Added ability to set background image
-              * New drawing mode - Splitter
-              * Bars limit was increased to 100
+            @"* Added Cairo backend that can be used in case of problems with OpenGL. To activate, run the program with environment variable CAVALIER_RENDERER=cairo
               * Updated translations (Thanks everyone on Weblate!)";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
