@@ -536,7 +536,7 @@ public class Renderer
         var profile = Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile];
         if (profile.FgColors.Count > 1)
         {
-            var pos = (profile.FgColors.Count - 1) * sample;
+            var pos = (profile.FgColors.Count - 1) * (1 - sample);
             var color1 = SKColor.Parse(profile.FgColors[(int)Math.Floor(pos)]);
             var color2 = SKColor.Parse(profile.FgColors[(int)Math.Ceiling(pos)]);
             var weight = sample < 1 ? pos % 1 : 1;
