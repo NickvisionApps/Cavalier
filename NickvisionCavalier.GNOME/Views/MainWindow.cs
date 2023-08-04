@@ -59,7 +59,7 @@ public class MainWindow : Adw.ApplicationWindow
         };
         var preferencesDialog = new PreferencesDialog(_preferencesController, application);
         OnCloseRequest += OnClose;
-        UpdateWindowSettings();
+        UpdateWindowSettings(this, EventArgs.Empty);
         OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "is-active" && _controller.AutohideHeader)
@@ -141,7 +141,9 @@ public class MainWindow : Adw.ApplicationWindow
     /// <summary>
     /// Occurs when settings for the window have changed
     /// </summary>
-    private void UpdateWindowSettings()
+    /// <param name="sender">object</param>
+    /// <param name="e">EventArgs</param>
+    private void UpdateWindowSettings(object sender, EventArgs e)
     {
         _application.StyleManager!.ColorScheme = _controller.Theme switch
         {

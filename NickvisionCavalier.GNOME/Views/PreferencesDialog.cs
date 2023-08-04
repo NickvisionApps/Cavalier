@@ -26,6 +26,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.CheckButton _levelsCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _particlesCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _barsCheckButton;
+    [Gtk.Connect] private readonly Adw.ActionRow _spineRow;
     [Gtk.Connect] private readonly Gtk.CheckButton _spineCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _splitterCheckButton;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
@@ -616,8 +617,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             _controller.ChangeWindowSettings();
         };
         _colorDialog = Gtk.ColorDialog.New();
-        _addFgColorButton.OnClicked += (sender, e) => AddColorAsync(ColorType.Foreground);
-        _addBgColorButton.OnClicked += (sender, e) => AddColorAsync(ColorType.Background);
+        _addFgColorButton.OnClicked += async (sender, e) => await AddColorAsync(ColorType.Foreground);
+        _addBgColorButton.OnClicked += async (sender, e) => await AddColorAsync(ColorType.Background);
         UpdateColorsGrid();
         _addImageButton.OnClicked += async (sender, e) => await AddImageAsync();
         _imageScale.OnValueChanged += (sender, e) => _controller.ImageScale = (float)_imageScale.GetValue();
@@ -629,8 +630,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             }
         };
         // Update view when controller has changed by cmd options
-        _controller.OnUpdateViewInstant += () => GLib.Functions.IdleAdd(0, LoadInstantSettings);
-        _controller.OnUpdateViewCAVA += () => GLib.Functions.IdleAdd(0, LoadCAVASettings);
+        _controller.OnUpdateViewInstant += (sender, e) => GLib.Functions.IdleAdd(0, LoadInstantSettings);
+        _controller.OnUpdateViewCAVA += (sender, e) => GLib.Functions.IdleAdd(0, LoadCAVASettings);
     }
 
     /// <summary>
@@ -694,6 +695,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         UpdateColorProfiles();
         _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
         _imageScale.SetValue(_controller.ImageScale);
+        if (_controller.Hearts)
+        {
+            _spineRow.SetTitle(_("Hearts"));
+        }
         return false;
     }
 

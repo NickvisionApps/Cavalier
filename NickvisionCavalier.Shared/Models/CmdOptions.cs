@@ -91,4 +91,10 @@ public class CmdOptions {
     /// </summary>
     [Option('a', "image-scale", Required = false, HelpText = "Background image scale in percent (10-100)")]
     public uint? ImageScale { get; set; }
+    /// <summary>
+    /// Whether to replace Spine mode with Hearts mode (easter egg)
+    /// </summary>
+    /// <remarks>Suggested by my beloved Xenia &lt;3</remarks>
+    [Option("hearts", Required = false, HelpText = "Replace Spine mode with Hearts mode")]
+    public bool Hearts { get; set; }
 }
