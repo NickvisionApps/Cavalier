@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 02:42+0300\n"
+"POT-Creation-Date: 2023-08-04 11:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:905
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:910
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
 msgid "Add"
 msgstr ""
@@ -26,12 +26,12 @@ msgstr ""
 msgid "Add New Profile"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:781
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:786
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:782
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:787
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
 msgstr ""
@@ -56,16 +56,16 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:782
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:787
 msgid "Delete"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:781
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:786
 msgid "Delete Profile"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:565
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:666
 msgid "Full"
 msgstr ""
 
@@ -74,11 +74,15 @@ msgstr ""
 msgid "Fyodor Sobolev"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:276
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:278
 msgid "GitHub Repo"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:907
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:700
+msgid "Hearts"
+msgstr ""
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:912
 msgid "JPEG and PNG images"
 msgstr ""
 
@@ -94,15 +98,15 @@ msgstr ""
 msgid "Nicholas Logozzo"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:569
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:670
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:565
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:570
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:666
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:671
 msgid "Off"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:569
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:670
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:570
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:671
 msgid "On"
 msgstr ""
 
@@ -110,12 +114,12 @@ msgstr ""
 msgid "Profile Name"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:904
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:909
 msgid "Select an image"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:565
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:666
 msgid "Split Channels"
 msgstr ""
 
@@ -494,7 +498,7 @@ msgid ""
 msgstr ""
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
-msgid "5 drawing modes!"
+msgid "6 drawing modes!"
 msgstr ""
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12

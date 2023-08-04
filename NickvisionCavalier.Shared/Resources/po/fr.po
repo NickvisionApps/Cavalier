@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 02:42+0300\n"
+"POT-Creation-Date: 2023-08-04 11:19+0300\n"
 "PO-Revision-Date: 2023-07-03 09:16+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/nickvision-"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.0-dev\n"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:905
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:910
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
 msgid "Add"
 msgstr "Ajouter"
@@ -28,12 +28,12 @@ msgstr "Ajouter"
 msgid "Add New Profile"
 msgstr "Ajouter un nouveau profil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:781
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:786
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
 msgstr "Êtes-vous sûr⋅e de vouloir supprimer le profil « {0} » ?"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:782
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:787
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
 msgstr "Annuler"
@@ -59,16 +59,16 @@ msgstr "David Lapshin {0}"
 msgid "Default"
 msgstr "Par défaut"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:782
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:787
 msgid "Delete"
 msgstr "Supprimer"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:781
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:786
 msgid "Delete Profile"
 msgstr "Supprimer le profil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:565
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:666
 msgid "Full"
 msgstr "Intégral"
 
@@ -78,11 +78,15 @@ msgstr "Intégral"
 msgid "Fyodor Sobolev"
 msgstr "Fyodor Sobolev {0}"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:276
+#: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:278
 msgid "GitHub Repo"
 msgstr "Dépôt GitHub"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:907
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:700
+msgid "Hearts"
+msgstr ""
+
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:912
 msgid "JPEG and PNG images"
 msgstr ""
 
@@ -98,15 +102,15 @@ msgstr "Le nouveau profil de couleur sera une copie du profil actif actuel."
 msgid "Nicholas Logozzo"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:569
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:670
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:565
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:570
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:666
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:671
 msgid "Off"
 msgstr "Désactivé"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:569
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:670
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:570
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:671
 msgid "On"
 msgstr "Activé"
 
@@ -114,12 +118,12 @@ msgstr "Activé"
 msgid "Profile Name"
 msgstr "Nom du profil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:904
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:909
 msgid "Select an image"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:564
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:665
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:565
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:666
 msgid "Split Channels"
 msgstr "Séparer les canaux"
 
@@ -511,7 +515,8 @@ msgstr ""
 "personnalisable."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
-msgid "5 drawing modes!"
+#, fuzzy
+msgid "6 drawing modes!"
 msgstr "5 modes de dessin !"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
