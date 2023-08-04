@@ -29,6 +29,7 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     private readonly GSourceFunc _queueRender;
     private readonly Timer _renderTimer;
     private GRContext? _ctx;
+    private SKImageInfo? _imgInfo;
     private SKSurface? _glSurface;
     private Cairo.ImageSurface? _cairoSurface;
     private SKSurface? _skSurface;
@@ -43,7 +44,7 @@ public partial class DrawingView : Gtk.Stack, IDisposable
         if (Environment.GetEnvironmentVariable("CAVALIER_RENDERER")?.ToLower() == "cairo")
         {
             _useCairo = true;
-            _cairoArea.OnResize += (sender, e) => CreateCairoSurface();
+            _cairoArea.OnResize += CreateCairoSurface;
             _cairoArea.SetDrawFunc(CairoDrawFunc);
         }
         else
@@ -55,7 +56,7 @@ public partial class DrawingView : Gtk.Stack, IDisposable
                 var grInt = GRGlInterface.Create(eglGetProcAddress);
                 _ctx = GRContext.CreateGl(grInt);
             };
-            _glArea.OnResize += (sender, e) => CreateGLSurface();
+            _glArea.OnResize += CreateGLSurface;
             _glArea.OnRender += OnRender;
         }
         _controller.CAVA.OutputReceived += (sender, sample) =>
@@ -131,15 +132,17 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     /// <summary>
     /// (Re)creates drawing surface when using OpenGL
     /// </summary>
-    private void CreateGLSurface()
+    /// <param name="sender">GLArea</param>
+    /// <param name="e">GLArea.ResizeSignalArgs</param>
+    private void CreateGLSurface(Gtk.GLArea sender, Gtk.GLArea.ResizeSignalArgs e)
     {
         _glSurface?.Dispose();
         _skSurface?.Dispose();
-        var imgInfo = new SKImageInfo(_glArea.GetAllocatedWidth(), _glArea.GetAllocatedHeight());
-        _glSurface = SKSurface.Create(_ctx, false, imgInfo);
+        _imgInfo = new SKImageInfo(e.Width, e.Height);
+        _glSurface = SKSurface.Create(_ctx, false, _imgInfo.Value);
         if (_glSurface != null)
         {
-            _skSurface = SKSurface.Create(imgInfo);
+            _skSurface = SKSurface.Create(_imgInfo.Value);
             _controller.Canvas = _skSurface.Canvas;
         }
     }
@@ -147,14 +150,16 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     /// <summary>
     /// (Re)creates drawing surface when using Cairo
     /// </summary>
-    private void CreateCairoSurface()
+    /// <param name="sender">DrawingArea</param>
+    /// <param name="e">DrawingArea.ResizeSignalArgs</param>
+    private void CreateCairoSurface(Gtk.DrawingArea sender, Gtk.DrawingArea.ResizeSignalArgs e)
     {
         _skSurface?.Dispose();
-        var imgInfo = new SKImageInfo(_cairoArea.GetAllocatedWidth(), _cairoArea.GetAllocatedHeight());
-        _cairoSurface = new Cairo.ImageSurface(Cairo.Format.Argb32, imgInfo.Width, imgInfo.Height);
+        _imgInfo = new SKImageInfo(e.Width, e.Height);
+        _cairoSurface = new Cairo.ImageSurface(Cairo.Format.Argb32, _imgInfo.Value.Width, _imgInfo.Value.Height);
         if (_cairoSurface != null)
         {
-            _skSurface = SKSurface.Create(imgInfo, Cairo.Internal.ImageSurface.GetData(_cairoSurface.Handle), imgInfo.RowBytes);
+            _skSurface = SKSurface.Create(_imgInfo.Value, Cairo.Internal.ImageSurface.GetData(_cairoSurface.Handle), _imgInfo.Value.RowBytes);
             _controller.Canvas = _skSurface.Canvas;
         }
     }
@@ -163,9 +168,9 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     /// Occurs on GLArea render frames
     /// </summary>
     /// <param name="sender">GLArea</param>
-    /// <param name="e">EventArgs</param>
+    /// <param name="e">GLArea.RenderSignalArgs</param>
     /// <returns>Whether or not the event was handled</returns>
-    private bool OnRender(Gtk.GLArea sender, EventArgs e)
+    private bool OnRender(Gtk.GLArea sender, Gtk.GLArea.RenderSignalArgs e)
     {
         if (_skSurface == null)
         {
@@ -174,8 +179,8 @@ public partial class DrawingView : Gtk.Stack, IDisposable
         glClear(16384);
         if (_sample != null)
         {
-            _controller.Render(_sample, (float)sender.GetAllocatedWidth(), (float)sender.GetAllocatedHeight());
-            _glSurface.Canvas.Clear();
+            _controller.Render(_sample, _imgInfo!.Value.Width, _imgInfo.Value.Height);
+            _glSurface!.Canvas.Clear();
             using var image = _skSurface.Snapshot();
             _glSurface.Canvas.DrawImage(image, 0, 0);
             _glSurface.Canvas.Flush();
