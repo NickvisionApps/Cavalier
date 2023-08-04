@@ -13,6 +13,9 @@ namespace NickvisionCavalier.Shared.Controllers;
 /// </summary>
 public class PreferencesViewController
 {
+    /// <summary>
+    /// Command-line parser
+    /// </summary>
     private readonly Parser _parser;
     /// <summary>
     /// Gets the AppInfo object
@@ -48,19 +51,19 @@ public class PreferencesViewController
     /// <summary>
     /// Occurs when the view needs to be updated (instant settings)
     /// </summary>
-    public event Action? OnUpdateViewInstant;
+    public event EventHandler? OnUpdateViewInstant;
     /// <summary>
     /// Occurs when the view needs to be updated (CAVA settings)
     /// </summary>
-    public event Action? OnUpdateViewCAVA;
+    public event EventHandler? OnUpdateViewCAVA;
     /// <summary>
     /// Occurs when window settings were changed from the view
     /// </summary>
-    public event Action? OnWindowSettingsChanged;
+    public event EventHandler? OnWindowSettingsChanged;
     /// <summary>
     /// Occurs when CAVA settings were changed from the view
     /// </summary>
-    public event Action? OnCAVASettingsChanged;
+    public event EventHandler? OnCAVASettingsChanged;
     /// <summary>
     /// Occurs when Help screen needs to be shown
     /// </summary>
@@ -179,13 +182,18 @@ public class PreferencesViewController
                 Configuration.Current.ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
                 updateCavalier = true;
             }
+            if (o.Hearts)
+            {
+                Configuration.Current.Hearts = true;
+                updateCavalier = true;
+            }
             if (updateCavalier)
             {
-                OnUpdateViewInstant?.Invoke();
+                OnUpdateViewInstant?.Invoke(this, EventArgs.Empty);
             }
             if (updateCAVA)
             {
-                OnUpdateViewCAVA?.Invoke();
+                OnUpdateViewCAVA?.Invoke(this, EventArgs.Empty);
             }
         }).WithNotParsed(_ =>
         {
@@ -462,6 +470,12 @@ public class PreferencesViewController
         
         set => Configuration.Current.ImageScale = value;
     }
+    
+    /// <summary>
+    /// Whether to replace Spine mode with Hearts mode (easter egg)
+    /// </summary>
+    /// <remarks>Suggested by my beloved Xenia &lt;3</remarks>
+    public bool Hearts => Configuration.Current.Hearts;
 
     /// <summary>
     /// Saves the configuration to disk
@@ -471,12 +485,12 @@ public class PreferencesViewController
     /// <summary>
     /// Occurs when a window's setting has changed
     /// </summary>
-    public void ChangeWindowSettings() => OnWindowSettingsChanged?.Invoke();
+    public void ChangeWindowSettings() => OnWindowSettingsChanged?.Invoke(this, EventArgs.Empty);
 
     /// <summary>
     /// Occurs when a CAVA setting has changed
     /// </summary>
-    public void ChangeCAVASettings() => OnCAVASettingsChanged?.Invoke();
+    public void ChangeCAVASettings() => OnCAVASettingsChanged?.Invoke(this, EventArgs.Empty);
 
     /// <summary>
     /// Adds new color profile

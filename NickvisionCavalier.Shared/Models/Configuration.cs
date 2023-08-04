@@ -1,5 +1,6 @@
 using Nickvision.Aura;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace NickvisionCavalier.Shared.Models;
 
@@ -120,6 +121,12 @@ public class Configuration : IConfiguration
     /// Background image scale (0.1-1.0, 1.0 - fill the window)
     /// </summary>
     public float ImageScale { get; set; }
+    /// <summary>
+    /// Whether to replace Spine mode with Hearts mode (easter egg)
+    /// </summary>
+    /// <remarks>Suggested by my beloved Xenia &lt;3</remarks>
+    [JsonIgnore]
+    public bool Hearts { get; set; }
 
     /// <summary>
     /// Constructs a Configuration
@@ -153,6 +160,7 @@ public class Configuration : IConfiguration
         ActiveProfile = 0;
         ImageIndex = -1;
         ImageScale = 1.0f;
+        Hearts = false;
     }
 
     /// <summary>

@@ -456,6 +456,17 @@ public class Renderer
             {
                 case DrawingDirection.TopBottom:
                 case DrawingDirection.BottomTop:
+                    if (Configuration.Current.Hearts)
+                    {
+                        Canvas.Save();
+                        using var path = new SKPath();
+                        DrawHeart(path, itemSize);
+                        Canvas.Translate(x + step * i + step / 2, y + height / 2);
+                        Canvas.Scale(sample[i]);
+                        Canvas.DrawPath(path, GetSpinePaint(paint, sample[i]));
+                        Canvas.Restore();
+                        break;
+                    }
                     Canvas.DrawRoundRect(
                         x + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
                         y + height / 2 - itemSize * sample[i] / 2,
@@ -465,6 +476,17 @@ public class Renderer
                     break;
                 case DrawingDirection.LeftRight:
                 case DrawingDirection.RightLeft:
+                    if (Configuration.Current.Hearts)
+                    {
+                        Canvas.Save();
+                        using var path = new SKPath();
+                        DrawHeart(path, itemSize);
+                        Canvas.Translate(x + width / 2, y + step * i + step / 2);
+                        Canvas.Scale(sample[i]);
+                        Canvas.DrawPath(path, GetSpinePaint(paint, sample[i]));
+                        Canvas.Restore();
+                        break;
+                    }
                     Canvas.DrawRoundRect(
                         x + width / 2 - itemSize * sample[i] / 2,
                         y + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
@@ -474,6 +496,33 @@ public class Renderer
                     break;
             }
         }
+    }
+
+    /// <summary>
+    /// Draw a heart for modified Spine mode
+    /// </summary>
+    /// <param name="path">Path to use for drawing</param>
+    /// <param name="itemSize">Size of a square to fit a heart into</param>
+    private void DrawHeart(SKPath path, float itemSize)
+    {
+        path.MoveTo(0, itemSize / 2);
+        path.CubicTo(
+            0, itemSize / 2.2f,
+            -itemSize / 1.8f, itemSize / 3,
+            -itemSize / 2, -itemSize / 6);
+        path.CubicTo(
+            -itemSize / 2.5f, -itemSize / 2,
+            -itemSize / 6.5f, -itemSize / 2,
+            0, -itemSize / 5.5f);
+        path.CubicTo(
+            itemSize / 6.5f, -itemSize / 2,
+            itemSize / 2.5f, -itemSize / 2,
+            itemSize / 2, -itemSize / 6);
+        path.CubicTo(
+            itemSize / 1.8f, itemSize / 3,
+            0, itemSize / 2.2f,
+            0, itemSize / 2);
+        path.Close();
     }
 
     /// <summary>
@@ -487,7 +536,7 @@ public class Renderer
         var profile = Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile];
         if (profile.FgColors.Count > 1)
         {
-            var pos = (profile.FgColors.Count - 1) * sample;
+            var pos = (profile.FgColors.Count - 1) * (1 - sample);
             var color1 = SKColor.Parse(profile.FgColors[(int)Math.Floor(pos)]);
             var color2 = SKColor.Parse(profile.FgColors[(int)Math.Ceiling(pos)]);
             var weight = sample < 1 ? pos % 1 : 1;

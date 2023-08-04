@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <id>org.nickvision.cavalier.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
@@ -8,7 +8,7 @@
   <description>
     <p>Cavalier is an audio visualizer based on CAVA with customizable interface.</p>
     <ul>
-      <li>5 drawing modes!</li>
+      <li>6 drawing modes!</li>
       <li>Set any color or a gradient for background and foreground.</li>
       <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
     </ul>
@@ -16,7 +16,13 @@
   <launchable type="desktop-id">org.nickvision.cavalier.desktop</launchable>
   <url type="homepage">https://github.com/NickvisionApps/Cavalier</url>
   <url type="bugtracker">https://github.com/NickvisionApps/Cavalier/issues</url>
+  <url type="donation">https://github.com/sponsors/nlogozzo</url>
+  <url type="translate">https://github.com/NickvisionApps/Cavalier/blob/main/CONTRIBUTING.md#providing-translations</url>
+  <project_group>Nickvision</project_group>
   <developer_name>Nickvision</developer_name>
+  <provides>
+    <binary>org.nickvision.cavalier</binary>
+  </provides>
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@PROJECT@/Screenshots/Main.png</image>
