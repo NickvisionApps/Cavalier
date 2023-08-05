@@ -79,27 +79,39 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         var actNextMode = Gio.SimpleAction.New("next-mode", null);
         actNextMode.OnActivate += (sender, e) =>
         {
-            if (_controller.Mode < DrawingMode.SpineBox)
+            if (_controller.Mode < DrawingMode.SpineCircle)
             {
                 switch (_controller.Mode + 1)
                 {
+                    case DrawingMode.WaveCircle:
+                        _waveCheckButton.SetActive(true);
+                        _boxButton.SetActive(false);
+                        break;
                     case DrawingMode.LevelsBox:
+                    case DrawingMode.LevelsCircle:
                         _levelsCheckButton.SetActive(true);
                         break;
                     case DrawingMode.ParticlesBox:
+                    case DrawingMode.ParticlesCircle:
                         _particlesCheckButton.SetActive(true);
                         break;
                     case DrawingMode.BarsBox:
+                    case DrawingMode.BarsCircle:
                         _barsCheckButton.SetActive(true);
                         break;
                     case DrawingMode.SpineBox:
+                    case DrawingMode.SpineCircle:
                         _spineCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.SplitterBox:
+                        _splitterCheckButton.SetActive(true);
                         break;
                 }
             }
             else
             {
                 _waveCheckButton.SetActive(true);
+                _boxButton.SetActive(true);
             }
         };
         application.AddAction(actNextMode);
@@ -113,30 +125,69 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 switch (_controller.Mode - 1)
                 {
                     case DrawingMode.WaveBox:
+                    case DrawingMode.WaveCircle:
                         _waveCheckButton.SetActive(true);
                         break;
                     case DrawingMode.LevelsBox:
+                    case DrawingMode.LevelsCircle:
                         _levelsCheckButton.SetActive(true);
                         break;
                     case DrawingMode.ParticlesBox:
+                    case DrawingMode.ParticlesCircle:
                         _particlesCheckButton.SetActive(true);
                         break;
                     case DrawingMode.BarsBox:
+                    case DrawingMode.BarsCircle:
                         _barsCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.SpineBox:
+                    case DrawingMode.SpineCircle:
+                        _spineCheckButton.SetActive(true);
+                        break;
+                    case DrawingMode.SplitterBox:
+                        _boxButton.SetActive(true);
+                        _splitterCheckButton.SetActive(true);
                         break;
                 }
             }
             else
             {
                 _spineCheckButton.SetActive(true);
+                _boxButton.SetActive(false);
             }
         };
         application.AddAction(actPrevMode);
         application.SetAccelsForAction("app.prev-mode", new string[] { "<Shift>d" });
+        //Increase Inner Radius Action
+        var actIncRadius = Gio.SimpleAction.New("inc-radius", null);
+        actIncRadius.OnActivate += (sender, e) =>
+        {
+            if (_radiusScale.GetValue() < 0.8)
+            {
+                _radiusScale.SetValue(_radiusScale.GetValue() + 0.05);
+            }
+        };
+        application.AddAction(actIncRadius);
+        application.SetAccelsForAction("app.inc-radius", new string[] { "u" });
+        //Decreate Inner Radius Action
+        var actDecRadius = Gio.SimpleAction.New("dec-radius", null);
+        actDecRadius.OnActivate += (sender, e) =>
+        {
+            if (_radiusScale.GetValue() > 0.2)
+            {
+                _radiusScale.SetValue(_radiusScale.GetValue() - 0.05);
+            }
+        };
+        application.AddAction(actDecRadius);
+        application.SetAccelsForAction("app.dec-radius", new string[] { "<Shift>u" });
         //Next Mirror Mode Action
         var actNextMirror = Gio.SimpleAction.New("next-mirror", null);
         actNextMirror.OnActivate += (sender, e) =>
         {
+            if (!_mirrorRow.GetSensitive())
+            {
+                return;
+            }
             var maxMirror = _controller.Stereo ? Mirror.SplitChannels : Mirror.Full;
             _mirrorRow.SetSelected(_controller.Mirror < maxMirror ? (uint)_controller.Mirror + 1 : 0);
         };
@@ -146,6 +197,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         var actPrevMirror = Gio.SimpleAction.New("prev-mirror", null);
         actPrevMirror.OnActivate += (sender, e) =>
         {
+            if (!_mirrorRow.GetSensitive())
+            {
+                return;
+            }
             var maxMirror = _controller.Stereo ? Mirror.SplitChannels : Mirror.Full;
             _mirrorRow.SetSelected(_controller.Mirror > Mirror.Off ? (uint)_controller.Mirror - 1 : (uint)maxMirror);
         };
