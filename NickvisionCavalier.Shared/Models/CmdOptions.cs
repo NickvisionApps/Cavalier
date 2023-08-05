@@ -9,7 +9,7 @@ public class CmdOptions {
     /// <summary>
     /// Active drawing mode
     /// </summary>
-    [Option('d', "drawing-mode", Required = false, HelpText = "Drawing mode, one of: wavebox, levelsbox, particlesbox, barsbox, spinebox, splitterbox")]
+    [Option('d', "drawing-mode", Required = false, HelpText = "Drawing mode, one of: wavebox, levelsbox, particlesbox, barsbox, spinebox, splitterbox, wavecircle, levelscircle, particlescircle, barscircle, spinecircle")]
     public DrawingMode? Mode { get; set; }
     /// <summary>
     /// Mirror mode
@@ -76,6 +76,11 @@ public class CmdOptions {
     /// </summary>
     [Option('e', "reverse-order", Required = false, HelpText = "Reverse order of bars (true or false)")]
     public bool? ReverseOrder { get; set; }
+    /// <summary>
+    /// Inner circle radius ratio in circle modes (20-80)
+    /// </summary>
+    [Option('u', "radius", Required = false, HelpText = "Inner circle radius in circle modes (20-80)")]
+    public uint? InnerRadius { get; set; }
     /// <summary>
     /// Active color profile index
     /// </summary>
