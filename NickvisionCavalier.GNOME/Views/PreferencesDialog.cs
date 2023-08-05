@@ -169,7 +169,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         application.AddAction(actIncRadius);
         application.SetAccelsForAction("app.inc-radius", new string[] { "u" });
-        //Decreate Inner Radius Action
+        //Decrease Inner Radius Action
         var actDecRadius = Gio.SimpleAction.New("dec-radius", null);
         actDecRadius.OnActivate += (sender, e) =>
         {
