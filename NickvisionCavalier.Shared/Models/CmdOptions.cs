@@ -79,7 +79,7 @@ public class CmdOptions {
     /// <summary>
     /// Inner circle radius ratio in circle modes (20-80)
     /// </summary>
-    [Option('u', "inner-radius", Required = false, HelpText = "Inner circle radius in circle modes (20-80)")]
+    [Option('u', "radius", Required = false, HelpText = "Inner circle radius in circle modes (20-80)")]
     public uint? InnerRadius { get; set; }
     /// <summary>
     /// Active color profile index
