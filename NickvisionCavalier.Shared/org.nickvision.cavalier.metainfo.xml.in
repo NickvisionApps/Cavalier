@@ -41,11 +41,14 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release type="stable" date="2023-07-04" version="2023.8.1-next">
+    <release type="stable" date="2023-08-05" version="2023.8.1-beta1">
       <description translatable="no">
-        <p>New Cavalier!</p>
+        <p>Changes compared to 2023.8.0:</p>
         <ul>
           <li>Added Cairo backend that can be used in case of problems with OpenGL. To activate, run the program with environment variable CAVALIER_RENDERER=cairo</li>
+          <li>All drawing modes except Splitter now have Circle variants</li>
+          <li>Added an easter egg (run the program with --help to find how to activate it)</li>
+          <li>Fixed an issue where the app wasn't drawing correctly with >100% display scaling</li>
           <li>Updated translations (Thanks everyone on Weblate!)</li>
         </ul>
       </description>
