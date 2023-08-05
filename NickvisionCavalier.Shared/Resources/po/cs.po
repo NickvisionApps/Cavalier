@@ -82,7 +82,7 @@ msgstr "Repozitář GitHub"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:803
 msgid "Hearts"
-msgstr ""
+msgstr "Srdíčka"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1015
 msgid "JPEG and PNG images"
@@ -523,9 +523,8 @@ msgstr ""
 "Cavalier je vizualizér zvuku založený na CAVA s přizpůsobitelným prostředím."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
-#, fuzzy
 msgid "6 drawing modes!"
-msgstr "5 vykreslovacích režimů!"
+msgstr "6 vykreslovacích režimů!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
 msgid "Set any color or a gradient for background and foreground."
