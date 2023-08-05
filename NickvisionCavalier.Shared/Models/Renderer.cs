@@ -769,7 +769,7 @@ public class Renderer
             Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
             Canvas.DrawRoundRect(
                 -barWidth * (1 - Configuration.Current.ItemsOffset * 2) / 2 * sample[i] + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                y + innerRadius - itemSize * sample[i] / 2,
+                innerRadius - itemSize * sample[i] / 2,
                 itemSize * sample[i], itemSize * sample[i],
                 itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
                 itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
