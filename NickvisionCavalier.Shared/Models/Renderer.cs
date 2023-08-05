@@ -7,6 +7,9 @@ using System.IO;
 
 namespace NickvisionCavalier.Shared.Models;
 
+/// <summary>
+/// An object that renders the picture
+/// </summary>
 public class Renderer
 {
     private delegate void DrawFunc(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint);
@@ -18,8 +21,14 @@ public class Renderer
     private float _oldHeight;
     private float _oldScale;
 
+    /// <summary>
+    /// Renderer's canvas to draw on
+    /// </summary>
     public SKCanvas? Canvas { get; set; }
     
+    /// <summary>
+    /// Construct Renderer
+    /// </summary>
     public Renderer()
     {
         Canvas = null;
@@ -29,6 +38,12 @@ public class Renderer
         _oldScale = 0.0f;
     }
     
+    /// <summary>
+    /// Draw picture
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="width">Picture width</param>
+    /// <param name="height">Picture height</param>
     public void Draw(float[] sample, float width, float height)
     {
         if (Canvas == null)
@@ -144,7 +159,7 @@ public class Renderer
     }
 
     /// <summary>
-    /// Creates gradient shader
+    /// Create gradient shader
     /// </summary>
     /// <param name="colorStrings">List of colors as strings</param>
     /// <param name="width">Canvas width</param>
@@ -183,6 +198,10 @@ public class Renderer
         };
     }
 
+    /// <summary>
+    /// Get direction for mirrored part of picture
+    /// </summary>
+    /// <returns>DrawingDirection</returns>
     private DrawingDirection GetMirrorDirection()
     {
         return Configuration.Current.Direction switch
@@ -194,6 +213,10 @@ public class Renderer
         };
     }
 
+    /// <summary>
+    /// Get X coordinate for mirror top-left corner
+    /// </summary>
+    /// <returns>X coordinate float</returns>
     private float GetMirrorX(float width)
     {
         if (Configuration.Current.Direction == DrawingDirection.LeftRight || Configuration.Current.Direction == DrawingDirection.RightLeft)
@@ -203,6 +226,10 @@ public class Renderer
         return Configuration.Current.AreaMargin;
     }
 
+    /// <summary>
+    /// Get Y coordinate for mirror top-left corner
+    /// </summary>
+    /// <returns>Y coordinate float</returns>
     private float GetMirrorY(float height)
     {
         if (Configuration.Current.Direction == DrawingDirection.TopBottom || Configuration.Current.Direction == DrawingDirection.BottomTop)
@@ -212,6 +239,10 @@ public class Renderer
         return Configuration.Current.AreaMargin;
     }
 
+    /// <summary>
+    /// Get width for mirrored part of picture
+    /// </summary>
+    /// <returns>Width float</returns>
     private float GetMirrorWidth(float width)
     {
         if (Configuration.Current.Direction == DrawingDirection.LeftRight || Configuration.Current.Direction == DrawingDirection.RightLeft)
@@ -221,6 +252,10 @@ public class Renderer
         return width;
     }
 
+    /// <summary>
+    /// Get height for mirrored part of picture
+    /// </summary>
+    /// <returns>Height float</returns>
     private float GetMirrorHeight(float height)
     {
         if (Configuration.Current.Direction == DrawingDirection.TopBottom || Configuration.Current.Direction == DrawingDirection.BottomTop)
@@ -230,6 +265,16 @@ public class Renderer
         return height;
     }
 
+    /// <summary>
+    /// Draw picture, Wave mode, Box variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
     private void DrawWaveBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / (sample.Length - 1);
@@ -316,6 +361,16 @@ public class Renderer
         Canvas.DrawPath(path, paint);
     }
 
+    /// <summary>
+    /// Draw picture, Levels mode, Box variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
     private void DrawLevelsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
@@ -364,6 +419,16 @@ public class Renderer
         }
     }
 
+    /// <summary>
+    /// Draw picture, Particles mode, Box variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
     private void DrawParticlesBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
@@ -409,6 +474,16 @@ public class Renderer
         }
     }
 
+    /// <summary>
+    /// Draw picture, Bars mode, Box variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
     private void DrawBarsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
@@ -456,6 +531,16 @@ public class Renderer
         }
     }
 
+    /// <summary>
+    /// Draw picture, Spine mode, Box variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
     private void DrawSpineBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
@@ -563,6 +648,16 @@ public class Renderer
         return paint;
     }
 
+    /// <summary>
+    /// Draw picture, Splitter mode, Box variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
     private void DrawSplitterBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
@@ -643,7 +738,17 @@ public class Renderer
         Canvas.DrawPath(path, paint);
     }
 
-    public void DrawWaveCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    /// <summary>
+    /// Draw picture, Wave mode, Circle variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
+    private void DrawWaveCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -654,8 +759,8 @@ public class Renderer
         Canvas.ClipPath(clipPath, SKClipOperation.Difference, true);
         using var path = new SKPath();
         path.MoveTo(
-        x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2),
-        y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2));
+            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2),
+            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2));
         for (var i = 0; i < sample.Length - 1; i++)
         {
             path.CubicTo(
@@ -678,7 +783,17 @@ public class Renderer
         Canvas.Restore();
     }
 
-    public void DrawLevelsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    /// <summary>
+    /// Draw picture, Levels mode, Circle variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
+    private void DrawLevelsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -703,7 +818,17 @@ public class Renderer
         }
     }
 
-    public void DrawParticlesCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    /// <summary>
+    /// Draw picture, Particles mode, Circle variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
+    private void DrawParticlesCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -725,7 +850,17 @@ public class Renderer
         }
     }
 
-    public void DrawBarsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    /// <summary>
+    /// Draw picture, Bars mode, Circle variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
+    private void DrawBarsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -745,7 +880,17 @@ public class Renderer
         }
     }
 
-    public void DrawSpineCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    /// <summary>
+    /// Draw picture, Spine mode, Circle variant
+    /// </summary>
+    /// <param name="sample">CAVA sample</param>
+    /// <param name="direction">DrawingDirection</param>
+    /// <param name="x">Top-left corner X coordinate</param>
+    /// <param name="y">Top-left corner Y coordinate</param>
+    /// <param name="width">Drawing width</param>
+    /// <param name="height">Drawing height</param>
+    /// <param name="paint">Skia paint</param>
+    private void DrawSpineCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
