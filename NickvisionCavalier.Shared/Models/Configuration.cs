@@ -106,6 +106,10 @@ public class Configuration : IConfiguration
     /// </summary>
     public bool ReverseMirror { get; set; }
     /// <summary>
+    /// Inner circle radius ratio in circle modes (0.2-0.8)
+    /// </summary>
+    public float InnerRadius { get; set; }
+    /// <summary>
     /// List of color profiles
     /// </summary>
     public List<ColorProfile> ColorProfiles { get; set; }
@@ -156,6 +160,7 @@ public class Configuration : IConfiguration
         Mode = DrawingMode.WaveBox;
         Mirror = Mirror.Off;
         ReverseMirror = false;
+        InnerRadius = 0.5f;
         ColorProfiles = new List<ColorProfile> { new ColorProfile() };
         ActiveProfile = 0;
         ImageIndex = -1;

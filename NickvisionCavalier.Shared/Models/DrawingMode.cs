@@ -10,5 +10,10 @@ public enum DrawingMode
     ParticlesBox,
     BarsBox,
     SpineBox,
-    SplitterBox
+    SplitterBox,
+    WaveCircle,
+    LevelsCircle,
+    ParticlesCircle,
+    BarsCircle,
+    SpineCircle
 }

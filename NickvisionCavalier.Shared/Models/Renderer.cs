@@ -104,7 +104,7 @@ public class Renderer
             StrokeWidth = Configuration.Current.LinesThickness,
             IsAntialias = true
         };
-        if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox)
+        if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox && Configuration.Current.Mode != DrawingMode.SpineCircle)
         {
             fgPaint.Shader = CreateGradient(profile.FgColors, width, height, Configuration.Current.AreaMargin);
         }
@@ -119,6 +119,11 @@ public class Renderer
             DrawingMode.BarsBox => DrawBarsBox,
             DrawingMode.SpineBox => DrawSpineBox,
             DrawingMode.SplitterBox => DrawSplitterBox,
+            DrawingMode.WaveCircle => DrawWaveCircle,
+            DrawingMode.LevelsCircle => DrawLevelsCircle,
+            DrawingMode.ParticlesCircle => DrawParticlesCircle,
+            DrawingMode.BarsCircle => DrawBarsCircle,
+            DrawingMode.SpineCircle => DrawSpineCircle,
             _ => DrawWaveBox,
         };
         if (Configuration.Current.Mirror == Mirror.Full)
@@ -144,6 +149,7 @@ public class Renderer
     /// <param name="colorStrings">List of colors as strings</param>
     /// <param name="width">Canvas width</param>
     /// <param name="height">Canvas height</param>
+    /// <param name="margin">Area margin</param>
     /// <returns>Skia Shader</returns>
     private SKShader CreateGradient(List<string> colorStrings, float width, float height, uint margin = 0)
     {
@@ -159,6 +165,14 @@ public class Renderer
             Array.Reverse(colors);
             colors.CopyTo(mirrorColors, colors.Length);
             colors = mirrorColors;
+        }
+        if (Configuration.Current.Mode == DrawingMode.WaveCircle)
+        {
+            return SKShader.CreateRadialGradient(new SKPoint(width / 2, height / 2), Math.Min(width, height) / 2 * Configuration.Current.InnerRadius, colors, SKShaderTileMode.Repeat);
+        }
+        if (Configuration.Current.Mode > DrawingMode.WaveCircle)
+        {
+            return SKShader.CreateLinearGradient(new SKPoint(margin, Math.Min(width, height) * Configuration.Current.InnerRadius / 2), new SKPoint(margin, Math.Min(width, height) / 2), colors, SKShaderTileMode.Clamp);
         }
         return Configuration.Current.Direction switch
         {
@@ -627,5 +641,140 @@ public class Renderer
             path.Close();
         }
         Canvas.DrawPath(path, paint);
+    }
+
+    public void DrawWaveCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var fullRadius = Math.Min(width, height) / 2;
+        var innerRadius = fullRadius * Configuration.Current.InnerRadius;
+        var radius = fullRadius - innerRadius;
+        Canvas.Save();
+        using var clipPath = new SKPath();
+        clipPath.AddCircle(width / 2, height / 2, innerRadius);
+        Canvas.ClipPath(clipPath, SKClipOperation.Difference, true);
+        using var path = new SKPath();
+        path.MoveTo(
+        x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2),
+        y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2));
+        for (var i = 0; i < sample.Length - 1; i++)
+        {
+            path.CubicTo(
+                x + width / 2 + (innerRadius + radius * sample[i]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length),
+                y + height / 2 + (innerRadius + radius * sample[i]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length),
+                x + width / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length),
+                y + height / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length),
+                x + width / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length),
+                y + height / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length));
+        }
+        path.CubicTo(
+            x + width / 2 + (innerRadius + radius * sample[^1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length),
+            y + height / 2 + (innerRadius + radius * sample[^1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length),
+            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length),
+            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length),
+            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2),
+            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2));
+        path.Close();
+        Canvas.DrawPath(path, paint);
+        Canvas.Restore();
+    }
+
+    public void DrawLevelsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var fullRadius = Math.Min(width, height) / 2;
+        var innerRadius = fullRadius * Configuration.Current.InnerRadius;
+        var barWidth = (float)(2 * Math.PI * innerRadius / sample.Length);
+        for (var i = 0; i < sample.Length; i++)
+        {
+            Canvas.Save();
+            Canvas.Translate(x + width / 2, y + height / 2);
+            Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
+            for (var j = 0; j < Math.Floor(sample[i] * 10); j++)
+            {
+                Canvas.DrawRoundRect(
+                    -barWidth * (1 - Configuration.Current.ItemsOffset * 2) / 2 + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                    innerRadius + (fullRadius - innerRadius) / 10 * j + (fullRadius - innerRadius) / 10 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                    barWidth * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                    (fullRadius - innerRadius) / 10 * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                    (barWidth * (1 - Configuration.Current.ItemsOffset) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness)) * Configuration.Current.ItemsRoundness,
+                    (fullRadius - innerRadius) / 10 * (1 - Configuration.Current.ItemsOffset) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness) * Configuration.Current.ItemsRoundness,
+                    paint);
+            }
+            Canvas.Restore();
+        }
+    }
+
+    public void DrawParticlesCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var fullRadius = Math.Min(width, height) / 2;
+        var innerRadius = fullRadius * Configuration.Current.InnerRadius;
+        var barWidth = (float)(2 * Math.PI * innerRadius / sample.Length);
+        for (var i = 0; i < sample.Length; i++)
+        {
+            Canvas.Save();
+            Canvas.Translate(x + width / 2, y + height / 2);
+            Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
+            Canvas.DrawRoundRect(
+                -barWidth * (1 - Configuration.Current.ItemsOffset * 2) / 2 + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                innerRadius + (fullRadius - innerRadius) / 10 * 9 * sample[i] + (fullRadius - innerRadius) / 10 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                barWidth * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                (fullRadius - innerRadius) / 10 * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                (barWidth * (1 - Configuration.Current.ItemsOffset) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness)) * Configuration.Current.ItemsRoundness,
+                (fullRadius - innerRadius) / 10 * (1 - Configuration.Current.ItemsOffset) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness) * Configuration.Current.ItemsRoundness,
+                paint);
+            Canvas.Restore();
+        }
+    }
+
+    public void DrawBarsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var fullRadius = Math.Min(width, height) / 2;
+        var innerRadius = fullRadius * Configuration.Current.InnerRadius;
+        var barWidth = (float)(2 * Math.PI * innerRadius / sample.Length);
+        for (var i = 0; i < sample.Length; i++)
+        {
+            Canvas.Save();
+            Canvas.Translate(x + width / 2, y + height / 2);
+            Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
+            Canvas.DrawRect(
+                -barWidth * (1 - Configuration.Current.ItemsOffset * 2) / 2 + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                innerRadius + (Configuration.Current.Filling ? 0 : 0 + Configuration.Current.LinesThickness / 2),
+                barWidth * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                (fullRadius - innerRadius) * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness) + 1,
+                paint);
+            Canvas.Restore();
+        }
+    }
+
+    public void DrawSpineCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    {
+        var fullRadius = Math.Min(width, height) / 2;
+        var innerRadius = fullRadius * Configuration.Current.InnerRadius;
+        var barWidth = (float)(2 * Math.PI * innerRadius / sample.Length);
+        for (var i = 0; i < sample.Length; i++)
+        {
+            var itemSize = barWidth * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness);
+            if (Configuration.Current.Hearts)
+            {
+                Canvas.Save();
+                using var path = new SKPath();
+                DrawHeart(path, itemSize);
+                Canvas.Translate(x + width / 2 + innerRadius * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * i / sample.Length), y + height / 2 + innerRadius * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * i / sample.Length));
+                Canvas.Scale(sample[i]);
+                Canvas.DrawPath(path, GetSpinePaint(paint, sample[i]));
+                Canvas.Restore();
+                continue;
+            }
+            Canvas.Save();
+            Canvas.Translate(x + width / 2, y + height / 2);
+            Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
+            Canvas.DrawRoundRect(
+                -barWidth * (1 - Configuration.Current.ItemsOffset * 2) / 2 * sample[i] + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                y + innerRadius - itemSize * sample[i] / 2,
+                itemSize * sample[i], itemSize * sample[i],
+                itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
+                itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
+                GetSpinePaint(paint, sample[i]));
+            Canvas.Restore();
+        }
     }
 }

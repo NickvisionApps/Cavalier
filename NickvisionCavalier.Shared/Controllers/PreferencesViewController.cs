@@ -161,6 +161,11 @@ public class PreferencesViewController
                 Configuration.Current.ReverseMirror = o.ReverseMirror.Value;
                 updateCavalier = true;
             }
+            if (o.InnerRadius.HasValue)
+            {
+                Configuration.Current.InnerRadius = Math.Max(80, Math.Min(20, o.InnerRadius.Value)) / 100f;
+                updateCavalier = true;
+            }
             if (o.ActiveProfile.HasValue)
             {
                 if (o.ActiveProfile.Value < Configuration.Current.ColorProfiles.Count)
@@ -424,6 +429,16 @@ public class PreferencesViewController
         get => Configuration.Current.Mirror;
 
         set => Configuration.Current.Mirror = value;
+    }
+
+    /// <summary>
+    /// Inner circle radius ratio in circle modes (0.2-0.8)
+    /// </summary>
+    public float InnerRadius
+    {
+        get => Configuration.Current.InnerRadius;
+    
+        set => Configuration.Current.InnerRadius = value;
     }
 
     /// <summary>

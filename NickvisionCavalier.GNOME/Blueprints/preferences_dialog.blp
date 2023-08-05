@@ -16,6 +16,22 @@ Adw.PreferencesWindow _root {
     Adw.PreferencesGroup {
       title: _("Drawing mode");
 
+      [header-suffix]
+      Gtk.Box {
+        halign: center;
+
+        Gtk.ToggleButton _boxButton {
+          label: _("Box");
+        }
+
+        Gtk.ToggleButton {
+          label: _("Circle");
+          active: bind _boxButton.active bidirectional inverted;
+        }
+
+        styles ["linked"]
+      }
+
       Adw.ActionRow {
         title: _("Wave");
         activatable-widget: _waveCheckButton;
@@ -67,10 +83,29 @@ Adw.PreferencesWindow _root {
       Adw.ActionRow {
         title: _("Splitter");
         activatable-widget: _splitterCheckButton;
+        sensitive: bind _boxButton.active;
 
         [prefix]
         Gtk.CheckButton _splitterCheckButton {
           group: _waveCheckButton;
+        }
+      }
+    }
+
+    Adw.PreferencesGroup {
+      Adw.ActionRow {
+        title: _("Radius");
+        visible: bind _boxButton.active inverted;
+
+        [suffix]
+        Gtk.Scale _radiusScale {
+          width-request: 150;
+          draw-value: false;
+          adjustment: Gtk.Adjustment {
+            lower: 0.2;
+            upper: 0.8;
+            step-increment: 0.05;
+          };
         }
       }
     }
@@ -92,6 +127,14 @@ Adw.PreferencesWindow _root {
     }
 
     Adw.PreferencesGroup {
+      Adw.ComboRow _directionRow {
+        title: _("Drawing direction");
+        model: Gtk.StringList {
+          strings [_("Top to bottom"), _("Bottom to top"), _("Left to right"), _("Right to left") ]
+        };
+        sensitive: bind _boxButton.active;
+      }
+
       Adw.ActionRow {
         title: _("Drawing area margin");
         subtitle: _("Size of gaps around drawing area (in pixels).");
@@ -108,13 +151,6 @@ Adw.PreferencesWindow _root {
             step-increment: 1;
           };
         }
-      }
-
-      Adw.ComboRow _directionRow {
-        title: _("Drawing direction");
-        model: Gtk.StringList {
-          strings [_("Top to bottom"), _("Bottom to top"), _("Left to right"), _("Right to left") ]
-        };
       }
 
       Adw.ActionRow _offsetRow {

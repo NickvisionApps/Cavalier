@@ -22,6 +22,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     private readonly PreferencesViewController _controller;
     private readonly uint[] _framerates;
 
+    [Gtk.Connect] private readonly Gtk.ToggleButton _boxButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _waveCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _levelsCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _particlesCheckButton;
@@ -29,6 +30,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Adw.ActionRow _spineRow;
     [Gtk.Connect] private readonly Gtk.CheckButton _spineCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _splitterCheckButton;
+    [Gtk.Connect] private readonly Gtk.Scale _radiusScale;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
     [Gtk.Connect] private readonly Adw.ActionRow _reverseMirrorRow;
     [Gtk.Connect] private readonly Gtk.Switch _reverseMirrorSwitch;
@@ -351,11 +353,36 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         UpdateImagesList();
         LoadInstantSettings();
         LoadCAVASettings();
+        _boxButton.OnToggled += (sender, e) =>
+        {
+            _mirrorRow.SetSensitive(true);
+            if (_boxButton.GetActive())
+            {
+                _controller.Mode -= 6;
+            }
+            else
+            {
+                if ((uint)_controller.Mode + 6 > (uint)DrawingMode.SpineCircle)
+                {
+                    _controller.Mode = DrawingMode.SpineCircle;
+                    _spineCheckButton.SetActive(true);
+                }
+                else
+                {
+                    _controller.Mode += 6;
+                }
+            }
+        };
         _waveCheckButton.OnToggled += (sender, e) =>
         {
             if (_waveCheckButton.GetActive())
             {
-                _controller.Mode = DrawingMode.WaveBox;
+                _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.WaveCircle : DrawingMode.WaveBox;
+                if (_controller.Mode == DrawingMode.WaveCircle)
+                {
+                    _mirrorRow.SetSelected(0u);
+                    _mirrorRow.SetSensitive(false);
+                }
                 _offsetRow.SetSensitive(false);
                 _roundnessRow.SetSensitive(false);
             }
@@ -364,7 +391,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             if (_levelsCheckButton.GetActive())
             {
-                _controller.Mode = DrawingMode.LevelsBox;
+                _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.LevelsCircle : DrawingMode.LevelsBox;
+                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -373,7 +401,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             if (_particlesCheckButton.GetActive())
             {
-                _controller.Mode = DrawingMode.ParticlesBox;
+                _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.ParticlesCircle : DrawingMode.ParticlesBox;
+                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -382,7 +411,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             if (_barsCheckButton.GetActive())
             {
-                _controller.Mode = DrawingMode.BarsBox;
+                _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.BarsCircle : DrawingMode.BarsBox;
+                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(false);
             }
@@ -391,7 +421,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             if (_spineCheckButton.GetActive())
             {
-                _controller.Mode = DrawingMode.SpineBox;
+                _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.SpineCircle : DrawingMode.SpineBox;
+                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -401,12 +432,18 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_splitterCheckButton.GetActive())
             {
                 _controller.Mode = DrawingMode.SplitterBox;
+                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(false);
                 _roundnessRow.SetSensitive(false);
             }
         };
+        _mirrorRow.SetSensitive(_controller.Mode != DrawingMode.WaveCircle);
         _offsetRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox);
         _roundnessRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox && _controller.Mode != DrawingMode.BarsBox);
+        _radiusScale.OnValueChanged += (sender, e) =>
+        {
+            _controller.InnerRadius = (float)_radiusScale.GetValue();
+        };
         _mirrorRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "selected")
@@ -639,27 +676,38 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// </summary>
     public bool LoadInstantSettings()
     {
+        _boxButton.SetActive(_controller.Mode < DrawingMode.WaveCircle);
+        if (_controller.Mode == DrawingMode.WaveCircle)
+        {
+            _controller.Mirror = Mirror.Off;
+        }
         switch (_controller.Mode)
         {
             case DrawingMode.WaveBox:
+            case DrawingMode.WaveCircle:
                 _waveCheckButton.SetActive(true);
                 break;
             case DrawingMode.LevelsBox:
+            case DrawingMode.LevelsCircle:
                 _levelsCheckButton.SetActive(true);
                 break;
             case DrawingMode.ParticlesBox:
+            case DrawingMode.ParticlesCircle:
                 _particlesCheckButton.SetActive(true);
                 break;
             case DrawingMode.BarsBox:
+            case DrawingMode.BarsCircle:
                 _barsCheckButton.SetActive(true);
                 break;
             case DrawingMode.SpineBox:
+            case DrawingMode.SpineCircle:
                 _spineCheckButton.SetActive(true);
                 break;
             case DrawingMode.SplitterBox:
                 _splitterCheckButton.SetActive(true);
                 break;
         }
+        _radiusScale.SetValue((double)_controller.InnerRadius);
         var mirror = (uint)_controller.Mirror; // saving mirror state to apply after changing the model
         if (_controller.Stereo)
         {
