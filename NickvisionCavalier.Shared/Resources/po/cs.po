@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-05 08:16+0300\n"
-"PO-Revision-Date: 2023-07-31 13:53+0000\n"
-"Last-Translator: Fjuro <ifjuro@proton.me>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/cs/>\n"
+"PO-Revision-Date: 2023-08-06 14:51+0000\n"
+"Last-Translator: Písek Pískovec <pisekpiskovec@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -151,11 +151,11 @@ msgstr "Režim vykreslování"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:24
 msgid "Box"
-msgstr ""
+msgstr "Čtverec"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
 msgid "Circle"
-msgstr ""
+msgstr "Kruh"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:36
 msgid "Wave"
@@ -183,7 +183,7 @@ msgstr "Rozdělovač"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:97
 msgid "Radius"
-msgstr ""
+msgstr "Poloměr"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:115
 msgid "Mirror"
@@ -416,9 +416,8 @@ msgid "Change Drawing Mode"
 msgstr "Změnit režim vykreslování"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:21
-#, fuzzy
 msgid "Change radius in Circle modes"
-msgstr "Změnit režim vykreslování"
+msgstr "Změnit poloměr v režimu Kruhu"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
 msgid "Change Mirror Mode"
