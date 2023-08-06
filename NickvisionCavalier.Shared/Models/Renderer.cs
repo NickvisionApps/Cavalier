@@ -119,7 +119,7 @@ public class Renderer
             StrokeWidth = Configuration.Current.LinesThickness,
             IsAntialias = true
         };
-        if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox && Configuration.Current.Mode != DrawingMode.SpineCircle)
+        if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox && Configuration.Current.Mode != DrawingMode.SpineCircle && Configuration.Current.Mode != DrawingMode.WaveCircle)
         {
             fgPaint.Shader = CreateGradient(profile.FgColors, width, height, Configuration.Current.AreaMargin);
         }
@@ -180,10 +180,6 @@ public class Renderer
             Array.Reverse(colors);
             colors.CopyTo(mirrorColors, colors.Length);
             colors = mirrorColors;
-        }
-        if (Configuration.Current.Mode == DrawingMode.WaveCircle)
-        {
-            return SKShader.CreateRadialGradient(new SKPoint(width / 2, height / 2), Math.Min(width, height) / 2 * Configuration.Current.InnerRadius, colors, SKShaderTileMode.Repeat);
         }
         if (Configuration.Current.Mode > DrawingMode.WaveCircle)
         {
@@ -753,10 +749,18 @@ public class Renderer
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
         var radius = fullRadius - innerRadius;
-        Canvas.Save();
-        using var clipPath = new SKPath();
-        clipPath.AddCircle(width / 2, height / 2, innerRadius);
-        Canvas.ClipPath(clipPath, SKClipOperation.Difference, true);
+        // Modify paint (this mode requires specific paint configuration)
+        paint.Style = SKPaintStyle.Stroke;
+        paint.StrokeWidth = Configuration.Current.Filling ? fullRadius - innerRadius : Configuration.Current.LinesThickness;
+        var colors = Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile].FgColors.Select(c => SKColor.Parse(c)).Reverse().ToArray();
+        var positions = new float[Configuration.Current.ColorProfiles[Configuration.Current.ActiveProfile].FgColors.Count];
+        for (int i = 0; i < colors.Length; i++)
+        {
+            positions[i] = (i + (colors.Length - 1 - i) * innerRadius / fullRadius) / (colors.Length - 1);
+        }
+        paint.Shader = SKShader.CreateRadialGradient(new SKPoint(x + width / 2, y + height / 2),
+            fullRadius, colors, positions, SKShaderTileMode.Clamp);
+        // Create path
         using var path = new SKPath();
         path.MoveTo(
             x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2),
@@ -779,8 +783,18 @@ public class Renderer
             x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2),
             y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2));
         path.Close();
-        Canvas.DrawPath(path, paint);
-        Canvas.Restore();
+        // Draw
+        if (Configuration.Current.Filling)
+        {
+            Canvas.Save();
+            Canvas.ClipPath(path, SKClipOperation.Intersect, true);
+            Canvas.DrawCircle(new SKPoint(x + width / 2, y + height / 2), innerRadius + (fullRadius - innerRadius)/ 2, paint);
+            Canvas.Restore();
+        }
+        else
+        {
+            Canvas.DrawPath(path, paint);
+        }
     }
 
     /// <summary>
