@@ -433,11 +433,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_waveCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.WaveCircle : DrawingMode.WaveBox;
-                if (_controller.Mode == DrawingMode.WaveCircle)
-                {
-                    _mirrorRow.SetSelected(0u);
-                    _mirrorRow.SetSensitive(false);
-                }
                 _offsetRow.SetSensitive(false);
                 _roundnessRow.SetSensitive(false);
             }
@@ -447,7 +442,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_levelsCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.LevelsCircle : DrawingMode.LevelsBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -457,7 +451,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_particlesCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.ParticlesCircle : DrawingMode.ParticlesBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -467,7 +460,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_barsCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.BarsCircle : DrawingMode.BarsBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(false);
             }
@@ -477,7 +469,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_spineCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.SpineCircle : DrawingMode.SpineBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -487,12 +478,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_splitterCheckButton.GetActive())
             {
                 _controller.Mode = DrawingMode.SplitterBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(false);
                 _roundnessRow.SetSensitive(false);
             }
         };
-        _mirrorRow.SetSensitive(_controller.Mode != DrawingMode.WaveCircle);
         _offsetRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox);
         _roundnessRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox && _controller.Mode != DrawingMode.BarsBox);
         _radiusScale.OnValueChanged += (sender, e) =>
