@@ -5,6 +5,7 @@
   </gresource>
   <gresource prefix="/org/nickvision/cavalier/icons/scalable/status/">
     <file preprocess="xml-stripblanks">cross-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">man-dancing.svg</file>
     <file preprocess="xml-stripblanks">x-circular-symbolic.svg</file>
   </gresource>
 </gresources>

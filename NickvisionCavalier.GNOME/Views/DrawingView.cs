@@ -2,6 +2,7 @@ using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
 using SkiaSharp;
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Timers;
 
@@ -28,6 +29,7 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     private readonly GSourceFunc _showGl;
     private readonly GSourceFunc _queueRender;
     private readonly Timer _renderTimer;
+    private bool _showWelcome;
     private GRContext? _ctx;
     private SKImageInfo? _imgInfo;
     private SKSurface? _glSurface;
@@ -39,6 +41,7 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     {
         _disposed = false;
         _controller = controller;
+        _showWelcome = true;
         //Build UI
         builder.Connect(this);
         if (Environment.GetEnvironmentVariable("CAVALIER_RENDERER")?.ToLower() == "cairo")
@@ -62,9 +65,17 @@ public partial class DrawingView : Gtk.Stack, IDisposable
         _controller.CAVA.OutputReceived += (sender, sample) =>
         {
             _sample = sample;
+            if (_showWelcome && sample.Any(s => s != 0))
+            {
+                _showWelcome = false;
+            }
             GLib.Functions.IdleAdd(0, () =>
             {
-                if (GetVisibleChildName() != (_useCairo ? "cairo" : "gl"))
+                if (_showWelcome && GetVisibleChildName() != "welcome")
+                {
+                    SetVisibleChildName("welcome");
+                }
+                if (!_showWelcome && GetVisibleChildName() != (_useCairo ? "cairo" : "gl"))
                 {
                     SetVisibleChildName(_useCairo ? "cairo" : "gl");
                 }

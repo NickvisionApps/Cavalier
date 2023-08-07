@@ -15,6 +15,19 @@ Gtk.Stack _root {
     };
   }
 
+  Gtk.StackPage _welcomePage {
+    name: "welcome";
+    child: Adw.Bin {
+      Adw.StatusPage {
+        icon-name: "man-dancing";
+        title: _("Let's dance!");
+        description: _("Cavalier listens to your system sound. Play some music or watch a video and see your sound come to life!");
+      }
+
+      styles ["load-bin"]
+    };
+  }
+
   Gtk.StackPage _glPage {
     name: "gl";
     child: Gtk.GLArea _glArea {
