@@ -121,7 +121,7 @@ public class Renderer
         };
         if (profile.FgColors.Count > 1 && Configuration.Current.Mode != DrawingMode.SpineBox && Configuration.Current.Mode != DrawingMode.SpineCircle && Configuration.Current.Mode != DrawingMode.WaveCircle)
         {
-            fgPaint.Shader = CreateGradient(profile.FgColors, width, height, Configuration.Current.AreaMargin);
+            fgPaint.Shader = CreateGradient(profile.FgColors, width, height, true, Configuration.Current.AreaMargin);
         }
         else
         {
@@ -184,12 +184,13 @@ public class Renderer
     /// <param name="colorStrings">List of colors as strings</param>
     /// <param name="width">Canvas width</param>
     /// <param name="height">Canvas height</param>
+    /// <param name="foreground">Whether to create gradient for foreground, there's a difference for Circle modes</param>
     /// <param name="margin">Area margin</param>
     /// <returns>Skia Shader</returns>
-    private SKShader CreateGradient(List<string> colorStrings, float width, float height, uint margin = 0)
+    private SKShader CreateGradient(List<string> colorStrings, float width, float height, bool foreground = false, uint margin = 0)
     {
         var colors = colorStrings.Select(c => SKColor.Parse(c)).Reverse().ToArray();
-        if (Configuration.Current.Mirror != Mirror.Off)
+        if (Configuration.Current.Mirror != Mirror.Off && !(foreground && Configuration.Current.Mode > DrawingMode.WaveCircle))
         {
             var mirrorColors = new SKColor[colors.Length * 2];
             if (Configuration.Current.Direction == DrawingDirection.BottomTop || Configuration.Current.Direction == DrawingDirection.RightLeft)
@@ -201,8 +202,13 @@ public class Renderer
             colors.CopyTo(mirrorColors, colors.Length);
             colors = mirrorColors;
         }
-        if (Configuration.Current.Mode > DrawingMode.WaveCircle)
+        if (Configuration.Current.Mode > DrawingMode.WaveCircle && foreground)
         {
+            if (Configuration.Current.Mirror > Mirror.Off)
+            {
+                width = GetMirrorWidth(width);
+                height = GetMirrorHeight(height);
+            }
             return SKShader.CreateLinearGradient(new SKPoint(margin, Math.Min(width, height) * Configuration.Current.InnerRadius / 2), new SKPoint(margin, Math.Min(width, height) / 2), colors, SKShaderTileMode.Clamp);
         }
         return Configuration.Current.Direction switch
