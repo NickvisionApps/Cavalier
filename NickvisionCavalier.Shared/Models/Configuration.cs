@@ -149,8 +149,8 @@ public class Configuration : ConfigurationBase
     /// </summary>
     public Configuration()
     {
-        WindowWidth = 400;
-        WindowHeight = 200;
+        WindowWidth = 500;
+        WindowHeight = 300;
         AreaMargin = 0;
         Borderless = false;
         SharpCorners = false;
