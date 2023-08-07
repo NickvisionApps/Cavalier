@@ -66,9 +66,9 @@ public class Configuration : ConfigurationBase
     /// </summary>
     public bool Monstercat { get; set; }
     /// <summary>
-    /// Noise reduction value (0.0-1.0)
+    /// Noise reduction value (0.15-0.95)
     /// </summary>
-    public float NoiseReduction { get; set; } // Note: noise reduction will be int (0-100) in the next stable release of CAVA
+    public float NoiseReduction { get; set; }
     /// <summary>
     /// Whether to reverse bars order for each channel
     /// </summary>

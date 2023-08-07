@@ -667,10 +667,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             }
         };
         _noiseReductionScale.GetFirstChild().SetMarginBottom(12);
-        _noiseReductionScale.AddMark(0.77, Gtk.PositionType.Bottom, null);
+        _noiseReductionScale.AddMark(77, Gtk.PositionType.Bottom, null);
         _noiseReductionScale.OnValueChanged += (sender, e) =>
         {
-            _controller.NoiseReduction = (float)_noiseReductionScale.GetValue();
+            _controller.NoiseReduction = (float)_noiseReductionScale.GetValue() / 100f;
             if (!_avoidCAVAReload)
             {
                 _controller.ChangeCAVASettings();
@@ -814,7 +814,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _sensitivityScale.SetValue((int)_controller.Sensitivity);
         _stereoButton.SetActive(_controller.Stereo);
         _monstercatSwitch.SetActive(_controller.Monstercat);
-        _noiseReductionScale.SetValue(_controller.NoiseReduction);
+        _noiseReductionScale.SetValue((double)_controller.NoiseReduction * 100);
         _avoidCAVAReload = false;
         _controller.ChangeCAVASettings();
         return false;

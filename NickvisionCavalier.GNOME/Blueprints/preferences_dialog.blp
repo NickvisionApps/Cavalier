@@ -366,14 +366,14 @@ Adw.PreferencesWindow _root {
 
         [suffix]
         Gtk.Scale _noiseReductionScale {
-          width-request: 190;
+          width-request: 180;
           draw-value: true;
           value-pos: left;
-          digits: 2;
+          digits: 0;
           adjustment: Gtk.Adjustment {
-            lower: 0.15;
-            upper: 0.95;
-            step-increment: 0.01;
+            lower: 15;
+            upper: 95;
+            step-increment: 1;
           };
         }
       }

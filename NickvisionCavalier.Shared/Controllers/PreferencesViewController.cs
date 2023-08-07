@@ -342,7 +342,7 @@ public class PreferencesViewController
     }
 
     /// <summary>
-    /// Noise reduction value (0.0-1.0)
+    /// Noise reduction value (0.15-0.95)
     /// </summary>
     public float NoiseReduction
     {
