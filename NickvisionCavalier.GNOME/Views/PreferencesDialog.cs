@@ -183,6 +183,28 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         application.AddAction(actDecRadius);
         application.SetAccelsForAction("app.dec-radius", new string[] { "<Shift>u" });
+        //Increase Rotation Action
+        var actIncRotation = Gio.SimpleAction.New("inc-rotation", null);
+        actIncRotation.OnActivate += (sender, e) =>
+        {
+            if (_rotationScale.GetValue() < 6.284)
+            {
+                _rotationScale.SetValue(_rotationScale.GetValue() + 0.01);
+            }
+        };
+        application.AddAction(actIncRotation);
+        application.SetAccelsForAction("app.inc-rotation", new string[] { "o" });
+        //Decrease Rotation Action
+        var actDecRotation = Gio.SimpleAction.New("dec-rotation", null);
+        actDecRotation.OnActivate += (sender, e) =>
+        {
+            if (_rotationScale.GetValue() > 0)
+            {
+                _rotationScale.SetValue(_rotationScale.GetValue() - 0.01);
+            }
+        };
+        application.AddAction(actDecRotation);
+        application.SetAccelsForAction("app.dec-rotation", new string[] { "<Shift>o" });
         //Next Mirror Mode Action
         var actNextMirror = Gio.SimpleAction.New("next-mirror", null);
         actNextMirror.OnActivate += (sender, e) =>
@@ -236,16 +258,60 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         application.AddAction(actDecMargin);
         application.SetAccelsForAction("app.dec-margin", new string[] { "<Shift>n" });
+        //Increase Area X Offset
+        var actIncOffsetX = Gio.SimpleAction.New("inc-offset-x", null);
+        actIncOffsetX.OnActivate += (sender, e) =>
+        {
+            if (_areaOffsetXScale.GetValue() < 0.5)
+            {
+                _areaOffsetXScale.SetValue(_areaOffsetXScale.GetValue() + 0.01);
+            }
+        };
+        application.AddAction(actIncOffsetX);
+        application.SetAccelsForAction("app.inc-offset-x", new string[] { "x" });
+        //Decrease Area Margin Action
+        var actDecOffsetX = Gio.SimpleAction.New("dec-offset-x", null);
+        actDecOffsetX.OnActivate += (sender, e) =>
+        {
+            if (_areaOffsetXScale.GetValue() > -0.5)
+            {
+                _areaOffsetXScale.SetValue(_areaOffsetXScale.GetValue() - 0.01);
+            }
+        };
+        application.AddAction(actDecOffsetX);
+        application.SetAccelsForAction("app.dec-offset-x", new string[] { "<Shift>x" });
+        //Increase Area Y Offset
+        var actIncOffsetY = Gio.SimpleAction.New("inc-offset-y", null);
+        actIncOffsetY.OnActivate += (sender, e) =>
+        {
+            if (_areaOffsetYScale.GetValue() < 0.5)
+            {
+                _areaOffsetYScale.SetValue(_areaOffsetYScale.GetValue() + 0.01);
+            }
+        };
+        application.AddAction(actIncOffsetY);
+        application.SetAccelsForAction("app.inc-offset-y", new string[] { "y" });
+        //Decrease Area Margin Action
+        var actDecOffsetY = Gio.SimpleAction.New("dec-offset-y", null);
+        actDecOffsetY.OnActivate += (sender, e) =>
+        {
+            if (_areaOffsetYScale.GetValue() > -0.5)
+            {
+                _areaOffsetYScale.SetValue(_areaOffsetYScale.GetValue() - 0.01);
+            }
+        };
+        application.AddAction(actDecOffsetY);
+        application.SetAccelsForAction("app.dec-offset-y", new string[] { "<Shift>y" });
         //Next Direction Action
         var actNextDir = Gio.SimpleAction.New("next-direction", null);
         actNextDir.OnActivate += (sender, e) => _directionRow.SetSelected(_controller.Direction < DrawingDirection.RightLeft ? (uint)_controller.Direction + 1 : (uint)DrawingDirection.TopBottom);
         application.AddAction(actNextDir);
-        application.SetAccelsForAction("app.next-direction", new string[] { "o" });
+        application.SetAccelsForAction("app.next-direction", new string[] { "g" });
         //Previous Direction Action
         var actPrevDir = Gio.SimpleAction.New("prev-direction", null);
         actPrevDir.OnActivate += (sender, e) => _directionRow.SetSelected(_controller.Direction > DrawingDirection.TopBottom ? (uint)_controller.Direction - 1 : (uint)DrawingDirection.RightLeft);
         application.AddAction(actPrevDir);
-        application.SetAccelsForAction("app.prev-direction", new string[] { "<Shift>o" });
+        application.SetAccelsForAction("app.prev-direction", new string[] { "<Shift>g" });
         //Increase Items Offset Action
         var actIncOffset = Gio.SimpleAction.New("inc-offset", null);
         actIncOffset.OnActivate += (sender, e) =>
