@@ -82,156 +82,6 @@ public class PreferencesViewController
     }
 
     /// <summary>
-    /// Process command-line arguments passed when starting the app or from other instances
-    /// </summary>
-    public void HandleCommandLine(object? sender, string[] args)
-    {
-        var parserResult = _parser.ParseArguments<CmdOptions>(args);
-        parserResult.WithParsed((o) =>
-        {
-            var updateCavalier = false;
-            var updateCAVA = false;
-            if (o.AreaMargin.HasValue)
-            {
-                Configuration.Current.AreaMargin = Math.Min(o.AreaMargin.Value, 40);
-                updateCavalier = true;
-            }
-            if (o.Borderless.HasValue)
-            {
-                Configuration.Current.Borderless = o.Borderless.Value;
-                updateCavalier = true;
-            }
-            if (o.SharpCorners.HasValue)
-            {
-                Configuration.Current.SharpCorners = o.SharpCorners.Value;
-                updateCavalier = true;
-            }
-            if (o.BarPairs.HasValue)
-            {
-                Configuration.Current.BarPairs = Math.Max(3, Math.Min(o.BarPairs.Value, 50));
-                updateCAVA = true;
-            }
-            if (o.Stereo.HasValue)
-            {
-                Configuration.Current.Stereo = o.Stereo.Value;
-                updateCAVA = true;
-            }
-            if (o.ReverseOrder.HasValue)
-            {
-                Configuration.Current.ReverseOrder = o.ReverseOrder.Value;
-                updateCavalier = true;
-            }
-            if (o.Direction.HasValue)
-            {
-                Configuration.Current.Direction = o.Direction.Value;
-                updateCavalier = true;
-            }
-            if (o.ItemsOffset.HasValue)
-            {
-                Configuration.Current.ItemsOffset = Math.Min(o.ItemsOffset.Value, 20) / 100.0f;
-                updateCavalier = true;
-            }
-            if (o.ItemsRoundness.HasValue)
-            {
-                Configuration.Current.ItemsRoundness = Math.Min(o.ItemsRoundness.Value, 100) / 100.0f;
-                updateCavalier = true;
-            }
-            if (o.Filling.HasValue)
-            {
-                Configuration.Current.Filling = o.Filling.Value;
-                updateCavalier = true;
-            }
-            if (o.LinesThickness.HasValue)
-            {
-                Configuration.Current.LinesThickness = Math.Min(o.LinesThickness.Value, 10);
-                updateCavalier = true;
-            }
-            if (o.Mode.HasValue)
-            {
-                Configuration.Current.Mode = o.Mode.Value;
-                updateCavalier = true;
-            }
-            if (o.Mirror.HasValue)
-            {
-                Configuration.Current.Mirror = o.Mirror.Value;
-                updateCavalier = true;
-            }
-            if (o.ReverseMirror.HasValue)
-            {
-                Configuration.Current.ReverseMirror = o.ReverseMirror.Value;
-                updateCavalier = true;
-            }
-            if (o.InnerRadius.HasValue)
-            {
-                Configuration.Current.InnerRadius = Math.Max(80, Math.Min(20, o.InnerRadius.Value)) / 100f;
-                updateCavalier = true;
-            }
-            if (o.ActiveProfile.HasValue)
-            {
-                if (o.ActiveProfile.Value < Configuration.Current.ColorProfiles.Count)
-                {
-                    Configuration.Current.ActiveProfile = (int)o.ActiveProfile.Value;
-                    updateCavalier = true;
-                }
-            }
-            if (o.ImageIndex.HasValue)
-            {
-                if (o.ImageIndex.Value > -1 && o.ImageIndex.Value <= ImagesList.Count)
-                {
-                    Configuration.Current.ImageIndex = o.ImageIndex.Value - 1;
-                    updateCavalier = true;
-                }
-            }
-            if (o.ImageScale.HasValue)
-            {
-                Configuration.Current.ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
-                updateCavalier = true;
-            }
-            if (o.Hearts)
-            {
-                Configuration.Current.Hearts = true;
-                updateCavalier = true;
-            }
-            if (updateCavalier)
-            {
-                OnUpdateViewInstant?.Invoke(this, EventArgs.Empty);
-            }
-            if (updateCAVA)
-            {
-                OnUpdateViewCAVA?.Invoke(this, EventArgs.Empty);
-            }
-        }).WithNotParsed(_ =>
-        {
-            var help = GenerateHelp(parserResult);
-            if (sender is MainWindowController)
-            {
-                // Help screen was caused by first instance on start, let's show and exit
-                Console.WriteLine(help);
-                Environment.Exit(1);
-            }
-            OnShowHelpScreen?.Invoke(this, help);
-        });
-    }
-
-    /// <summary>
-    /// Create help text
-    /// </summary>
-    /// <param name="result">Command line parser result</param>
-    /// <returns>Help text</returns>
-    private string GenerateHelp<T>(ParserResult<T> result)
-    {
-        var helpText = HelpText.AutoBuild(result, h =>
-        {
-            h.AdditionalNewLineAfterOption = true;
-            h.Heading = $"{Aura.Active.AppInfo.ShortName} {Aura.Active.AppInfo.Version}";
-            h.Copyright = "Copyright (c) 2023 Nickvision";
-            h.AutoVersion = false;
-            return HelpText.DefaultParsingErrorsHandler(result, h);
-        }, e => e);
-        return helpText;
-    }
-
-    /// <summary>
     /// Size of drawing area margins in pixels
     /// </summary>
     public uint AreaMargin
@@ -239,6 +89,26 @@ public class PreferencesViewController
         get => Configuration.Current.AreaMargin;
 
         set => Configuration.Current.AreaMargin = value;
+    }
+
+    /// <summary>
+    /// Drawing area X offset (-0.5-0.5)
+    /// </summary>
+    public float AreaOffsetX
+    {
+        get => Configuration.Current.AreaOffsetX;
+
+        set => Configuration.Current.AreaOffsetX = value;
+    }
+
+    /// <summary>
+    /// Drawing area Y offset (-0.5-0.5)
+    /// </summary>
+    public float AreaOffsetY
+    {
+        get => Configuration.Current.AreaOffsetY;
+
+        set => Configuration.Current.AreaOffsetY = value;
     }
 
     /// <summary>
@@ -342,7 +212,7 @@ public class PreferencesViewController
     }
 
     /// <summary>
-    /// Noise reduction value (0.0-1.0)
+    /// Noise reduction value (0.15-0.95)
     /// </summary>
     public float NoiseReduction
     {
@@ -437,45 +307,55 @@ public class PreferencesViewController
     public float InnerRadius
     {
         get => Configuration.Current.InnerRadius;
-    
+
         set => Configuration.Current.InnerRadius = value;
     }
-
+    
+    /// <summary>
+    /// Rotation angle in radians in circle modes (0-2PI)
+    /// </summary>
+    public float Rotation
+    {
+        get => Configuration.Current.Rotation;
+        
+        set => Configuration.Current.Rotation = value;
+    }
+    
     /// <summary>
     /// Whether to reverse mirrored bars
     /// </summary>
     public bool ReverseMirror
     {
         get => Configuration.Current.ReverseMirror;
-
+        
         set => Configuration.Current.ReverseMirror = value;
     }
-
+    
     /// <summary>
     /// List of color profiles
     /// </summary>
     public List<ColorProfile> ColorProfiles => Configuration.Current.ColorProfiles;
-
+    
     /// <summary>
     /// Active color profile index
     /// </summary>
     public int ActiveProfile
     {
         get => Configuration.Current.ActiveProfile;
-
+        
         set => Configuration.Current.ActiveProfile = value;
     }
-
+    
     /// <summary>
     /// Index of a background image to load (-1 to not load anything)
     /// </summary>
     public int ImageIndex
     {
         get => Configuration.Current.ImageIndex;
-
+        
         set => Configuration.Current.ImageIndex = value;
     }
-
+    
     /// <summary>
     /// Background image scale (0.1-1.0, 1.0 - fill the window)
     /// </summary>
@@ -490,7 +370,182 @@ public class PreferencesViewController
     /// Whether to replace Spine mode with Hearts mode (easter egg)
     /// </summary>
     /// <remarks>Suggested by my beloved Xenia &lt;3</remarks>
-    public bool Hearts => Configuration.Current.Hearts;
+    public bool Hearts
+    {
+        get => Configuration.Current.Hearts;
+        
+        private set => Configuration.Current.Hearts = value;
+    }
+    
+    /// <summary>
+    /// Process command-line arguments passed when starting the app or from other instances
+    /// </summary>
+    public void HandleCommandLine(object? sender, string[] args)
+    {
+        var parserResult = _parser.ParseArguments<CmdOptions>(args);
+        parserResult.WithParsed((o) =>
+        {
+            var updateCavalier = false;
+            var updateCAVA = false;
+            if (o.AreaMargin.HasValue)
+            {
+                AreaMargin = Math.Min(o.AreaMargin.Value, 40);
+                updateCavalier = true;
+            }
+            if (o.AreaOffsetX.HasValue)
+            {
+                AreaOffsetX = Math.Max(-50, Math.Min(o.AreaOffsetX.Value, 50)) / 100f;
+                updateCavalier = true;
+            }
+            if (o.AreaOffsetY.HasValue)
+            {
+                AreaOffsetY = Math.Max(-50, Math.Min(o.AreaOffsetY.Value, 50)) / 100f;
+                updateCavalier = true;
+            }
+            if (o.AreaMargin.HasValue)
+            {
+                AreaMargin = Math.Min(o.AreaMargin.Value, 40);
+                updateCavalier = true;
+            }
+            if (o.Borderless.HasValue)
+            {
+                Borderless = o.Borderless.Value;
+                updateCavalier = true;
+            }
+            if (o.SharpCorners.HasValue)
+            {
+                SharpCorners = o.SharpCorners.Value;
+                updateCavalier = true;
+            }
+            if (o.BarPairs.HasValue)
+            {
+                BarPairs = Math.Max(3, Math.Min(o.BarPairs.Value, 50));
+                updateCAVA = true;
+            }
+            if (o.Stereo.HasValue)
+            {
+                Stereo = o.Stereo.Value;
+                updateCAVA = true;
+            }
+            if (o.ReverseOrder.HasValue)
+            {
+                ReverseOrder = o.ReverseOrder.Value;
+                updateCavalier = true;
+            }
+            if (o.Direction.HasValue)
+            {
+                Direction = o.Direction.Value;
+                updateCavalier = true;
+            }
+            if (o.ItemsOffset.HasValue)
+            {
+                ItemsOffset = Math.Min(o.ItemsOffset.Value, 20) / 100.0f;
+                updateCavalier = true;
+            }
+            if (o.ItemsRoundness.HasValue)
+            {
+                ItemsRoundness = Math.Min(o.ItemsRoundness.Value, 100) / 100.0f;
+                updateCavalier = true;
+            }
+            if (o.Filling.HasValue)
+            {
+                Filling = o.Filling.Value;
+                updateCavalier = true;
+            }
+            if (o.LinesThickness.HasValue)
+            {
+                LinesThickness = Math.Min(o.LinesThickness.Value, 10);
+                updateCavalier = true;
+            }
+            if (o.Mode.HasValue)
+            {
+                Mode = o.Mode.Value;
+                updateCavalier = true;
+            }
+            if (o.Mirror.HasValue)
+            {
+                Mirror = o.Mirror.Value;
+                updateCavalier = true;
+            }
+            if (o.ReverseMirror.HasValue)
+            {
+                ReverseMirror = o.ReverseMirror.Value;
+                updateCavalier = true;
+            }
+            if (o.InnerRadius.HasValue)
+            {
+                InnerRadius = Math.Max(80, Math.Min(20, o.InnerRadius.Value)) / 100f;
+                updateCavalier = true;
+            }
+            if (o.Rotation.HasValue)
+            {
+                Rotation = Math.Max(360, o.InnerRadius.Value) / 360f * (float)Math.PI * 2;
+                updateCavalier = true;
+            }
+            if (o.ActiveProfile.HasValue)
+            {
+                if (o.ActiveProfile.Value < Configuration.Current.ColorProfiles.Count)
+                {
+                    ActiveProfile = (int)o.ActiveProfile.Value;
+                    updateCavalier = true;
+                }
+            }
+            if (o.ImageIndex.HasValue)
+            {
+                if (o.ImageIndex.Value > -1 && o.ImageIndex.Value <= ImagesList.Count)
+                {
+                    ImageIndex = o.ImageIndex.Value - 1;
+                    updateCavalier = true;
+                }
+            }
+            if (o.ImageScale.HasValue)
+            {
+                ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
+                updateCavalier = true;
+            }
+            if (o.Hearts)
+            {
+                Hearts = true;
+                updateCavalier = true;
+            }
+            if (updateCavalier)
+            {
+                OnUpdateViewInstant?.Invoke(this, EventArgs.Empty);
+            }
+            if (updateCAVA)
+            {
+                OnUpdateViewCAVA?.Invoke(this, EventArgs.Empty);
+            }
+        }).WithNotParsed(_ =>
+        {
+            var help = GenerateHelp(parserResult);
+            if (sender is MainWindowController)
+            {
+                // Help screen was caused by first instance on start, let's show and exit
+                Console.WriteLine(help);
+                Environment.Exit(1);
+            }
+            OnShowHelpScreen?.Invoke(this, help);
+        });
+    }
+
+    /// <summary>
+    /// Create help text
+    /// </summary>
+    /// <param name="result">Command line parser result</param>
+    /// <returns>Help text</returns>
+    private string GenerateHelp<T>(ParserResult<T> result)
+    {
+        var helpText = HelpText.AutoBuild(result, h =>
+        {
+            h.AdditionalNewLineAfterOption = true;
+            h.Heading = $"{Aura.Active.AppInfo.ShortName} {Aura.Active.AppInfo.Version}";
+            h.Copyright = "Copyright (c) 2023 Nickvision";
+            h.AutoVersion = false;
+            return HelpText.DefaultParsingErrorsHandler(result, h);
+        }, e => e);
+        return helpText;
+    }
 
     /// <summary>
     /// Saves the configuration to disk

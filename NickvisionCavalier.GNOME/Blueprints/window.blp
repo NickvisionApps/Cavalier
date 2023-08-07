@@ -16,9 +16,23 @@ Adw.ApplicationWindow _root {
     [overlay]
     Adw.Bin _resizeBin {
       visible: false;
-      child: Gtk.Image {
-        icon-name: "org.nickvision.cavalier";
-        pixel-size: 128;
+      child: Gtk.Box {
+        orientation: vertical;
+        spacing: 12;
+        valign: center;
+
+        Gtk.Image {
+          icon-name: "org.nickvision.cavalier";
+          pixel-size: 128;
+        }
+
+        Adw.ButtonContent {
+          halign: center;
+          icon-name: "view-fullscreen-symbolic";
+          label: _("Resizing...");
+
+          styles ["dim-label", "title-3"]
+        }
       };
 
       styles [ "background" ]

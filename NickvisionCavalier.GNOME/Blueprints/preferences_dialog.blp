@@ -93,9 +93,10 @@ Adw.PreferencesWindow _root {
     }
 
     Adw.PreferencesGroup {
+      visible: bind _boxButton.active inverted;
+
       Adw.ActionRow {
         title: _("Radius");
-        visible: bind _boxButton.active inverted;
 
         [suffix]
         Gtk.Scale _radiusScale {
@@ -105,6 +106,21 @@ Adw.PreferencesWindow _root {
             lower: 0.2;
             upper: 0.8;
             step-increment: 0.05;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Rotation");
+
+        [suffix]
+        Gtk.Scale _rotationScale {
+          width-request: 150;
+          draw-value: false;
+          adjustment: Gtk.Adjustment {
+            lower: 0;
+            upper: 6.284;
+            step-increment: 0.01;
           };
         }
       }
@@ -132,7 +148,6 @@ Adw.PreferencesWindow _root {
         model: Gtk.StringList {
           strings [_("Top to bottom"), _("Bottom to top"), _("Left to right"), _("Right to left") ]
         };
-        sensitive: bind _boxButton.active;
       }
 
       Adw.ActionRow {
@@ -149,6 +164,36 @@ Adw.PreferencesWindow _root {
             lower: 0;
             upper: 40;
             step-increment: 1;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Drawing area X offset");
+
+        [suffix]
+        Gtk.Scale _areaOffsetXScale {
+          width-request: 150;
+          draw-value: false;
+          adjustment: Gtk.Adjustment {
+            lower: -0.5;
+            upper: 0.5;
+            step-increment: 0.01;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Drawing area Y offset");
+
+        [suffix]
+        Gtk.Scale _areaOffsetYScale {
+          width-request: 150;
+          draw-value: false;
+          adjustment: Gtk.Adjustment {
+            lower: -0.5;
+            upper: 0.5;
+            step-increment: 0.01;
           };
         }
       }
@@ -367,14 +412,14 @@ Adw.PreferencesWindow _root {
 
         [suffix]
         Gtk.Scale _noiseReductionScale {
-          width-request: 190;
+          width-request: 180;
           draw-value: true;
           value-pos: left;
-          digits: 2;
+          digits: 0;
           adjustment: Gtk.Adjustment {
-            lower: 0.15;
-            upper: 0.95;
-            step-increment: 0.01;
+            lower: 15;
+            upper: 95;
+            step-increment: 1;
           };
         }
       }

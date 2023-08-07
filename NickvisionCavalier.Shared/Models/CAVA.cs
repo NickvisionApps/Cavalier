@@ -73,6 +73,8 @@ public class CAVA : IDisposable
             bars = {Configuration.Current.BarPairs * 2}
             autosens = {(Configuration.Current.Autosens ? "1" : "0")}
             sensitivity = {Math.Pow(Configuration.Current.Sensitivity, 2)}
+            [input]
+            method = {Environment.GetEnvironmentVariable("CAVALIER_INPUT_METHOD") ?? "pipewire"}
             [output]
             method = raw
             raw_target = /dev/stdout
@@ -80,7 +82,7 @@ public class CAVA : IDisposable
             channels = {(Configuration.Current.Stereo ? "stereo" : "mono")}
             [smoothing]
             monstercat = {(Configuration.Current.Monstercat ? "1" : "0")}
-            noise_reduction = {Configuration.Current.NoiseReduction.ToString("G2", CultureInfo.InvariantCulture)}";
+            noise_reduction = {(int)(Configuration.Current.NoiseReduction * 100)}";
         File.WriteAllText(_configPath, config);
     }
 

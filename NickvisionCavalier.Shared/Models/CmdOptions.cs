@@ -22,17 +22,27 @@ public class CmdOptions {
     [Option('v', "reverse-mirror", Required = false, HelpText = "Reverse mirror (true or false)")]
     public bool? ReverseMirror { get; set; }
     /// <summary>
-    /// Size of drawing area margins in pixels
+    /// Size of drawing area margins in pixels (0-40)
     /// </summary>
     [Option('n', "margin", Required = false, HelpText = "Area margin (0-40)")]
     public uint? AreaMargin { get; set; }
     /// <summary>
+    /// Drawing area X offset in percent of its width (-50-50)
+    /// </summary>
+    [Option('x', "offset-x", Required = false, HelpText = "Drawing area X offset (-50-50)")]
+    public int? AreaOffsetX { get; set; }
+    /// <summary>
+    /// Drawing area Y offset in percent of its height (-50-50)
+    /// </summary>
+    [Option('y', "offset-y", Required = false, HelpText = "Drawing area Y offset (-50-50)")]
+    public int? AreaOffsetY { get; set; }
+    /// <summary>
     /// Drawing direction
     /// </summary>
-    [Option('o', "drawing-direction", Required = false, HelpText = "Drawing direction, one of: topbottom, bottomtop, leftright, rightleft")]
+    [Option('g', "drawing-direction", Required = false, HelpText = "Drawing direction, one of: topbottom, bottomtop, leftright, rightleft")]
     public DrawingDirection? Direction { get; set; }
     /// <summary>
-    /// The size of spaces between elements
+    /// The size of spaces between elements (0-20)
     /// </summary>
     [Option('t', "items-offset", Required = false, HelpText = "Offset between items (0-20)")]
     public uint? ItemsOffset { get; set; }
@@ -47,7 +57,7 @@ public class CmdOptions {
     [Option('f', "filling", Required = false, HelpText = "Fill (true) or draw lines (false)")]
     public bool? Filling { get; set; }
     /// <summary>
-    /// Thickness of lines when filling is off (in pixels)
+    /// Thickness of lines in pixels when filling is off (0-100)
     /// </summary>
     [Option('l', "lines-thickness", Required = false, HelpText = "Lines thickness when filling is off (0-100)")]
     public uint? LinesThickness { get; set; }
@@ -62,7 +72,7 @@ public class CmdOptions {
     [Option('s', "sharp-corners", Required = false, HelpText = "Make window corneres sharp (true or false)")]
     public bool? SharpCorners { get; set; }
     /// <summary>
-    /// Number of bar pairs in CAVA
+    /// Number of bar pairs in CAVA (3-50)
     /// </summary>
     [Option('b', "bar-pairs", Required = false, HelpText = "Number of bar pairs (3-50)")]
     public uint? BarPairs { get; set; }
@@ -81,6 +91,11 @@ public class CmdOptions {
     /// </summary>
     [Option('u', "radius", Required = false, HelpText = "Inner circle radius in circle modes (20-80)")]
     public uint? InnerRadius { get; set; }
+    /// <summary>
+    /// Rotation in circle modes (0-360)
+    /// </summary>
+    [Option('o', "rotation", Required = false, HelpText = "Rotation in circle modes (0-360)")]
+    public uint? Rotation { get; set; }
     /// <summary>
     /// Active color profile index
     /// </summary>

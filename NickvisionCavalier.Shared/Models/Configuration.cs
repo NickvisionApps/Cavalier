@@ -26,6 +26,14 @@ public class Configuration : ConfigurationBase
     /// </summary>
     public uint AreaMargin { get; set; }
     /// <summary>
+    /// Drawing area X offset (-0.5-0.5)
+    /// </summary>
+    public float AreaOffsetX { get; set; }
+    /// <summary>
+    /// Drawing area Y offset (-0.5-0.5)
+    /// </summary>
+    public float AreaOffsetY { get; set; }
+    /// <summary>
     /// Whether the window should be borderless
     /// </summary>
     public bool Borderless { get; set; }
@@ -66,9 +74,9 @@ public class Configuration : ConfigurationBase
     /// </summary>
     public bool Monstercat { get; set; }
     /// <summary>
-    /// Noise reduction value (0.0-1.0)
+    /// Noise reduction value (0.15-0.95)
     /// </summary>
-    public float NoiseReduction { get; set; } // Note: noise reduction will be int (0-100) in the next stable release of CAVA
+    public float NoiseReduction { get; set; }
     /// <summary>
     /// Whether to reverse bars order for each channel
     /// </summary>
@@ -110,6 +118,10 @@ public class Configuration : ConfigurationBase
     /// </summary>
     public float InnerRadius { get; set; }
     /// <summary>
+    /// Rotation angle in radians in circle modes (0-2PI)
+    /// </summary>
+    public float Rotation { get; set; }
+    /// <summary>
     /// List of color profiles
     /// </summary>
     public List<ColorProfile> ColorProfiles { get; set; }
@@ -137,8 +149,8 @@ public class Configuration : ConfigurationBase
     /// </summary>
     public Configuration()
     {
-        WindowWidth = 400;
-        WindowHeight = 200;
+        WindowWidth = 500;
+        WindowHeight = 300;
         AreaMargin = 0;
         Borderless = false;
         SharpCorners = false;
@@ -161,6 +173,7 @@ public class Configuration : ConfigurationBase
         Mirror = Mirror.Off;
         ReverseMirror = false;
         InnerRadius = 0.5f;
+        Rotation = 0f;
         ColorProfiles = new List<ColorProfile> { new ColorProfile() };
         ActiveProfile = 0;
         ImageIndex = -1;

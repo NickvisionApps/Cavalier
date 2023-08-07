@@ -31,10 +31,13 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.CheckButton _spineCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _splitterCheckButton;
     [Gtk.Connect] private readonly Gtk.Scale _radiusScale;
+    [Gtk.Connect] private readonly Gtk.Scale _rotationScale;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
     [Gtk.Connect] private readonly Adw.ActionRow _reverseMirrorRow;
     [Gtk.Connect] private readonly Gtk.Switch _reverseMirrorSwitch;
     [Gtk.Connect] private readonly Gtk.Scale _marginScale;
+    [Gtk.Connect] private readonly Gtk.Scale _areaOffsetXScale;
+    [Gtk.Connect] private readonly Gtk.Scale _areaOffsetYScale;
     [Gtk.Connect] private readonly Adw.ComboRow _directionRow;
     [Gtk.Connect] private readonly Adw.ActionRow _offsetRow;
     [Gtk.Connect] private readonly Gtk.Scale _offsetScale;
@@ -180,6 +183,28 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         application.AddAction(actDecRadius);
         application.SetAccelsForAction("app.dec-radius", new string[] { "<Shift>u" });
+        //Increase Rotation Action
+        var actIncRotation = Gio.SimpleAction.New("inc-rotation", null);
+        actIncRotation.OnActivate += (sender, e) =>
+        {
+            if (_rotationScale.GetValue() < 6.284)
+            {
+                _rotationScale.SetValue(_rotationScale.GetValue() + 0.01);
+            }
+        };
+        application.AddAction(actIncRotation);
+        application.SetAccelsForAction("app.inc-rotation", new string[] { "o" });
+        //Decrease Rotation Action
+        var actDecRotation = Gio.SimpleAction.New("dec-rotation", null);
+        actDecRotation.OnActivate += (sender, e) =>
+        {
+            if (_rotationScale.GetValue() > 0)
+            {
+                _rotationScale.SetValue(_rotationScale.GetValue() - 0.01);
+            }
+        };
+        application.AddAction(actDecRotation);
+        application.SetAccelsForAction("app.dec-rotation", new string[] { "<Shift>o" });
         //Next Mirror Mode Action
         var actNextMirror = Gio.SimpleAction.New("next-mirror", null);
         actNextMirror.OnActivate += (sender, e) =>
@@ -233,16 +258,60 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         application.AddAction(actDecMargin);
         application.SetAccelsForAction("app.dec-margin", new string[] { "<Shift>n" });
+        //Increase Area X Offset
+        var actIncOffsetX = Gio.SimpleAction.New("inc-offset-x", null);
+        actIncOffsetX.OnActivate += (sender, e) =>
+        {
+            if (_areaOffsetXScale.GetValue() < 0.5)
+            {
+                _areaOffsetXScale.SetValue(_areaOffsetXScale.GetValue() + 0.01);
+            }
+        };
+        application.AddAction(actIncOffsetX);
+        application.SetAccelsForAction("app.inc-offset-x", new string[] { "x" });
+        //Decrease Area Margin Action
+        var actDecOffsetX = Gio.SimpleAction.New("dec-offset-x", null);
+        actDecOffsetX.OnActivate += (sender, e) =>
+        {
+            if (_areaOffsetXScale.GetValue() > -0.5)
+            {
+                _areaOffsetXScale.SetValue(_areaOffsetXScale.GetValue() - 0.01);
+            }
+        };
+        application.AddAction(actDecOffsetX);
+        application.SetAccelsForAction("app.dec-offset-x", new string[] { "<Shift>x" });
+        //Increase Area Y Offset
+        var actIncOffsetY = Gio.SimpleAction.New("inc-offset-y", null);
+        actIncOffsetY.OnActivate += (sender, e) =>
+        {
+            if (_areaOffsetYScale.GetValue() < 0.5)
+            {
+                _areaOffsetYScale.SetValue(_areaOffsetYScale.GetValue() + 0.01);
+            }
+        };
+        application.AddAction(actIncOffsetY);
+        application.SetAccelsForAction("app.inc-offset-y", new string[] { "y" });
+        //Decrease Area Margin Action
+        var actDecOffsetY = Gio.SimpleAction.New("dec-offset-y", null);
+        actDecOffsetY.OnActivate += (sender, e) =>
+        {
+            if (_areaOffsetYScale.GetValue() > -0.5)
+            {
+                _areaOffsetYScale.SetValue(_areaOffsetYScale.GetValue() - 0.01);
+            }
+        };
+        application.AddAction(actDecOffsetY);
+        application.SetAccelsForAction("app.dec-offset-y", new string[] { "<Shift>y" });
         //Next Direction Action
         var actNextDir = Gio.SimpleAction.New("next-direction", null);
         actNextDir.OnActivate += (sender, e) => _directionRow.SetSelected(_controller.Direction < DrawingDirection.RightLeft ? (uint)_controller.Direction + 1 : (uint)DrawingDirection.TopBottom);
         application.AddAction(actNextDir);
-        application.SetAccelsForAction("app.next-direction", new string[] { "o" });
+        application.SetAccelsForAction("app.next-direction", new string[] { "g" });
         //Previous Direction Action
         var actPrevDir = Gio.SimpleAction.New("prev-direction", null);
         actPrevDir.OnActivate += (sender, e) => _directionRow.SetSelected(_controller.Direction > DrawingDirection.TopBottom ? (uint)_controller.Direction - 1 : (uint)DrawingDirection.RightLeft);
         application.AddAction(actPrevDir);
-        application.SetAccelsForAction("app.prev-direction", new string[] { "<Shift>o" });
+        application.SetAccelsForAction("app.prev-direction", new string[] { "<Shift>g" });
         //Increase Items Offset Action
         var actIncOffset = Gio.SimpleAction.New("inc-offset", null);
         actIncOffset.OnActivate += (sender, e) =>
@@ -433,11 +502,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_waveCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.WaveCircle : DrawingMode.WaveBox;
-                if (_controller.Mode == DrawingMode.WaveCircle)
-                {
-                    _mirrorRow.SetSelected(0u);
-                    _mirrorRow.SetSensitive(false);
-                }
                 _offsetRow.SetSensitive(false);
                 _roundnessRow.SetSensitive(false);
             }
@@ -447,7 +511,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_levelsCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.LevelsCircle : DrawingMode.LevelsBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -457,7 +520,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_particlesCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.ParticlesCircle : DrawingMode.ParticlesBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -467,7 +529,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_barsCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.BarsCircle : DrawingMode.BarsBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(false);
             }
@@ -477,7 +538,6 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_spineCheckButton.GetActive())
             {
                 _controller.Mode = _controller.Mode >= DrawingMode.WaveCircle ? DrawingMode.SpineCircle : DrawingMode.SpineBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(true);
                 _roundnessRow.SetSensitive(true);
             }
@@ -487,17 +547,19 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             if (_splitterCheckButton.GetActive())
             {
                 _controller.Mode = DrawingMode.SplitterBox;
-                _mirrorRow.SetSensitive(true);
                 _offsetRow.SetSensitive(false);
                 _roundnessRow.SetSensitive(false);
             }
         };
-        _mirrorRow.SetSensitive(_controller.Mode != DrawingMode.WaveCircle);
         _offsetRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox);
         _roundnessRow.SetSensitive(_controller.Mode != DrawingMode.WaveBox && _controller.Mode != DrawingMode.BarsBox);
         _radiusScale.OnValueChanged += (sender, e) =>
         {
             _controller.InnerRadius = (float)_radiusScale.GetValue();
+        };
+        _rotationScale.OnValueChanged += (sender, e) =>
+        {
+            _controller.Rotation = (float)Math.Min(2 * Math.PI, _rotationScale.GetValue());
         };
         _mirrorRow.OnNotify += (sender, e) =>
         {
@@ -517,6 +579,16 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _marginScale.OnValueChanged += (sender, e) =>
         {
             _controller.AreaMargin = (uint)_marginScale.GetValue();
+        };
+        _areaOffsetXScale.AddMark(0, Gtk.PositionType.Bottom, null);
+        _areaOffsetXScale.OnValueChanged += (sender, e) =>
+        {
+            _controller.AreaOffsetX = (float)_areaOffsetXScale.GetValue();
+        };
+        _areaOffsetYScale.AddMark(0, Gtk.PositionType.Bottom, null);
+        _areaOffsetYScale.OnValueChanged += (sender, e) =>
+        {
+            _controller.AreaOffsetY = (float)_areaOffsetYScale.GetValue();
         };
         _directionRow.OnNotify += (sender, e) =>
         {
@@ -678,10 +750,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             }
         };
         _noiseReductionScale.GetFirstChild().SetMarginBottom(12);
-        _noiseReductionScale.AddMark(0.77, Gtk.PositionType.Bottom, null);
+        _noiseReductionScale.AddMark(77, Gtk.PositionType.Bottom, null);
         _noiseReductionScale.OnValueChanged += (sender, e) =>
         {
-            _controller.NoiseReduction = (float)_noiseReductionScale.GetValue();
+            _controller.NoiseReduction = (float)_noiseReductionScale.GetValue() / 100f;
             if (!_avoidCAVAReload)
             {
                 _controller.ChangeCAVASettings();
@@ -763,6 +835,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 break;
         }
         _radiusScale.SetValue((double)_controller.InnerRadius);
+        _rotationScale.SetValue((double)_controller.Rotation);
         var mirror = (uint)_controller.Mirror; // saving mirror state to apply after changing the model
         if (_controller.Stereo)
         {
@@ -783,13 +856,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         }
         _reverseMirrorRow.SetVisible(_controller.Mirror != Mirror.Off);
         _reverseMirrorSwitch.SetActive(_controller.ReverseMirror);
-        _marginScale.SetValue((int)_controller.AreaMargin);
+        _marginScale.SetValue((double)_controller.AreaMargin);
+        _areaOffsetXScale.SetValue((double)_controller.AreaOffsetX);
+        _areaOffsetYScale.SetValue((double)_controller.AreaOffsetY);
         _directionRow.SetSelected((uint)_controller.Direction);
-        _offsetScale.SetValue((int)(_controller.ItemsOffset * 100));
-        _roundnessScale.SetValue((int)(_controller.ItemsRoundness * 100));
+        _offsetScale.SetValue(_controller.ItemsOffset * 100.0);
+        _roundnessScale.SetValue(_controller.ItemsRoundness * 100.0);
         _thicknessRow.SetSensitive(!_fillingSwitch.GetActive());
         _fillingSwitch.SetActive(_controller.Filling);
-        _thicknessScale.SetValue((int)_controller.LinesThickness);
+        _thicknessScale.SetValue((double)_controller.LinesThickness);
         _borderlessSwitch.SetActive(_controller.Borderless);
         _sharpCornersSwitch.SetActive(_controller.SharpCorners);
         _windowControlsSwitch.SetActive(_controller.ShowControls);
@@ -825,7 +900,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _sensitivityScale.SetValue((int)_controller.Sensitivity);
         _stereoButton.SetActive(_controller.Stereo);
         _monstercatSwitch.SetActive(_controller.Monstercat);
-        _noiseReductionScale.SetValue(_controller.NoiseReduction);
+        _noiseReductionScale.SetValue((double)_controller.NoiseReduction * 100);
         _avoidCAVAReload = false;
         _controller.ChangeCAVASettings();
         return false;
