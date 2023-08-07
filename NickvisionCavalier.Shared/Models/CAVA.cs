@@ -73,6 +73,8 @@ public class CAVA : IDisposable
             bars = {Configuration.Current.BarPairs * 2}
             autosens = {(Configuration.Current.Autosens ? "1" : "0")}
             sensitivity = {Math.Pow(Configuration.Current.Sensitivity, 2)}
+            [input]
+            method = {Environment.GetEnvironmentVariable("CAVALIER_INPUT_METHOD") ?? "pipewire"}
             [output]
             method = raw
             raw_target = /dev/stdout
