@@ -75,7 +75,7 @@ public class Renderer
             if (Configuration.Current.ImageIndex != -1)
             {
                 var images = new List<string>();
-                foreach (var file in Directory.GetFiles($"{ConfigLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+                foreach (var file in Directory.GetFiles($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
                 {
                     if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
                     {

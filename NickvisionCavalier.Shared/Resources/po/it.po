@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-05 08:16+0300\n"
+"POT-Creation-Date: 2023-08-06 20:07-0400\n"
 "PO-Revision-Date: 2023-08-06 14:51+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/"
-"nickvision-cavalier/app/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.0-dev\n"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1013
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1016
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
 msgid "Add"
 msgstr "Aggiungi"
@@ -28,12 +28,12 @@ msgstr "Aggiungi"
 msgid "Add New Profile"
 msgstr "Aggiungi nuovo profilo"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:889
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:887
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
 msgstr "Sei sicuro di voler rimuovere il profilo \"{0}\"?"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:890
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:889
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
 msgstr "Cancella"
@@ -58,11 +58,11 @@ msgstr "David Lapshin"
 msgid "Default"
 msgstr "Predefinito"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:890
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:892
 msgid "Delete"
 msgstr "Cancella"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:889
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:887
 msgid "Delete Profile"
 msgstr "Elimina profilo"
 
@@ -84,7 +84,7 @@ msgstr "Repo GitHub"
 msgid "Hearts"
 msgstr "Cuori"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1015
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1018
 msgid "JPEG and PNG images"
 msgstr "Immagini JPEG e PNG"
 
@@ -116,7 +116,7 @@ msgstr "Acceso"
 msgid "Profile Name"
 msgstr "Nome profilo"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1012
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1015
 msgid "Select an image"
 msgstr "Seleziona un'immagine"
 
@@ -594,8 +594,8 @@ msgstr ""
 #~ "Added option to change roundness of items in \"levels\" and \"particles\" "
 #~ "modes."
 #~ msgstr ""
-#~ "Aggiunta opzione per modificare la rotondità degli elementi in \"livelli"
-#~ "\" e modalità \"particelle\"."
+#~ "Aggiunta opzione per modificare la rotondità degli elementi in "
+#~ "\"livelli\" e modalità \"particelle\"."
 
 #~ msgid "Import/Export Settings"
 #~ msgstr "Impostazioni di importazione/esportazione"
@@ -614,8 +614,8 @@ msgstr ""
 
 #~ msgid "This setting only affects \"levels\" and \"particles\" modes."
 #~ msgstr ""
-#~ "Questa impostazione riguarda solo le modalità \"livelli\" e \"particelle"
-#~ "\"."
+#~ "Questa impostazione riguarda solo le modalità \"livelli\" e "
+#~ "\"particelle\"."
 
 #~ msgid "Number of bars in CAVA config"
 #~ msgstr "Numero di barre nella configurazione CAVA"
@@ -642,8 +642,8 @@ msgstr ""
 #~ "This setting only affects \"levels\" and \"particles\" modes.\n"
 #~ "0 - square, 1 - round"
 #~ msgstr ""
-#~ "Questa impostazione riguarda solo le modalità \"livelli\" e \"particelle"
-#~ "\".\n"
+#~ "Questa impostazione riguarda solo le modalità \"livelli\" e "
+#~ "\"particelle\".\n"
 #~ "0 - quadrato, 1 - rotondo"
 
 #~ msgid "Import"
