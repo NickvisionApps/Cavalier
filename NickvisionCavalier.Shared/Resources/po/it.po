@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 17:36+0300\n"
+"POT-Creation-Date: 2023-08-07 20:04+0300\n"
 "PO-Revision-Date: 2023-08-06 14:51+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/nickvision-"
@@ -552,7 +552,11 @@ msgstr "Informazioni su Cavalier"
 msgid "Quit"
 msgstr "Esci"
 
-#: NickvisionCavalier.GNOME/Blueprints/window.blp:42
+#: NickvisionCavalier.GNOME/Blueprints/window.blp:32
+msgid "Resizing..."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/window.blp:56
 msgid "Main Menu"
 msgstr "Menù principale"
 
