@@ -143,17 +143,37 @@ public class Renderer
         };
         if (Configuration.Current.Mirror == Mirror.Full)
         {
-            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), Configuration.Current.Rotation, fgPaint);
-            _drawFunc(Configuration.Current.ReverseMirror ? sample.Reverse().ToArray() : sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), -Configuration.Current.Rotation, fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction,
+                (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + Configuration.Current.AreaMargin,
+                (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + Configuration.Current.AreaMargin,
+                GetMirrorWidth(width), GetMirrorHeight(height),
+                Configuration.Current.Rotation, fgPaint);
+            _drawFunc(Configuration.Current.ReverseMirror ? sample.Reverse().ToArray() : sample, GetMirrorDirection(),
+                (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + GetMirrorX(width),
+                (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + GetMirrorY(height),
+                GetMirrorWidth(width), GetMirrorHeight(height),
+                -Configuration.Current.Rotation, fgPaint);
         }
         else if (Configuration.Current.Mirror == Mirror.SplitChannels)
         {
-            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), Configuration.Current.Rotation, fgPaint);
-            _drawFunc(Configuration.Current.ReverseMirror ? sample.Skip(sample.Length / 2).ToArray() : sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), -Configuration.Current.Rotation, fgPaint);
+            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction,
+                (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + Configuration.Current.AreaMargin,
+                (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + Configuration.Current.AreaMargin,
+                GetMirrorWidth(width), GetMirrorHeight(height),
+                Configuration.Current.Rotation, fgPaint);
+            _drawFunc(Configuration.Current.ReverseMirror ? sample.Skip(sample.Length / 2).ToArray() : sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(),
+                (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + GetMirrorX(width),
+                (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + GetMirrorY(height),
+                GetMirrorWidth(width), GetMirrorHeight(height),
+                -Configuration.Current.Rotation, fgPaint);
         }
         else
         {
-            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, width, height, Configuration.Current.Rotation, fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction,
+                (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + Configuration.Current.AreaMargin,
+                (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + Configuration.Current.AreaMargin,
+                width, height,
+                Configuration.Current.Rotation, fgPaint);
         }
         Canvas.Flush();
     }

@@ -96,6 +96,21 @@ public class PreferencesViewController
                 AreaMargin = Math.Min(o.AreaMargin.Value, 40);
                 updateCavalier = true;
             }
+            if (o.AreaOffsetX.HasValue)
+            {
+                AreaOffsetX = Math.Max(-50, Math.Min(o.AreaOffsetX.Value, 50)) / 100f;
+                updateCavalier = true;
+            }
+            if (o.AreaOffsetY.HasValue)
+            {
+                AreaOffsetY = Math.Max(-50, Math.Min(o.AreaOffsetY.Value, 50)) / 100f;
+                updateCavalier = true;
+            }
+            if (o.AreaMargin.HasValue)
+            {
+                AreaMargin = Math.Min(o.AreaMargin.Value, 40);
+                updateCavalier = true;
+            }
             if (o.Borderless.HasValue)
             {
                 Borderless = o.Borderless.Value;
@@ -244,6 +259,26 @@ public class PreferencesViewController
         get => Configuration.Current.AreaMargin;
 
         set => Configuration.Current.AreaMargin = value;
+    }
+
+    /// <summary>
+    /// Drawing area X offset (-0.5-0.5)
+    /// </summary>
+    public float AreaOffsetX
+    {
+        get => Configuration.Current.AreaOffsetX;
+
+        set => Configuration.Current.AreaOffsetX = value;
+    }
+
+    /// <summary>
+    /// Drawing area Y offset (-0.5-0.5)
+    /// </summary>
+    public float AreaOffsetY
+    {
+        get => Configuration.Current.AreaOffsetY;
+
+        set => Configuration.Current.AreaOffsetY = value;
     }
 
     /// <summary>

@@ -26,6 +26,14 @@ public class Configuration : ConfigurationBase
     /// </summary>
     public uint AreaMargin { get; set; }
     /// <summary>
+    /// Drawing area X offset (-0.5-0.5)
+    /// </summary>
+    public float AreaOffsetX { get; set; }
+    /// <summary>
+    /// Drawing area Y offset (-0.5-0.5)
+    /// </summary>
+    public float AreaOffsetY { get; set; }
+    /// <summary>
     /// Whether the window should be borderless
     /// </summary>
     public bool Borderless { get; set; }

@@ -168,6 +168,36 @@ Adw.PreferencesWindow _root {
         }
       }
 
+      Adw.ActionRow {
+        title: _("Drawing area X offset");
+
+        [suffix]
+        Gtk.Scale _areaOffsetXScale {
+          width-request: 150;
+          draw-value: false;
+          adjustment: Gtk.Adjustment {
+            lower: -0.5;
+            upper: 0.5;
+            step-increment: 1;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Drawing area Y offset");
+
+        [suffix]
+        Gtk.Scale _areaOffsetYScale {
+          width-request: 150;
+          draw-value: false;
+          adjustment: Gtk.Adjustment {
+            lower: -0.5;
+            upper: 0.5;
+            step-increment: 0.01;
+          };
+        }
+      }
+
       Adw.ActionRow _offsetRow {
         title: _("Offset between items");
         subtitle: _("The size of spaces between elements (in percent).");

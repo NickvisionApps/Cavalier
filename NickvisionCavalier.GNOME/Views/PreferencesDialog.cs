@@ -36,6 +36,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Adw.ActionRow _reverseMirrorRow;
     [Gtk.Connect] private readonly Gtk.Switch _reverseMirrorSwitch;
     [Gtk.Connect] private readonly Gtk.Scale _marginScale;
+    [Gtk.Connect] private readonly Gtk.Scale _areaOffsetXScale;
+    [Gtk.Connect] private readonly Gtk.Scale _areaOffsetYScale;
     [Gtk.Connect] private readonly Adw.ComboRow _directionRow;
     [Gtk.Connect] private readonly Adw.ActionRow _offsetRow;
     [Gtk.Connect] private readonly Gtk.Scale _offsetScale;
@@ -512,6 +514,16 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             _controller.AreaMargin = (uint)_marginScale.GetValue();
         };
+        _areaOffsetXScale.AddMark(0, Gtk.PositionType.Bottom, null);
+        _areaOffsetXScale.OnValueChanged += (sender, e) =>
+        {
+            _controller.AreaOffsetX = (float)_areaOffsetXScale.GetValue();
+        };
+        _areaOffsetYScale.AddMark(0, Gtk.PositionType.Bottom, null);
+        _areaOffsetYScale.OnValueChanged += (sender, e) =>
+        {
+            _controller.AreaOffsetY = (float)_areaOffsetYScale.GetValue();
+        };
         _directionRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "selected")
@@ -778,13 +790,15 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         }
         _reverseMirrorRow.SetVisible(_controller.Mirror != Mirror.Off);
         _reverseMirrorSwitch.SetActive(_controller.ReverseMirror);
-        _marginScale.SetValue((int)_controller.AreaMargin);
+        _marginScale.SetValue((double)_controller.AreaMargin);
+        _areaOffsetXScale.SetValue((double)_controller.AreaOffsetX);
+        _areaOffsetYScale.SetValue((double)_controller.AreaOffsetY);
         _directionRow.SetSelected((uint)_controller.Direction);
-        _offsetScale.SetValue((int)(_controller.ItemsOffset * 100));
-        _roundnessScale.SetValue((int)(_controller.ItemsRoundness * 100));
+        _offsetScale.SetValue(_controller.ItemsOffset * 100.0);
+        _roundnessScale.SetValue(_controller.ItemsRoundness * 100.0);
         _thicknessRow.SetSensitive(!_fillingSwitch.GetActive());
         _fillingSwitch.SetActive(_controller.Filling);
-        _thicknessScale.SetValue((int)_controller.LinesThickness);
+        _thicknessScale.SetValue((double)_controller.LinesThickness);
         _borderlessSwitch.SetActive(_controller.Borderless);
         _sharpCornersSwitch.SetActive(_controller.SharpCorners);
         _windowControlsSwitch.SetActive(_controller.ShowControls);
