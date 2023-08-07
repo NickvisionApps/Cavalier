@@ -127,10 +127,10 @@
   },
   {
     "type": "file",
-    "url": "https://api.nuget.org/v3-flatcontainer/nickvision.aura/2023.7.1/nickvision.aura.2023.7.1.nupkg",
-    "sha512": "125f12782991f2cd575fd4e2f78a1d9c21cae3dcfd6145d2df5b4e2fdefecf9a0d37a47573564e89ac70486d5829c3aeefffdc0013c574c11e6a252c8823ffa2",
+    "url": "https://api.nuget.org/v3-flatcontainer/nickvision.aura/2023.8.2/nickvision.aura.2023.8.2.nupkg",
+    "sha512": "e86dee781f4b1d48a2a8eda5249da314248b980959a9a2dcff8e4b034c85bd18390b43a9ea362ed623e3ed0f3836a3d9299a334378353e6fb5757b5bac25c586",
     "dest": "nuget-sources",
-    "dest-filename": "nickvision.aura.2023.7.1.nupkg"
+    "dest-filename": "nickvision.aura.2023.8.2.nupkg"
   },
   {
     "type": "file",
@@ -166,6 +166,13 @@
     "sha512": "91711dda228905361393a39754dd08611b69b556af4725cbe9aef92ec8f11dac822338108aaeb1866e149c1e8b9dfc2dbd70c8f64fef11686ad59f69fc7f4420",
     "dest": "nuget-sources",
     "dest-filename": "skiasharp.nativeassets.win32.2.88.3.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/tmds.dbus/0.15.0/tmds.dbus.0.15.0.nupkg",
+    "sha512": "6384602b2691a1ded0cad96f38b2a9bab09d5993fffa28c5904ac355643732ba71bf5a11f07102390dcd2936044e7b8187d81fecbc85504dbd31cfe5191e065a",
+    "dest": "nuget-sources",
+    "dest-filename": "tmds.dbus.0.15.0.nupkg"
   },
   {
     "type": "file",
