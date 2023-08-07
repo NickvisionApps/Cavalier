@@ -8,7 +8,7 @@
   <description>
     <p>Cavalier is an audio visualizer based on CAVA with customizable interface.</p>
     <ul>
-      <li>6 drawing modes!</li>
+      <li>11 drawing modes!</li>
       <li>Set any color or a gradient for background and foreground.</li>
       <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
     </ul>
@@ -41,14 +41,17 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release type="stable" date="2023-08-05" version="2023.8.1-beta1">
+    <release type="stable" date="2023-08-07" version="2023.8.1-beta2">
       <description translatable="no">
         <p>Changes compared to 2023.8.0:</p>
         <ul>
           <li>Added Cairo backend that can be used in case of problems with OpenGL. To activate, run the program with environment variable CAVALIER_RENDERER=cairo</li>
           <li>All drawing modes except Splitter now have Circle variants</li>
           <li>Added an easter egg (run the program with --help to find how to activate it)</li>
+          <li>Added welcome screen that is shown on start until any sound gets detected</li>
           <li>Fixed an issue where the app wasn't drawing correctly with >100% display scaling</li>
+          <li>CAVA updated to 0.9.0</li>
+          <li>Pipewire is now used as default input method, you can still change back to Pulse Audio using environment variable CAVALIER_INPUT_METHOD=pulse</li>
           <li>Updated translations (Thanks everyone on Weblate!)</li>
         </ul>
       </description>
