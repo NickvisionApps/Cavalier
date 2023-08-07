@@ -93,9 +93,10 @@ Adw.PreferencesWindow _root {
     }
 
     Adw.PreferencesGroup {
+      visible: bind _boxButton.active inverted;
+
       Adw.ActionRow {
         title: _("Radius");
-        visible: bind _boxButton.active inverted;
 
         [suffix]
         Gtk.Scale _radiusScale {
@@ -105,6 +106,21 @@ Adw.PreferencesWindow _root {
             lower: 0.2;
             upper: 0.8;
             step-increment: 0.05;
+          };
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Rotation");
+
+        [suffix]
+        Gtk.Scale _rotationScale {
+          width-request: 150;
+          draw-value: false;
+          adjustment: Gtk.Adjustment {
+            lower: 0;
+            upper: 6.284;
+            step-increment: 0.01;
           };
         }
       }

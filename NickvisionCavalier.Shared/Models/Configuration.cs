@@ -110,6 +110,10 @@ public class Configuration : ConfigurationBase
     /// </summary>
     public float InnerRadius { get; set; }
     /// <summary>
+    /// Rotation angle in radians in circle modes (0-2PI)
+    /// </summary>
+    public float Rotation { get; set; }
+    /// <summary>
     /// List of color profiles
     /// </summary>
     public List<ColorProfile> ColorProfiles { get; set; }
@@ -161,6 +165,7 @@ public class Configuration : ConfigurationBase
         Mirror = Mirror.Off;
         ReverseMirror = false;
         InnerRadius = 0.5f;
+        Rotation = 0f;
         ColorProfiles = new List<ColorProfile> { new ColorProfile() };
         ActiveProfile = 0;
         ImageIndex = -1;

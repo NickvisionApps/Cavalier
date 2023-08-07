@@ -31,6 +31,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.CheckButton _spineCheckButton;
     [Gtk.Connect] private readonly Gtk.CheckButton _splitterCheckButton;
     [Gtk.Connect] private readonly Gtk.Scale _radiusScale;
+    [Gtk.Connect] private readonly Gtk.Scale _rotationScale;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
     [Gtk.Connect] private readonly Adw.ActionRow _reverseMirrorRow;
     [Gtk.Connect] private readonly Gtk.Switch _reverseMirrorSwitch;
@@ -488,6 +489,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             _controller.InnerRadius = (float)_radiusScale.GetValue();
         };
+        _rotationScale.OnValueChanged += (sender, e) =>
+        {
+            _controller.Rotation = (float)Math.Min(2 * Math.PI, _rotationScale.GetValue());
+        };
         _mirrorRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "selected")
@@ -752,6 +757,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
                 break;
         }
         _radiusScale.SetValue((double)_controller.InnerRadius);
+        _rotationScale.SetValue((double)_controller.Rotation);
         var mirror = (uint)_controller.Mirror; // saving mirror state to apply after changing the model
         if (_controller.Stereo)
         {

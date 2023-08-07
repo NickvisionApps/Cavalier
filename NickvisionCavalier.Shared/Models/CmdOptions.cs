@@ -29,7 +29,7 @@ public class CmdOptions {
     /// <summary>
     /// Drawing direction
     /// </summary>
-    [Option('o', "drawing-direction", Required = false, HelpText = "Drawing direction, one of: topbottom, bottomtop, leftright, rightleft")]
+    [Option('g', "drawing-direction", Required = false, HelpText = "Drawing direction, one of: topbottom, bottomtop, leftright, rightleft")]
     public DrawingDirection? Direction { get; set; }
     /// <summary>
     /// The size of spaces between elements
@@ -81,6 +81,11 @@ public class CmdOptions {
     /// </summary>
     [Option('u', "radius", Required = false, HelpText = "Inner circle radius in circle modes (20-80)")]
     public uint? InnerRadius { get; set; }
+    /// <summary>
+    /// Rotation in circle modes (0-360)
+    /// </summary>
+    [Option('o', "rotation", Required = false, HelpText = "Rotation in circle modes (0-360)")]
+    public uint? Rotation { get; set; }
     /// <summary>
     /// Active color profile index
     /// </summary>

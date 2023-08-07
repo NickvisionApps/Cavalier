@@ -93,84 +93,89 @@ public class PreferencesViewController
             var updateCAVA = false;
             if (o.AreaMargin.HasValue)
             {
-                Configuration.Current.AreaMargin = Math.Min(o.AreaMargin.Value, 40);
+                AreaMargin = Math.Min(o.AreaMargin.Value, 40);
                 updateCavalier = true;
             }
             if (o.Borderless.HasValue)
             {
-                Configuration.Current.Borderless = o.Borderless.Value;
+                Borderless = o.Borderless.Value;
                 updateCavalier = true;
             }
             if (o.SharpCorners.HasValue)
             {
-                Configuration.Current.SharpCorners = o.SharpCorners.Value;
+                SharpCorners = o.SharpCorners.Value;
                 updateCavalier = true;
             }
             if (o.BarPairs.HasValue)
             {
-                Configuration.Current.BarPairs = Math.Max(3, Math.Min(o.BarPairs.Value, 50));
+                BarPairs = Math.Max(3, Math.Min(o.BarPairs.Value, 50));
                 updateCAVA = true;
             }
             if (o.Stereo.HasValue)
             {
-                Configuration.Current.Stereo = o.Stereo.Value;
+                Stereo = o.Stereo.Value;
                 updateCAVA = true;
             }
             if (o.ReverseOrder.HasValue)
             {
-                Configuration.Current.ReverseOrder = o.ReverseOrder.Value;
+                ReverseOrder = o.ReverseOrder.Value;
                 updateCavalier = true;
             }
             if (o.Direction.HasValue)
             {
-                Configuration.Current.Direction = o.Direction.Value;
+                Direction = o.Direction.Value;
                 updateCavalier = true;
             }
             if (o.ItemsOffset.HasValue)
             {
-                Configuration.Current.ItemsOffset = Math.Min(o.ItemsOffset.Value, 20) / 100.0f;
+                ItemsOffset = Math.Min(o.ItemsOffset.Value, 20) / 100.0f;
                 updateCavalier = true;
             }
             if (o.ItemsRoundness.HasValue)
             {
-                Configuration.Current.ItemsRoundness = Math.Min(o.ItemsRoundness.Value, 100) / 100.0f;
+                ItemsRoundness = Math.Min(o.ItemsRoundness.Value, 100) / 100.0f;
                 updateCavalier = true;
             }
             if (o.Filling.HasValue)
             {
-                Configuration.Current.Filling = o.Filling.Value;
+                Filling = o.Filling.Value;
                 updateCavalier = true;
             }
             if (o.LinesThickness.HasValue)
             {
-                Configuration.Current.LinesThickness = Math.Min(o.LinesThickness.Value, 10);
+                LinesThickness = Math.Min(o.LinesThickness.Value, 10);
                 updateCavalier = true;
             }
             if (o.Mode.HasValue)
             {
-                Configuration.Current.Mode = o.Mode.Value;
+                Mode = o.Mode.Value;
                 updateCavalier = true;
             }
             if (o.Mirror.HasValue)
             {
-                Configuration.Current.Mirror = o.Mirror.Value;
+                Mirror = o.Mirror.Value;
                 updateCavalier = true;
             }
             if (o.ReverseMirror.HasValue)
             {
-                Configuration.Current.ReverseMirror = o.ReverseMirror.Value;
+                ReverseMirror = o.ReverseMirror.Value;
                 updateCavalier = true;
             }
             if (o.InnerRadius.HasValue)
             {
-                Configuration.Current.InnerRadius = Math.Max(80, Math.Min(20, o.InnerRadius.Value)) / 100f;
+                InnerRadius = Math.Max(80, Math.Min(20, o.InnerRadius.Value)) / 100f;
+                updateCavalier = true;
+            }
+            if (o.Rotation.HasValue)
+            {
+                Rotation = Math.Max(360, o.InnerRadius.Value) / 360f * (float)Math.PI * 2;
                 updateCavalier = true;
             }
             if (o.ActiveProfile.HasValue)
             {
                 if (o.ActiveProfile.Value < Configuration.Current.ColorProfiles.Count)
                 {
-                    Configuration.Current.ActiveProfile = (int)o.ActiveProfile.Value;
+                    ActiveProfile = (int)o.ActiveProfile.Value;
                     updateCavalier = true;
                 }
             }
@@ -178,18 +183,18 @@ public class PreferencesViewController
             {
                 if (o.ImageIndex.Value > -1 && o.ImageIndex.Value <= ImagesList.Count)
                 {
-                    Configuration.Current.ImageIndex = o.ImageIndex.Value - 1;
+                    ImageIndex = o.ImageIndex.Value - 1;
                     updateCavalier = true;
                 }
             }
             if (o.ImageScale.HasValue)
             {
-                Configuration.Current.ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
+                ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
                 updateCavalier = true;
             }
             if (o.Hearts)
             {
-                Configuration.Current.Hearts = true;
+                Hearts = true;
                 updateCavalier = true;
             }
             if (updateCavalier)
@@ -440,6 +445,16 @@ public class PreferencesViewController
     
         set => Configuration.Current.InnerRadius = value;
     }
+    
+    /// <summary>
+    /// Rotation angle in radians in circle modes (0-2PI)
+    /// </summary>
+    public float Rotation
+    {
+        get => Configuration.Current.Rotation;
+        
+        set => Configuration.Current.Rotation = value;
+    }
 
     /// <summary>
     /// Whether to reverse mirrored bars
@@ -490,7 +505,12 @@ public class PreferencesViewController
     /// Whether to replace Spine mode with Hearts mode (easter egg)
     /// </summary>
     /// <remarks>Suggested by my beloved Xenia &lt;3</remarks>
-    public bool Hearts => Configuration.Current.Hearts;
+    public bool Hearts
+    {
+        get => Configuration.Current.Hearts;
+
+        private set => Configuration.Current.Hearts = value;
+    }
 
     /// <summary>
     /// Saves the configuration to disk

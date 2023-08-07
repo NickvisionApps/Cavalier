@@ -12,7 +12,7 @@ namespace NickvisionCavalier.Shared.Models;
 /// </summary>
 public class Renderer
 {
-    private delegate void DrawFunc(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint);
+    private delegate void DrawFunc(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint);
     private DrawFunc? _drawFunc;
     private int _imageIndex;
     private SKBitmap? _imageBitmap;
@@ -143,17 +143,17 @@ public class Renderer
         };
         if (Configuration.Current.Mirror == Mirror.Full)
         {
-            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-            _drawFunc(Configuration.Current.ReverseMirror ? sample.Reverse().ToArray() : sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), Configuration.Current.Rotation, fgPaint);
+            _drawFunc(Configuration.Current.ReverseMirror ? sample.Reverse().ToArray() : sample, GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), -Configuration.Current.Rotation, fgPaint);
         }
         else if (Configuration.Current.Mirror == Mirror.SplitChannels)
         {
-            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
-            _drawFunc(Configuration.Current.ReverseMirror ? sample.Skip(sample.Length / 2).ToArray() : sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), fgPaint);
+            _drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, GetMirrorWidth(width), GetMirrorHeight(height), Configuration.Current.Rotation, fgPaint);
+            _drawFunc(Configuration.Current.ReverseMirror ? sample.Skip(sample.Length / 2).ToArray() : sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(), GetMirrorX(width), GetMirrorY(height), GetMirrorWidth(width), GetMirrorHeight(height), -Configuration.Current.Rotation, fgPaint);
         }
         else
         {
-            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, width, height, fgPaint);
+            _drawFunc(sample, Configuration.Current.Direction, Configuration.Current.AreaMargin, Configuration.Current.AreaMargin, width, height, Configuration.Current.Rotation, fgPaint);
         }
         Canvas.Flush();
     }
@@ -271,7 +271,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawWaveBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawWaveBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / (sample.Length - 1);
         using var path = new SKPath();
@@ -367,7 +367,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawLevelsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawLevelsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 10) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
@@ -425,7 +425,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawParticlesBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawParticlesBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 11) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
@@ -480,7 +480,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawBarsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawBarsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         for (var i = 0; i < sample.Length; i++)
@@ -537,7 +537,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawSpineBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawSpineBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         var itemSize = step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness);
@@ -654,7 +654,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawSplitterBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawSplitterBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         var path = new SKPath();
@@ -744,7 +744,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawWaveCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawWaveCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -763,25 +763,25 @@ public class Renderer
         // Create path
         using var path = new SKPath();
         path.MoveTo(
-            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2),
-            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2));
+            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2 + rotation),
+            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2 + rotation));
         for (var i = 0; i < sample.Length - 1; i++)
         {
             path.CubicTo(
-                x + width / 2 + (innerRadius + radius * sample[i]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length),
-                y + height / 2 + (innerRadius + radius * sample[i]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length),
-                x + width / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length),
-                y + height / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length),
-                x + width / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length),
-                y + height / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length));
+                x + width / 2 + (innerRadius + radius * sample[i]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
+                y + height / 2 + (innerRadius + radius * sample[i]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
+                x + width / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
+                y + height / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
+                x + width / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length + rotation),
+                y + height / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length + rotation));
         }
         path.CubicTo(
-            x + width / 2 + (innerRadius + radius * sample[^1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length),
-            y + height / 2 + (innerRadius + radius * sample[^1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length),
-            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length),
-            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length),
-            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2),
-            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2));
+            x + width / 2 + (innerRadius + radius * sample[^1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length + rotation),
+            y + height / 2 + (innerRadius + radius * sample[^1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length + rotation),
+            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length + rotation),
+            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length + rotation),
+            x + width / 2 + (innerRadius + radius * sample[0]) * (float)Math.Cos(Math.PI / 2 + rotation),
+            y + height / 2 + (innerRadius + radius * sample[0]) * (float)Math.Sin(Math.PI / 2 + rotation));
         path.Close();
         // Draw
         if (Configuration.Current.Filling)
@@ -807,7 +807,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawLevelsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawLevelsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -816,7 +816,7 @@ public class Renderer
         {
             Canvas.Save();
             Canvas.Translate(x + width / 2, y + height / 2);
-            Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
+            Canvas.RotateRadians(2 * (float)Math.PI * (i + 0.5f) / sample.Length + rotation);
             for (var j = 0; j < Math.Floor(sample[i] * 10); j++)
             {
                 Canvas.DrawRoundRect(
@@ -842,7 +842,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawParticlesCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawParticlesCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -851,7 +851,7 @@ public class Renderer
         {
             Canvas.Save();
             Canvas.Translate(x + width / 2, y + height / 2);
-            Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
+            Canvas.RotateRadians(2 * (float)Math.PI * (i + 0.5f) / sample.Length + rotation);
             Canvas.DrawRoundRect(
                 -barWidth * (1 - Configuration.Current.ItemsOffset * 2) / 2 + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                 innerRadius + (fullRadius - innerRadius) / 10 * 9 * sample[i] + (fullRadius - innerRadius) / 10 * Configuration.Current.ItemsOffset + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
@@ -874,7 +874,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawBarsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawBarsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -883,7 +883,7 @@ public class Renderer
         {
             Canvas.Save();
             Canvas.Translate(x + width / 2, y + height / 2);
-            Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
+            Canvas.RotateRadians(2 * (float)Math.PI * (i + 0.5f) / sample.Length + rotation);
             Canvas.DrawRect(
                 -barWidth * (1 - Configuration.Current.ItemsOffset * 2) / 2 + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                 innerRadius + (Configuration.Current.Filling ? 0 : 0 + Configuration.Current.LinesThickness / 2),
@@ -904,7 +904,7 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawSpineCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, SKPaint paint)
+    private void DrawSpineCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -917,7 +917,7 @@ public class Renderer
                 Canvas.Save();
                 using var path = new SKPath();
                 DrawHeart(path, itemSize);
-                Canvas.Translate(x + width / 2 + innerRadius * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * i / sample.Length), y + height / 2 + innerRadius * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * i / sample.Length));
+                Canvas.Translate(x + width / 2 + innerRadius * (float)Math.Cos(rotation + Math.PI / 2 + Math.PI * 2 * i / sample.Length), y + height / 2 + innerRadius * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * i / sample.Length));
                 Canvas.Scale(sample[i]);
                 Canvas.DrawPath(path, GetSpinePaint(paint, sample[i]));
                 Canvas.Restore();
@@ -925,7 +925,7 @@ public class Renderer
             }
             Canvas.Save();
             Canvas.Translate(x + width / 2, y + height / 2);
-            Canvas.RotateDegrees(360 * (i + 0.5f) / sample.Length);
+            Canvas.RotateRadians(2 * (float)Math.PI * (i + 0.5f) / sample.Length + rotation);
             Canvas.DrawRoundRect(
                 -barWidth * (1 - Configuration.Current.ItemsOffset * 2) / 2 * sample[i] + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                 innerRadius - itemSize * sample[i] / 2,
