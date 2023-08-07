@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-05 08:16+0300\n"
+"POT-Creation-Date: 2023-08-06 20:07-0400\n"
 "PO-Revision-Date: 2023-07-31 13:53+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.0-dev\n"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1013
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1016
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
 msgid "Add"
 msgstr "Ekle"
@@ -28,12 +28,12 @@ msgstr "Ekle"
 msgid "Add New Profile"
 msgstr "Yeni Profil Ekle"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:889
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:887
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
 msgstr "“{0}” profilini silmek istediğinizden emin misiniz?"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:890
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:889
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
 msgstr "İptal"
@@ -58,11 +58,11 @@ msgstr "David Lapshin"
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:890
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:892
 msgid "Delete"
 msgstr "Sil"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:889
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:887
 msgid "Delete Profile"
 msgstr "Profil Sil"
 
@@ -84,7 +84,7 @@ msgstr "GitHub Deposu"
 msgid "Hearts"
 msgstr ""
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1015
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1018
 msgid "JPEG and PNG images"
 msgstr "JPEG ve PNG resimler"
 
@@ -116,7 +116,7 @@ msgstr "Açık"
 msgid "Profile Name"
 msgstr "Profil Adı"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1012
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1015
 msgid "Select an image"
 msgstr "Resim seç"
 

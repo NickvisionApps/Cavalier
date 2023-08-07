@@ -884,13 +884,16 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// <param name="index">Profile index</param>
     private void OnDeleteProfile(object sender, int index)
     {
-        var dialog = new MessageDialog(
-            this, _controller.ID,
-            _("Delete Profile"), _("Are you sure you want to delete profile \"{0}\"?", _controller.ColorProfiles[index].Name),
-            _("Cancel"), _("Delete"));
-        dialog.OnResponse += (sender, e) =>
+        var dialog = Adw.MessageDialog.New(this, _("Delete Profile"), _("Are you sure you want to delete profile \"{0}\"?", _controller.ColorProfiles[index].Name));
+        dialog.SetIconName(_controller.ID);
+        dialog.AddResponse("cancel", _("Cancel"));
+        dialog.SetDefaultResponse("cancel");
+        dialog.SetCloseResponse("cancel");
+        dialog.AddResponse("delete", _("Delete"));
+        dialog.SetResponseAppearance("delete", Adw.ResponseAppearance.Destructive);
+        dialog.OnResponse += (s, ex) =>
         {
-            if (e.Response == "destructive")
+            if (ex.Response == "delete")
             {
                 _controller.ActiveProfile -= 1;
                 _controller.ColorProfiles.RemoveAt(index);
