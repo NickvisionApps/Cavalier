@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-07 20:04+0300\n"
-"PO-Revision-Date: 2023-07-28 13:02+0000\n"
+"PO-Revision-Date: 2023-08-08 10:00+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,12 +48,11 @@ msgstr ""
 
 #: ../../../Controllers/MainWindowController.cs:70
 msgid "Contributors on GitHub ❤️"
-msgstr ""
+msgstr "Avustajat GitHubissa ❤️"
 
 #: ../../../Controllers/MainWindowController.cs:72
-#, fuzzy
 msgid "David Lapshin"
-msgstr "David Lapshin {0}"
+msgstr "David Lapshin"
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
@@ -74,9 +73,8 @@ msgstr "Täysi"
 
 #: ../../../Controllers/MainWindowController.cs:68
 #: ../../../Controllers/MainWindowController.cs:71
-#, fuzzy
 msgid "Fyodor Sobolev"
-msgstr "Fyodor Sobolev {0}"
+msgstr "Fyodor Sobolev"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:278
 msgid "GitHub Repo"
@@ -88,7 +86,7 @@ msgstr ""
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1093
 msgid "JPEG and PNG images"
-msgstr ""
+msgstr "JPEG- ja PNG-kuvat"
 
 #: ../../../Controllers/MainWindowController.cs:67
 msgid "Matrix Chat"
@@ -101,7 +99,7 @@ msgstr ""
 
 #: ../../../Controllers/MainWindowController.cs:69
 msgid "Nicholas Logozzo"
-msgstr ""
+msgstr "Nicholas Logozzo"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:729
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:734
@@ -121,7 +119,7 @@ msgstr "Profiilin nimi"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1090
 msgid "Select an image"
-msgstr ""
+msgstr "Valitse kuva"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:729
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:842
@@ -144,7 +142,7 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:23
 msgid "Let's dance!"
-msgstr ""
+msgstr "Tanssitaan!"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:24
 msgid ""
@@ -196,11 +194,11 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:99
 msgid "Radius"
-msgstr ""
+msgstr "Säde"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:114
 msgid "Rotation"
-msgstr ""
+msgstr "Kierto"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:131
 msgid "Mirror"
@@ -239,14 +237,12 @@ msgid "Size of gaps around drawing area (in pixels)."
 msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:172
-#, fuzzy
 msgid "Drawing area X offset"
-msgstr "Piirtoalueen reunus"
+msgstr "Piirtoalueen X-siirtymä"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:187
-#, fuzzy
 msgid "Drawing area Y offset"
-msgstr "Piirtoalueen reunus"
+msgstr "Piirtoalueen Y-siirtymä"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:202
 msgid "Offset between items"
@@ -420,11 +416,11 @@ msgstr "Taustavärit"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:565
 msgid "Image"
-msgstr ""
+msgstr "Kuva"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:582
 msgid "Add Image"
-msgstr ""
+msgstr "Lisää kuva"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:593
 msgid "Scale"
@@ -432,7 +428,7 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:642
 msgid "No Image"
-msgstr ""
+msgstr "Ei kuvaa"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
@@ -515,13 +511,12 @@ msgid "Other"
 msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
-#, fuzzy
 msgid "Change Color Profile"
-msgstr "Vaihda peilitilaa"
+msgstr "Vaihda väriprofiilia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:119
 msgid "Change Background Image"
-msgstr ""
+msgstr "Vaihda taustakuva"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:124
 msgid "Change Image Scale"
@@ -553,7 +548,7 @@ msgstr "Lopeta"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:32
 msgid "Resizing..."
-msgstr ""
+msgstr "Asetetaan uutta kokoa..."
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:56
 msgid "Main Menu"
@@ -565,9 +560,8 @@ msgid ""
 msgstr ""
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
-#, fuzzy
 msgid "11 drawing modes!"
-msgstr "5 piirtotilaa!"
+msgstr "11 piirtotilaa!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
 msgid "Set any color or a gradient for background and foreground."
