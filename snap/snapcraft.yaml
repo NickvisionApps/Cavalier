@@ -96,11 +96,6 @@ parts:
       - usr/lib/$CRAFT_ARCH_TRIPLET/libfftw3.so.3
       - usr/lib/$CRAFT_ARCH_TRIPLET/libfftw3.so.3.5.8
 
-plugs:
-  run-user-1000-pipewire:
-    interface: system-files
-    read:
-      - /run/user/1000/pipewire-0
 slots:
   cavalier:
     interface: dbus
@@ -111,6 +106,8 @@ apps:
     command: usr/bin/org.nickvision.cavalier
     common-id: org.nickvision.cavalier
     desktop: usr/share/applications/org.nickvision.cavalier.desktop
+    environment:
+      CAVALIER_INPUT_METHOD: pulse
     extensions: [ gnome ]
     plugs:
       - audio-playback
