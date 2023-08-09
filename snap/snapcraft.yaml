@@ -95,6 +95,12 @@ parts:
       - usr/lib/$CRAFT_ARCH_TRIPLET/libiniparser.so.1
       - usr/lib/$CRAFT_ARCH_TRIPLET/libfftw3.so.3
       - usr/lib/$CRAFT_ARCH_TRIPLET/libfftw3.so.3.5.8
+
+plugs:
+  run-user-1000-pipewire:
+    interface: system-files
+    read:
+      - /run/user/1000/pipewire-0
 slots:
   cavalier:
     interface: dbus
