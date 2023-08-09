@@ -95,6 +95,7 @@ parts:
       - usr/lib/$CRAFT_ARCH_TRIPLET/libiniparser.so.1
       - usr/lib/$CRAFT_ARCH_TRIPLET/libfftw3.so.3
       - usr/lib/$CRAFT_ARCH_TRIPLET/libfftw3.so.3.5.8
+
 slots:
   cavalier:
     interface: dbus
@@ -105,6 +106,8 @@ apps:
     command: usr/bin/org.nickvision.cavalier
     common-id: org.nickvision.cavalier
     desktop: usr/share/applications/org.nickvision.cavalier.desktop
+    environment:
+      CAVALIER_INPUT_METHOD: pulse
     extensions: [ gnome ]
     plugs:
       - audio-playback
