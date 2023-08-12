@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-07 20:04+0300\n"
-"PO-Revision-Date: 2023-08-06 14:51+0000\n"
+"PO-Revision-Date: 2023-08-12 15:48+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,13 +141,15 @@ msgstr "Comando Aiuto"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:23
 msgid "Let's dance!"
-msgstr ""
+msgstr "Balliamo!"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:24
 msgid ""
 "Cavalier listens to your system sound. Play some music or watch a video and "
 "see your sound come to life!"
 msgstr ""
+"Cavalier ascolta il suono del tuo sistema. Riproduci un po' di musica o "
+"guarda un video e guarda il tuo suono prendere vita!"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:138
@@ -197,7 +199,7 @@ msgstr "Raggio"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:114
 msgid "Rotation"
-msgstr ""
+msgstr "Rotazione"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:131
 msgid "Mirror"
@@ -236,14 +238,12 @@ msgid "Size of gaps around drawing area (in pixels)."
 msgstr "Dimensione degli spazi attorno all'area di disegno (in pixel)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:172
-#, fuzzy
 msgid "Drawing area X offset"
-msgstr "Margine dell'area di disegno"
+msgstr "Offset X dell'area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:187
-#, fuzzy
 msgid "Drawing area Y offset"
-msgstr "Margine dell'area di disegno"
+msgstr "Offset Y dell'area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:202
 msgid "Offset between items"
@@ -446,9 +446,8 @@ msgid "Change radius in Circle modes"
 msgstr "Cambia raggio nelle modalità Cerchio"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
-#, fuzzy
 msgid "Change rotation in Circle modes"
-msgstr "Cambia raggio nelle modalità Cerchio"
+msgstr "Cambia la rotazione nelle modalità cerchio"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
 msgid "Change Mirror Mode"
@@ -463,14 +462,12 @@ msgid "Change Drawing Area Margin"
 msgstr "Modifica margine area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
-#, fuzzy
 msgid "Change Drawing Area X Offset"
-msgstr "Modifica margine area di disegno"
+msgstr "Modifica l'offset X dell'area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:51
-#, fuzzy
 msgid "Change Drawing Area Y Offset"
-msgstr "Modifica margine area di disegno"
+msgstr "Modifica l'offset Y dell'area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:56
 msgid "Change Drawing Direction"
@@ -554,7 +551,7 @@ msgstr "Esci"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:32
 msgid "Resizing..."
-msgstr ""
+msgstr "Ridimensionamento..."
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:56
 msgid "Main Menu"
@@ -568,9 +565,8 @@ msgstr ""
 "personalizzabile."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
-#, fuzzy
 msgid "11 drawing modes!"
-msgstr "6 modalità di disegno!"
+msgstr "11 modalità di disegno!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
 msgid "Set any color or a gradient for background and foreground."
