@@ -34,14 +34,7 @@ public partial class Program
         _mainWindow = null;
         _mainWindowController = new MainWindowController(args);
         _mainWindowController.AppInfo.Changelog =
-            @"* Added Cairo backend that can be used in case of problems with OpenGL. To activate, run the program with environment variable CAVALIER_RENDERER=cairo
-              * All drawing modes except Splitter now have Circle variants
-              * Added an easter egg (run the program with --help to find how to activate it)
-              * Added welcome screen that is shown on start until any sound gets detected
-              * Fixed an issue where the app wasn't drawing correctly with >100% display scaling
-              * CAVA updated to 0.9.0
-              * Pipewire is now used as default input method, you can still change back to Pulse Audio using environment variable CAVALIER_INPUT_METHOD=pulse
-              * Updated translations (Thanks everyone on Weblate!)";
+            @"* Updated translations (Thanks everyone on Weblate!)";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
         {
