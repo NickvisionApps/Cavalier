@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-07 20:04+0300\n"
-"PO-Revision-Date: 2023-08-08 10:00+0000\n"
+"PO-Revision-Date: 2023-08-13 23:35+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/fi/>\n"
@@ -44,7 +44,7 @@ msgstr "Peru"
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:6
 msgid "Cavalier"
-msgstr ""
+msgstr "Cavalier"
 
 #: ../../../Controllers/MainWindowController.cs:70
 msgid "Contributors on GitHub ❤️"
@@ -149,6 +149,8 @@ msgid ""
 "Cavalier listens to your system sound. Play some music or watch a video and "
 "see your sound come to life!"
 msgstr ""
+"Cavalier kuuntelee järjestelmän tuottamia ääniä. Toista musiikkia tai katso "
+"video, ja näe, kuinka ääni herää eloon!"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:138
@@ -162,11 +164,11 @@ msgstr "Piirtotila"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:24
 msgid "Box"
-msgstr ""
+msgstr "Laatikko"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
 msgid "Circle"
-msgstr ""
+msgstr "Ympyrä"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:36
 msgid "Wave"
@@ -186,7 +188,7 @@ msgstr "Palkit"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:74
 msgid "Spine"
-msgstr ""
+msgstr "Piikki"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:84
 msgid "Splitter"
@@ -508,7 +510,7 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:111
 msgid "Other"
-msgstr ""
+msgstr "Muut"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
 msgid "Change Color Profile"
