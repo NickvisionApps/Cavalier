@@ -41,7 +41,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release type="stable" date="2023-08-12" version="2023.8.2-next">
+    <release version="2023.8.2-next" date="2023-08-11">
       <description translatable="no">
         <p>Changes compared to 2023.8.1:</p>
         <ul>
