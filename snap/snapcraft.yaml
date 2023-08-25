@@ -107,5 +107,7 @@ apps:
     common-id: org.nickvision.cavalier
     desktop: usr/share/applications/org.nickvision.cavalier.desktop
     extensions: [ gnome ]
+    environment:
+      CAVALIER_INPUT_METHOD: pulse
     plugs:
       - audio-playback
