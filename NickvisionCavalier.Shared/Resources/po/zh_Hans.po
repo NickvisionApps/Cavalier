@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-07 20:04+0300\n"
-"PO-Revision-Date: 2023-08-24 09:53+0000\n"
-"Last-Translator: NF <muwuren@gmail.com>\n"
+"PO-Revision-Date: 2023-08-27 16:52+0000\n"
+"Last-Translator: nsfoxer <muwuren@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1091
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
@@ -26,17 +26,17 @@ msgstr "新增"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25
 msgid "Add New Profile"
-msgstr ""
+msgstr "新增配置"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:962
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
-msgstr ""
+msgstr "你确定你要刪除配置 \"{0}\"?"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:964
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ../../../Controllers/MainWindowController.cs:61
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
@@ -44,330 +44,330 @@ msgstr ""
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:6
 msgid "Cavalier"
-msgstr ""
+msgstr "Cavalier"
 
 #: ../../../Controllers/MainWindowController.cs:70
 msgid "Contributors on GitHub ❤️"
-msgstr ""
+msgstr "在 GitHub 上贡献 ❤️"
 
 #: ../../../Controllers/MainWindowController.cs:72
 msgid "David Lapshin"
-msgstr ""
+msgstr "David Lapshin"
 
 #: ../../../Models/ColorProfile.cs:34
 msgid "Default"
-msgstr ""
+msgstr "默认"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:967
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:962
 msgid "Delete Profile"
-msgstr ""
+msgstr "删除配置"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:729
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:842
 msgid "Full"
-msgstr ""
+msgstr "完全"
 
 #: ../../../Controllers/MainWindowController.cs:68
 #: ../../../Controllers/MainWindowController.cs:71
 msgid "Fyodor Sobolev"
-msgstr ""
+msgstr "Fyodor Sobolev"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:278
 msgid "GitHub Repo"
-msgstr ""
+msgstr "GitHub 库"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:878
 msgid "Hearts"
-msgstr ""
+msgstr "爱心"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1093
 msgid "JPEG and PNG images"
-msgstr ""
+msgstr "JPEG 和 PNG 图片"
 
 #: ../../../Controllers/MainWindowController.cs:67
 msgid "Matrix Chat"
-msgstr ""
+msgstr "Matrix 聊天室"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:25
 msgid "New color profile will be a copy of the current active profile."
-msgstr ""
+msgstr "新的颜色配置将会是当前活动配置的副本。"
 
 #: ../../../Controllers/MainWindowController.cs:69
 msgid "Nicholas Logozzo"
-msgstr ""
+msgstr "Nicholas Logozzo"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:729
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:734
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:842
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:847
 msgid "Off"
-msgstr ""
+msgstr "关闭"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:734
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:847
 msgid "On"
-msgstr ""
+msgstr "打开"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:31
 msgid "Profile Name"
-msgstr ""
+msgstr "配置名称"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1090
 msgid "Select an image"
-msgstr ""
+msgstr "选择一张图片"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:729
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:842
 msgid "Split Channels"
-msgstr ""
+msgstr "分离左右声道"
 
 #: ../../../Controllers/MainWindowController.cs:73
 msgid "translator-credits"
-msgstr ""
+msgstr "翻译成员"
 
 #: ../../../Controllers/MainWindowController.cs:61
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
 msgid "Visualize audio with CAVA"
-msgstr ""
+msgstr "使用 CAVA 可视化音频"
 
 #: NickvisionCavalier.GNOME/Blueprints/command_help_dialog.blp:23
 msgid "Command Help"
-msgstr ""
+msgstr "命令帮助"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:23
 msgid "Let's dance!"
-msgstr ""
+msgstr "来跳舞吧！"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:24
 msgid ""
 "Cavalier listens to your system sound. Play some music or watch a video and "
 "see your sound come to life!"
-msgstr ""
+msgstr "Cavalier 会聆听您电脑的声音。播放一些音乐或影片来让你的音乐舞动起来！"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:138
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
-msgstr ""
+msgstr "设置"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:17
 msgid "Drawing mode"
-msgstr ""
+msgstr "绘图模式"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:24
 msgid "Box"
-msgstr ""
+msgstr "盒型"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
 msgid "Circle"
-msgstr ""
+msgstr "圆型"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:36
 msgid "Wave"
-msgstr ""
+msgstr "波浪"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:44
 msgid "Levels"
-msgstr ""
+msgstr "音量"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:54
 msgid "Particles"
-msgstr ""
+msgstr "粒子"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:64
 msgid "Bars"
-msgstr ""
+msgstr "条形"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:74
 msgid "Spine"
-msgstr ""
+msgstr "锥形"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:84
 msgid "Splitter"
-msgstr ""
+msgstr "分隔"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:99
 msgid "Radius"
-msgstr ""
+msgstr "半径"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:114
 msgid "Rotation"
-msgstr ""
+msgstr "旋转"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:131
 msgid "Mirror"
-msgstr ""
+msgstr "镜像"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:135
 msgid "Reverse mirror"
-msgstr ""
+msgstr "反向镜像"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:147
 msgid "Drawing direction"
-msgstr ""
+msgstr "绘制方向"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Top to bottom"
-msgstr ""
+msgstr "从上到下"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Bottom to top"
-msgstr ""
+msgstr "从下到上"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Left to right"
-msgstr ""
+msgstr "从左到右"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Right to left"
-msgstr ""
+msgstr "从右到左"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:154
 msgid "Drawing area margin"
-msgstr ""
+msgstr "绘图边距"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:155
 msgid "Size of gaps around drawing area (in pixels)."
-msgstr ""
+msgstr "绘图区域周围的间隙大小（以像素为单位）。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:172
 msgid "Drawing area X offset"
-msgstr ""
+msgstr "X轴偏移"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:187
 msgid "Drawing area Y offset"
-msgstr ""
+msgstr "Y 轴偏移"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:202
 msgid "Offset between items"
-msgstr ""
+msgstr "条目之间的偏移"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:203
 msgid "The size of spaces between elements (in percent)."
-msgstr ""
+msgstr "两个条目之间的间隔大小（百分比）。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:220
 msgid "Roundness of items"
-msgstr ""
+msgstr "条目圆角大小"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:221
 msgid "How much rounded the elements should be (in percent)."
-msgstr ""
+msgstr "元素的圆角大小（百分比）。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:238
 msgid "Filling"
-msgstr ""
+msgstr "填充"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:239
 msgid "Whether shapes should be filled or outlined."
-msgstr ""
+msgstr "图形是否填充或仅展示外框。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:249
 msgid "Thickness of lines"
-msgstr ""
+msgstr "线条粗细"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:250
 msgid "Thickness of lines when filling is off (in pixels)."
-msgstr ""
+msgstr "填充关闭时，线条的粗细（像素）。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:270
 msgid "Borderless window"
-msgstr ""
+msgstr "无边框窗体"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:271
 msgid "Whether to disable window shadow and borders."
-msgstr ""
+msgstr "是否禁用窗口的阴影及边框。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:281
 msgid "Sharp corners"
-msgstr ""
+msgstr "尖角"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:282
 msgid "Whether the main window corners should be sharp."
-msgstr ""
+msgstr "窗口的边角是否为尖角。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:292
 msgid "Window controls"
-msgstr ""
+msgstr "窗口控制"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:293
 msgid "Whether to show window control buttons."
-msgstr ""
+msgstr "是否展示窗口的控制按钮。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:303
 msgid "Autohide headerbar"
-msgstr ""
+msgstr "自动隐藏标题栏"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:304
 msgid "Whether to hide headerbar when main window is not focused."
-msgstr ""
+msgstr "当窗口未聚焦时是否隐藏标题栏。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:321
 msgid "Framerate"
-msgstr ""
+msgstr "帧率"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:322
 msgid "Number of frames per second."
-msgstr ""
+msgstr "每秒的帧数。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:324
 msgid "Custom"
-msgstr ""
+msgstr "自定义"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:330
 msgid "Custom Framerate"
-msgstr ""
+msgstr "自定义帧率"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:335
 msgid "Number of bars"
-msgstr ""
+msgstr "条柱的数量"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:352
 msgid "Automatic sensitivity"
-msgstr ""
+msgstr "自动灵敏度"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:353
 msgid "Attempt to decrease sensitivity if the bars peak."
-msgstr ""
+msgstr "当条形图达到峰值时尝试降低灵敏度。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:363
 msgid "Sensitivity"
-msgstr ""
+msgstr "灵敏度"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:364
 msgid ""
 "Manual sensitivity. If automatic sensitivity is enabled, this will only be "
 "the initial value."
-msgstr ""
+msgstr "手动设置敏度。如果启用自动灵敏度，这将会是一个初始值。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:379
 msgid "Channels"
-msgstr ""
+msgstr "声道"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:386
 msgid "Mono"
-msgstr ""
+msgstr "单声道"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:390
 msgid "Stereo"
-msgstr ""
+msgstr "双声道"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:399
 msgid "Monstercat smoothing"
-msgstr ""
+msgstr "Monstercat 平滑"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:400
 msgid "Whether to enable the so-called «Monstercat smoothing»."
-msgstr ""
+msgstr "是否启用 \"Monstercat smoothing\"。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:410
 msgid "Noise reduction"
-msgstr ""
+msgstr "降噪"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:411
 msgid ""
@@ -375,192 +375,194 @@ msgid ""
 "smooth.\n"
 "Higher value leads to a slower and smoother result."
 msgstr ""
+"该因子调整积分滤波器和重力滤波器以保持信号平滑。\n"
+"更高的值会使图像更慢，但会更顺滑。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:428
 msgid "Reverse order"
-msgstr ""
+msgstr "反向排序"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:429
 msgid "Whether to reverse order of bars for each channel."
-msgstr ""
+msgstr "是否将每个声道的柱形逆序。"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:441
 msgid "Colors"
-msgstr ""
+msgstr "颜色"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:464
 msgid "Add Profile"
-msgstr ""
+msgstr "新增配置"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:487
 msgid "Application Theme"
-msgstr ""
+msgstr "应用程序主题"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:495
 msgid "Light"
-msgstr ""
+msgstr "亮色"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:499
 msgid "Dark"
-msgstr ""
+msgstr "深色"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:523
 msgid "Foreground Colors"
-msgstr ""
+msgstr "前景颜色"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:545
 msgid "Background Colors"
-msgstr ""
+msgstr "背景颜色"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:565
 msgid "Image"
-msgstr ""
+msgstr "图片"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:582
 msgid "Add Image"
-msgstr ""
+msgstr "新增图片"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:593
 msgid "Scale"
-msgstr ""
+msgstr "缩放"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:642
 msgid "No Image"
-msgstr ""
+msgstr "没有图片"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:16
 msgid "Change Drawing Mode"
-msgstr ""
+msgstr "更改绘图方式"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:21
 msgid "Change radius in Circle modes"
-msgstr ""
+msgstr "更改圆型模式的半径"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:26
 msgid "Change rotation in Circle modes"
-msgstr ""
+msgstr "更改圆型模式的角度"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:31
 msgid "Change Mirror Mode"
-msgstr ""
+msgstr "更改镜像模式"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:36
 msgid "Toggle Reverse Mirror"
-msgstr ""
+msgstr "开启/关闭反向镜像"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:41
 msgid "Change Drawing Area Margin"
-msgstr ""
+msgstr "更改绘图区域边距"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
 msgid "Change Drawing Area X Offset"
-msgstr ""
+msgstr "更改绘图区域 X 轴偏移"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:51
 msgid "Change Drawing Area Y Offset"
-msgstr ""
+msgstr "更改绘图区域 Y 轴偏移"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:56
 msgid "Change Drawing Direction"
-msgstr ""
+msgstr "更改绘图方向"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:61
 msgid "Change Offset Between Items"
-msgstr ""
+msgstr "更改条目之间的间隔"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:66
 msgid "Change Items Roundness"
-msgstr ""
+msgstr "更改条目的圆角大小"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:71
 msgid "Toggle Filling"
-msgstr ""
+msgstr "切换填充模式"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:76
 msgid "Change Lines Thickness"
-msgstr ""
+msgstr "更改线条粗细"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:81
 msgid "Toggle Window Borders"
-msgstr ""
+msgstr "显示/隐藏窗口边框"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:86
 msgid "Toggle Sharp Corners"
-msgstr ""
+msgstr "启用/关闭窗口尖角"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:95
 msgid "Change Number of Bars"
-msgstr ""
+msgstr "更改条柱的数量"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:100
 msgid "Toggle Channels"
-msgstr ""
+msgstr "切换声道"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:105
 msgid "Toggle Reverse Order"
-msgstr ""
+msgstr "开启/关闭逆向排序"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:111
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:114
 msgid "Change Color Profile"
-msgstr ""
+msgstr "更改颜色配置"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:119
 msgid "Change Background Image"
-msgstr ""
+msgstr "更改背景图片"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:124
 msgid "Change Image Scale"
-msgstr ""
+msgstr "更改图片缩放"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:130
 msgctxt "Shortcut"
 msgid "Application"
-msgstr ""
+msgstr "应用程序"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:133
 msgid "Toggle Fullscreen"
-msgstr ""
+msgstr "切换全屏"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:143
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "快捷键"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:148
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
 msgid "About Cavalier"
-msgstr ""
+msgstr "关于 Cavalier"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:153
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
-msgstr ""
+msgstr "退出"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:32
 msgid "Resizing..."
-msgstr ""
+msgstr "调整中..."
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:56
 msgid "Main Menu"
-msgstr ""
+msgstr "主菜单"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:9
 msgid ""
 "Cavalier is an audio visualizer based on CAVA with customizable interface."
-msgstr ""
+msgstr "Cavalier 是一款基于 Cava 制作且可高度自定义界面的音频可视化程式。"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:11
 msgid "11 drawing modes!"
-msgstr ""
+msgstr "11种绘图模式！"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
 msgid "Set any color or a gradient for background and foreground."
-msgstr ""
+msgstr "将任何颜色或渐变色设置为背景或是前景色。"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
-msgstr ""
+msgstr "更改平滑程度，降噪以及部份的 CAVA 设置。"
