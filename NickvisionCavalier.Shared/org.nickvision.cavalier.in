@@ -5,4 +5,4 @@ then
     CAVALIER_INPUT_METHOD=${CAVALIER_INPUT_METHOD:-pulse}
 fi
 
-exec @EXEC@ $@
+exec @EXEC@ "$@"
