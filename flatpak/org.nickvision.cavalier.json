@@ -17,8 +17,7 @@
         "--socket=wayland",
         "--socket=pulseaudio",
         "--device=dri",
-        "--share=ipc",
-        "--filesystem=xdg-run/pipewire-0"
+        "--share=ipc"
     ],
     "cleanup":[
         "/include",
