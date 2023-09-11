@@ -528,6 +528,7 @@ Adw.PreferencesWindow _root {
 
               Gtk.Button _addFgColorButton {
                 icon-name: "list-add-symbolic";
+                tooltip-text: _("Add foreground color");
 
                 styles [ "circular" ]
               }
@@ -549,6 +550,7 @@ Adw.PreferencesWindow _root {
 
               Gtk.Button _addBgColorButton {
                 icon-name: "list-add-symbolic";
+                tooltip-text: _("Add background color");
 
                 styles [ "circular" ]
               }
@@ -562,62 +564,109 @@ Adw.PreferencesWindow _root {
   }
 
   Adw.PreferencesPage {
-    title: _("Image");
+    title: _("Images");
     icon-name: "image-x-generic-symbolic";
 
     Gtk.Box {
       orientation: vertical;
+      margin-top: 12;
+      margin-start: 12;
+      margin-end: 12;
+      margin-bottom: 12;
+      spacing: 12;
 
       Gtk.Box {
-        spacing: 6;
+        Gtk.Box {
+          Gtk.ToggleButton _bgImgButton {
+            label: _("Background");
+            active: true;
+          }
+
+          Gtk.ToggleButton {
+            label: _("Foreground");
+            active: bind _bgImgButton.active bidirectional inverted;
+          }
+
+          styles ["linked"]
+        }
+
+        Gtk.Separator {
+          hexpand: true;
+
+          styles ["spacer"]
+        }
 
         Gtk.Button _addImageButton {
-          halign: start;
-          margin-top: 12;
-          margin-start: 12;
-          margin-end: 12;
-          margin-bottom: 6;
-
           Adw.ButtonContent {
             label: _("Add Image");
             icon-name: "list-add-symbolic";
           }
         }
+      }
 
-        Gtk.Separator {
-          styles [ "spacer" ]
-        }
-
+      Gtk.Box {
         Gtk.Label {
-          margin-top: 6;
+          hexpand: true;
+          halign: start;
+          margin-start: 12;
           label: _("Scale");
         }
 
-        Gtk.Scale _imageScale {
-          hexpand: true;
+        Gtk.SpinButton _imgScaleSpin {
+          valign: center;
           margin-top: 6;
+          margin-start: 6;
           margin-end: 6;
+          margin-bottom: 6;
+          digits: 2;
           adjustment: Gtk.Adjustment {
-            lower: 0.10;
+            lower: 0.1;
             upper: 1.0;
             step-increment: 0.05;
           };
         }
+
+        Gtk.Separator {}
+
+        Gtk.Label {
+          hexpand: true;
+          halign: start;
+          margin-start: 12;
+          label: _("Alpha");
+        }
+
+        Gtk.SpinButton _imgAlphaSpin {
+          valign: center;
+          margin-top: 6;
+          margin-start: 6;
+          margin-end: 6;
+          margin-bottom: 6;
+          digits: 2;
+          adjustment: Gtk.Adjustment {
+            lower: 0.1;
+            upper: 1.0;
+            step-increment: 0.05;
+          };
+        }
+
+        styles ["card"]
+      }
+
+      Gtk.Label {
+        label: _("Foreground image is only shown with Box drawing modes.");
+        visible: bind _bgImgButton.active inverted;
+
+        styles ["warning"]
       }
 
       Gtk.Stack _imagesStack
       {
-        margin-top: 6;
-        margin-start: 12;
-        margin-end: 12;
-        margin-bottom: 12;
-
         Gtk.StackPage {
           name: "empty";
           child: Adw.StatusPage {
             vexpand: true;
-            title: "No Images";
-            description: "Add an image to use it in Cavalier.";
+            title: _("No Images");
+            description: _("Add an image to use it in Cavalier.");
             icon-name: "image-x-generic-symbolic";
           };
         }
@@ -630,10 +679,6 @@ Adw.PreferencesWindow _root {
 
             Gtk.FlowBox _imagesFlowBox {
               valign: start;
-              margin-top: 6;
-              margin-start: 6;
-              margin-end: 6;
-              margin-bottom: 6;
               homogeneous: true;
               min-children-per-line: 3;
 

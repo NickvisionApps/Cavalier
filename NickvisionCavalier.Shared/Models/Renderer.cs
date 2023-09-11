@@ -18,13 +18,17 @@ public class Renderer
         Foreground
     }
 
-    private delegate void DrawFunc(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint);
+    private delegate SKPath? DrawFunc(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint);
+    private float _oldWidth;
+    private float _oldHeight;
     private int _bgImageIndex;
     private SKBitmap? _bgImageBitmap;
     private SKBitmap? _bgTargetBitmap;
-    private float _oldWidth;
-    private float _oldHeight;
-    private float _oldScale;
+    private float _oldBgScale;
+    private int _fgImageIndex;
+    private SKBitmap? _fgImageBitmap;
+    private SKBitmap? _fgTargetBitmap;
+    private float _oldFgScale;
 
     /// <summary>
     /// Renderer's canvas to draw on
@@ -40,7 +44,8 @@ public class Renderer
         _bgImageIndex = -1;
         _oldWidth = 0;
         _oldHeight = 0;
-        _oldScale = 0f;
+        _oldBgScale = 0f;
+        _oldFgScale = 0f;
     }
     
     /// <summary>
@@ -72,12 +77,12 @@ public class Renderer
             bgPaint.Color = SKColor.Parse(profile.BgColors[0]);
         }
         Canvas.DrawRect(0, 0, width, height, bgPaint);
-        // Draw image
-        if (_bgImageIndex != Configuration.Current.ImageIndex)
+        // Prepare images
+        if (_bgImageIndex != Configuration.Current.BgImageIndex)
         {
             _bgImageBitmap?.Dispose();
             _bgTargetBitmap?.Dispose();
-            if (Configuration.Current.ImageIndex != -1)
+            if (Configuration.Current.BgImageIndex != -1)
             {
                 var images = new List<string>();
                 foreach (var file in Directory.GetFiles($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
@@ -88,32 +93,77 @@ public class Renderer
                     }
                 }
                 images.Sort();
-                if (Configuration.Current.ImageIndex < images.Count)
+                if (Configuration.Current.BgImageIndex < images.Count)
                 {
-                    _bgImageBitmap = SKBitmap.Decode(images[Configuration.Current.ImageIndex]);
-                    _oldScale = 0.0f; // To enforce redraw
+                    _bgImageBitmap = SKBitmap.Decode(images[Configuration.Current.BgImageIndex]);
+                    _oldBgScale = 0f; // To enforce redraw
                 }
                 else
                 {
-                    Configuration.Current.ImageIndex = -1;
+                    Configuration.Current.BgImageIndex = -1;
                 }
             }
-            _bgImageIndex = Configuration.Current.ImageIndex;
+            _bgImageIndex = Configuration.Current.BgImageIndex;
         }
-        if (_bgImageIndex != -1)
+        if (_fgImageIndex != Configuration.Current.FgImageIndex)
         {
-            if (_oldWidth != width || _oldHeight != height || Math.Abs(_oldScale - Configuration.Current.ImageScale) > 0.01f)
+            _fgImageBitmap?.Dispose();
+            _fgTargetBitmap?.Dispose();
+            if (Configuration.Current.FgImageIndex != -1)
             {
-                _oldWidth = width;
-                _oldHeight = height;
-                _oldScale = Configuration.Current.ImageScale;
-                var scale = Math.Max(width / _bgImageBitmap!.Width, height / _bgImageBitmap.Height);
-                var rect = new SKRect(0, 0, _bgImageBitmap.Width * scale, _bgImageBitmap.Height * scale);
+                var images = new List<string>();
+                foreach (var file in Directory.GetFiles($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+                {
+                    if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
+                    {
+                        images.Add(file);
+                    }
+                }
+                images.Sort();
+                if (Configuration.Current.FgImageIndex < images.Count)
+                {
+                    _fgImageBitmap = SKBitmap.Decode(images[Configuration.Current.FgImageIndex]);
+                    _oldFgScale = 0f; // To enforce redraw
+                }
+                else
+                {
+                    Configuration.Current.FgImageIndex = -1;
+                }
+            }
+            _fgImageIndex = Configuration.Current.FgImageIndex;
+        }
+        if (_oldWidth != width || _oldHeight != height || Math.Abs(_oldBgScale - Configuration.Current.BgImageScale) > 0.01f)
+        {
+            _oldBgScale = Configuration.Current.BgImageScale;
+            if (_bgImageIndex != -1)
+            {
+                var bgScale = Math.Max(width / _bgImageBitmap!.Width, height / _bgImageBitmap.Height);
+                var bgRect = new SKRect(0, 0, _bgImageBitmap.Width * bgScale, _bgImageBitmap.Height * bgScale);
                 _bgTargetBitmap?.Dispose();
-                _bgTargetBitmap = new SKBitmap((int)(rect.Width * Configuration.Current.ImageScale), (int)(rect.Height * Configuration.Current.ImageScale));
+                _bgTargetBitmap = new SKBitmap((int)(bgRect.Width * Configuration.Current.BgImageScale), (int)(bgRect.Height * Configuration.Current.BgImageScale));
                 _bgImageBitmap.ScalePixels(_bgTargetBitmap, SKFilterQuality.Medium);
             }
-            Canvas.DrawBitmap(_bgTargetBitmap, width / 2 - _bgTargetBitmap!.Width / 2f, height / 2 - _bgTargetBitmap.Height / 2f);
+        }
+        if (_oldWidth != width || _oldHeight != height || Math.Abs(_oldFgScale - Configuration.Current.FgImageScale) > 0.01f)
+        {
+            _oldFgScale = Configuration.Current.FgImageScale;
+            if (_fgImageIndex != -1)
+            {
+                var fgScale = Math.Max(width / _fgImageBitmap!.Width, height / _fgImageBitmap.Height);
+                var fgRect = new SKRect(0, 0, _fgImageBitmap.Width * fgScale, _fgImageBitmap.Height * fgScale);
+                _fgTargetBitmap?.Dispose();
+                _fgTargetBitmap = new SKBitmap((int)(fgRect.Width * Configuration.Current.FgImageScale), (int)(fgRect.Height * Configuration.Current.FgImageScale));
+                _fgImageBitmap.ScalePixels(_fgTargetBitmap, SKFilterQuality.Medium);
+            }
+        }
+        _oldWidth = width;
+        _oldHeight = height;
+        // Draw background image
+        if (_bgImageIndex != -1)
+        {
+            using var paint = new SKPaint();
+            paint.Color = paint.Color.WithAlpha((byte)(255 * Configuration.Current.BgImageAlpha));
+            Canvas.DrawBitmap(_bgTargetBitmap, width / 2 - _bgTargetBitmap!.Width / 2f, height / 2 - _bgTargetBitmap.Height / 2f, paint);
         }
         // Draw foreground
         width -= Configuration.Current.AreaMargin * 2;
@@ -148,37 +198,72 @@ public class Renderer
         };
         if (Configuration.Current.Mirror == Mirror.Full)
         {
-            drawFunc(sample, Configuration.Current.Direction,
+            using var path1 = drawFunc(sample, Configuration.Current.Direction,
                 (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + Configuration.Current.AreaMargin,
                 (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + Configuration.Current.AreaMargin,
                 GetMirrorWidth(width), GetMirrorHeight(height),
                 Configuration.Current.Rotation, fgPaint);
-            drawFunc(Configuration.Current.ReverseMirror ? sample.Reverse().ToArray() : sample, GetMirrorDirection(),
+            using var path2 = drawFunc(Configuration.Current.ReverseMirror ? sample.Reverse().ToArray() : sample, GetMirrorDirection(),
                 (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + GetMirrorX(width),
                 (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + GetMirrorY(height),
                 GetMirrorWidth(width), GetMirrorHeight(height),
                 -Configuration.Current.Rotation, fgPaint);
+            if (path1 != null && path2 != null && _fgImageIndex != -1)
+            {
+                using var path = new SKPath();
+                path.AddPath(path1);
+                path.AddPath(path2);
+                Canvas.Save();
+                Canvas.ClipPath(path);
+                using var paint = new SKPaint();
+                paint.Color = paint.Color.WithAlpha((byte)(255 * Configuration.Current.FgImageAlpha));
+                Canvas.DrawBitmap(_fgTargetBitmap,
+                    (width + Configuration.Current.AreaMargin * 2) / 2f - _fgTargetBitmap!.Width / 2f,
+                    (height + Configuration.Current.AreaMargin * 2) / 2f - _fgTargetBitmap.Height / 2f, paint);
+                Canvas.Restore();
+            }
         }
         else if (Configuration.Current.Mirror == Mirror.SplitChannels)
         {
-            drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction,
+            using var path1 = drawFunc(sample.Take(sample.Length / 2).ToArray(), Configuration.Current.Direction,
                 (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + Configuration.Current.AreaMargin,
                 (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + Configuration.Current.AreaMargin,
                 GetMirrorWidth(width), GetMirrorHeight(height),
                 Configuration.Current.Rotation, fgPaint);
-            drawFunc(Configuration.Current.ReverseMirror ? sample.Skip(sample.Length / 2).ToArray() : sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(),
+            using var path2 = drawFunc(Configuration.Current.ReverseMirror ? sample.Skip(sample.Length / 2).ToArray() : sample.Skip(sample.Length / 2).Reverse().ToArray(), GetMirrorDirection(),
                 (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + GetMirrorX(width),
                 (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + GetMirrorY(height),
                 GetMirrorWidth(width), GetMirrorHeight(height),
                 -Configuration.Current.Rotation, fgPaint);
+            if (path1 != null && path2 != null && _fgImageIndex != -1)
+            {
+                using var path = new SKPath();
+                path.AddPath(path1);
+                path.AddPath(path2);
+                Canvas.Save();
+                Canvas.ClipPath(path);
+                using var paint = new SKPaint();
+                paint.Color = paint.Color.WithAlpha((byte)(255 * Configuration.Current.FgImageAlpha));
+                Canvas.DrawBitmap(_fgTargetBitmap, width / 2 - _fgTargetBitmap!.Width / 2f, height / 2 - _fgTargetBitmap.Height / 2f, paint);
+                Canvas.Restore();
+            }
         }
         else
         {
-            drawFunc(sample, Configuration.Current.Direction,
+            using var path = drawFunc(sample, Configuration.Current.Direction,
                 (width + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetX + Configuration.Current.AreaMargin,
                 (height + Configuration.Current.AreaMargin * 2) * Configuration.Current.AreaOffsetY + Configuration.Current.AreaMargin,
                 width, height,
                 Configuration.Current.Rotation, fgPaint);
+            if (path != null && _fgImageIndex != -1)
+            {
+                Canvas.Save();
+                Canvas.ClipPath(path);
+                using var paint = new SKPaint();
+                paint.Color = paint.Color.WithAlpha((byte)(255 * Configuration.Current.FgImageAlpha));
+                Canvas.DrawBitmap(_fgTargetBitmap, width / 2 - _fgTargetBitmap!.Width / 2f, height / 2 - _fgTargetBitmap.Height / 2f, paint);
+                Canvas.Restore();
+            }
         }
         Canvas.Flush();
     }
@@ -322,10 +407,13 @@ public class Renderer
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawWaveBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
+    /// <param name="paint">Skia paint</param>
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawWaveBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / (sample.Length - 1);
-        using var path = new SKPath();
+        var path = new SKPath();
         switch (direction)
         {
             case DrawingDirection.TopBottom:
@@ -406,6 +494,33 @@ public class Renderer
                 break;
         }
         Canvas.DrawPath(path, paint);
+        if (!Configuration.Current.Filling)
+        {
+            switch (direction)
+            {
+                case DrawingDirection.TopBottom:
+                    path.LineTo(x + width, y);
+                    path.LineTo(x, y);
+                    path.Close();
+                    break;
+                case DrawingDirection.BottomTop:
+                    path.LineTo(x + width, y + height);
+                    path.LineTo(x, y + height);
+                    path.Close();
+                    break;
+                case DrawingDirection.LeftRight:
+                    path.LineTo(x, y + height);
+                    path.LineTo(x, y);
+                    path.Close();
+                    break;
+                case DrawingDirection.RightLeft:
+                    path.LineTo(x + width, y + height);
+                    path.LineTo(x + width, y);
+                    path.Close();
+                    break;
+            }
+        }
+        return path;
     }
 
     /// <summary>
@@ -417,13 +532,15 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawLevelsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawLevelsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 10) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
         var itemHeight = (direction < DrawingDirection.LeftRight ? height / 10 : step) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
-        using var path = new SKPath();
+        var path = new SKPath();
         for (var i = 0; i < sample.Length; i++)
         {
             for (var j = 0; j < Math.Floor(sample[i] * 10); j++)
@@ -474,6 +591,7 @@ public class Renderer
             }
         }
         Canvas.DrawPath(path, paint);
+        return path;
     }
 
     /// <summary>
@@ -485,13 +603,15 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawParticlesBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawParticlesBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         var itemWidth = (direction < DrawingDirection.LeftRight ? step : width / 11) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
         var itemHeight = (direction < DrawingDirection.LeftRight ? height / 11 : step) * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
-        using var path = new SKPath();
+        var path = new SKPath();
         for (var i = 0; i < sample.Length; i++)
         {
             switch (direction)
@@ -539,6 +659,7 @@ public class Renderer
             }
         }
         Canvas.DrawPath(path, paint);
+        return path;
     }
 
     /// <summary>
@@ -550,11 +671,13 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawBarsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawBarsBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
-        using var path = new SKPath();
+        var path = new SKPath();
         for (var i = 0; i < sample.Length; i++)
         {
             if (sample[i] == 0)
@@ -588,12 +711,13 @@ public class Renderer
                     path.AddRect(new SKRect(
                         x + width * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                        x + width * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness),
+                        x + width - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + Configuration.Current.ItemsOffset) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2) + step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness)));
                     break;
             };
         }
         Canvas.DrawPath(path, paint);
+        return path;
     }
 
     /// <summary>
@@ -605,11 +729,14 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawSpineBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawSpineBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         var itemSize = step * (1 - Configuration.Current.ItemsOffset * 2) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness);
+        var totalPath = new SKPath();
         for (var i = 0; i < sample.Length; i++)
         {
             if (sample[i] == 0)
@@ -624,7 +751,7 @@ public class Renderer
                     {
                         Canvas.Save();
                         using var path = new SKPath();
-                        DrawHeart(path, itemSize);
+                        CreateHeart(path, itemSize);
                         Canvas.Translate(x + step * i + step / 2, y + height / 2);
                         Canvas.Scale(sample[i]);
                         Canvas.DrawPath(path, GetSpinePaint(paint, sample[i]));
@@ -637,6 +764,11 @@ public class Renderer
                         itemSize * sample[i], itemSize * sample[i],
                         itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness, itemSize * sample[i] / 2 * Configuration.Current.ItemsRoundness,
                         GetSpinePaint(paint, sample[i]));
+                    totalPath.AddRect(new SKRect(
+                        x + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2,
+                        y + height / 2 - itemSize * sample[i] / 2,
+                        x + step * (i + 0.5f) + (1 - itemSize * sample[i]) / 2 + itemSize * sample[i],
+                        y + height / 2 - itemSize * sample[i] / 2 + itemSize * sample[i]));
                     break;
                 case DrawingDirection.LeftRight:
                 case DrawingDirection.RightLeft:
@@ -644,7 +776,7 @@ public class Renderer
                     {
                         Canvas.Save();
                         using var path = new SKPath();
-                        DrawHeart(path, itemSize);
+                        CreateHeart(path, itemSize);
                         Canvas.Translate(x + width / 2, y + step * i + step / 2);
                         Canvas.Scale(sample[i]);
                         Canvas.DrawPath(path, GetSpinePaint(paint, sample[i]));
@@ -660,14 +792,20 @@ public class Renderer
                     break;
             }
         }
+        if (Configuration.Current.Hearts)
+        {
+            totalPath.Dispose();
+            return null;
+        }
+        return totalPath;
     }
 
     /// <summary>
-    /// Draw a heart for modified Spine mode
+    /// Modify path to create a heart for modified Spine mode
     /// </summary>
     /// <param name="path">Path to use for drawing</param>
     /// <param name="itemSize">Size of a square to fit a heart into</param>
-    private void DrawHeart(SKPath path, float itemSize)
+    private void CreateHeart(SKPath path, float itemSize)
     {
         path.MoveTo(0, itemSize / 2);
         path.CubicTo(
@@ -722,8 +860,10 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawSplitterBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawSplitterBox(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var step = (direction < DrawingDirection.LeftRight ? width : height) / sample.Length;
         var path = new SKPath();
@@ -801,6 +941,7 @@ public class Renderer
             path.Close();
         }
         Canvas.DrawPath(path, paint);
+        return path;
     }
 
     /// <summary>
@@ -812,8 +953,10 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawWaveCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawWaveCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -854,6 +997,7 @@ public class Renderer
             Canvas.DrawPath(path, paint);
         }
         Canvas.Restore();
+        return null;
     }
 
     /// <summary>
@@ -865,8 +1009,10 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawLevelsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawLevelsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -889,6 +1035,7 @@ public class Renderer
             }
             Canvas.Restore();
         }
+        return null;
     }
 
     /// <summary>
@@ -900,8 +1047,10 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawParticlesCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawParticlesCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -921,6 +1070,7 @@ public class Renderer
                 paint);
             Canvas.Restore();
         }
+        return null;
     }
 
     /// <summary>
@@ -932,8 +1082,10 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawBarsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawBarsCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -951,6 +1103,7 @@ public class Renderer
                 paint);
             Canvas.Restore();
         }
+        return null;
     }
 
     /// <summary>
@@ -962,8 +1115,10 @@ public class Renderer
     /// <param name="y">Top-left corner Y coordinate</param>
     /// <param name="width">Drawing width</param>
     /// <param name="height">Drawing height</param>
+    /// <param name="rotation">Rotation angle in radians (only used in Circle modes)</param>
     /// <param name="paint">Skia paint</param>
-    private void DrawSpineCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
+    /// <returns>SKPath for foreground image masking if supported, else null</returns>
+    private SKPath? DrawSpineCircle(float[] sample, DrawingDirection direction, float x, float y, float width, float height, float rotation, SKPaint paint)
     {
         var fullRadius = Math.Min(width, height) / 2;
         var innerRadius = fullRadius * Configuration.Current.InnerRadius;
@@ -975,7 +1130,7 @@ public class Renderer
             {
                 Canvas.Save();
                 using var path = new SKPath();
-                DrawHeart(path, itemSize);
+                CreateHeart(path, itemSize);
                 Canvas.Translate(x + width / 2 + innerRadius * (float)Math.Cos(rotation + Math.PI / 2 + Math.PI * 2 * i / sample.Length), y + height / 2 + innerRadius * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * i / sample.Length));
                 Canvas.Scale(sample[i]);
                 Canvas.DrawPath(path, GetSpinePaint(paint, sample[i]));
@@ -994,5 +1149,6 @@ public class Renderer
                 GetSpinePaint(paint, sample[i]));
             Canvas.Restore();
         }
+        return null;
     }
 }

@@ -349,21 +349,61 @@ public class PreferencesViewController
     /// <summary>
     /// Index of a background image to load (-1 to not load anything)
     /// </summary>
-    public int ImageIndex
+    public int BgImageIndex
     {
-        get => Configuration.Current.ImageIndex;
+        get => Configuration.Current.BgImageIndex;
         
-        set => Configuration.Current.ImageIndex = value;
+        set => Configuration.Current.BgImageIndex = value;
     }
     
     /// <summary>
     /// Background image scale (0.1-1.0, 1.0 - fill the window)
     /// </summary>
-    public float ImageScale
+    public float BgImageScale
     {
-        get => Configuration.Current.ImageScale;
-        
-        set => Configuration.Current.ImageScale = value;
+        get => Configuration.Current.BgImageScale;
+
+        set => Configuration.Current.BgImageScale = value;
+    }
+
+    /// <summary>
+    /// Background image transparency (0.1-1.0, 1.0 - fully opaque)
+    /// </summary>
+    public float BgImageAlpha
+    {
+        get => Configuration.Current.BgImageAlpha;
+
+        set => Configuration.Current.BgImageAlpha = value;
+    }
+
+    /// <summary>
+    /// Index of a foreground image to load (-1 to not load anything)
+    /// </summary>
+    public int FgImageIndex
+    {
+        get => Configuration.Current.FgImageIndex;
+
+        set => Configuration.Current.FgImageIndex = value;
+    }
+
+    /// <summary>
+    /// Foreground image scale (0.1-1.0, 1.0 - fill the window)
+    /// </summary>
+    public float FgImageScale
+    {
+        get => Configuration.Current.FgImageScale;
+
+        set => Configuration.Current.FgImageScale = value;
+    }
+
+    /// <summary>
+    /// Foreground image transparency (0.1-1.0, 1.0 - fully opaque)
+    /// </summary>
+    public float FgImageAlpha
+    {
+        get => Configuration.Current.FgImageAlpha;
+
+        set => Configuration.Current.FgImageAlpha = value;
     }
     
     /// <summary>
@@ -490,17 +530,40 @@ public class PreferencesViewController
                     updateCavalier = true;
                 }
             }
-            if (o.ImageIndex.HasValue)
+            if (o.BgImageIndex.HasValue)
             {
-                if (o.ImageIndex.Value > -1 && o.ImageIndex.Value <= ImagesList.Count)
+                if (o.BgImageIndex.Value > -1 && o.BgImageIndex.Value <= ImagesList.Count)
                 {
-                    ImageIndex = o.ImageIndex.Value - 1;
+                    BgImageIndex = o.BgImageIndex.Value - 1;
                     updateCavalier = true;
                 }
             }
-            if (o.ImageScale.HasValue)
+            if (o.BgImageScale.HasValue)
             {
-                ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
+                BgImageScale = Math.Max(0.1f, Math.Min(o.BgImageScale.Value / 100f, 1f));
+                updateCavalier = true;
+            }
+            if (o.BgImageAlpha.HasValue)
+            {
+                BgImageAlpha = Math.Max(0.1f, Math.Min(o.BgImageAlpha.Value / 100f, 1f));
+                updateCavalier = true;
+            }
+            if (o.FgImageIndex.HasValue)
+            {
+                if (o.FgImageIndex.Value > -1 && o.FgImageIndex.Value <= ImagesList.Count)
+                {
+                    FgImageIndex = o.FgImageIndex.Value - 1;
+                    updateCavalier = true;
+                }
+            }
+            if (o.FgImageScale.HasValue)
+            {
+                FgImageScale = Math.Max(0.1f, Math.Min(o.FgImageScale.Value / 100f, 1f));
+                updateCavalier = true;
+            }
+            if (o.FgImageAlpha.HasValue)
+            {
+                FgImageAlpha = Math.Max(0.1f, Math.Min(o.FgImageAlpha.Value / 100f, 1f));
                 updateCavalier = true;
             }
             if (o.Hearts)

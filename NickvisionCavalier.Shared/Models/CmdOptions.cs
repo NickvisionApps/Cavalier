@@ -104,13 +104,33 @@ public class CmdOptions {
     /// <summary>
     /// Index of a background image to load (0 to not load anything)
     /// </summary>
-    [Option('i', "image-index", Required = false, HelpText = "Index of image to draw (0 for no image)")]
-    public int? ImageIndex { get; set; }
+    [Option("bg-index", Required = false, HelpText = "Index of background image to draw (0 for no image)")]
+    public int? BgImageIndex { get; set; }
     /// <summary>
     /// Background image scale (10-100, 100 - fill the window)
     /// </summary>
-    [Option('a', "image-scale", Required = false, HelpText = "Background image scale in percent (10-100)")]
-    public uint? ImageScale { get; set; }
+    [Option("bg-scale", Required = false, HelpText = "Background image scale in percent (10-100)")]
+    public uint? BgImageScale { get; set; }
+    /// <summary>
+    /// Background image transparency (10-100, 100 - fully opaque)
+    /// </summary>
+    [Option("bg-alpha", Required = false, HelpText = "Background image alpha in percent (10-100)")]
+    public uint? BgImageAlpha { get; set; }
+    /// <summary>
+    /// Index of a background image to load (0 to not load anything)
+    /// </summary>
+    [Option("fg-index", Required = false, HelpText = "Index of foreground image to draw (0 for no image)")]
+    public int? FgImageIndex { get; set; }
+    /// <summary>
+    /// Background image scale (10-100, 100 - fill the window)
+    /// </summary>
+    [Option("fg-scale", Required = false, HelpText = "Background image scale in percent (10-100)")]
+    public uint? FgImageScale { get; set; }
+    /// <summary>
+    /// Foreground image transparency (10-100, 100 - fully opaque)
+    /// </summary>
+    [Option("fg-alpha", Required = false, HelpText = "Foreground image alpha in percent (10-100)")]
+    public uint? FgImageAlpha { get; set; }
     /// <summary>
     /// Whether to replace Spine mode with Hearts mode (easter egg)
     /// </summary>
