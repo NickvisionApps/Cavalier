@@ -38,7 +38,7 @@ public class PreferencesViewController
             }
             foreach (var file in Directory.GetFiles(imagesDir))
             {
-                var extension = Path.GetExtension(file);
+                var extension = Path.GetExtension(file).ToLower();
                 if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
                 {
                     result.Add(file);

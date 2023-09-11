@@ -88,7 +88,8 @@ public class Renderer
                 var images = new List<string>();
                 foreach (var file in Directory.GetFiles($"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images"))
                 {
-                    if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
+                    var extension = Path.GetExtension(file).ToLower();
+                    if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
                     {
                         images.Add(file);
                     }
@@ -115,7 +116,8 @@ public class Renderer
                 var images = new List<string>();
                 foreach (var file in Directory.GetFiles($"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images"))
                 {
-                    if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
+                    var extension = Path.GetExtension(file).ToLower();
+                    if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
                     {
                         images.Add(file);
                     }
