@@ -14,7 +14,7 @@ namespace NickvisionCavalier.GNOME.Views;
 /// <summary>
 /// The PreferencesDialog for the application
 /// </summary>
-public partial class PreferencesDialog : Adw.PreferencesWindow
+public class PreferencesDialog : Adw.PreferencesWindow
 {
     private bool _avoidCAVAReload;
     private bool _removingImages;
@@ -65,8 +65,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Grid _colorsGrid;
     [Gtk.Connect] private readonly Gtk.Button _addFgColorButton;
     [Gtk.Connect] private readonly Gtk.Button _addBgColorButton;
+    [Gtk.Connect] private readonly Gtk.ToggleButton _bgImgButton;
     [Gtk.Connect] private readonly Gtk.Button _addImageButton;
-    [Gtk.Connect] private readonly Gtk.Scale _imageScale;
+    [Gtk.Connect] private readonly Gtk.SpinButton _imgScaleSpin;
+    [Gtk.Connect] private readonly Gtk.SpinButton _imgAlphaSpin;
     [Gtk.Connect] private readonly Gtk.Stack _imagesStack;
     [Gtk.Connect] private readonly Gtk.FlowBox _imagesFlowBox;
 
@@ -441,32 +443,114 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         };
         application.AddAction(actPrevProfile);
         application.SetAccelsForAction("app.prev-profile", new string[] { "<Shift>p" });
-        //Next Image Action
-        var actNextImage = Gio.SimpleAction.New("next-image", null);
-        actNextImage.OnActivate += (sender, e) =>
+        //Next Background Image Action
+        var actNextBgImage = Gio.SimpleAction.New("next-bg-image", null);
+        actNextBgImage.OnActivate += (sender, e) =>
         {
-            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex < _controller.ImagesList.Count - 1 ? _controller.ImageIndex + 2 : 0));
+            _bgImgButton.SetActive(true);
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.BgImageIndex < _controller.ImagesList.Count - 1 ? _controller.BgImageIndex + 2 : 0));
         };
-        application.AddAction(actNextImage);
-        application.SetAccelsForAction("app.next-image", new string[] { "i" });
-        //Previous Image Action
-        var actPrevImage = Gio.SimpleAction.New("prev-image", null);
-        actPrevImage.OnActivate += (sender, e) =>
+        application.AddAction(actNextBgImage);
+        application.SetAccelsForAction("app.next-bg-image", new string[] { "1" });
+        //Previous Background Image Action
+        var actPrevBgImage = Gio.SimpleAction.New("prev-bg-image", null);
+        actPrevBgImage.OnActivate += (sender, e) =>
         {
-            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex > -1 ? _controller.ImageIndex : _controller.ImagesList.Count));
+            _bgImgButton.SetActive(true);
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.BgImageIndex > -1 ? _controller.BgImageIndex : _controller.ImagesList.Count)!);
         };
-        application.AddAction(actPrevImage);
-        application.SetAccelsForAction("app.prev-image", new string[] { "<Shift>i" });
-        // Increase Image Scale
-        var actIncImgScale = Gio.SimpleAction.New("inc-img-scale", null);
-        actIncImgScale.OnActivate += (sender, e) => _imageScale.SetValue(_imageScale.GetValue() + 0.1f);
-        application.AddAction(actIncImgScale);
-        application.SetAccelsForAction("app.inc-img-scale", new string[] { "a" });
-        // Decrease Image Scale
-        var actDecImgScale = Gio.SimpleAction.New("dec-img-scale", null);
-        actDecImgScale.OnActivate += (sender, e) => _imageScale.SetValue(_imageScale.GetValue() - 0.1f);
-        application.AddAction(actDecImgScale);
-        application.SetAccelsForAction("app.dec-img-scale", new string[] { "<Shift>a" });
+        application.AddAction(actPrevBgImage);
+        application.SetAccelsForAction("app.prev-bg-image", new string[] { "exclam" });
+        // Increase Background Image Scale
+        var actIncBgImgScale = Gio.SimpleAction.New("inc-bg-img-scale", null);
+        actIncBgImgScale.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(true);
+            _imgScaleSpin.SetValue(_imgScaleSpin.GetValue() + 0.05f);
+        };
+        application.AddAction(actIncBgImgScale);
+        application.SetAccelsForAction("app.inc-bg-img-scale", new string[] { "2" });
+        // Decrease Background Image Scale
+        var actDecBgImgScale = Gio.SimpleAction.New("dec-bg-img-scale", null);
+        actDecBgImgScale.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(true);
+            _imgScaleSpin.SetValue(_imgScaleSpin.GetValue() - 0.05f);
+        };
+        application.AddAction(actDecBgImgScale);
+        application.SetAccelsForAction("app.dec-bg-img-scale", new string[] { "at" });
+        // Increase Background Image Alpha
+        var actIncBgImgAlpha = Gio.SimpleAction.New("inc-bg-img-alpha", null);
+        actIncBgImgAlpha.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(true);
+            _imgAlphaSpin.SetValue(_imgAlphaSpin.GetValue() + 0.05f);
+        };
+        application.AddAction(actIncBgImgAlpha);
+        application.SetAccelsForAction("app.inc-bg-img-alpha", new string[] { "3" });
+        // Decrease Background Image Alpha
+        var actDecBgImgAlpha = Gio.SimpleAction.New("dec-bg-img-alpha", null);
+        actDecBgImgAlpha.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(true);
+            _imgAlphaSpin.SetValue(_imgAlphaSpin.GetValue() - 0.05f);
+        };
+        application.AddAction(actDecBgImgAlpha);
+        application.SetAccelsForAction("app.dec-bg-img-alpha", new string[] { "numbersign" });
+        //Next Foreground Image Action
+        var actNextFgImage = Gio.SimpleAction.New("next-fg-image", null);
+        actNextFgImage.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(false);
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.FgImageIndex < _controller.ImagesList.Count - 1 ? _controller.FgImageIndex + 2 : 0));
+        };
+        application.AddAction(actNextFgImage);
+        application.SetAccelsForAction("app.next-fg-image", new string[] { "4" });
+        //Previous Background Image Action
+        var actPrevFgImage = Gio.SimpleAction.New("prev-fg-image", null);
+        actPrevFgImage.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(false);
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.FgImageIndex > -1 ? _controller.FgImageIndex : _controller.ImagesList.Count)!);
+        };
+        application.AddAction(actPrevFgImage);
+        application.SetAccelsForAction("app.prev-fg-image", new string[] { "dollar" });
+        // Increase Background Image Scale
+        var actIncFgImgScale = Gio.SimpleAction.New("inc-fg-img-scale", null);
+        actIncFgImgScale.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(false);
+            _imgScaleSpin.SetValue(_imgScaleSpin.GetValue() + 0.05f);
+        };
+        application.AddAction(actIncFgImgScale);
+        application.SetAccelsForAction("app.inc-fg-img-scale", new string[] { "5" });
+        // Decrease Background Image Scale
+        var actDecFgImgScale = Gio.SimpleAction.New("dec-fg-img-scale", null);
+        actDecFgImgScale.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(false);
+            _imgScaleSpin.SetValue(_imgScaleSpin.GetValue() - 0.05f);
+        };
+        application.AddAction(actDecFgImgScale);
+        application.SetAccelsForAction("app.dec-fg-img-scale", new string[] { "percent" });
+        // Increase Background Image Alpha
+        var actIncFgImgAlpha = Gio.SimpleAction.New("inc-fg-img-alpha", null);
+        actIncFgImgAlpha.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(false);
+            _imgAlphaSpin.SetValue(_imgAlphaSpin.GetValue() + 0.05f);
+        };
+        application.AddAction(actIncFgImgAlpha);
+        application.SetAccelsForAction("app.inc-fg-img-alpha", new string[] { "6" });
+        // Decrease Background Image Alpha
+        var actDecFgImgAlpha = Gio.SimpleAction.New("dec-fg-img-alpha", null);
+        actDecFgImgAlpha.OnActivate += (sender, e) =>
+        {
+            _bgImgButton.SetActive(false);
+            _imgAlphaSpin.SetValue(_imgAlphaSpin.GetValue() - 0.05f);
+        };
+        application.AddAction(actDecFgImgAlpha);
+        application.SetAccelsForAction("app.dec-fg-img-alpha", new string[] { "asciicircum" });
         //Build UI
         builder.Connect(this);
         OnCloseRequest += (sender, e) =>
@@ -785,12 +869,46 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _addBgColorButton.OnClicked += async (sender, e) => await AddColorAsync(ColorType.Background);
         UpdateColorsGrid();
         _addImageButton.OnClicked += async (sender, e) => await AddImageAsync();
-        _imageScale.OnValueChanged += (sender, e) => _controller.ImageScale = (float)_imageScale.GetValue();
+        _bgImgButton.OnToggled += (sender, e) =>
+        {
+            _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex((_bgImgButton.GetActive() ? _controller.BgImageIndex : _controller.FgImageIndex) + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
+            _imgScaleSpin.SetValue(_bgImgButton.GetActive() ? _controller.BgImageScale : _controller.FgImageScale);
+            _imgAlphaSpin.SetValue(_bgImgButton.GetActive() ? _controller.BgImageAlpha : _controller.FgImageAlpha);
+        };
+        _imgScaleSpin.OnValueChanged += (sender, e) =>
+        {
+            if (_bgImgButton.GetActive())
+            {
+                _controller.BgImageScale = (float)_imgScaleSpin.GetValue();
+            }
+            else
+            {
+                _controller.FgImageScale = (float)_imgScaleSpin.GetValue();
+            }
+        };
+        _imgAlphaSpin.OnValueChanged += (sender, e) =>
+        {
+            if (_bgImgButton.GetActive())
+            {
+                _controller.BgImageAlpha = (float)_imgAlphaSpin.GetValue();
+            }
+            else
+            {
+                _controller.FgImageAlpha = (float)_imgAlphaSpin.GetValue();
+            }
+        };
         _imagesFlowBox.OnSelectedChildrenChanged += (sender, e) =>
         {
             if (!_removingImages)
             {
-                _controller.ImageIndex = _imagesFlowBox.GetSelectedChildrenIndices()[0] - 1;
+                if (_bgImgButton.GetActive())
+                {
+                    _controller.BgImageIndex = _imagesFlowBox.GetSelectedChildrenIndices()[0] - 1;
+                }
+                else
+                {
+                    _controller.FgImageIndex = _imagesFlowBox.GetSelectedChildrenIndices()[0] - 1;
+                }
             }
         };
         // Update view when controller has changed by cmd options
@@ -871,8 +989,9 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         _autohideHeaderSwitch.SetActive(_controller.AutohideHeader);
         _reverseSwitch.SetActive(_controller.ReverseOrder);
         UpdateColorProfiles();
-        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
-        _imageScale.SetValue(_controller.ImageScale);
+        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex((_bgImgButton.GetActive() ? _controller.BgImageIndex : _controller.FgImageIndex) + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
+        _imgScaleSpin.SetValue(_bgImgButton.GetActive() ? _controller.BgImageScale : _controller.FgImageScale);
+        _imgAlphaSpin.SetValue(_bgImgButton.GetActive() ? _controller.BgImageAlpha : _controller.FgImageAlpha);
         if (_controller.Hearts)
         {
             _spineRow.SetTitle(_("Hearts"));
@@ -1060,10 +1179,10 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         if (paths.Count == 0)
         {
             _imagesStack.SetVisibleChildName("empty");
-            _imageScale.SetSensitive(false);
+            _imgScaleSpin.SetSensitive(false);
             return;
         }
-        _imageScale.SetSensitive(true);
+        _imgScaleSpin.SetSensitive(true);
         _imagesStack.SetVisibleChildName("images");
         _removingImages = true;
         while (_imagesFlowBox.GetChildAtIndex(1) != null)
@@ -1078,7 +1197,7 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
             image.OnRemoveImage += RemoveImage;
             _imagesFlowBox.Append(image);
         }
-        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex(_controller.ImageIndex + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
+        _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex((_bgImgButton.GetActive() ? _controller.BgImageIndex : _controller.FgImageIndex) + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
     }
 
     /// <summary>
@@ -1102,6 +1221,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
         {
             var file = await dialog.OpenAsync(this);
             _controller.AddImage(file.GetPath());
+            _controller.BgImageIndex = -1;
+            _controller.FgImageIndex = -1;
             UpdateImagesList();
         }
         catch { }
@@ -1113,7 +1234,8 @@ public partial class PreferencesDialog : Adw.PreferencesWindow
     /// <param name="index">Index of image to remove</param>
     public void RemoveImage(int index)
     {
-        _controller.ImageIndex = -1;
+        _controller.BgImageIndex = -1;
+        _controller.FgImageIndex = -1;
         File.Delete(_controller.ImagesList[index]);
         UpdateImagesList();
     }

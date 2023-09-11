@@ -34,7 +34,10 @@ public partial class Program
         _mainWindow = null;
         _mainWindowController = new MainWindowController(args);
         _mainWindowController.AppInfo.Changelog =
-            @"* Updated translations (Thanks everyone on Weblate!)";
+            @"* Added ability to set foreground image for Box modes
+              * Transparency can now be set both for background and foreground image
+              * Cavalier switched back to using PulseAudio by default. You can still switch audio backend to whatever is supported by CAVA using CAVALIER_INPUT_METHOD environment variable
+              * Updated translations (Thanks everyone on Weblate!)";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
         {

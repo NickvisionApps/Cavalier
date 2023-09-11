@@ -1,6 +1,13 @@
 [
   {
     "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/ace4896.dbus.services.secrets/1.1.0/ace4896.dbus.services.secrets.1.1.0.nupkg",
+    "sha512": "f886b36f49c3bb651d4aeea8ed666e2dd362997b3af02cba3ed5c3866c0c06d55949ba4dafdf445c8778f2bba2fb0fd10a71fe5ecf531b2d02613e4d260950f3",
+    "dest": "nuget-sources",
+    "dest-filename": "ace4896.dbus.services.secrets.1.1.0.nupkg"
+  },
+  {
+    "type": "file",
     "url": "https://api.nuget.org/v3-flatcontainer/commandlineparser/2.9.1/commandlineparser.2.9.1.nupkg",
     "sha512": "4f364e45c9668c7e7cc6a922b488f3fa523033c20d7a432694f0a6af05ce528ea0481d8375e2f4f1032c6990347b4803ce9a0e48068c6fe15ec46fb1254f085d",
     "dest": "nuget-sources",
@@ -120,6 +127,20 @@
   },
   {
     "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/meziantou.framework.win32.credentialmanager/1.4.2/meziantou.framework.win32.credentialmanager.1.4.2.nupkg",
+    "sha512": "75c861c9f4ea0eb3ec84f4dd6f369c57240975acc67f10d03913c969618f299adbc4e4be5d295db388d09a44b501c561f02f1aa78f2edea99f8cdefbafc2edfd",
+    "dest": "nuget-sources",
+    "dest-filename": "meziantou.framework.win32.credentialmanager.1.4.2.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlite.core/7.0.5/microsoft.data.sqlite.core.7.0.5.nupkg",
+    "sha512": "319cc8ad58d2133f850404bf40bdf6fba64781565913a482b055403c12180ace43e5d12098b5b68f7d170eff57ed15c9ca70f5801150d94b892ffe012ecf7f5c",
+    "dest": "nuget-sources",
+    "dest-filename": "microsoft.data.sqlite.core.7.0.5.nupkg"
+  },
+  {
+    "type": "file",
     "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.targets/5.0.0/microsoft.netcore.targets.5.0.0.nupkg",
     "sha512": "8581e6dc902340efe7c92c5c9751296616045bed8fdc7d5e2d936bf90c603b94e72d2ea1aad7e2e567218d0ce389de393189a1cb65fb20e99c5ad0cfe1fa4c1b",
     "dest": "nuget-sources",
@@ -127,10 +148,10 @@
   },
   {
     "type": "file",
-    "url": "https://api.nuget.org/v3-flatcontainer/nickvision.aura/2023.8.2/nickvision.aura.2023.8.2.nupkg",
-    "sha512": "e86dee781f4b1d48a2a8eda5249da314248b980959a9a2dcff8e4b034c85bd18390b43a9ea362ed623e3ed0f3836a3d9299a334378353e6fb5757b5bac25c586",
+    "url": "https://api.nuget.org/v3-flatcontainer/nickvision.aura/2023.9.3/nickvision.aura.2023.9.3.nupkg",
+    "sha512": "4f2d37373baf8a86ab30ddb5aea90e0ce905cb660cc1978a10d59c422d5f501227bcdf492fa57bfe853eabb5fc6248ae20ab933ec1dd1d773bb54088f329a5ca",
     "dest": "nuget-sources",
-    "dest-filename": "nickvision.aura.2023.8.2.nupkg"
+    "dest-filename": "nickvision.aura.2023.9.3.nupkg"
   },
   {
     "type": "file",
@@ -169,10 +190,66 @@
   },
   {
     "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/sqlitepclraw.bundle_e_sqlcipher/2.1.5/sqlitepclraw.bundle_e_sqlcipher.2.1.5.nupkg",
+    "sha512": "c86a1641f66f54565ff7750b3a6f21bcfdfc59c4cc633dab0f1410e5b0ee8c15b81e9d18130c3a13e47e7a29ee75e179082885f421342a4e6560df39962b6246",
+    "dest": "nuget-sources",
+    "dest-filename": "sqlitepclraw.bundle_e_sqlcipher.2.1.5.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/sqlitepclraw.core/2.1.4/sqlitepclraw.core.2.1.4.nupkg",
+    "sha512": "4a654a227445d97e0c3c00223f819b90d64746e7b2483c4ff0b69ae02d6d3f22a68df7d6c00245aed6f2c51610dc29714fbe6765a8fbe42795f90448c04909d2",
+    "dest": "nuget-sources",
+    "dest-filename": "sqlitepclraw.core.2.1.4.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/sqlitepclraw.core/2.1.5/sqlitepclraw.core.2.1.5.nupkg",
+    "sha512": "10379c318ea178769db9164d8bf569469fbdea73659668200d6394ab2163b9229e8a883de4702e0fdaebb4b1c2fae1f263424aa5e9765ac507eba7fceedc8a7b",
+    "dest": "nuget-sources",
+    "dest-filename": "sqlitepclraw.core.2.1.5.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/sqlitepclraw.lib.e_sqlcipher/2.1.5/sqlitepclraw.lib.e_sqlcipher.2.1.5.nupkg",
+    "sha512": "570f8c23f5fe20d742ccb05128ac0b45cf55ab1912d89dbeabca44036ae161e25c73d803be629d4186a0db75fb52898b221b4de21dde886557c8ed5f4b8d545a",
+    "dest": "nuget-sources",
+    "dest-filename": "sqlitepclraw.lib.e_sqlcipher.2.1.5.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/sqlitepclraw.provider.e_sqlcipher/2.1.5/sqlitepclraw.provider.e_sqlcipher.2.1.5.nupkg",
+    "sha512": "01e5db3a24867b4b563604a3b8aee0fac044354550ea80f8a836b3ad6bbc9949d4dfca358eb9294301e96220e1319463fac84b4099c99a54470ab7a92a6e8eb2",
+    "dest": "nuget-sources",
+    "dest-filename": "sqlitepclraw.provider.e_sqlcipher.2.1.5.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/system.io.pipelines/6.0.0/system.io.pipelines.6.0.0.nupkg",
+    "sha512": "c5983b4510bc8ae4116133ffb9b280fe61d99d47ef52dd78e5bfd03e090901896d5d5fd738dae57006b971840a4d9422bded33ddefa5e927d75d309ef1f70dea",
+    "dest": "nuget-sources",
+    "dest-filename": "system.io.pipelines.6.0.0.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/system.memory/4.5.3/system.memory.4.5.3.nupkg",
+    "sha512": "70fce15a52cc76aacbae05c8e89e2e398d1d32903f63f640a7dd4a3e5747f2c7a887d4bfd22f2a2e40274906cf91648dfd169734fb7c74eb9b4f72614084e1db",
+    "dest": "nuget-sources",
+    "dest-filename": "system.memory.4.5.3.nupkg"
+  },
+  {
+    "type": "file",
     "url": "https://api.nuget.org/v3-flatcontainer/tmds.dbus/0.15.0/tmds.dbus.0.15.0.nupkg",
     "sha512": "6384602b2691a1ded0cad96f38b2a9bab09d5993fffa28c5904ac355643732ba71bf5a11f07102390dcd2936044e7b8187d81fecbc85504dbd31cfe5191e065a",
     "dest": "nuget-sources",
     "dest-filename": "tmds.dbus.0.15.0.nupkg"
+  },
+  {
+    "type": "file",
+    "url": "https://api.nuget.org/v3-flatcontainer/tmds.dbus.protocol/0.15.0/tmds.dbus.protocol.0.15.0.nupkg",
+    "sha512": "45958a88536d1daa769934986b3ac514cdc1104a936bc404dbdec550c958847e7408af621350c09fa51bc4b837fb88471ec6e6056c4aaa2cebf30f044cd834e9",
+    "dest": "nuget-sources",
+    "dest-filename": "tmds.dbus.protocol.0.15.0.nupkg"
   },
   {
     "type": "file",

@@ -17,8 +17,7 @@
         "--socket=wayland",
         "--socket=pulseaudio",
         "--device=dri",
-        "--share=ipc",
-        "--filesystem=xdg-run/pipewire-0"
+        "--share=ipc"
     ],
     "cleanup":[
         "/include",
@@ -52,15 +51,17 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/karlstav/cava.git",
-                    "tag" : "0.9.0",
-                    "commit" : "83b4cda8177c780c7895ae67384c2679e84cc0d9"
+                    "tag" : "0.9.1",
+                    "commit" : "81211e9e16302312ee4322a99840c110bce0e13d"
                 }
             ]
         },
         {
             "name": "blueprint-compiler",
             "buildsystem": "meson",
-            "cleanup": [ "*" ],
+            "cleanup": [
+                "*"
+            ],
             "sources": [
                 {
                     "type": "git",

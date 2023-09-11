@@ -18,7 +18,7 @@ public class CAVA : IDisposable
     public CAVA()
     {
         _disposed = false;
-        _configPath = $"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}cava_config";
+        _configPath = $"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}cava_config";
         UpdateConfig();
         _proc = new Process
         {
@@ -74,7 +74,7 @@ public class CAVA : IDisposable
             autosens = {(Configuration.Current.Autosens ? "1" : "0")}
             sensitivity = {Math.Pow(Configuration.Current.Sensitivity, 2)}
             [input]
-            method = {Environment.GetEnvironmentVariable("CAVALIER_INPUT_METHOD") ?? "pipewire"}
+            method = {Environment.GetEnvironmentVariable("CAVALIER_INPUT_METHOD") ?? "pulse"}
             [output]
             method = raw
             raw_target = /dev/stdout

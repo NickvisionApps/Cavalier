@@ -30,14 +30,15 @@ public class PreferencesViewController
         get
         {
             var result = new List<string>();
-            if (!Directory.Exists($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+            var imagesDir = $"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images";
+            if (!Directory.Exists(imagesDir))
             {
-                Directory.CreateDirectory($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images");
+                Directory.CreateDirectory(imagesDir);
                 return result;
             }
-            foreach (var file in Directory.GetFiles($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+            foreach (var file in Directory.GetFiles(imagesDir))
             {
-                var extension = Path.GetExtension(file);
+                var extension = Path.GetExtension(file).ToLower();
                 if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
                 {
                     result.Add(file);
@@ -349,21 +350,61 @@ public class PreferencesViewController
     /// <summary>
     /// Index of a background image to load (-1 to not load anything)
     /// </summary>
-    public int ImageIndex
+    public int BgImageIndex
     {
-        get => Configuration.Current.ImageIndex;
+        get => Configuration.Current.BgImageIndex;
         
-        set => Configuration.Current.ImageIndex = value;
+        set => Configuration.Current.BgImageIndex = value;
     }
     
     /// <summary>
     /// Background image scale (0.1-1.0, 1.0 - fill the window)
     /// </summary>
-    public float ImageScale
+    public float BgImageScale
     {
-        get => Configuration.Current.ImageScale;
-        
-        set => Configuration.Current.ImageScale = value;
+        get => Configuration.Current.BgImageScale;
+
+        set => Configuration.Current.BgImageScale = value;
+    }
+
+    /// <summary>
+    /// Background image transparency (0.1-1.0, 1.0 - fully opaque)
+    /// </summary>
+    public float BgImageAlpha
+    {
+        get => Configuration.Current.BgImageAlpha;
+
+        set => Configuration.Current.BgImageAlpha = value;
+    }
+
+    /// <summary>
+    /// Index of a foreground image to load (-1 to not load anything)
+    /// </summary>
+    public int FgImageIndex
+    {
+        get => Configuration.Current.FgImageIndex;
+
+        set => Configuration.Current.FgImageIndex = value;
+    }
+
+    /// <summary>
+    /// Foreground image scale (0.1-1.0, 1.0 - fill the window)
+    /// </summary>
+    public float FgImageScale
+    {
+        get => Configuration.Current.FgImageScale;
+
+        set => Configuration.Current.FgImageScale = value;
+    }
+
+    /// <summary>
+    /// Foreground image transparency (0.1-1.0, 1.0 - fully opaque)
+    /// </summary>
+    public float FgImageAlpha
+    {
+        get => Configuration.Current.FgImageAlpha;
+
+        set => Configuration.Current.FgImageAlpha = value;
     }
     
     /// <summary>
@@ -490,17 +531,40 @@ public class PreferencesViewController
                     updateCavalier = true;
                 }
             }
-            if (o.ImageIndex.HasValue)
+            if (o.BgImageIndex.HasValue)
             {
-                if (o.ImageIndex.Value > -1 && o.ImageIndex.Value <= ImagesList.Count)
+                if (o.BgImageIndex.Value > -1 && o.BgImageIndex.Value <= ImagesList.Count)
                 {
-                    ImageIndex = o.ImageIndex.Value - 1;
+                    BgImageIndex = o.BgImageIndex.Value - 1;
                     updateCavalier = true;
                 }
             }
-            if (o.ImageScale.HasValue)
+            if (o.BgImageScale.HasValue)
             {
-                ImageScale = Math.Max(0.1f, Math.Min(o.ImageScale.Value / 100f, 1f));
+                BgImageScale = Math.Max(0.1f, Math.Min(o.BgImageScale.Value / 100f, 1f));
+                updateCavalier = true;
+            }
+            if (o.BgImageAlpha.HasValue)
+            {
+                BgImageAlpha = Math.Max(0.1f, Math.Min(o.BgImageAlpha.Value / 100f, 1f));
+                updateCavalier = true;
+            }
+            if (o.FgImageIndex.HasValue)
+            {
+                if (o.FgImageIndex.Value > -1 && o.FgImageIndex.Value <= ImagesList.Count)
+                {
+                    FgImageIndex = o.FgImageIndex.Value - 1;
+                    updateCavalier = true;
+                }
+            }
+            if (o.FgImageScale.HasValue)
+            {
+                FgImageScale = Math.Max(0.1f, Math.Min(o.FgImageScale.Value / 100f, 1f));
+                updateCavalier = true;
+            }
+            if (o.FgImageAlpha.HasValue)
+            {
+                FgImageAlpha = Math.Max(0.1f, Math.Min(o.FgImageAlpha.Value / 100f, 1f));
                 updateCavalier = true;
             }
             if (o.Hearts)
@@ -634,11 +698,11 @@ public class PreferencesViewController
         var baseFilename = Path.GetFileName(path);
         var filename = baseFilename;
         var i = 0;
-        while (File.Exists($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}"))
+        while (File.Exists($"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}"))
         {
             i++;
             filename = $"{Path.GetFileNameWithoutExtension(baseFilename)}-{i}{Path.GetExtension(baseFilename)}";
         }
-        File.Copy(path, $"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}");
+        File.Copy(path, $"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}");
     }
 }

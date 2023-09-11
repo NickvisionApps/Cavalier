@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 20:04+0300\n"
+"POT-Creation-Date: 2023-09-12 00:15+0300\n"
 "PO-Revision-Date: 2023-08-12 17:18+0000\n"
 "Last-Translator: Wolf yuan <h1030035@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.0-dev\n"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1091
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1210
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
 msgid "Add"
 msgstr "新增"
@@ -28,17 +28,17 @@ msgstr "新增"
 msgid "Add New Profile"
 msgstr "新增設定檔"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:962
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1081
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
 msgstr "你確定你要刪除設定檔 \"{0}\"?"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:964
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1083
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
 msgstr "取消"
 
-#: ../../../Controllers/MainWindowController.cs:61
+#: ../../../Controllers/MainWindowController.cs:62
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:13
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:4
@@ -46,11 +46,11 @@ msgstr "取消"
 msgid "Cavalier"
 msgstr "Cavalier"
 
-#: ../../../Controllers/MainWindowController.cs:70
+#: ../../../Controllers/MainWindowController.cs:71
 msgid "Contributors on GitHub ❤️"
 msgstr "在 GitHub 上貢獻 ❤️"
 
-#: ../../../Controllers/MainWindowController.cs:72
+#: ../../../Controllers/MainWindowController.cs:73
 msgid "David Lapshin"
 msgstr "David Lapshin"
 
@@ -58,22 +58,22 @@ msgstr "David Lapshin"
 msgid "Default"
 msgstr "預設"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:967
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1086
 msgid "Delete"
 msgstr "刪除"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:962
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1081
 msgid "Delete Profile"
 msgstr "刪除設定檔"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:729
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:842
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:813
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:960
 #, fuzzy
 msgid "Full"
 msgstr "完整"
 
-#: ../../../Controllers/MainWindowController.cs:68
-#: ../../../Controllers/MainWindowController.cs:71
+#: ../../../Controllers/MainWindowController.cs:69
+#: ../../../Controllers/MainWindowController.cs:72
 msgid "Fyodor Sobolev"
 msgstr "Fyodor Sobolev"
 
@@ -81,16 +81,16 @@ msgstr "Fyodor Sobolev"
 msgid "GitHub Repo"
 msgstr "GitHub 儲存庫"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:878
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:997
 #, fuzzy
 msgid "Hearts"
 msgstr "愛心"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1093
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1212
 msgid "JPEG and PNG images"
 msgstr "JPEG 及 PNG 圖片"
 
-#: ../../../Controllers/MainWindowController.cs:67
+#: ../../../Controllers/MainWindowController.cs:68
 msgid "Matrix Chat"
 msgstr "Matrix 聊天室"
 
@@ -98,19 +98,19 @@ msgstr "Matrix 聊天室"
 msgid "New color profile will be a copy of the current active profile."
 msgstr "新的顏色設定檔將會是目前設定檔的副本。"
 
-#: ../../../Controllers/MainWindowController.cs:69
+#: ../../../Controllers/MainWindowController.cs:70
 msgid "Nicholas Logozzo"
 msgstr "Nicholas Logozzo"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:729
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:734
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:842
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:847
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:813
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:818
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:960
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:965
 msgid "Off"
 msgstr "關"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:734
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:847
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:818
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:965
 msgid "On"
 msgstr "開"
 
@@ -118,21 +118,21 @@ msgstr "開"
 msgid "Profile Name"
 msgstr "設定擋名稱"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1090
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1209
 msgid "Select an image"
 msgstr "選取圖檔"
 
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:729
-#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:842
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:813
+#: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:960
 msgid "Split Channels"
 msgstr "左右聲道分離"
 
-#: ../../../Controllers/MainWindowController.cs:73
+#: ../../../Controllers/MainWindowController.cs:74
 #, fuzzy
 msgid "translator-credits"
 msgstr "翻譯者"
 
-#: ../../../Controllers/MainWindowController.cs:61
+#: ../../../Controllers/MainWindowController.cs:63
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.desktop.in:5
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:7
 #, fuzzy
@@ -155,7 +155,7 @@ msgid ""
 msgstr "Cavalier 會聆聽您電腦的聲音。播放一些音樂或影片來讓你的音樂動起來！"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:138
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:158
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
 msgstr "設定"
@@ -420,23 +420,61 @@ msgstr "深色"
 msgid "Foreground Colors"
 msgstr "前景顏色"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:545
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:531
+#, fuzzy
+msgid "Add foreground color"
+msgstr "前景顏色"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:546
 msgid "Background Colors"
 msgstr "背景顏色"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:565
-msgid "Image"
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:553
+#, fuzzy
+msgid "Add background color"
+msgstr "背景顏色"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:567
+#, fuzzy
+msgid "Images"
 msgstr "圖片"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:582
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
+#, fuzzy
+msgid "Background"
+msgstr "背景顏色"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:586
+#, fuzzy
+msgid "Foreground"
+msgstr "前景顏色"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:601
 msgid "Add Image"
 msgstr "新增圖片"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:593
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:612
 msgid "Scale"
 msgstr "縮放"
 
-#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:642
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:635
+msgid "Alpha"
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:656
+msgid "Foreground image is only shown with Box drawing modes."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:668
+#, fuzzy
+msgid "No Images"
+msgstr "沒有圖片"
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:669
+msgid "Add an image to use it in Cavalier."
+msgstr ""
+
+#: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:687
 msgid "No Image"
 msgstr "沒有圖片"
 
@@ -527,29 +565,50 @@ msgid "Change Background Image"
 msgstr "變更背景圖片"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:124
-msgid "Change Image Scale"
+#, fuzzy
+msgid "Change Background Image Scale"
+msgstr "變更背景圖片"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:129
+#, fuzzy
+msgid "Change Background Image Alpha"
+msgstr "變更背景圖片"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:134
+#, fuzzy
+msgid "Change Foreground Image"
+msgstr "變更背景圖片"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:139
+#, fuzzy
+msgid "Change Foreground Image Scale"
 msgstr "變更圖片縮放"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:130
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:144
+#, fuzzy
+msgid "Change Foreground Image Alpha"
+msgstr "變更背景圖片"
+
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:150
 msgctxt "Shortcut"
 msgid "Application"
 msgstr "應用程式"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:133
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:153
 msgid "Toggle Fullscreen"
 msgstr "全螢幕"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:143
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:163
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
 msgstr "快捷鍵"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:148
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:168
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
 msgid "About Cavalier"
 msgstr "關於 Cavalier"
 
-#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:153
+#: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:173
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
 msgstr "退出"
@@ -572,7 +631,8 @@ msgid "11 drawing modes!"
 msgstr "11 種繪圖模式！"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
-msgid "Set any color or a gradient for background and foreground."
+#, fuzzy
+msgid "Set any color, a gradient or an image for background and foreground."
 msgstr "將任何顏色或漸層設為背景或是前景色。"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13

@@ -132,11 +132,27 @@ public class Configuration : ConfigurationBase
     /// <summary>
     /// Index of a background image to load (-1 to not load anything)
     /// </summary>
-    public int ImageIndex { get; set; }
+    public int BgImageIndex { get; set; }
     /// <summary>
     /// Background image scale (0.1-1.0, 1.0 - fill the window)
     /// </summary>
-    public float ImageScale { get; set; }
+    public float BgImageScale { get; set; }
+    /// <summary>
+    /// Background image transparency (0.1-1.0, 1.0 - fully opaque)
+    /// </summary>
+    public float BgImageAlpha { get; set; }
+    /// <summary>
+    /// Index of a foreground image to load (-1 to not load anything)
+    /// </summary>
+    public int FgImageIndex { get; set; }
+    /// <summary>
+    /// Foreground image scale (0.1-1.0, 1.0 - fill the window)
+    /// </summary>
+    public float FgImageScale { get; set; }
+    /// <summary>
+    /// Foreground image transparency (0.1-1.0, 1.0 - fully opaque)
+    /// </summary>
+    public float FgImageAlpha { get; set; }
     /// <summary>
     /// Whether to replace Spine mode with Hearts mode (easter egg)
     /// </summary>
@@ -176,8 +192,12 @@ public class Configuration : ConfigurationBase
         Rotation = 0f;
         ColorProfiles = new List<ColorProfile> { new ColorProfile() };
         ActiveProfile = 0;
-        ImageIndex = -1;
-        ImageScale = 1.0f;
+        BgImageIndex = -1;
+        BgImageScale = 1f;
+        BgImageAlpha = 1f;
+        FgImageIndex = -1;
+        FgImageScale = 1f;
+        FgImageAlpha = 1f;
         Hearts = false;
     }
 
