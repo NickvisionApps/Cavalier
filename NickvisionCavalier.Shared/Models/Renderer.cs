@@ -42,6 +42,7 @@ public class Renderer
     {
         Canvas = null;
         _bgImageIndex = -1;
+        _fgImageIndex = -1;
         _oldWidth = 0;
         _oldHeight = 0;
         _oldBgScale = 0f;
