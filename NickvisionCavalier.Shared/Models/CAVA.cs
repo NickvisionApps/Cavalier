@@ -18,7 +18,7 @@ public class CAVA : IDisposable
     public CAVA()
     {
         _disposed = false;
-        _configPath = $"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}cava_config";
+        _configPath = $"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}cava_config";
         UpdateConfig();
         _proc = new Process
         {

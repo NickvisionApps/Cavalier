@@ -30,12 +30,13 @@ public class PreferencesViewController
         get
         {
             var result = new List<string>();
-            if (!Directory.Exists($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+            var imagesDir = $"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images";
+            if (!Directory.Exists(imagesDir))
             {
-                Directory.CreateDirectory($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images");
+                Directory.CreateDirectory(imagesDir);
                 return result;
             }
-            foreach (var file in Directory.GetFiles($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+            foreach (var file in Directory.GetFiles(imagesDir))
             {
                 var extension = Path.GetExtension(file);
                 if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
@@ -697,11 +698,11 @@ public class PreferencesViewController
         var baseFilename = Path.GetFileName(path);
         var filename = baseFilename;
         var i = 0;
-        while (File.Exists($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}"))
+        while (File.Exists($"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}"))
         {
             i++;
             filename = $"{Path.GetFileNameWithoutExtension(baseFilename)}-{i}{Path.GetExtension(baseFilename)}";
         }
-        File.Copy(path, $"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}");
+        File.Copy(path, $"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images{Path.DirectorySeparatorChar}{filename}");
     }
 }

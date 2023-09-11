@@ -10,7 +10,6 @@ namespace NickvisionCavalier.Shared.Controllers;
 /// </summary>
 public class MainWindowController
 {
-    public Aura Aura { get; init; }
     /// <summary>
     /// Gets the AppInfo object
     /// </summary>
@@ -58,8 +57,10 @@ public class MainWindowController
     /// <param name="args">Command-line arguments</param>
     public MainWindowController(string[] args)
     {
-        Aura = new Aura("org.nickvision.cavalier", "Nickvision Cavalier", _("Cavalier"), _("Visualize audio with CAVA"));
+        Aura.Init("org.nickvision.cavalier", "Nickvision Cavalier");
         Aura.Active.SetConfig<Configuration>("config");
+        AppInfo.ShortName = _("Cavalier");
+        AppInfo.Description = _("Visualize audio with CAVA");
         AppInfo.Version = "2023.9.0-next";
         AppInfo.SourceRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
         AppInfo.IssueTracker = new Uri("https://github.com/NickvisionApps/Cavalier/issues/new");
@@ -72,7 +73,7 @@ public class MainWindowController
         AppInfo.Artists[_("David Lapshin")] = new Uri("https://github.com/daudix-UFO");
         AppInfo.TranslatorCredits = _("translator-credits");
         PreferencesViewController = new PreferencesViewController();
-        var ipc = Aura.Communicate(args);
+        var ipc = Aura.Active.Communicate(args);
         ipc.CommandReceived += HandleCommandLine;
         HandleCommandLine(this, args);
     }

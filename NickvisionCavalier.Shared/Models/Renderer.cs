@@ -85,7 +85,7 @@ public class Renderer
             if (Configuration.Current.BgImageIndex != -1)
             {
                 var images = new List<string>();
-                foreach (var file in Directory.GetFiles($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+                foreach (var file in Directory.GetFiles($"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images"))
                 {
                     if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
                     {
@@ -112,7 +112,7 @@ public class Renderer
             if (Configuration.Current.FgImageIndex != -1)
             {
                 var images = new List<string>();
-                foreach (var file in Directory.GetFiles($"{ConfigurationLoader.ConfigDir}{Path.DirectorySeparatorChar}images"))
+                foreach (var file in Directory.GetFiles($"{UserDirectories.ApplicationConfig}{Path.DirectorySeparatorChar}images"))
                 {
                     if (file.EndsWith(".jpg") || file.EndsWith(".jpeg") || file.EndsWith(".png"))
                     {
