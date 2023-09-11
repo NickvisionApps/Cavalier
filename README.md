@@ -4,8 +4,8 @@
 
 # Features
 
-* 6 drawing modes!
-* Set any single color or a gradient for background and foreground.
+* 11 drawing modes!
+* Set any single color, a gradient or an image for background and foreground.
 * Configure smoothing, noise reduction and a few other CAVA settings.
 
 # Installation
@@ -36,7 +36,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how can you help the proje
 
 # Dependencies
 - [.NET 7](https://dotnet.microsoft.com/en-us/)
-- [CAVA](https://github.com/karlstav/cava/)
+- [CAVA](https://github.com/karlstav/cava/) >= 0.9.0
 
 # Code of Conduct
 
