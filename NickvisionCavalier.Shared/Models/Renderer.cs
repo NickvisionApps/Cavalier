@@ -917,30 +917,34 @@ public class Renderer
                     break;
             }
         }
+        if (!Configuration.Current.Filling)
+        {
+            Canvas.DrawPath(path, paint);
+        }
+        switch (direction)
+        {
+            case DrawingDirection.TopBottom:
+                path.LineTo(x + width, y);
+                path.LineTo(x, y);
+                break;
+            case DrawingDirection.BottomTop:
+                path.LineTo(x + width, y + height);
+                path.LineTo(x, y + height);
+                break;
+            case DrawingDirection.LeftRight:
+                path.LineTo(x, y + height);
+                path.LineTo(x, y);
+                break;
+            case DrawingDirection.RightLeft:
+                path.LineTo(x + width, y + height);
+                path.LineTo(x + width, y);
+                break;
+        }
+        path.Close();
         if (Configuration.Current.Filling)
         {
-            switch (direction)
-            {
-                case DrawingDirection.TopBottom:
-                    path.LineTo(x + width, y);
-                    path.LineTo(x, y);
-                    break;
-                case DrawingDirection.BottomTop:
-                    path.LineTo(x + width, y + height);
-                    path.LineTo(x, y + height);
-                    break;
-                case DrawingDirection.LeftRight:
-                    path.LineTo(x, y + height);
-                    path.LineTo(x, y);
-                    break;
-                case DrawingDirection.RightLeft:
-                    path.LineTo(x + width, y + height);
-                    path.LineTo(x + width, y);
-                    break;
-            }
-            path.Close();
+            Canvas.DrawPath(path, paint);
         }
-        Canvas.DrawPath(path, paint);
         return path;
     }
 
