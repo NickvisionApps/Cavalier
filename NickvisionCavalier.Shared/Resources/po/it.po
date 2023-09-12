@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-12 00:15+0300\n"
-"PO-Revision-Date: 2023-08-12 15:48+0000\n"
-"Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/it/>\n"
+"PO-Revision-Date: 2023-09-12 17:35+0000\n"
+"Last-Translator: Davide <davide.ferracin@protonmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1210
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
@@ -36,7 +36,7 @@ msgstr "Sei sicuro di voler rimuovere il profilo \"{0}\"?"
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1083
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:41
 msgid "Cancel"
-msgstr "Cancella"
+msgstr "Annulla"
 
 #: ../../../Controllers/MainWindowController.cs:62
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
@@ -48,7 +48,7 @@ msgstr "Cavalier"
 
 #: ../../../Controllers/MainWindowController.cs:71
 msgid "Contributors on GitHub ❤️"
-msgstr "Contributori su GitHub ❤️"
+msgstr "I contributori su GitHub ❤️"
 
 #: ../../../Controllers/MainWindowController.cs:73
 msgid "David Lapshin"
@@ -60,7 +60,7 @@ msgstr "Predefinito"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1086
 msgid "Delete"
-msgstr "Cancella"
+msgstr "Elimina"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1081
 msgid "Delete Profile"
@@ -105,7 +105,7 @@ msgstr "Nicholas Logozzo"
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:960
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:965
 msgid "Off"
-msgstr "Off"
+msgstr "Spento"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:818
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:965
@@ -118,7 +118,7 @@ msgstr "Nome profilo"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1209
 msgid "Select an image"
-msgstr "Seleziona un'immagine"
+msgstr "Selezionare un'immagine"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:813
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:960
@@ -137,7 +137,7 @@ msgstr "Visualizza l'audio con CAVA"
 
 #: NickvisionCavalier.GNOME/Blueprints/command_help_dialog.blp:23
 msgid "Command Help"
-msgstr "Comando Aiuto"
+msgstr "Aiuto per i comandi"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:23
 msgid "Let's dance!"
@@ -163,7 +163,7 @@ msgstr "Modalità disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:24
 msgid "Box"
-msgstr "Box"
+msgstr "Scatola"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
 msgid "Circle"
@@ -211,11 +211,11 @@ msgstr "Specchio rovesciato"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:147
 msgid "Drawing direction"
-msgstr "Direzione disegno"
+msgstr "Direzione del disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Top to bottom"
-msgstr "Dall'alto al basso"
+msgstr "Dall'alto verso il basso"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Bottom to top"
@@ -239,11 +239,11 @@ msgstr "Dimensione degli spazi attorno all'area di disegno (in pixel)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:172
 msgid "Drawing area X offset"
-msgstr "Offset X dell'area di disegno"
+msgstr "Scostamento orizzontale dell'area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:187
 msgid "Drawing area Y offset"
-msgstr "Offset Y dell'area di disegno"
+msgstr "Scostamento verticale dell'area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:202
 msgid "Offset between items"
@@ -348,8 +348,8 @@ msgid ""
 "Manual sensitivity. If automatic sensitivity is enabled, this will only be "
 "the initial value."
 msgstr ""
-"Sensibilità manuale. Se la sensibilità automatica è abilitata, sarà solo il "
-"valore iniziale."
+"Sensibilità manuale. Se la sensibilità automatica è abilitata, questo verrà "
+"usato come valore iniziale."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:379
 msgid "Channels"
@@ -369,7 +369,7 @@ msgstr "Levigatura Monstercat"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:400
 msgid "Whether to enable the so-called «Monstercat smoothing»."
-msgstr "Se abilitare il cosiddetto «Levigatura Monstercat»."
+msgstr "Se abilitare la cosiddetta «Levigatura Monstercat»."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:410
 msgid "Noise reduction"
@@ -387,7 +387,7 @@ msgstr ""
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:428
 msgid "Reverse order"
-msgstr "Ordine inverso"
+msgstr "Inverti ordine"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:429
 msgid "Whether to reverse order of bars for each channel."
@@ -418,33 +418,28 @@ msgid "Foreground Colors"
 msgstr "Colori in primo piano"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:531
-#, fuzzy
 msgid "Add foreground color"
-msgstr "Colori in primo piano"
+msgstr "Aggiungi colore in primo piano"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:546
 msgid "Background Colors"
 msgstr "Colori di sfondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:553
-#, fuzzy
 msgid "Add background color"
-msgstr "Colori di sfondo"
+msgstr "Aggiungi colore di sfondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:567
-#, fuzzy
 msgid "Images"
-msgstr "Immagine"
+msgstr "Immagini"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
-#, fuzzy
 msgid "Background"
-msgstr "Colori di sfondo"
+msgstr "Sfondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:586
-#, fuzzy
 msgid "Foreground"
-msgstr "Colori in primo piano"
+msgstr "Primo piano"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:601
 msgid "Add Image"
@@ -456,20 +451,20 @@ msgstr "Scala"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:635
 msgid "Alpha"
-msgstr ""
+msgstr "Alfa"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:656
 msgid "Foreground image is only shown with Box drawing modes."
 msgstr ""
+"L'immagine in primo piano è mostrata solo con la modalità di disegno Scatola."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:668
-#, fuzzy
 msgid "No Images"
 msgstr "Nessuna immagine"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:669
 msgid "Add an image to use it in Cavalier."
-msgstr ""
+msgstr "Aggiungere un'immagine per usarla in Cavalier."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:687
 msgid "No Image"
@@ -501,27 +496,27 @@ msgstr "Modifica margine area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:46
 msgid "Change Drawing Area X Offset"
-msgstr "Modifica l'offset X dell'area di disegno"
+msgstr "Modifica lo scostamento orizzontale dell'area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:51
 msgid "Change Drawing Area Y Offset"
-msgstr "Modifica l'offset Y dell'area di disegno"
+msgstr "Modifica lo scostamento verticale dell'area di disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:56
 msgid "Change Drawing Direction"
-msgstr "Cambia direzione disegno"
+msgstr "Cambia la direzione del disegno"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:61
 msgid "Change Offset Between Items"
-msgstr "Modifica scostamento tra gli elementi"
+msgstr "Modifica lo scostamento tra gli elementi"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:66
 msgid "Change Items Roundness"
-msgstr "Cambia rotondità elementi"
+msgstr "Cambia la rotondità degli elementi"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:71
 msgid "Toggle Filling"
-msgstr "Attiva/disattiva riempimento"
+msgstr "Attiva/disattiva il riempimento"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:76
 msgid "Change Lines Thickness"
@@ -529,7 +524,7 @@ msgstr "Cambia lo spessore delle linee"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:81
 msgid "Toggle Window Borders"
-msgstr "Attiva/disattiva bordi finestra"
+msgstr "Attiva/disattiva i bordi della finestra"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:86
 msgid "Toggle Sharp Corners"
@@ -537,15 +532,15 @@ msgstr "Attiva/disattiva angoli acuti"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:95
 msgid "Change Number of Bars"
-msgstr "Cambia numero di barre"
+msgstr "Cambia il numero di barre"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:100
 msgid "Toggle Channels"
-msgstr "Abilita/disabilita canali"
+msgstr "Commuta il canale"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:105
 msgid "Toggle Reverse Order"
-msgstr "Attiva/disattiva ordine inverso"
+msgstr "Attiva/disattiva l'ordine inverso"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:111
 msgid "Other"
@@ -560,29 +555,24 @@ msgid "Change Background Image"
 msgstr "Cambia immagine di sfondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:124
-#, fuzzy
 msgid "Change Background Image Scale"
-msgstr "Cambia immagine di sfondo"
+msgstr "Cambia scala dell'immagine di sfondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:129
-#, fuzzy
 msgid "Change Background Image Alpha"
-msgstr "Cambia immagine di sfondo"
+msgstr "Cambia alfa dell'immagine di sfondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:134
-#, fuzzy
 msgid "Change Foreground Image"
-msgstr "Cambia immagine di sfondo"
+msgstr "Cambia immagine in primo piano"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:139
-#, fuzzy
 msgid "Change Foreground Image Scale"
-msgstr "Cambia la scala dell'immagine"
+msgstr "Cambia scala dell'immagine in primo piano"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:144
-#, fuzzy
 msgid "Change Foreground Image Alpha"
-msgstr "Cambia immagine di sfondo"
+msgstr "Cambia alfa dell'immagine in primo piano"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:150
 msgctxt "Shortcut"
@@ -591,7 +581,7 @@ msgstr "Applicazione"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:153
 msgid "Toggle Fullscreen"
-msgstr "Attiva schermo intero"
+msgstr "Attiva/disattiva schermo intero"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:163
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
@@ -628,9 +618,10 @@ msgid "11 drawing modes!"
 msgstr "11 modalità di disegno!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
-#, fuzzy
 msgid "Set any color, a gradient or an image for background and foreground."
-msgstr "Imposta qualsiasi colore o sfumatura per lo sfondo e il primo piano."
+msgstr ""
+"Imposta qualsiasi colore, una sfumatura o un'immagine per lo sfondo e il "
+"primo piano."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
