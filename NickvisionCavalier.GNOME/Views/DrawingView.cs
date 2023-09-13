@@ -38,22 +38,22 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     private SKSurface? _skSurface;
     private float[]? _sample;
 
-    private DrawingView(Gtk.Builder builder, MainWindow window, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
+    private DrawingView(Gtk.Builder builder, Gtk.Window parent, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
     {
         _disposed = false;
         _controller = controller;
         _showWelcome = true;
         //Build UI
         builder.Connect(this);
-        window.OnNotify += (sender, e) =>
+        parent.OnNotify += (sender, e) =>
         {
             if ((e.Pspec.GetName() == "default-width" || e.Pspec.GetName() == "default-height") && _showWelcome)
             {
-                window.GetDefaultSize(out var width, out var height);
+                parent.GetDefaultSize(out var width, out var height);
                 _welcomeStatus.SetIconName(width < 380 || height < 280 ? "" : "man-dancing");
             }
         };
-        window.GetDefaultSize(out var width, out var height);
+        parent.GetDefaultSize(out var width, out var height);
         _welcomeStatus.SetIconName(width < 380 || height < 280 ? "" : "man-dancing");
         if (Environment.GetEnvironmentVariable("CAVALIER_RENDERER")?.ToLower() == "cairo")
         {
@@ -116,9 +116,9 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     /// <summary>
     /// Constructs a DrawingView
     /// </summary>
-    /// <param name="window">Main window</param>
+    /// <param name="window">Parent window</param>
     /// <param name="controller">The DrawingViewController</param>
-    public DrawingView(MainWindow window, DrawingViewController controller) : this(Builder.FromFile("drawing_view.ui"), window, controller)
+    public DrawingView(Gtk.Window parent, DrawingViewController controller) : this(Builder.FromFile("drawing_view.ui"), parent, controller)
     {
     }
 
