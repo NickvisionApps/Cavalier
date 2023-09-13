@@ -53,6 +53,8 @@ public partial class DrawingView : Gtk.Stack, IDisposable
                 _welcomeStatus.SetIconName(width < 380 || height < 280 ? "" : "man-dancing");
             }
         };
+        window.GetDefaultSize(out var width, out var height);
+        _welcomeStatus.SetIconName(width < 380 || height < 280 ? "" : "man-dancing");
         if (Environment.GetEnvironmentVariable("CAVALIER_RENDERER")?.ToLower() == "cairo")
         {
             _useCairo = true;
