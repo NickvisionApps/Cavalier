@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-12 00:15+0300\n"
-"PO-Revision-Date: 2023-08-08 18:31+0000\n"
+"PO-Revision-Date: 2023-09-13 02:42+0000\n"
 "Last-Translator: Fjuro <ifjuro@proton.me>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1210
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
@@ -416,33 +416,28 @@ msgid "Foreground Colors"
 msgstr "Barvy popředí"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:531
-#, fuzzy
 msgid "Add foreground color"
-msgstr "Barvy popředí"
+msgstr "Přidat barvu popředí"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:546
 msgid "Background Colors"
 msgstr "Barvy pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:553
-#, fuzzy
 msgid "Add background color"
-msgstr "Barvy pozadí"
+msgstr "Přidat barvu pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:567
-#, fuzzy
 msgid "Images"
-msgstr "Obrázek"
+msgstr "Obrázky"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
-#, fuzzy
 msgid "Background"
-msgstr "Barvy pozadí"
+msgstr "Pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:586
-#, fuzzy
 msgid "Foreground"
-msgstr "Barvy popředí"
+msgstr "Popředí"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:601
 msgid "Add Image"
@@ -454,20 +449,20 @@ msgstr "Měřítko"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:635
 msgid "Alpha"
-msgstr ""
+msgstr "Alfa"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:656
 msgid "Foreground image is only shown with Box drawing modes."
 msgstr ""
+"Obrázek na popředí je zobrazen pouze v krychlových režimech vykreslování."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:668
-#, fuzzy
 msgid "No Images"
-msgstr "Žádný obrázek"
+msgstr "Žádné obrázky"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:669
 msgid "Add an image to use it in Cavalier."
-msgstr ""
+msgstr "Přidejte obrázek pro použití v aplikaci Cavalier."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:687
 msgid "No Image"
@@ -558,29 +553,24 @@ msgid "Change Background Image"
 msgstr "Změnit obrázek na pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:124
-#, fuzzy
 msgid "Change Background Image Scale"
-msgstr "Změnit obrázek na pozadí"
+msgstr "Změnit velikost obrázku na pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:129
-#, fuzzy
 msgid "Change Background Image Alpha"
-msgstr "Změnit obrázek na pozadí"
+msgstr "Změnit alfu obrázku na pozadí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:134
-#, fuzzy
 msgid "Change Foreground Image"
-msgstr "Změnit obrázek na pozadí"
+msgstr "Změnit obrázek na popředí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:139
-#, fuzzy
 msgid "Change Foreground Image Scale"
-msgstr "Změnit velikost obrázku"
+msgstr "Změnit velikost obrázku na popředí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:144
-#, fuzzy
 msgid "Change Foreground Image Alpha"
-msgstr "Změnit obrázek na pozadí"
+msgstr "Změnit alfu obrázku na popředí"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:150
 msgctxt "Shortcut"
@@ -625,9 +615,8 @@ msgid "11 drawing modes!"
 msgstr "11 vykreslovacích režimů!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
-#, fuzzy
 msgid "Set any color, a gradient or an image for background and foreground."
-msgstr "Nastavte jakoukoliv barvu nebo jako pozadí nebo popředí."
+msgstr "Nastavte jakoukoliv barvu, přechod nebo obrázek pro pozadí a popředí."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
