@@ -26,12 +26,23 @@ Adw.ApplicationWindow _root {
           pixel-size: 128;
         }
 
-        Adw.ButtonContent {
+        Gtk.Box {
           halign: center;
-          icon-name: "view-fullscreen-symbolic";
-          label: _("Resizing...");
+          spacing: 6;
 
-          styles ["dim-label", "title-3"]
+          Gtk.Image {
+            icon-name: "view-fullscreen-symbolic";
+
+            styles ["dim-label"]
+          }
+
+          Gtk.Label {
+            wrap: true;
+            justify: center;
+            label: _("Resizing...");
+
+            styles ["dim-label", "title-3"]
+          }
         }
       };
 

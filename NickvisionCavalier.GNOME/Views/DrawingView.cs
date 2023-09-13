@@ -20,6 +20,7 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     [LibraryImport("libGL.so.1", StringMarshalling = StringMarshalling.Utf8)]
     private static partial void glClear(uint mask);
 
+    [Gtk.Connect] private readonly Adw.StatusPage _welcomeStatus;
     [Gtk.Connect] private readonly Gtk.GLArea _glArea;
     [Gtk.Connect] private readonly Gtk.DrawingArea _cairoArea;
 
@@ -37,13 +38,23 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     private SKSurface? _skSurface;
     private float[]? _sample;
 
-    private DrawingView(Gtk.Builder builder, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
+    private DrawingView(Gtk.Builder builder, Gtk.Window parent, DrawingViewController controller) : base(builder.GetPointer("_root"), false)
     {
         _disposed = false;
         _controller = controller;
         _showWelcome = true;
         //Build UI
         builder.Connect(this);
+        parent.OnNotify += (sender, e) =>
+        {
+            if ((e.Pspec.GetName() == "default-width" || e.Pspec.GetName() == "default-height") && _showWelcome)
+            {
+                parent.GetDefaultSize(out var width, out var height);
+                _welcomeStatus.SetIconName(width < 380 || height < 280 ? "" : "man-dancing");
+            }
+        };
+        parent.GetDefaultSize(out var width, out var height);
+        _welcomeStatus.SetIconName(width < 380 || height < 280 ? "" : "man-dancing");
         if (Environment.GetEnvironmentVariable("CAVALIER_RENDERER")?.ToLower() == "cairo")
         {
             _useCairo = true;
@@ -105,8 +116,9 @@ public partial class DrawingView : Gtk.Stack, IDisposable
     /// <summary>
     /// Constructs a DrawingView
     /// </summary>
+    /// <param name="window">Parent window</param>
     /// <param name="controller">The DrawingViewController</param>
-    public DrawingView(DrawingViewController controller) : this(Builder.FromFile("drawing_view.ui"), controller)
+    public DrawingView(Gtk.Window parent, DrawingViewController controller) : this(Builder.FromFile("drawing_view.ui"), parent, controller)
     {
     }
 
