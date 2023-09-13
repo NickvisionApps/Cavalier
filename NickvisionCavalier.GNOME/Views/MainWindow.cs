@@ -43,7 +43,7 @@ public class MainWindow : Adw.ApplicationWindow
         }
         SetTitle(_controller.AppInfo.ShortName);
         SetIconName(_controller.AppInfo.ID);
-        _drawingView = new DrawingView(new DrawingViewController());
+        _drawingView = new DrawingView(this, new DrawingViewController());
         _overlay.SetChild(_drawingView);
         _preferencesController = _controller.PreferencesViewController;
         _preferencesController.OnWindowSettingsChanged += UpdateWindowSettings;
