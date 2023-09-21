@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-12 00:15+0300\n"
-"PO-Revision-Date: 2023-08-08 10:00+0000\n"
+"PO-Revision-Date: 2023-09-21 13:32+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1210
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
@@ -416,9 +416,8 @@ msgid "Foreground Colors"
 msgstr "Ön Plan Rengi"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:531
-#, fuzzy
 msgid "Add foreground color"
-msgstr "Ön Plan Rengi"
+msgstr "Ön plan rengi ekle"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:546
 msgid "Background Colors"
