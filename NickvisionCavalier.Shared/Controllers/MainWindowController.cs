@@ -61,7 +61,7 @@ public class MainWindowController
         Aura.Active.SetConfig<Configuration>("config");
         AppInfo.ShortName = _("Cavalier");
         AppInfo.Description = _("Visualize audio with CAVA");
-        AppInfo.Version = "2023.9.0-beta1";
+        AppInfo.Version = "2023.9.0";
         AppInfo.SourceRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
         AppInfo.IssueTracker = new Uri("https://github.com/NickvisionApps/Cavalier/issues/new");
         AppInfo.SupportUrl = new Uri("https://github.com/NickvisionApps/Cavalier/discussions");

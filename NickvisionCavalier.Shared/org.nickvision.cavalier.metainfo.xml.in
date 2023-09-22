@@ -47,7 +47,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2023-09-11" version="2023.9.0-beta1">
+    <release date="2023-09-22" version="2023.9.0">
       <description translatable="no">
         <p>Changes compared to 2023.8.1:</p>
         <ul>
