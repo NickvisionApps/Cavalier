@@ -32,6 +32,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how can you help the proje
  ![GNOMEBars](NickvisionCavalier.GNOME/Screenshots/Bars.png)
  ![GNOMESpine](NickvisionCavalier.GNOME/Screenshots/Spine.png)
  ![GNOMELevels](NickvisionCavalier.GNOME/Screenshots/Levels.png)
+ ![GNOMEImages](NickvisionCavalier.GNOME/Screenshots/Images.png)
+ ![GNOMECircle](NickvisionCavalier.GNOME/Screenshots/Circle.png)
 </details>
 
 # Dependencies
