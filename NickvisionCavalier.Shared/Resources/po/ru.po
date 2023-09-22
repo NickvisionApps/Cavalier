@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-12 00:15+0300\n"
-"PO-Revision-Date: 2023-08-10 15:59+0000\n"
+"PO-Revision-Date: 2023-09-22 03:17+0000\n"
 "Last-Translator: Fyodor Sobolev <fyodor-sobolev@protonmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1210
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
@@ -418,33 +418,28 @@ msgid "Foreground Colors"
 msgstr "Цвета переднего плана"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:531
-#, fuzzy
 msgid "Add foreground color"
-msgstr "Цвета переднего плана"
+msgstr "Добавить цвет переднего плана"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:546
 msgid "Background Colors"
 msgstr "Цвета фона"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:553
-#, fuzzy
 msgid "Add background color"
-msgstr "Цвета фона"
+msgstr "Добавить цвет фона"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:567
-#, fuzzy
 msgid "Images"
-msgstr "Изображение"
+msgstr "Изображения"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
-#, fuzzy
 msgid "Background"
-msgstr "Цвета фона"
+msgstr "Фон"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:586
-#, fuzzy
 msgid "Foreground"
-msgstr "Цвета переднего плана"
+msgstr "Передний план"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:601
 msgid "Add Image"
@@ -456,20 +451,19 @@ msgstr "Масштаб"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:635
 msgid "Alpha"
-msgstr ""
+msgstr "Альфа"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:656
 msgid "Foreground image is only shown with Box drawing modes."
-msgstr ""
+msgstr "Изображение переднего плана отображается только в режимах типа Ящик."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:668
-#, fuzzy
 msgid "No Images"
-msgstr "Без изображения"
+msgstr "Нет изображений"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:669
 msgid "Add an image to use it in Cavalier."
-msgstr ""
+msgstr "Добавьте изображение для использования в Cavalier."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:687
 msgid "No Image"
@@ -560,29 +554,24 @@ msgid "Change Background Image"
 msgstr "Изменить фоновое изображение"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:124
-#, fuzzy
 msgid "Change Background Image Scale"
-msgstr "Изменить фоновое изображение"
+msgstr "Изменить масштаб фонового изображения"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:129
-#, fuzzy
 msgid "Change Background Image Alpha"
-msgstr "Изменить фоновое изображение"
+msgstr "Изменить значение альфа фонового изображения"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:134
-#, fuzzy
 msgid "Change Foreground Image"
-msgstr "Изменить фоновое изображение"
+msgstr "Изменить изображение переднего плана"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:139
-#, fuzzy
 msgid "Change Foreground Image Scale"
-msgstr "Изменить масштаб изображения"
+msgstr "Изменить масштаб изображения переднего плана"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:144
-#, fuzzy
 msgid "Change Foreground Image Alpha"
-msgstr "Изменить фоновое изображение"
+msgstr "Изменить значение альфа изображения переднего плана"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:150
 msgctxt "Shortcut"
@@ -628,9 +617,9 @@ msgid "11 drawing modes!"
 msgstr "11 режимов отрисовки!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
-#, fuzzy
 msgid "Set any color, a gradient or an image for background and foreground."
-msgstr "Установите любой цвет или градиент для фона или переднего плана."
+msgstr ""
+"Установите любой цвет, градиент или изображение для фона или переднего плана."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
