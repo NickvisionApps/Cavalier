@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-12 00:15+0300\n"
-"PO-Revision-Date: 2023-09-21 13:32+0000\n"
+"PO-Revision-Date: 2023-09-26 20:00+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/tr/>\n"
@@ -424,24 +424,20 @@ msgid "Background Colors"
 msgstr "Arka Plan Rengi"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:553
-#, fuzzy
 msgid "Add background color"
-msgstr "Arka Plan Rengi"
+msgstr "Arka plan rengi ekle"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:567
-#, fuzzy
 msgid "Images"
-msgstr "Resim"
+msgstr "Resimler"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
-#, fuzzy
 msgid "Background"
-msgstr "Arka Plan Rengi"
+msgstr "Arka plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:586
-#, fuzzy
 msgid "Foreground"
-msgstr "Ön Plan Rengi"
+msgstr "Ön plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:601
 msgid "Add Image"
@@ -453,20 +449,19 @@ msgstr "Ölçekle"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:635
 msgid "Alpha"
-msgstr ""
+msgstr "Alfa"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:656
 msgid "Foreground image is only shown with Box drawing modes."
-msgstr ""
+msgstr "Ön plan resmi yalnızca Kutu çizim kiplerinde gösterilir."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:668
-#, fuzzy
 msgid "No Images"
 msgstr "Resim Yok"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:669
 msgid "Add an image to use it in Cavalier."
-msgstr ""
+msgstr "Cavalierʼde kullanmak için resim ekleyin."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:687
 msgid "No Image"
@@ -557,29 +552,24 @@ msgid "Change Background Image"
 msgstr "Arka Plan Resmini Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:124
-#, fuzzy
 msgid "Change Background Image Scale"
-msgstr "Arka Plan Resmini Değiştir"
+msgstr "Arka Plan Resim Ölçeğini Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:129
-#, fuzzy
 msgid "Change Background Image Alpha"
-msgstr "Arka Plan Resmini Değiştir"
+msgstr "Arka Plan Resim Alfasını Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:134
-#, fuzzy
 msgid "Change Foreground Image"
-msgstr "Arka Plan Resmini Değiştir"
+msgstr "Ön Plan Resmini Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:139
-#, fuzzy
 msgid "Change Foreground Image Scale"
-msgstr "Resim Ölçeğini Değiştir"
+msgstr "Ön Plan Resim Ölçeğini Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:144
-#, fuzzy
 msgid "Change Foreground Image Alpha"
-msgstr "Arka Plan Resmini Değiştir"
+msgstr "Ön Plan Resim Alfasını Değiştir"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:150
 msgctxt "Shortcut"
@@ -625,10 +615,10 @@ msgid "11 drawing modes!"
 msgstr "11 çizim kipi!"
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
-#, fuzzy
 msgid "Set any color, a gradient or an image for background and foreground."
 msgstr ""
-"Arka plan ve ön plan için herhangi bir renk veya renk geçiçi ayarlayın."
+"Arka plan ve ön plan için herhangi bir renk, renk geçişi veya resim "
+"ayarlayın."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
