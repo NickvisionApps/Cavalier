@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-12 00:15+0300\n"
-"PO-Revision-Date: 2023-09-21 13:32+0000\n"
-"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
+"PO-Revision-Date: 2023-10-01 08:59+0000\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate"
+".org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/es/>\n"
 "Language: es\n"
@@ -417,7 +418,7 @@ msgstr "Colores del primer plano"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:531
 msgid "Add foreground color"
-msgstr "Añadir color frontal"
+msgstr "Añadir color de primer plano"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:546
 msgid "Background Colors"
@@ -453,7 +454,7 @@ msgstr "Alpha"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:656
 msgid "Foreground image is only shown with Box drawing modes."
-msgstr ""
+msgstr "La imagen en primer plano solo se muestra con los modos de dibujo Caja."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:668
 msgid "No Images"
@@ -461,7 +462,7 @@ msgstr "Sin imágenes"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:669
 msgid "Add an image to use it in Cavalier."
-msgstr "Añade una imagen para utilizarla en Cavalier."
+msgstr "Añada una imagen para usarla en Cavalier."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:687
 msgid "No Image"
@@ -556,9 +557,8 @@ msgid "Change Background Image Scale"
 msgstr "Cambiar el tamaño de la imagen del fondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:129
-#, fuzzy
 msgid "Change Background Image Alpha"
-msgstr "Cambiar imagen de fondo"
+msgstr "Cambiar el alfa de la imagen de fondo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:134
 msgid "Change Foreground Image"
@@ -569,9 +569,8 @@ msgid "Change Foreground Image Scale"
 msgstr "Cambiar la escala de la imagen en primer plano"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:144
-#, fuzzy
 msgid "Change Foreground Image Alpha"
-msgstr "Cambiar imagen de fondo"
+msgstr "Cambiar el alfa de la imagen de primer plano"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:150
 msgctxt "Shortcut"
