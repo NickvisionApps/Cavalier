@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-12 00:15+0300\n"
-"PO-Revision-Date: 2023-10-01 08:59+0000\n"
+"PO-Revision-Date: 2023-10-29 05:18+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate"
 ".org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1210
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:44
@@ -450,7 +450,7 @@ msgstr "Escala"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:635
 msgid "Alpha"
-msgstr "Alpha"
+msgstr "Alfa"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:656
 msgid "Foreground image is only shown with Box drawing modes."
@@ -618,8 +618,8 @@ msgstr "¡11 modos de dibujo!"
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:12
 msgid "Set any color, a gradient or an image for background and foreground."
 msgstr ""
-"Define cualquier color, un degradado o una imagen para el fondo y el primer "
-"plano."
+"Establezca cualquier color, un degradado o una imagen para el fondo y el "
+"primer plano."
 
 #: NickvisionCavalier.Shared/org.nickvision.cavalier.metainfo.xml.in:13
 msgid "Configure smoothing, noise reduction and a few other CAVA settings."
