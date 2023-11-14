@@ -1,6 +1,5 @@
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
-using SkiaSharp;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;

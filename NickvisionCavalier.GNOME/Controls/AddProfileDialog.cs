@@ -1,5 +1,3 @@
-using static NickvisionCavalier.Shared.Helpers.Gettext;
-
 namespace NickvisionCavalier.GNOME.Controls;
 
 /// <summary>
@@ -13,7 +11,7 @@ public class AddProfileDialog
     /// New profile name
     /// </summary>
     public string ProfileName { get; set; }
-    
+
     /// <summary>
     /// Constructs a MessageDialog
     /// </summary>
@@ -45,7 +43,7 @@ public class AddProfileDialog
         _dialog.SetResponseAppearance("suggested", Adw.ResponseAppearance.Suggested);
         _dialog.SetResponseEnabled("suggested", false);
     }
-    
+
     public event GObject.SignalHandler<Adw.MessageDialog, Adw.MessageDialog.ResponseSignalArgs> OnResponse
     {
         add
@@ -57,7 +55,7 @@ public class AddProfileDialog
             _dialog.OnResponse -= value;
         }
     }
-    
+
     /// <summary>
     /// Presents the dialog
     /// </summary>

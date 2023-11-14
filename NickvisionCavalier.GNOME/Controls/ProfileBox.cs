@@ -10,7 +10,7 @@ public class ProfileBox : Gtk.Box
     public int Index { get; set; }
 
     public event EventHandler<int>? OnDelete;
-    
+
     /// <summary>
     /// Creates ProfileBox
     /// </summary>

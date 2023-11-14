@@ -1,11 +1,10 @@
-using CommandLine;
-
 namespace NickvisionCavalier.Shared.Models;
 
 /// <summary>
 /// Command-line options
 /// </summary>
-public class CmdOptions {
+public class CmdOptions
+{
     /// <summary>
     /// Active drawing mode
     /// </summary>

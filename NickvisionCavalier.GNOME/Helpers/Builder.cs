@@ -1,7 +1,6 @@
 using System.IO;
 using System.Reflection;
 using System.Xml;
-using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Helpers;
 

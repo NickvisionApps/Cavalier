@@ -6,8 +6,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using static Nickvision.GirExt.GtkExt;
-using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
 
@@ -75,7 +73,7 @@ public class PreferencesDialog : Adw.PreferencesWindow
     {
         _avoidCAVAReload = false;
         _removingImages = false;
-        _framerates = new []{ 30u, 60u, 90u, 120u, 144u };
+        _framerates = new[] { 30u, 60u, 90u, 120u, 144u };
         //Window Settings
         _controller = controller;
         SetIconName(_controller.ID);

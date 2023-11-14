@@ -1,6 +1,5 @@
-using System;
 using NickvisionCavalier.Shared.Models;
-using SkiaSharp;
+using System;
 
 namespace NickvisionCavalier.Shared.Controllers;
 
@@ -8,12 +7,12 @@ public class DrawingViewController : IDisposable
 {
     private bool _disposed;
     private readonly Renderer _renderer;
-    
+
     /// <summary>
     /// CAVA instance
     /// </summary>
     public CAVA CAVA { get; init; }
-    
+
     public DrawingViewController()
     {
         _disposed = false;

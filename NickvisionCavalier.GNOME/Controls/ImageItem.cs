@@ -12,12 +12,12 @@ public class ImageItem : Gtk.Overlay, IDisposable
     private readonly Gtk.Button _removeButton;
     private Gdk.Texture? _texture;
     private bool _disposed;
-    
+
     /// <summary>
     /// Occurs when remove button was clicked
     /// </summary>
     public event Action<int>? OnRemoveImage;
-    
+
     /// <summary>
     /// Construct ImageItem
     /// </summary>

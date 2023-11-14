@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.Shared.Models;
 
@@ -25,7 +24,7 @@ public class ColorProfile : ICloneable
     /// Application theme
     /// </summary>
     public Theme Theme { get; set; }
-    
+
     /// <summary>
     /// Creates default profile
     /// </summary>
