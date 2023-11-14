@@ -2,8 +2,8 @@ using Nickvision.Aura;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
+using System.Linq;
 
 namespace NickvisionCavalier.Shared.Models;
 
@@ -34,7 +34,7 @@ public class Renderer
     /// Renderer's canvas to draw on
     /// </summary>
     public SKCanvas? Canvas { get; set; }
-    
+
     /// <summary>
     /// Construct Renderer
     /// </summary>
@@ -48,7 +48,7 @@ public class Renderer
         _oldBgScale = 0f;
         _oldFgScale = 0f;
     }
-    
+
     /// <summary>
     /// Draw picture
     /// </summary>
@@ -427,9 +427,9 @@ public class Renderer
                         x + step * (i + 0.5f),
                         y + height * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         x + step * (i + 0.5f),
-                        y + height * sample[i+1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        y + height * sample[i + 1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         x + step * (i + 1),
-                        y + height * sample[i+1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
+                        y + height * sample[i + 1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
                 }
                 if (Configuration.Current.Filling)
                 {
@@ -446,9 +446,9 @@ public class Renderer
                         x + step * (i + 0.5f),
                         y + height * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         x + step * (i + 0.5f),
-                        y + height * (1 - sample[i+1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        y + height * (1 - sample[i + 1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         x + step * (i + 1),
-                        y + height * (1 - sample[i+1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
+                        y + height * (1 - sample[i + 1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
                 }
                 if (Configuration.Current.Filling)
                 {
@@ -464,9 +464,9 @@ public class Renderer
                     path.CubicTo(
                         x + width * sample[i] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 0.5f),
-                        x + width * sample[i+1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        x + width * sample[i + 1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 0.5f),
-                        x + width * sample[i+1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        x + width * sample[i + 1] - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 1));
                 }
                 if (Configuration.Current.Filling)
@@ -483,9 +483,9 @@ public class Renderer
                     path.CubicTo(
                         x + width * (1 - sample[i]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 0.5f),
-                        x + width * (1 - sample[i+1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        x + width * (1 - sample[i + 1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 0.5f),
-                        x + width * (1 - sample[i+1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
+                        x + width * (1 - sample[i + 1]) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
                         y + step * (i + 1));
                 }
                 if (Configuration.Current.Filling)
@@ -911,8 +911,8 @@ public class Renderer
                     {
                         path.LineTo(x + width / 2, y + step * i);
                     }
-                    path.LineTo(x + width / 2 * (1 + sample [i] * (i % 2 == 0 ? orient : -orient)), y + step * i);
-                    path.LineTo(x + width / 2 * (1 + sample [i] * (i % 2 == 0 ? orient : -orient)), y + step * (i + 1));
+                    path.LineTo(x + width / 2 * (1 + sample[i] * (i % 2 == 0 ? orient : -orient)), y + step * i);
+                    path.LineTo(x + width / 2 * (1 + sample[i] * (i % 2 == 0 ? orient : -orient)), y + step * (i + 1));
                     if (i < sample.Length - 1)
                     {
                         path.LineTo(x + width / 2, y + step * (i + 1));
@@ -981,10 +981,10 @@ public class Renderer
             path.CubicTo(
                 width / 2 + (innerRadius + radius * sample[i]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
                 height / 2 + (innerRadius + radius * sample[i]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
-                width / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
-                height / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
-                width / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length + rotation),
-                height / 2 + (innerRadius + radius * sample[i+1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length + rotation));
+                width / 2 + (innerRadius + radius * sample[i + 1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
+                height / 2 + (innerRadius + radius * sample[i + 1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 0.5f) / sample.Length + rotation),
+                width / 2 + (innerRadius + radius * sample[i + 1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length + rotation),
+                height / 2 + (innerRadius + radius * sample[i + 1]) * (float)Math.Sin(Math.PI / 2 + Math.PI * 2 * (i + 1) / sample.Length + rotation));
         }
         path.CubicTo(
             width / 2 + (innerRadius + radius * sample[^1]) * (float)Math.Cos(Math.PI / 2 + Math.PI * 2 * (sample.Length - 0.5f) / sample.Length + rotation),
@@ -997,7 +997,7 @@ public class Renderer
         if (Configuration.Current.Filling)
         {
             Canvas.ClipPath(path, SKClipOperation.Intersect, true);
-            Canvas.DrawCircle(new SKPoint(width / 2, height / 2), innerRadius + (fullRadius - innerRadius)/ 2, paint);
+            Canvas.DrawCircle(new SKPoint(width / 2, height / 2), innerRadius + (fullRadius - innerRadius) / 2, paint);
         }
         else
         {

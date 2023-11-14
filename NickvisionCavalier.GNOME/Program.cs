@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using static NickvisionCavalier.Shared.Helpers.Gettext;
 
 namespace NickvisionCavalier.GNOME;
 
@@ -23,7 +22,7 @@ public partial class Program
     /// </summary>
     /// <param name="args">string[]</param>
     /// <returns>Return code from Adw.Application.Run()</returns>
-    public static int Main(string[] args) => new Program(args).Run();
+    public static int Main(string[] args) => new Program(args).Run(args);
 
     /// <summary>
     /// Constructs a Program
@@ -34,9 +33,7 @@ public partial class Program
         _mainWindow = null;
         _mainWindowController = new MainWindowController(args);
         _mainWindowController.AppInfo.Changelog =
-            @"* Added ability to set foreground image for Box modes
-              * Transparency can now be set both for background and foreground image
-              * Cavalier switched back to using PulseAudio by default. You can still switch audio backend to whatever is supported by CAVA using CAVALIER_INPUT_METHOD environment variable
+            @"* Updated to GNOME 45 runtime with latest libadwaita design
               * Updated translations (Thanks everyone on Weblate!)";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
@@ -66,11 +63,14 @@ public partial class Program
     /// Runs the program
     /// </summary>
     /// <returns>Return code from Adw.Application.Run()</returns>
-    public int Run()
+    public int Run(string[] args)
     {
         try
         {
-            return _application.RunWithSynchronizationContext();
+            var argv = new string[args.Length + 1];
+            argv[0] = "org.nickvision.cavalier";
+            args.CopyTo(argv, 1);
+            return _application.RunWithSynchronizationContext(argv);
         }
         catch (Exception ex)
         {

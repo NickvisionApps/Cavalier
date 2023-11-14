@@ -1,6 +1,7 @@
-using Nickvision.GirExt;
+using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Models;
 using System;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Controls;
 
@@ -9,10 +10,19 @@ namespace NickvisionCavalier.GNOME.Controls;
 /// </summary>
 public class ColorEventArgs : EventArgs
 {
+    /// <summary>
+    /// The type of the color
+    /// </summary>
     public ColorType Type { get; init; }
+    /// <summary>
+    /// The index of the color in the profile's list
+    /// </summary>
     public int Index { get; init; }
+    /// <summary>
+    /// The color as a string (#aarrggbb)
+    /// </summary>
     public string Color { get; init; }
-    
+
     /// <summary>
     /// Creates ColorEventArgs
     /// </summary>
@@ -40,7 +50,7 @@ public partial class ColorBox : Gtk.Box
     /// Occurs on color editing request
     /// </summary>
     public event EventHandler<ColorEventArgs>? OnEdit;
-    
+
     /// <summary>
     /// Creates color box
     /// </summary>
@@ -70,7 +80,7 @@ public partial class ColorBox : Gtk.Box
             }
         };
         var rgbaColor = $"#{color.Substring(3)}{color.Substring(1, 2)}";
-        GdkExt.RGBA.Parse(out var extNullColor, rgbaColor);
+        GdkHelpers.RGBA.Parse(out var extNullColor, rgbaColor);
         if (extNullColor != null)
         {
             var extColor = extNullColor.Value;

@@ -1,7 +1,6 @@
 using Nickvision.Aura;
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -14,7 +13,7 @@ public class CAVA : IDisposable
     private readonly string _configPath;
 
     public event EventHandler<float[]>? OutputReceived;
-    
+
     public CAVA()
     {
         _disposed = false;
@@ -107,14 +106,14 @@ public class CAVA : IDisposable
     private void ReadCAVAOutput()
     {
         var br = new BinaryReader(_proc.StandardOutput.BaseStream);
-        while(!_proc.HasExited)
+        while (!_proc.HasExited)
         {
             var sample = new float[Configuration.Current.BarPairs * 2];
             var len = (int)Configuration.Current.BarPairs * 4;
             var ba = br.ReadBytes(len);
             for (var i = 0; i < len; i += 2)
             {
-                sample[i/2] = BitConverter.ToUInt16(ba, i) / 65535.0f;
+                sample[i / 2] = BitConverter.ToUInt16(ba, i) / 65535.0f;
             }
             if (Configuration.Current.ReverseOrder)
             {

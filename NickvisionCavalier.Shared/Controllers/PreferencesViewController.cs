@@ -5,6 +5,7 @@ using NickvisionCavalier.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.Shared.Controllers;
 
@@ -311,52 +312,52 @@ public class PreferencesViewController
 
         set => Configuration.Current.InnerRadius = value;
     }
-    
+
     /// <summary>
     /// Rotation angle in radians in circle modes (0-2PI)
     /// </summary>
     public float Rotation
     {
         get => Configuration.Current.Rotation;
-        
+
         set => Configuration.Current.Rotation = value;
     }
-    
+
     /// <summary>
     /// Whether to reverse mirrored bars
     /// </summary>
     public bool ReverseMirror
     {
         get => Configuration.Current.ReverseMirror;
-        
+
         set => Configuration.Current.ReverseMirror = value;
     }
-    
+
     /// <summary>
     /// List of color profiles
     /// </summary>
     public List<ColorProfile> ColorProfiles => Configuration.Current.ColorProfiles;
-    
+
     /// <summary>
     /// Active color profile index
     /// </summary>
     public int ActiveProfile
     {
         get => Configuration.Current.ActiveProfile;
-        
+
         set => Configuration.Current.ActiveProfile = value;
     }
-    
+
     /// <summary>
     /// Index of a background image to load (-1 to not load anything)
     /// </summary>
     public int BgImageIndex
     {
         get => Configuration.Current.BgImageIndex;
-        
+
         set => Configuration.Current.BgImageIndex = value;
     }
-    
+
     /// <summary>
     /// Background image scale (0.1-1.0, 1.0 - fill the window)
     /// </summary>
@@ -406,7 +407,7 @@ public class PreferencesViewController
 
         set => Configuration.Current.FgImageAlpha = value;
     }
-    
+
     /// <summary>
     /// Whether to replace Spine mode with Hearts mode (easter egg)
     /// </summary>
@@ -414,10 +415,10 @@ public class PreferencesViewController
     public bool Hearts
     {
         get => Configuration.Current.Hearts;
-        
+
         private set => Configuration.Current.Hearts = value;
     }
-    
+
     /// <summary>
     /// Process command-line arguments passed when starting the app or from other instances
     /// </summary>

@@ -1,4 +1,5 @@
 using NickvisionCavalier.GNOME.Helpers;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Controls;
 

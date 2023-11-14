@@ -1,4 +1,5 @@
 using System;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Controls;
 
@@ -10,7 +11,7 @@ public class ProfileBox : Gtk.Box
     public int Index { get; set; }
 
     public event EventHandler<int>? OnDelete;
-    
+
     /// <summary>
     /// Creates ProfileBox
     /// </summary>

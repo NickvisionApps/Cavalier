@@ -8,7 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Timers;
-using static NickvisionCavalier.Shared.Helpers.Gettext;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
 
@@ -107,7 +107,7 @@ public class MainWindow : Adw.ApplicationWindow
         var actFullscreen = Gio.SimpleAction.New("fullscreen", null);
         actFullscreen.OnActivate += (sender, e) =>
         {
-            if(Fullscreened)
+            if (Fullscreened)
             {
                 Unfullscreen();
             }

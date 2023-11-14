@@ -131,14 +131,8 @@ Adw.PreferencesWindow _root {
         title: _("Mirror");
       }
 
-      Adw.ActionRow _reverseMirrorRow {
+      Adw.SwitchRow _reverseMirrorRow {
         title: _("Reverse mirror");
-        activatable-widget: _reverseMirrorSwitch;
-
-        [suffix]
-        Gtk.Switch _reverseMirrorSwitch {
-          valign: center;
-        }
       }
     }
 
@@ -234,21 +228,15 @@ Adw.PreferencesWindow _root {
         }
       }
 
-      Adw.ActionRow {
+      Adw.SwitchRow _fillingRow {
         title: _("Filling");
         subtitle: _("Whether shapes should be filled or outlined.");
-        activatable-widget: _fillingSwitch;
-
-        [suffix]
-        Gtk.Switch _fillingSwitch {
-          valign: center;
-        }
       }
 
       Adw.ActionRow _thicknessRow {
         title: _("Thickness of lines");
         subtitle: _("Thickness of lines when filling is off (in pixels).");
-        sensitive: bind _fillingSwitch.active inverted;
+        sensitive: bind _fillingRow.active inverted;
 
         [suffix]
         Gtk.Scale _thicknessScale {
@@ -266,48 +254,24 @@ Adw.PreferencesWindow _root {
     }
 
     Adw.PreferencesGroup {
-      Adw.ActionRow {
+      Adw.SwitchRow _borderlessRow {
         title: _("Borderless window");
         subtitle: _("Whether to disable window shadow and borders.");
-        activatable-widget: _borderlessSwitch;
-
-        [suffix]
-        Gtk.Switch _borderlessSwitch {
-          valign: center;
-        }
       }
 
-      Adw.ActionRow {
+      Adw.SwitchRow _sharpCornersRow {
         title: _("Sharp corners");
         subtitle: _("Whether the main window corners should be sharp.");
-        activatable-widget: _sharpCornersSwitch;
-
-        [suffix]
-        Gtk.Switch _sharpCornersSwitch {
-          valign: center;
-        }
       }
 
-      Adw.ActionRow {
+      Adw.SwitchRow _windowControlsRow {
         title: _("Window controls");
         subtitle: _("Whether to show window control buttons.");
-        activatable-widget: _windowControlsSwitch;
-
-        [suffix]
-        Gtk.Switch _windowControlsSwitch {
-          valign: center;
-        }
       }
 
-      Adw.ActionRow {
+      Adw.SwitchRow _autohideHeaderRow {
         title: _("Autohide headerbar");
         subtitle: _("Whether to hide headerbar when main window is not focused.");
-        activatable-widget: _autohideHeaderSwitch;
-
-        [suffix]
-        Gtk.Switch _autohideHeaderSwitch {
-          valign: center;
-        }
       }
     }
   }
@@ -348,15 +312,9 @@ Adw.PreferencesWindow _root {
         }
       }
 
-      Adw.ActionRow {
+      Adw.SwitchRow _autosensRow {
         title: _("Automatic sensitivity");
         subtitle: _("Attempt to decrease sensitivity if the bars peak.");
-        activatable-widget: _autosensSwitch;
-
-        [suffix]
-        Gtk.Switch _autosensSwitch {
-          valign: center;
-        }
       }
 
       Adw.ActionRow {
@@ -395,15 +353,9 @@ Adw.PreferencesWindow _root {
         }
       }
 
-      Adw.ActionRow {
+      Adw.SwitchRow _monstercatRow {
         title: _("Monstercat smoothing");
         subtitle: _("Whether to enable the so-called «Monstercat smoothing».");
-        activatable-widget: _monstercatSwitch;
-
-        [suffix]
-        Gtk.Switch _monstercatSwitch {
-          valign: center;
-        }
       }
 
       Adw.ActionRow {
@@ -424,15 +376,9 @@ Adw.PreferencesWindow _root {
         }
       }
 
-      Adw.ActionRow {
+      Adw.SwitchRow _reverseRow {
         title: _("Reverse order");
         subtitle: _("Whether to reverse order of bars for each channel.");
-        activatable-widget: _reverseSwitch;
-
-        [suffix]
-        Gtk.Switch _reverseSwitch {
-          valign: center;
-        }
       }
     }
   }

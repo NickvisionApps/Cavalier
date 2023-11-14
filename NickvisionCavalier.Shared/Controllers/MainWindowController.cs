@@ -1,7 +1,7 @@
 using Nickvision.Aura;
 using NickvisionCavalier.Shared.Models;
 using System;
-using static NickvisionCavalier.Shared.Helpers.Gettext;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.Shared.Controllers;
 
@@ -58,10 +58,11 @@ public class MainWindowController
     public MainWindowController(string[] args)
     {
         Aura.Init("org.nickvision.cavalier", "Nickvision Cavalier");
+        AppInfo.EnglishShortName = "Cavalier";
         Aura.Active.SetConfig<Configuration>("config");
         AppInfo.ShortName = _("Cavalier");
         AppInfo.Description = _("Visualize audio with CAVA");
-        AppInfo.Version = "2023.9.0";
+        AppInfo.Version = "2023.11.0-next";
         AppInfo.SourceRepo = new Uri("https://github.com/NickvisionApps/Cavalier");
         AppInfo.IssueTracker = new Uri("https://github.com/NickvisionApps/Cavalier/issues/new");
         AppInfo.SupportUrl = new Uri("https://github.com/NickvisionApps/Cavalier/discussions");

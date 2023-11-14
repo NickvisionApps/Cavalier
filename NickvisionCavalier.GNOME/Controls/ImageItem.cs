@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Controls;
 
@@ -12,12 +13,12 @@ public class ImageItem : Gtk.Overlay, IDisposable
     private readonly Gtk.Button _removeButton;
     private Gdk.Texture? _texture;
     private bool _disposed;
-    
+
     /// <summary>
     /// Occurs when remove button was clicked
     /// </summary>
     public event Action<int>? OnRemoveImage;
-    
+
     /// <summary>
     /// Construct ImageItem
     /// </summary>

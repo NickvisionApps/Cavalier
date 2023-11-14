@@ -6,8 +6,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using static Nickvision.GirExt.GtkExt;
-using static NickvisionCavalier.Shared.Helpers.Gettext;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
 
@@ -33,8 +32,7 @@ public class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Scale _radiusScale;
     [Gtk.Connect] private readonly Gtk.Scale _rotationScale;
     [Gtk.Connect] private readonly Adw.ComboRow _mirrorRow;
-    [Gtk.Connect] private readonly Adw.ActionRow _reverseMirrorRow;
-    [Gtk.Connect] private readonly Gtk.Switch _reverseMirrorSwitch;
+    [Gtk.Connect] private readonly Adw.SwitchRow _reverseMirrorRow;
     [Gtk.Connect] private readonly Gtk.Scale _marginScale;
     [Gtk.Connect] private readonly Gtk.Scale _areaOffsetXScale;
     [Gtk.Connect] private readonly Gtk.Scale _areaOffsetYScale;
@@ -43,22 +41,22 @@ public class PreferencesDialog : Adw.PreferencesWindow
     [Gtk.Connect] private readonly Gtk.Scale _offsetScale;
     [Gtk.Connect] private readonly Adw.ActionRow _roundnessRow;
     [Gtk.Connect] private readonly Gtk.Scale _roundnessScale;
-    [Gtk.Connect] private readonly Gtk.Switch _fillingSwitch;
+    [Gtk.Connect] private readonly Adw.SwitchRow _fillingRow;
     [Gtk.Connect] private readonly Adw.ActionRow _thicknessRow;
     [Gtk.Connect] private readonly Gtk.Scale _thicknessScale;
-    [Gtk.Connect] private readonly Gtk.Switch _borderlessSwitch;
-    [Gtk.Connect] private readonly Gtk.Switch _sharpCornersSwitch;
-    [Gtk.Connect] private readonly Gtk.Switch _windowControlsSwitch;
-    [Gtk.Connect] private readonly Gtk.Switch _autohideHeaderSwitch;
+    [Gtk.Connect] private readonly Adw.SwitchRow _borderlessRow;
+    [Gtk.Connect] private readonly Adw.SwitchRow _sharpCornersRow;
+    [Gtk.Connect] private readonly Adw.SwitchRow _windowControlsRow;
+    [Gtk.Connect] private readonly Adw.SwitchRow _autohideHeaderRow;
     [Gtk.Connect] private readonly Adw.ComboRow _framerateRow;
     [Gtk.Connect] private readonly Adw.EntryRow _customFramerateRow;
     [Gtk.Connect] private readonly Gtk.Scale _barsScale;
-    [Gtk.Connect] private readonly Gtk.Switch _autosensSwitch;
+    [Gtk.Connect] private readonly Adw.SwitchRow _autosensRow;
     [Gtk.Connect] private readonly Gtk.Scale _sensitivityScale;
     [Gtk.Connect] private readonly Gtk.ToggleButton _stereoButton;
-    [Gtk.Connect] private readonly Gtk.Switch _monstercatSwitch;
+    [Gtk.Connect] private readonly Adw.SwitchRow _monstercatRow;
     [Gtk.Connect] private readonly Gtk.Scale _noiseReductionScale;
-    [Gtk.Connect] private readonly Gtk.Switch _reverseSwitch;
+    [Gtk.Connect] private readonly Adw.SwitchRow _reverseRow;
     [Gtk.Connect] private readonly Gtk.ListBox _profilesList;
     [Gtk.Connect] private readonly Gtk.Button _addProfileButton;
     [Gtk.Connect] private readonly Gtk.ToggleButton _lightThemeButton;
@@ -76,7 +74,7 @@ public class PreferencesDialog : Adw.PreferencesWindow
     {
         _avoidCAVAReload = false;
         _removingImages = false;
-        _framerates = new []{ 30u, 60u, 90u, 120u, 144u };
+        _framerates = new[] { 30u, 60u, 90u, 120u, 144u };
         //Window Settings
         _controller = controller;
         SetIconName(_controller.ID);
@@ -235,7 +233,7 @@ public class PreferencesDialog : Adw.PreferencesWindow
         application.SetAccelsForAction("app.prev-mirror", new string[] { "<Shift>m" });
         //Toggle Reverse Mirror Action
         var actReverseMirror = Gio.SimpleAction.New("toggle-reverse-mirror", null);
-        actReverseMirror.OnActivate += (sender, e) => _reverseMirrorSwitch.SetActive(!_reverseMirrorSwitch.GetActive());
+        actReverseMirror.OnActivate += (sender, e) => _reverseMirrorRow.SetActive(!_reverseMirrorRow.GetActive());
         application.AddAction(actReverseMirror);
         application.SetAccelsForAction("app.toggle-reverse-mirror", new string[] { "v" });
         //Increase Area Margin Action
@@ -360,7 +358,7 @@ public class PreferencesDialog : Adw.PreferencesWindow
         application.SetAccelsForAction("app.dec-roundness", new string[] { "<Shift>r" });
         //Toggle Filling Action
         var actFill = Gio.SimpleAction.New("toggle-filling", null);
-        actFill.OnActivate += (sender, e) => _fillingSwitch.SetActive(!_fillingSwitch.GetActive());
+        actFill.OnActivate += (sender, e) => _fillingRow.SetActive(!_fillingRow.GetActive());
         application.AddAction(actFill);
         application.SetAccelsForAction("app.toggle-filling", new string[] { "f" });
         //Increase Lines Thickness Action
@@ -387,12 +385,12 @@ public class PreferencesDialog : Adw.PreferencesWindow
         application.SetAccelsForAction("app.dec-thickness", new string[] { "<Shift>l" });
         //Toggle Window Borders Action
         var actBorders = Gio.SimpleAction.New("toggle-borders", null);
-        actBorders.OnActivate += (sender, e) => _borderlessSwitch.SetActive(!_borderlessSwitch.GetActive());
+        actBorders.OnActivate += (sender, e) => _borderlessRow.SetActive(!_borderlessRow.GetActive());
         application.AddAction(actBorders);
         application.SetAccelsForAction("app.toggle-borders", new string[] { "W" });
         //Toggle Sharp Corners Action
         var actCorners = Gio.SimpleAction.New("toggle-corners", null);
-        actCorners.OnActivate += (sender, e) => _sharpCornersSwitch.SetActive(!_sharpCornersSwitch.GetActive());
+        actCorners.OnActivate += (sender, e) => _sharpCornersRow.SetActive(!_sharpCornersRow.GetActive());
         application.AddAction(actCorners);
         application.SetAccelsForAction("app.toggle-corners", new string[] { "S" });
         //Increase Bars Action
@@ -424,7 +422,7 @@ public class PreferencesDialog : Adw.PreferencesWindow
         application.SetAccelsForAction("app.toggle-stereo", new string[] { "c" });
         //Toggle Reverse Order Action
         var actReverse = Gio.SimpleAction.New("toggle-reverse", null);
-        actReverse.OnActivate += (sender, e) => _reverseSwitch.SetActive(!_reverseSwitch.GetActive());
+        actReverse.OnActivate += (sender, e) => _reverseRow.SetActive(!_reverseRow.GetActive());
         application.AddAction(actReverse);
         application.SetAccelsForAction("app.toggle-reverse", new string[] { "e" });
         //Next Color Profile Action
@@ -653,11 +651,11 @@ public class PreferencesDialog : Adw.PreferencesWindow
                 _reverseMirrorRow.SetVisible(_controller.Mirror != Mirror.Off);
             }
         };
-        _reverseMirrorSwitch.OnNotify += (sender, e) =>
+        _reverseMirrorRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.ReverseMirror = _reverseMirrorSwitch.GetActive();
+                _controller.ReverseMirror = _reverseMirrorRow.GetActive();
             }
         };
         _marginScale.OnValueChanged += (sender, e) =>
@@ -689,11 +687,11 @@ public class PreferencesDialog : Adw.PreferencesWindow
         {
             _controller.ItemsRoundness = (float)_roundnessScale.GetValue() / 100.0f;
         };
-        _fillingSwitch.OnNotify += (sender, e) =>
+        _fillingRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.Filling = _fillingSwitch.GetActive();
+                _controller.Filling = _fillingRow.GetActive();
             }
         };
         _thicknessScale.OnValueChanged += (sender, e) =>
@@ -701,35 +699,35 @@ public class PreferencesDialog : Adw.PreferencesWindow
             _controller.LinesThickness = (float)_thicknessScale.GetValue();
         };
         _thicknessRow.SetSensitive(!_controller.Filling);
-        _borderlessSwitch.OnNotify += (sender, e) =>
+        _borderlessRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.Borderless = _borderlessSwitch.GetActive();
+                _controller.Borderless = _borderlessRow.GetActive();
                 _controller.ChangeWindowSettings();
             }
         };
-        _sharpCornersSwitch.OnNotify += (sender, e) =>
+        _sharpCornersRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.SharpCorners = _sharpCornersSwitch.GetActive();
+                _controller.SharpCorners = _sharpCornersRow.GetActive();
                 _controller.ChangeWindowSettings();
             }
         };
-        _windowControlsSwitch.OnNotify += (sender, e) =>
+        _windowControlsRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.ShowControls = _windowControlsSwitch.GetActive();
+                _controller.ShowControls = _windowControlsRow.GetActive();
                 _controller.ChangeWindowSettings();
             }
         };
-        _autohideHeaderSwitch.OnNotify += (sender, e) =>
+        _autohideHeaderRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.AutohideHeader = _autohideHeaderSwitch.GetActive();
+                _controller.AutohideHeader = _autohideHeaderRow.GetActive();
                 _controller.ChangeWindowSettings();
             }
         };
@@ -786,11 +784,11 @@ public class PreferencesDialog : Adw.PreferencesWindow
                 _controller.ChangeCAVASettings();
             }
         };
-        _autosensSwitch.OnNotify += (sender, e) =>
+        _autosensRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.Autosens = _autosensSwitch.GetActive();
+                _controller.Autosens = _autosensRow.GetActive();
                 if (!_avoidCAVAReload)
                 {
                     _controller.ChangeCAVASettings();
@@ -822,11 +820,11 @@ public class PreferencesDialog : Adw.PreferencesWindow
                 _controller.ChangeCAVASettings();
             }
         };
-        _monstercatSwitch.OnNotify += (sender, e) =>
+        _monstercatRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.Monstercat = _monstercatSwitch.GetActive();
+                _controller.Monstercat = _monstercatRow.GetActive();
                 if (!_avoidCAVAReload)
                 {
                     _controller.ChangeCAVASettings();
@@ -843,11 +841,11 @@ public class PreferencesDialog : Adw.PreferencesWindow
                 _controller.ChangeCAVASettings();
             }
         };
-        _reverseSwitch.OnNotify += (sender, e) =>
+        _reverseRow.OnNotify += (sender, e) =>
         {
             if (e.Pspec.GetName() == "active")
             {
-                _controller.ReverseOrder = _reverseSwitch.GetActive();
+                _controller.ReverseOrder = _reverseRow.GetActive();
             }
         };
         _profilesList.OnRowSelected += (sender, e) =>
@@ -973,21 +971,21 @@ public class PreferencesDialog : Adw.PreferencesWindow
             }
         }
         _reverseMirrorRow.SetVisible(_controller.Mirror != Mirror.Off);
-        _reverseMirrorSwitch.SetActive(_controller.ReverseMirror);
+        _reverseMirrorRow.SetActive(_controller.ReverseMirror);
         _marginScale.SetValue((double)_controller.AreaMargin);
         _areaOffsetXScale.SetValue((double)_controller.AreaOffsetX);
         _areaOffsetYScale.SetValue((double)_controller.AreaOffsetY);
         _directionRow.SetSelected((uint)_controller.Direction);
         _offsetScale.SetValue(_controller.ItemsOffset * 100.0);
         _roundnessScale.SetValue(_controller.ItemsRoundness * 100.0);
-        _thicknessRow.SetSensitive(!_fillingSwitch.GetActive());
-        _fillingSwitch.SetActive(_controller.Filling);
+        _thicknessRow.SetSensitive(!_fillingRow.GetActive());
+        _fillingRow.SetActive(_controller.Filling);
         _thicknessScale.SetValue((double)_controller.LinesThickness);
-        _borderlessSwitch.SetActive(_controller.Borderless);
-        _sharpCornersSwitch.SetActive(_controller.SharpCorners);
-        _windowControlsSwitch.SetActive(_controller.ShowControls);
-        _autohideHeaderSwitch.SetActive(_controller.AutohideHeader);
-        _reverseSwitch.SetActive(_controller.ReverseOrder);
+        _borderlessRow.SetActive(_controller.Borderless);
+        _sharpCornersRow.SetActive(_controller.SharpCorners);
+        _windowControlsRow.SetActive(_controller.ShowControls);
+        _autohideHeaderRow.SetActive(_controller.AutohideHeader);
+        _reverseRow.SetActive(_controller.ReverseOrder);
         UpdateColorProfiles();
         _imagesFlowBox.SelectChild(_imagesFlowBox.GetChildAtIndex((_bgImgButton.GetActive() ? _controller.BgImageIndex : _controller.FgImageIndex) + 1) ?? _imagesFlowBox.GetChildAtIndex(0)!);
         _imgScaleSpin.SetValue(_bgImgButton.GetActive() ? _controller.BgImageScale : _controller.FgImageScale);
@@ -1015,10 +1013,10 @@ public class PreferencesDialog : Adw.PreferencesWindow
             _customFramerateRow.SetText(_controller.Framerate.ToString());
         }
         _barsScale.SetValue((int)_controller.BarPairs * 2);
-        _autosensSwitch.SetActive(_controller.Autosens);
+        _autosensRow.SetActive(_controller.Autosens);
         _sensitivityScale.SetValue((int)_controller.Sensitivity);
         _stereoButton.SetActive(_controller.Stereo);
-        _monstercatSwitch.SetActive(_controller.Monstercat);
+        _monstercatRow.SetActive(_controller.Monstercat);
         _noiseReductionScale.SetValue((double)_controller.NoiseReduction * 100);
         _avoidCAVAReload = false;
         _controller.ChangeCAVASettings();
