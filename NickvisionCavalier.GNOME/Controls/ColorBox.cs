@@ -1,6 +1,7 @@
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Models;
 using System;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Controls;
 

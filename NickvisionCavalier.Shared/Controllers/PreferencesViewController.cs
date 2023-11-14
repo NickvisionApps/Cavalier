@@ -1,7 +1,11 @@
+using CommandLine;
+using CommandLine.Text;
+using Nickvision.Aura;
 using NickvisionCavalier.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.Shared.Controllers;
 

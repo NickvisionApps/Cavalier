@@ -1,5 +1,7 @@
 using NickvisionCavalier.Shared.Models;
+using SkiaSharp;
 using System;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.Shared.Controllers;
 

@@ -1,6 +1,7 @@
 using System.IO;
 using System.Reflection;
 using System.Xml;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Helpers;
 

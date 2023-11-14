@@ -1,9 +1,11 @@
 using NickvisionCavalier.GNOME.Helpers;
 using NickvisionCavalier.Shared.Controllers;
+using SkiaSharp;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Timers;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Views;
 

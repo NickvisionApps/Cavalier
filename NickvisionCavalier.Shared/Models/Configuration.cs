@@ -1,3 +1,5 @@
+using Nickvision.Aura;
+using Nickvision.Aura.Configuration;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 

@@ -1,3 +1,5 @@
+using CommandLine;
+
 namespace NickvisionCavalier.Shared.Models;
 
 /// <summary>

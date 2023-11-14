@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.GNOME.Controls;
 

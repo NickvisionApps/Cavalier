@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using static Nickvision.Aura.Localization.Gettext;
 
 namespace NickvisionCavalier.Shared.Models;
 

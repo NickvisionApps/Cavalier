@@ -1,3 +1,5 @@
+using static Nickvision.Aura.Localization.Gettext;
+
 namespace NickvisionCavalier.GNOME.Controls;
 
 /// <summary>
