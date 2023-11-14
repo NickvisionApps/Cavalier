@@ -47,7 +47,7 @@ parts:
     after: [ cava ]
     # See 'snapcraft plugins'
     plugin: nil
-    source: https://github.com/NickvisionApps/Cavalier.git
+    source: .
     #source-tag: ''
     source-depth: 1
     build-environment:
