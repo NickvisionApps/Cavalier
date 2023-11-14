@@ -47,13 +47,11 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2023-09-22" version="2023.9.0">
+    <release date="2023-09-22" version="2023.11.0-next">
       <description translatable="no">
-        <p>Changes compared to 2023.8.1:</p>
+        <p>Changes compared to 2023.9.0:</p>
         <ul>
-          <li>Added ability to set foreground image for Box modes</li>
-          <li>Transparency can now be set both for background and foreground image</li>
-          <li>Cavalier switched back to using PulseAudio by default. You can still switch audio backend to whatever is supported by CAVA using CAVALIER_INPUT_METHOD environment variable</li>
+          <li>Updated to GNOME 45 runtime with latest libadwaita design</li>
           <li>Updated translations (Thanks everyone on Weblate!)</li>
         </ul>
       </description>
