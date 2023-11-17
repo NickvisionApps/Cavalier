@@ -51,8 +51,7 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/karlstav/cava.git",
-                    "tag" : "0.9.1",
-                    "commit" : "81211e9e16302312ee4322a99840c110bce0e13d"
+                    "tag" : "0.9.1"
                 }
             ]
         },
@@ -66,8 +65,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-                    "tag": "v0.10.0",
-                    "commit": "2a39a16391122af2f3d812e478c1c1398c98b972"
+                    "tag": "v0.10.0"
                 }
             ]
         },
