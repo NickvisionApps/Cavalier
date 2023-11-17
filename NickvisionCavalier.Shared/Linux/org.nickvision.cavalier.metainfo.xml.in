@@ -52,6 +52,7 @@
         <p>Changes compared to 2023.9.0:</p>
         <ul>
           <li>Updated to GNOME 45 runtime with latest libadwaita design</li>
+          <li>Updated to .NET 8.0</li>
           <li>Updated translations (Thanks everyone on Weblate!)</li>
         </ul>
       </description>
