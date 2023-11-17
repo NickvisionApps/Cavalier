@@ -47,14 +47,11 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2023-09-22" version="2023.11.0-next">
+    <release date="2023-11-17" version="2023.11.0">
       <description translatable="no">
-        <p>Changes compared to 2023.9.0:</p>
-        <ul>
-          <li>Updated to GNOME 45 runtime with latest libadwaita design</li>
-          <li>Updated to .NET 8.0</li>
-          <li>Updated translations (Thanks everyone on Weblate!)</li>
-        </ul>
+        <p>- Updated to GNOME 45 runtime with latest libadwaita design</p>
+        <p>- Updated to .NET 8.0</p>
+        <p>- Updated translations (Thanks everyone on Weblate!)</p>
       </description>
     </release>
   </releases>
