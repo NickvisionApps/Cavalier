@@ -1,8 +1,8 @@
-name: cavalier # you probably want to 'snapcraft register <name>'
-base: core22 # the base snap is the execution environment for this snap
+name: cavalier
+base: core22
 adopt-info: cavalier
-grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+grade: stable
+confinement: strict
 #compression: lzo
 architectures:
   - build-on: amd64
@@ -53,7 +53,9 @@ parts:
     build-environment:
       - LDFLAGS: -L$CRAFT_STAGE/usr/lib
       - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/pkgconfig:$PKG_CONFIG_PATH
-      - DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      - DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      - DOTNET_ROOT: $HOME/.dotnet
+      - PATH: $PATH:$HOME/.dotnet:$HOME/.dotnet/tools
     build-packages:
       - brotli
       - blueprint-compiler
@@ -66,9 +68,7 @@ parts:
       ./dotnet-install.sh --channel 8.0
       patch -p1 < $CRAFT_PROJECT_DIR/snap/cavalier.patch
     override-build: |
-      set -eux
-      export DOTNET_ROOT=$HOME/.dotnet
-      export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+      craftctl default
       cd $CRAFT_PART_SRC
       dotnet tool restore
       dotnet cake --target=Publish --prefix=/snap/cavalier/current/usr --ui=gnome --self-contained
