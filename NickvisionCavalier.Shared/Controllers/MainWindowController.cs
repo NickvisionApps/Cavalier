@@ -59,7 +59,6 @@ public class MainWindowController
     {
         Aura.Init("org.nickvision.cavalier", "Nickvision Cavalier");
         AppInfo.EnglishShortName = "Cavalier";
-        Aura.Active.SetConfig<Configuration>("config");
         AppInfo.ShortName = _("Cavalier");
         AppInfo.Description = _("Visualize audio with CAVA");
         AppInfo.Version = "2023.11.0";
@@ -107,6 +106,6 @@ public class MainWindowController
         Configuration.Current.WindowWidth = width;
         Configuration.Current.WindowHeight = height;
         Configuration.Current.WindowMaximized = maximized;
-        Aura.Active.SaveConfig("config");
+        Configuration.Current.Save();
     }
 }

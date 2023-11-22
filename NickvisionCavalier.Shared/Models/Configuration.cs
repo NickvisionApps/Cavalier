@@ -1,5 +1,4 @@
 using Nickvision.Aura;
-using Nickvision.Aura.Configuration;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -209,7 +208,7 @@ public class Configuration : ConfigurationBase
     {
         get
         {
-            var obj = (Configuration)Aura.Active.ConfigFiles["config"];
+            var obj = Aura.Active.GetConfig<Configuration>("config");
             // Ensure that we have at least 1 color profile
             if (obj.ColorProfiles.Count == 0)
             {

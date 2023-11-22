@@ -204,7 +204,7 @@ public class MainWindow : Adw.ApplicationWindow
     private bool OnClose(Gtk.Window sender, EventArgs e)
     {
         _controller.SaveWindowSize((uint)DefaultWidth, (uint)DefaultHeight, IsMaximized());
-        _preferencesController.Save(); // Save configuration in case preferences dialog is opened
+        _preferencesController.SaveConfiguration(); // Save configuration in case preferences dialog is opened
         _drawingView.Dispose();
         return false;
     }

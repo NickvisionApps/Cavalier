@@ -553,7 +553,7 @@ public class PreferencesDialog : Adw.PreferencesWindow
         builder.Connect(this);
         OnCloseRequest += (sender, e) =>
         {
-            _controller.Save();
+            _controller.SaveConfiguration();
             return false;
         };
         UpdateImagesList();

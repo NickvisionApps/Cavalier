@@ -615,7 +615,7 @@ public class PreferencesViewController
     /// <summary>
     /// Saves the configuration to disk
     /// </summary>
-    public void Save() => Aura.Active.SaveConfig("config");
+    public void SaveConfiguration() => Configuration.Current.Save();
 
     /// <summary>
     /// Occurs when a window's setting has changed
