@@ -38,7 +38,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how can you help the proje
 
 # Dependencies
 - [.NET 8](https://dotnet.microsoft.com/en-us/)
-- [CAVA](https://github.com/karlstav/cava/) >= 0.9.0
+- [CAVA](https://github.com/karlstav/cava/) >= 0.9.1
 
 # Code of Conduct
 

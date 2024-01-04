@@ -47,10 +47,9 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2023-11-17" version="2023.11.0">
+    <release version="2024.1.0-next" date="2024-01-01">
       <description translatable="no">
-        <p>- Updated to GNOME 45 runtime with latest libadwaita design</p>
-        <p>- Updated to .NET 8.0</p>
+        <p>- The wave box drawing mode now draws smoother bezier curves (Thanks @OggyP)</p>
         <p>- Updated translations (Thanks everyone on Weblate!)</p>
       </description>
     </release>
