@@ -33,8 +33,7 @@ public partial class Program
         _mainWindow = null;
         _mainWindowController = new MainWindowController(args);
         _mainWindowController.AppInfo.Changelog =
-            @"* Updated to GNOME 45 runtime with latest libadwaita design
-              * Updated to .NET 8.0
+            @"* The wave box drawing mode now draws smoother bezier curves (Thanks @OggyP)
               * Updated translations (Thanks everyone on Weblate!)";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))
