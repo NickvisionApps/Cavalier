@@ -47,7 +47,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release version="2024.1.0-next" date="2024-01-01">
+    <release version="2024.1.0" date="2024-01-04">
       <description translatable="no">
         <p>- The wave box drawing mode now draws smoother bezier curves (Thanks @OggyP)</p>
         <p>- Users can now specify `--fg aarrggbb` or `--bg aarrggbb` command line arguments to change the foreground and background color of the running Cavalier instance respectively</p>
