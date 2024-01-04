@@ -34,6 +34,7 @@ public partial class Program
         _mainWindowController = new MainWindowController(args);
         _mainWindowController.AppInfo.Changelog =
             @"* The wave box drawing mode now draws smoother bezier curves (Thanks @OggyP)
+              * Users can now specify `--fg aarrggbb` or `--bg aarrggbb` command line arguments to change the foreground and background color of the running Cavalier instance respectively
               * Updated translations (Thanks everyone on Weblate!)";
         _application.OnActivate += OnActivate;
         if (File.Exists(Path.GetFullPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)) + "/org.nickvision.cavalier.gresource"))

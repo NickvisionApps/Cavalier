@@ -1,5 +1,6 @@
 using CommandLine;
 using CommandLine.Text;
+using Markdig.Helpers;
 using Nickvision.Aura;
 using NickvisionCavalier.Shared.Models;
 using System;
@@ -532,6 +533,22 @@ public class PreferencesViewController
                     updateCavalier = true;
                 }
             }
+            if (!string.IsNullOrEmpty(o.BgColor) && (o.BgColor!.Length == 6 || o.BgColor!.Length == 8))
+            {
+                if(o.BgColor.Length == 6)
+                {
+                    o.BgColor = $"ff{o.BgColor}";
+                }
+                foreach (var c in o.BgColor)
+                {
+                    if (!c.IsDigit() && c < 'a' && c > 'f') //hex can be any digit or a-f
+                    {
+                        return;
+                    }
+                }
+                EditColor(ColorType.Background, 0, $"#{o.BgColor}");
+                updateCavalier = true;
+            }
             if (o.BgImageIndex.HasValue)
             {
                 if (o.BgImageIndex.Value > -1 && o.BgImageIndex.Value <= ImagesList.Count)
@@ -548,6 +565,22 @@ public class PreferencesViewController
             if (o.BgImageAlpha.HasValue)
             {
                 BgImageAlpha = Math.Max(0.1f, Math.Min(o.BgImageAlpha.Value / 100f, 1f));
+                updateCavalier = true;
+            }
+            if (!string.IsNullOrEmpty(o.FgColor) && (o.FgColor!.Length == 6 || o.FgColor!.Length == 8))
+            {
+                if (o.FgColor.Length == 6)
+                {
+                    o.FgColor = $"ff{o.FgColor}";
+                }
+                foreach (var c in o.FgColor) //hex can be any digit or a-f
+                {
+                    if (!c.IsDigit() && (c < 'a' || c > 'f'))
+                    {
+                        return;
+                    }
+                }
+                EditColor(ColorType.Foreground, 0, $"#{o.FgColor}");
                 updateCavalier = true;
             }
             if (o.FgImageIndex.HasValue)

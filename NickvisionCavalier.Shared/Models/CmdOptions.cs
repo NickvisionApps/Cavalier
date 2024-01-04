@@ -103,6 +103,11 @@ public class CmdOptions
     [Option('p', "profile", Required = false, HelpText = "Zero-based index of profile to activate")]
     public uint? ActiveProfile { get; set; }
     /// <summary>
+    /// Active background color
+    /// </summary>
+    [Option("bg", Required = false, HelpText = "Background color, hex format: aarrbbgg or rrbbgg")]
+    public string? BgColor { get; set; }
+    /// <summary>
     /// Index of a background image to load (0 to not load anything)
     /// </summary>
     [Option("bg-index", Required = false, HelpText = "Index of background image to draw (0 for no image)")]
@@ -118,14 +123,19 @@ public class CmdOptions
     [Option("bg-alpha", Required = false, HelpText = "Background image alpha in percent (10-100)")]
     public uint? BgImageAlpha { get; set; }
     /// <summary>
-    /// Index of a background image to load (0 to not load anything)
+    /// Active forground color
+    /// </summary>
+    [Option("fg", Required = false, HelpText = "Foreground color, hex format: aarrbbgg or rrbbgg")]
+    public string? FgColor { get; set; }
+    /// <summary>
+    /// Index of a foreground image to load (0 to not load anything)
     /// </summary>
     [Option("fg-index", Required = false, HelpText = "Index of foreground image to draw (0 for no image)")]
     public int? FgImageIndex { get; set; }
     /// <summary>
-    /// Background image scale (10-100, 100 - fill the window)
+    /// Foreground image scale (10-100, 100 - fill the window)
     /// </summary>
-    [Option("fg-scale", Required = false, HelpText = "Background image scale in percent (10-100)")]
+    [Option("fg-scale", Required = false, HelpText = "Foreground image scale in percent (10-100)")]
     public uint? FgImageScale { get; set; }
     /// <summary>
     /// Foreground image transparency (10-100, 100 - fully opaque)

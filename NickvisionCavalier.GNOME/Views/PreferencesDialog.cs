@@ -1107,18 +1107,14 @@ public class PreferencesDialog : Adw.PreferencesWindow
         }
         for (var i = 0; i < _controller.ColorProfiles[_controller.ActiveProfile].FgColors.Count; i++)
         {
-            var colorButton = new ColorBox(
-                _controller.ColorProfiles[_controller.ActiveProfile].FgColors[i],
-                ColorType.Foreground, i, i != 0);
+            var colorButton = new ColorBox(_controller.ColorProfiles[_controller.ActiveProfile].FgColors[i], ColorType.Foreground, i, i != 0);
             colorButton.OnEdit += OnEditColor;
             colorButton.OnDelete += OnDeleteColor;
             _colorsGrid.Attach(colorButton, 0, i + 1, 1, 1);
         }
         for (var i = 0; i < _controller.ColorProfiles[_controller.ActiveProfile].BgColors.Count; i++)
         {
-            var colorButton = new ColorBox(
-                _controller.ColorProfiles[_controller.ActiveProfile].BgColors[i],
-                ColorType.Background, i, i != 0);
+            var colorButton = new ColorBox(_controller.ColorProfiles[_controller.ActiveProfile].BgColors[i], ColorType.Background, i, i != 0);
             colorButton.OnEdit += OnEditColor;
             colorButton.OnDelete += OnDeleteColor;
             _colorsGrid.Attach(colorButton, 1, i + 1, 1, 1);
