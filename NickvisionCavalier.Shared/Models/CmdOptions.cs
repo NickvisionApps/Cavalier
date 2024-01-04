@@ -123,7 +123,7 @@ public class CmdOptions
     [Option("bg-alpha", Required = false, HelpText = "Background image alpha in percent (10-100)")]
     public uint? BgImageAlpha { get; set; }
     /// <summary>
-    /// Active forground color
+    /// Active foreground color
     /// </summary>
     [Option("fg", Required = false, HelpText = "Foreground color, hex format: aarrbbgg or rrbbgg")]
     public string? FgColor { get; set; }
