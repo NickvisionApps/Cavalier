@@ -434,7 +434,7 @@ public class Renderer
         var step = (direction < DrawingDirection.LeftRight ? width : height) / (sample.Length - 1);
         var path = new SKPath();
         var flipImage = false;
-        var pointsArray = new Tuple<float, float>[sample.Length];
+        var pointsArray = new (float x, float y)[sample.Length];
         var gradientsList = new float[sample.Length];
         switch (direction)
         {
@@ -443,7 +443,7 @@ public class Renderer
                 // Create a list of point of where the the curve must pass through
                 for (var i = 0; i < sample.Length; i++)
                 {
-                    pointsArray[i] = Tuple.Create(step * i, height * (1 - sample[i]));
+                    pointsArray[i] = (step * i, height * (1 - sample[i]));
                 }
                 // Calculate gradient between the two neighbouring points for every point
                 for (var i = 0; i < pointsArray.Length; i++)
@@ -452,27 +452,22 @@ public class Renderer
                     // If there isn't one, use the current point
                     var previousPoint = pointsArray[Math.Max(i - 1, 0)];
                     var nextPoint = pointsArray[Math.Min(i + 1, pointsArray.Length - 1)];
+                    var gradient = nextPoint.y - previousPoint.y;
                     // If using the current point (when at the edges)
                     // then the run in rise/run = 1, otherwise a two step run exists
-                    if (i == 0 || i == pointsArray.Length - 1)
-                    {
-                        gradientsList[i] = nextPoint.Item2 - previousPoint.Item2;
-                    }
-                    else
-                    {
-                        gradientsList[i] = (nextPoint.Item2 - previousPoint.Item2) / 2;
-                    }
+                    gradientsList[i] = i == 0 || i == pointsArray.Length - 1 ? gradient : gradient / 2;
                 }
-                path.MoveTo(x + pointsArray[0].Item1, y + FlipCoord(flipImage, height, pointsArray[0].Item2) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
+                var yOffset = y + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
+                path.MoveTo(x + pointsArray[0].x, yOffset + FlipCoord(flipImage, height, pointsArray[0].y));
                 for (var i = 0; i < pointsArray.Length - 1; i++)
                 {
                     path.CubicTo(
-                        x + pointsArray[i].Item1 + step * 0.5f,
-                        y + FlipCoord(flipImage, height, pointsArray[i].Item2 + gradientsList[i] * 0.5f) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                        x + pointsArray[i + 1].Item1 + step * -0.5f,
-                        y + FlipCoord(flipImage, height, pointsArray[i + 1].Item2 + gradientsList[i + 1] * -0.5f) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                        x + pointsArray[i + 1].Item1,
-                        y + FlipCoord(flipImage, height, pointsArray[i + 1].Item2) + (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2));
+                        x + pointsArray[i].x + step * 0.5f,
+                        yOffset + FlipCoord(flipImage, height, pointsArray[i].y + gradientsList[i] * 0.5f),
+                        x + pointsArray[i + 1].x + step * -0.5f,
+                        yOffset + FlipCoord(flipImage, height, pointsArray[i + 1].y + gradientsList[i + 1] * -0.5f),
+                        x + pointsArray[i + 1].x,
+                        yOffset + FlipCoord(flipImage, height, pointsArray[i + 1].y));
                 }
                 if (Configuration.Current.Filling)
                 {
@@ -485,31 +480,26 @@ public class Renderer
                 flipImage = direction == DrawingDirection.RightLeft;
                 for (var i = 0; i < sample.Length; i++)
                 {
-                    pointsArray[i] = Tuple.Create(width * sample[i], step * i);
+                    pointsArray[i] = (width * sample[i], step * i);
                 }
                 for (var i = 0; i < pointsArray.Length; i++)
                 {
                     var previousPoint = pointsArray[Math.Max(i - 1, 0)];
                     var nextPoint = pointsArray[Math.Min(i + 1, pointsArray.Length - 1)];
-                    if (i == 0 || i == pointsArray.Length - 1)
-                    {
-                        gradientsList[i] = nextPoint.Item1 - previousPoint.Item1;
-                    }
-                    else
-                    {
-                        gradientsList[i] = (nextPoint.Item1 - previousPoint.Item1) / 2;
-                    }
+                    var gradient = nextPoint.x - previousPoint.x;
+                    gradientsList[i] = i == 0 || i == pointsArray.Length - 1 ? gradient : gradient / 2;
                 }
-                path.MoveTo(x + FlipCoord(flipImage, width, pointsArray[0].Item1) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2), y + pointsArray[0].Item2);
+                var xOffset = x - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2);
+                path.MoveTo(xOffset + FlipCoord(flipImage, width, pointsArray[0].x), y + pointsArray[0].y);
                 for (var i = 0; i < pointsArray.Length - 1; i++)
                 {
                     path.CubicTo(
-                        x + FlipCoord(flipImage, width, pointsArray[i].Item1 + gradientsList[i] * 0.5f) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                        y + pointsArray[i].Item2 + step * 0.5f,
-                        x + FlipCoord(flipImage, width, pointsArray[i + 1].Item1 + gradientsList[i + 1] * -0.5f) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                        y + pointsArray[i + 1].Item2 + step * -0.5f,
-                        x + FlipCoord(flipImage, width, pointsArray[i + 1].Item1) - (Configuration.Current.Filling ? 0 : Configuration.Current.LinesThickness / 2),
-                        y + pointsArray[i + 1].Item2);
+                        xOffset + FlipCoord(flipImage, width, pointsArray[i].x + gradientsList[i] * 0.5f),
+                        y + pointsArray[i].y + step * 0.5f,
+                        xOffset + FlipCoord(flipImage, width, pointsArray[i + 1].x + gradientsList[i + 1] * -0.5f),
+                        y + pointsArray[i + 1].y + step * -0.5f,
+                        xOffset + FlipCoord(flipImage, width, pointsArray[i + 1].x),
+                        y + pointsArray[i + 1].y);
                 }
                 if (Configuration.Current.Filling)
                 {
