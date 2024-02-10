@@ -1,42 +1,42 @@
-# German translation for the cavalier's package
-# Copyright (C) 2022 Fyodor Sobolev
-# This file is distributed under the same license as the cavalier's package.
-# gregorni <gregorniehl@web.de>, 2022.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cavalier\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: 2024-02-07 20:01+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/"
-"nickvision-cavalier/app/de/>\n"
-"Language: de\n"
+"PO-Revision-Date: 2024-02-08 23:55+0000\n"
+"Last-Translator: Nitin Khalia <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/hi/>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.4-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1207
 msgid "Add"
-msgstr "Hinzufügen"
+msgstr "जोड़ें"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:23
 msgid "Add New Profile"
-msgstr "Neues Profil hinzufügen"
+msgstr "नई प्रोफ़ाइल जोड़ें"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1078
-#, fuzzy, csharp-format
+#, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
-msgstr "Soll dieses Profil wirklich entfernt werden?"
+msgstr "क्या आप वाकई प्रोफ़ाइल \"{0}\" को हटाना चाहते हैं?"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:39
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1080
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr "रद्द करें"
 
 #: ../../../Controllers/MainWindowController.cs:61
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
@@ -46,328 +46,328 @@ msgstr "Cavalier"
 
 #: ../../../Controllers/MainWindowController.cs:70
 msgid "Contributors on GitHub ❤️"
-msgstr "Mitwirkende auf GitHub ❤️"
+msgstr "GitHub पर योगदानकर्ता ❤️"
 
 #: ../../../Controllers/MainWindowController.cs:72
 msgid "David Lapshin"
-msgstr "David Lapshin"
+msgstr "डेविड लापशिन"
 
 #: ../../../Models/ColorProfile.cs:33
 msgid "Default"
-msgstr "Standard"
+msgstr "डिफ़ॉल्ट"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1083
 msgid "Delete"
-msgstr "Löschen"
+msgstr "हटाएं"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1078
 msgid "Delete Profile"
-msgstr "Profil löschen"
+msgstr "प्रोफ़ाइल हटाएं"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:810
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:957
 msgid "Full"
-msgstr "Vollständig"
+msgstr "भरा हुआ"
 
 #: ../../../Controllers/MainWindowController.cs:68
 #: ../../../Controllers/MainWindowController.cs:71
 msgid "Fyodor Sobolev"
-msgstr "Fyodor Sobolev"
+msgstr "फेडर सोबोलेव"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:277
 msgid "GitHub Repo"
-msgstr "GitHub-Repo"
+msgstr "GitHub रेपो"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:994
 msgid "Hearts"
-msgstr "Herzen"
+msgstr "दिल"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1209
 msgid "JPEG and PNG images"
-msgstr "JPEG und PNG Bilder"
+msgstr "JPEG और PNG छवियां"
 
 #: ../../../Controllers/MainWindowController.cs:67
 msgid "Matrix Chat"
-msgstr "Matrix-Chat"
+msgstr "Matrix चैट"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:23
 msgid "New color profile will be a copy of the current active profile."
-msgstr "Neues Farbprofil wird eine Kopie vom aktuellen Profil sein."
+msgstr "नई रंगीन प्रोफ़ाइल वर्तमान सक्रिय प्रोफ़ाइल की एक प्रति होगी।"
 
 #: ../../../Controllers/MainWindowController.cs:69
 msgid "Nicholas Logozzo"
-msgstr "Nicholas Logozzo"
+msgstr "निकोलस लोगोज़ो"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:810
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:815
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:957
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:962
 msgid "Off"
-msgstr "Aus"
+msgstr "बंद"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:815
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:962
 msgid "On"
-msgstr "Ein"
+msgstr "चालू"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:29
 msgid "Profile Name"
-msgstr "Profilname"
+msgstr "प्रोफ़ाइल नाम"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1206
 msgid "Select an image"
-msgstr "ein Bild auswählen"
+msgstr "एक छवि चुनें"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:810
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:957
 msgid "Split Channels"
-msgstr "Kanäle teilen"
+msgstr "विभाजित चैनल"
 
 #: ../../../Controllers/MainWindowController.cs:73
 msgid "translator-credits"
-msgstr "Mitwirkende Übersetzer"
+msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
 
 #: ../../../Controllers/MainWindowController.cs:62
 msgid "Visualize audio with CAVA"
-msgstr "Audio mit CAVA visualisieren"
+msgstr "CAVA के साथ ऑडियो विज़ुअलाइज़ करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/command_help_dialog.blp:20
 msgid "Command Help"
-msgstr "Hilfe zum Befehl"
+msgstr "आदेश सहायता"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:25
 msgid "Let's dance!"
-msgstr "Lass uns tanzen!"
+msgstr "आओ नाचें!"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:26
 msgid ""
 "Cavalier listens to your system sound. Play some music or watch a video and "
 "see your sound come to life!"
 msgstr ""
+"Cavalier आपके सिस्टम की ध्वनि सुनता है। कुछ संगीत बजाएं या वीडियो देखें और "
+"देखें कि आपकी ध्वनि जीवंत हो गई है!"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:157
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
-msgstr "Einstellungen"
+msgstr "प्राथमिकताएँ"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:17
 msgid "Drawing mode"
-msgstr "Zeichenmodus"
+msgstr "ड्राइंग मोड"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:24
 msgid "Box"
-msgstr ""
+msgstr "बक्सा"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
 msgid "Circle"
-msgstr "Kreis"
+msgstr "वृत्त"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:36
 msgid "Wave"
-msgstr "Welle"
+msgstr "तरंग"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:44
 msgid "Levels"
-msgstr "Stufen"
+msgstr "स्तरों"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:54
 msgid "Particles"
-msgstr "Partikel"
+msgstr "कण"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:64
 msgid "Bars"
-msgstr "Säulen"
+msgstr "बार्स"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:74
 msgid "Spine"
-msgstr ""
+msgstr "स्पाइन"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:84
 msgid "Splitter"
-msgstr ""
+msgstr "विभाजक"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:99
 msgid "Radius"
-msgstr "Radius"
+msgstr "त्रिज्या"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:114
 msgid "Rotation"
-msgstr "Drehung"
+msgstr "घूर्णन"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:131
 msgid "Mirror"
-msgstr "Spiegelung"
+msgstr "दर्पण"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:135
 msgid "Reverse mirror"
-msgstr "Spiegelung umkehren"
+msgstr "उलटा दर्पण"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:141
 msgid "Drawing direction"
-msgstr "Zeichnungsrichtung"
+msgstr "ड्राइंग दिशा"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Top to bottom"
-msgstr "Oben nach unten"
+msgstr "ऊपर से नीचे"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Bottom to top"
-msgstr "Unten nach oben"
+msgstr "नीचे से ऊपर तक"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Left to right"
-msgstr "Links nach rechts"
+msgstr "बाएं से दाएं"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Right to left"
-msgstr "Rechts nach links"
+msgstr "दाएं से बाएं"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:148
 msgid "Drawing area margin"
-msgstr "Rand um die Zeichenfläche"
+msgstr "ड्राइंग क्षेत्र मार्जिन"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Size of gaps around drawing area (in pixels)."
-msgstr "Größe des Rands um die Zeichenfläche herum (in Pixel)."
+msgstr "ड्राइंग क्षेत्र के चारों ओर अंतराल का आकार (पिक्सेल में)।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:166
 msgid "Drawing area X offset"
-msgstr ""
+msgstr "ड्राइंग क्षेत्र X ऑफसेट"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:181
 msgid "Drawing area Y offset"
-msgstr ""
+msgstr "ड्राइंग क्षेत्र Y ऑफसेट"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:196
 msgid "Offset between items"
-msgstr "Abstand zwischen Elementen"
+msgstr "वस्तुओं के बीच ऑफसेट"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:197
 msgid "The size of spaces between elements (in percent)."
-msgstr "Die Größe der Abstände zwischen den Elementen (in Prozent)."
+msgstr "तत्वों के बीच रिक्त स्थान का आकार (प्रतिशत में)।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:214
 msgid "Roundness of items"
-msgstr "Rundung der Elemente"
+msgstr "वस्तुओं की गोलाई"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:215
 msgid "How much rounded the elements should be (in percent)."
-msgstr "Wie stark abgerundet die Elemente sein sollen (in Prozent)."
+msgstr "तत्व कितने गोलाकार होने चाहिए (प्रतिशत में)।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:232
 msgid "Filling"
-msgstr "Füllung"
+msgstr "भराव"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:233
 msgid "Whether shapes should be filled or outlined."
-msgstr "Ob Formen gefüllt oder umrandet werden sollen."
+msgstr "क्या आकृतियाँ भरी जानी चाहिए या रेखांकित की जानी चाहिए।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:237
 msgid "Thickness of lines"
-msgstr "Dicke der Linien"
+msgstr "रेखाओं की मोटाई"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:238
 msgid "Thickness of lines when filling is off (in pixels)."
-msgstr "Dicke der Linien, wenn die Füllung ausgeschaltet ist (in Pixel)."
+msgstr "भरना बंद होने पर लाइनों की मोटाई (पिक्सेल में)।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:258
 msgid "Borderless window"
-msgstr "Rahmenloses Fenster"
+msgstr "सीमाहीन खिड़की"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:259
 msgid "Whether to disable window shadow and borders."
-msgstr "Ob Schatten und Rahmen des Fensters deaktiviert werden sollen."
+msgstr "विंडो शैडो और बॉर्डर को अक्षम करना है या नहीं।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:263
 msgid "Sharp corners"
-msgstr "Spitze Ecken"
+msgstr "नुकीले कोने"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:264
 msgid "Whether the main window corners should be sharp."
-msgstr "Die Ecken des Hauptfensters zuspitzen."
+msgstr "मुख्य खिड़की के कोने नुकीले होने चाहिए या नहीं।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:268
 msgid "Window controls"
-msgstr "Fensterregler"
+msgstr "विंडो नियंत्रण"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:269
 msgid "Whether to show window control buttons."
-msgstr "Buttons der Fensterregelung anzeigen."
+msgstr "विंडो नियंत्रण बटन दिखाना है या नहीं।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:273
 msgid "Autohide headerbar"
-msgstr "Kopfleiste ausblenden"
+msgstr "हेडरबार को स्वतः छिपाएं"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:274
 msgid "Whether to hide headerbar when main window is not focused."
-msgstr ""
-"Kopfleiste automatisch ausblenden, wenn das Hauptfenster nicht fokussiert "
-"ist."
+msgstr "मुख्य विंडो फोकस न होने पर हेडरबार छिपाना है या नहीं।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:285
 msgid "Framerate"
-msgstr "Bildwiederholrate"
+msgstr "फ्रेम रेट"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:286
 msgid "Number of frames per second."
-msgstr "Anzahl der Bilder pro Sekunde."
+msgstr "प्रति सेकंड फ़्रेम की संख्या।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:288
 msgid "Custom"
-msgstr "Benutzerdefiniert"
+msgstr "कस्टम"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:294
 msgid "Custom Framerate"
-msgstr "Benutzerdefinierte Bildwiederholrate"
+msgstr "कस्टम फ़्रेमरेट"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:299
 msgid "Number of bars"
-msgstr "Anzahl der Säulen"
+msgstr "बारों की संख्या"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:316
 msgid "Automatic sensitivity"
-msgstr "Automatische Empfindlichkeit"
+msgstr "स्वचालित संवेदनशीलता"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:317
 msgid "Attempt to decrease sensitivity if the bars peak."
-msgstr "Empfindlichkeit senken, wenn die Säulen den Höchststand erreichen."
+msgstr "यदि बार्स चरम पर हों तो संवेदनशीलता कम करने का प्रयास करें।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:321
 msgid "Sensitivity"
-msgstr "Empfindlichkeit"
+msgstr "संवेदनशीलता"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:322
 msgid ""
 "Manual sensitivity. If automatic sensitivity is enabled, this will only be "
 "the initial value."
 msgstr ""
-"Manuelle Empfindlichkeit. Wenn Automatische Empfindlichkeit eingeschaltet "
-"ist, wird dieser Wert nur als Ursprungswert eingestellt."
+"मैनुअल संवेदनशीलता. यदि स्वचालित संवेदनशीलता सक्षम है, तो यह केवल प्रारंभिक "
+"मान होगा।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:337
 msgid "Channels"
-msgstr "Kanäle"
+msgstr "चैनल्स"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:344
 msgid "Mono"
-msgstr "Mono"
+msgstr "मोनो"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:348
 msgid "Stereo"
-msgstr "Stereo"
+msgstr "स्टीरियो"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:357
 msgid "Monstercat smoothing"
-msgstr ""
+msgstr "Monstercat स्मूथिंग"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:358
 msgid "Whether to enable the so-called «Monstercat smoothing»."
-msgstr ""
+msgstr "क्या तथाकथित «Monstercat स्मूथिंग» को सक्षम करना है।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:362
 msgid "Noise reduction"
-msgstr "Lärmreduzierung"
+msgstr "शोर में कमी"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:363
 msgid ""
@@ -375,73 +375,73 @@ msgid ""
 "smooth.\n"
 "Higher value leads to a slower and smoother result."
 msgstr ""
-"Dieser Faktor passt die Integral- und Gravitationsfilter an, um das Signal "
-"glatt zu halten.\n"
-"Ein höherer Wert führt zu einem langsameren und gleichmäßigeren Ergebnis."
+"यह कारक सिग्नल को सुचारू रखने के लिए इंटीग्रल और ग्रेविटी फिल्टर को समायोजित "
+"करता है।\n"
+"उच्च मूल्य से धीमा और सहज परिणाम प्राप्त होता है।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:380
 msgid "Reverse order"
-msgstr "Reihenfolge umkehren"
+msgstr "उलटा क्रम"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:381
 msgid "Whether to reverse order of bars for each channel."
-msgstr "Ob die Reihenfolge der Balken für jeden Kanal umgekehrt werden soll."
+msgstr "क्या प्रत्येक चैनल के लिए बार के क्रम को उलटना है।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:387
 msgid "Colors"
-msgstr "Farben"
+msgstr "रंग"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:410
 msgid "Add Profile"
-msgstr "Profil hinzufügen"
+msgstr "प्रोफ़ाइल जोड़ें"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:433
 msgid "Application Theme"
-msgstr "Anwendungsthema"
+msgstr "एप्लीकेशन थीम"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:441
 msgid "Light"
-msgstr "Hell"
+msgstr "हल्का"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:445
 msgid "Dark"
-msgstr "Dunkel"
+msgstr "गहरा"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:469
 msgid "Foreground Colors"
-msgstr "Vordergrundfarben"
+msgstr "अग्रभूमि रंग"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:477
 msgid "Add foreground color"
-msgstr "Vordergrundfarbe hinzufügen"
+msgstr "अग्रभूमि रंग जोड़ें"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:492
 msgid "Background Colors"
-msgstr "Hintergrundfarben"
+msgstr "पृष्ठभूमि रंग"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:499
 msgid "Add background color"
-msgstr "Hintergrundfarben hinzufügen"
+msgstr "पृष्ठभूमि रंग जोड़ें"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:513
 msgid "Images"
-msgstr "Bilder"
+msgstr "छवियाँ"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:527
 msgid "Background"
-msgstr "Hintergrund"
+msgstr "पृष्ठभूमि"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:532
 msgid "Foreground"
-msgstr "Vordergrund"
+msgstr "अग्रभूमि"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:547
 msgid "Add Image"
-msgstr "Bild hinzufügen"
+msgstr "छवि जोड़ें"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:558
 msgid "Scale"
-msgstr "Skalierung"
+msgstr "पैमाना"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
 msgid "Alpha"
@@ -449,347 +449,152 @@ msgstr "Alpha"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:602
 msgid "Foreground image is only shown with Box drawing modes."
-msgstr ""
+msgstr "अग्रभूमि छवि केवल बॉक्स ड्राइंग मोड के साथ दिखाई जाती है।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:614
 msgid "No Images"
-msgstr "Keine Bilder"
+msgstr "कोई छवियाँ नहीं"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:615
 msgid "Add an image to use it in Cavalier."
-msgstr ""
+msgstr "Cavalier में इसका उपयोग करने के लिए एक छवि जोड़ें।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:633
 msgid "No Image"
-msgstr "Kein Bild"
+msgstr "कोई छवियाँ नहीं"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:15
 msgid "Change Drawing Mode"
-msgstr "Zeichenmodus wechseln"
+msgstr "ड्राइंग मोड बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:20
 msgid "Change radius in Circle modes"
-msgstr "Radius in den Kreis-Modi ändern"
+msgstr "सर्कल मोड में त्रिज्या बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:25
 msgid "Change rotation in Circle modes"
-msgstr "Drehung in den Kreis-Modi ändern"
+msgstr "सर्कल मोड में रोटेशन बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:30
 msgid "Change Mirror Mode"
-msgstr "Spiegelungsmodus ändern"
+msgstr "मिरर मोड बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:35
 msgid "Toggle Reverse Mirror"
-msgstr "Umgekehrte Spiegelung umschalten"
+msgstr "उल्टा दर्पण टॉगल करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:40
 msgid "Change Drawing Area Margin"
-msgstr "Rand um die Zeichenfläche ändern"
+msgstr "ड्राइंग एरिया मार्जिन बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:45
 msgid "Change Drawing Area X Offset"
-msgstr ""
+msgstr "ड्राइंग एरिया X ऑफसेट बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:50
 msgid "Change Drawing Area Y Offset"
-msgstr ""
+msgstr "ड्राइंग एरिया Y ऑफसेट बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:55
 msgid "Change Drawing Direction"
-msgstr "Zeichnungsrichtung ändern"
+msgstr "ड्राइंग की दिशा बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:60
 msgid "Change Offset Between Items"
-msgstr "Abstand zwischen Elementen ändern"
+msgstr "वस्तुओं के बीच ऑफसेट बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:65
 msgid "Change Items Roundness"
-msgstr "Rundung der Elemente ändern"
+msgstr "वस्तुओं की गोलाई बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:70
 msgid "Toggle Filling"
-msgstr "Füllung umschalten"
+msgstr "भरना टॉगल करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:75
 msgid "Change Lines Thickness"
-msgstr "Liniendicke ändern"
+msgstr "लाइनों की मोटाई बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:80
 msgid "Toggle Window Borders"
-msgstr "Fensterrahmen umschalten"
+msgstr "विंडो बॉर्डर टॉगल करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
 msgid "Toggle Sharp Corners"
-msgstr "Spitze Ecken umschalten"
+msgstr "नुकीले कोनों को टॉगल करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:94
 msgid "Change Number of Bars"
-msgstr "Anzahl der Säulen ändern"
+msgstr "बार्स की संख्या बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
 msgid "Toggle Channels"
-msgstr "Kanäle umschalten"
+msgstr "चैनल टॉगल करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
 msgid "Toggle Reverse Order"
-msgstr "Umgekehrte Reihenfolge umschalten"
+msgstr "रिवर्स ऑर्डर टॉगल करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:110
-#, fuzzy
 msgid "Other"
-msgstr "Sonstiges"
+msgstr "अन्य"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:113
 msgid "Change Color Profile"
-msgstr "Farbprofil ändern"
+msgstr "प्रोफ़ाइल का रंग बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:118
 msgid "Change Background Image"
-msgstr "Hintergrundbild ändern"
+msgstr "पृष्ठभूमि छवि बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:123
 msgid "Change Background Image Scale"
-msgstr "Skalierung des Hintergrundbildes ändern"
+msgstr "पृष्ठभूमि छवि स्केल बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:128
 msgid "Change Background Image Alpha"
-msgstr "Alpha des Hintergrundbildes ändern"
+msgstr "पृष्ठभूमि छवि अल्फा बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:133
 msgid "Change Foreground Image"
-msgstr "Vordergrundbild ändern"
+msgstr "अग्रभूमि छवि बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:138
 msgid "Change Foreground Image Scale"
-msgstr "Skalierung des Vordergrundbildes ändern"
+msgstr "अग्रभूमि छवि स्केल बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:143
 msgid "Change Foreground Image Alpha"
-msgstr "Alpha des Vordergrundbildes ändern"
+msgstr "अग्रभूमि छवि अल्फा बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:149
 msgctxt "Shortcut"
 msgid "Application"
-msgstr "Anwendung"
+msgstr "आवेदन"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:152
 msgid "Toggle Fullscreen"
-msgstr "Vollbild umschalten"
+msgstr "संपूर्ण स्क्रीन टॉगल करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:162
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
-msgstr "Tastenkürzel"
+msgstr "कीबोर्ड शॉर्टकट"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:167
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
 msgid "About Cavalier"
-msgstr "Über Cavalier"
+msgstr "Cavalier के बारे में"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:172
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
-msgstr "Schließen"
+msgstr "छोड़ें"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:42
 msgid "Resizing..."
-msgstr "Größe wird geändert..."
+msgstr "आकार बदल रहा है..।"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:67
 msgid "Main Menu"
-msgstr "Hauptmenü"
-
-#, fuzzy
-#~ msgid ""
-#~ "Cavalier is an audio visualizer based on CAVA with customizable interface."
-#~ msgstr ""
-#~ "Cavalier ist ein auf CAVA basierter Audio-Visualisierer mit einer "
-#~ "konfigurierbaren LibAdwaita-Oberfläche."
-
-#, fuzzy
-#~ msgid "11 drawing modes!"
-#~ msgstr "4 Zeichenmodi!"
-
-#, fuzzy
-#~ msgid "Set any color, a gradient or an image for background and foreground."
-#~ msgstr ""
-#~ "Eine einzige Farbe oder einen bis zu 10-farbigen Farbverlauf für Vorder- "
-#~ "und Hintergrund einstellen."
-
-#~ msgid "Configure smoothing, noise reduction and a few other CAVA settings."
-#~ msgstr "Ebenung, Lärmreduktion und andere CAVA-Einstellungen konfigurieren."
-
-#~ msgid "Toggle Window Controls"
-#~ msgstr "Fensterregler umschalten"
-
-#~ msgid "Toggle Autohide Headerbar"
-#~ msgstr "Ausblenden der Kopfleiste umschalten"
-
-#, fuzzy
-#~ msgid "Set any color or gradient for background and foreground."
-#~ msgstr ""
-#~ "Eine einzige Farbe oder einen bis zu 10-farbigen Farbverlauf für Vorder- "
-#~ "und Hintergrund einstellen."
-
-#, fuzzy
-#~ msgid "Audio visualizer based on CAVA"
-#~ msgstr "Auf CAVA basierter Audio-Visualisierer"
-
-#~ msgid "Audio Visualizer"
-#~ msgstr "Audio-Visualisierer"
-
-#~ msgid "Second release of Cavalier."
-#~ msgstr "Die zweite Version von Cavalier."
-
-#~ msgid "New drawing mode — Particles!"
-#~ msgstr "Neuer Zeichenmodus - Partikel!"
-
-#~ msgid ""
-#~ "Color profiles! Create as many as you want and change between them "
-#~ "instantly. Unfortunately, this new feature required to change how the "
-#~ "application saves colors, and because of this your previous colors "
-#~ "settings will be lost after installing this update."
-#~ msgstr ""
-#~ "Farbprofile! Erstellen Sie beliebig viele und wechseln Sie zwischen ihnen "
-#~ "im Handumdrehen. Leider werden Ihre bisherigen Farbeinstellungen verloren "
-#~ "gehen, da für dieses neue Feature Farbprofile anders gespeichert werden "
-#~ "als bisher."
-
-#~ msgid "Added keyboard shortcuts to change most of the settings on the fly."
-#~ msgstr "Tastenkürzel für die meisten Einstellungen hinzugefügt."
-
-#~ msgid "Added option to show/hide window controls."
-#~ msgstr ""
-#~ "Einstellung zum Anzeigen/Ausblenden der Fensterregelung hinzugefügt."
-
-#~ msgid ""
-#~ "Added option to autohide headerbar when the main window is not focused."
-#~ msgstr ""
-#~ "Einstellung zum automatischen Ausblenden der Kopfleiste hinzugefügt."
-
-#~ msgid ""
-#~ "Added option to change roundness of items in \"levels\" and \"particles\" "
-#~ "modes."
-#~ msgstr ""
-#~ "Einstellung für die Rundung der Elemente im Partikel- und Stufenmodus "
-#~ "hinzugefügt."
-
-#~ msgid "Import/Export Settings"
-#~ msgstr "Einstellungen importieren/exportieren"
-
-#~ msgid "Window size"
-#~ msgstr "Fenstergröße"
-
-#~ msgid "Window maximized state"
-#~ msgstr "Maximiertes Fenster"
-
-#~ msgid "Whether main window is maximized or not"
-#~ msgstr "Gibt an, ob das Hauptfenster maximiert ist oder nicht"
-
-#~ msgid "Defines what the visualizer looks like."
-#~ msgstr "Legt fest, wie die Visualisierung aussieht."
-
-#~ msgid "This setting only affects \"levels\" and \"particles\" modes."
-#~ msgstr "Diese Einstellung betrifft nur Partikel- und Stufenmodus."
-
-#~ msgid "Number of bars in CAVA config"
-#~ msgstr "Anzahl der Säulen in der CAVA Konfiguration"
-
-#~ msgid "Mono or stereo"
-#~ msgstr "Mono oder Stereo"
-
-#~ msgid "Smoothing"
-#~ msgstr "Ebenung"
-
-#~ msgid "Widgets style"
-#~ msgstr "Stil"
-
-#~ msgid "Style used by Adwaita widgets."
-#~ msgstr "Stil der Adwaita-Objekte"
-
-#~ msgid "Index of active color profile"
-#~ msgstr "Liste der aktiven Farprofile"
-
-#~ msgid "Drawing Mode"
-#~ msgstr "Zeichenmodus"
-
-#~ msgid ""
-#~ "This setting only affects \"levels\" and \"particles\" modes.\n"
-#~ "0 - square, 1 - round"
-#~ msgstr ""
-#~ "Diese Einstellung betrifft nur Partikel- und Stufenmodus.\n"
-#~ "0 - quadratisch, 1 - rund"
-
-#~ msgid "Import"
-#~ msgstr "Importieren"
-
-#~ msgid "Export"
-#~ msgstr "Exportieren"
-
-#~ msgid "Noise Reduction"
-#~ msgstr "Lärmreduktion"
-
-#~ msgid "0 - noisy, 1 - smooth"
-#~ msgstr "0 - laut, 1 - sanft"
-
-#~ msgid "Type a name for a new profile"
-#~ msgstr "Name des neuen Profils"
-
-#~ msgid "Remove profile"
-#~ msgstr "Profil entfernen"
-
-#~ msgid "Remove"
-#~ msgstr "Entfernen"
-
-#~ msgid "<b>Foreground</b>"
-#~ msgstr "<b>Vordergrund</b>"
-
-#~ msgid "<b>Background</b>"
-#~ msgstr "<b>Hintergrund</b>"
-
-#~ msgid "Select color"
-#~ msgstr "Farbe auswählen"
-
-#~ msgid "Remove color"
-#~ msgstr "Farbe entfernen"
-
-#~ msgid "Add color"
-#~ msgstr "Farbe hinzufügen"
-
-#~ msgid "This name is already in use."
-#~ msgstr "Dieser Name wird bereits benutzt."
-
-#~ msgid "Import Settings"
-#~ msgstr "Einstellungen importieren"
-
-#~ msgid "Cavalier Settings File (*.cavalier)"
-#~ msgstr "Cavalier Einstellungsdatei (*.cavalier)"
-
-#~ msgid "All Files"
-#~ msgstr "Alle Dateien"
-
-#~ msgid "Export Settings"
-#~ msgstr "Einstellungen exportieren"
-
-#~ msgid "Save"
-#~ msgstr "Speichern"
-
-#~ msgid "About"
-#~ msgstr "Über"
-
-#~ msgid "Toggle Widgets Style"
-#~ msgstr "Stil umschalten"
-
-#~ msgid ""
-#~ "3 drawing modes: weird Wave, retro-ish Levels and classic CAVA look - "
-#~ "Bars!"
-#~ msgstr ""
-#~ "3 Zeichenmodi: seltsame Welle, retro-artige Stufen und der klassische "
-#~ "CAVA-Look - Säulen!"
-
-#~ msgid "The array of foregound colors (RGBA)."
-#~ msgstr "Palette der Vordergrundfarben"
-
-#~ msgid "The array of background colors (RGBA)."
-#~ msgstr "Palette der Hintergrundfarben"
+msgstr "मुख्य मेन्यू"
