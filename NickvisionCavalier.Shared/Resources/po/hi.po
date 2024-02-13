@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: 2024-02-08 23:55+0000\n"
+"PO-Revision-Date: 2024-02-13 09:01+0000\n"
 "Last-Translator: Nitin Khalia <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/hi/>\n"
@@ -215,7 +215,7 @@ msgstr "ऊपर से नीचे"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Bottom to top"
-msgstr "नीचे से ऊपर तक"
+msgstr "नीचे से ऊपर"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Left to right"
@@ -401,11 +401,11 @@ msgstr "एप्लीकेशन थीम"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:441
 msgid "Light"
-msgstr "हल्का"
+msgstr "हल्की"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:445
 msgid "Dark"
-msgstr "गहरा"
+msgstr "गहरी"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:469
 msgid "Foreground Colors"
