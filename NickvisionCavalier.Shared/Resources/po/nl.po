@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: 2023-12-17 12:06+0000\n"
+"PO-Revision-Date: 2024-02-18 12:02+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1207
@@ -231,14 +231,12 @@ msgid "Size of gaps around drawing area (in pixels)."
 msgstr "De grootte van ruimtes om het weergavegebied heen (in pixels)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:166
-#, fuzzy
 msgid "Drawing area X offset"
-msgstr "Weergavemodusmarge"
+msgstr "X-offset van teken­gebied"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:181
-#, fuzzy
 msgid "Drawing area Y offset"
-msgstr "Weergavemodusmarge"
+msgstr "Y-offset van teken­gebied"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:196
 msgid "Offset between items"
@@ -314,9 +312,8 @@ msgid "Framerate"
 msgstr "Beeld­frequentie"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:286
-#, fuzzy
 msgid "Number of frames per second."
-msgstr "Aantal balken"
+msgstr "Aantal beelden per seconde."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:288
 msgid "Custom"
@@ -561,11 +558,11 @@ msgstr "Achtergrond­afbeelding wijzigen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:123
 msgid "Change Background Image Scale"
-msgstr ""
+msgstr "Schaal van achtergrond­afbeelding wijzigen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:128
 msgid "Change Background Image Alpha"
-msgstr ""
+msgstr "Alfa van achtergrond­afbeelding wijzigen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:133
 msgid "Change Foreground Image"
@@ -573,11 +570,11 @@ msgstr "Voorgrond­afbeelding wijzigen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:138
 msgid "Change Foreground Image Scale"
-msgstr ""
+msgstr "Schaal van voorgrond­afbeelding wijzigen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:143
 msgid "Change Foreground Image Alpha"
-msgstr ""
+msgstr "Alfa van voorgrond­afbeelding wijzigen"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:149
 msgctxt "Shortcut"
