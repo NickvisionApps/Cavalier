@@ -1,8 +1,8 @@
 on:
   push:
-    branches: [ "soumyaDghosh-patch-1" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "soumyaDghosh-patch-1" ]
+    branches: [ "main" ]
     types: [ "review_requested", "ready_for_review" ]
   workflow_dispatch:
 name: Snap
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [x86_64, arm64]
+        arch: [x86_64]
       fail-fast: false
     steps:
       - name: Checkout Git repository
