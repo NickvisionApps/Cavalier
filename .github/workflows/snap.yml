@@ -1,8 +1,8 @@
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "soumyaDghosh-patch-1" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "soumyaDghosh-patch-1" ]
     types: [ "review_requested", "ready_for_review" ]
   workflow_dispatch:
 name: Snap
@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [x86_64]
+        arch: [x86_64, arm64]
       fail-fast: false
     steps:
       - name: Checkout Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Build Snap
@@ -27,12 +27,13 @@ jobs:
         id: snapcraft-build
         with:
           snapcraft-args: "-v"
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.snapcraft-build.outputs.snap }}
           path: ${{ steps.snapcraft-build.outputs.snap }}
       - name: Upload and release Cavalier Snap
         uses: snapcore/action-publish@v1
+        if: ${{ github.event_name != 'pull_request' }}
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
         with:
