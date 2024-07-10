@@ -74,6 +74,7 @@ public class CAVA : IDisposable
             sensitivity = {Math.Pow(Configuration.Current.Sensitivity, 2)}
             [input]
             method = {Environment.GetEnvironmentVariable("CAVALIER_INPUT_METHOD") ?? "pulse"}
+            source = {Environment.GetEnvironmentVariable("CAVALIER_INPUT_SOURCE") ?? "auto"}
             [output]
             method = raw
             raw_target = /dev/stdout
