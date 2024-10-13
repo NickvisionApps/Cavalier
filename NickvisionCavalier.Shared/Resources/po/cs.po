@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: 2024-02-26 20:02+0000\n"
+"PO-Revision-Date: 2024-09-04 15:09+0000\n"
 "Last-Translator: Fjuro <fjuro@alius.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.7.2-rc\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1207
@@ -125,7 +125,9 @@ msgstr "Rozdělit kanály"
 
 #: ../../../Controllers/MainWindowController.cs:73
 msgid "translator-credits"
-msgstr "Písek Pískovec"
+msgstr ""
+"Písek Pískovec\n"
+"Jonáš Loskot <osobni@jonasloskot.cz>, 2024"
 
 #: ../../../Controllers/MainWindowController.cs:62
 msgid "Visualize audio with CAVA"
