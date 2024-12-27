@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: 2024-02-07 20:01+0000\n"
+"PO-Revision-Date: 2024-10-13 14:16+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/de/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1207
@@ -29,9 +29,9 @@ msgid "Add New Profile"
 msgstr "Neues Profil hinzufügen"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1078
-#, fuzzy, csharp-format
+#, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
-msgstr "Soll dieses Profil wirklich entfernt werden?"
+msgstr "Sind Sie sicher, dass Sie das Profil „{0}“ löschen möchten?"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:39
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1080
@@ -157,7 +157,7 @@ msgstr "Zeichenmodus"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:24
 msgid "Box"
-msgstr ""
+msgstr "Box"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
 msgid "Circle"

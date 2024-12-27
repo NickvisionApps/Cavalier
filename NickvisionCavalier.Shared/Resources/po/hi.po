@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: 2024-02-13 09:01+0000\n"
-"Last-Translator: Nitin Khalia <weblate.scrambled777@simplelogin.com>\n"
+"PO-Revision-Date: 2024-07-07 17:09+0000\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/"
 "nickvision-cavalier/app/hi/>\n"
 "Language: hi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1207
@@ -26,12 +26,12 @@ msgstr "जोड़ें"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:23
 msgid "Add New Profile"
-msgstr "नई प्रोफ़ाइल जोड़ें"
+msgstr "नई प्रोफाइल जोड़ें"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1078
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
-msgstr "क्या आप वाकई प्रोफ़ाइल \"{0}\" को हटाना चाहते हैं?"
+msgstr "क्या आप वाकई प्रोफाइल \"{0}\" को मिटाना चाहते हैं?"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:39
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1080
@@ -54,15 +54,15 @@ msgstr "डेविड लापशिन"
 
 #: ../../../Models/ColorProfile.cs:33
 msgid "Default"
-msgstr "डिफ़ॉल्ट"
+msgstr "तयशुदा"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1083
 msgid "Delete"
-msgstr "हटाएं"
+msgstr "मिटाएं"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1078
 msgid "Delete Profile"
-msgstr "प्रोफ़ाइल हटाएं"
+msgstr "प्रोफाइल मिटाएं"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:810
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:957
@@ -88,11 +88,11 @@ msgstr "JPEG और PNG छवियां"
 
 #: ../../../Controllers/MainWindowController.cs:67
 msgid "Matrix Chat"
-msgstr "Matrix चैट"
+msgstr "मैट्रिक्स चैट"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:23
 msgid "New color profile will be a copy of the current active profile."
-msgstr "नई रंगीन प्रोफ़ाइल वर्तमान सक्रिय प्रोफ़ाइल की एक प्रति होगी।"
+msgstr "नई रंगीन प्रोफाइल वर्तमान सक्रिय प्रोफाइल की एक प्रति होगी।"
 
 #: ../../../Controllers/MainWindowController.cs:69
 msgid "Nicholas Logozzo"
@@ -112,7 +112,7 @@ msgstr "चालू"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:29
 msgid "Profile Name"
-msgstr "प्रोफ़ाइल नाम"
+msgstr "प्रोफाइल नाम"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1206
 msgid "Select an image"
@@ -151,7 +151,7 @@ msgstr ""
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:157
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
-msgstr "प्राथमिकताएँ"
+msgstr "प्राथमिकताएं"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:17
 msgid "Drawing mode"
@@ -263,7 +263,7 @@ msgstr "भराव"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:233
 msgid "Whether shapes should be filled or outlined."
-msgstr "क्या आकृतियाँ भरी जानी चाहिए या रेखांकित की जानी चाहिए।"
+msgstr "क्या आकृतियां भरी जानी चाहिए या रेखांकित की जानी चाहिए।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:237
 msgid "Thickness of lines"
@@ -299,11 +299,11 @@ msgstr "विंडो नियंत्रण बटन दिखाना �
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:273
 msgid "Autohide headerbar"
-msgstr "हेडरबार को स्वतः छिपाएं"
+msgstr "शीर्षलेख पट्टी को स्वतः छिपाएं"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:274
 msgid "Whether to hide headerbar when main window is not focused."
-msgstr "मुख्य विंडो फोकस न होने पर हेडरबार छिपाना है या नहीं।"
+msgstr "मुख्य विंडो फोकस न होने पर शीर्षलेख पट्टी छिपाना है या नहीं।"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:285
 msgid "Framerate"
@@ -315,11 +315,11 @@ msgstr "प्रति सेकंड फ़्रेम की संख्�
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:288
 msgid "Custom"
-msgstr "कस्टम"
+msgstr "तदनुकूल"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:294
 msgid "Custom Framerate"
-msgstr "कस्टम फ़्रेमरेट"
+msgstr "तदनुकूल फ़्रेमरेट"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:299
 msgid "Number of bars"
@@ -393,11 +393,11 @@ msgstr "रंग"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:410
 msgid "Add Profile"
-msgstr "प्रोफ़ाइल जोड़ें"
+msgstr "प्रोफाइल जोड़ें"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:433
 msgid "Application Theme"
-msgstr "एप्लीकेशन थीम"
+msgstr "अनुप्रयोग थीम"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:441
 msgid "Light"
@@ -425,7 +425,7 @@ msgstr "पृष्ठभूमि रंग जोड़ें"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:513
 msgid "Images"
-msgstr "छवियाँ"
+msgstr "छवियां"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:527
 msgid "Background"
@@ -445,7 +445,7 @@ msgstr "पैमाना"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
 msgid "Alpha"
-msgstr "Alpha"
+msgstr "अल्फा"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:602
 msgid "Foreground image is only shown with Box drawing modes."
@@ -453,7 +453,7 @@ msgstr "अग्रभूमि छवि केवल बॉक्स ड्�
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:614
 msgid "No Images"
-msgstr "कोई छवियाँ नहीं"
+msgstr "कोई छवियां नहीं"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:615
 msgid "Add an image to use it in Cavalier."
@@ -461,7 +461,7 @@ msgstr "Cavalier में इसका उपयोग करने के ल�
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:633
 msgid "No Image"
-msgstr "कोई छवियाँ नहीं"
+msgstr "कोई छवियां नहीं"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:15
 msgid "Change Drawing Mode"
@@ -541,7 +541,7 @@ msgstr "अन्य"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:113
 msgid "Change Color Profile"
-msgstr "प्रोफ़ाइल का रंग बदलें"
+msgstr "प्रोफाइल का रंग बदलें"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:118
 msgid "Change Background Image"
@@ -589,12 +589,12 @@ msgstr "Cavalier के बारे में"
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:172
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
-msgstr "छोड़ें"
+msgstr "बंद करें"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:42
 msgid "Resizing..."
-msgstr "आकार बदल रहा है..।"
+msgstr "आकार बदल रहा है…"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:67
 msgid "Main Menu"
-msgstr "मुख्य मेन्यू"
+msgstr "मुख्य मेनू"
