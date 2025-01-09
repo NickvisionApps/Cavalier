@@ -1,0 +1,693 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-09 17:14-0500\n"
+"PO-Revision-Date: 2024-09-04 15:09+0000\n"
+"Last-Translator: Fjuro <fjuro@alius.cz>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/cs/>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.7.2-rc\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr "Vizualizace zvuku s CAVA"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "Matrix Chat"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "Přispěvatelě na GitHubu ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "Fyodor Sobolev"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "David Lapshin"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr ""
+"Písek Pískovec\n"
+"Jonáš Loskot <osobni@jonasloskot.cz>, 2024"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:173
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:205
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:223
+msgctxt "Night"
+msgid "Good Morning!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:227
+msgctxt "Morning"
+msgid "Good Morning!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:231
+msgid "Good Afternoon!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:235
+msgid "Good Evening!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:237
+msgid "Good Day!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:266
+#, c++-format
+msgid "Folder Opened: {}"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:281
+msgid "Folder closed"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:29
+msgid "Preferences"
+msgstr "Předvolby"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:34
+msgid "Keyboard Shortcuts"
+msgstr "Klávesové zkratky"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:31
+msgid "About Cavalier"
+msgstr "O aplikaci Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:21
+msgid "Open Folder (Ctrl+O)"
+msgstr ""
+
+#. Folder Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:59
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:138
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:65
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:238
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:34
+msgid "Close Folder (Ctrl+W)"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:43
+msgid "Main Menu"
+msgstr "Hlavní nabídka"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:57
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:62
+msgid "Open a folder (or drag one into the app) to get started"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:19
+msgid "User Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "Světlý"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "Tmavý"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:53
+msgid "Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:164
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:63
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:156
+msgid "Open Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Close Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:26
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "Aplikace"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:39
+#, fuzzy
+msgid "About Application"
+msgstr "Aplikace"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:44
+msgid "Quit"
+msgstr "Ukončit"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:128
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:219
+msgid "Close"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:150
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:249
+#, c++-format
+msgid "There is {} file in the folder."
+msgid_plural "There are {} files in the folder."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:213
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "GitHub Repo"
+msgstr "Repozitář GitHub"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:38
+#, fuzzy
+msgid "Changelog:"
+msgstr "Kanály"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:39
+#, c++-format
+msgid ""
+"Developers:\n"
+"{}\n"
+"Designers:\n"
+"{}\n"
+"Artists:\n"
+"{}"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Vzhled aplikace"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "About"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "Home"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:56
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:58
+msgid "Settings"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:225
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:21
+msgid "Light"
+msgstr "Světlý"
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:22
+msgid "Dark"
+msgstr "Tmavý"
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Application"
+#~ msgstr "Aplikace"
+
+#~ msgid "Add"
+#~ msgstr "Přidat"
+
+#~ msgid "Add New Profile"
+#~ msgstr "Přidat nový profil"
+
+#, csharp-format
+#~ msgid "Are you sure you want to delete profile \"{0}\"?"
+#~ msgstr "Opravdu chcete odstranit profil „{0}“?"
+
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgid "Default"
+#~ msgstr "Výchozí"
+
+#~ msgid "Delete"
+#~ msgstr "Smazat"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Smazat Profil"
+
+#~ msgid "Full"
+#~ msgstr "Plný"
+
+#~ msgid "Hearts"
+#~ msgstr "Srdíčka"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "Obrázky JPEG a PNG"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr "Nový barevný profil bude kopie současně aktivního profilu."
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "Nicholas Logozzo"
+
+#~ msgid "Off"
+#~ msgstr "Vypnuto"
+
+#~ msgid "On"
+#~ msgstr "Zapnuto"
+
+#~ msgid "Profile Name"
+#~ msgstr "Název profilu"
+
+#~ msgid "Select an image"
+#~ msgstr "Vybrat obrázek"
+
+#~ msgid "Split Channels"
+#~ msgstr "Rozdělit kanály"
+
+#~ msgid "Command Help"
+#~ msgstr "Nápověda k příkazům"
+
+#~ msgid "Let's dance!"
+#~ msgstr "Jdeme tančit!"
+
+#~ msgid ""
+#~ "Cavalier listens to your system sound. Play some music or watch a video "
+#~ "and see your sound come to life!"
+#~ msgstr ""
+#~ "Cavalier poslouchá zvuk vašeho systému. Pusťte si hudbu nebo se podívejte "
+#~ "na video a sledujte, jak váš zvuk ožije!"
+
+#~ msgid "Drawing mode"
+#~ msgstr "Režim vykreslování"
+
+#~ msgid "Box"
+#~ msgstr "Čtverec"
+
+#~ msgid "Circle"
+#~ msgstr "Kruh"
+
+#~ msgid "Wave"
+#~ msgstr "Vlna"
+
+#~ msgid "Levels"
+#~ msgstr "Úrovně"
+
+#~ msgid "Particles"
+#~ msgstr "Částečky"
+
+#~ msgid "Bars"
+#~ msgstr "Tyče"
+
+#~ msgid "Spine"
+#~ msgstr "Páteř"
+
+#~ msgid "Splitter"
+#~ msgstr "Rozdělovač"
+
+#~ msgid "Radius"
+#~ msgstr "Poloměr"
+
+#~ msgid "Rotation"
+#~ msgstr "Otočení"
+
+#~ msgid "Mirror"
+#~ msgstr "Zrcadlo"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "Opačné zrcadlení"
+
+#~ msgid "Drawing direction"
+#~ msgstr "Směr vykreslování"
+
+#~ msgid "Top to bottom"
+#~ msgstr "Shora dolů"
+
+#~ msgid "Bottom to top"
+#~ msgstr "Zdola nahoru"
+
+#~ msgid "Left to right"
+#~ msgstr "Zleva doprava"
+
+#~ msgid "Right to left"
+#~ msgstr "Zprava doleva"
+
+#~ msgid "Drawing area margin"
+#~ msgstr "Okraje vykreslovací plochy"
+
+#~ msgid "Size of gaps around drawing area (in pixels)."
+#~ msgstr "Velikost mezer okolo vykreslovací oblasti (v pixelech)."
+
+#~ msgid "Drawing area X offset"
+#~ msgstr "Posunutí X vykreslované oblasti"
+
+#~ msgid "Drawing area Y offset"
+#~ msgstr "Posunutí Y vykreslované oblasti"
+
+#~ msgid "Offset between items"
+#~ msgstr "Odsazení mezi položkami"
+
+#~ msgid "The size of spaces between elements (in percent)."
+#~ msgstr "Velikost mezer mezi prvky (v procentech)."
+
+#~ msgid "Roundness of items"
+#~ msgstr "Zaoblení položek"
+
+#~ msgid "How much rounded the elements should be (in percent)."
+#~ msgstr "Jak moc zaoblené prvky budou (v procentech)."
+
+#~ msgid "Filling"
+#~ msgstr "Výplň"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "Zda tvary budou vyplněny nebo obtáhnuty."
+
+#~ msgid "Thickness of lines"
+#~ msgstr "Tloušťka čar"
+
+#~ msgid "Thickness of lines when filling is off (in pixels)."
+#~ msgstr "Tloušťka čar když vyplňování je vypnuto (v pixelech)."
+
+#~ msgid "Borderless window"
+#~ msgstr "Bezrámečkové okno"
+
+#~ msgid "Whether to disable window shadow and borders."
+#~ msgstr "Zda vypnout stín a rám okna."
+
+#~ msgid "Sharp corners"
+#~ msgstr "Ostré rohy"
+
+#~ msgid "Whether the main window corners should be sharp."
+#~ msgstr "Zda budou rohy hlavního okna ostré."
+
+#~ msgid "Window controls"
+#~ msgstr "Ovládání okna"
+
+#~ msgid "Whether to show window control buttons."
+#~ msgstr "Zda zobrazovat tlačítka ovládání okna."
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "Automaticky skrýt záhlaví"
+
+#~ msgid "Whether to hide headerbar when main window is not focused."
+#~ msgstr "Zda skrýt záhlaví hlavního okna pokud není zaměřené."
+
+#~ msgid "Framerate"
+#~ msgstr "Snímková frekvence"
+
+#~ msgid "Number of frames per second."
+#~ msgstr "Počet snímků za vteřinu."
+
+#~ msgid "Custom"
+#~ msgstr "Vlastní"
+
+#~ msgid "Custom Framerate"
+#~ msgstr "Vlastní snímková frekvence"
+
+#~ msgid "Number of bars"
+#~ msgstr "Počet tyčí"
+
+#~ msgid "Automatic sensitivity"
+#~ msgstr "Automatická citlivost"
+
+#~ msgid "Attempt to decrease sensitivity if the bars peak."
+#~ msgstr "Pokus snížit citlivost když tyče jsou na vrcholu."
+
+#~ msgid "Sensitivity"
+#~ msgstr "Citlivost"
+
+#~ msgid ""
+#~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
+#~ "be the initial value."
+#~ msgstr ""
+#~ "Ruční citlivost. Pokud je povolena automatická citlivost, toto bude pouze "
+#~ "prvotní hodnota."
+
+#~ msgid "Mono"
+#~ msgstr "Mono"
+
+#~ msgid "Stereo"
+#~ msgstr "Stereo"
+
+#~ msgid "Monstercat smoothing"
+#~ msgstr "Monstercat vyhlazování"
+
+#~ msgid "Whether to enable the so-called «Monstercat smoothing»."
+#~ msgstr "Zda zapnout takzvané «Monstercat smoothing»."
+
+#~ msgid "Noise reduction"
+#~ msgstr "Redukce šumu"
+
+#~ msgid ""
+#~ "This factor adjusts the integral and gravity filters to keep the signal "
+#~ "smooth.\n"
+#~ "Higher value leads to a slower and smoother result."
+#~ msgstr ""
+#~ "Tento faktor upravuje integrální a gravitační filtry pro udržení hladkého "
+#~ "signálu.\n"
+#~ "Vyšší hodnota vede k pomalejšímu a hladšímu výsledku."
+
+#~ msgid "Reverse order"
+#~ msgstr "Opačné pořadí"
+
+#~ msgid "Whether to reverse order of bars for each channel."
+#~ msgstr "Zda obrátit pořadí tyčí každého kanálu."
+
+#~ msgid "Colors"
+#~ msgstr "Barvy"
+
+#~ msgid "Add Profile"
+#~ msgstr "Přidat profil"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "Barvy popředí"
+
+#~ msgid "Add foreground color"
+#~ msgstr "Přidat barvu popředí"
+
+#~ msgid "Background Colors"
+#~ msgstr "Barvy pozadí"
+
+#~ msgid "Add background color"
+#~ msgstr "Přidat barvu pozadí"
+
+#~ msgid "Images"
+#~ msgstr "Obrázky"
+
+#~ msgid "Background"
+#~ msgstr "Pozadí"
+
+#~ msgid "Foreground"
+#~ msgstr "Popředí"
+
+#~ msgid "Add Image"
+#~ msgstr "Přidat obrázek"
+
+#~ msgid "Scale"
+#~ msgstr "Měřítko"
+
+#~ msgid "Alpha"
+#~ msgstr "Alfa"
+
+#~ msgid "Foreground image is only shown with Box drawing modes."
+#~ msgstr ""
+#~ "Obrázek na popředí je zobrazen pouze v krychlových režimech vykreslování."
+
+#~ msgid "No Images"
+#~ msgstr "Žádné obrázky"
+
+#~ msgid "Add an image to use it in Cavalier."
+#~ msgstr "Přidejte obrázek pro použití v aplikaci Cavalier."
+
+#~ msgid "No Image"
+#~ msgstr "Žádný obrázek"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "Změnit režim vykreslování"
+
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "Změnit poloměr v režimu Kruhu"
+
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "Změnit otočení v režimech Kruhu"
+
+#~ msgid "Change Mirror Mode"
+#~ msgstr "Změnit režim zrcadlení"
+
+#~ msgid "Toggle Reverse Mirror"
+#~ msgstr "Přepnout opačné zrcadlení"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "Změnit odsazení vykreslované oblasti"
+
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "Změnit odsazení X vykreslované oblasti"
+
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "Změnit odsazení Y vykreslované oblasti"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "Změnit směr vykreslování"
+
+#~ msgid "Change Offset Between Items"
+#~ msgstr "Změnit odsazení mezi položkami"
+
+#~ msgid "Change Items Roundness"
+#~ msgstr "Změnit zaoblení položek"
+
+#~ msgid "Toggle Filling"
+#~ msgstr "Přepnout výplň"
+
+#~ msgid "Change Lines Thickness"
+#~ msgstr "Změnit tloušťku čar"
+
+#~ msgid "Toggle Window Borders"
+#~ msgstr "Přepnout okraje okna"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "Přepnout ostré rohy"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "Změnit počet sloupců"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "Přepnout kanály"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "Přepnout opačné pořadí"
+
+#~ msgid "Other"
+#~ msgstr "Jiné"
+
+#~ msgid "Change Color Profile"
+#~ msgstr "Změnit barevný profil"
+
+#~ msgid "Change Background Image"
+#~ msgstr "Změnit obrázek na pozadí"
+
+#~ msgid "Change Background Image Scale"
+#~ msgstr "Změnit velikost obrázku na pozadí"
+
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "Změnit alfu obrázku na pozadí"
+
+#~ msgid "Change Foreground Image"
+#~ msgstr "Změnit obrázek na popředí"
+
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "Změnit velikost obrázku na popředí"
+
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "Změnit alfu obrázku na popředí"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "Přepnout na celou obrazovku"
+
+#~ msgid "Resizing..."
+#~ msgstr "Změna velikosti..."
+
+#~ msgid ""
+#~ "Cavalier is an audio visualizer based on CAVA with customizable interface."
+#~ msgstr ""
+#~ "Cavalier je vizualizér zvuku založený na CAVA s přizpůsobitelným "
+#~ "prostředím."
+
+#~ msgid "11 drawing modes!"
+#~ msgstr "11 vykreslovacích režimů!"
+
+#~ msgid "Set any color, a gradient or an image for background and foreground."
+#~ msgstr ""
+#~ "Nastavte jakoukoliv barvu, přechod nebo obrázek pro pozadí a popředí."
+
+#~ msgid "Configure smoothing, noise reduction and a few other CAVA settings."
+#~ msgstr "Nastavte vyhlazení, redukci šumu a pár dalších CAVA nastavení."
+
+#, csharp-format
+#~ msgid ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Contributors on GitHub ❤️ {2}"
+#~ msgstr ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Přispěvatelé na GitHubu ❤️ {2}"
+
+#~ msgid "Toggle Window Controls"
+#~ msgstr "Přepnout ovládání okna"
+
+#~ msgid "Toggle Autohide Headerbar"
+#~ msgstr "Přepnout automatické skrývání záhlaví"

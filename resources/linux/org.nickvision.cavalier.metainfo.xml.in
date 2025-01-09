@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>@PROJECT_NAME@</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>@Name=@DISPLAY_NAME@</name>
+  <project_group>Nickvision</project_group>
+  <developer id="org.nickvision">
+    <name>Nickvision</name>
+  </developer>
+  <summary>Visualize audio with CAVA</summary>
+  <!-- The description field supports markup list syntax (`<ul><li>[…]</li></ul>`) -->
+  <description>
+    <p>Cavalier is an audio visualizer based on CAVA with customizable interface.</p>
+    <ul>
+      <li>11 drawing modes!</li>
+      <li>Set any color, a gradient or an image for background and foreground.</li>
+      <li>Configure smoothing, noise reduction and a few other CAVA settings.</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">@PROJECT_NAME@.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <!-- Translators: Screenshot caption -->
+      <caption>Light mode</caption>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@OUTPUT_NAME@/resources/screenshots/light.png</image>
+    </screenshot>
+    <screenshot>
+      <!-- Translators: Screenshot caption -->
+      <caption>Dark mode</caption>
+      <image>https://raw.githubusercontent.com/NickvisionApps/Cavalier/main/@OUTPUT_NAME@/resources/screenshots/dark.png</image>
+    </screenshot>
+  </screenshots>
+  <branding>
+    <color type="primary" scheme_preference="light">#FFFFFF</color>
+    <color type="primary" scheme_preference="dark">#000000</color>
+  </branding>
+  <url type="homepage">https://nickvision.org/@SHORT_NAME@.html</url>
+  <url type="bugtracker">https://github.com/NickvisionApps/@SHORT_NAME@/issues</url>
+  <url type="donation">https://github.com/sponsors/nlogozzo</url>
+  <url type="translate">https://github.com/NickvisionApps/@SHORT_NAME@/blob/master/CONTRIBUTING.md#providing-translations</url>
+  <url type="contribute">https://github.com/NickvisionApps/@SHORT_NAME@/blob/main/CONTRIBUTING.md</url>
+  <url type="contact">https://matrix.to/#/#nickvision:matrix.org</url>
+  <url type="vcs-browser">https://github.com/NickvisionApps/@SHORT_NAME@</url>
+  <provides>
+    <binary>@PROJECT_NAME@</binary>
+  </provides>
+  <content_rating type="oars-1.1" />
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <!-- The release description fields support markup list syntax (`<ul><li>[…]</li></ul>`) -->
+  <releases>
+    <release version="2025.1.0-next" date="2025-01-01">
+      <description translate="no">
+        <p>- Initial Release</p>
+      </description>
+    </release>
+  </releases>
+</component>

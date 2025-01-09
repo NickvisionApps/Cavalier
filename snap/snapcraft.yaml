@@ -1,112 +1,97 @@
-name: cavalier
-base: core22
+name: cavalier 
+base: core24
 adopt-info: cavalier
 grade: stable
 confinement: strict
-#compression: lzo
-architectures:
-  - build-on: amd64
-  - build-on: arm64
-  - build-on: armhf
+compression: lzo
+
 lint:
   ignore:
-    - library:
-      - usr/lib/*
-      - usr/bin/*
+    - classic
+    - library
 
 parts:
-  cava:
-    #after: [ fftw3f ]
-    source: https://github.com/karlstav/cava.git
-    source-tag: '0.9.1'
-    source-depth: 1
-    build-environment:
-      - CFLAGS: -I/snap/gnome-42-2204-sdk/current/usr/include
-    plugin: autotools
-    autotools-configure-parameters:
-      - --prefix=/usr
-    build-packages:
-      - libfftw3-dev
-    prime:
-      - -usr/share
-  #fftw3f:
-    #source: https://www.fftw.org/fftw-3.3.10.tar.gz
-    #plugin: autotools
-    #autotools-configure-parameters:
-    #  - --prefix=/usr
-    #  - --enable-threads
-    #  - --enable-shared
-    #  - --disable-static
-    #  - --enable-float
-    #  - --enable-sse2
-    #  - --enable-avx
-    #  - --enable-avx-128-fma
-    #build-packages:
-      #- libgfortran-12-dev
-  cavalier:
-    after: [ cava ]
-    # See 'snapcraft plugins'
-    plugin: nil
-    source: .
-    #source-tag: ''
-    source-depth: 1
-    build-environment:
-      - LDFLAGS: -L$CRAFT_STAGE/usr/lib
-      - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/pkgconfig:$PKG_CONFIG_PATH
-      - DOTNET_CLI_TELEMETRY_OPTOUT: '1'
-      - DOTNET_ROOT: $HOME/.dotnet
-      - PATH: $PATH:$HOME/.dotnet:$HOME/.dotnet/tools
-    build-packages:
-      - brotli
-      - blueprint-compiler
-      - wget
-      - libiniparser-dev
-    override-pull: |
-      craftctl default
-      wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-      chmod +x ./dotnet-install.sh
-      ./dotnet-install.sh --channel 8.0
-      patch -p1 < $CRAFT_PROJECT_DIR/snap/cavalier.patch
-    override-build: |
-      craftctl default
-      cd $CRAFT_PART_SRC
-      dotnet tool restore
-      dotnet cake --target=Publish --prefix=/snap/cavalier/current/usr --ui=gnome --self-contained
-      dotnet cake --target=Install --destdir=$CRAFT_PART_INSTALL
-      mkdir -p $CRAFT_PART_INSTALL/meta/gui
-      cp -r $CRAFT_PART_INSTALL/snap/cavalier/current/usr/share/icons $CRAFT_PART_INSTALL/meta/gui/
-      for i in `find $CRAFT_PART_INSTALL/meta/gui/icons -name "*.svg" -o -name "*.png"`; do
-        mv $i "`dirname $i`/snap.$CRAFT_PROJECT_NAME.`basename $i`"
-      done
-    parse-info: [ usr/share/metainfo/org.nickvision.cavalier.metainfo.xml ]
-    organize:
-      snap/cavalier/current: .
-    prime:
-      - -snap/cavalier
-
   deps:
-    after: [ cavalier ]
     plugin: nil
     stage-packages:
-      - libfftw3-double3
-      - libiniparser1
+      - libstdc++6
+      - libboost-system1.83.0
+      - libboost-json1.83.0
     prime:
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libiniparser.so.1
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libfftw3.so.3
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libfftw3.so.3.5.8
+      - usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/libstdc++*.so*
+      - usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/libboost_system.so*
+      - usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/libboost_json.so*
+
+  maddy:
+    source: https://github.com/progsource/maddy.git
+    source-tag: '1.3.0'
+    plugin: dump
+    source-depth: 1
+    override-prime: '' 
+
+  libnick:
+    after: [maddy]
+    source: https://github.com/nickvisionapps/libnick.git
+    source-tag: "2025.1.0"
+    source-depth: 1
+    plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DBUILD_TESTING=OFF
+      - -DCMAKE_BUILD_TYPE=Release
+    build-environment:
+      - CPLUS_INCLUDE_PATH: ${CRAFT_STAGE}/include
+    build-packages:
+      - libssl-dev
+      - uuid-dev
+      - libboost-dev
+      - libboost-system1.83-dev
+      - libboost-json1.83-dev
+    override-prime: ''
+
+  libxmlplusplus:
+    source: https://github.com/libxmlplusplus/libxmlplusplus.git
+    source-tag: '5.4.0'
+    source-depth: 1
+    plugin: meson
+    build-packages:
+      - libicu-dev
+    meson-parameters:
+      - --prefix=/usr
+      - -Dmaintainer-mode=false
+    prime:
+      - usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/libxml++-5.0*.so*
+
+  cavalier:
+    after: [maddy, libnick, libxmlplusplus]
+    plugin: cmake
+    source: .
+    build-snaps:
+      - cmake
+      - blueprint-compiler/latest/edge
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/snap/cavalier/current/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DUI_PLATFORM=gnome
+    stage-packages:
+      - libstdc++6
+    build-environment:
+      - CMAKE_PREFIX_PATH: ${CRAFT_STAGE}/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/cmake${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}
+    parse-info: [usr/share/metainfo/org.nickvision.cavalier.metainfo.xml]
+    organize:
+      snap/application/current: .
 
 slots:
   cavalier:
     interface: dbus
     bus: session
     name: org.nickvision.cavalier
+
 apps:
   cavalier:
-    command: usr/bin/org.nickvision.cavalier
-    common-id: org.nickvision.cavalier
+    command: usr/lib/org.nickvision.cavalier/org.nickvision.cavalier.gnome
     desktop: usr/share/applications/org.nickvision.cavalier.desktop
-    extensions: [ gnome ]
-    environment:
-      CAVALIER_INPUT_METHOD: pulse
+    common-id: org.nickvision.cavalier
+    extensions: [gnome]
     plugs:
-      - audio-playback
+      - unity7

@@ -1,0 +1,691 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-09 17:14-0500\n"
+"PO-Revision-Date: 2024-03-14 14:01+0000\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/tr/>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr "CAVA ile sesleri görselleştirin"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "Matrix Sohbet"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "GitHub Katkıcıları ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "Fyodor Sobolev"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "David Lapshin"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr "Sabri Ünal <yakushabb@gmail.com>"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:173
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:205
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:223
+msgctxt "Night"
+msgid "Good Morning!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:227
+msgctxt "Morning"
+msgid "Good Morning!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:231
+msgid "Good Afternoon!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:235
+msgid "Good Evening!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:237
+msgid "Good Day!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:266
+#, c++-format
+msgid "Folder Opened: {}"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:281
+msgid "Folder closed"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:29
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:34
+msgid "Keyboard Shortcuts"
+msgstr "Klavye Kısayolları"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:31
+msgid "About Cavalier"
+msgstr "Cavalier Hakkında"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:21
+msgid "Open Folder (Ctrl+O)"
+msgstr ""
+
+#. Folder Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:59
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:138
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:65
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:238
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:34
+msgid "Close Folder (Ctrl+W)"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:43
+msgid "Main Menu"
+msgstr "Ana Menü"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:57
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:62
+msgid "Open a folder (or drag one into the app) to get started"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:19
+msgid "User Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "Açık"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "Kyu"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:53
+msgid "Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:164
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:63
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:156
+msgid "Open Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Close Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:26
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "Uygulama"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:39
+#, fuzzy
+msgid "About Application"
+msgstr "Uygulama"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:44
+msgid "Quit"
+msgstr "Çık"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:128
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:219
+msgid "Close"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:150
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:249
+#, c++-format
+msgid "There is {} file in the folder."
+msgid_plural "There are {} files in the folder."
+msgstr[0] ""
+msgstr[1] ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:213
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "GitHub Repo"
+msgstr "GitHub Deposu"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:38
+#, fuzzy
+msgid "Changelog:"
+msgstr "Kanallar"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:39
+#, c++-format
+msgid ""
+"Developers:\n"
+"{}\n"
+"Designers:\n"
+"{}\n"
+"Artists:\n"
+"{}"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Uygulama Teması"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "About"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "Home"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:56
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:58
+msgid "Settings"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:225
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:21
+msgid "Light"
+msgstr "Açık"
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:22
+msgid "Dark"
+msgstr "Kyu"
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Application"
+#~ msgstr "Uygulama"
+
+#~ msgid "Add"
+#~ msgstr "Ekle"
+
+#~ msgid "Add New Profile"
+#~ msgstr "Yeni Profil Ekle"
+
+#, csharp-format
+#~ msgid "Are you sure you want to delete profile \"{0}\"?"
+#~ msgstr "“{0}” profilini silmek istediğinizden emin misiniz?"
+
+#~ msgid "Cancel"
+#~ msgstr "İptal"
+
+#~ msgid "Default"
+#~ msgstr "Öntanımlı"
+
+#~ msgid "Delete"
+#~ msgstr "Sil"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Profil Sil"
+
+#~ msgid "Full"
+#~ msgstr "Tam"
+
+#~ msgid "Hearts"
+#~ msgstr "Kalpler"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "JPEG ve PNG resimler"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr "Yeni renk profili, geçerli etkin profilin bir kopyası olacaktır."
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "Nicholas Logozzo"
+
+#~ msgid "Off"
+#~ msgstr "Kapalı"
+
+#~ msgid "On"
+#~ msgstr "Açık"
+
+#~ msgid "Profile Name"
+#~ msgstr "Profil Adı"
+
+#~ msgid "Select an image"
+#~ msgstr "Resim seç"
+
+#~ msgid "Split Channels"
+#~ msgstr "Kanalları Ayır"
+
+#~ msgid "Command Help"
+#~ msgstr "Komut Yardımı"
+
+#~ msgid "Let's dance!"
+#~ msgstr "Dans edelim!"
+
+#~ msgid ""
+#~ "Cavalier listens to your system sound. Play some music or watch a video "
+#~ "and see your sound come to life!"
+#~ msgstr ""
+#~ "Cavalier sistem sesinizi dinler. Biraz müzik çalın veya bir video izleyin "
+#~ "ve sesinizin canlandığını görün!"
+
+#~ msgid "Drawing mode"
+#~ msgstr "Çizim kipi"
+
+#~ msgid "Box"
+#~ msgstr "Kutu"
+
+#~ msgid "Circle"
+#~ msgstr "Daire"
+
+#~ msgid "Wave"
+#~ msgstr "Dalga"
+
+#~ msgid "Levels"
+#~ msgstr "Düzeyler"
+
+#~ msgid "Particles"
+#~ msgstr "Parçacıklar"
+
+#~ msgid "Bars"
+#~ msgstr "Çubuklar"
+
+#~ msgid "Spine"
+#~ msgstr "Omurga"
+
+#~ msgid "Splitter"
+#~ msgstr "Ayırıcı"
+
+#~ msgid "Radius"
+#~ msgstr "Yarıçap"
+
+#~ msgid "Rotation"
+#~ msgstr "Döndürme"
+
+#~ msgid "Mirror"
+#~ msgstr "Aynala"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "Ters ayna"
+
+#~ msgid "Drawing direction"
+#~ msgstr "Çizim yönü"
+
+#~ msgid "Top to bottom"
+#~ msgstr "Yukarıdan aşağıya"
+
+#~ msgid "Bottom to top"
+#~ msgstr "Aşağıdan yukarıya"
+
+#~ msgid "Left to right"
+#~ msgstr "Soldan sağa"
+
+#~ msgid "Right to left"
+#~ msgstr "Sağdan sola"
+
+#~ msgid "Drawing area margin"
+#~ msgstr "Çizim alanı kenar boşluğu"
+
+#~ msgid "Size of gaps around drawing area (in pixels)."
+#~ msgstr "Çizim alanı etrafındaki boşlukların boyutu (piksel olarak)."
+
+#~ msgid "Drawing area X offset"
+#~ msgstr "Çizim alanı X konumu"
+
+#~ msgid "Drawing area Y offset"
+#~ msgstr "Çizim alanı Y konumu"
+
+#~ msgid "Offset between items"
+#~ msgstr "Öğeler arasındaki boşluk"
+
+#~ msgid "The size of spaces between elements (in percent)."
+#~ msgstr "Ögeler arasındaki boşluk (yüzde olarak)."
+
+#~ msgid "Roundness of items"
+#~ msgstr "Ögelerin yuvarlaklığı"
+
+#~ msgid "How much rounded the elements should be (in percent)."
+#~ msgstr "Ögelerin ne kadar yuvarlak olacağı (yüzde olarak)."
+
+#~ msgid "Filling"
+#~ msgstr "Dolgu"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "Şekillerin dolgusu veya ana hatları çizilmesi durumu."
+
+#~ msgid "Thickness of lines"
+#~ msgstr "Çizgi kalınlığı"
+
+#~ msgid "Thickness of lines when filling is off (in pixels)."
+#~ msgstr "Dolgu kapalıyken çizgilerin kalınlığı (piksel olarak)."
+
+#~ msgid "Borderless window"
+#~ msgstr "Kenarlıksız pencere"
+
+#~ msgid "Whether to disable window shadow and borders."
+#~ msgstr "Pencere gölgesinin ve kenarlıkların devre dışı bırakılma durumu."
+
+#~ msgid "Sharp corners"
+#~ msgstr "Keskin köşeler"
+
+#~ msgid "Whether the main window corners should be sharp."
+#~ msgstr "Ana pencere köşelerinin keskin olma durumu."
+
+#~ msgid "Window controls"
+#~ msgstr "Pencere denetimleri"
+
+#~ msgid "Whether to show window control buttons."
+#~ msgstr "Pencere denetim düğmelerinin gösterilme durumu."
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "Başlık çubuğunu kendiliğinden gizle"
+
+#~ msgid "Whether to hide headerbar when main window is not focused."
+#~ msgstr "Ana pencere odaklanmadığında başlık çubuğunun gizlenme durumu."
+
+#~ msgid "Framerate"
+#~ msgstr "Kare hızı"
+
+#~ msgid "Number of frames per second."
+#~ msgstr "Saniyedeki kare sayısı."
+
+#~ msgid "Custom"
+#~ msgstr "Özel"
+
+#~ msgid "Custom Framerate"
+#~ msgstr "Özel Kare Hızı"
+
+#~ msgid "Number of bars"
+#~ msgstr "Çubuk sayısı"
+
+#~ msgid "Automatic sensitivity"
+#~ msgstr "Kendiliğinden duyarlılık"
+
+#~ msgid "Attempt to decrease sensitivity if the bars peak."
+#~ msgstr "Çubuklar zirve yaparsa hassasiyeti düşürmeye çalış."
+
+#~ msgid "Sensitivity"
+#~ msgstr "Duyarlılık"
+
+#~ msgid ""
+#~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
+#~ "be the initial value."
+#~ msgstr ""
+#~ "Elle duyarlılık. Kendiliğinden duyarlılık etkinleştirilirse, bu yalnızca "
+#~ "başlangıç değeri olacaktır."
+
+#~ msgid "Mono"
+#~ msgstr "Tekli"
+
+#~ msgid "Stereo"
+#~ msgstr "Stereo"
+
+#~ msgid "Monstercat smoothing"
+#~ msgstr "Monstercat yumuşatma"
+
+#~ msgid "Whether to enable the so-called «Monstercat smoothing»."
+#~ msgstr "Sözde «Monstercat yumuşatmanın» etkinleştirilme durumu."
+
+#~ msgid "Noise reduction"
+#~ msgstr "Gürültü azaltma"
+
+#~ msgid ""
+#~ "This factor adjusts the integral and gravity filters to keep the signal "
+#~ "smooth.\n"
+#~ "Higher value leads to a slower and smoother result."
+#~ msgstr ""
+#~ "Bu faktör, sinyali düzgün tutmak için integral ve yerçekimi süzgeçlerini "
+#~ "ayarlar.\n"
+#~ "Daha yüksek değer, daha yavaş ve daha pürüzsüz sonuç sağlar."
+
+#~ msgid "Reverse order"
+#~ msgstr "Ters sırada"
+
+#~ msgid "Whether to reverse order of bars for each channel."
+#~ msgstr "Her kanal için çubukların sırasının ters çevrilme durumu."
+
+#~ msgid "Colors"
+#~ msgstr "Renkler"
+
+#~ msgid "Add Profile"
+#~ msgstr "Profil Ekle"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "Ön Plan Rengi"
+
+#~ msgid "Add foreground color"
+#~ msgstr "Ön plan rengi ekle"
+
+#~ msgid "Background Colors"
+#~ msgstr "Arka Plan Rengi"
+
+#~ msgid "Add background color"
+#~ msgstr "Arka plan rengi ekle"
+
+#~ msgid "Images"
+#~ msgstr "Resimler"
+
+#~ msgid "Background"
+#~ msgstr "Arka plan"
+
+#~ msgid "Foreground"
+#~ msgstr "Ön plan"
+
+#~ msgid "Add Image"
+#~ msgstr "Resim Ekle"
+
+#~ msgid "Scale"
+#~ msgstr "Ölçekle"
+
+#~ msgid "Alpha"
+#~ msgstr "Alfa"
+
+#~ msgid "Foreground image is only shown with Box drawing modes."
+#~ msgstr "Ön plan resmi yalnızca Kutu çizim kiplerinde gösterilir."
+
+#~ msgid "No Images"
+#~ msgstr "Resim Yok"
+
+#~ msgid "Add an image to use it in Cavalier."
+#~ msgstr "Cavalierʼde kullanmak için resim ekleyin."
+
+#~ msgid "No Image"
+#~ msgstr "Resim Yok"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "Çizim Kipini Değiştir"
+
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "Daire kiplerinde yarıçapı değiştir"
+
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "Daire kiplerinde dönüşü değiştir"
+
+#~ msgid "Change Mirror Mode"
+#~ msgstr "Ayna Kipini Değiştir"
+
+#~ msgid "Toggle Reverse Mirror"
+#~ msgstr "Ters Aynayı Aç/Kapat"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "Çizim Alanı Kenar Boşluğunu Değiştir"
+
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "Çizim Alanı X Konumunu Değiştir"
+
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "Çizim Alanı Y Konumunu Değiştir"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "Çizim Yönünü Değiştir"
+
+#~ msgid "Change Offset Between Items"
+#~ msgstr "Ögeler Arasındaki Boşluğu Değiştir"
+
+#~ msgid "Change Items Roundness"
+#~ msgstr "Ögelerin Yuvarlaklığını Değiştir"
+
+#~ msgid "Toggle Filling"
+#~ msgstr "Dolguyu Aç/Kapat"
+
+#~ msgid "Change Lines Thickness"
+#~ msgstr "Çizgi Kalınlığını Değiştir"
+
+#~ msgid "Toggle Window Borders"
+#~ msgstr "Pencere Kenarlıklarını Aç/Kapat"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "Keskin Köşeleri Aç/Kapat"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "Çubuk Sayısını Değiştir"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "Kanalları Aç/Kapat"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "Ters Sıralamayı Aç/Kapat"
+
+#~ msgid "Other"
+#~ msgstr "Diğer"
+
+#~ msgid "Change Color Profile"
+#~ msgstr "Renk Profilini Değiştir"
+
+#~ msgid "Change Background Image"
+#~ msgstr "Arka Plan Resmini Değiştir"
+
+#~ msgid "Change Background Image Scale"
+#~ msgstr "Arka Plan Resim Ölçeğini Değiştir"
+
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "Arka Plan Resim Alfasını Değiştir"
+
+#~ msgid "Change Foreground Image"
+#~ msgstr "Ön Plan Resmini Değiştir"
+
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "Ön Plan Resim Ölçeğini Değiştir"
+
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "Ön Plan Resim Alfasını Değiştir"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "Tam Ekranı Aç/Kapat"
+
+#~ msgid "Resizing..."
+#~ msgstr "Yeniden boyutlandırılıyor..."
+
+#~ msgid ""
+#~ "Cavalier is an audio visualizer based on CAVA with customizable interface."
+#~ msgstr ""
+#~ "Cavalier, özelleştirilebilir arayüze sahip CAVA tabanlı bir ses "
+#~ "görselleştiricisidir."
+
+#~ msgid "11 drawing modes!"
+#~ msgstr "11 çizim kipi!"
+
+#~ msgid "Set any color, a gradient or an image for background and foreground."
+#~ msgstr ""
+#~ "Arka plan ve ön plan için herhangi bir renk, renk geçişi veya resim "
+#~ "ayarlayın."
+
+#~ msgid "Configure smoothing, noise reduction and a few other CAVA settings."
+#~ msgstr ""
+#~ "Yumuşatma, gürültü azaltma ve diğer birkaç CAVA ayarını yapılandırın."
+
+#, csharp-format
+#~ msgid ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Contributors on GitHub ❤️ {2}"
+#~ msgstr ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "GitHub Katkıcıları ❤️ {2}"
+
+#~ msgid "Toggle Window Controls"
+#~ msgstr "Pencere Denetimlerini Aç/Kapat"
+
+#~ msgid "Toggle Autohide Headerbar"
+#~ msgstr "Başlık Çubuğunu Kendiliğinden Gizlemeyi Aç/Kapat"
