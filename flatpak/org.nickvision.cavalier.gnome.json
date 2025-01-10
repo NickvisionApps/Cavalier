@@ -108,19 +108,15 @@
         },
         {
             "name" : "iniparser",
-            "buildsystem" : "simple",
-            "build-commands" :
-            [
-                "make PREFIX=/app",
-                "install -Dm0644 src/iniparser.h /app/include/iniparser.h",
-                "install -Dm0644 src/dictionary.h /app/include/dictionary.h",
-                "install -Dm0644 libiniparser.so.1 /app/lib/libiniparser.so.1",
-                "ln -sf libiniparser.so.1 /app/lib/libiniparser.so"
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release"
             ],
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://github.com/ndevilla/iniparser.git",
+                    "url" : "https://gitlab.com/iniparser/iniparser.git",
                     "tag" : "v4.2.5"
                 }
             ]
