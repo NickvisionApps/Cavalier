@@ -45,6 +45,15 @@ begin
     MsgBox('Unable to install VC . Please try again', mbError, MB_OK);
 end;
 
+procedure SetupVC2012();
+var
+  ResultCode: Integer;
+begin
+  if not Exec(ExpandConstant('{app}\deps\vc_redist.2012.x64.exe'), '/install /quiet /norestart', '', SW_HIDE, ewWaitUntilTerminated, ResultCode)
+  then
+    MsgBox('Unable to install VC . Please try again', mbError, MB_OK);
+end;
+
 procedure Cleanup();
 begin
   DelTree(ExpandConstant('{app}\deps'), True, True, True);
@@ -57,7 +66,9 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "vc_redist.x64.exe"; DestDir: "{app}\deps"; AfterInstall: SetupVC  
+Source: "vc_redist.x64.exe"; DestDir: "{app}\deps"; AfterInstall: SetupVC
+Source: "vc_redist.2012.x64.exe"; DestDir: "{app}\deps"; AfterInstall: SetupVC2012
+Source: "cava\*"; DestDir: "{app}\Release"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\build\org.nickvision.cavalier.qt\Release\{#MyAppExeName}"; DestDir: "{app}\Release"; Flags: ignoreversion 
 Source: "..\build\org.nickvision.cavalier.qt\Release\*"; DestDir: "{app}\Release"; Flags: ignoreversion recursesubdirs createallsubdirs; AfterInstall: Cleanup
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files

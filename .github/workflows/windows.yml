@@ -51,6 +51,10 @@ jobs:
         run: |
           $ProgressPreference = 'SilentlyContinue'
           Invoke-WebRequest https://aka.ms/vs/17/release/vc_redist.x64.exe -OutFile vc_redist.x64.exe
+          Invoke-WebRequest https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe -OutFile vc_redist.2012.x64.exe
+          Invoke-WebRequest https://github.com/karlstav/cava/releases/download/0.10.3/cava_win.zip -OutFile cava.zip
+          Expand-Archive -Force 'cava.zip'
+          Remove-Item -Force cava\config
           iscc setup.iss
       - name: Upload
         uses: actions/upload-artifact@v4

@@ -49,6 +49,20 @@ parts:
       - libboost-json1.83-dev
     override-prime: ''
 
+  cava:
+    source: https://github.com/karlstav/cava.git
+    source-tag: '0.10.3'
+    source-depth: 1
+    build-environment:
+      - CFLAGS: -I/snap/gnome-46-2404-sdk/current/usr/include
+    plugin: autotools
+    autotools-configure-parameters:
+      - --prefix=/usr
+    build-packages:
+      - libfftw3-dev
+    prime:
+      - -usr/share
+
   libxmlplusplus:
     source: https://github.com/libxmlplusplus/libxmlplusplus.git
     source-tag: '5.4.0'
@@ -63,7 +77,7 @@ parts:
       - usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/libxml++-5.0*.so*
 
   cavalier:
-    after: [maddy, libnick, libxmlplusplus]
+    after: [maddy, libnick, cava, libxmlplusplus]
     plugin: cmake
     source: .
     build-snaps:

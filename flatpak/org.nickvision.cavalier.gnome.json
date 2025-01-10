@@ -7,6 +7,7 @@
     "finish-args":[
         "--socket=fallback-x11",
         "--socket=wayland",
+        "--socket=pulseaudio",
         "--device=dri",
         "--share=ipc",
         "--talk-name=com.canonical.Unity",
@@ -61,6 +62,77 @@
                     "type": "git",
                     "url": "https://github.com/nickvisionapps/libnick",
                     "tag": "2025.1.0"
+                }
+            ]
+        },
+        {
+            "name": "fftw3f",
+            "config-opts": [
+                "--enable-threads",
+                "--enable-shared",
+                "--disable-static",
+                "--enable-float"
+            ],
+            "build-options": {
+                "arch": {
+                    "x86_64": {
+                        "config-opts": [
+                            "--enable-sse2",
+                            "--enable-avx",
+                            "--enable-avx-128-fma"
+                        ]
+                    },
+                    "aarch64": {
+                        "config-opts": [
+                            "--enable-neon"
+                        ]
+                    }
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://www.fftw.org/fftw-3.3.10.tar.gz",
+                    "sha256": "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
+                }
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/cmake",
+                "/lib/pkgconfig",
+                "/share/man",
+                "*.la",
+                "*.so"
+            ]
+        },
+        {
+            "name" : "iniparser",
+            "buildsystem" : "simple",
+            "build-commands" :
+            [
+                "make PREFIX=/app",
+                "install -Dm0644 src/iniparser.h /app/include/iniparser.h",
+                "install -Dm0644 src/dictionary.h /app/include/dictionary.h",
+                "install -Dm0644 libiniparser.so.1 /app/lib/libiniparser.so.1",
+                "ln -sf libiniparser.so.1 /app/lib/libiniparser.so"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/ndevilla/iniparser.git",
+                    "tag" : "v4.2.5"
+                }
+            ]
+        },
+        {
+            "name" : "cava",
+            "buildsystem" : "autotools",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/karlstav/cava.git",
+                    "tag" : "0.10.3"
                 }
             ]
         },
