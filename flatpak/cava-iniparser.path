@@ -1,0 +1,11 @@
+--- config.c	2025-01-10 14:49:29.797409246 -0500
++++ config.c	2025-01-10 14:50:46.966481382 -0500
+@@ -4,7 +4,7 @@
+ 
+ #include <ctype.h>
+ #ifndef _MSC_VER
+-#include <iniparser.h>
++#include <iniparser/iniparser.h>
+ #endif
+ #include <math.h>
+ 
