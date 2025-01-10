@@ -57,4 +57,32 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         m_json["AutomaticallyCheckForUpdates"] = check;
     }
+
+    DrawingArea Configuration::getDrawingArea() const
+    {
+        if(m_json["DrawingArea"].is_object())
+        {
+            return m_json["DrawingArea"].as_object();
+        }
+        return {};
+    }
+
+    void Configuration::setDrawingArea(const DrawingArea& area)
+    {
+        m_json["DrawingArea"] = area.toJson();
+    }
+
+    CavaOptions Configuration::getCavaOptions() const
+    {
+        if(m_json["CavaOptions"].is_object())
+        {
+            return m_json["CavaOptions"].as_object();
+        }
+        return {};
+    }
+
+    void Configuration::setCavaOptions(const CavaOptions& cava)
+    {
+        m_json["CavaOptions"] = cava.toJson();
+    }
 }

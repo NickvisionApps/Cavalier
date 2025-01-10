@@ -5,7 +5,10 @@ endif()
 add_library(libcavalier
     "src/controllers/mainwindowcontroller.cpp"
     "src/controllers/preferencesviewcontroller.cpp"
+    "src/models/cavaoptions.cpp"
+    "src/models/color.cpp"
     "src/models/configuration.cpp"
+    "src/models/drawingarea.cpp"
     "src/models/startupinformation.cpp")
 target_include_directories(libcavalier PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set_target_properties(libcavalier PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION "${PROJECT_VERSION}")

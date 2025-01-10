@@ -4,6 +4,8 @@
 #include <string>
 #include <libnick/app/datafilebase.h>
 #include <libnick/app/windowgeometry.h>
+#include "cavaoptions.h"
+#include "drawingarea.h"
 #include "theme.h"
 
 namespace Nickvision::Cavalier::Shared::Models
@@ -50,6 +52,26 @@ namespace Nickvision::Cavalier::Shared::Models
          * @param check Whether or not to automatically check for updates
          */
         void setAutomaticallyCheckForUpdates(bool check);
+        /**
+         * @brief Gets the drawing area for the application.
+         * @return The drawing area
+         */
+        DrawingArea getDrawingArea() const;
+        /**
+         * @brief Sets the drawing area for the application.
+         * @param area The new drawing area
+         */
+        void setDrawingArea(const DrawingArea& area);
+        /**
+         * @brief Gets the cava options for the application.
+         * @return The cava options
+         */
+        CavaOptions getCavaOptions() const;
+        /**
+         * @brief Sets the cava options for the application.
+         * @param cava The new cava options
+         */
+        void setCavaOptions(const CavaOptions& cava);
     };
 }
 
