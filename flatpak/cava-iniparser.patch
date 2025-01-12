@@ -1,5 +1,5 @@
---- a/config.c	2025-01-10 14:49:29.797409246 -0500
-+++ b/config.c	2025-01-10 14:50:46.966481382 -0500
+--- a/config.c	2025-01-12 08:48:59.406480995 -0500
++++ b/config.c	2025-01-12 08:51:44.700054483 -0500
 @@ -4,7 +4,7 @@
  
  #include <ctype.h>
@@ -9,3 +9,17 @@
  #endif
  #include <math.h>
  
+@@ -684,13 +684,8 @@
+     if (p->userEQ_keys > 0) {
+         p->userEQ_enabled = 1;
+         p->userEQ = (double *)calloc(p->userEQ_keys + 1, sizeof(double));
+-#ifndef LEGACYINIPARSER
+         const char *keys[p->userEQ_keys];
+         iniparser_getseckeys(ini, "eq", keys);
+-#endif
+-#ifdef LEGACYINIPARSER
+-        char **keys = iniparser_getseckeys(ini, "eq");
+-#endif
+         for (int sk = 0; sk < p->userEQ_keys; sk++) {
+             p->userEQ[sk] = iniparser_getdouble(ini, keys[sk], 1);
+         }
