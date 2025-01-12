@@ -132,7 +132,7 @@
                 },
                 {
                     "type" : "patch",
-                    "path" : "cava-iniparser.path"
+                    "path" : "cava-iniparser.patch"
                 }
             ]
         },
