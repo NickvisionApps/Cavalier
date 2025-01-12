@@ -1,0 +1,841 @@
+# Russian translation for Cavalier
+# Copyright (C) 2022 Fyodor Sobolev
+# This file is distributed under the same license as the PACKAGE package.
+# Fyodor Sobolev, 2022
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cavalier\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-09 17:14-0500\n"
+"PO-Revision-Date: 2023-09-22 03:17+0000\n"
+"Last-Translator: Fyodor Sobolev <fyodor-sobolev@protonmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/ru/>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.1-dev\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr "Визуализируйте аудио с помощью CAVA"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "Чат Matrix"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "Соавторы на GitHub ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "Фёдор Соболев"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "Давид Лапшин"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr "Фёдор Соболев https://github.com/fsobolev"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:173
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:205
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:223
+msgctxt "Night"
+msgid "Good Morning!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:227
+msgctxt "Morning"
+msgid "Good Morning!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:231
+msgid "Good Afternoon!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:235
+msgid "Good Evening!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:237
+msgid "Good Day!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:266
+#, c++-format
+msgid "Folder Opened: {}"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:281
+msgid "Folder closed"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:29
+msgid "Preferences"
+msgstr "Настройки"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:34
+msgid "Keyboard Shortcuts"
+msgstr "Комбинации клавиш"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:31
+msgid "About Cavalier"
+msgstr "О приложении"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:21
+msgid "Open Folder (Ctrl+O)"
+msgstr ""
+
+#. Folder Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:59
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:138
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:65
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:238
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:34
+msgid "Close Folder (Ctrl+W)"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:43
+msgid "Main Menu"
+msgstr "Главное меню"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:57
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:62
+msgid "Open a folder (or drag one into the app) to get started"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:19
+msgid "User Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "Светлая"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "Тёмная"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:53
+msgid "Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:164
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:63
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:156
+msgid "Open Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Close Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:26
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "Приложение"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:39
+#, fuzzy
+msgid "About Application"
+msgstr "Приложение"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:44
+msgid "Quit"
+msgstr "Выход"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:128
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:219
+msgid "Close"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:150
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:249
+#, c++-format
+msgid "There is {} file in the folder."
+msgid_plural "There are {} files in the folder."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:213
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "GitHub Repo"
+msgstr "Репозиторий GitHub"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:38
+#, fuzzy
+msgid "Changelog:"
+msgstr "Каналы"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:39
+#, c++-format
+msgid ""
+"Developers:\n"
+"{}\n"
+"Designers:\n"
+"{}\n"
+"Artists:\n"
+"{}"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Тема приложения"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "About"
+msgstr "О приложении"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "Home"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:56
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:58
+#, fuzzy
+msgid "Settings"
+msgstr "Импорт Настроек"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:225
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:21
+msgid "Light"
+msgstr "Светлая"
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:22
+msgid "Dark"
+msgstr "Тёмная"
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Application"
+#~ msgstr "Приложение"
+
+#~ msgid "Add"
+#~ msgstr "Добавить"
+
+#~ msgid "Add New Profile"
+#~ msgstr "Добавить новый профиль"
+
+#, csharp-format
+#~ msgid "Are you sure you want to delete profile \"{0}\"?"
+#~ msgstr "Вы уверены, что хотите удалить профиль \"{0}\"?"
+
+#~ msgid "Cancel"
+#~ msgstr "Отмена"
+
+#~ msgid "Default"
+#~ msgstr "По умолчанию"
+
+#~ msgid "Delete"
+#~ msgstr "Удалить"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Удалить профиль"
+
+#~ msgid "Full"
+#~ msgstr "Полное"
+
+#~ msgid "Hearts"
+#~ msgstr "Сердечки"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "Изображения JPEG и PNG"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr "Новый цветовой профиль будет копией текущего активного профиля."
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "Nicholas Logozzo"
+
+#~ msgid "Off"
+#~ msgstr "Выключено"
+
+#~ msgid "On"
+#~ msgstr "Включено"
+
+#~ msgid "Profile Name"
+#~ msgstr "Имя профиля"
+
+#~ msgid "Select an image"
+#~ msgstr "Выбрать изображение"
+
+#~ msgid "Split Channels"
+#~ msgstr "Разделить каналы"
+
+#~ msgid "Command Help"
+#~ msgstr "Помощь по командам"
+
+#~ msgid "Let's dance!"
+#~ msgstr "Давайте танцевать!"
+
+#~ msgid ""
+#~ "Cavalier listens to your system sound. Play some music or watch a video "
+#~ "and see your sound come to life!"
+#~ msgstr ""
+#~ "Cavalier слушает звук вашей системы. Включите какую-нибудь музыку или "
+#~ "видео и наблюдайте, как звук оживает!"
+
+#~ msgid "Drawing mode"
+#~ msgstr "Режим отрисовки"
+
+#~ msgid "Box"
+#~ msgstr "Ящик"
+
+#~ msgid "Circle"
+#~ msgstr "Круг"
+
+#~ msgid "Wave"
+#~ msgstr "Волна"
+
+#~ msgid "Levels"
+#~ msgstr "Уровни"
+
+#~ msgid "Particles"
+#~ msgstr "Частицы"
+
+#~ msgid "Bars"
+#~ msgstr "Шкалы"
+
+#~ msgid "Spine"
+#~ msgstr "Хребет"
+
+#~ msgid "Splitter"
+#~ msgstr "Разделитель"
+
+#~ msgid "Radius"
+#~ msgstr "Радиус"
+
+#~ msgid "Rotation"
+#~ msgstr "Наклон"
+
+#~ msgid "Mirror"
+#~ msgstr "Зеркало"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "Развернуть зеркало"
+
+#~ msgid "Drawing direction"
+#~ msgstr "Направление отрисовки"
+
+#~ msgid "Top to bottom"
+#~ msgstr "Сверху вниз"
+
+#~ msgid "Bottom to top"
+#~ msgstr "Снизу вверх"
+
+#~ msgid "Left to right"
+#~ msgstr "Слева направо"
+
+#~ msgid "Right to left"
+#~ msgstr "Справа налево"
+
+#~ msgid "Drawing area margin"
+#~ msgstr "Отступ области отрисовки"
+
+#~ msgid "Size of gaps around drawing area (in pixels)."
+#~ msgstr "Размер отступа вокруг области отрисовки (в пикселях)."
+
+#~ msgid "Drawing area X offset"
+#~ msgstr "Отклонение области отрисовки по оси X"
+
+#~ msgid "Drawing area Y offset"
+#~ msgstr "Отклонение области отрисовки по оси Y"
+
+#~ msgid "Offset between items"
+#~ msgstr "Расстояние между элементами"
+
+#~ msgid "The size of spaces between elements (in percent)."
+#~ msgstr "Размер пространства между элементами (в процентах)."
+
+#~ msgid "Roundness of items"
+#~ msgstr "Округлость элементов"
+
+#~ msgid "How much rounded the elements should be (in percent)."
+#~ msgstr "Насколько элементы должны быть скруглены (в процентах)."
+
+#~ msgid "Filling"
+#~ msgstr "Заполнение"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "Должны ли формы быть заполнены или обведены."
+
+#~ msgid "Thickness of lines"
+#~ msgstr "Толщина линий"
+
+#~ msgid "Thickness of lines when filling is off (in pixels)."
+#~ msgstr "Толщина линий при выключенном заполнении (в пикселях)."
+
+#~ msgid "Borderless window"
+#~ msgstr "Отключить границы окна"
+
+#~ msgid "Whether to disable window shadow and borders."
+#~ msgstr "Следует ли скрыть тени и границы окна."
+
+#~ msgid "Sharp corners"
+#~ msgstr "Острые углы"
+
+#~ msgid "Whether the main window corners should be sharp."
+#~ msgstr "Должны ли углы главного окна быть острыми."
+
+#~ msgid "Window controls"
+#~ msgstr "Кнопки управления окном"
+
+#~ msgid "Whether to show window control buttons."
+#~ msgstr "Должны ли отображаться кнопки управления окном."
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "Автоскрытие заголовка"
+
+#~ msgid "Whether to hide headerbar when main window is not focused."
+#~ msgstr ""
+#~ "Должен ли отображаться заголовок главного окна, когда оно не в фокусе."
+
+#~ msgid "Framerate"
+#~ msgstr "Частота кадров"
+
+#~ msgid "Number of frames per second."
+#~ msgstr "Число кадров в секунду."
+
+#~ msgid "Custom"
+#~ msgstr "Другое"
+
+#~ msgid "Custom Framerate"
+#~ msgstr "Своя частота кадров"
+
+#~ msgid "Number of bars"
+#~ msgstr "Количество шкал"
+
+#~ msgid "Automatic sensitivity"
+#~ msgstr "Автоматическая чувствительность"
+
+#~ msgid "Attempt to decrease sensitivity if the bars peak."
+#~ msgstr ""
+#~ "Пытаться снижать чувствительность, если показатели достигают максимума."
+
+#~ msgid "Sensitivity"
+#~ msgstr "Чувствительность"
+
+#~ msgid ""
+#~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
+#~ "be the initial value."
+#~ msgstr ""
+#~ "Ручная настройка чувствительности. Если автоматическая чувствительность "
+#~ "включена, этот параметр задаёт только начальное значение."
+
+#~ msgid "Mono"
+#~ msgstr "Моно"
+
+#~ msgid "Stereo"
+#~ msgstr "Стерео"
+
+#~ msgid "Monstercat smoothing"
+#~ msgstr "Сглаживание Monstercat"
+
+#~ msgid "Whether to enable the so-called «Monstercat smoothing»."
+#~ msgstr "Следуюет ли включить так называемое «сглаживание Monstercat»."
+
+#~ msgid "Noise reduction"
+#~ msgstr "Шумоподавление"
+
+#~ msgid ""
+#~ "This factor adjusts the integral and gravity filters to keep the signal "
+#~ "smooth.\n"
+#~ "Higher value leads to a slower and smoother result."
+#~ msgstr ""
+#~ "Этот параметр регулирует интегральные и гравитационные фильтры, делающие "
+#~ "сигнал гладким.\n"
+#~ "Высокое значение приведёт к более медленному и гладкому результату."
+
+#~ msgid "Reverse order"
+#~ msgstr "Обратный порядок"
+
+#~ msgid "Whether to reverse order of bars for each channel."
+#~ msgstr "Следует ли изменить порядок шкал для каждого канала."
+
+#~ msgid "Colors"
+#~ msgstr "Цвета"
+
+#~ msgid "Add Profile"
+#~ msgstr "Добавить профиль"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "Цвета переднего плана"
+
+#~ msgid "Add foreground color"
+#~ msgstr "Добавить цвет переднего плана"
+
+#~ msgid "Background Colors"
+#~ msgstr "Цвета фона"
+
+#~ msgid "Add background color"
+#~ msgstr "Добавить цвет фона"
+
+#~ msgid "Images"
+#~ msgstr "Изображения"
+
+#~ msgid "Background"
+#~ msgstr "Фон"
+
+#~ msgid "Foreground"
+#~ msgstr "Передний план"
+
+#~ msgid "Add Image"
+#~ msgstr "Добавить изображение"
+
+#~ msgid "Scale"
+#~ msgstr "Масштаб"
+
+#~ msgid "Alpha"
+#~ msgstr "Альфа"
+
+#~ msgid "Foreground image is only shown with Box drawing modes."
+#~ msgstr ""
+#~ "Изображение переднего плана отображается только в режимах типа Ящик."
+
+#~ msgid "No Images"
+#~ msgstr "Нет изображений"
+
+#~ msgid "Add an image to use it in Cavalier."
+#~ msgstr "Добавьте изображение для использования в Cavalier."
+
+#~ msgid "No Image"
+#~ msgstr "Без изображения"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "Изменить режим отрисовки"
+
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "Изменить радиус в режимах типа Круг"
+
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "Изменить наклон в режимах типа Круг"
+
+#~ msgid "Change Mirror Mode"
+#~ msgstr "Изменить режим зеркала"
+
+#~ msgid "Toggle Reverse Mirror"
+#~ msgstr "Развернуть зеркало"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "Изменить отступ области отрисовки"
+
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "Изменить отклонение области отрисовки по оси X"
+
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "Изменить отклонение области отрисовки по оси Y"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "Изменить направление отрисовки"
+
+#~ msgid "Change Offset Between Items"
+#~ msgstr "Изменить расстояние между элементами"
+
+#~ msgid "Change Items Roundness"
+#~ msgstr "Изменить округлость элементов"
+
+#~ msgid "Toggle Filling"
+#~ msgstr "Переключить заполнение"
+
+#~ msgid "Change Lines Thickness"
+#~ msgstr "Изменить толщину линий"
+
+#~ msgid "Toggle Window Borders"
+#~ msgstr "Переключить границы окна"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "Переключить острые углы"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "Изменить количество шкал"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "Переключить каналы"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "Переключить обратный порядок"
+
+#~ msgid "Other"
+#~ msgstr "Прочее"
+
+#~ msgid "Change Color Profile"
+#~ msgstr "Изменить профиль цветов"
+
+#~ msgid "Change Background Image"
+#~ msgstr "Изменить фоновое изображение"
+
+#~ msgid "Change Background Image Scale"
+#~ msgstr "Изменить масштаб фонового изображения"
+
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "Изменить значение альфа фонового изображения"
+
+#~ msgid "Change Foreground Image"
+#~ msgstr "Изменить изображение переднего плана"
+
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "Изменить масштаб изображения переднего плана"
+
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "Изменить значение альфа изображения переднего плана"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "Переключить полный экран"
+
+#~ msgid "Resizing..."
+#~ msgstr "Изменение размера..."
+
+#~ msgid ""
+#~ "Cavalier is an audio visualizer based on CAVA with customizable interface."
+#~ msgstr ""
+#~ "Cavalier - аудио визуализатор, использующий CAVA, с настраиваемым "
+#~ "интерфейсом."
+
+#~ msgid "11 drawing modes!"
+#~ msgstr "11 режимов отрисовки!"
+
+#~ msgid "Set any color, a gradient or an image for background and foreground."
+#~ msgstr ""
+#~ "Установите любой цвет, градиент или изображение для фона или переднего "
+#~ "плана."
+
+#~ msgid "Configure smoothing, noise reduction and a few other CAVA settings."
+#~ msgstr ""
+#~ "Настраивайте сглаживание, шумоподавление и парочку других параметров CAVA."
+
+#, csharp-format
+#~ msgid ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Contributors on GitHub ❤️ {2}"
+#~ msgstr ""
+#~ "Фёдор Соболев {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Соавторы на GitHub ❤️ {2}"
+
+#~ msgid "Toggle Window Controls"
+#~ msgstr "Переключить кнопки управления окном"
+
+#~ msgid "Toggle Autohide Headerbar"
+#~ msgstr "Переключить автоскрытие заголовка"
+
+#~ msgid "Set any color or gradient for background and foreground."
+#~ msgstr "Установите любой цвет или градиент для фона или переднего плана."
+
+#~ msgid "Audio visualizer based on CAVA"
+#~ msgstr "Аудио визуализатор, основанный на CAVA"
+
+#~ msgid "Audio Visualizer"
+#~ msgstr "Аудио визуализатор"
+
+#~ msgid "Second release of Cavalier."
+#~ msgstr "Второй выпуск Cavalier."
+
+#~ msgid "New drawing mode — Particles!"
+#~ msgstr "Новый режим отрисовки — Частицы!"
+
+#~ msgid ""
+#~ "Color profiles! Create as many as you want and change between them "
+#~ "instantly. Unfortunately, this new feature required to change how the "
+#~ "application saves colors, and because of this your previous colors "
+#~ "settings will be lost after installing this update."
+#~ msgstr ""
+#~ "Профили цветов! Создайте столько профилей, сколько захотите, и "
+#~ "переключайтесь между ними мгновенно! К сожалению, эта функция потребовала "
+#~ "изменить, как приложение сохраняет цвета, поэтому после установки этого "
+#~ "обновления ваши предыдущие настройки цветов будут утеряны."
+
+#~ msgid "Added keyboard shortcuts to change most of the settings on the fly."
+#~ msgstr ""
+#~ "Добавлены сочетания клавиш для изменения большинства настроек на лету."
+
+#~ msgid "Added option to show/hide window controls."
+#~ msgstr "Добавлена опция для скрытия/отображения кнопок управления окном."
+
+#~ msgid ""
+#~ "Added option to autohide headerbar when the main window is not focused."
+#~ msgstr ""
+#~ "Добавлена опция автоматического скрытия заголовка, когда окно не в фокусе."
+
+#~ msgid ""
+#~ "Added option to change roundness of items in \"levels\" and \"particles\" "
+#~ "modes."
+#~ msgstr ""
+#~ "Добавлена опция изменения округлости элементов в режимах Уровни и Частицы."
+
+#~ msgid "Import/Export Settings"
+#~ msgstr "Импорт/Экспорт настроек"
+
+#~ msgid "Window size"
+#~ msgstr "Размер окна"
+
+#~ msgid "Window maximized state"
+#~ msgstr "Развёрнутое состояние окна"
+
+#~ msgid "Whether main window is maximized or not"
+#~ msgstr "Является ли окно развёрнутым или нет"
+
+#~ msgid "Defines what the visualizer looks like."
+#~ msgstr "Определяет, как выглядит визуализатор."
+
+#~ msgid "This setting only affects \"levels\" and \"particles\" modes."
+#~ msgstr "Эта настройка влияет только на режимы Уровни и Частицы."
+
+#~ msgid "Number of bars in CAVA config"
+#~ msgstr "Количество шкал в конфигурации CAVA"
+
+#~ msgid "Mono or stereo"
+#~ msgstr "Моно или стерео"
+
+#~ msgid "Smoothing"
+#~ msgstr "Сглаживание"
+
+#~ msgid "Widgets style"
+#~ msgstr "Стиль виджетов"
+
+#~ msgid "Style used by Adwaita widgets."
+#~ msgstr "Стиль, используемый виджетами Adwaita."
+
+#~ msgid "Index of active color profile"
+#~ msgstr "Номер активного профиля цветов"
+
+#~ msgid "Drawing Mode"
+#~ msgstr "Режим отрисовки"
+
+#~ msgid ""
+#~ "This setting only affects \"levels\" and \"particles\" modes.\n"
+#~ "0 - square, 1 - round"
+#~ msgstr ""
+#~ "Эта настройка влияет только на режимы Уровни и Частицы.\n"
+#~ "0 - квадратные, 1 - круглые"
+
+#~ msgid "Import"
+#~ msgstr "Импорт"
+
+#~ msgid "Export"
+#~ msgstr "Экспорт"
+
+#~ msgid "Noise Reduction"
+#~ msgstr "Шумоподавление"
+
+#~ msgid "0 - noisy, 1 - smooth"
+#~ msgstr "0 - шумно, 1 - гладко"
+
+#~ msgid "Type a name for a new profile"
+#~ msgstr "Введите имя нового профиля"
+
+#~ msgid "Remove profile"
+#~ msgstr "Удалить профиль"
+
+#~ msgid "Remove"
+#~ msgstr "Удалить"
+
+#~ msgid "<b>Foreground</b>"
+#~ msgstr "<b>Передний план</b>"
+
+#~ msgid "<b>Background</b>"
+#~ msgstr "<b>Фон</b>"
+
+#~ msgid "Select color"
+#~ msgstr "Выбрать цвет"
+
+#~ msgid "Remove color"
+#~ msgstr "Удалить цвет"
+
+#~ msgid "Add color"
+#~ msgstr "Добавить цвет"
+
+#~ msgid "This name is already in use."
+#~ msgstr "Это имя уже используется."
+
+#~ msgid "Cavalier Settings File (*.cavalier)"
+#~ msgstr "Файл настроек Cavalier (*.cavalier)"
+
+#~ msgid "All Files"
+#~ msgstr "Все файлы"
+
+#~ msgid "Export Settings"
+#~ msgstr "Экспорт Настроек"
+
+#~ msgid "Save"
+#~ msgstr "Сохранить"
+
+#~ msgid "Toggle Widgets Style"
+#~ msgstr "Переключить стиль виджетов"

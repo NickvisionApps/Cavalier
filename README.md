@@ -1,4 +1,4 @@
-![](NickvisionCavalier.Shared/Resources/banner.png)
+![](resources/banner.png)
 
  [![Translation status](https://hosted.weblate.org/widgets/nickvision-cavalier/-/app/svg-badge.svg)](https://hosted.weblate.org/engage/nickvision-cavalier/) ✨Powered by [Weblate](https://weblate.org/en/)✨
 
@@ -27,17 +27,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how can you help the proje
 
 <details>
  <summary>GNOME</summary>
-
- ![GNOMEDefault](NickvisionCavalier.GNOME/Screenshots/Default.png)
- ![GNOMEBars](NickvisionCavalier.GNOME/Screenshots/Bars.png)
- ![GNOMESpine](NickvisionCavalier.GNOME/Screenshots/Spine.png)
- ![GNOMELevels](NickvisionCavalier.GNOME/Screenshots/Levels.png)
- ![GNOMEImages](NickvisionCavalier.GNOME/Screenshots/Images.png)
- ![GNOMECircle](NickvisionCavalier.GNOME/Screenshots/Circle.png)
+</details>
+<details>
+ <summary>Qt</summary>
 </details>
 
 # Dependencies
-- [.NET 8](https://dotnet.microsoft.com/en-us/)
 - [CAVA](https://github.com/karlstav/cava/) >= 0.9.1
 
 # Code of Conduct

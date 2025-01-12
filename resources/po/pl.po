@@ -1,0 +1,272 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-09 17:14-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+msgid "Cavalier"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+msgid "Contributors on GitHub"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:173
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:205
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:223
+msgctxt "Night"
+msgid "Good Morning!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:227
+msgctxt "Morning"
+msgid "Good Morning!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:231
+msgid "Good Afternoon!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:235
+msgid "Good Evening!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:237
+msgid "Good Day!"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:266
+#, c++-format
+msgid "Folder Opened: {}"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:281
+msgid "Folder closed"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:29
+msgid "Preferences"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:34
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:31
+msgid "About Cavalier"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:21
+msgid "Open Folder (Ctrl+O)"
+msgstr ""
+
+#. Folder Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:59
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:138
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:65
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:238
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:34
+msgid "Close Folder (Ctrl+W)"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:43
+msgid "Main Menu"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:57
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:62
+msgid "Open a folder (or drag one into the app) to get started"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:19
+msgid "User Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+msgctxt "Theme"
+msgid "Light"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+msgctxt "Theme"
+msgid "Dark"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:53
+msgid "Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:164
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:63
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:156
+msgid "Open Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Close Folder"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:26
+msgctxt "Shortcut"
+msgid "Application"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:39
+msgid "About Application"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:44
+msgid "Quit"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:128
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:219
+msgid "Close"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:150
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:249
+#, c++-format
+msgid "There is {} file in the folder."
+msgid_plural "There are {} files in the folder."
+msgstr[0] ""
+msgstr[1] ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:213
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "GitHub Repo"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:38
+msgid "Changelog:"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:39
+#, c++-format
+msgid ""
+"Developers:\n"
+"{}\n"
+"Designers:\n"
+"{}\n"
+"Artists:\n"
+"{}"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+msgid "Cavalier (Preview)"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "About"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "Home"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:56
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:58
+msgid "Settings"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:225
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:21
+msgid "Light"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:22
+msgid "Dark"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""

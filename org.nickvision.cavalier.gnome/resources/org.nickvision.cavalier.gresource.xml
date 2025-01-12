@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/nickvision/cavalier/icons/scalable/apps/">
+    <file alias="org.nickvision.cavalier.svg" preprocess="xml-stripblanks">../../resources/org.nickvision.cavalier.svg</file>
+    <file alias="org.nickvision.cavalier-devel.svg" preprocess="xml-stripblanks">../../resources/org.nickvision.cavalier-devel.svg</file>
+  </gresource>
+  <gresource prefix="/org/nickvision/cavalier/icons/symbolic/apps/">
+    <file alias="org.nickvision.cavalier-symbolic.svg" preprocess="xml-stripblanks">../../resources/org.nickvision.cavalier-symbolic.svg</file>
+  </gresource>
+  <gresource prefix="/org/nickvision/cavalier/icons/scalable/status/">
+    <file preprocess="xml-stripblanks">dark-mode-symbolic.svg</file>
+  </gresource>
+</gresources>
