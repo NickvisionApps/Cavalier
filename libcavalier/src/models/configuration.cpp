@@ -60,11 +60,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     DrawingArea Configuration::getDrawingArea() const
     {
-        if(m_json["DrawingArea"].is_object())
-        {
-            return m_json["DrawingArea"].as_object();
-        }
-        return {};
+        return m_json["DrawingArea"].is_object() ? DrawingArea(m_json["DrawingArea"].as_object()) : DrawingArea();
     }
 
     void Configuration::setDrawingArea(const DrawingArea& area)
@@ -74,11 +70,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     CavaOptions Configuration::getCavaOptions() const
     {
-        if(m_json["CavaOptions"].is_object())
-        {
-            return m_json["CavaOptions"].as_object();
-        }
-        return {};
+        return m_json["CavaOptions"].is_object() ? CavaOptions(m_json["CavaOptions"].as_object()) : CavaOptions();
     }
 
     void Configuration::setCavaOptions(const CavaOptions& cava)
@@ -114,5 +106,55 @@ namespace Nickvision::Cavalier::Shared::Models
             arr.push_back(profile.toJson());
         }
         m_json["ColorProfiles"] = arr;
+    }
+
+    std::string Configuration::getActiveColorProfileName() const
+    {
+        return m_json["ActiveColorProfileName"].is_string() ? std::string(m_json["ActiveColorProfileName"].as_string()) : ColorProfile().getName();
+    }
+
+    void Configuration::setActiveColorProfileName(const std::string& name)
+    {
+        m_json["ActiveColorProfileName"] = name;
+    }
+
+    std::vector<BackgroundImage> Configuration::getBackgroundImages() const
+    {
+        std::vector<BackgroundImage> images;
+        if(m_json["BackgroundImages"].is_array())
+        {
+            for(const boost::json::value& val : m_json["BackgroundImages"].as_array())
+            {
+                if(val.is_object())
+                {
+                    BackgroundImage image = val.as_object();
+                    if(std::filesystem::exists(image.getPath()))
+                    {
+                        images.push_back(image);
+                    }
+                }
+            }
+        }
+        return images;
+    }
+
+    void Configuration::setBackgroundImages(const std::vector<BackgroundImage>& images)
+    {
+        boost::json::array arr;
+        for(const BackgroundImage& image : images)
+        {
+            arr.push_back(image.toJson());
+        }
+        m_json["BackgroundImages"] = arr;
+    }
+
+    std::filesystem::path Configuration::getActiveBackgroundImagePath() const
+    {
+        return m_json["ActiveBackgroundImagePath"].is_string() && std::filesystem::exists(m_json["ActiveBackgroundImagePath"].as_string().c_str()) ? m_json["ActiveBackgroundImagePath"].as_string().c_str() : "";
+    }
+
+    void Configuration::setActiveBackgroundImagePath(const std::filesystem::path& path)
+    {
+        m_json["ActiveBackgroundImagePath"] = path.string();
     }
 }

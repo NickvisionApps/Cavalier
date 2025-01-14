@@ -105,6 +105,18 @@ namespace Nickvision::Cavalier::Shared::Models
          * @return The JSON object
          */
         boost::json::object toJson() const;
+        /**
+         * @brief Gets whether or not this ColorProfile is equal to compare ColorProfile.
+         * @param compare The ColorProfile to compare to
+         * @return True if this ColorProfile == compare ColorProfile
+         */
+        bool operator==(const ColorProfile& compare) const;
+        /**
+         * @brief Gets whether or not this ColorProfile is not equal to compare ColorProfile.
+         * @param compare The ColorProfile to compare to
+         * @return True if this ColorProfile != compare ColorProfile
+         */
+        bool operator!=(const ColorProfile& compare) const;
 
     private:
         std::string m_name;

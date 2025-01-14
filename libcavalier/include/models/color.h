@@ -127,13 +127,13 @@ namespace Nickvision::Cavalier::Shared::Models
          * @param compare The Color to compare to
          * @return True if this Color == compare Color
          */
-        bool operator==(const Color& compare);
+        bool operator==(const Color& compare) const;
         /**
          * @brief Gets whether or not this Color is not equal to compare Color.
          * @param compare The Color to compare to
          * @return True if this Color != compare Color
          */
-        bool operator!=(const Color& compare);
+        bool operator!=(const Color& compare) const;
         /**
          * @brief Gets whether or not the object is valid or not.
          * @return True if valid (!empty), else false

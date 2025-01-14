@@ -157,4 +157,14 @@ namespace Nickvision::Cavalier::Shared::Models
         obj["BackgroundColors"] = backgroundColors;
         return obj;
     }
+
+    bool ColorProfile::operator==(const ColorProfile& compare) const
+    {
+        return m_name == compare.m_name;
+    }
+
+    bool ColorProfile::operator!=(const ColorProfile& compare) const
+    {
+        return !(operator==(compare));
+    }
 }

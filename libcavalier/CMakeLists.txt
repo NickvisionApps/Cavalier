@@ -5,6 +5,7 @@ endif()
 add_library(libcavalier
     "src/controllers/mainwindowcontroller.cpp"
     "src/controllers/preferencesviewcontroller.cpp"
+    "src/models/backgroundimage.cpp"
     "src/models/cavaoptions.cpp"
     "src/models/color.cpp"
     "src/models/colorprofile.cpp"

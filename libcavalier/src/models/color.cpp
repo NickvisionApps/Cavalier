@@ -285,12 +285,12 @@ namespace Nickvision::Cavalier::Shared::Models
         return obj;
     }
 
-    bool Color::operator==(const Color& compare)
+    bool Color::operator==(const Color& compare) const
     {
         return m_r == compare.m_r && m_g == compare.m_g && m_b == compare.m_b && m_a == compare.m_a;
     }
 
-    bool Color::operator!=(const Color& compare)
+    bool Color::operator!=(const Color& compare) const
     {
         return !operator==(compare);
     }

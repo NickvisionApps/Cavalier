@@ -5,6 +5,7 @@
 #include <vector>
 #include <libnick/app/datafilebase.h>
 #include <libnick/app/windowgeometry.h>
+#include "backgroundimage.h"
 #include "cavaoptions.h"
 #include "colorprofile.h"
 #include "drawingarea.h"
@@ -84,6 +85,36 @@ namespace Nickvision::Cavalier::Shared::Models
          * @param profiles The new list of color profiles
          */
         void setColorProfiles(const std::vector<ColorProfile>& profiles);
+        /**
+         * @brief Gets the name of the active color profile for the application.
+         * @return The name of the active color profile
+         */
+        std::string getActiveColorProfileName() const;
+        /**
+         * @brief Sets the name of the active color profile for the application..
+         * @param name The new name of the active color profile
+         */
+        void setActiveColorProfileName(const std::string& name);
+        /**
+         * @brief Gets the background images for the application.
+         * @return The list of background images
+         */
+        std::vector<BackgroundImage> getBackgroundImages() const;
+        /**
+         * @brief Sets the background images for the application.
+         * @param images The new lsit of background images
+         */
+        void setBackgroundImages(const std::vector<BackgroundImage>& images);
+        /**
+         * @brief Gets the path of the active background image for the application.
+         * @return The path of the active background image
+         */
+        std::filesystem::path getActiveBackgroundImagePath() const;
+        /**
+         * @brief Sets the path of the active background image for the application..
+         * @param path The new path of the active background image
+         */
+        void setActiveBackgroundImagePath(const std::filesystem::path& path);
     };
 }
 
