@@ -2,9 +2,11 @@
 #define CONFIGURATION_H
 
 #include <string>
+#include <vector>
 #include <libnick/app/datafilebase.h>
 #include <libnick/app/windowgeometry.h>
 #include "cavaoptions.h"
+#include "colorprofile.h"
 #include "drawingarea.h"
 #include "theme.h"
 
@@ -72,6 +74,16 @@ namespace Nickvision::Cavalier::Shared::Models
          * @param cava The new cava options
          */
         void setCavaOptions(const CavaOptions& cava);
+        /**
+         * @brief Gets the color profiles for the application.
+         * @return The list of color profiles
+         */
+        std::vector<ColorProfile> getColorProfiles() const;
+        /**
+         * @brief Sets the color profiles for the application.
+         * @param profiles The new list of color profiles
+         */
+        void setColorProfiles(const std::vector<ColorProfile>& profiles);
     };
 }
 

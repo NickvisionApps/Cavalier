@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 17:14-0500\n"
+"POT-Creation-Date: 2025-01-14 12:30-0500\n"
 "PO-Revision-Date: 2024-02-18 12:02+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/nickvision-"
@@ -86,6 +86,11 @@ msgstr ""
 #: libcavalier/src/controllers/mainwindowcontroller.cpp:281
 msgid "Folder closed"
 msgstr ""
+
+#: libcavalier/src/models/colorprofile.cpp:11
+#: libcavalier/src/models/colorprofile.cpp:27
+msgid "Default"
+msgstr "Standaard"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
@@ -296,9 +301,6 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "Annuleren"
-
-#~ msgid "Default"
-#~ msgstr "Standaard"
 
 #~ msgid "Delete"
 #~ msgstr "Verwijderen"

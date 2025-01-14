@@ -85,4 +85,34 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         m_json["CavaOptions"] = cava.toJson();
     }
+
+    std::vector<ColorProfile> Configuration::getColorProfiles() const
+    {
+        std::vector<ColorProfile> profiles;
+        if(m_json["ColorProfiles"].is_array())
+        {
+            for(const boost::json::value& val : m_json["ColorProfiles"].as_array())
+            {
+                if(val.is_object())
+                {
+                    profiles.push_back(val.as_object());
+                }
+            }
+        }
+        else
+        {
+            profiles.push_back({}); //Default ColorProfile
+        }
+        return profiles;
+    }
+
+    void Configuration::setColorProfiles(const std::vector<ColorProfile>& profiles)
+    {
+        boost::json::array arr;
+        for(const ColorProfile& profile : profiles)
+        {
+            arr.push_back(profile.toJson());
+        }
+        m_json["ColorProfiles"] = arr;
+    }
 }

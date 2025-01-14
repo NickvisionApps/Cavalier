@@ -2,6 +2,7 @@
 #define COLOR_H
 
 #include <string>
+#include <boost/json.hpp>
 
 namespace Nickvision::Cavalier::Shared::Models
 {
@@ -38,6 +39,11 @@ namespace Nickvision::Cavalier::Shared::Models
          * @param s The string to parse into a Color
          */
         Color(const std::string& s);
+        /**
+         * @brief Constructs a Color from a json object.
+         * @param json The json object
+         */
+        Color(boost::json::object json);
         /**
          * @brief Gets whether or not the Color object represents an empty value.
          * @return True if empty, else false
@@ -111,6 +117,11 @@ namespace Nickvision::Cavalier::Shared::Models
          * @return "#rrggbbaa"
          */
         std::string toRGBAHexString() const;
+        /**
+         * @brief Converts the Color to a JSON object.
+         * @return The JSON object
+         */
+        boost::json::object toJson() const;
         /**
          * @brief Gets whether or not this Color is equal to compare Color.
          * @param compare The Color to compare to

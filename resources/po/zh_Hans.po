@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 17:14-0500\n"
+"POT-Creation-Date: 2025-01-14 12:30-0500\n"
 "PO-Revision-Date: 2024-09-01 09:09+0000\n"
 "Last-Translator: D XC <hello_cmd@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -87,6 +87,11 @@ msgstr ""
 #: libcavalier/src/controllers/mainwindowcontroller.cpp:281
 msgid "Folder closed"
 msgstr ""
+
+#: libcavalier/src/models/colorprofile.cpp:11
+#: libcavalier/src/models/colorprofile.cpp:27
+msgid "Default"
+msgstr "默认"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
@@ -295,9 +300,6 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "取消"
-
-#~ msgid "Default"
-#~ msgstr "默认"
 
 #~ msgid "Delete"
 #~ msgstr "删除"

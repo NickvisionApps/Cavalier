@@ -7,6 +7,7 @@ add_library(libcavalier
     "src/controllers/preferencesviewcontroller.cpp"
     "src/models/cavaoptions.cpp"
     "src/models/color.cpp"
+    "src/models/colorprofile.cpp"
     "src/models/configuration.cpp"
     "src/models/drawingarea.cpp"
     "src/models/startupinformation.cpp")

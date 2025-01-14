@@ -1,4 +1,5 @@
 libcavalier/src/controllers/mainwindowcontroller.cpp
+libcavalier/src/models/colorprofile.cpp
 org.nickvision.cavalier.gnome/blueprints/main_window.blp
 org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp
 org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp

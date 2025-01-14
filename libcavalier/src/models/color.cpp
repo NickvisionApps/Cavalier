@@ -160,6 +160,15 @@ namespace Nickvision::Cavalier::Shared::Models
         }
     }
 
+    Color::Color(boost::json::object json)
+        : m_r{ json["R"].is_uint64() ? json["R"].as_uint64() : 0 },
+        m_g{ json["G"].is_uint64() ? json["G"].as_uint64() : 0 },
+        m_b{ json["B"].is_uint64() ? json["B"].as_uint64() : 0 },
+        m_a{ json["A"].is_uint64() ? json["A"].as_uint64() : 0 }
+    {
+
+    }
+
     bool Color::empty() const
     {
         return m_r == 0 && m_g == 0 && m_b == 0 && m_a == 0;
@@ -264,6 +273,16 @@ namespace Nickvision::Cavalier::Shared::Models
         builder << std::setfill ('0') << std::setw(2) << std::hex << +m_b;
         builder << std::setfill ('0') << std::setw(2) << std::hex << +m_a;
         return builder.str();
+    }
+
+    boost::json::object Color::toJson() const
+    {
+        boost::json::object obj;
+        obj["R"] = m_r;
+        obj["G"] = m_g;
+        obj["B"] = m_b;
+        obj["A"] = m_a;
+        return obj;
     }
 
     bool Color::operator==(const Color& compare)
