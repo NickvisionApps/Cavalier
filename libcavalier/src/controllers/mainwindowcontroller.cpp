@@ -1,5 +1,4 @@
 ﻿#include "controllers/mainwindowcontroller.h"
-#include <ctime>
 #include <format>
 #include <sstream>
 #include <thread>
@@ -29,7 +28,8 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_args{ args },
         m_appInfo{ "org.nickvision.cavalier", "Nickvision Cavalier", "Cavalier" },
         m_dataFileManager{ m_appInfo.getName() },
-        m_logger{ UserDirectories::get(ApplicationUserDirectory::LocalData, m_appInfo.getName()) / "log.txt", Logging::LogLevel::Info, false }
+        m_logger{ UserDirectories::get(ApplicationUserDirectory::LocalData, m_appInfo.getName()) / "log.txt", Logging::LogLevel::Info, false },
+        m_cava{ m_dataFileManager.get<Configuration>("config").getCavaOptions(), m_appInfo.getName() }
     {
         m_appInfo.setVersion({ "2025.1.0-next" });
         m_appInfo.setShortName(_("Cavalier"));
@@ -50,10 +50,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
 #ifdef _WIN32
         m_updater = std::make_shared<Updater>(m_appInfo.getSourceRepo());
 #endif
-        m_dataFileManager.get<Configuration>("config").saved() += [this](const EventArgs&)
-        {
-            m_logger.log(Logging::LogLevel::Info, "Configuration saved.");
-        };
+        m_dataFileManager.get<Configuration>("config").saved() +=  [this](const EventArgs&){ onConfigurationSaved(); };
     }
 
     Event<EventArgs>& MainWindowController::configurationSaved()
@@ -144,6 +141,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
             m_logger.log(Logging::LogLevel::Error, "Unable to connect to Linux taskbar.");
         }
 #endif
+        m_cava.start();
         m_started = true;
         return info;
     }
@@ -214,88 +212,9 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_logger.log(level, message, source);
     }
 
-    std::string MainWindowController::getGreeting() const
+    void MainWindowController::onConfigurationSaved()
     {
-        std::time_t now{ std::time(nullptr) };
-        std::tm* cal{ std::localtime(&now) };
-        if (cal->tm_hour >= 0 && cal->tm_hour < 6)
-        {
-            return _p("Night", "Good Morning!");
-        }
-        else if (cal->tm_hour < 12)
-        {
-            return _p("Morning", "Good Morning!");
-        }
-        else if (cal->tm_hour < 18)
-        {
-            return _("Good Afternoon!");
-        }
-        else if (cal->tm_hour < 24)
-        {
-            return _("Good Evening!");
-        }
-        return _("Good Day!");
-    }
-
-    const std::filesystem::path& MainWindowController::getFolderPath() const
-    {
-        return m_folderPath;
-    }
-
-    const std::vector<std::filesystem::path>& MainWindowController::getFiles() const
-    {
-        return m_files;
-    }
-
-    bool MainWindowController::isFolderOpened() const
-    {
-        return std::filesystem::exists(m_folderPath) && std::filesystem::is_directory(m_folderPath);
-    }
-
-    Event<EventArgs>& MainWindowController::folderChanged()
-    {
-        return m_folderChanged;
-    }
-
-    bool MainWindowController::openFolder(const std::filesystem::path& path)
-    {
-        if (std::filesystem::exists(path) && std::filesystem::is_directory(path))
-        {
-            m_folderPath = path;
-            loadFiles();
-            m_notificationSent.invoke({ std::vformat(_("Folder Opened: {}"), std::make_format_args(CodeHelpers::unmove(m_folderPath.string()))), NotificationSeverity::Success, "close" });
-            m_folderChanged.invoke({});
-            m_taskbar.setCount(static_cast<long>(m_files.size()));
-            m_taskbar.setCountVisible(true);
-            m_logger.log(Logging::LogLevel::Info, "Folder opened. (" + m_folderPath.string() + ")");
-            return true;
-        }
-        return false;
-    }
-
-    void MainWindowController::closeFolder()
-    {
-        m_logger.log(Logging::LogLevel::Info, "Folder closed. (" + m_folderPath.string() + ")");
-        m_folderPath = std::filesystem::path();
-        m_files.clear();
-        m_notificationSent.invoke({ _("Folder closed"), NotificationSeverity::Warning });
-        m_folderChanged.invoke({});
-        m_taskbar.setCountVisible(false);
-    }
-
-    void MainWindowController::loadFiles()
-    {
-        m_files.clear();
-        if (std::filesystem::exists(m_folderPath))
-        {
-            for (const std::filesystem::directory_entry& e : std::filesystem::directory_iterator(m_folderPath))
-            {
-                if (e.is_regular_file())
-                {
-                    m_files.push_back(e.path());
-                }
-            }
-        }
-        m_logger.log(Logging::LogLevel::Info, "Loaded " + std::to_string(m_files.size()) + " file(s). (" + m_folderPath.string() + ")");
+        m_logger.log(Logging::LogLevel::Info, "Configuration saved.");
+        m_cava.setOptions(m_dataFileManager.get<Configuration>("config").getCavaOptions());
     }
 }
