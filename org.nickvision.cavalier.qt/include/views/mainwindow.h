@@ -3,8 +3,6 @@
 
 #include <memory>
 #include <QCloseEvent>
-#include <QDragEnterEvent>
-#include <QDropEvent>
 #include <QMainWindow>
 #include "controllers/mainwindowcontroller.h"
 #include "controls/navigationbar.h"
@@ -42,30 +40,12 @@ namespace Nickvision::Cavalier::Qt::Views
          * @param event QCloseEvent
          */
         void closeEvent(QCloseEvent* event) override;
-        /**
-         * @brief Handles when a file is dragged into the window.
-         * @param event QDragEnterEvent
-         */
-        void dragEnterEvent(QDragEnterEvent* event) override;
-        /**
-         * @brief Handles when a file is dropped into the window.
-         * @param event QDropEvent
-         */
-        void dropEvent(QDropEvent* event) override;
 
     private Q_SLOTS:
         /**
          * @brief Handles when a navigation item is selected.
          */
         void onNavigationItemSelected(const QString& id);
-        /**
-         * @brief Prompts the user to open a folder.
-         */
-        void openFolder();
-        /**
-         * @brief Closes the folder if one is open.
-         */
-        void closeFolder();
         /**
          * @brief Checks for application updates.
          */
@@ -104,11 +84,6 @@ namespace Nickvision::Cavalier::Qt::Views
          * @param args The ShellNotificationSentEventArgs
          */
         void onShellNotificationSent(const Notifications::ShellNotificationSentEventArgs& args);
-        /**
-         * @brief Handles when the folder is changed.
-         * @param args The EventArgs
-         */
-        void onFolderChanged(const Events::EventArgs& args);
         Ui::MainWindow* m_ui;
         Controls::NavigationBar* m_navigationBar;
         std::shared_ptr<Shared::Controllers::MainWindowController> m_controller;

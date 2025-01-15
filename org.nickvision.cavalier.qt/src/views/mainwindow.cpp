@@ -27,7 +27,6 @@ namespace Nickvision::Cavalier::Qt::Views
     enum Page
     {
         Home = 0,
-        Folder,
         Settings
     };
 
@@ -50,7 +49,6 @@ namespace Nickvision::Cavalier::Qt::Views
         helpMenu->addSeparator();
         helpMenu->addAction(_("About"), this, &MainWindow::about);
         m_navigationBar->addTopItem("home", _("Home"), QIcon::fromTheme(QIcon::ThemeIcon::GoHome));
-        m_navigationBar->addTopItem("folder", _("Folder"), QIcon::fromTheme(QIcon::ThemeIcon::FolderNew));
         m_navigationBar->addBottomItem("help", _("Help"), QIcon::fromTheme(QIcon::ThemeIcon::HelpAbout), helpMenu);
 #ifdef _WIN32
         m_navigationBar->addBottomItem("settings", _("Settings"), QIcon::fromTheme("document-properties"));
@@ -58,19 +56,12 @@ namespace Nickvision::Cavalier::Qt::Views
         m_navigationBar->addBottomItem("settings", _("Settings"), QIcon::fromTheme(QIcon::ThemeIcon::DocumentProperties));
 #endif
         //Home Page
-        m_ui->lblHomeGreeting->setText(QString::fromStdString(m_controller->getGreeting()));
-        m_ui->lblHomeDescription->setText(_("Open a folder (or drag one into the app) to get started"));
-        m_ui->btnHomeOpenFolder->setText(_("Open Folder"));
-        //Folder Page
-        m_ui->btnFolderOpenFolder->setText(_("Open"));
+        m_ui->lblHomeGreeting->setText(_("Visualize Your Audio"));
+        m_ui->lblHomeDescription->setText(_("Play some music or watch a video and see your sound come to life"));
         //Signals
         connect(m_navigationBar, &NavigationBar::itemSelected, this, &MainWindow::onNavigationItemSelected);
-        connect(m_ui->btnHomeOpenFolder, &QPushButton::clicked, this, &MainWindow::openFolder);
-        connect(m_ui->btnFolderOpenFolder, &QPushButton::clicked, this, &MainWindow::openFolder);
-        connect(m_ui->btnFolderCloseFolder, &QPushButton::clicked, this, &MainWindow::closeFolder);
         m_controller->notificationSent() += [&](const NotificationSentEventArgs& args) { QtHelpers::dispatchToMainThread([this, args]() { onNotificationSent(args); }); };
         m_controller->shellNotificationSent() += [&](const ShellNotificationSentEventArgs& args) { onShellNotificationSent(args); };
-        m_controller->folderChanged() += [&](const EventArgs& args) { onFolderChanged(args); };
     }
 
     MainWindow::~MainWindow()
@@ -109,22 +100,6 @@ namespace Nickvision::Cavalier::Qt::Views
         event->accept();
     }
 
-    void MainWindow::dragEnterEvent(QDragEnterEvent* event)
-    {
-        if(event->mimeData()->hasUrls())
-        {
-            event->acceptProposedAction();
-        }
-    }
-
-    void MainWindow::dropEvent(QDropEvent* event)
-    {
-        if(event->mimeData()->hasUrls())
-        {
-            m_controller->openFolder(event->mimeData()->urls()[0].toLocalFile().toStdString());
-        }
-    }
-
     void MainWindow::onNavigationItemSelected(const QString& id)
     {
         //Save and ensure new SettingsPage
@@ -141,25 +116,10 @@ namespace Nickvision::Cavalier::Qt::Views
         {
             m_ui->viewStack->setCurrentIndex(Page::Home);
         }
-        else if(id == "folder")
-        {
-            m_ui->viewStack->setCurrentIndex(Page::Folder);
-        }
         else if(id == "settings")
         {
             m_ui->viewStack->setCurrentIndex(Page::Settings);
         }
-    }
-
-    void MainWindow::openFolder()
-    {
-        QString path{ QFileDialog::getExistingDirectory(this, _("Open Folder"), {}, QFileDialog::ShowDirsOnly) };
-        m_controller->openFolder(path.toStdString());
-    }
-
-    void MainWindow::closeFolder()
-    {
-        m_controller->closeFolder();
     }
 
     void MainWindow::checkForUpdates()
@@ -214,13 +174,8 @@ namespace Nickvision::Cavalier::Qt::Views
             break;
         }
         QMessageBox msgBox{ icon, QString::fromStdString(m_controller->getAppInfo().getShortName()), QString::fromStdString(args.getMessage()), QMessageBox::StandardButton::Ok, this };
-        if(args.getAction() == "close")
-        {
-            QPushButton* closeButton{ msgBox.addButton(_("Close"), QMessageBox::ButtonRole::ActionRole) };
-            connect(closeButton, &QPushButton::clicked, this, &MainWindow::closeFolder);
-        }
 #ifdef _WIN32
-        else if(args.getAction() == "update")
+        if(args.getAction() == "update")
         {
             QPushButton* updateButton{ msgBox.addButton(_("Update"), QMessageBox::ButtonRole::ActionRole) };
             connect(updateButton, &QPushButton::clicked, this, &MainWindow::windowsUpdate);
@@ -239,23 +194,5 @@ namespace Nickvision::Cavalier::Qt::Views
 #else
         ShellNotification::send(args);
 #endif
-    }
-
-    void MainWindow::onFolderChanged(const EventArgs& args)
-    {
-        if(m_controller->isFolderOpened())
-        {
-            m_navigationBar->selectItem("folder");
-            m_ui->lblFiles->setText(QString::fromStdString(std::vformat(_n("There is {} file in the folder.", "There are {} files in the folder.", m_controller->getFiles().size()), std::make_format_args(CodeHelpers::unmove(m_controller->getFiles().size())))));
-            for(const std::filesystem::path& file : m_controller->getFiles())
-            {
-                m_ui->listFiles->addItem(QString::fromStdString(file.filename().string()));
-            }
-        }
-        else
-        {
-            m_navigationBar->selectItem("home");
-            m_ui->listFiles->clear();
-        }
     }
 }

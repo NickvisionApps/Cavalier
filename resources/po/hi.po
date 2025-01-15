@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:30-0500\n"
+"POT-Creation-Date: 2025-01-15 14:20-0500\n"
 "PO-Revision-Date: 2024-07-07 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/nickvision-"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 5.7-dev\n"
 
 #: libcavalier/src/controllers/mainwindowcontroller.cpp:35
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:41
 msgid "Cavalier"
 msgstr "Cavalier"
 
@@ -49,43 +49,12 @@ msgstr "डेविड लापशिन"
 msgid "translator-credits"
 msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:173
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:171
 msgid "New update available"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:205
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:203
 msgid "Unable to download and install update"
-msgstr ""
-
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:223
-msgctxt "Night"
-msgid "Good Morning!"
-msgstr ""
-
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:227
-msgctxt "Morning"
-msgid "Good Morning!"
-msgstr ""
-
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:231
-msgid "Good Afternoon!"
-msgstr ""
-
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:235
-msgid "Good Evening!"
-msgstr ""
-
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:237
-msgid "Good Day!"
-msgstr ""
-
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:266
-#, c++-format
-msgid "Folder Opened: {}"
-msgstr ""
-
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:281
-msgid "Folder closed"
 msgstr ""
 
 #: libcavalier/src/models/colorprofile.cpp:11
@@ -109,31 +78,24 @@ msgstr "कीबोर्ड शॉर्टकट"
 msgid "About Cavalier"
 msgstr "Cavalier के बारे में"
 
-#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:21
-msgid "Open Folder (Ctrl+O)"
-msgstr ""
-
-#. Folder Page
-#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:26
-#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:59
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:138
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:65
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:238
-msgid "Open"
-msgstr ""
-
-#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:34
-msgid "Close Folder (Ctrl+W)"
-msgstr ""
-
-#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:43
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:23
 msgid "Main Menu"
 msgstr "मुख्य मेनू"
 
-#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:57
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:62
-msgid "Open a folder (or drag one into the app) to get started"
+#. Home Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:59
+#, fuzzy
+msgid "Visualize Your Audio"
+msgstr "CAVA के साथ ऑडियो विज़ुअलाइज़ करें"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:60
+#, fuzzy
+msgid "Play some music or watch a video and see your sound come to life"
 msgstr ""
+"Cavalier आपके सिस्टम की ध्वनि सुनता है। कुछ संगीत बजाएं या वीडियो देखें और देखें कि आपकी "
+"ध्वनि जीवंत हो गई है!"
 
 #. Localize Strings
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
@@ -164,14 +126,10 @@ msgid "System"
 msgstr ""
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:53
 msgid "Folder"
 msgstr ""
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:164
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:63
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:156
 msgid "Open Folder"
 msgstr ""
 
@@ -193,21 +151,13 @@ msgstr "आवेदन"
 msgid "Quit"
 msgstr "बंद करें"
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:128
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:219
-msgid "Close"
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:107
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:193
+msgid "Open"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:150
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:249
-#, c++-format
-msgid "There is {} file in the folder."
-msgid_plural "There are {} files in the folder."
-msgstr[0] ""
-msgstr[1] ""
-
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:213
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:154
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
 msgid "GitHub Repo"
 msgstr "GitHub रेपो"
 
@@ -231,41 +181,41 @@ msgid ""
 "{}"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:41
 #, fuzzy
 msgid "Cavalier (Preview)"
 msgstr "अनुप्रयोग थीम"
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
 msgid "Check for Updates"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
 msgid "Report a Bug"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
 msgid "Discussions"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
 msgid "About"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
 msgid "Home"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
 msgid "Help"
 msgstr ""
 
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:56
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:58
 msgid "Settings"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:225
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:180
 msgid "Update"
 msgstr ""
 
@@ -343,13 +293,6 @@ msgstr ""
 
 #~ msgid "Let's dance!"
 #~ msgstr "आओ नाचें!"
-
-#~ msgid ""
-#~ "Cavalier listens to your system sound. Play some music or watch a video "
-#~ "and see your sound come to life!"
-#~ msgstr ""
-#~ "Cavalier आपके सिस्टम की ध्वनि सुनता है। कुछ संगीत बजाएं या वीडियो देखें और देखें कि "
-#~ "आपकी ध्वनि जीवंत हो गई है!"
 
 #~ msgid "Drawing mode"
 #~ msgstr "ड्राइंग मोड"

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../org.nickvision.cavalier.qt.qrc">
+   <iconset>
     <normaloff>:/resources/org.nickvision.cavalier.ico</normaloff>:/resources/org.nickvision.cavalier.ico</iconset>
   </property>
   <widget class="QWidget" name="mainGrid">
@@ -31,7 +31,7 @@
     <item>
      <widget class="QStackedWidget" name="viewStack">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="homePage">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -69,7 +69,7 @@
           <item>
            <widget class="QLabel" name="lblHomeAppIcon">
             <property name="pixmap">
-             <pixmap resource="../../org.nickvision.cavalier.qt.qrc">:/resources/org.nickvision.cavalier.svg</pixmap>
+             <pixmap>:/resources/org.nickvision.cavalier.svg</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -94,13 +94,6 @@
           </item>
           <item>
            <widget class="QLabel" name="lblHomeDescription"/>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnHomeOpenFolder">
-            <property name="icon">
-             <iconset theme="folder-open"/>
-            </property>
-           </widget>
           </item>
           <item>
            <spacer name="verticalSpacer_2">
@@ -132,78 +125,11 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="folderPage">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <item>
-           <widget class="QPushButton" name="btnFolderOpenFolder">
-            <property name="icon">
-             <iconset theme="folder-open"/>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnFolderCloseFolder">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset theme="edit-clear"/>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <item>
-           <widget class="QListWidget" name="listFiles">
-            <property name="maximumSize">
-             <size>
-              <width>400</width>
-              <height>16777215</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lblFiles">
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="../../org.nickvision.cavalier.qt.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
