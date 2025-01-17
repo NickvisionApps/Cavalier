@@ -186,7 +186,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
 #ifdef _WIN32
     void MainWindowController::windowsUpdate()
     {
-        if(m_updater)
+        if(!m_updater)
         {
             return;
         }

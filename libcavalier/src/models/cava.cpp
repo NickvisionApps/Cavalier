@@ -77,7 +77,7 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         while(m_process->isRunning())
         {
-            if(m_oldOutput == m_process->getOutput())
+            if(m_oldOutput == m_process->getOutput() || m_process->getOutput().empty())
             {
                 continue;
             }
