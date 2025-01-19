@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 14:52-0500\n"
+"POT-Creation-Date: 2025-01-19 15:08-0500\n"
 "PO-Revision-Date: 2023-08-13 23:35+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/nickvision-"
@@ -250,15 +250,55 @@ msgid "Item Roundness"
 msgstr ""
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
-msgid "CAVA"
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#, fuzzy
+msgid "Channels"
+msgstr "Jaa kanavat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Mono"
+msgstr "Mono"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Stereo"
+msgstr "Stereo"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Framerate"
+msgstr "Kuvanopeus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Palkkien määrä"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Käänteinen järjestys"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+msgid "Automatic Sensitivity"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+msgid "Manual Sensitivity"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Vaihda väriprofiilia"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
 #, fuzzy
 msgid "Background Images"
 msgstr "Vaihda taustakuva"
@@ -454,24 +494,9 @@ msgstr ""
 #~ msgid "Autohide headerbar"
 #~ msgstr "Piilota otsakepalkki automaattisesti"
 
-#~ msgid "Framerate"
-#~ msgstr "Kuvanopeus"
-
 #, fuzzy
 #~ msgid "Custom Framerate"
 #~ msgstr "Kuvanopeus"
-
-#~ msgid "Number of bars"
-#~ msgstr "Palkkien määrä"
-
-#~ msgid "Mono"
-#~ msgstr "Mono"
-
-#~ msgid "Stereo"
-#~ msgstr "Stereo"
-
-#~ msgid "Reverse order"
-#~ msgstr "Käänteinen järjestys"
 
 #~ msgid "Colors"
 #~ msgstr "Värit"

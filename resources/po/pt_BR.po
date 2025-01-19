@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 14:52-0500\n"
+"POT-Creation-Date: 2025-01-19 15:08-0500\n"
 "PO-Revision-Date: 2024-04-20 23:07+0000\n"
 "Last-Translator: araujoviana <araujomatheusgabriel1@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -252,15 +252,58 @@ msgid "Item Roundness"
 msgstr "Alterar Arredondamento dos Itens"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
-msgid "CAVA"
-msgstr ""
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#, fuzzy
+msgid "Channels"
+msgstr "Separar Canais"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Mono"
+msgstr "Mono"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Stereo"
+msgstr "Stereo"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Framerate"
+msgstr "Taxa de frames"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Número de barras"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Ordem reversa"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "Sensibilidade automática"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "Tentativa de diminuir a sensibilidade se as barras atingirem o pico."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "Sensibilidade"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Mudar Cores do perfil"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
 #, fuzzy
 msgid "Background Images"
 msgstr "Alterar Imagem de Fundo"
@@ -492,9 +535,6 @@ msgstr ""
 #~ "Se deve ocultar a barra de cabeçalho quando a janela principal não está "
 #~ "focada."
 
-#~ msgid "Framerate"
-#~ msgstr "Taxa de frames"
-
 #~ msgid "Number of frames per second."
 #~ msgstr "Número de frames por segundo."
 
@@ -504,31 +544,12 @@ msgstr ""
 #~ msgid "Custom Framerate"
 #~ msgstr "Taxa de frames customizável"
 
-#~ msgid "Number of bars"
-#~ msgstr "Número de barras"
-
-#~ msgid "Automatic sensitivity"
-#~ msgstr "Sensibilidade automática"
-
-#~ msgid "Attempt to decrease sensitivity if the bars peak."
-#~ msgstr ""
-#~ "Tentativa de diminuir a sensibilidade se as barras atingirem o pico."
-
-#~ msgid "Sensitivity"
-#~ msgstr "Sensibilidade"
-
 #~ msgid ""
 #~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
 #~ "be the initial value."
 #~ msgstr ""
 #~ "Sensibilidade manual. Se a sensibilidade automática estiver habilitada, "
 #~ "isso será apenas o valor inicial."
-
-#~ msgid "Mono"
-#~ msgstr "Mono"
-
-#~ msgid "Stereo"
-#~ msgstr "Stereo"
 
 #~ msgid "Monstercat smoothing"
 #~ msgstr "Suavização Monstercat"
@@ -547,9 +568,6 @@ msgstr ""
 #~ "Este fator ajusta os filtros integral e de gravidade para manter o sinal "
 #~ "suave.\n"
 #~ "Um valor mais alto resulta em um resultado mais lento e mais suave."
-
-#~ msgid "Reverse order"
-#~ msgstr "Ordem reversa"
 
 #~ msgid "Whether to reverse order of bars for each channel."
 #~ msgstr "Se deve inverter a ordem das barras para cada canal."

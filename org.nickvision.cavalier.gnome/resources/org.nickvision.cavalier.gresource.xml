@@ -11,12 +11,18 @@
     <file preprocess="xml-stripblanks">app-icon-design-symbolic.svg</file>
     <file preprocess="xml-stripblanks">circle-filled-symbolic.svg</file>
     <file preprocess="xml-stripblanks">dark-mode-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">double-ended-arrows-horizontal-symbolic.svg</file>
     <file preprocess="xml-stripblanks">double-ended-arrows-vertical-symbolic.svg</file>
     <file preprocess="xml-stripblanks">move-tool-symbolic.svg</file>
     <file preprocess="xml-stripblanks">resize-mode-symbolic.svg</file>
     <file preprocess="xml-stripblanks">shapes-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">speaker-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">speaker-2-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">speaker-4-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">speedometer5-symbolic.svg</file>
     <file preprocess="xml-stripblanks">square-filled-symbolic.svg</file>
     <file preprocess="xml-stripblanks">stacked-plates-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">strength-bars-1-symbolic.svg</file>
     <file preprocess="xml-stripblanks">view-mirror-symbolic.svg</file>
   </gresource>
 </gresources>

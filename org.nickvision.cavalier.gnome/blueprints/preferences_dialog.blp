@@ -158,7 +158,86 @@ Adw.PreferencesDialog root {
     }
 
     Adw.PreferencesGroup {
-      title: _("CAVA");
+      title: _("Cava");
+
+      Adw.ComboRow channelsRow {
+        title: _("Channels");
+        model: Gtk.StringList {
+          strings [_("Mono"), _("Stereo")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speaker-symbolic";
+        }
+      }
+
+      Adw.SpinRow framerateRow {
+        title: _("Framerate");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 0;
+          upper: 200;
+          step-increment: 1;
+          page-increment: 30;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speedometer5-symbolic";
+        }
+      }
+
+      Adw.SpinRow numberOfBarsRow {
+        title: _("Number of Bars");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 6;
+          upper: 100;
+          step-increment: 1;
+          page-increment: 6;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "strength-bars-1-symbolic";
+        }
+      }
+
+      Adw.SwitchRow reverseBarOrderRow {
+        title: _("Reverse Bar Order");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "double-ended-arrows-horizontal-symbolic";
+        }
+      }
+
+      Adw.SwitchRow automaticSensitivityRow {
+        title: _("Automatic Sensitivity");
+        subtitle: _("Cavalier will attempt to decrease sensitivity if the bars peak.");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speaker-4-symbolic";
+        }
+      }
+
+      Adw.SpinRow sensitivityRow {
+        title: _("Manual Sensitivity");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 10;
+          upper: 100;
+          step-increment: 1;
+          page-increment: 10;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speaker-2-symbolic";
+        }
+      }
     }
 
     Adw.PreferencesGroup {

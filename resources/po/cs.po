@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 14:52-0500\n"
+"POT-Creation-Date: 2025-01-19 15:08-0500\n"
 "PO-Revision-Date: 2024-09-04 15:09+0000\n"
 "Last-Translator: Fjuro <fjuro@alius.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
@@ -253,15 +253,58 @@ msgid "Item Roundness"
 msgstr "Změnit zaoblení položek"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
-msgid "CAVA"
-msgstr ""
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#, fuzzy
+msgid "Channels"
+msgstr "Rozdělit kanály"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Mono"
+msgstr "Mono"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Stereo"
+msgstr "Stereo"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Framerate"
+msgstr "Snímková frekvence"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Počet tyčí"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Opačné pořadí"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "Automatická citlivost"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "Pokus snížit citlivost když tyče jsou na vrcholu."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "Citlivost"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Změnit barevný profil"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
 #, fuzzy
 msgid "Background Images"
 msgstr "Změnit obrázek na pozadí"
@@ -486,9 +529,6 @@ msgstr ""
 #~ msgid "Whether to hide headerbar when main window is not focused."
 #~ msgstr "Zda skrýt záhlaví hlavního okna pokud není zaměřené."
 
-#~ msgid "Framerate"
-#~ msgstr "Snímková frekvence"
-
 #~ msgid "Number of frames per second."
 #~ msgstr "Počet snímků za vteřinu."
 
@@ -498,30 +538,12 @@ msgstr ""
 #~ msgid "Custom Framerate"
 #~ msgstr "Vlastní snímková frekvence"
 
-#~ msgid "Number of bars"
-#~ msgstr "Počet tyčí"
-
-#~ msgid "Automatic sensitivity"
-#~ msgstr "Automatická citlivost"
-
-#~ msgid "Attempt to decrease sensitivity if the bars peak."
-#~ msgstr "Pokus snížit citlivost když tyče jsou na vrcholu."
-
-#~ msgid "Sensitivity"
-#~ msgstr "Citlivost"
-
 #~ msgid ""
 #~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
 #~ "be the initial value."
 #~ msgstr ""
 #~ "Ruční citlivost. Pokud je povolena automatická citlivost, toto bude pouze "
 #~ "prvotní hodnota."
-
-#~ msgid "Mono"
-#~ msgstr "Mono"
-
-#~ msgid "Stereo"
-#~ msgstr "Stereo"
 
 #~ msgid "Monstercat smoothing"
 #~ msgstr "Monstercat vyhlazování"
@@ -540,9 +562,6 @@ msgstr ""
 #~ "Tento faktor upravuje integrální a gravitační filtry pro udržení hladkého "
 #~ "signálu.\n"
 #~ "Vyšší hodnota vede k pomalejšímu a hladšímu výsledku."
-
-#~ msgid "Reverse order"
-#~ msgstr "Opačné pořadí"
 
 #~ msgid "Whether to reverse order of bars for each channel."
 #~ msgstr "Zda obrátit pořadí tyčí každého kanálu."

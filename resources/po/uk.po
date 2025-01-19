@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 14:52-0500\n"
+"POT-Creation-Date: 2025-01-19 15:08-0500\n"
 "PO-Revision-Date: 2024-08-14 17:09+0000\n"
 "Last-Translator: Semiurg <semiurg1@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/nickvision-"
@@ -252,15 +252,58 @@ msgid "Item Roundness"
 msgstr "Змінити закругленість елементів"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
-msgid "CAVA"
-msgstr ""
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#, fuzzy
+msgid "Channels"
+msgstr "Розділити канали"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Mono"
+msgstr "Моно"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Stereo"
+msgstr "Стерео"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Framerate"
+msgstr "Частота кадрів"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Кількість барів"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Зворотній напрямок"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "Автоматична чутливість"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "Спробувати зменшити чутливість якщо бари досягають максимуму."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "Чутливість"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Змінити профіль кольорів"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
 #, fuzzy
 msgid "Background Images"
 msgstr "Змінити фонове зображення"
@@ -485,9 +528,6 @@ msgstr ""
 #~ msgid "Whether to hide headerbar when main window is not focused."
 #~ msgstr "Чи ховати заголовок коли головне вікно не у фокусі."
 
-#~ msgid "Framerate"
-#~ msgstr "Частота кадрів"
-
 #~ msgid "Number of frames per second."
 #~ msgstr "Кількість кадрів в секунду."
 
@@ -497,30 +537,12 @@ msgstr ""
 #~ msgid "Custom Framerate"
 #~ msgstr "Своя частота кадрів"
 
-#~ msgid "Number of bars"
-#~ msgstr "Кількість барів"
-
-#~ msgid "Automatic sensitivity"
-#~ msgstr "Автоматична чутливість"
-
-#~ msgid "Attempt to decrease sensitivity if the bars peak."
-#~ msgstr "Спробувати зменшити чутливість якщо бари досягають максимуму."
-
-#~ msgid "Sensitivity"
-#~ msgstr "Чутливість"
-
 #~ msgid ""
 #~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
 #~ "be the initial value."
 #~ msgstr ""
 #~ "Ручна чутливість. Якщо ввімкнено автоматичну чутливість, це буде тільки "
 #~ "початкове значення."
-
-#~ msgid "Mono"
-#~ msgstr "Моно"
-
-#~ msgid "Stereo"
-#~ msgstr "Стерео"
 
 #~ msgid "Monstercat smoothing"
 #~ msgstr "Згладжування Monstercat"
@@ -539,9 +561,6 @@ msgstr ""
 #~ "Цей параметр регулює інтегральний та гравітаційний фільтри щоб тримати "
 #~ "сигнал гладким.\n"
 #~ "Високе значення веде до повільнішого та гладкого результату."
-
-#~ msgid "Reverse order"
-#~ msgstr "Зворотній напрямок"
 
 #~ msgid "Whether to reverse order of bars for each channel."
 #~ msgstr "Чи потрібно змінити порядок барів для кожного каналу."

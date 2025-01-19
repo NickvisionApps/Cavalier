@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 14:52-0500\n"
+"POT-Creation-Date: 2025-01-19 15:08-0500\n"
 "PO-Revision-Date: 2024-07-07 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/nickvision-"
@@ -251,15 +251,58 @@ msgid "Item Roundness"
 msgstr "वस्तुओं की गोलाई बदलें"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
-msgid "CAVA"
-msgstr ""
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#, fuzzy
+msgid "Channels"
+msgstr "विभाजित चैनल"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Mono"
+msgstr "मोनो"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Stereo"
+msgstr "स्टीरियो"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Framerate"
+msgstr "फ्रेम रेट"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#, fuzzy
+msgid "Number of Bars"
+msgstr "बारों की संख्या"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "उलटा क्रम"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "स्वचालित संवेदनशीलता"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "यदि बार्स चरम पर हों तो संवेदनशीलता कम करने का प्रयास करें।"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "संवेदनशीलता"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
 #, fuzzy
 msgid "Color Profiles"
 msgstr "प्रोफाइल का रंग बदलें"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
 #, fuzzy
 msgid "Background Images"
 msgstr "पृष्ठभूमि छवि बदलें"
@@ -484,9 +527,6 @@ msgstr ""
 #~ msgid "Whether to hide headerbar when main window is not focused."
 #~ msgstr "मुख्य विंडो फोकस न होने पर शीर्षलेख पट्टी छिपाना है या नहीं।"
 
-#~ msgid "Framerate"
-#~ msgstr "फ्रेम रेट"
-
 #~ msgid "Number of frames per second."
 #~ msgstr "प्रति सेकंड फ़्रेम की संख्या।"
 
@@ -496,29 +536,11 @@ msgstr ""
 #~ msgid "Custom Framerate"
 #~ msgstr "तदनुकूल फ़्रेमरेट"
 
-#~ msgid "Number of bars"
-#~ msgstr "बारों की संख्या"
-
-#~ msgid "Automatic sensitivity"
-#~ msgstr "स्वचालित संवेदनशीलता"
-
-#~ msgid "Attempt to decrease sensitivity if the bars peak."
-#~ msgstr "यदि बार्स चरम पर हों तो संवेदनशीलता कम करने का प्रयास करें।"
-
-#~ msgid "Sensitivity"
-#~ msgstr "संवेदनशीलता"
-
 #~ msgid ""
 #~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
 #~ "be the initial value."
 #~ msgstr ""
 #~ "मैनुअल संवेदनशीलता. यदि स्वचालित संवेदनशीलता सक्षम है, तो यह केवल प्रारंभिक मान होगा।"
-
-#~ msgid "Mono"
-#~ msgstr "मोनो"
-
-#~ msgid "Stereo"
-#~ msgstr "स्टीरियो"
 
 #~ msgid "Monstercat smoothing"
 #~ msgstr "Monstercat स्मूथिंग"
@@ -537,9 +559,6 @@ msgstr ""
 #~ "यह कारक सिग्नल को सुचारू रखने के लिए इंटीग्रल और ग्रेविटी फिल्टर को समायोजित करता "
 #~ "है।\n"
 #~ "उच्च मूल्य से धीमा और सहज परिणाम प्राप्त होता है।"
-
-#~ msgid "Reverse order"
-#~ msgstr "उलटा क्रम"
 
 #~ msgid "Whether to reverse order of bars for each channel."
 #~ msgstr "क्या प्रत्येक चैनल के लिए बार के क्रम को उलटना है।"

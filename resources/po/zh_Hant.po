@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 14:52-0500\n"
+"POT-Creation-Date: 2025-01-19 15:08-0500\n"
 "PO-Revision-Date: 2023-08-12 17:18+0000\n"
 "Last-Translator: Wolf yuan <h1030035@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -253,15 +253,58 @@ msgid "Item Roundness"
 msgstr "變更項目的圓角"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
-msgid "CAVA"
-msgstr ""
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#, fuzzy
+msgid "Channels"
+msgstr "左右聲道分離"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Mono"
+msgstr "單聲道"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Stereo"
+msgstr "雙聲道"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Framerate"
+msgstr "幀數"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#, fuzzy
+msgid "Number of Bars"
+msgstr "欄數"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "反向排序"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "自動偵測靈敏度"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "當圖形超過限制後嘗試降低靈敏度。"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "靈敏度"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
 #, fuzzy
 msgid "Color Profiles"
 msgstr "變更顏色設定檔"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
 #, fuzzy
 msgid "Background Images"
 msgstr "變更背景圖片"
@@ -490,9 +533,6 @@ msgstr ""
 #~ msgid "Whether to hide headerbar when main window is not focused."
 #~ msgstr "是否要在視窗未選取時隱藏控制欄。"
 
-#~ msgid "Framerate"
-#~ msgstr "幀數"
-
 #~ msgid "Number of frames per second."
 #~ msgstr "每秒的幀數。"
 
@@ -502,28 +542,10 @@ msgstr ""
 #~ msgid "Custom Framerate"
 #~ msgstr "自訂幀數"
 
-#~ msgid "Number of bars"
-#~ msgstr "欄數"
-
-#~ msgid "Automatic sensitivity"
-#~ msgstr "自動偵測靈敏度"
-
-#~ msgid "Attempt to decrease sensitivity if the bars peak."
-#~ msgstr "當圖形超過限制後嘗試降低靈敏度。"
-
-#~ msgid "Sensitivity"
-#~ msgstr "靈敏度"
-
 #~ msgid ""
 #~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
 #~ "be the initial value."
 #~ msgstr "手動設置靈敏度。如果啟用自動靈敏度，這將會是一個初始值。"
-
-#~ msgid "Mono"
-#~ msgstr "單聲道"
-
-#~ msgid "Stereo"
-#~ msgstr "雙聲道"
 
 #~ msgid "Monstercat smoothing"
 #~ msgstr "Monstercat 平滑"
@@ -542,9 +564,6 @@ msgstr ""
 #~ msgstr ""
 #~ "這項數值可使訊號穩定且順滑。\n"
 #~ "更高的數值會使影像反應更慢，但是會更滑順。"
-
-#~ msgid "Reverse order"
-#~ msgstr "反向排序"
 
 #~ msgid "Whether to reverse order of bars for each channel."
 #~ msgstr "是否要將每個頻道的圖形顛倒。"

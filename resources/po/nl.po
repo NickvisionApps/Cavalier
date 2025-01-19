@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 14:52-0500\n"
+"POT-Creation-Date: 2025-01-19 15:08-0500\n"
 "PO-Revision-Date: 2024-02-18 12:02+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/nickvision-"
@@ -246,15 +246,60 @@ msgid "Item Roundness"
 msgstr "Rondheid van items aanpassen"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
-msgid "CAVA"
-msgstr ""
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#, fuzzy
+msgid "Channels"
+msgstr "Kanalen opsplitsen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Mono"
+msgstr "Mono"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Stereo"
+msgstr "Stereo"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Framerate"
+msgstr "Beeld­frequentie"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Aantal balken"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Volgorde omdraaien"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "Automatische gevoeligheid"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr ""
+"Probeer de gevoeligheid te verlagen zodra het maximale aantal balken bereikt "
+"is."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "Gevoeligheidsgraad"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Keuren­profiel wijzigen"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
 #, fuzzy
 msgid "Background Images"
 msgstr "Achtergrond­afbeelding wijzigen"
@@ -474,9 +519,6 @@ msgstr ""
 #~ "Of de kopbalk automatisch moet worden verborgen als het hoofdvenster niet "
 #~ "gefocust is."
 
-#~ msgid "Framerate"
-#~ msgstr "Beeld­frequentie"
-
 #~ msgid "Number of frames per second."
 #~ msgstr "Aantal beelden per seconde."
 
@@ -486,32 +528,12 @@ msgstr ""
 #~ msgid "Custom Framerate"
 #~ msgstr "Aangepaste beeld­frequentie"
 
-#~ msgid "Number of bars"
-#~ msgstr "Aantal balken"
-
-#~ msgid "Automatic sensitivity"
-#~ msgstr "Automatische gevoeligheid"
-
-#~ msgid "Attempt to decrease sensitivity if the bars peak."
-#~ msgstr ""
-#~ "Probeer de gevoeligheid te verlagen zodra het maximale aantal balken "
-#~ "bereikt is."
-
-#~ msgid "Sensitivity"
-#~ msgstr "Gevoeligheidsgraad"
-
 #~ msgid ""
 #~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
 #~ "be the initial value."
 #~ msgstr ""
 #~ "De handmatige gevoeligheidsgraad. Als de automatische modus is "
 #~ "ingeschakeld, dan wordt dit als startwaarde gebruikt."
-
-#~ msgid "Mono"
-#~ msgstr "Mono"
-
-#~ msgid "Stereo"
-#~ msgstr "Stereo"
 
 #~ msgid "Monstercat smoothing"
 #~ msgstr "Monstercat-verzachting"
@@ -528,9 +550,6 @@ msgstr ""
 #~ "Deze factor bepaalt de zwaarte van de filters om het signaal vloeiend "
 #~ "door te laten komen. 1 = erg zwaar, maar vloeiend - 0 = licht, maar met "
 #~ "ruis."
-
-#~ msgid "Reverse order"
-#~ msgstr "Volgorde omdraaien"
 
 #, fuzzy
 #~ msgid "Whether to reverse order of bars for each channel."

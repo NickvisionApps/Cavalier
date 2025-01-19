@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 14:52-0500\n"
+"POT-Creation-Date: 2025-01-19 15:08-0500\n"
 "PO-Revision-Date: 2024-03-14 14:01+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
@@ -251,15 +251,58 @@ msgid "Item Roundness"
 msgstr "Ögelerin Yuvarlaklığını Değiştir"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
-msgid "CAVA"
-msgstr ""
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#, fuzzy
+msgid "Channels"
+msgstr "Kanalları Ayır"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Mono"
+msgstr "Tekli"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+msgid "Stereo"
+msgstr "Stereo"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Framerate"
+msgstr "Kare hızı"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Çubuk sayısı"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Ters sırada"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "Kendiliğinden duyarlılık"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "Çubuklar zirve yaparsa hassasiyeti düşürmeye çalış."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "Duyarlılık"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Renk Profilini Değiştir"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
 #, fuzzy
 msgid "Background Images"
 msgstr "Arka Plan Resmini Değiştir"
@@ -484,9 +527,6 @@ msgstr ""
 #~ msgid "Whether to hide headerbar when main window is not focused."
 #~ msgstr "Ana pencere odaklanmadığında başlık çubuğunun gizlenme durumu."
 
-#~ msgid "Framerate"
-#~ msgstr "Kare hızı"
-
 #~ msgid "Number of frames per second."
 #~ msgstr "Saniyedeki kare sayısı."
 
@@ -496,30 +536,12 @@ msgstr ""
 #~ msgid "Custom Framerate"
 #~ msgstr "Özel Kare Hızı"
 
-#~ msgid "Number of bars"
-#~ msgstr "Çubuk sayısı"
-
-#~ msgid "Automatic sensitivity"
-#~ msgstr "Kendiliğinden duyarlılık"
-
-#~ msgid "Attempt to decrease sensitivity if the bars peak."
-#~ msgstr "Çubuklar zirve yaparsa hassasiyeti düşürmeye çalış."
-
-#~ msgid "Sensitivity"
-#~ msgstr "Duyarlılık"
-
 #~ msgid ""
 #~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
 #~ "be the initial value."
 #~ msgstr ""
 #~ "Elle duyarlılık. Kendiliğinden duyarlılık etkinleştirilirse, bu yalnızca "
 #~ "başlangıç değeri olacaktır."
-
-#~ msgid "Mono"
-#~ msgstr "Tekli"
-
-#~ msgid "Stereo"
-#~ msgstr "Stereo"
 
 #~ msgid "Monstercat smoothing"
 #~ msgstr "Monstercat yumuşatma"
@@ -538,9 +560,6 @@ msgstr ""
 #~ "Bu faktör, sinyali düzgün tutmak için integral ve yerçekimi süzgeçlerini "
 #~ "ayarlar.\n"
 #~ "Daha yüksek değer, daha yavaş ve daha pürüzsüz sonuç sağlar."
-
-#~ msgid "Reverse order"
-#~ msgstr "Ters sırada"
 
 #~ msgid "Whether to reverse order of bars for each channel."
 #~ msgstr "Her kanal için çubukların sırasının ters çevrilme durumu."
