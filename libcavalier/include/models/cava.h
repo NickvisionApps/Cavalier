@@ -62,7 +62,6 @@ namespace Nickvision::Cavalier::Shared::Models
         std::filesystem::path m_configPath;
         std::shared_ptr<System::Process> m_process;
         std::thread m_watcher;
-        std::string m_oldOutput;
         Events::Event<Events::ParamEventArgs<std::vector<float>>> m_outputReceived;
     };
 }

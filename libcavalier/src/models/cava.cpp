@@ -75,14 +75,15 @@ namespace Nickvision::Cavalier::Shared::Models
 
     void Cava::watch()
     {
+        std::string oldOutput;
         while(m_process->isRunning())
         {
-            if(m_oldOutput == m_process->getOutput() || m_process->getOutput().empty())
+            if(m_process->getOutput().empty() || oldOutput == m_process->getOutput())
             {
                 continue;
             }
-            std::string output{ m_oldOutput.size() == 0 ? m_process->getOutput() : m_process->getOutput().substr(m_oldOutput.size()) };
-            m_oldOutput = m_process->getOutput();
+            std::string output{ oldOutput.size() == 0 ? m_process->getOutput() : m_process->getOutput().substr(oldOutput.size()) };
+            oldOutput = m_process->getOutput();
             unsigned int length{ m_options.getNumberOfBars() * 4 };
             std::vector<float> sample(m_options.getNumberOfBars() * 2);
             std::vector<char> bytes{ output.begin(), output.begin() + length };
