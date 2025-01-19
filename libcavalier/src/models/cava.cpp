@@ -11,6 +11,7 @@ namespace Nickvision::Cavalier::Shared::Models
 {
     Cava::Cava(const CavaOptions& options, const std::string& appName)
         : m_options{ options },
+        m_isRecevingAudio{ false },
         m_configPath{ UserDirectories::get(ApplicationUserDirectory::Config, appName) / "cava_config" }
     {
         updateConfigFile();
@@ -31,6 +32,11 @@ namespace Nickvision::Cavalier::Shared::Models
     Event<ParamEventArgs<std::vector<float>>>& Cava::outputReceived()
     {
         return m_outputReceived;
+    }
+
+    bool Cava::isRecevingAudio() const
+    {
+        return m_isRecevingAudio;
     }
 
     const CavaOptions& Cava::getOptions() const
@@ -80,8 +86,12 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             if(m_process->getOutput().empty() || oldOutput == m_process->getOutput())
             {
+                m_isRecevingAudio = false;
+                m_outputReceived.invoke({{}});
+                std::this_thread::sleep_for(std::chrono::milliseconds(5));
                 continue;
             }
+            m_isRecevingAudio = true;
             std::string output{ oldOutput.size() == 0 ? m_process->getOutput() : m_process->getOutput().substr(oldOutput.size()) };
             oldOutput = m_process->getOutput();
             unsigned int length{ m_options.getNumberOfBars() * 4 };
@@ -107,5 +117,6 @@ namespace Nickvision::Cavalier::Shared::Models
             }
             m_outputReceived.invoke({ sample });
         }
+        m_isRecevingAudio = false;
     }
 }

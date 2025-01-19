@@ -33,6 +33,12 @@ namespace Nickvision::Cavalier::Shared::Models
          */
         Events::Event<Events::ParamEventArgs<std::vector<float>>>& outputReceived();
         /**
+         * @brief Whether or not the cava process is receving audio data.
+         * @return True if receving audio data
+         * @return False is not receving audio data
+         */
+        bool isRecevingAudio() const;
+        /**
          * @brief Gets the options to use for cava.
          * @return The cava options
          */
@@ -59,6 +65,7 @@ namespace Nickvision::Cavalier::Shared::Models
          */
         void watch();
         CavaOptions m_options;
+        bool m_isRecevingAudio;
         std::filesystem::path m_configPath;
         std::shared_ptr<System::Process> m_process;
         std::thread m_watcher;
