@@ -8,6 +8,15 @@
     <file alias="org.nickvision.cavalier-symbolic.svg" preprocess="xml-stripblanks">../../resources/org.nickvision.cavalier-symbolic.svg</file>
   </gresource>
   <gresource prefix="/org/nickvision/cavalier/icons/scalable/status/">
+    <file preprocess="xml-stripblanks">app-icon-design-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">circle-filled-symbolic.svg</file>
     <file preprocess="xml-stripblanks">dark-mode-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">double-ended-arrows-vertical-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">move-tool-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">resize-mode-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">shapes-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">square-filled-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">stacked-plates-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">view-mirror-symbolic.svg</file>
   </gresource>
 </gresources>

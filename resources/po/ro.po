@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2024-08-19 04:09+0000\n"
 "Last-Translator: EnderIce2 <xalexgabriel@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/nickvision-"
@@ -125,6 +125,145 @@ msgstr "Întunecat"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "Mod de desenare"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "Cutie"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "Cerc"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Mod de desenare"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "Val"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "Nivele"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "Particule"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "Bare"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "Coloană"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr "Separator"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr "Inimi"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Direcția de desenare"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "De sus în jos"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "De jos în sus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "De la stânga la dreapta"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "De la dreapta la stânga"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Schimbă Modul Oglindă"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "Dezactivat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "Plin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "Împarte Canalele"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Împarte Canalele"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "Marginea zonei de desenare"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Decalajul X al zonei de desenare"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Decalajul Y al zonei de desenare"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Schimbă Rotunjimea Elementelor"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "Schimbă Profilul de Culoare"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "Schimbă Imaginea de Fundal"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -259,12 +398,6 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "Șterge Profilul"
 
-#~ msgid "Full"
-#~ msgstr "Plin"
-
-#~ msgid "Hearts"
-#~ msgstr "Inimi"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "Imagini JPEG și PNG"
 
@@ -273,9 +406,6 @@ msgstr ""
 
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "Nicholas Logozzo"
-
-#~ msgid "Off"
-#~ msgstr "Dezactivat"
 
 #~ msgid "On"
 #~ msgstr "Activat"
@@ -286,41 +416,11 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "Selectează o imagine"
 
-#~ msgid "Split Channels"
-#~ msgstr "Împarte Canalele"
-
 #~ msgid "Command Help"
 #~ msgstr "Ajutor Pentru Comenzi"
 
 #~ msgid "Let's dance!"
 #~ msgstr "Hai să dansăm!"
-
-#~ msgid "Drawing mode"
-#~ msgstr "Mod de desenare"
-
-#~ msgid "Box"
-#~ msgstr "Cutie"
-
-#~ msgid "Circle"
-#~ msgstr "Cerc"
-
-#~ msgid "Wave"
-#~ msgstr "Val"
-
-#~ msgid "Levels"
-#~ msgstr "Nivele"
-
-#~ msgid "Particles"
-#~ msgstr "Particule"
-
-#~ msgid "Bars"
-#~ msgstr "Bare"
-
-#~ msgid "Spine"
-#~ msgstr "Coloană"
-
-#~ msgid "Splitter"
-#~ msgstr "Separator"
 
 #~ msgid "Radius"
 #~ msgstr "Rază"
@@ -334,32 +434,8 @@ msgstr ""
 #~ msgid "Reverse mirror"
 #~ msgstr "Oglindă inversată"
 
-#~ msgid "Drawing direction"
-#~ msgstr "Direcția de desenare"
-
-#~ msgid "Top to bottom"
-#~ msgstr "De sus în jos"
-
-#~ msgid "Bottom to top"
-#~ msgstr "De jos în sus"
-
-#~ msgid "Left to right"
-#~ msgstr "De la stânga la dreapta"
-
-#~ msgid "Right to left"
-#~ msgstr "De la dreapta la stânga"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "Marginea zonei de desenare"
-
 #~ msgid "Size of gaps around drawing area (in pixels)."
 #~ msgstr "Dimensiunea spațiilor din jurul zonei de desenare (în pixeli)."
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "Decalajul X al zonei de desenare"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "Decalajul Y al zonei de desenare"
 
 #~ msgid "Offset between items"
 #~ msgstr "Decalajul dintre elemente"
@@ -530,9 +606,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "Schimbă rotația în modurile Cerc"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "Schimbă Modul Oglindă"
-
 #~ msgid "Toggle Reverse Mirror"
 #~ msgstr "Comută Oglindă Inversată"
 
@@ -550,9 +623,6 @@ msgstr ""
 
 #~ msgid "Change Offset Between Items"
 #~ msgstr "Schimbă Decalajul Dintre Elemente"
-
-#~ msgid "Change Items Roundness"
-#~ msgstr "Schimbă Rotunjimea Elementelor"
 
 #~ msgid "Toggle Filling"
 #~ msgstr "Comută Umplerea"
@@ -577,12 +647,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "Altele"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "Schimbă Profilul de Culoare"
-
-#~ msgid "Change Background Image"
-#~ msgstr "Schimbă Imaginea de Fundal"
 
 #~ msgid "Change Background Image Scale"
 #~ msgstr "Schimbă Scala Imaginii de Fundal"

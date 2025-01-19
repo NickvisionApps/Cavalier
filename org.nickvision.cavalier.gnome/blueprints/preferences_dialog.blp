@@ -22,6 +22,151 @@ Adw.PreferencesDialog root {
           icon-name: "dark-mode-symbolic";
         }
       }
+
+      Adw.ComboRow drawingModeRow {
+        title: _("Drawing Mode");
+        model: Gtk.StringList {
+          strings [_("Box"), _("Circle")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "app-icon-design-symbolic";
+        }
+      }
+
+      Adw.ComboRow drawingShapeRow {
+        title: _("Drawing Shape");
+        model: Gtk.StringList {
+          strings [_("Wave"), _("Levels"), _("Particles"), _("Bars"), _("Spine"), _("Splitter"), _("Hearts")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "shapes-symbolic";
+        }
+      }
+
+      Adw.ComboRow drawingDirectionRow {
+        title: _("Drawing Direction");
+        model: Gtk.StringList {
+          strings [_("Top to Bottom"), _("Bottom to Top"), _("Left to Right"), _("Right to Left")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "double-ended-arrows-vertical-symbolic";
+        }
+      }
+
+      Adw.SwitchRow fillShapeRow {
+        title: _("Fill Shapes");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "square-filled-symbolic";
+        }
+      }
+
+      Adw.ComboRow mirrowModeRow {
+        title: _("Mirror Mode");
+        model: Gtk.StringList {
+          strings [_("Off"), _("Full"), _("Split Channels"), _("Full Reverse"), _("Split Channels Reverse")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "view-mirror-symbolic";
+        }
+      }
+
+      Adw.SpinRow drawingMarginRow {
+        title: _("Area Margin");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 0;
+          upper: 40;
+          step-increment: 1;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "resize-mode-symbolic";
+        }
+      }
+
+      Adw.SpinRow drawingXOffset {
+        title: _("Area X Offset");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: -5;
+          upper: 5;
+          step-increment: 1;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "move-tool-symbolic";
+        }
+      }
+
+      Adw.SpinRow drawingYOffset {
+        title: _("Area Y Offset");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: -5;
+          upper: 5;
+          step-increment: 1;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "move-tool-symbolic";
+        }
+      }
+
+      Adw.SpinRow itemSpacingRow {
+        title: _("Item Spacing");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 0;
+          upper: 20;
+          step-increment: 1;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "stacked-plates-symbolic";
+        }
+      }
+
+      Adw.SpinRow itemRoundnessRow {
+        title: _("Item Roundness");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 0;
+          upper: 100;
+          step-increment: 1;
+          page-increment: 10;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "circle-filled-symbolic";
+        }
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: _("CAVA");
+    }
+
+    Adw.PreferencesGroup {
+      title: _("Color Profiles");
+    }
+
+    Adw.PreferencesGroup {
+      title: _("Background Images");
     }
   }
 }

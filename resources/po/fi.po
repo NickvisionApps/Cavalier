@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2023-08-13 23:35+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/nickvision-"
@@ -124,6 +124,144 @@ msgstr "Tumma"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "Piirtotila"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "Laatikko"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "Ympyrä"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Piirtotila"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "Aalto"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "Tasot"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "Partikkelit"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "Palkit"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "Piikki"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Piirtosuunta"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "Ylhäältä alas"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "Alhaalta ylös"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "Vasemmalta oikealle"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "Oikealta vasemmalle"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Vaihda peilitilaa"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "Pois"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "Täysi"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "Jaa kanavat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Jaa kanavat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "Piirtoalueen reunus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Piirtoalueen X-siirtymä"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Piirtoalueen Y-siirtymä"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+msgid "Item Roundness"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "Vaihda väriprofiilia"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "Vaihda taustakuva"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -258,9 +396,6 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "Poista profiili"
 
-#~ msgid "Full"
-#~ msgstr "Täysi"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "JPEG- ja PNG-kuvat"
 
@@ -271,9 +406,6 @@ msgstr ""
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "Nicholas Logozzo"
 
-#~ msgid "Off"
-#~ msgstr "Pois"
-
 #~ msgid "On"
 #~ msgstr "Päällä"
 
@@ -283,35 +415,8 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "Valitse kuva"
 
-#~ msgid "Split Channels"
-#~ msgstr "Jaa kanavat"
-
 #~ msgid "Let's dance!"
 #~ msgstr "Tanssitaan!"
-
-#~ msgid "Drawing mode"
-#~ msgstr "Piirtotila"
-
-#~ msgid "Box"
-#~ msgstr "Laatikko"
-
-#~ msgid "Circle"
-#~ msgstr "Ympyrä"
-
-#~ msgid "Wave"
-#~ msgstr "Aalto"
-
-#~ msgid "Levels"
-#~ msgstr "Tasot"
-
-#~ msgid "Particles"
-#~ msgstr "Partikkelit"
-
-#~ msgid "Bars"
-#~ msgstr "Palkit"
-
-#~ msgid "Spine"
-#~ msgstr "Piikki"
 
 #~ msgid "Radius"
 #~ msgstr "Säde"
@@ -324,30 +429,6 @@ msgstr ""
 
 #~ msgid "Reverse mirror"
 #~ msgstr "Käänteinen peili"
-
-#~ msgid "Drawing direction"
-#~ msgstr "Piirtosuunta"
-
-#~ msgid "Top to bottom"
-#~ msgstr "Ylhäältä alas"
-
-#~ msgid "Bottom to top"
-#~ msgstr "Alhaalta ylös"
-
-#~ msgid "Left to right"
-#~ msgstr "Vasemmalta oikealle"
-
-#~ msgid "Right to left"
-#~ msgstr "Oikealta vasemmalle"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "Piirtoalueen reunus"
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "Piirtoalueen X-siirtymä"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "Piirtoalueen Y-siirtymä"
 
 #~ msgid "Offset between items"
 #~ msgstr "Siirtymä kohteiden välillä"
@@ -445,9 +526,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "Vaihda piirtotilaa"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "Vaihda peilitilaa"
-
 #~ msgid "Change Drawing Area Margin"
 #~ msgstr "Vaihda piirtoalueen reunusta"
 
@@ -464,12 +542,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "Muut"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "Vaihda väriprofiilia"
-
-#~ msgid "Change Background Image"
-#~ msgstr "Vaihda taustakuva"
 
 #, fuzzy
 #~ msgid "Change Background Image Scale"

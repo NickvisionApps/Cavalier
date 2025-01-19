@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2024-03-14 14:01+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
@@ -124,6 +124,145 @@ msgstr "Kyu"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "Çizim kipi"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "Kutu"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "Daire"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Çizim kipi"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "Dalga"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "Düzeyler"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "Parçacıklar"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "Çubuklar"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "Omurga"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr "Ayırıcı"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr "Kalpler"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Çizim yönü"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "Yukarıdan aşağıya"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "Aşağıdan yukarıya"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "Soldan sağa"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "Sağdan sola"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Ayna Kipini Değiştir"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "Kapalı"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "Tam"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "Kanalları Ayır"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Kanalları Ayır"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "Çizim alanı kenar boşluğu"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Çizim alanı X konumu"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Çizim alanı Y konumu"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Ögelerin Yuvarlaklığını Değiştir"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "Renk Profilini Değiştir"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "Arka Plan Resmini Değiştir"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -258,12 +397,6 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "Profil Sil"
 
-#~ msgid "Full"
-#~ msgstr "Tam"
-
-#~ msgid "Hearts"
-#~ msgstr "Kalpler"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "JPEG ve PNG resimler"
 
@@ -272,9 +405,6 @@ msgstr ""
 
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "Nicholas Logozzo"
-
-#~ msgid "Off"
-#~ msgstr "Kapalı"
 
 #~ msgid "On"
 #~ msgstr "Açık"
@@ -285,41 +415,11 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "Resim seç"
 
-#~ msgid "Split Channels"
-#~ msgstr "Kanalları Ayır"
-
 #~ msgid "Command Help"
 #~ msgstr "Komut Yardımı"
 
 #~ msgid "Let's dance!"
 #~ msgstr "Dans edelim!"
-
-#~ msgid "Drawing mode"
-#~ msgstr "Çizim kipi"
-
-#~ msgid "Box"
-#~ msgstr "Kutu"
-
-#~ msgid "Circle"
-#~ msgstr "Daire"
-
-#~ msgid "Wave"
-#~ msgstr "Dalga"
-
-#~ msgid "Levels"
-#~ msgstr "Düzeyler"
-
-#~ msgid "Particles"
-#~ msgstr "Parçacıklar"
-
-#~ msgid "Bars"
-#~ msgstr "Çubuklar"
-
-#~ msgid "Spine"
-#~ msgstr "Omurga"
-
-#~ msgid "Splitter"
-#~ msgstr "Ayırıcı"
 
 #~ msgid "Radius"
 #~ msgstr "Yarıçap"
@@ -333,32 +433,8 @@ msgstr ""
 #~ msgid "Reverse mirror"
 #~ msgstr "Ters ayna"
 
-#~ msgid "Drawing direction"
-#~ msgstr "Çizim yönü"
-
-#~ msgid "Top to bottom"
-#~ msgstr "Yukarıdan aşağıya"
-
-#~ msgid "Bottom to top"
-#~ msgstr "Aşağıdan yukarıya"
-
-#~ msgid "Left to right"
-#~ msgstr "Soldan sağa"
-
-#~ msgid "Right to left"
-#~ msgstr "Sağdan sola"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "Çizim alanı kenar boşluğu"
-
 #~ msgid "Size of gaps around drawing area (in pixels)."
 #~ msgstr "Çizim alanı etrafındaki boşlukların boyutu (piksel olarak)."
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "Çizim alanı X konumu"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "Çizim alanı Y konumu"
 
 #~ msgid "Offset between items"
 #~ msgstr "Öğeler arasındaki boşluk"
@@ -526,9 +602,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "Daire kiplerinde dönüşü değiştir"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "Ayna Kipini Değiştir"
-
 #~ msgid "Toggle Reverse Mirror"
 #~ msgstr "Ters Aynayı Aç/Kapat"
 
@@ -546,9 +619,6 @@ msgstr ""
 
 #~ msgid "Change Offset Between Items"
 #~ msgstr "Ögeler Arasındaki Boşluğu Değiştir"
-
-#~ msgid "Change Items Roundness"
-#~ msgstr "Ögelerin Yuvarlaklığını Değiştir"
 
 #~ msgid "Toggle Filling"
 #~ msgstr "Dolguyu Aç/Kapat"
@@ -573,12 +643,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "Diğer"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "Renk Profilini Değiştir"
-
-#~ msgid "Change Background Image"
-#~ msgstr "Arka Plan Resmini Değiştir"
 
 #~ msgid "Change Background Image Scale"
 #~ msgstr "Arka Plan Resim Ölçeğini Değiştir"

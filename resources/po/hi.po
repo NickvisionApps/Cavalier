@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2024-07-07 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/nickvision-"
@@ -124,6 +124,145 @@ msgstr "गहरी"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "ड्राइंग मोड"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "बक्सा"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "वृत्त"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "ड्राइंग मोड"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "तरंग"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "स्तरों"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "कण"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "बार्स"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "स्पाइन"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr "विभाजक"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr "दिल"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "ड्राइंग दिशा"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "ऊपर से नीचे"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "नीचे से ऊपर"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "बाएं से दाएं"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "दाएं से बाएं"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "मिरर मोड बदलें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "बंद"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "भरा हुआ"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "विभाजित चैनल"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "विभाजित चैनल"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "ड्राइंग क्षेत्र मार्जिन"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "ड्राइंग क्षेत्र X ऑफसेट"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "ड्राइंग क्षेत्र Y ऑफसेट"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#, fuzzy
+msgid "Item Roundness"
+msgstr "वस्तुओं की गोलाई बदलें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "प्रोफाइल का रंग बदलें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "पृष्ठभूमि छवि बदलें"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -258,12 +397,6 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "प्रोफाइल मिटाएं"
 
-#~ msgid "Full"
-#~ msgstr "भरा हुआ"
-
-#~ msgid "Hearts"
-#~ msgstr "दिल"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "JPEG और PNG छवियां"
 
@@ -272,9 +405,6 @@ msgstr ""
 
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "निकोलस लोगोज़ो"
-
-#~ msgid "Off"
-#~ msgstr "बंद"
 
 #~ msgid "On"
 #~ msgstr "चालू"
@@ -285,41 +415,11 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "एक छवि चुनें"
 
-#~ msgid "Split Channels"
-#~ msgstr "विभाजित चैनल"
-
 #~ msgid "Command Help"
 #~ msgstr "आदेश सहायता"
 
 #~ msgid "Let's dance!"
 #~ msgstr "आओ नाचें!"
-
-#~ msgid "Drawing mode"
-#~ msgstr "ड्राइंग मोड"
-
-#~ msgid "Box"
-#~ msgstr "बक्सा"
-
-#~ msgid "Circle"
-#~ msgstr "वृत्त"
-
-#~ msgid "Wave"
-#~ msgstr "तरंग"
-
-#~ msgid "Levels"
-#~ msgstr "स्तरों"
-
-#~ msgid "Particles"
-#~ msgstr "कण"
-
-#~ msgid "Bars"
-#~ msgstr "बार्स"
-
-#~ msgid "Spine"
-#~ msgstr "स्पाइन"
-
-#~ msgid "Splitter"
-#~ msgstr "विभाजक"
 
 #~ msgid "Radius"
 #~ msgstr "त्रिज्या"
@@ -333,32 +433,8 @@ msgstr ""
 #~ msgid "Reverse mirror"
 #~ msgstr "उलटा दर्पण"
 
-#~ msgid "Drawing direction"
-#~ msgstr "ड्राइंग दिशा"
-
-#~ msgid "Top to bottom"
-#~ msgstr "ऊपर से नीचे"
-
-#~ msgid "Bottom to top"
-#~ msgstr "नीचे से ऊपर"
-
-#~ msgid "Left to right"
-#~ msgstr "बाएं से दाएं"
-
-#~ msgid "Right to left"
-#~ msgstr "दाएं से बाएं"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "ड्राइंग क्षेत्र मार्जिन"
-
 #~ msgid "Size of gaps around drawing area (in pixels)."
 #~ msgstr "ड्राइंग क्षेत्र के चारों ओर अंतराल का आकार (पिक्सेल में)।"
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "ड्राइंग क्षेत्र X ऑफसेट"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "ड्राइंग क्षेत्र Y ऑफसेट"
 
 #~ msgid "Offset between items"
 #~ msgstr "वस्तुओं के बीच ऑफसेट"
@@ -525,9 +601,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "सर्कल मोड में रोटेशन बदलें"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "मिरर मोड बदलें"
-
 #~ msgid "Toggle Reverse Mirror"
 #~ msgstr "उल्टा दर्पण टॉगल करें"
 
@@ -545,9 +618,6 @@ msgstr ""
 
 #~ msgid "Change Offset Between Items"
 #~ msgstr "वस्तुओं के बीच ऑफसेट बदलें"
-
-#~ msgid "Change Items Roundness"
-#~ msgstr "वस्तुओं की गोलाई बदलें"
 
 #~ msgid "Toggle Filling"
 #~ msgstr "भरना टॉगल करें"
@@ -572,12 +642,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "अन्य"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "प्रोफाइल का रंग बदलें"
-
-#~ msgid "Change Background Image"
-#~ msgstr "पृष्ठभूमि छवि बदलें"
 
 #~ msgid "Change Background Image Scale"
 #~ msgstr "पृष्ठभूमि छवि स्केल बदलें"

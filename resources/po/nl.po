@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2024-02-18 12:02+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/nickvision-"
@@ -120,6 +120,144 @@ msgstr "Donker"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+msgid "Drawing Mode"
+msgstr "Weergavemodus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "Doos"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "Cirkel"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Weergavemodus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "Golf"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "Niveaus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "Deeltjes"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "Balken"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "Wervel"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr "Splitter"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr "Harten"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Teken­richting"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "Van boven naar onderen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "Van onderen naar boven"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "Van links naar rechts"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "Van rechts naar links"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Spiegel­modus aanpassen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "Uit"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "Volledig"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "Kanalen opsplitsen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Kanalen opsplitsen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "Weergavemodusmarge"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "X-offset van teken­gebied"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Y-offset van teken­gebied"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Rondheid van items aanpassen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "Keuren­profiel wijzigen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "Achtergrond­afbeelding wijzigen"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -255,20 +393,11 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "Profiel verwijderen"
 
-#~ msgid "Full"
-#~ msgstr "Volledig"
-
-#~ msgid "Hearts"
-#~ msgstr "Harten"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "JPEG- en PNG-afbeeldingen"
 
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "Nicholas Logozzo"
-
-#~ msgid "Off"
-#~ msgstr "Uit"
 
 #~ msgid "On"
 #~ msgstr "Aan"
@@ -279,41 +408,11 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "Afbeelding selecteren"
 
-#~ msgid "Split Channels"
-#~ msgstr "Kanalen opsplitsen"
-
 #~ msgid "Command Help"
 #~ msgstr "Opdracht­hulp"
 
 #~ msgid "Let's dance!"
 #~ msgstr "Tijd om te dansen!"
-
-#~ msgid "Drawing mode"
-#~ msgstr "Weergavemodus"
-
-#~ msgid "Box"
-#~ msgstr "Doos"
-
-#~ msgid "Circle"
-#~ msgstr "Cirkel"
-
-#~ msgid "Wave"
-#~ msgstr "Golf"
-
-#~ msgid "Levels"
-#~ msgstr "Niveaus"
-
-#~ msgid "Particles"
-#~ msgstr "Deeltjes"
-
-#~ msgid "Bars"
-#~ msgstr "Balken"
-
-#~ msgid "Spine"
-#~ msgstr "Wervel"
-
-#~ msgid "Splitter"
-#~ msgstr "Splitter"
 
 #~ msgid "Radius"
 #~ msgstr "Straal"
@@ -327,32 +426,8 @@ msgstr ""
 #~ msgid "Reverse mirror"
 #~ msgstr "Spiegeling omkeren"
 
-#~ msgid "Drawing direction"
-#~ msgstr "Teken­richting"
-
-#~ msgid "Top to bottom"
-#~ msgstr "Van boven naar onderen"
-
-#~ msgid "Bottom to top"
-#~ msgstr "Van onderen naar boven"
-
-#~ msgid "Left to right"
-#~ msgstr "Van links naar rechts"
-
-#~ msgid "Right to left"
-#~ msgstr "Van rechts naar links"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "Weergavemodusmarge"
-
 #~ msgid "Size of gaps around drawing area (in pixels)."
 #~ msgstr "De grootte van ruimtes om het weergavegebied heen (in pixels)."
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "X-offset van teken­gebied"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "Y-offset van teken­gebied"
 
 #~ msgid "Offset between items"
 #~ msgstr "Verschuiving tussen items"
@@ -514,9 +589,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "Weergavemodus aanpassen"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "Spiegel­modus aanpassen"
-
 #~ msgid "Toggle Reverse Mirror"
 #~ msgstr "Omgekeerde spiegeling omschakelen"
 
@@ -536,9 +608,6 @@ msgstr ""
 
 #~ msgid "Change Offset Between Items"
 #~ msgstr "Verschuiving tussen items aanpassen"
-
-#~ msgid "Change Items Roundness"
-#~ msgstr "Rondheid van items aanpassen"
 
 #~ msgid "Toggle Filling"
 #~ msgstr "Vulling omschakelen"
@@ -563,12 +632,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "Anders"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "Keuren­profiel wijzigen"
-
-#~ msgid "Change Background Image"
-#~ msgstr "Achtergrond­afbeelding wijzigen"
 
 #~ msgid "Change Background Image Scale"
 #~ msgstr "Schaal van achtergrond­afbeelding wijzigen"
@@ -700,9 +763,6 @@ msgstr ""
 
 #~ msgid "Index of active color profile"
 #~ msgstr "Index van actief profiel"
-
-#~ msgid "Drawing Mode"
-#~ msgstr "Weergavemodus"
 
 #~ msgid ""
 #~ "This setting only affects \"levels\" and \"particles\" modes.\n"

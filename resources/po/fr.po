@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2023-08-08 10:00+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/nickvision-"
@@ -124,6 +124,144 @@ msgstr "Sombre"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+msgid "Drawing Mode"
+msgstr "Mode de dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "Boîte"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "Cercle"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Mode de dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "Ondulations"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "Niveaux"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "Particules"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "Barres"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "Colonne vertébrale"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr "Séparateur"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr "Cœurs"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Direction du dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "De haut en bas"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "De bas en haut"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "De gauche à droite"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "De droite à gauche"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Changer le mode du miroir"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "Désactivé"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "Intégral"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "Séparer les canaux"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Séparer les canaux"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "Marge autour de l’aire de dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Marge autour de l’aire de dessin X"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Marge autour de l’aire de dessin Y"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Modifier la rondeur des éléments"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "Changer le profil de couleur"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "Changer l’image d’arrière-plan"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -259,12 +397,6 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "Supprimer le profil"
 
-#~ msgid "Full"
-#~ msgstr "Intégral"
-
-#~ msgid "Hearts"
-#~ msgstr "Cœurs"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "Images JPEG et PNG"
 
@@ -273,9 +405,6 @@ msgstr ""
 
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "Nicholas Logozzo"
-
-#~ msgid "Off"
-#~ msgstr "Désactivé"
 
 #~ msgid "On"
 #~ msgstr "Activé"
@@ -286,41 +415,11 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "Sélectionnez une image"
 
-#~ msgid "Split Channels"
-#~ msgstr "Séparer les canaux"
-
 #~ msgid "Command Help"
 #~ msgstr "Aide de commande"
 
 #~ msgid "Let's dance!"
 #~ msgstr "Dansons !"
-
-#~ msgid "Drawing mode"
-#~ msgstr "Mode de dessin"
-
-#~ msgid "Box"
-#~ msgstr "Boîte"
-
-#~ msgid "Circle"
-#~ msgstr "Cercle"
-
-#~ msgid "Wave"
-#~ msgstr "Ondulations"
-
-#~ msgid "Levels"
-#~ msgstr "Niveaux"
-
-#~ msgid "Particles"
-#~ msgstr "Particules"
-
-#~ msgid "Bars"
-#~ msgstr "Barres"
-
-#~ msgid "Spine"
-#~ msgstr "Colonne vertébrale"
-
-#~ msgid "Splitter"
-#~ msgstr "Séparateur"
 
 #~ msgid "Radius"
 #~ msgstr "Rayon"
@@ -334,32 +433,8 @@ msgstr ""
 #~ msgid "Reverse mirror"
 #~ msgstr "Miroir inversé"
 
-#~ msgid "Drawing direction"
-#~ msgstr "Direction du dessin"
-
-#~ msgid "Top to bottom"
-#~ msgstr "De haut en bas"
-
-#~ msgid "Bottom to top"
-#~ msgstr "De bas en haut"
-
-#~ msgid "Left to right"
-#~ msgstr "De gauche à droite"
-
-#~ msgid "Right to left"
-#~ msgstr "De droite à gauche"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "Marge autour de l’aire de dessin"
-
 #~ msgid "Size of gaps around drawing area (in pixels)."
 #~ msgstr "Espace (en pixels) laissé autour de l’aire dessinée."
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "Marge autour de l’aire de dessin X"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "Marge autour de l’aire de dessin Y"
 
 #~ msgid "Offset between items"
 #~ msgstr "Espace entre les éléments"
@@ -528,9 +603,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "Changer la rotation dans le mode Cercle"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "Changer le mode du miroir"
-
 #~ msgid "Toggle Reverse Mirror"
 #~ msgstr "Basculer le miroir d’inversion"
 
@@ -548,9 +620,6 @@ msgstr ""
 
 #~ msgid "Change Offset Between Items"
 #~ msgstr "Modifier l’espace entre les éléments"
-
-#~ msgid "Change Items Roundness"
-#~ msgstr "Modifier la rondeur des éléments"
 
 #~ msgid "Toggle Filling"
 #~ msgstr "Activer/désactiver le remplissage"
@@ -575,12 +644,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "Autre"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "Changer le profil de couleur"
-
-#~ msgid "Change Background Image"
-#~ msgstr "Changer l’image d’arrière-plan"
 
 #, fuzzy
 #~ msgid "Change Background Image Scale"
@@ -731,9 +794,6 @@ msgstr ""
 
 #~ msgid "Index of active color profile"
 #~ msgstr "Index des profils de couleur actifs"
-
-#~ msgid "Drawing Mode"
-#~ msgstr "Mode de dessin"
 
 #~ msgid ""
 #~ "This setting only affects \"levels\" and \"particles\" modes.\n"

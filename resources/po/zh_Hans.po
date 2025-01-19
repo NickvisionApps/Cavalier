@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2024-09-01 09:09+0000\n"
 "Last-Translator: D XC <hello_cmd@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -122,6 +122,145 @@ msgstr "深色"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "绘图模式"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "盒型"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "圆型"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "绘图模式"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "波浪"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "音量"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "粒子"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "条形"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "锥形"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr "分隔"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr "爱心"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "绘制方向"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "从上到下"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "从下到上"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "从左到右"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "从右到左"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "更改镜像模式"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "关闭"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "完全"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "分离左右声道"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "分离左右声道"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "绘图边距"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "X轴偏移"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Y 轴偏移"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#, fuzzy
+msgid "Item Roundness"
+msgstr "更改条目的圆角大小"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "更改颜色配置"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "更改背景图片"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -256,12 +395,6 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "删除配置"
 
-#~ msgid "Full"
-#~ msgstr "完全"
-
-#~ msgid "Hearts"
-#~ msgstr "爱心"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "JPEG 和 PNG 图片"
 
@@ -270,9 +403,6 @@ msgstr ""
 
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "Nicholas Logozzo"
-
-#~ msgid "Off"
-#~ msgstr "关闭"
 
 #~ msgid "On"
 #~ msgstr "打开"
@@ -283,41 +413,11 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "选择一张图片"
 
-#~ msgid "Split Channels"
-#~ msgstr "分离左右声道"
-
 #~ msgid "Command Help"
 #~ msgstr "命令帮助"
 
 #~ msgid "Let's dance!"
 #~ msgstr "来跳舞吧！"
-
-#~ msgid "Drawing mode"
-#~ msgstr "绘图模式"
-
-#~ msgid "Box"
-#~ msgstr "盒型"
-
-#~ msgid "Circle"
-#~ msgstr "圆型"
-
-#~ msgid "Wave"
-#~ msgstr "波浪"
-
-#~ msgid "Levels"
-#~ msgstr "音量"
-
-#~ msgid "Particles"
-#~ msgstr "粒子"
-
-#~ msgid "Bars"
-#~ msgstr "条形"
-
-#~ msgid "Spine"
-#~ msgstr "锥形"
-
-#~ msgid "Splitter"
-#~ msgstr "分隔"
 
 #~ msgid "Radius"
 #~ msgstr "半径"
@@ -331,32 +431,8 @@ msgstr ""
 #~ msgid "Reverse mirror"
 #~ msgstr "反向镜像"
 
-#~ msgid "Drawing direction"
-#~ msgstr "绘制方向"
-
-#~ msgid "Top to bottom"
-#~ msgstr "从上到下"
-
-#~ msgid "Bottom to top"
-#~ msgstr "从下到上"
-
-#~ msgid "Left to right"
-#~ msgstr "从左到右"
-
-#~ msgid "Right to left"
-#~ msgstr "从右到左"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "绘图边距"
-
 #~ msgid "Size of gaps around drawing area (in pixels)."
 #~ msgstr "绘图区域周围的间隙大小（以像素为单位）。"
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "X轴偏移"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "Y 轴偏移"
 
 #~ msgid "Offset between items"
 #~ msgstr "条目之间的偏移"
@@ -521,9 +597,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "更改圆型模式的角度"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "更改镜像模式"
-
 #~ msgid "Toggle Reverse Mirror"
 #~ msgstr "开启/关闭反向镜像"
 
@@ -541,9 +614,6 @@ msgstr ""
 
 #~ msgid "Change Offset Between Items"
 #~ msgstr "更改条目之间的间隔"
-
-#~ msgid "Change Items Roundness"
-#~ msgstr "更改条目的圆角大小"
 
 #~ msgid "Toggle Filling"
 #~ msgstr "切换填充模式"
@@ -568,12 +638,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "其他"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "更改颜色配置"
-
-#~ msgid "Change Background Image"
-#~ msgstr "更改背景图片"
 
 #~ msgid "Change Background Image Scale"
 #~ msgstr "更改背景图像的缩放比例"

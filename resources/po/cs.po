@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2024-09-04 15:09+0000\n"
 "Last-Translator: Fjuro <fjuro@alius.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
@@ -126,6 +126,145 @@ msgstr "Tmavý"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "Režim vykreslování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "Čtverec"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "Kruh"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Režim vykreslování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "Vlna"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "Úrovně"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "Částečky"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "Tyče"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "Páteř"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr "Rozdělovač"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr "Srdíčka"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Směr vykreslování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "Shora dolů"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "Zdola nahoru"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "Zleva doprava"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "Zprava doleva"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Změnit režim zrcadlení"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "Vypnuto"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "Plný"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "Rozdělit kanály"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Rozdělit kanály"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "Okraje vykreslovací plochy"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Posunutí X vykreslované oblasti"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Posunutí Y vykreslované oblasti"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Změnit zaoblení položek"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "Změnit barevný profil"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "Změnit obrázek na pozadí"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -260,12 +399,6 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "Smazat Profil"
 
-#~ msgid "Full"
-#~ msgstr "Plný"
-
-#~ msgid "Hearts"
-#~ msgstr "Srdíčka"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "Obrázky JPEG a PNG"
 
@@ -274,9 +407,6 @@ msgstr ""
 
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "Nicholas Logozzo"
-
-#~ msgid "Off"
-#~ msgstr "Vypnuto"
 
 #~ msgid "On"
 #~ msgstr "Zapnuto"
@@ -287,41 +417,11 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "Vybrat obrázek"
 
-#~ msgid "Split Channels"
-#~ msgstr "Rozdělit kanály"
-
 #~ msgid "Command Help"
 #~ msgstr "Nápověda k příkazům"
 
 #~ msgid "Let's dance!"
 #~ msgstr "Jdeme tančit!"
-
-#~ msgid "Drawing mode"
-#~ msgstr "Režim vykreslování"
-
-#~ msgid "Box"
-#~ msgstr "Čtverec"
-
-#~ msgid "Circle"
-#~ msgstr "Kruh"
-
-#~ msgid "Wave"
-#~ msgstr "Vlna"
-
-#~ msgid "Levels"
-#~ msgstr "Úrovně"
-
-#~ msgid "Particles"
-#~ msgstr "Částečky"
-
-#~ msgid "Bars"
-#~ msgstr "Tyče"
-
-#~ msgid "Spine"
-#~ msgstr "Páteř"
-
-#~ msgid "Splitter"
-#~ msgstr "Rozdělovač"
 
 #~ msgid "Radius"
 #~ msgstr "Poloměr"
@@ -335,32 +435,8 @@ msgstr ""
 #~ msgid "Reverse mirror"
 #~ msgstr "Opačné zrcadlení"
 
-#~ msgid "Drawing direction"
-#~ msgstr "Směr vykreslování"
-
-#~ msgid "Top to bottom"
-#~ msgstr "Shora dolů"
-
-#~ msgid "Bottom to top"
-#~ msgstr "Zdola nahoru"
-
-#~ msgid "Left to right"
-#~ msgstr "Zleva doprava"
-
-#~ msgid "Right to left"
-#~ msgstr "Zprava doleva"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "Okraje vykreslovací plochy"
-
 #~ msgid "Size of gaps around drawing area (in pixels)."
 #~ msgstr "Velikost mezer okolo vykreslovací oblasti (v pixelech)."
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "Posunutí X vykreslované oblasti"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "Posunutí Y vykreslované oblasti"
 
 #~ msgid "Offset between items"
 #~ msgstr "Odsazení mezi položkami"
@@ -529,9 +605,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "Změnit otočení v režimech Kruhu"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "Změnit režim zrcadlení"
-
 #~ msgid "Toggle Reverse Mirror"
 #~ msgstr "Přepnout opačné zrcadlení"
 
@@ -549,9 +622,6 @@ msgstr ""
 
 #~ msgid "Change Offset Between Items"
 #~ msgstr "Změnit odsazení mezi položkami"
-
-#~ msgid "Change Items Roundness"
-#~ msgstr "Změnit zaoblení položek"
 
 #~ msgid "Toggle Filling"
 #~ msgstr "Přepnout výplň"
@@ -576,12 +646,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "Jiné"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "Změnit barevný profil"
-
-#~ msgid "Change Background Image"
-#~ msgstr "Změnit obrázek na pozadí"
 
 #~ msgid "Change Background Image Scale"
 #~ msgstr "Změnit velikost obrázku na pozadí"

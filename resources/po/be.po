@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 14:20-0500\n"
+"POT-Creation-Date: 2025-01-19 14:52-0500\n"
 "PO-Revision-Date: 2023-11-17 18:31+0000\n"
 "Last-Translator: Yahor <k1llo2810@protonmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/nickvision-"
@@ -125,6 +125,145 @@ msgstr "Цёмная"
 msgctxt "Theme"
 msgid "System"
 msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "Рэжым адмалёўкі"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Box"
+msgstr "Скрынка"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+msgid "Circle"
+msgstr "Круг"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Рэжым адмалёўкі"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Wave"
+msgstr "Хваля"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Levels"
+msgstr "Узроўні"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Particles"
+msgstr "Часціцы"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Bars"
+msgstr "Шкалы"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Spine"
+msgstr "Калонка"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Splitter"
+msgstr "Раздзяляльнік"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+msgid "Hearts"
+msgstr "Сэрцы"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Кірунак адмалёўкі"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "Зверху ўніз"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "Знізу ўверх"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Left to Right"
+msgstr "Злева направа"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#, fuzzy
+msgid "Right to Left"
+msgstr "Справа налева"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Змяніць рэжым люстэрка"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Off"
+msgstr "Выкл."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full"
+msgstr "Поўны"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Split Channels"
+msgstr "Раздзяліць каналы"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Раздзяліць каналы"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#, fuzzy
+msgid "Area Margin"
+msgstr "Водступ вобласці адмалёўкі"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Адхіленне вобласці адмалёўкі па восі X"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Адхіленне вобласці адмалёўкі па восі Y"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Змяніць акругласць элементаў"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+msgid "CAVA"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:165
+#, fuzzy
+msgid "Color Profiles"
+msgstr "Змяніць профіль колераў"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#, fuzzy
+msgid "Background Images"
+msgstr "Змяніць фонавы відарыс"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgid "Folder"
@@ -259,12 +398,6 @@ msgstr ""
 #~ msgid "Delete Profile"
 #~ msgstr "Выдаліць профіль"
 
-#~ msgid "Full"
-#~ msgstr "Поўны"
-
-#~ msgid "Hearts"
-#~ msgstr "Сэрцы"
-
 #~ msgid "JPEG and PNG images"
 #~ msgstr "Відарысы JPEG і PNG"
 
@@ -273,9 +406,6 @@ msgstr ""
 
 #~ msgid "Nicholas Logozzo"
 #~ msgstr "Nicholas Logozzo"
-
-#~ msgid "Off"
-#~ msgstr "Выкл."
 
 #~ msgid "On"
 #~ msgstr "Укл."
@@ -286,41 +416,11 @@ msgstr ""
 #~ msgid "Select an image"
 #~ msgstr "Выбраць відарыс"
 
-#~ msgid "Split Channels"
-#~ msgstr "Раздзяліць каналы"
-
 #~ msgid "Command Help"
 #~ msgstr "Даведка па камандах"
 
 #~ msgid "Let's dance!"
 #~ msgstr "Давайце танчыць!"
-
-#~ msgid "Drawing mode"
-#~ msgstr "Рэжым адмалёўкі"
-
-#~ msgid "Box"
-#~ msgstr "Скрынка"
-
-#~ msgid "Circle"
-#~ msgstr "Круг"
-
-#~ msgid "Wave"
-#~ msgstr "Хваля"
-
-#~ msgid "Levels"
-#~ msgstr "Узроўні"
-
-#~ msgid "Particles"
-#~ msgstr "Часціцы"
-
-#~ msgid "Bars"
-#~ msgstr "Шкалы"
-
-#~ msgid "Spine"
-#~ msgstr "Калонка"
-
-#~ msgid "Splitter"
-#~ msgstr "Раздзяляльнік"
 
 #~ msgid "Radius"
 #~ msgstr "Радыус"
@@ -334,32 +434,8 @@ msgstr ""
 #~ msgid "Reverse mirror"
 #~ msgstr "Развярнуць люстэрка"
 
-#~ msgid "Drawing direction"
-#~ msgstr "Кірунак адмалёўкі"
-
-#~ msgid "Top to bottom"
-#~ msgstr "Зверху ўніз"
-
-#~ msgid "Bottom to top"
-#~ msgstr "Знізу ўверх"
-
-#~ msgid "Left to right"
-#~ msgstr "Злева направа"
-
-#~ msgid "Right to left"
-#~ msgstr "Справа налева"
-
-#~ msgid "Drawing area margin"
-#~ msgstr "Водступ вобласці адмалёўкі"
-
 #~ msgid "Size of gaps around drawing area (in pixels)."
 #~ msgstr "Памер водступу вакол вобласці адмалёўкі (у пікселях)."
-
-#~ msgid "Drawing area X offset"
-#~ msgstr "Адхіленне вобласці адмалёўкі па восі X"
-
-#~ msgid "Drawing area Y offset"
-#~ msgstr "Адхіленне вобласці адмалёўкі па восі Y"
 
 #~ msgid "Offset between items"
 #~ msgstr "Адлегласць паміж элементамі"
@@ -530,9 +606,6 @@ msgstr ""
 #~ msgid "Change rotation in Circle modes"
 #~ msgstr "Змяніць нахіл у рэжымах тыпу Круг"
 
-#~ msgid "Change Mirror Mode"
-#~ msgstr "Змяніць рэжым люстэрка"
-
 #~ msgid "Toggle Reverse Mirror"
 #~ msgstr "Развярнуць люстэрка"
 
@@ -550,9 +623,6 @@ msgstr ""
 
 #~ msgid "Change Offset Between Items"
 #~ msgstr "Змяніць адлегласць паміж элементамі"
-
-#~ msgid "Change Items Roundness"
-#~ msgstr "Змяніць акругласць элементаў"
 
 #~ msgid "Toggle Filling"
 #~ msgstr "Пераключыць запаўненне"
@@ -577,12 +647,6 @@ msgstr ""
 
 #~ msgid "Other"
 #~ msgstr "Іншае"
-
-#~ msgid "Change Color Profile"
-#~ msgstr "Змяніць профіль колераў"
-
-#~ msgid "Change Background Image"
-#~ msgstr "Змяніць фонавы відарыс"
 
 #~ msgid "Change Background Image Scale"
 #~ msgstr "Змяніць маштаб фонавага відарыса"
