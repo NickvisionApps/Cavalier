@@ -1,0 +1,7 @@
+<RCC>
+  <qresource>
+    <file>../resources/org.nickvision.cavalier.ico</file>
+    <file>../resources/org.nickvision.cavalier.svg</file>
+    <file>../resources/org.nickvision.cavalier-devel.svg</file>
+  </qresource>
+</RCC>

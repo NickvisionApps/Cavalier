@@ -14,8 +14,9 @@
 
   <maintainer>
     <foaf:Person>
-      <foaf:name>Fyodor Sobolev</foaf:name>
-      <gnome:userid>fsobolev</gnome:userid>
+      <foaf:name>Nick Logozzo</foaf:name>
+      <foaf:mbox rdf:resource="mailto:nlogozzo225@gmail.com" />
+      <gnome:userid>nlogozzo</gnome:userid>
     </foaf:Person>
   </maintainer>
 </Project>
