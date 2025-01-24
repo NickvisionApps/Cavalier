@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: 2023-08-08 10:00+0000\n"
-"Last-Translator: rene-coty <irenee.thirion@e.email>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/nickvision-"
-"cavalier/app/fr/>\n"
+"PO-Revision-Date: 2025-01-24 10:02+0000\n"
+"Last-Translator: AFCMS <afcm.contact@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1207
@@ -414,33 +414,28 @@ msgid "Foreground Colors"
 msgstr "Couleurs de premier-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:477
-#, fuzzy
 msgid "Add foreground color"
-msgstr "Couleurs de premier-plan"
+msgstr "Ajouter une couleur de premier-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:492
 msgid "Background Colors"
 msgstr "Couleurs d’arrière-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:499
-#, fuzzy
 msgid "Add background color"
-msgstr "Couleurs d’arrière-plan"
+msgstr "Ajouter une couleur d’arrière-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:513
-#, fuzzy
 msgid "Images"
-msgstr "Image"
+msgstr "Images"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:527
-#, fuzzy
 msgid "Background"
-msgstr "Couleurs d’arrière-plan"
+msgstr "Arrière-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:532
-#, fuzzy
 msgid "Foreground"
-msgstr "Couleurs de premier-plan"
+msgstr "Premier-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:547
 msgid "Add Image"
@@ -452,20 +447,19 @@ msgstr "Mise à l’échelle"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
 msgid "Alpha"
-msgstr ""
+msgstr "Transparence"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:602
 msgid "Foreground image is only shown with Box drawing modes."
-msgstr ""
+msgstr "L'image de premier-plan est visible uniquement en mode boîte."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:614
-#, fuzzy
 msgid "No Images"
-msgstr "Aucune image"
+msgstr "Aucune images"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:615
 msgid "Add an image to use it in Cavalier."
-msgstr ""
+msgstr "Ajoutez une image pour l'utiliser dans Cavalier."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:633
 msgid "No Image"
@@ -556,29 +550,24 @@ msgid "Change Background Image"
 msgstr "Changer l’image d’arrière-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:123
-#, fuzzy
 msgid "Change Background Image Scale"
-msgstr "Changer l’image d’arrière-plan"
+msgstr "Modifier l'échelle de l'image d'arrière-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:128
-#, fuzzy
 msgid "Change Background Image Alpha"
-msgstr "Changer l’image d’arrière-plan"
+msgstr "Modifier la transparence de l'image d'arrière-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:133
-#, fuzzy
 msgid "Change Foreground Image"
-msgstr "Changer l’image d’arrière-plan"
+msgstr "Changer l’image de premier-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:138
-#, fuzzy
 msgid "Change Foreground Image Scale"
-msgstr "Changer l’échelle de l’image"
+msgstr "Changer l’échelle de l’image de premier-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:143
-#, fuzzy
 msgid "Change Foreground Image Alpha"
-msgstr "Changer l’image d’arrière-plan"
+msgstr "Changer la transparence de l’image d’arrière-plan"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:149
 msgctxt "Shortcut"
