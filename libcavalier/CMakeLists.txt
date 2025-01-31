@@ -12,8 +12,8 @@ add_library(libcavalier
     "src/models/colorprofile.cpp"
     "src/models/configuration.cpp"
     "src/models/drawingarea.cpp"
+    "src/models/renderer.cpp"
     "src/models/startupinformation.cpp")
-target_include_directories(libcavalier PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set_target_properties(libcavalier PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION "${PROJECT_VERSION}")
 if(MSVC)
     target_compile_options(libcavalier PRIVATE /W4)
@@ -22,7 +22,15 @@ else()
 endif()
 
 find_package(libnick CONFIG REQUIRED)
-target_link_libraries(libcavalier PUBLIC libnick::libnick)
+if(DEFINED ENV{VCPKG_ROOT})
+    target_include_directories(libcavalier PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+    find_package(unofficial-skia CONFIG REQUIRED)
+    target_link_libraries(libcavalier PUBLIC libnick::libnick unofficial::skia::skia)
+else()
+    find_library(SKIA_LIB skia)
+    target_include_directories(libcavalier PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" "/usr/include/skia")
+    target_link_libraries(libcavalier PUBLIC libnick::libnick "${SKIA_LIB}")
+endif()
 
 add_custom_target(shared_commands ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/__shared.h")
 add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/__shared.h" "${CMAKE_CURRENT_BINARY_DIR}/shared.h" COMMAND "${CMAKE_COMMAND}" -E touch "${CMAKE_CURRENT_BINARY_DIR}/shared.h")

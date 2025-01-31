@@ -76,6 +76,12 @@ namespace Nickvision::Cavalier::Shared::Models
          * @return True if this BackgroundImage != compare BackgroundImage
          */
         bool operator!=(const BackgroundImage& compare) const;
+        /**
+         * @brief Gets whether or not the image's path exists.
+         * @return True if path exists
+         * @return False if path does not exist
+         */
+        operator bool() const;
 
 
     private:

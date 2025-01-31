@@ -191,6 +191,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
             return;
         }
         m_logger.log(Logging::LogLevel::Info, "Fetching Windows app update...");
+        m_notificationSent.invoke({ _("The update is downloading in the background and will start once it finishes"), NotificationSeverity::Informational });
         std::thread worker{ [this]()
         {
             if (m_updater->windowsUpdate(VersionType::Stable))

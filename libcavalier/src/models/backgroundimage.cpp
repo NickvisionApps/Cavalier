@@ -74,4 +74,9 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         return !(operator==(compare));
     }
+
+    BackgroundImage::operator bool() const
+    {
+        return std::filesystem::exists(m_path);
+    }
 }
