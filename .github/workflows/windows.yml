@@ -35,7 +35,7 @@ jobs:
         uses: johnwason/vcpkg-action@v6
         id: vcpkg
         with:
-          pkgs: libnick qtbase qtsvg qttools
+          pkgs: libnick skia qtbase qtsvg qttools
           triplet: x64-windows
           revision: cf035d9916a0a23042b41fcae7ee0386d245af08
           token: ${{ secrets.GITHUB_TOKEN }}
