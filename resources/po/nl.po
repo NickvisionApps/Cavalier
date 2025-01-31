@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2024-02-18 12:02+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/nickvision-"
@@ -294,12 +294,22 @@ msgstr ""
 msgid "Manual Sensitivity"
 msgstr "Gevoeligheidsgraad"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Monstercat-verzachting"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Ruisonderdrukking"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Keuren­profiel wijzigen"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "Achtergrond­afbeelding wijzigen"
@@ -534,9 +544,6 @@ msgstr ""
 #~ msgstr ""
 #~ "De handmatige gevoeligheidsgraad. Als de automatische modus is "
 #~ "ingeschakeld, dan wordt dit als startwaarde gebruikt."
-
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Monstercat-verzachting"
 
 #~ msgid "Noise reduction"
 #~ msgstr "Ruisonderdrukking"
@@ -795,9 +802,6 @@ msgstr ""
 
 #~ msgid "Export"
 #~ msgstr "Exporteren"
-
-#~ msgid "Noise Reduction"
-#~ msgstr "Ruisonderdrukking"
 
 #~ msgid "0 - noisy, 1 - smooth"
 #~ msgstr "0 - ruis - 1 - vloeiend"

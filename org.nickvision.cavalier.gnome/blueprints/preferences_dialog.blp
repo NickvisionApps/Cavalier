@@ -238,6 +238,31 @@ Adw.PreferencesDialog root {
           icon-name: "speaker-2-symbolic";
         }
       }
+
+      Adw.SwitchRow monstercatRow {
+        title: _("Monstercat Smoothing");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "smoothen-symbolic";
+        }
+      }
+
+      Adw.SpinRow nosieReductionRow {
+        title: _("Noise Reduction Factor");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 15;
+          upper: 95;
+          step-increment: 1;
+          page-increment: 5;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speaker-1-symbolic";
+        }
+      }
     }
 
     Adw.PreferencesGroup {

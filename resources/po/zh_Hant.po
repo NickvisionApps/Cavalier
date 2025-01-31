@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2023-08-12 17:18+0000\n"
 "Last-Translator: Wolf yuan <h1030035@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -299,12 +299,22 @@ msgstr "當圖形超過限制後嘗試降低靈敏度。"
 msgid "Manual Sensitivity"
 msgstr "靈敏度"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Monstercat 平滑"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "減少噪音"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "變更顏色設定檔"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "變更背景圖片"
@@ -547,14 +557,8 @@ msgstr ""
 #~ "be the initial value."
 #~ msgstr "手動設置靈敏度。如果啟用自動靈敏度，這將會是一個初始值。"
 
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Monstercat 平滑"
-
 #~ msgid "Whether to enable the so-called «Monstercat smoothing»."
 #~ msgstr "是否要啟用 \"Monstercat\" 平滑。"
-
-#~ msgid "Noise reduction"
-#~ msgstr "減少噪音"
 
 #, fuzzy
 #~ msgid ""

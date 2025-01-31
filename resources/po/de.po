@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2024-10-13 14:16+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/nickvision-"
@@ -293,12 +293,22 @@ msgstr "Empfindlichkeit senken, wenn die Säulen den Höchststand erreichen."
 msgid "Manual Sensitivity"
 msgstr "Empfindlichkeit"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Ebenung"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Lärmreduktion"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Farbprofil ändern"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "Hintergrundbild ändern"
@@ -766,9 +776,6 @@ msgstr ""
 #~ msgid "Mono or stereo"
 #~ msgstr "Mono oder Stereo"
 
-#~ msgid "Smoothing"
-#~ msgstr "Ebenung"
-
 #~ msgid "Widgets style"
 #~ msgstr "Stil"
 
@@ -790,9 +797,6 @@ msgstr ""
 
 #~ msgid "Export"
 #~ msgstr "Exportieren"
-
-#~ msgid "Noise Reduction"
-#~ msgstr "Lärmreduktion"
 
 #~ msgid "0 - noisy, 1 - smooth"
 #~ msgstr "0 - laut, 1 - sanft"

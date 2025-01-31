@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2024-03-14 14:01+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
@@ -297,12 +297,22 @@ msgstr "Çubuklar zirve yaparsa hassasiyeti düşürmeye çalış."
 msgid "Manual Sensitivity"
 msgstr "Duyarlılık"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Monstercat yumuşatma"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Gürültü azaltma"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Renk Profilini Değiştir"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "Arka Plan Resmini Değiştir"
@@ -543,14 +553,8 @@ msgstr ""
 #~ "Elle duyarlılık. Kendiliğinden duyarlılık etkinleştirilirse, bu yalnızca "
 #~ "başlangıç değeri olacaktır."
 
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Monstercat yumuşatma"
-
 #~ msgid "Whether to enable the so-called «Monstercat smoothing»."
 #~ msgstr "Sözde «Monstercat yumuşatmanın» etkinleştirilme durumu."
-
-#~ msgid "Noise reduction"
-#~ msgstr "Gürültü azaltma"
 
 #~ msgid ""
 #~ "This factor adjusts the integral and gravity filters to keep the signal "

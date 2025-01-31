@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2023-10-29 05:18+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted."
 "weblate.org>\n"
@@ -298,12 +298,22 @@ msgstr ""
 msgid "Manual Sensitivity"
 msgstr "Sensibilidad"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Suavizado Monstercat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Reducción de Ruido"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Cambiar perfil de color"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "Cambiar imagen de fondo"
@@ -546,9 +556,6 @@ msgstr ""
 #~ "be the initial value."
 #~ msgstr ""
 #~ "Sensibilidad manual. De ser activado, esto será solo el valor inicial."
-
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Suavizado Monstercat"
 
 #~ msgid "Whether to enable the so-called «Monstercat smoothing»."
 #~ msgstr "Si se activa el llamado \"suavizado Monstercat\"."
@@ -823,9 +830,6 @@ msgstr ""
 
 #~ msgid "Export"
 #~ msgstr "Exportar"
-
-#~ msgid "Noise Reduction"
-#~ msgstr "Reducción de Ruido"
 
 #~ msgid "0 - noisy, 1 - smooth"
 #~ msgstr "0 - ruidoso, 1 - suave"

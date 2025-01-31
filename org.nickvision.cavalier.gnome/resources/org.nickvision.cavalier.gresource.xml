@@ -16,7 +16,9 @@
     <file preprocess="xml-stripblanks">move-tool-symbolic.svg</file>
     <file preprocess="xml-stripblanks">resize-mode-symbolic.svg</file>
     <file preprocess="xml-stripblanks">shapes-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">smoothen-symbolic.svg</file>
     <file preprocess="xml-stripblanks">speaker-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">speaker-1-symbolic.svg</file>
     <file preprocess="xml-stripblanks">speaker-2-symbolic.svg</file>
     <file preprocess="xml-stripblanks">speaker-4-symbolic.svg</file>
     <file preprocess="xml-stripblanks">speedometer5-symbolic.svg</file>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2023-09-22 03:17+0000\n"
 "Last-Translator: Fyodor Sobolev <fyodor-sobolev@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nickvision-"
@@ -298,12 +298,22 @@ msgstr ""
 msgid "Manual Sensitivity"
 msgstr "Чувствительность"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Сглаживание Monstercat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Шумоподавление"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Изменить профиль цветов"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "Изменить фоновое изображение"
@@ -545,9 +555,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Ручная настройка чувствительности. Если автоматическая чувствительность "
 #~ "включена, этот параметр задаёт только начальное значение."
-
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Сглаживание Monstercat"
 
 #~ msgid "Whether to enable the so-called «Monstercat smoothing»."
 #~ msgstr "Следуюет ли включить так называемое «сглаживание Monstercat»."
@@ -814,9 +821,6 @@ msgstr ""
 
 #~ msgid "Export"
 #~ msgstr "Экспорт"
-
-#~ msgid "Noise Reduction"
-#~ msgstr "Шумоподавление"
 
 #~ msgid "0 - noisy, 1 - smooth"
 #~ msgstr "0 - шумно, 1 - гладко"

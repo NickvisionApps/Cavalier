@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2024-08-19 04:09+0000\n"
 "Last-Translator: EnderIce2 <xalexgabriel@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/nickvision-"
@@ -298,12 +298,22 @@ msgstr "Încercare de a reduce sensibilitatea dacă barele ating vârful."
 msgid "Manual Sensitivity"
 msgstr "Sensibilitate"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Netezire Monstercat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Reducerea zgomotului"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Schimbă Profilul de Culoare"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "Schimbă Imaginea de Fundal"
@@ -546,14 +556,8 @@ msgstr ""
 #~ "Sensibilitate manuală. Dacă sensibilitatea automată este activată, "
 #~ "aceasta va fi doar valoarea inițială."
 
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Netezire Monstercat"
-
 #~ msgid "Whether to enable the so-called «Monstercat smoothing»."
 #~ msgstr "Dacă să fie activată așa-numita „netezire Monstercat”."
-
-#~ msgid "Noise reduction"
-#~ msgstr "Reducerea zgomotului"
 
 #~ msgid ""
 #~ "This factor adjusts the integral and gravity filters to keep the signal "

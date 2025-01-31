@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2024-07-07 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/nickvision-"
@@ -297,12 +297,22 @@ msgstr "यदि बार्स चरम पर हों तो संवे
 msgid "Manual Sensitivity"
 msgstr "संवेदनशीलता"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Monstercat स्मूथिंग"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "शोर में कमी"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "प्रोफाइल का रंग बदलें"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "पृष्ठभूमि छवि बदलें"
@@ -542,14 +552,8 @@ msgstr ""
 #~ msgstr ""
 #~ "मैनुअल संवेदनशीलता. यदि स्वचालित संवेदनशीलता सक्षम है, तो यह केवल प्रारंभिक मान होगा।"
 
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Monstercat स्मूथिंग"
-
 #~ msgid "Whether to enable the so-called «Monstercat smoothing»."
 #~ msgstr "क्या तथाकथित «Monstercat स्मूथिंग» को सक्षम करना है।"
-
-#~ msgid "Noise reduction"
-#~ msgstr "शोर में कमी"
 
 #~ msgid ""
 #~ "This factor adjusts the integral and gravity filters to keep the signal "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2024-08-14 17:09+0000\n"
 "Last-Translator: Semiurg <semiurg1@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/nickvision-"
@@ -298,12 +298,22 @@ msgstr "Спробувати зменшити чутливість якщо ба
 msgid "Manual Sensitivity"
 msgstr "Чутливість"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Згладжування Monstercat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Зменшення шуму"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Змінити профіль кольорів"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "Змінити фонове зображення"
@@ -544,14 +554,8 @@ msgstr ""
 #~ "Ручна чутливість. Якщо ввімкнено автоматичну чутливість, це буде тільки "
 #~ "початкове значення."
 
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Згладжування Monstercat"
-
 #~ msgid "Whether to enable the so-called «Monstercat smoothing»."
 #~ msgstr "Чи увімкнути так зване \"згладжування Monstercat\"."
-
-#~ msgid "Noise reduction"
-#~ msgstr "Зменшення шуму"
 
 #~ msgid ""
 #~ "This factor adjusts the integral and gravity filters to keep the signal "

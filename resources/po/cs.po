@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 15:08-0500\n"
+"POT-Creation-Date: 2025-01-19 20:14-0500\n"
 "PO-Revision-Date: 2024-09-04 15:09+0000\n"
 "Last-Translator: Fjuro <fjuro@alius.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
@@ -299,12 +299,22 @@ msgstr "Pokus snížit citlivost když tyče jsou na vrcholu."
 msgid "Manual Sensitivity"
 msgstr "Citlivost"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:244
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Monstercat vyhlazování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Redukce šumu"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
 #, fuzzy
 msgid "Color Profiles"
 msgstr "Změnit barevný profil"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:248
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
 #, fuzzy
 msgid "Background Images"
 msgstr "Změnit obrázek na pozadí"
@@ -545,14 +555,8 @@ msgstr ""
 #~ "Ruční citlivost. Pokud je povolena automatická citlivost, toto bude pouze "
 #~ "prvotní hodnota."
 
-#~ msgid "Monstercat smoothing"
-#~ msgstr "Monstercat vyhlazování"
-
 #~ msgid "Whether to enable the so-called «Monstercat smoothing»."
 #~ msgstr "Zda zapnout takzvané «Monstercat smoothing»."
-
-#~ msgid "Noise reduction"
-#~ msgstr "Redukce šumu"
 
 #~ msgid ""
 #~ "This factor adjusts the integral and gravity filters to keep the signal "
