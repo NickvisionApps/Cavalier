@@ -20,7 +20,6 @@ namespace Nickvision::Cavalier::GNOME
         GResource* resource{ g_resource_load(resources.string().c_str(), &resourceLoadError) };
         if(resourceLoadError)
         {
-            m_controller->log(Logging::LogLevel::Critical, "Unable to load GResource. " + std::string(resourceLoadError->message));
             throw std::runtime_error(resourceLoadError->message);
         }
         g_resources_register(resource);
@@ -35,7 +34,6 @@ namespace Nickvision::Cavalier::GNOME
 
     void Application::onStartup(GtkApplication* app)
     {
-        m_controller->log(Logging::LogLevel::Info, "Started GTK application.");
         switch (m_controller->getTheme())
         {
         case Theme::Light:

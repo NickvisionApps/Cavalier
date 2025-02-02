@@ -3,7 +3,7 @@
 
 #define MyAppName "Nickvision Cavalier"
 #define MyAppShortName "Cavalier"
-#define MyAppVersion "2025.1.0"
+#define MyAppVersion "2025.2.0"
 #define MyAppPublisher "Nickvision"
 #define MyAppURL "https://nickvision.org"
 #define MyAppExeName "org.nickvision.cavalier.qt.exe"

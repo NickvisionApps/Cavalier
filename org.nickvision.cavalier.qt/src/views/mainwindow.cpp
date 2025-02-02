@@ -186,7 +186,6 @@ namespace Nickvision::Cavalier::Qt::Views
 
     void MainWindow::onShellNotificationSent(const ShellNotificationSentEventArgs& args)
     {
-        m_controller->log(Logging::LogLevel::Info, "ShellNotification sent. (" + args.getMessage() + ")");
 #ifdef _WIN32
         ShellNotification::send(args, reinterpret_cast<HWND>(winId()));
 #elif defined(__linux__)

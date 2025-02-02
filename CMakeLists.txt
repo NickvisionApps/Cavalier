@@ -14,7 +14,7 @@ if (POLICY CMP0141)
     set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project("org.nickvision.cavalier" LANGUAGES C CXX VERSION 2025.1.0 DESCRIPTION "Visualize audio with CAVA.")
+project("org.nickvision.cavalier" LANGUAGES C CXX VERSION 2025.2.0 DESCRIPTION "Visualize audio with CAVA.")
 set(SHORT_NAME "cavalier")
 set(DISPLAY_NAME "Cavalier")
 include(GNUInstallDirs)

@@ -56,7 +56,7 @@
   </requires>
   <!-- The release description fields support markup list syntax (`<ul><li>[…]</li></ul>`) -->
   <releases>
-    <release version="2025.1.0-next" date="2025-01-01">
+    <release version="2025.2.0-next" date="2025-02-01">
       <description translate="no">
         <p>- Initial Release</p>
       </description>

@@ -28,10 +28,9 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_args{ args },
         m_appInfo{ "org.nickvision.cavalier", "Nickvision Cavalier", "Cavalier" },
         m_dataFileManager{ m_appInfo.getName() },
-        m_logger{ UserDirectories::get(ApplicationUserDirectory::LocalData, m_appInfo.getName()) / "log.txt", Logging::LogLevel::Info, false },
         m_cava{ m_dataFileManager.get<Configuration>("config").getCavaOptions(), m_appInfo.getName() }
     {
-        m_appInfo.setVersion({ "2025.1.0-next" });
+        m_appInfo.setVersion({ "2025.2.0-next" });
         m_appInfo.setShortName(_("Cavalier"));
         m_appInfo.setDescription(_("Visualize audio with CAVA"));
         m_appInfo.setChangelog("- Initial Release");
@@ -119,27 +118,13 @@ namespace Nickvision::Cavalier::Shared::Controllers
         info.setWindowGeometry(m_dataFileManager.get<Configuration>("config").getWindowGeometry());
         //Load taskbar item
 #ifdef _WIN32
-        if(m_taskbar.connect(hwnd))
-        {
-            m_logger.log(Logging::LogLevel::Info, "Connected to Windows taskbar.");
-        }
-        else
-        {
-            m_logger.log(Logging::LogLevel::Error, "Unable to connect to Windows taskbar.");
-        }
+        m_taskbar.connect(hwnd);
         if (m_dataFileManager.get<Configuration>("config").getAutomaticallyCheckForUpdates())
         {
             checkForUpdates();
         }
 #elif defined(__linux__)
-        if(m_taskbar.connect(desktopFile))
-        {
-            m_logger.log(Logging::LogLevel::Info, "Connected to Linux taskbar.");
-        }
-        else
-        {
-            m_logger.log(Logging::LogLevel::Error, "Unable to connect to Linux taskbar.");
-        }
+        m_taskbar.connect(desktopFile);
 #endif
         m_cava.start();
         m_started = true;
@@ -159,25 +144,15 @@ namespace Nickvision::Cavalier::Shared::Controllers
         {
             return;
         }
-        m_logger.log(Logging::LogLevel::Info, "Checking for updates...");
         std::thread worker{ [this]()
         {
             Version latest{ m_updater->fetchCurrentVersion(VersionType::Stable) };
-            if (!latest.empty())
+            if(!latest.empty())
             {
-                if (latest > m_appInfo.getVersion())
+                if(latest > m_appInfo.getVersion())
                 {
-                    m_logger.log(Logging::LogLevel::Info, "Update found: " + latest.str());
                     m_notificationSent.invoke({ _("New update available"), NotificationSeverity::Success, "update" });
                 }
-                else
-                {
-                    m_logger.log(Logging::LogLevel::Info, "No updates found.");
-                }
-            }
-            else
-            {
-                m_logger.log(Logging::LogLevel::Warning, "Unable to fetch latest app version.");
             }
         } };
         worker.detach();
@@ -190,17 +165,11 @@ namespace Nickvision::Cavalier::Shared::Controllers
         {
             return;
         }
-        m_logger.log(Logging::LogLevel::Info, "Fetching Windows app update...");
         m_notificationSent.invoke({ _("The update is downloading in the background and will start once it finishes"), NotificationSeverity::Informational });
         std::thread worker{ [this]()
         {
-            if (m_updater->windowsUpdate(VersionType::Stable))
+            if(!m_updater->windowsUpdate(VersionType::Stable))
             {
-                m_logger.log(Logging::LogLevel::Info, "Windows app update started.");
-            }
-            else
-            {
-                m_logger.log(Logging::LogLevel::Error, "Unable to fetch Windows app update.");
                 m_notificationSent.invoke({ _("Unable to download and install update"), NotificationSeverity::Error });
             }
         } };
@@ -208,14 +177,8 @@ namespace Nickvision::Cavalier::Shared::Controllers
     }
 #endif
 
-    void MainWindowController::log(Logging::LogLevel level, const std::string& message, const std::source_location& source)
-    {
-        m_logger.log(level, message, source);
-    }
-
     void MainWindowController::onConfigurationSaved()
     {
-        m_logger.log(Logging::LogLevel::Info, "Configuration saved.");
         m_cava.setOptions(m_dataFileManager.get<Configuration>("config").getCavaOptions());
     }
 }
