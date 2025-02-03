@@ -1,11 +1,13 @@
 #include "models/renderer.h"
 #include <algorithm>
+#include <filesystem>
 #include <skia/include/codec/SkCodec.h>
 #include <skia/include/core/SkBitmap.h>
 #include <skia/include/core/SkColor.h>
 #include <skia/include/core/SkData.h>
 #include <skia/include/core/SkPaint.h>
 #include <skia/include/core/SkPoint.h>
+#include <skia/include/core/SkSurface.h>
 #include <skia/include/core/SkTileMode.h>
 #include <skia/include/effects/SkGradientShader.h>
 
@@ -72,6 +74,20 @@ namespace Nickvision::Cavalier::Shared::Models
         return enabled ? screenDimension - max : max;
     }
 
+    static SkBitmap* newBitmapFromImagePath(const std::filesystem::path& path)
+    {
+        if(!std::filesystem::exists(path))
+        {
+            return nullptr;
+        }
+        SkBitmap* bitmap{ new SkBitmap() };
+        sk_sp<SkData> data{ SkData::MakeFromFileName(path.string().c_str()) };
+        std::unique_ptr<SkCodec> codec{ SkCodec::MakeFromData(data) };
+        SkImageInfo info{ codec->getInfo().makeColorType(kN32_SkColorType).makeAlphaType(kPremul_SkAlphaType) };
+        bitmap->tryAllocPixels(info);
+        codec->getPixels(info, bitmap->getPixels(), bitmap->rowBytes());
+        return bitmap;
+    }
 
     Renderer::Renderer(SkCanvas* canvas)
         : m_canvas{ canvas }
@@ -125,8 +141,9 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             return;
         }
+        SkBitmap* backgroundBitmap{ nullptr };
         m_canvas->clear(SkColors::kTransparent);
-        //Draw Background
+        //Draw Background Colors
         SkPaint bgPaint;
         bgPaint.setStyle(SkPaint::kFill_Style);
         bgPaint.setAntiAlias(true);
@@ -140,6 +157,32 @@ namespace Nickvision::Cavalier::Shared::Models
             bgPaint.setColor(SkColorSetARGB(color.getA(), color.getR(), color.getG(), color.getB()));
         }
         m_canvas->drawRect({ 0, 0, width, height }, bgPaint);
+        //Draw Background Image
+        if(m_backgroundImage)
+        {
+            backgroundBitmap = newBitmapFromImagePath(m_backgroundImage->getPath());
+            if(backgroundBitmap)
+            {
+                //Scale Image
+                float scale{ std::max(width / backgroundBitmap->width(), height / backgroundBitmap->height()) * (m_backgroundImage->getScale() / 100) };
+                float newWidth{ backgroundBitmap->width() * scale };
+                float newHeight{ backgroundBitmap->height() * scale };
+                SkBitmap* newBitmap{ new SkBitmap() };
+                SkImageInfo newInfo{ SkImageInfo::Make(newWidth, newHeight, kN32_SkColorType, kPremul_SkAlphaType) };
+                SkCanvas canvas{ *newBitmap };
+                newBitmap->setInfo(newInfo);
+                newBitmap->allocPixels();
+                canvas.drawImageRect(backgroundBitmap->asImage(), SkRect::MakeWH(newWidth, newHeight), SkSamplingOptions(SkFilterMode::kLinear));
+                delete backgroundBitmap;
+                backgroundBitmap = newBitmap;
+                //Draw Image
+                SkPaint paint;
+                paint.setColor(SkColorSetARGB(255 * (m_backgroundImage->getAlpha() / 100), SkColorGetR(paint.getColor()), SkColorGetG(paint.getColor()), SkColorGetB(paint.getColor())));
+                m_canvas->drawImage(backgroundBitmap->asImage(), width / 2 - backgroundBitmap->width() / 2, height / 2 - backgroundBitmap->height() / 2, SkSamplingOptions(SkFilterMode::kLinear), &paint);
+                delete backgroundBitmap;
+            }
+        }
+        //Draw Foreground Colors
     }
 
     sk_sp<SkShader> Renderer::createBackgroundGradient(const std::vector<Color>& colors, float width, float height, float margin)

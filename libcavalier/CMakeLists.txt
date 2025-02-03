@@ -12,6 +12,8 @@ add_library(libcavalier
     "src/models/colorprofile.cpp"
     "src/models/configuration.cpp"
     "src/models/drawingarea.cpp"
+    "src/models/drawingfunctionarguments.cpp"
+    "src/models/point.cpp"
     "src/models/renderer.cpp"
     "src/models/startupinformation.cpp")
 set_target_properties(libcavalier PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION "${PROJECT_VERSION}")

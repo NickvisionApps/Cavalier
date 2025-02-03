@@ -10,14 +10,31 @@
 #include "color.h"
 #include "colorprofile.h"
 #include "drawingarea.h"
+#include "drawingfunctionarguments.h"
+#include "point.h"
 
 namespace Nickvision::Cavalier::Shared::Models
 {
+    /**
+     * @brief A renderer of music data.
+     */
     class Renderer
     {
     public:
+        /**
+         * @brief Constructs a Renderer.
+         * @param canvas The SkCanvas
+         */
         Renderer(SkCanvas* canvas = nullptr);
+        /**
+         * @brief Gets the SkCanvas.
+         * @return The SkCanvas
+         */
         SkCanvas* getCanvas() const;
+        /**
+         * @brief Sets the SkCanvas.
+         * @param canvas The new SkCanvas
+         */
         void setCanvas(SkCanvas* canvas);
         const DrawingArea& getDrawingArea() const;
         void setDrawingArea(const DrawingArea& area);
