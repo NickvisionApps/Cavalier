@@ -5,7 +5,7 @@
 #include <QCloseEvent>
 #include <QMainWindow>
 #include "controllers/mainwindowcontroller.h"
-#include "controls/navigationbar.h"
+#include "controls/infobar.h"
 
 namespace Ui { class MainWindow; }
 
@@ -43,9 +43,9 @@ namespace Nickvision::Cavalier::Qt::Views
 
     private Q_SLOTS:
         /**
-         * @brief Handles when a navigation item is selected.
+         * @brief Opens the application's settings dialog.
          */
-        void onNavigationItemSelected(const QString& id);
+        void settings();
         /**
          * @brief Checks for application updates.
          */
@@ -85,7 +85,7 @@ namespace Nickvision::Cavalier::Qt::Views
          */
         void onShellNotificationSent(const Notifications::ShellNotificationSentEventArgs& args);
         Ui::MainWindow* m_ui;
-        Controls::NavigationBar* m_navigationBar;
+        Controls::InfoBar* m_infoBar;
         std::shared_ptr<Shared::Controllers::MainWindowController> m_controller;
     };
 }

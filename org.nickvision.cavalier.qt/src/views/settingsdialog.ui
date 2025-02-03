@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SettingsPage</class>
- <widget class="QWidget" name="SettingsPage">
+ <class>SettingsDialog</class>
+ <widget class="QDialog" name="SettingsDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>741</width>
-    <height>460</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QTabWidget" name="tabs">
-     <property name="documentMode">
-      <bool>true</bool>
+    <widget class="QListWidget" name="listNavigation">
+     <property name="maximumSize">
+      <size>
+       <width>160</width>
+       <height>16777215</height>
+      </size>
      </property>
-     <widget class="QWidget" name="tabUserInterface">
-      <attribute name="title">
-       <string/>
-      </attribute>
+     <property name="editTriggers">
+      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="viewStack">
+     <widget class="QWidget" name="pageUserInterface">
       <layout class="QFormLayout" name="formLayout">
        <property name="horizontalSpacing">
-        <number>8</number>
+        <number>12</number>
        </property>
        <property name="verticalSpacing">
-        <number>8</number>
+        <number>12</number>
        </property>
        <item row="0" column="0">
         <widget class="QLabel" name="lblTheme"/>

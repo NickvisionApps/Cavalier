@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="../../org.nickvision.cavalier.qt.qrc">
     <normaloff>:/resources/org.nickvision.cavalier.ico</normaloff>:/resources/org.nickvision.cavalier.ico</iconset>
   </property>
   <widget class="QWidget" name="mainGrid">
@@ -69,7 +69,7 @@
           <item>
            <widget class="QLabel" name="lblHomeAppIcon">
             <property name="pixmap">
-             <pixmap>:/resources/org.nickvision.cavalier.svg</pixmap>
+             <pixmap resource="../../org.nickvision.cavalier.qt.qrc">:/resources/org.nickvision.cavalier.svg</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -129,7 +129,78 @@
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1069</width>
+     <height>23</height>
+    </rect>
+   </property>
+  <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string/>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string/>
+    </property>
+    <addaction name="actionSettings"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string/>
+    </property>
+    <addaction name="actionCheckForUpdates"/>
+    <addaction name="separator"/>
+    <addaction name="actionGitHubRepo"/>
+    <addaction name="actionReportABug"/>
+    <addaction name="actionDiscussions"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::SystemLogOut"/>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset theme="preferences-system"/>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+,</string>
+   </property>
+  </action>
+  <action name="actionCheckForUpdates">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::SoftwareUpdateAvailable"/>
+   </property>
+  </action>
+  <action name="actionGitHubRepo"/>
+  <action name="actionReportABug"/>
+  <action name="actionDiscussions"/>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../org.nickvision.cavalier.qt.qrc"/>
+ </resources>
  <connections/>
 </ui>

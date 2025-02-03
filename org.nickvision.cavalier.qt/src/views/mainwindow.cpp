@@ -10,7 +10,7 @@
 #include <libnick/notifications/shellnotification.h>
 #include "controls/aboutdialog.h"
 #include "helpers/qthelpers.h"
-#include "views/settingspage.h"
+#include "views/settingsdialog.h"
 
 using namespace Nickvision::App;
 using namespace Nickvision::Cavalier::Qt::Controls;
@@ -24,48 +24,44 @@ using namespace Nickvision::Update;
 
 namespace Nickvision::Cavalier::Qt::Views
 {
-    enum Page
-    {
-        Home = 0,
-        Settings
-    };
-
     MainWindow::MainWindow(const std::shared_ptr<MainWindowController>& controller, QWidget* parent) 
         : QMainWindow{ parent },
         m_ui{ new Ui::MainWindow() },
-        m_navigationBar{ new NavigationBar(this) },
+        m_infoBar{ new InfoBar(this) },
         m_controller{ controller }
     {
         m_ui->setupUi(this);
-        m_ui->mainLayout->insertLayout(0, m_navigationBar);
         setWindowTitle(m_controller->getAppInfo().getVersion().getVersionType() == VersionType::Stable ? _("Cavalier") : _("Cavalier (Preview)"));
-        //Navigation Bar
-        QMenu* helpMenu{ new QMenu(this) };
-        helpMenu->addAction(_("Check for Updates"), this, &MainWindow::checkForUpdates);
-        helpMenu->addSeparator();
-        helpMenu->addAction(_("GitHub Repo"), this, &MainWindow::gitHubRepo);
-        helpMenu->addAction(_("Report a Bug"), this, &MainWindow::reportABug);
-        helpMenu->addAction(_("Discussions"), this, &MainWindow::discussions);
-        helpMenu->addSeparator();
-        helpMenu->addAction(_("About"), this, &MainWindow::about);
-        m_navigationBar->addTopItem("home", _("Home"), QIcon::fromTheme(QIcon::ThemeIcon::GoHome));
-        m_navigationBar->addBottomItem("help", _("Help"), QIcon::fromTheme(QIcon::ThemeIcon::HelpAbout), helpMenu);
-#ifdef _WIN32
-        m_navigationBar->addBottomItem("settings", _("Settings"), QIcon::fromTheme("document-properties"));
-#else
-        m_navigationBar->addBottomItem("settings", _("Settings"), QIcon::fromTheme(QIcon::ThemeIcon::DocumentProperties));
-#endif
+        addDockWidget(::Qt::BottomDockWidgetArea, m_infoBar);
+        //MenuBar
+        m_ui->menuFile->setTitle(_("File"));
+        m_ui->actionExit->setText(_("Exit"));
+        m_ui->menuEdit->setTitle(_("Edit"));
+        m_ui->actionSettings->setText(_("Settings"));
+        m_ui->menuHelp->setTitle(_("Help"));
+        m_ui->actionCheckForUpdates->setText(_("Check for Updates"));
+        m_ui->actionGitHubRepo->setText(_("GitHub Repo"));
+        m_ui->actionReportABug->setText(_("Report a Bug"));
+        m_ui->actionDiscussions->setText(_("Discussions"));
+        m_ui->actionAbout->setText(_("About Application"));
         //Home Page
         m_ui->lblHomeGreeting->setText(_("Visualize Your Audio"));
         m_ui->lblHomeDescription->setText(_("Play some music or watch a video and see your sound come to life"));
         //Signals
-        connect(m_navigationBar, &NavigationBar::itemSelected, this, &MainWindow::onNavigationItemSelected);
+        connect(m_ui->actionExit, &QAction::triggered, this, &MainWindow::close);
+        connect(m_ui->actionSettings, &QAction::triggered, this, &MainWindow::settings);
+        connect(m_ui->actionCheckForUpdates, &QAction::triggered, this, &MainWindow::checkForUpdates);
+        connect(m_ui->actionGitHubRepo, &QAction::triggered, this, &MainWindow::gitHubRepo);
+        connect(m_ui->actionReportABug, &QAction::triggered, this, &MainWindow::reportABug);
+        connect(m_ui->actionDiscussions, &QAction::triggered, this, &MainWindow::discussions);
+        connect(m_ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
         m_controller->notificationSent() += [&](const NotificationSentEventArgs& args) { QtHelpers::dispatchToMainThread([this, args]() { onNotificationSent(args); }); };
         m_controller->shellNotificationSent() += [&](const ShellNotificationSentEventArgs& args) { onShellNotificationSent(args); };
     }
 
     MainWindow::~MainWindow()
     {
+        delete m_infoBar;
         delete m_ui;
     }
 
@@ -79,15 +75,11 @@ namespace Nickvision::Cavalier::Qt::Views
 #else
         const StartupInformation& info{ m_controller->startup() };
 #endif
+        setGeometry(QWidget::geometry().x(), QWidget::geometry().y(), info.getWindowGeometry().getWidth(), info.getWindowGeometry().getHeight());
         if(info.getWindowGeometry().isMaximized())
         {
             showMaximized();
         }
-        else
-        {
-            setGeometry(QWidget::geometry().x(), QWidget::geometry().y(), info.getWindowGeometry().getWidth(), info.getWindowGeometry().getHeight());
-        }
-        m_navigationBar->selectItem("home");
     }
 
     void MainWindow::closeEvent(QCloseEvent* event)
@@ -100,26 +92,10 @@ namespace Nickvision::Cavalier::Qt::Views
         event->accept();
     }
 
-    void MainWindow::onNavigationItemSelected(const QString& id)
+    void MainWindow::settings()
     {
-        //Save and ensure new SettingsPage
-        if(m_ui->viewStack->widget(Page::Settings))
-        {
-            SettingsPage* oldSettings{ qobject_cast<SettingsPage*>(m_ui->viewStack->widget(Page::Settings)) };
-            oldSettings->close();
-            m_ui->viewStack->removeWidget(oldSettings);
-            delete oldSettings;
-        }
-        m_ui->viewStack->insertWidget(Page::Settings, new SettingsPage(m_controller->createPreferencesViewController(), this));
-        //Navigate to new page
-        if(id == "home")
-        {
-            m_ui->viewStack->setCurrentIndex(Page::Home);
-        }
-        else if(id == "settings")
-        {
-            m_ui->viewStack->setCurrentIndex(Page::Settings);
-        }
+        SettingsDialog dialog{ m_controller->createPreferencesViewController(), this };
+        dialog.exec();
     }
 
     void MainWindow::checkForUpdates()
@@ -159,29 +135,16 @@ namespace Nickvision::Cavalier::Qt::Views
 
     void MainWindow::onNotificationSent(const NotificationSentEventArgs& args)
     {
-        QMessageBox::Icon icon{ QMessageBox::Icon::NoIcon };
-        switch(args.getSeverity())
-        {
-        case NotificationSeverity::Informational:
-        case NotificationSeverity::Success:
-            icon = QMessageBox::Icon::Information;
-            break;
-        case NotificationSeverity::Warning:
-            icon = QMessageBox::Icon::Warning;
-            break;
-        case NotificationSeverity::Error:
-            icon = QMessageBox::Icon::Critical;
-            break;
-        }
-        QMessageBox msgBox{ icon, QString::fromStdString(m_controller->getAppInfo().getShortName()), QString::fromStdString(args.getMessage()), QMessageBox::StandardButton::Ok, this };
+        QString actionText;
+        std::function<void()> actionCallback;
 #ifdef _WIN32
         if(args.getAction() == "update")
         {
-            QPushButton* updateButton{ msgBox.addButton(_("Update"), QMessageBox::ButtonRole::ActionRole) };
-            connect(updateButton, &QPushButton::clicked, this, &MainWindow::windowsUpdate);
+            actionText = _("Update");
+            actionCallback = [this]() { windowsUpdate(); };
         }
 #endif
-        msgBox.exec();
+        m_infoBar->show(args, actionText, actionCallback);
     }
 
     void MainWindow::onShellNotificationSent(const ShellNotificationSentEventArgs& args)

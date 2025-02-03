@@ -11,23 +11,24 @@ qt_standard_project_setup()
 
 qt_add_executable(${OUTPUT_NAME}
     "include/controls/aboutdialog.h"
-    "include/controls/navigationbar.h"
+    "include/controls/infobar.h"
     "include/helpers/qthelpers.h"
     "include/views/mainwindow.h"
-    "include/views/settingspage.h"
+    "include/views/settingsdialog.h"
     "include/application.h"
     "src/controls/aboutdialog.ui"
     "src/controls/aboutdialog.cpp"
-    "src/controls/navigationbar.cpp"
+    "src/controls/infobar.ui"
+    "src/controls/infobar.cpp"
     "src/helpers/qthelpers.cpp"
     "src/views/mainwindow.ui"
     "src/views/mainwindow.cpp"
-    "src/views/settingspage.ui"
-    "src/views/settingspage.cpp"
+    "src/views/settingsdialog.ui"
+    "src/views/settingsdialog.cpp"
     "src/application.cpp"
     "src/main.cpp"
     "${OUTPUT_NAME}.qrc"
-    "${OUTPUT_NAME}.rc")
+    "../resources/windows/${PROJECT_NAME}.rc")
 target_include_directories(${OUTPUT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(${OUTPUT_NAME} PRIVATE libcavalier Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Svg)
 if(WIN32)

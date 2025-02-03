@@ -18,13 +18,19 @@ namespace Nickvision::Cavalier::Qt::Helpers
         QMetaObject::invokeMethod(timer, "start", ::Qt::ConnectionType::AutoConnection, Q_ARG(int, 0));
     }
 
-    void QtHelpers::setComboBoxItems(QComboBox* comboBox, const std::vector<std::string>& items)
+    void QtHelpers::setComboBoxItems(QComboBox* comboBox, const std::vector<std::string>& items, const std::string& selected)
     {
+        size_t selectedIndex{ 0 };
         comboBox->clear();
-        for(const std::string& item : items)
+        for(size_t i = 0; i < items.size(); i++)
         {
+            const std::string& item{ items[i] };
             comboBox->addItem(QString::fromStdString(item));
+            if(item == selected)
+            {
+                selectedIndex = i;
+            }
         }
-        comboBox->setCurrentIndex(0);
+        comboBox->setCurrentIndex(selectedIndex);
     }
 }

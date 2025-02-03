@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-02 18:01-0500\n"
+"POT-Creation-Date: 2025-02-03 14:47-0500\n"
 "PO-Revision-Date: 2023-10-29 05:18+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted."
 "weblate.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Weblate 5.2-dev\n"
 
 #: libcavalier/src/controllers/mainwindowcontroller.cpp:34
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:41
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:34
 msgid "Cavalier"
 msgstr "Cavalier"
 
@@ -80,7 +80,7 @@ msgid "Keyboard Shortcuts"
 msgstr "Atajos del teclado"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
-#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:31
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:32
 msgid "About Cavalier"
 msgstr "Acerca de Cavalier"
 
@@ -90,27 +90,28 @@ msgstr "Menú principal"
 
 #. Home Page
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:59
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
 #, fuzzy
 msgid "Visualize Your Audio"
 msgstr "Visualice el audio con CAVA"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:60
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
 #, fuzzy
 msgid "Play some music or watch a video and see your sound come to life"
 msgstr ""
 "Cavalier escucha el sonido de su sistema. ¡Reproduzca música o mire un vídeo "
 "y verá cómo el sonido cobra vida!"
 
-#. Localize Strings
+#. Add Navigation Items
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
-#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:19
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
 msgid "User Interface"
 msgstr ""
 
+#. Localize Strings
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
-#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:20
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
 msgid "Theme"
 msgstr ""
 
@@ -341,6 +342,7 @@ msgid "Application"
 msgstr "Aplicación"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:39
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
 #, fuzzy
 msgid "About Application"
 msgstr "Aplicación"
@@ -350,87 +352,113 @@ msgid "Quit"
 msgstr "Salir"
 
 #: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:106
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:192
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:155
 msgid "Open"
 msgstr ""
 
 #: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:153
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
 msgid "GitHub Repo"
 msgstr "Repo de GitHub"
 
+#. Load
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
+msgid "About"
+msgstr "Acerca de"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:35
+#, fuzzy
+msgid "Changelog"
+msgstr "Canales"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:36
+msgid "Credits"
+msgstr ""
+
 #: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Debugging"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:44
+#, fuzzy
+msgid "Developers"
+msgstr "Niveles"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:46
+msgid "Designers"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:48
+msgid "Artists"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:50
 msgid "Copy Debug Information"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:38
+#: org.nickvision.cavalier.qt/src/controls/infobar.cpp:14
 #, fuzzy
-msgid "Changelog:"
-msgstr "Canales"
+msgid "Notification"
+msgstr "Giro"
 
-#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:39
-#, c++-format
-msgid ""
-"Developers:\n"
-"{}\n"
-"Designers:\n"
-"{}\n"
-"Artists:\n"
-"{}"
-msgstr ""
-
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:41
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:34
 #, fuzzy
 msgid "Cavalier (Preview)"
 msgstr "Tema de la aplicación"
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
-msgid "Check for Updates"
+#. MenuBar
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:37
+#, fuzzy
+msgid "File"
+msgstr "Todos los Archivos"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:38
+msgid "Exit"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
-msgid "Report a Bug"
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:39
+msgid "Edit"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
-msgid "Discussions"
-msgstr ""
-
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
-msgid "About"
-msgstr "Acerca de"
-
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
-msgid "Home"
-msgstr ""
-
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
-msgid "Help"
-msgstr ""
-
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:56
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
 #, fuzzy
 msgid "Settings"
 msgstr "Importar Ajustes"
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:180
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:41
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:143
 msgid "Update"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:21
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:21
 msgid "Light"
 msgstr "Claro"
 
-#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:22
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:22
 msgid "Dark"
 msgstr "Oscuro"
 
-#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:23
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:23
 msgid "System"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/settingspage.cpp:24
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
 msgid "Automatically Check for Updates"
 msgstr ""
 
@@ -483,9 +511,6 @@ msgstr ""
 
 #~ msgid "Radius"
 #~ msgstr "Radio"
-
-#~ msgid "Rotation"
-#~ msgstr "Giro"
 
 #~ msgid "Mirror"
 #~ msgstr "Espejo"
@@ -868,9 +893,6 @@ msgstr ""
 
 #~ msgid "Cavalier Settings File (*.cavalier)"
 #~ msgstr "Archivo de Ajustes de Cavalier (*.cavalier)"
-
-#~ msgid "All Files"
-#~ msgstr "Todos los Archivos"
 
 #~ msgid "Export Settings"
 #~ msgstr "Exportar Ajustes"
