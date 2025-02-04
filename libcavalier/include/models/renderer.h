@@ -3,11 +3,11 @@
 
 #include <optional>
 #include <vector>
-#include <skia/include/core/SkCanvas.h>
 #include <skia/include/core/SkPath.h>
 #include <skia/include/core/SkRefCnt.h>
 #include <skia/include/core/SkShader.h>
 #include "backgroundimage.h"
+#include "canvas.h"
 #include "color.h"
 #include "colorprofile.h"
 #include "drawingarea.h"
@@ -24,19 +24,18 @@ namespace Nickvision::Cavalier::Shared::Models
     public:
         /**
          * @brief Constructs a Renderer.
-         * @param canvas The SkCanvas
          */
-        Renderer(SkCanvas* canvas = nullptr);
+        Renderer(const std::optional<Canvas>& canvas = std::nullopt);
         /**
-         * @brief Gets the SkCanvas.
-         * @return The SkCanvas
+         * @brief Gets the canvas.
+         * @return The canvas
          */
-        SkCanvas* getCanvas() const;
+        const std::optional<Canvas>& getCanvas() const;
         /**
-         * @brief Sets the SkCanvas.
-         * @param canvas The new SkCanvas
+         * @brief Sets the canvas.
+         * @param canvas The new canvas
          */
-        void setCanvas(SkCanvas* canvas);
+        void setCanvas(const std::optional<Canvas>& canvas);
         /**
          * @brief Gets the drawing area options.
          * @return The drawing area options
@@ -70,10 +69,8 @@ namespace Nickvision::Cavalier::Shared::Models
         /**
          * @brief Renders and draws the sample on the canvas.
          * @param sample The cava sample
-         * @param width The width of the canvas
-         * @param height The height of the canvas
          */
-        void draw(const std::vector<float>& sample, float width, float height);
+        void draw(const std::vector<float>& sample);
 
     private:
         float getMirrorWidth(float width);
@@ -89,7 +86,7 @@ namespace Nickvision::Cavalier::Shared::Models
         void drawSpine(const DrawingFunctionArguments& args);
         void drawSplitter(const DrawingFunctionArguments& args);
         void drawHearts(const DrawingFunctionArguments& args);
-        SkCanvas* m_canvas;
+        std::optional<Canvas> m_canvas;
         DrawingArea m_drawingArea;
         ColorProfile m_colorProfile;
         std::optional<BackgroundImage> m_backgroundImage;

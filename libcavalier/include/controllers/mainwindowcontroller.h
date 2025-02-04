@@ -17,6 +17,7 @@
 #include <libnick/taskbar/taskbaritem.h>
 #include <libnick/update/updater.h>
 #include "controllers/preferencesviewcontroller.h"
+#include "models/canvas.h"
 #include "models/cava.h"
 #include "models/renderer.h"
 #include "models/startupinformation.h"
@@ -105,12 +106,22 @@ namespace Nickvision::Cavalier::Shared::Controllers
          */
         void windowsUpdate();
 #endif
+        /**
+         * @brief Sets the canvas to render to.
+         * @param canvas The canvas to render to
+         */
+        void setCanvas(const std::optional<Models::Canvas>& canvas);
 
     private:
         /**
          * @brief Handles when the configuration is saved.
          */
         void onConfigurationSaved();
+        /**
+         * @brief Handles when cava receives output.
+         * @param args std:vector<float> sample
+         */
+        void onOutputReceived(const Events::ParamEventArgs<std::vector<float>>& args);
         bool m_started;
         std::vector<std::string> m_args;
         Nickvision::App::AppInfo m_appInfo;

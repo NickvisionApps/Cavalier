@@ -55,18 +55,18 @@ namespace Nickvision::Cavalier::Shared::Models
         }
     }
 
-    Renderer::Renderer(SkCanvas* canvas)
+    Renderer::Renderer(const std::optional<Canvas>& canvas)
         : m_canvas{ canvas }
     {
 
     }
 
-    SkCanvas* Renderer::getCanvas() const
+    const std::optional<Canvas>& Renderer::getCanvas() const
     {
         return m_canvas;
     }
 
-    void Renderer::setCanvas(SkCanvas* canvas)
+    void Renderer::setCanvas(const std::optional<Canvas>& canvas)
     {
         m_canvas = canvas;
     }
@@ -101,7 +101,7 @@ namespace Nickvision::Cavalier::Shared::Models
         m_backgroundImage = image;
     }
 
-    void Renderer::draw(const std::vector<float>& sample, float width, float height)
+    void Renderer::draw(const std::vector<float>& sample)
     {
         if(!m_canvas)
         {
@@ -109,7 +109,9 @@ namespace Nickvision::Cavalier::Shared::Models
         }
         //Setup
         SkBitmap* backgroundBitmap{ nullptr };
-        m_canvas->clear(SkColors::kTransparent);
+        int width{ m_canvas->getWidth() };
+        int height{ m_canvas->getHeight() };
+        ((*m_canvas))->clear(SkColors::kTransparent);
         //Draw Background Colors
         SkPaint bgPaint;
         bgPaint.setStyle(SkPaint::kFill_Style);
@@ -123,7 +125,7 @@ namespace Nickvision::Cavalier::Shared::Models
             const Color& color{ m_colorProfile.getBackgroundColors()[0] };
             bgPaint.setColor(SkColorSetARGB(color.getA(), color.getR(), color.getG(), color.getB()));
         }
-        m_canvas->drawRect({ 0, 0, width, height }, bgPaint);
+        (*m_canvas)->drawRect({ 0, 0, width, height }, bgPaint);
         //Draw Background Image
         if(m_backgroundImage)
         {
@@ -145,7 +147,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 //Draw Image
                 SkPaint paint;
                 paint.setColor(SkColorSetARGB(255 * (m_backgroundImage->getAlpha() / 100), SkColorGetR(paint.getColor()), SkColorGetG(paint.getColor()), SkColorGetB(paint.getColor())));
-                m_canvas->drawImage(backgroundBitmap->asImage(), width / 2 - backgroundBitmap->width() / 2, height / 2 - backgroundBitmap->height() / 2, SkSamplingOptions(SkFilterMode::kLinear), &paint);
+                (*m_canvas)->drawImage(backgroundBitmap->asImage(), width / 2 - backgroundBitmap->width() / 2, height / 2 - backgroundBitmap->height() / 2, SkSamplingOptions(SkFilterMode::kLinear), &paint);
                 delete backgroundBitmap;
             }
         }
@@ -425,7 +427,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 break;
             }
             }
-            m_canvas->drawPath(path, args.getPaint());
+            (*m_canvas)->drawPath(path, args.getPaint());
         }
         else //Circle
         {

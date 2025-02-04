@@ -50,6 +50,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_updater = std::make_shared<Updater>(m_appInfo.getSourceRepo());
 #endif
         m_dataFileManager.get<Configuration>("config").saved() +=  [this](const EventArgs&){ onConfigurationSaved(); };
+        m_cava.outputReceived() += [this](const ParamEventArgs<std::vector<float>>& args){ onOutputReceived(args); };
     }
 
     Event<EventArgs>& MainWindowController::configurationSaved()
@@ -177,6 +178,11 @@ namespace Nickvision::Cavalier::Shared::Controllers
     }
 #endif
 
+    void MainWindowController::setCanvas(const std::optional<Canvas>& canvas)
+    {
+        m_renderer.setCanvas(canvas);
+    }
+
     void MainWindowController::onConfigurationSaved()
     {
         Configuration& config{ m_dataFileManager.get<Configuration>("config") };
@@ -191,5 +197,10 @@ namespace Nickvision::Cavalier::Shared::Controllers
         {
             m_renderer.setBackgroundImage(std::nullopt);
         }
+    }
+
+    void MainWindowController::onOutputReceived(const ParamEventArgs<std::vector<float>>& args)
+    {
+        m_renderer.draw(args.getParam());
     }
 }

@@ -31,13 +31,22 @@ Adw.ApplicationWindow root {
       
       Adw.ViewStack viewStack {
         Adw.ViewStackPage {
-          name: "NoFolder";
+          name: "Home";
           child: Adw.StatusPage pageGreeting {
             icon-name: "org.nickvision.cavalier";
             title: _("Visualize Your Audio");
             description: _("Play some music or watch a video and see your sound come to life");
             
             styles ["icon-dropshadow"]
+          };
+        }
+
+        Adw.ViewStackPage {
+          name: "Cava";
+          child: Gtk.GLArea glArea {
+            hexpand: true;
+            vexpand: true;
+            auto-render: false;
           };
         }
       }

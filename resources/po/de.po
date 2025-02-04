@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 14:47-0500\n"
+"POT-Creation-Date: 2025-02-04 14:47-0500\n"
 "PO-Revision-Date: 2024-10-13 14:16+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/nickvision-"
@@ -49,16 +49,16 @@ msgstr "David Lapshin"
 msgid "translator-credits"
 msgstr "Mitwirkende Übersetzer"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:154
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:155
 msgid "New update available"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:168
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:169
 msgid ""
 "The update is downloading in the background and will start once it finishes"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:173
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:174
 msgid "Unable to download and install update"
 msgstr ""
 
@@ -69,12 +69,12 @@ msgstr "Standard"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
-#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:29
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
 msgid "Preferences"
 msgstr "Einstellungen"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
-#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:34
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
 msgid "Keyboard Shortcuts"
 msgstr "Tastenkürzel"
 
@@ -320,29 +320,17 @@ msgid "Background Images"
 msgstr "Hintergrundbild ändern"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
-msgid "Folder"
-msgstr ""
-
-#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
-msgid "Open Folder"
-msgstr ""
-
-#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
-msgid "Close Folder"
-msgstr ""
-
-#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:26
 msgctxt "Shortcut"
 msgid "Application"
 msgstr "Anwendung"
 
-#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:39
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
 #, fuzzy
 msgid "About Application"
 msgstr "Anwendung"
 
-#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:44
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:30
 msgid "Quit"
 msgstr "Schließen"
 
