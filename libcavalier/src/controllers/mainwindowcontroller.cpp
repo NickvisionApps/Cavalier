@@ -179,6 +179,17 @@ namespace Nickvision::Cavalier::Shared::Controllers
 
     void MainWindowController::onConfigurationSaved()
     {
-        m_cava.setOptions(m_dataFileManager.get<Configuration>("config").getCavaOptions());
+        Configuration& config{ m_dataFileManager.get<Configuration>("config") };
+        m_cava.setOptions(config.getCavaOptions());
+        m_renderer.setDrawingArea(config.getDrawingArea());
+        m_renderer.setColorProfile(config.getColorProfiles()[config.getActiveColorProfileIndex()]);
+        if(config.getActiveBackgroundImageIndex() != -1)
+        {
+            m_renderer.setBackgroundImage(config.getBackgroundImages()[config.getActiveBackgroundImageIndex()]);
+        }
+        else
+        {
+            m_renderer.setBackgroundImage(std::nullopt);
+        }
     }
 }

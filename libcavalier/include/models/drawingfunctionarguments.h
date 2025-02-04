@@ -5,6 +5,7 @@
 #include <skia/include/core/SkPaint.h>
 #include <skia/include/core/SkRefCnt.h>
 #include "drawingdirection.h"
+#include "drawingmode.h"
 #include "point.h"
 
 namespace Nickvision::Cavalier::Shared::Models
@@ -18,18 +19,24 @@ namespace Nickvision::Cavalier::Shared::Models
         /**
          * @brief Constructs a DrawingFunctionArguments.
          * @param sample The cava sample
+         * @param mode The drawing mode
          * @param direction The drawing direction
          * @param start The starting drawing point (top-left corner)
          * @param end The ending drawing point (bottom-right corner)
          * @param rotation Rotation angle in radians (used for circle modes)
          * @param paint Skia paint brush
          */
-        DrawingFunctionArguments(const std::vector<float>& sample, DrawingDirection direction, const Point& start, const Point& end, float rotation, const SkPaint& paint);
+        DrawingFunctionArguments(const std::vector<float>& sample, DrawingMode mode, DrawingDirection direction, const Point& start, const Point& end, float rotation, const SkPaint& paint);
         /**
          * @brief Gets the cava sample.
          * @return The cava sample
          */
         const std::vector<float>& getSample() const;
+        /**
+         * @brief Gets the drawing mode.
+         * @return The drawing mode
+         */
+        DrawingMode getMode() const;
         /**
          * @brief Gets the drawing direction.
          * @return The drawing direction
@@ -58,6 +65,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     private:
         std::vector<float> m_sample;
+        DrawingMode m_mode;
         DrawingDirection m_direction;
         Point m_start;
         Point m_end;

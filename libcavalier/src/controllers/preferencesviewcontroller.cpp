@@ -60,14 +60,14 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_configuration.setColorProfiles(profiles);
     }
 
-    std::string PreferencesViewController::getActiveColorProfileName() const
+    int PreferencesViewController::getActiveColorProfileIndex() const
     {
-        return m_configuration.getActiveColorProfileName();
+        return m_configuration.getActiveColorProfileIndex();
     }
 
-    void PreferencesViewController::setActiveColorProfileName(const std::string& name)
+    void PreferencesViewController::setActiveColorProfileIndex(int index)
     {
-        m_configuration.setActiveColorProfileName(name);
+        m_configuration.setActiveColorProfileIndex(index);
     }
 
     std::vector<BackgroundImage> PreferencesViewController::getBackgroundImages() const
@@ -80,14 +80,14 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_configuration.setBackgroundImages(images);
     }
 
-    std::filesystem::path PreferencesViewController::getActiveBackgroundImagePath() const
+    int PreferencesViewController::getActiveBackgroundImageIndex() const
     {
-        return m_configuration.getActiveBackgroundImagePath();
+        return m_configuration.getActiveBackgroundImageIndex();
     }
 
-    void PreferencesViewController::setActiveBackgroundImagePath(const std::filesystem::path& path)
+    void PreferencesViewController::setActiveBackgroundImageIndex(int index)
     {
-        m_configuration.setActiveBackgroundImagePath(path);
+        m_configuration.setActiveBackgroundImageIndex(index);
     }
 
     void PreferencesViewController::saveConfiguration()

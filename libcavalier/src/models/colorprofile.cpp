@@ -110,6 +110,11 @@ namespace Nickvision::Cavalier::Shared::Models
         return true;
     }
 
+    const std::vector<Color>& ColorProfile::getBackgroundColors() const
+    {
+        return m_backgroundColors;
+    }
+
     bool ColorProfile::addBackgroundColor(const Color& color)
     {
         if(std::find(m_backgroundColors.begin(), m_backgroundColors.end(), color) != m_backgroundColors.end())

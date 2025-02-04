@@ -68,15 +68,15 @@ namespace Nickvision::Cavalier::Shared::Controllers
          */
         void setColorProfiles(const std::vector<Models::ColorProfile>& profiles);
         /**
-         * @brief Gets the name of the active color profile for the application.
-         * @return The name of the active color profile
+         * @brief Gets the index of the active color profile for the application.
+         * @return The index of the active color profile
          */
-        std::string getActiveColorProfileName() const;
+        int getActiveColorProfileIndex() const;
         /**
-         * @brief Sets the name of the active color profile for the application..
-         * @param name The new name of the active color profile
+         * @brief Sets the index of the active color profile for the application..
+         * @param index The new index of the active color profile
          */
-        void setActiveColorProfileName(const std::string& name);
+        void setActiveColorProfileIndex(int index);
         /**
          * @brief Gets the background images for the application.
          * @return The list of background images
@@ -88,15 +88,15 @@ namespace Nickvision::Cavalier::Shared::Controllers
          */
         void setBackgroundImages(const std::vector<Models::BackgroundImage>& images);
         /**
-         * @brief Gets the path of the active background image for the application.
-         * @return The path of the active background image
+         * @brief Gets the index of the active background image for the application.
+         * @return The index of the active background image
          */
-        std::filesystem::path getActiveBackgroundImagePath() const;
+        int getActiveBackgroundImageIndex() const;
         /**
-         * @brief Sets the path of the active background image for the application..
-         * @param path The new path of the active background image
+         * @brief Sets the index of the active background image for the application..
+         * @param index The new index of the active background image
          */
-        void setActiveBackgroundImagePath(const std::filesystem::path& path);
+        void setActiveBackgroundImageIndex(int index);
         /**
          * @brief Saves the current configuration to disk.
          */

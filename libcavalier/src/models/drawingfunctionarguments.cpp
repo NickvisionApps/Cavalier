@@ -2,8 +2,9 @@
 
 namespace Nickvision::Cavalier::Shared::Models
 {
-    DrawingFunctionArguments::DrawingFunctionArguments(const std::vector<float>& sample, DrawingDirection direction, const Point& start, const Point& end, float rotation, const SkPaint& paint)
+    DrawingFunctionArguments::DrawingFunctionArguments(const std::vector<float>& sample, DrawingMode mode, DrawingDirection direction, const Point& start, const Point& end, float rotation, const SkPaint& paint)
         : m_sample{ sample },
+        m_mode{ mode },
         m_direction{ direction },
         m_start{ start },
         m_end{ end },
@@ -16,6 +17,11 @@ namespace Nickvision::Cavalier::Shared::Models
     const std::vector<float>& DrawingFunctionArguments::getSample() const
     {
         return m_sample;
+    }
+
+    DrawingMode DrawingFunctionArguments::getMode() const
+    {
+        return m_mode;
     }
 
     DrawingDirection DrawingFunctionArguments::getDirection() const

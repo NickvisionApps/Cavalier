@@ -18,6 +18,7 @@
 #include <libnick/update/updater.h>
 #include "controllers/preferencesviewcontroller.h"
 #include "models/cava.h"
+#include "models/renderer.h"
 #include "models/startupinformation.h"
 #include "models/theme.h"
 
@@ -119,6 +120,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
         Nickvision::Events::Event<Nickvision::Notifications::NotificationSentEventArgs> m_notificationSent;
         Nickvision::Events::Event<Nickvision::Notifications::ShellNotificationSentEventArgs> m_shellNotificationSent;
         Models::Cava m_cava;
+        Models::Renderer m_renderer;
     };
 }
 

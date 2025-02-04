@@ -108,14 +108,14 @@ namespace Nickvision::Cavalier::Shared::Models
         m_json["ColorProfiles"] = arr;
     }
 
-    std::string Configuration::getActiveColorProfileName() const
+    int Configuration::getActiveColorProfileIndex() const
     {
-        return m_json["ActiveColorProfileName"].is_string() ? std::string(m_json["ActiveColorProfileName"].as_string()) : ColorProfile().getName();
+        return m_json["ActiveColorProfileIndex"].is_int64() ? m_json["ActiveColorProfileIndex"].as_int64() : 0;
     }
 
-    void Configuration::setActiveColorProfileName(const std::string& name)
+    void Configuration::setActiveColorProfileIndex(int index)
     {
-        m_json["ActiveColorProfileName"] = name;
+        m_json["ActiveColorProfileIndex"] = index;
     }
 
     std::vector<BackgroundImage> Configuration::getBackgroundImages() const
@@ -148,13 +148,13 @@ namespace Nickvision::Cavalier::Shared::Models
         m_json["BackgroundImages"] = arr;
     }
 
-    std::filesystem::path Configuration::getActiveBackgroundImagePath() const
+    int Configuration::getActiveBackgroundImageIndex() const
     {
-        return m_json["ActiveBackgroundImagePath"].is_string() && std::filesystem::exists(m_json["ActiveBackgroundImagePath"].as_string().c_str()) ? m_json["ActiveBackgroundImagePath"].as_string().c_str() : "";
+        return m_json["ActiveBackgroundImageIndex"].is_int64() ? m_json["ActiveBackgroundImageIndex"].as_int64() : -1;
     }
 
-    void Configuration::setActiveBackgroundImagePath(const std::filesystem::path& path)
+    void Configuration::setActiveBackgroundImageIndex(int index)
     {
-        m_json["ActiveBackgroundImagePath"] = path.string();
+        m_json["ActiveBackgroundImageIndex"] = index;
     }
 }
