@@ -13,6 +13,7 @@
 #include <skia/include/effects/SkGradientShader.h>
 
 #define INNER_RADIUS 0.5f
+#define LINE_THICKNESS 5
 
 namespace Nickvision::Cavalier::Shared::Models
 {
@@ -153,7 +154,7 @@ namespace Nickvision::Cavalier::Shared::Models
         height -= m_drawingArea.getMargin() * 2;
         SkPaint fgPaint;
         fgPaint.setStyle(m_drawingArea.getFillShape() ? SkPaint::kFill_Style : SkPaint::kStroke_Style);
-        fgPaint.setStrokeWidth(5);
+        fgPaint.setStrokeWidth(LINE_THICKNESS);
         fgPaint.setAntiAlias(true);
         if(m_colorProfile.getForegroundColors().size() > 1 && m_drawingArea.getShape() != DrawingShape::Spine)
         {
@@ -344,36 +345,163 @@ namespace Nickvision::Cavalier::Shared::Models
 
     void Renderer::drawWave(const DrawingFunctionArguments& args)
     {
-
+        if(args.getMode() == DrawingMode::Box)
+        {
+            float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / (args.getSample().size() - 1) };
+            SkPath path;
+            bool flipImage{ false };
+            std::vector<Point> points{ args.getSample().size() };
+            std::vector<float> gradients{ args.getSample().size() };
+            switch(args.getDirection())
+            {
+            case DrawingDirection::TopToBottom:
+            case DrawingDirection::BottomToTop:
+            {
+                flipImage = args.getDirection() == DrawingDirection::TopToBottom;
+                //Create a list of points of where the curve must pass through
+                for(int i = 0; i < args.getSample().size(); i++)
+                {
+                    points[i] = { step * i, args.getEnd().getY() * (1 - args.getSample()[i]) };
+                }
+                //Calculate gradient between the two neighbouring points for each point
+                for(int i = 0; i < points.size(); i++)
+                {
+                    //Determine the previous and next point
+                    //If there isn't one, use the current point
+                    const Point& previous{ points[std::max(i - 1, 0)] };
+                    const Point& next{ points[std::min(i + 1, static_cast<int>(points.size()) - 1)] };
+                    float gradient{ next.getY() - previous.getY() };
+                    //If using the current point (when at the edges), then the run is rise/run = 1
+                    //Otherwise, a two step run exists
+                    gradients[i] = i == 0 || i == points.size() - 1 ? gradient : gradient / 2;
+                }
+                float yOffset{ args.getStart().getY() + (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS / 2) };
+                path.moveTo(args.getStart().getX() + points[0].getX(), yOffset + flipCoord(points[0].getY(), args.getEnd().getY(), flipImage));
+                for(int i = 0; i < points.size() - 1; i++)
+                {
+                    SkPoint a{ args.getStart().getX() + points[i].getX() + step * 0.5f, yOffset + flipCoord(points[i].getY() + gradients[i] * 0.5f, args.getEnd().getY(), flipImage) };
+                    SkPoint b{ args.getStart().getX() + points[i + 1].getX() + step * -0.5f, yOffset + flipCoord(points[i + 1].getY() + gradients[i + 1] * -0.5f, args.getEnd().getY(), flipImage) };
+                    SkPoint c{ args.getStart().getX() + points[i + 1].getX(), yOffset + flipCoord(points[i + 1].getY(), args.getEnd().getY(), flipImage) };
+                    path.cubicTo(a, b, c);
+                }
+                if(m_drawingArea.getFillShape())
+                {
+                    path.lineTo({ args.getStart().getX() + args.getEnd().getX(), args.getStart().getY() + flipCoord(args.getEnd().getY(), args.getEnd().getY(), flipImage) });
+                    path.lineTo({ args.getStart().getX(), args.getStart().getY() + flipCoord(args.getEnd().getY(), args.getEnd().getY(), flipImage) });
+                    path.close();
+                }
+                break;
+            }
+            case DrawingDirection::LeftToRight:
+            case DrawingDirection::RightToLeft:
+            {
+                flipImage = args.getDirection() == DrawingDirection::RightToLeft;
+                for(int i = 0; i < args.getSample().size(); i++)
+                {
+                    points[i] = { args.getEnd().getX() * args.getSample()[i], step * i };
+                }
+                for(int i = 0; i < points.size(); i++)
+                {
+                    const Point& previous{ points[std::max(i - 1, 0)] };
+                    const Point& next{ points[std::min(i + 1, static_cast<int>(points.size()) - 1)] };
+                    float gradient{ next.getX() - previous.getX() };
+                    gradients[i] = i == 0 || i == points.size() - 1 ? gradient : gradient / 2;
+                }
+                float xOffset{ args.getStart().getX() - (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS / 2) };
+                path.moveTo(xOffset + flipCoord(points[0].getX(), args.getEnd().getX(), flipImage), args.getStart().getY() + points[0].getY());
+                for(int i = 0; i < points.size() - 1; i++)
+                {
+                    SkPoint a{ xOffset + flipCoord(points[i].getX() + gradients[i] * 0.5f, args.getEnd().getX(), flipImage), args.getStart().getY() + points[i].getY() + step * 0.5f };
+                    SkPoint b{ xOffset + flipCoord(points[i + 1].getX() + gradients[i + 1] * -0.5f, args.getEnd().getX(), flipImage), args.getStart().getY() + points[i + 1].getY() + step * -0.5f };
+                    SkPoint c{ xOffset + flipCoord(points[i + 1].getX(), args.getEnd().getX(), flipImage), args.getStart().getY() + points[i + 1].getY() };
+                    path.cubicTo(a, b, c);
+                }
+                if(m_drawingArea.getFillShape())
+                {
+                    path.lineTo({ args.getStart().getX() + flipCoord(0, args.getEnd().getX(), flipImage), args.getStart().getY() + args.getEnd().getY() });
+                    path.lineTo({ args.getStart().getX() + flipCoord(0, args.getEnd().getX(), flipImage), args.getStart().getY() });
+                    path.close();
+                }
+                break;
+            }
+            }
+            m_canvas->drawPath(path, args.getPaint());
+        }
+        else //Circle
+        {
+            //TODO
+        }
     }
 
     void Renderer::drawLevels(const DrawingFunctionArguments& args)
     {
-
+        if(args.getMode() == DrawingMode::Box)
+        {
+            //TODO
+        }
+        else //Circle
+        {
+            //TODO
+        }
     }
 
     void Renderer::drawParticles(const DrawingFunctionArguments& args)
     {
-
+        if(args.getMode() == DrawingMode::Box)
+        {
+            //TODO
+        }
+        else //Circle
+        {
+            //TODO
+        }
     }
 
     void Renderer::drawBars(const DrawingFunctionArguments& args)
     {
-
+        if(args.getMode() == DrawingMode::Box)
+        {
+            //TODO
+        }
+        else //Circle
+        {
+            //TODO
+        }
     }
 
     void Renderer::drawSpine(const DrawingFunctionArguments& args)
     {
-
+        if(args.getMode() == DrawingMode::Box)
+        {
+            //TODO
+        }
+        else //Circle
+        {
+            //TODO
+        }
     }
 
     void Renderer::drawSplitter(const DrawingFunctionArguments& args)
     {
-
+        if(args.getMode() == DrawingMode::Box)
+        {
+            //TODO
+        }
+        else //Circle
+        {
+            //TODO
+        }
     }
 
     void Renderer::drawHearts(const DrawingFunctionArguments& args)
     {
-
+        if(args.getMode() == DrawingMode::Box)
+        {
+            //TODO
+        }
+        else //Circle
+        {
+            //TODO
+        }
     }
 }
