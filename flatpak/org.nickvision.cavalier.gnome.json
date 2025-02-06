@@ -142,12 +142,11 @@
         {
             "name": "gn",
             "buildsystem": "simple",
-            "append-path": "/usr/lib/sdk/llvm19/bin",
-            "prepend-ld-library-path": "/usr/lib/sdk/llvm19/lib",
+            "build-options": {
+                "append-path": "/usr/lib/sdk/llvm19/bin",
+                "prepend-ld-library-path": "/usr/lib/sdk/llvm19/lib"
+            },
             "build-commands": [
-                "export CXX=g++",
-                "export LD=g++",
-                "export AR=ar",
                 "python build/gen.py",
                 "ninja -C out",
                 "install -D out/gn -t /app/bin"
@@ -168,18 +167,44 @@
             "name": "skia",
             "buildsystem": "simple",
             "build-commands": [
-                "gn gen out/Release --args='is_debug=false is_official_build=true skia_use_system_expat=false skia_use_system_icu=false skia_use_system_libjpeg_turbo=false skia_use_system_libpng=false skia_use_system_libwebp=false skia_use_system_zlib=false skia_use_sfntly=false skia_use_freetype=true skia_use_harfbuzz=true skia_pdf_subset_harfbuzz=true skia_use_system_freetype2=false skia_use_system_harfbuzz=false'",
+                "gn gen out/Release --args='is_debug=false is_official_build=true skia_use_system_libjpeg_turbo=false'",
                 "ninja -C out/Release skia modules",
-                "sudo cp out/Release/*.a /app/lib",
-                "sudo mkdir -p /app/include/skia/include",
-                "sudo cp -r include/* /app/include/skia/include",
-                "sudo mkdir -p /app/include/skia/modules/",
-                "sudo cp -r modules/* /app/include/skia/modules"
+                "cp out/Release/*.a /app/lib",
+                "mkdir -p /app/include/skia/include",
+                "cp -r include/* /app/include/skia/include",
+                "mkdir -p /app/include/skia/modules/",
+                "cp -r modules/* /app/include/skia/modules"
             ],
             "cleanup": [
                 "*"
             ],
             "sources": [
+                {
+                    "type": "git",
+                    "dest": "third_party/externals/libjpeg-turbo",
+                    "url": "https://chromium.googlesource.com/chromium/deps/libjpeg_turbo",
+                    "commit": "ccfbe1c82a3b6dbe8647ceb36a3f9ee711fba3cf"
+                },
+                {
+
+                    "type": "git",
+                    "dest": "third_party/externals/dng_sdk",
+                    "url": "https://android.googlesource.com/platform/external/dng_sdk",
+                    "commit": "c8d0c9b1d16bfda56f15165d39e0ffa360a11123"
+                },
+                {
+
+                    "type": "git",
+                    "dest": "third_party/externals/piex",
+                    "url": "https://android.googlesource.com/platform/external/piex",
+                    "commit": "bb217acdca1cc0c16b704669dd6f91a1b509c406"
+                },
+                {
+                    "type": "git",
+                    "dest": "third_party/externals/wuffs",
+                    "url": "https://skia.googlesource.com/external/github.com/google/wuffs/",
+                    "commit": "c7b717ea5895ccf7fc4da2be2c0bcb9a56eb818b"
+                },
                 {
                     "type": "git",
                     "url": "https://skia.googlesource.com/skia",
