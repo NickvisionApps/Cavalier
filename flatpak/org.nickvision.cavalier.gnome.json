@@ -107,7 +107,7 @@
             ]
         },
         {
-            "name" : "iniparser",
+            "name": "iniparser",
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
@@ -122,9 +122,9 @@
             ]
         },
         {
-            "name" : "cava",
-            "buildsystem" : "autotools",
-            "sources" : [
+            "name": "cava",
+            "buildsystem": "autotools",
+            "sources": [
                 {
                     "type" : "git",
                     "url" : "https://github.com/karlstav/cava.git",
@@ -133,6 +133,29 @@
                 {
                     "type" : "patch",
                     "path" : "cava-iniparser.patch"
+                }
+            ]
+        },
+        {
+            "name": "skia",
+            "buildsystem": "simple",
+            "build-commands": [
+                "bin/gn gen out/Release --args='is_debug=false is_official_build=true skia_use_system_expat=false skia_use_system_icu=false skia_use_system_libjpeg_turbo=false skia_use_system_libpng=false skia_use_system_libwebp=false skia_use_system_zlib=false skia_use_sfntly=false skia_use_freetype=true skia_use_harfbuzz=true skia_pdf_subset_harfbuzz=true skia_use_system_freetype2=false skia_use_system_harfbuzz=false'",
+                "ninja -C out/Release skia modules",
+                "sudo cp out/Release/*.a /app/lib",
+                "sudo mkdir -p /app/include/skia/include",
+                "sudo cp -r include/* /app/include/skia/include",
+                "sudo mkdir -p /app/include/skia/modules/",
+                "sudo cp -r modules/* /app/include/skia/modules"
+            ],
+            "cleanup": [
+                "*"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://skia.googlesource.com/skia",
+                    "commit": "de898cc7cdaed4aed52c263066d73cf51e2610e4"
                 }
             ]
         },
