@@ -157,6 +157,9 @@
             "name": "gn",
             "buildsystem": "simple",
             "build-commands": [
+                "export CXX=g++",
+                "export LD=g++",
+                "export AR=ar",
                 "python build/gen.py",
                 "ninja -C out",
                 "install -D out/gn -t /app/bin"
