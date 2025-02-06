@@ -154,6 +154,25 @@
             ]
         },
         {
+            "name": "gn",
+            "buildsystem": "simple",
+            "build-commands": [
+                "python build/gen.py",
+                "ninja -C out",
+                "install -D out/gn -t /app/bin"
+            ],
+            "cleanup": [
+                "*"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gn.googlesource.com/gn",
+                    "commit": "ab638bd7cbb9ac8468bf2fbe60c74ed4706a14a7"
+                }
+            ]
+        },
+        {
             "name": "skia",
             "buildsystem": "simple",
             "build-commands": [
