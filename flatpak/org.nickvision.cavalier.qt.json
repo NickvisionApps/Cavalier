@@ -18,6 +18,8 @@
     ],
     "cleanup":[
         "/include",
+        "/lib/cmake",
+        "/lib/debug",
         "/lib/pkgconfig",
         "*.a"
     ],
@@ -115,15 +117,6 @@
                     "url": "https://www.fftw.org/fftw-3.3.10.tar.gz",
                     "sha256": "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
                 }
-            ],
-            "cleanup": [
-                "/bin",
-                "/include",
-                "/lib/cmake",
-                "/lib/pkgconfig",
-                "/share/man",
-                "*.la",
-                "*.so"
             ]
         },
         {
@@ -184,16 +177,15 @@
             "name": "skia",
             "buildsystem": "simple",
             "build-commands": [
-                "gn gen out/Release --args='is_debug=false is_official_build=true skia_use_dng_sdk=false skia_use_system_libjpeg_turbo=false skia_use_system_libpng=false skia_use_system_libwebp=false'",
+                "gn gen out/Release --args='is_debug=false is_official_build=true is_component_build=true skia_use_dng_sdk=false skia_use_system_libjpeg_turbo=false skia_use_system_libpng=false skia_use_system_libwebp=false'",
                 "ninja -C out/Release skia modules",
                 "cp out/Release/*.a /app/lib",
+                "cp out/Release/*.so /app/lib",
                 "mkdir -p /app/include/skia/include",
                 "cp -r include/* /app/include/skia/include",
                 "mkdir -p /app/include/skia/modules/",
-                "cp -r modules/* /app/include/skia/modules"
-            ],
-            "cleanup": [
-                "*"
+                "cp -r modules/* /app/include/skia/modules",
+                "ldconfig"
             ],
             "sources": [
                 {
