@@ -3,6 +3,9 @@
     "runtime" : "org.kde.Platform",
     "runtime-version" : "6.8",
     "sdk" : "org.kde.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.llvm19"
+    ],
     "command" : "org.nickvision.cavalier",
     "finish-args":[
         "--socket=fallback-x11",
@@ -156,6 +159,8 @@
         {
             "name": "gn",
             "buildsystem": "simple",
+            "append-path": "/usr/lib/sdk/llvm19/bin",
+            "prepend-ld-library-path": "/usr/lib/sdk/llvm19/lib",
             "build-commands": [
                 "export CXX=g++",
                 "export LD=g++",
