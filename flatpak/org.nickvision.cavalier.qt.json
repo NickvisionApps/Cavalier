@@ -167,6 +167,7 @@
             "sources": [
                 {
                     "type": "git",
+                    "disable-shallow-clone": true,
                     "url": "https://gn.googlesource.com/gn",
                     "commit": "ab638bd7cbb9ac8468bf2fbe60c74ed4706a14a7"
                 }
