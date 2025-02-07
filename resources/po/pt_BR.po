@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-04 14:47-0500\n"
+"POT-Creation-Date: 2025-02-07 02:28-0500\n"
 "PO-Revision-Date: 2024-04-20 23:07+0000\n"
 "Last-Translator: araujoviana <araujomatheusgabriel1@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -339,12 +339,12 @@ msgstr "Aplicação"
 msgid "Quit"
 msgstr "Sair"
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:106
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:113
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:155
 msgid "Open"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:153
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:170
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
 msgid "GitHub Repo"
 msgstr "Repositório GitHub"

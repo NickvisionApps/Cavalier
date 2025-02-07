@@ -14,16 +14,23 @@ namespace Nickvision::Cavalier::Shared::Models
     {
     public:
         /**
-         * @brief Creates a Canvas to use with skia.
+         * @brief Creates a Canvas.
          * @param width The width of the canvas
          * @param height The height of the canvas
          */
         Canvas(int width, int height);
         /**
+         * @brief Creates a Cavnas.
+         * @param The surface to adapt
+         * @param width The width of the canvas
+         * @param height The height of the canvas
+         */
+        Canvas(const sk_sp<SkSurface>& surface, int width, int height);
+        /**
          * @brief Gets the skia surface object.
          * @return SkSurface
          */
-        sk_sp<SkSurface> getSkiaSurface() const;
+        const sk_sp<SkSurface>& getSkiaSurface() const;
         /**
          * @brief Gets the skia canvas object.
          * @return SkCanvas

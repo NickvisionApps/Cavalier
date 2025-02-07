@@ -7,6 +7,8 @@ using namespace Nickvision::Events;
 using namespace Nickvision::Filesystem;
 using namespace Nickvision::System;
 
+#define CAVA_RAW_MAX 65530.0f
+
 namespace Nickvision::Cavalier::Shared::Models
 {
     Cava::Cava(const CavaOptions& options, const std::string& appName)
@@ -100,7 +102,7 @@ namespace Nickvision::Cavalier::Shared::Models
             for(unsigned int i = 0; i < length; i += 2)
             {
                 std::uint16_t* byte{ reinterpret_cast<uint16_t*>(&bytes[i]) };
-                sample[i / 2] = *byte / 65535.0f;
+                sample[i / 2] = *byte / CAVA_RAW_MAX;
             }
             if(m_options.getReverseBarOrder())
             {

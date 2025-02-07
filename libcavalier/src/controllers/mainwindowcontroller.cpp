@@ -201,6 +201,13 @@ namespace Nickvision::Cavalier::Shared::Controllers
 
     void MainWindowController::onOutputReceived(const ParamEventArgs<std::vector<float>>& args)
     {
-        m_renderer.draw(args.getParam());
+        if(args.getParam().empty())
+        {
+            //TODO
+        }
+        else
+        {
+            m_renderer.draw(args.getParam());
+        }
     }
 }

@@ -10,7 +10,15 @@ namespace Nickvision::Cavalier::Shared::Models
 
     }
 
-    sk_sp<SkSurface> Canvas::getSkiaSurface() const
+    Canvas::Canvas(const sk_sp<SkSurface>& surface, int width, int height)
+        : m_surface{ surface },
+        m_width{ width },
+        m_height{ height }
+    {
+
+    }
+
+    const sk_sp<SkSurface>& Canvas::getSkiaSurface() const
     {
         return m_surface;
     }

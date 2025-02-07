@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 17:01-0500\n"
+"POT-Creation-Date: 2025-02-07 02:29-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -304,12 +304,12 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:106
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:113
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:155
 msgid "Open"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:153
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:170
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
 msgid "GitHub Repo"
 msgstr ""

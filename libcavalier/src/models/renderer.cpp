@@ -103,7 +103,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     void Renderer::draw(const std::vector<float>& sample)
     {
-        if(!m_canvas)
+        if(!m_canvas || sample.empty())
         {
             return;
         }
@@ -352,8 +352,8 @@ namespace Nickvision::Cavalier::Shared::Models
             float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / (args.getSample().size() - 1) };
             SkPath path;
             bool flipImage{ false };
-            std::vector<Point> points{ args.getSample().size() };
-            std::vector<float> gradients{ args.getSample().size() };
+            std::vector<Point> points(args.getSample().size());
+            std::vector<float> gradients(args.getSample().size());
             switch(args.getDirection())
             {
             case DrawingDirection::TopToBottom:
