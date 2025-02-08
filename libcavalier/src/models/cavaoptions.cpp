@@ -138,8 +138,12 @@ namespace Nickvision::Cavalier::Shared::Models
         builder << "source = " << (Environment::hasVariable("CAVALIER_INPUT_SOURCE") ? Environment::getVariable("CAVALIER_INPUT_SOURCE") : "auto") << std::endl;
         builder << "[output]" << std::endl;
         builder << "method = raw" << std::endl;
-        builder << "raw_target = /dev/stdout" << std::endl;
         builder << "bit_format = 16bit" << std::endl;
+        builder << "raw_target = /dev/stdout" << std::endl;
+        builder << "data_format = ascii" << std::endl;
+        builder << "ascii_max_range = " << CAVA_ASCII_MAX_RANGE << std::endl;
+        builder << "bar_delimiter = " << CAVA_BAR_DELIMITER << std::endl;
+        builder << "frame_delimiter = " << CAVA_FRAME_DELIMITER << std::endl;
         builder << "channels = " << (m_channels == ChannelType::Mono ? "mono" : "stereo") << std::endl;
         builder << "[smoothing]" << std::endl;
         builder << "monstercat = " << (m_useMonstercatSmoothing ? "1" : "0") << std::endl;

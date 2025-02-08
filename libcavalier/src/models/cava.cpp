@@ -1,10 +1,12 @@
 #include "models/cava.h"
 #include <fstream>
 #include <libnick/filesystem/userdirectories.h>
+#include <libnick/helpers/stringhelpers.h>
 #include <libnick/system/environment.h>
 
 using namespace Nickvision::Events;
 using namespace Nickvision::Filesystem;
+using namespace Nickvision::Helpers;
 using namespace Nickvision::System;
 
 #define CAVA_RAW_MAX 65530.0f
@@ -62,7 +64,6 @@ namespace Nickvision::Cavalier::Shared::Models
 
     void Cava::start()
     {
-        std::lock_guard<std::mutex> lock{ m_mutex };
         if(m_process && m_process->kill())
         {
             m_process->waitForExit();
@@ -71,6 +72,7 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             m_watcher.join();
         }
+        std::lock_guard<std::mutex> lock{ m_mutex };
         m_process.reset();
         std::vector<std::string> arguments;
         arguments.push_back("-p");
@@ -88,12 +90,29 @@ namespace Nickvision::Cavalier::Shared::Models
 
     void Cava::watch()
     {
-        std::string oldOutput;
         bool sentEmptyOutput{ false };
         while(m_process->isRunning())
         {
+            if(m_process->getOutput().empty()) //Wait for startup
+            {
+                std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                continue;
+            }
             std::unique_lock<std::mutex> lock{ m_mutex };
-            if(m_process->getOutput().empty() || oldOutput == m_process->getOutput())
+            std::vector<std::string> frames{ StringHelpers::split(m_process->getOutput(), std::string(1, CAVA_FRAME_DELIMITER)) };
+            std::string lastFrame{ frames[frames.size() - 1] };
+            size_t numberOfBarsInFrame{ static_cast<size_t>(m_options.getNumberOfBars()) * 2 };
+            if(std::count(lastFrame.begin(), lastFrame.end(), CAVA_BAR_DELIMITER) != numberOfBarsInFrame) //Frame not complete
+            {
+                lastFrame = frames[frames.size() - 2];
+            }
+            std::vector<std::string> bars{ StringHelpers::split(lastFrame, std::string(1, CAVA_BAR_DELIMITER)) };
+            std::vector<float> sample(numberOfBarsInFrame);
+            for(size_t i = 0; i < numberOfBarsInFrame; i++)
+            {
+                sample[i] = std::stof(bars[i].empty() ? "0" : bars[i]) / CAVA_ASCII_MAX_RANGE;
+            }
+            if(std::count(sample.begin(), sample.end(), 0.0f) == numberOfBarsInFrame) //No audio being received
             {
                 m_isRecevingAudio = false;
                 lock.unlock();
@@ -102,37 +121,29 @@ namespace Nickvision::Cavalier::Shared::Models
                     m_outputReceived.invoke({{}});
                     sentEmptyOutput = true;
                 }
-                std::this_thread::sleep_for(std::chrono::seconds(1));
-                continue;
             }
-            m_isRecevingAudio = true;
-            sentEmptyOutput = false;
-            std::string output{ oldOutput.size() == 0 ? m_process->getOutput() : m_process->getOutput().substr(oldOutput.size()) };
-            oldOutput = m_process->getOutput();
-            unsigned int length{ m_options.getNumberOfBars() * 4 };
-            std::vector<float> sample(m_options.getNumberOfBars() * 2);
-            std::vector<char> bytes{ output.begin(), output.begin() + length };
-            for(unsigned int i = 0; i < length; i += 2)
+            else
             {
-                std::uint16_t* byte{ reinterpret_cast<uint16_t*>(&bytes[i]) };
-                sample[i / 2] = *byte / CAVA_RAW_MAX;
-            }
-            if(m_options.getReverseBarOrder())
-            {
-                if(m_options.getChannels() == ChannelType::Stereo)
+                m_isRecevingAudio = true;
+                sentEmptyOutput = false;
+                if(m_options.getReverseBarOrder())
                 {
-                    int half{ static_cast<int>(sample.size() / 2) };
-                    std::reverse(sample.begin(), sample.begin() + half);
-                    std::reverse(sample.begin() + half, sample.end());
+                    if(m_options.getChannels() == ChannelType::Stereo)
+                    {
+                        int half{ static_cast<int>(sample.size() / 2) };
+                        std::reverse(sample.begin(), sample.begin() + half);
+                        std::reverse(sample.begin() + half, sample.end());
+                    }
+                    else
+                    {
+                        std::reverse(sample.begin(), sample.end());
+                    }
                 }
-                else
-                {
-                    std::reverse(sample.begin(), sample.end());
-                }
+                lock.unlock();
+                m_outputReceived.invoke({ sample });
             }
-            lock.unlock();
-            m_outputReceived.invoke({ sample });
         }
+        std::lock_guard<std::mutex> lock{ m_mutex };
         m_isRecevingAudio = false;
     }
 }

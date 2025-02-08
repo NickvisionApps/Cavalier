@@ -42,7 +42,7 @@ namespace Nickvision::Cavalier::GNOME::Views
         DrawingArea drawing{ m_controller->getDrawingArea() };
         CavaOptions cava{ m_controller->getCavaOptions() };
         drawing.setMode(static_cast<DrawingMode>(adw_combo_row_get_selected(m_builder.get<AdwComboRow>("drawingModeRow"))));
-
+        //TODO
         m_controller->setDrawingArea(drawing);
         m_controller->setCavaOptions(cava);
         m_controller->saveConfiguration();

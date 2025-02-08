@@ -5,6 +5,10 @@
 #include <boost/json.hpp>
 #include "channeltype.h"
 
+#define CAVA_ASCII_MAX_RANGE 1000
+#define CAVA_BAR_DELIMITER 59
+#define CAVA_FRAME_DELIMITER 10
+
 namespace Nickvision::Cavalier::Shared::Models
 {
     /**
