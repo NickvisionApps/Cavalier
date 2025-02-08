@@ -1,4 +1,5 @@
 #include "models/cava.h"
+#include <algorithm>
 #include <fstream>
 #include <libnick/filesystem/userdirectories.h>
 #include <libnick/helpers/stringhelpers.h>
@@ -125,21 +126,8 @@ namespace Nickvision::Cavalier::Shared::Models
             else
             {
                 m_isRecevingAudio = true;
-                sentEmptyOutput = false;
-                if(m_options.getReverseBarOrder())
-                {
-                    if(m_options.getChannels() == ChannelType::Stereo)
-                    {
-                        int half{ static_cast<int>(sample.size() / 2) };
-                        std::reverse(sample.begin(), sample.begin() + half);
-                        std::reverse(sample.begin() + half, sample.end());
-                    }
-                    else
-                    {
-                        std::reverse(sample.begin(), sample.end());
-                    }
-                }
                 lock.unlock();
+                sentEmptyOutput = false;
                 m_outputReceived.invoke({ sample });
             }
         }

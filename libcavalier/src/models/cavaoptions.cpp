@@ -145,6 +145,7 @@ namespace Nickvision::Cavalier::Shared::Models
         builder << "bar_delimiter = " << CAVA_BAR_DELIMITER << std::endl;
         builder << "frame_delimiter = " << CAVA_FRAME_DELIMITER << std::endl;
         builder << "channels = " << (m_channels == ChannelType::Mono ? "mono" : "stereo") << std::endl;
+        builder << "reverse = " << (m_reverseBarOrder ? "1" : "0") << std::endl;
         builder << "[smoothing]" << std::endl;
         builder << "monstercat = " << (m_useMonstercatSmoothing ? "1" : "0") << std::endl;
         builder << "noise_reduction = " << m_noiseReductionFactor << std::endl;
