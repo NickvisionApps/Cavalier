@@ -19,6 +19,7 @@
 #include "controllers/preferencesviewcontroller.h"
 #include "models/canvas.h"
 #include "models/cava.h"
+#include "models/pngimage.h"
 #include "models/renderer.h"
 #include "models/startupinformation.h"
 #include "models/theme.h"
@@ -51,6 +52,16 @@ namespace Nickvision::Cavalier::Shared::Controllers
          * @return The shell notification sent event
          */
         Nickvision::Events::Event<Nickvision::Notifications::ShellNotificationSentEventArgs>& shellNotificationSent();
+        /**
+         * @brief Gets the event for when cava stops outputting data.
+         * @return The cava output stopped event
+         */
+        Nickvision::Events::Event<Nickvision::Events::EventArgs>& cavaOutputStopped();
+        /**
+         * @brief Gets the event for when an image is rendered.
+         * @return The image rendered event
+         */
+        Nickvision::Events::Event<Nickvision::Events::ParamEventArgs<Models::PngImage>>& imageRendered();
         /**
          * @brief Gets the AppInfo object for the application
          * @return The current AppInfo object
@@ -130,6 +141,8 @@ namespace Nickvision::Cavalier::Shared::Controllers
         Nickvision::Taskbar::TaskbarItem m_taskbar;
         Nickvision::Events::Event<Nickvision::Notifications::NotificationSentEventArgs> m_notificationSent;
         Nickvision::Events::Event<Nickvision::Notifications::ShellNotificationSentEventArgs> m_shellNotificationSent;
+        Nickvision::Events::Event<Nickvision::Events::EventArgs> m_cavaOutputStopped;
+        Nickvision::Events::Event<Nickvision::Events::ParamEventArgs<Models::PngImage>> m_imageRendered;
         Models::Cava m_cava;
         Models::Renderer m_renderer;
     };

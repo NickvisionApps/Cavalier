@@ -38,18 +38,22 @@ namespace Nickvision::Cavalier::Shared::Models
 
     bool Cava::isRecevingAudio() const
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         return m_isRecevingAudio;
     }
 
     const CavaOptions& Cava::getOptions() const
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         return m_options;
     }
 
     void Cava::setOptions(const CavaOptions& options)
     {
+        std::unique_lock<std::mutex> lock{ m_mutex };
         m_options = options;
         updateConfigFile();
+        lock.unlock();
         if(m_process->isRunning())
         {
             start();
@@ -58,6 +62,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     void Cava::start()
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         if(m_process && m_process->kill())
         {
             m_process->waitForExit();
@@ -84,16 +89,24 @@ namespace Nickvision::Cavalier::Shared::Models
     void Cava::watch()
     {
         std::string oldOutput;
+        bool sentEmptyOutput{ false };
         while(m_process->isRunning())
         {
+            std::unique_lock<std::mutex> lock{ m_mutex };
             if(m_process->getOutput().empty() || oldOutput == m_process->getOutput())
             {
                 m_isRecevingAudio = false;
-                m_outputReceived.invoke({{}});
-                std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                lock.unlock();
+                if(!sentEmptyOutput)
+                {
+                    m_outputReceived.invoke({{}});
+                    sentEmptyOutput = true;
+                }
+                std::this_thread::sleep_for(std::chrono::seconds(1));
                 continue;
             }
             m_isRecevingAudio = true;
+            sentEmptyOutput = false;
             std::string output{ oldOutput.size() == 0 ? m_process->getOutput() : m_process->getOutput().substr(oldOutput.size()) };
             oldOutput = m_process->getOutput();
             unsigned int length{ m_options.getNumberOfBars() * 4 };
@@ -117,6 +130,7 @@ namespace Nickvision::Cavalier::Shared::Models
                     std::reverse(sample.begin(), sample.end());
                 }
             }
+            lock.unlock();
             m_outputReceived.invoke({ sample });
         }
         m_isRecevingAudio = false;

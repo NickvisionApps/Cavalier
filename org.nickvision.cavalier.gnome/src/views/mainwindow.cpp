@@ -37,8 +37,12 @@ namespace Nickvision::Cavalier::GNOME::Views
         adw_window_title_set_title(m_builder.get<AdwWindowTitle>("title"), m_controller->getAppInfo().getShortName().c_str());
         //Register Events
         g_signal_connect(m_window, "close_request", G_CALLBACK(+[](GtkWindow*, gpointer data) -> bool { return reinterpret_cast<MainWindow*>(data)->onCloseRequested(); }), this);
+        g_signal_connect(m_window, "notify::default-width", G_CALLBACK(+[](GObject*, GParamSpec*, gpointer data){ reinterpret_cast<MainWindow*>(data)->onWindowResized(); }), this);
+        g_signal_connect(m_window, "notify::default-height", G_CALLBACK(+[](GObject*, GParamSpec*, gpointer data){ reinterpret_cast<MainWindow*>(data)->onWindowResized(); }), this);
         m_controller->notificationSent() += [&](const NotificationSentEventArgs& args) { GtkHelpers::dispatchToMainThread([this, args]() { onNotificationSent(args); }); };
         m_controller->shellNotificationSent() += [&](const ShellNotificationSentEventArgs& args) { onShellNotificationSent(args); };
+        m_controller->cavaOutputStopped() += [&](const EventArgs& args) { GtkHelpers::dispatchToMainThread([this]() { onCavaOutputStopped(); }); };
+        m_controller->imageRendered() += [&](const ParamEventArgs<PngImage>& args) { GtkHelpers::dispatchToMainThread([this, args]() { onImageRendered(args); }); };
         //Quit Action
         GSimpleAction* actQuit{ g_simple_action_new("quit", nullptr) };
         g_signal_connect(actQuit, "activate", G_CALLBACK(+[](GSimpleAction*, GVariant*, gpointer data){ reinterpret_cast<MainWindow*>(data)->quit(); }), this);
@@ -94,6 +98,14 @@ namespace Nickvision::Cavalier::GNOME::Views
         return false;
     }
 
+    void MainWindow::onWindowResized()
+    {
+        int width;
+        int height;
+        gtk_window_get_default_size(GTK_WINDOW(m_window), &width, &height);
+        m_controller->setCanvas(Canvas{ width, height });
+    }
+
     void MainWindow::onNotificationSent(const NotificationSentEventArgs& args)
     {
         AdwToast* toast{ adw_toast_new(args.getMessage().c_str()) };
@@ -107,6 +119,22 @@ namespace Nickvision::Cavalier::GNOME::Views
 #else
         ShellNotification::send(args);
 #endif
+    }
+
+    void MainWindow::onCavaOutputStopped()
+    {
+        adw_view_stack_set_visible_child_name(m_builder.get<AdwViewStack>("viewStack"), "Home");
+        gtk_image_clear(m_builder.get<GtkImage>("renderImage"));
+    }
+
+    void MainWindow::onImageRendered(const ParamEventArgs<PngImage>& args)
+    {
+        adw_view_stack_set_visible_child_name(m_builder.get<AdwViewStack>("viewStack"), "Image");
+        GBytes* bytes{ g_bytes_new(&args.getParam().getBytes()[0], args.getParam().getBytes().size()) };
+        GdkTexture* texture{ gdk_texture_new_from_bytes(bytes, nullptr) };
+        gtk_image_set_from_paintable(m_builder.get<GtkImage>("renderImage"), GDK_PAINTABLE(texture));
+        g_object_unref(texture);
+        g_bytes_unref(bytes);
     }
 
     void MainWindow::quit()

@@ -2,6 +2,7 @@
 #define CAVA_H
 
 #include <filesystem>
+#include <mutex>
 #include <string>
 #include <thread>
 #include <vector>
@@ -64,6 +65,7 @@ namespace Nickvision::Cavalier::Shared::Models
          * @brief Watches for output from the cava process.
          */
         void watch();
+        mutable std::mutex m_mutex;
         CavaOptions m_options;
         bool m_isRecevingAudio;
         std::filesystem::path m_configPath;

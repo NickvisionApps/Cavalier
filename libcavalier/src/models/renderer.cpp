@@ -11,6 +11,7 @@
 #include <skia/include/core/SkSurface.h>
 #include <skia/include/core/SkTileMode.h>
 #include <skia/include/effects/SkGradientShader.h>
+#include <skia/include/encode/SkPngEncoder.h>
 
 #define INNER_RADIUS 0.5f
 #define LINE_THICKNESS 5
@@ -63,49 +64,58 @@ namespace Nickvision::Cavalier::Shared::Models
 
     const std::optional<Canvas>& Renderer::getCanvas() const
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         return m_canvas;
     }
 
     void Renderer::setCanvas(const std::optional<Canvas>& canvas)
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         m_canvas = canvas;
     }
 
     const DrawingArea& Renderer::getDrawingArea() const
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         return m_drawingArea;
     }
 
     void Renderer::setDrawingArea(const DrawingArea& area)
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         m_drawingArea = area;
     }
 
     const ColorProfile& Renderer::getColorProfile() const
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         return m_colorProfile;
     }
 
     void Renderer::setColorProfile(const ColorProfile& profile)
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         m_colorProfile = profile;
     }
 
     const std::optional<BackgroundImage>& Renderer::getBackgroundImage() const
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         return m_backgroundImage;
     }
 
     void Renderer::setBackgroundImage(const std::optional<BackgroundImage>& image)
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         m_backgroundImage = image;
     }
 
-    void Renderer::draw(const std::vector<float>& sample)
+    std::optional<PngImage> Renderer::draw(const std::vector<float>& sample)
     {
+        std::lock_guard<std::mutex> lock{ m_mutex };
         if(!m_canvas || sample.empty())
         {
-            return;
+            return std::nullopt;
         }
         //Setup
         SkBitmap* backgroundBitmap{ nullptr };
@@ -220,6 +230,17 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             drawFunction({ sample, m_drawingArea.getMode(), m_drawingArea.getDirection(), start, end, 0, fgPaint });
         }
+        //Get PNG Image
+        sk_sp<SkImage> image{ m_canvas->getSkiaSurface()->makeImageSnapshot() };
+        if(image)
+        {
+            sk_sp<SkData> png{ SkPngEncoder::Encode(nullptr, image.get(), {}) };
+            if(png)
+            {
+                return PngImage{ width, height, png->bytes(), png->size() };
+            }
+        }
+        return std::nullopt;
     }
 
     float Renderer::getMirrorWidth(float width)

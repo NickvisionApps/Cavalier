@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 02:28-0500\n"
+"POT-Creation-Date: 2025-02-07 22:07-0500\n"
 "PO-Revision-Date: 2024-09-01 09:09+0000\n"
 "Last-Translator: D XC <hello_cmd@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -49,16 +49,16 @@ msgstr "David Lapshin"
 msgid "translator-credits"
 msgstr "翻译成员"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:155
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:165
 msgid "New update available"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:169
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:179
 msgid ""
 "The update is downloading in the background and will start once it finishes"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:174
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:184
 msgid "Unable to download and install update"
 msgstr ""
 
@@ -336,12 +336,12 @@ msgstr "应用程序"
 msgid "Quit"
 msgstr "退出"
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:113
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:155
 msgid "Open"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:170
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:181
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
 msgid "GitHub Repo"
 msgstr "GitHub 库"

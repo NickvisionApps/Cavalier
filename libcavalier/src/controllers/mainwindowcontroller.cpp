@@ -68,6 +68,16 @@ namespace Nickvision::Cavalier::Shared::Controllers
         return m_shellNotificationSent;
     }
 
+    Event<EventArgs>& MainWindowController::cavaOutputStopped()
+    {
+        return m_cavaOutputStopped;
+    }
+
+    Event<ParamEventArgs<PngImage>>& MainWindowController::imageRendered()
+    {
+        return m_imageRendered;
+    }
+
     const AppInfo& MainWindowController::getAppInfo() const
     {
         return m_appInfo;
@@ -203,11 +213,15 @@ namespace Nickvision::Cavalier::Shared::Controllers
     {
         if(args.getParam().empty())
         {
-            //TODO
+            m_cavaOutputStopped.invoke({});
         }
         else
         {
-            m_renderer.draw(args.getParam());
+            std::optional<PngImage> image{ m_renderer.draw(args.getParam()) };
+            if(image)
+            {
+                m_imageRendered.invoke({ *image });
+            }
         }
     }
 }

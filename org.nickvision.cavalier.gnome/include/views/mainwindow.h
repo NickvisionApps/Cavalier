@@ -36,6 +36,10 @@ namespace Nickvision::Cavalier::GNOME::Views
          */
         bool onCloseRequested();
         /**
+         * @brief Handles when the window is resized.
+         */
+        void onWindowResized();
+        /**
          * @brief Handles when a notification is sent to the window.
          * @param args Nickvision::Notifications::NotificationSentEventArgs 
          */
@@ -45,6 +49,15 @@ namespace Nickvision::Cavalier::GNOME::Views
          * @param args Nickvision::Notifications::ShellNotificationSentEventArgs
          */
         void onShellNotificationSent(const Nickvision::Notifications::ShellNotificationSentEventArgs& args);
+        /**
+         * @brief Handles when cava stops outputting data.
+         */
+        void onCavaOutputStopped();
+        /**
+         * @brief Handles when an image is rendered
+         * @param args Nickvision::Events::ParamEventArgs<Shared::Models::PngImage>
+         */
+        void onImageRendered(const Nickvision::Events::ParamEventArgs<Shared::Models::PngImage>& args);
         /**
          * @brief Quits the application. 
          */

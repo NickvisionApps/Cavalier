@@ -1,6 +1,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include <mutex>
 #include <optional>
 #include <vector>
 #include <skia/include/core/SkPath.h>
@@ -12,6 +13,7 @@
 #include "colorprofile.h"
 #include "drawingarea.h"
 #include "drawingfunctionarguments.h"
+#include "pngimage.h"
 #include "point.h"
 
 namespace Nickvision::Cavalier::Shared::Models
@@ -69,8 +71,10 @@ namespace Nickvision::Cavalier::Shared::Models
         /**
          * @brief Renders and draws the sample on the canvas.
          * @param sample The cava sample
+         * @return The rendered png image if successful
+         * @return std::nullopt if rendering not successful
          */
-        void draw(const std::vector<float>& sample);
+        std::optional<PngImage> draw(const std::vector<float>& sample);
 
     private:
         float getMirrorWidth(float width);
@@ -86,6 +90,7 @@ namespace Nickvision::Cavalier::Shared::Models
         void drawSpine(const DrawingFunctionArguments& args);
         void drawSplitter(const DrawingFunctionArguments& args);
         void drawHearts(const DrawingFunctionArguments& args);
+        mutable std::mutex m_mutex;
         std::optional<Canvas> m_canvas;
         DrawingArea m_drawingArea;
         ColorProfile m_colorProfile;

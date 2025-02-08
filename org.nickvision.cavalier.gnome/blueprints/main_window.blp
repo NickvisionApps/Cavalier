@@ -42,11 +42,10 @@ Adw.ApplicationWindow root {
         }
 
         Adw.ViewStackPage {
-          name: "Cava";
-          child: Gtk.GLArea glArea {
+          name: "Image";
+          child: Gtk.Image renderImage {
             hexpand: true;
             vexpand: true;
-            auto-render: false;
           };
         }
       }
