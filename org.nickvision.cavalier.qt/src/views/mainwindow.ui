@@ -31,7 +31,7 @@
     <item>
      <widget class="QStackedWidget" name="viewStack">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="homePage">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -125,6 +125,20 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="renderPage">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="lblImage">
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -138,7 +152,7 @@
      <height>23</height>
     </rect>
    </property>
-  <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
      <string/>
     </property>

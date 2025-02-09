@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 22:07-0500\n"
+"POT-Creation-Date: 2025-02-09 13:49-0500\n"
 "PO-Revision-Date: 2023-11-17 18:31+0000\n"
 "Last-Translator: Yahor <k1llo2810@protonmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/nickvision-"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Weblate 5.2\n"
 
 #: libcavalier/src/controllers/mainwindowcontroller.cpp:34
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:34
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 msgid "Cavalier"
 msgstr "Cavalier"
 
@@ -90,13 +90,13 @@ msgstr "Галоўнае меню"
 
 #. Home Page
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
 #, fuzzy
 msgid "Visualize Your Audio"
 msgstr "Візуалізуйце аўдыя з дапамогай CAVA"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:55
 #, fuzzy
 msgid "Play some music or watch a video and see your sound come to life"
 msgstr ""
@@ -330,7 +330,7 @@ msgid "Application"
 msgstr "Праграма"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
 #, fuzzy
 msgid "About Application"
 msgstr "Праграма"
@@ -340,12 +340,12 @@ msgid "Quit"
 msgstr "Выйсці"
 
 #: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:155
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:170
 msgid "Open"
 msgstr ""
 
 #: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:181
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
 msgid "GitHub Repo"
 msgstr "Рэпазіторый GitHub"
 
@@ -389,46 +389,46 @@ msgstr ""
 msgid "Notification"
 msgstr "Нахіл"
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:34
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
 msgstr "Тэма праграмы"
 
 #. MenuBar
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:37
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
 msgid "File"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:38
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
 msgid "Exit"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:39
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
 msgid "Edit"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
 msgid "Settings"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:41
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
 msgid "Help"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
 msgid "Check for Updates"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
 msgid "Report a Bug"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
 msgid "Discussions"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:143
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:158
 msgid "Update"
 msgstr ""
 

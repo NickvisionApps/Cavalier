@@ -4,6 +4,7 @@
 #include <memory>
 #include <QCloseEvent>
 #include <QMainWindow>
+#include <QResizeEvent>
 #include "controllers/mainwindowcontroller.h"
 #include "controls/infobar.h"
 
@@ -40,6 +41,11 @@ namespace Nickvision::Cavalier::Qt::Views
          * @param event QCloseEvent
          */
         void closeEvent(QCloseEvent* event) override;
+        /**
+         * @brief Handles when the window is resized.
+         * @param event QResizeEvent
+         */
+        void resizeEvent(QResizeEvent* event) override;
 
     private Q_SLOTS:
         /**
@@ -84,6 +90,15 @@ namespace Nickvision::Cavalier::Qt::Views
          * @param args The ShellNotificationSentEventArgs
          */
         void onShellNotificationSent(const Notifications::ShellNotificationSentEventArgs& args);
+        /**
+         * @brief Handles when cava stops outputting data.
+         */
+        void onCavaOutputStopped();
+        /**
+         * @brief Handles when an image is rendered
+         * @param args Nickvision::Events::ParamEventArgs<Shared::Models::PngImage>
+         */
+        void onImageRendered(const Events::ParamEventArgs<Shared::Models::PngImage>& args);
         Ui::MainWindow* m_ui;
         Controls::InfoBar* m_infoBar;
         std::shared_ptr<Shared::Controllers::MainWindowController> m_controller;

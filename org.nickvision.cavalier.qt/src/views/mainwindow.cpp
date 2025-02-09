@@ -24,6 +24,12 @@ using namespace Nickvision::Update;
 
 namespace Nickvision::Cavalier::Qt::Views
 {
+    enum MainWindowPages
+    {
+        Home = 0,
+        Render = 1
+    };
+
     MainWindow::MainWindow(const std::shared_ptr<MainWindowController>& controller, QWidget* parent) 
         : QMainWindow{ parent },
         m_ui{ new Ui::MainWindow() },
@@ -57,6 +63,8 @@ namespace Nickvision::Cavalier::Qt::Views
         connect(m_ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
         m_controller->notificationSent() += [&](const NotificationSentEventArgs& args) { QtHelpers::dispatchToMainThread([this, args]() { onNotificationSent(args); }); };
         m_controller->shellNotificationSent() += [&](const ShellNotificationSentEventArgs& args) { onShellNotificationSent(args); };
+        m_controller->cavaOutputStopped() += [&](const EventArgs& args) { QtHelpers::dispatchToMainThread([this]() { onCavaOutputStopped(); }); };
+        m_controller->imageRendered() += [&](const ParamEventArgs<PngImage>& args) { QtHelpers::dispatchToMainThread([this, args]() { onImageRendered(args); }); };
     }
 
     MainWindow::~MainWindow()
@@ -80,6 +88,8 @@ namespace Nickvision::Cavalier::Qt::Views
         {
             showMaximized();
         }
+        m_ui->viewStack->setCurrentIndex(MainWindowPages::Home);
+        m_controller->setCanvas(Canvas{ static_cast<int>(info.getWindowGeometry().getWidth()), static_cast<int>(info.getWindowGeometry().getHeight()) });
     }
 
     void MainWindow::closeEvent(QCloseEvent* event)
@@ -90,6 +100,11 @@ namespace Nickvision::Cavalier::Qt::Views
         }
         m_controller->shutdown({ geometry().width(), geometry().height(), isMaximized() });
         event->accept();
+    }
+
+    void MainWindow::resizeEvent(QResizeEvent* event)
+    {
+        //TODO
     }
 
     void MainWindow::settings()
@@ -156,5 +171,20 @@ namespace Nickvision::Cavalier::Qt::Views
 #else
         ShellNotification::send(args);
 #endif
+    }
+
+    void MainWindow::onCavaOutputStopped()
+    {
+        m_ui->lblImage->clear();
+        m_ui->viewStack->setCurrentIndex(MainWindowPages::Home);
+    }
+
+    void MainWindow::onImageRendered(const ParamEventArgs<PngImage>& args)
+    {
+        m_ui->viewStack->setCurrentIndex(MainWindowPages::Render);
+        QByteArray bytes{ reinterpret_cast<const char*>(&args.getParam().getBytes()[0]), args.getParam().getBytes().size() };
+        QPixmap pixmap{ args.getParam().getWidth(), args.getParam().getHeight() };
+        pixmap.loadFromData(bytes, "PNG");
+        m_ui->lblImage->setPixmap(pixmap);
     }
 }
