@@ -42,7 +42,23 @@ namespace Nickvision::Cavalier::GNOME::Views
         DrawingArea drawing{ m_controller->getDrawingArea() };
         CavaOptions cava{ m_controller->getCavaOptions() };
         drawing.setMode(static_cast<DrawingMode>(adw_combo_row_get_selected(m_builder.get<AdwComboRow>("drawingModeRow"))));
-        //TODO
+        drawing.setShape(static_cast<DrawingShape>(adw_combo_row_get_selected(m_builder.get<AdwComboRow>("drawingShapeRow"))));
+        drawing.setDirection(static_cast<DrawingDirection>(adw_combo_row_get_selected(m_builder.get<AdwComboRow>("drawingDirectionRow"))));
+        drawing.setFillShape(adw_switch_row_get_active(m_builder.get<AdwSwitchRow>("fillShapeRow")));
+        drawing.setMirrorMode(static_cast<MirrorMode>(adw_combo_row_get_selected(m_builder.get<AdwComboRow>("mirrowModeRow"))));
+        drawing.setMargin(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("drawingMarginRow")));
+        drawing.setXOffset(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("drawingXOffset")));
+        drawing.setYOffset(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("drawingYOffset")));
+        drawing.setItemSpacing(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("itemSpacingRow")));
+        drawing.setItemRoundness(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("itemRoundnessRow")));
+        cava.setChannels(static_cast<ChannelType>(adw_combo_row_get_selected(m_builder.get<AdwComboRow>("channelsRow"))));
+        cava.setFramerate(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("framerateRow")));
+        cava.setNumberOfBars(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("numberOfBarsRow")));
+        cava.setReverseBarOrder(adw_switch_row_get_active(m_builder.get<AdwSwitchRow>("reverseBarOrderRow")));
+        cava.setUseAutomaticSensitivity(adw_switch_row_get_active(m_builder.get<AdwSwitchRow>("automaticSensitivityRow")));
+        cava.setSensitivity(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("sensitivityRow")));
+        cava.setUseMonstercatSmoothing(adw_switch_row_get_active(m_builder.get<AdwSwitchRow>("monstercatRow")));
+        cava.setNoiseReductionFactor(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("nosieReductionRow")));
         m_controller->setDrawingArea(drawing);
         m_controller->setCavaOptions(cava);
         m_controller->saveConfiguration();
