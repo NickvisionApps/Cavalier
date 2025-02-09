@@ -133,9 +133,12 @@ namespace Nickvision::Cavalier::Shared::Models
         builder << "bars = " << m_numberOfBars * 2 << std::endl;
         builder << "autosens = " << (m_useAutomaticSensitivity ? "1" : "0") << std::endl;
         builder << "sensitivity = " << std::pow(m_sensitivity, 2) << std::endl;
-        builder << "[input]" << std::endl;
-        builder << "method = " << (Environment::hasVariable("CAVALIER_INPUT_METHOD") ? Environment::getVariable("CAVALIER_INPUT_METHOD") : "pulse") << std::endl;
-        builder << "source = " << (Environment::hasVariable("CAVALIER_INPUT_SOURCE") ? Environment::getVariable("CAVALIER_INPUT_SOURCE") : "auto") << std::endl;
+        if(Environment::getOperatingSystem() != OperatingSystem::Windows)
+        {
+            builder << "[input]" << std::endl;
+            builder << "method = " << (Environment::hasVariable("CAVALIER_INPUT_METHOD") ? Environment::getVariable("CAVALIER_INPUT_METHOD") : "pulse") << std::endl;
+            builder << "source = " << (Environment::hasVariable("CAVALIER_INPUT_SOURCE") ? Environment::getVariable("CAVALIER_INPUT_SOURCE") : "auto") << std::endl;
+        }
         builder << "[output]" << std::endl;
         builder << "method = raw" << std::endl;
         builder << "bit_format = 16bit" << std::endl;
