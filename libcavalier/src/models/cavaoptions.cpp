@@ -9,7 +9,7 @@ namespace Nickvision::Cavalier::Shared::Models
 {
     CavaOptions::CavaOptions()
         : m_framerate{ 60 },
-        m_numberOfBars{ 12 },
+        m_numberOfBars{ 24 },
         m_reverseBarOrder{ false },
         m_useAutomaticSensitivity{ true },
         m_sensitivity{ 10 },
@@ -22,7 +22,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     CavaOptions::CavaOptions(boost::json::object json)
         : m_framerate{ json["Framerate"].is_uint64() ? json["Framerate"].as_uint64() : 60 },
-        m_numberOfBars{ json["NumberOfBars"].is_uint64() ? json["NumberOfBars"].as_uint64() : 12 },
+        m_numberOfBars{ json["NumberOfBars"].is_uint64() ? json["NumberOfBars"].as_uint64() : 24 },
         m_reverseBarOrder{ json["ReverseBarOrder"].is_bool() ? json["ReverseBarOrder"].as_bool() : false },
         m_useAutomaticSensitivity{ json["UseAutomaticSensitivity"].is_bool() ? json["UseAutomaticSensitivity"].as_bool() : true },
         m_sensitivity{ json["Sensitivity"].is_uint64() ? json["Sensitivity"].as_uint64() : 10 },
@@ -50,9 +50,9 @@ namespace Nickvision::Cavalier::Shared::Models
 
     void CavaOptions::setNumberOfBars(unsigned int bars)
     {
-        if(bars < 6 || bars > 100)
+        if(bars < 6 || bars > 200)
         {
-            bars = 12;
+            bars = 24;
         }
         m_numberOfBars = bars;
     }
@@ -130,7 +130,7 @@ namespace Nickvision::Cavalier::Shared::Models
         std::stringstream builder;
         builder << "[general]" << std::endl;
         builder << "framerate = " << m_framerate << std::endl;
-        builder << "bars = " << m_numberOfBars * 2 << std::endl;
+        builder << "bars = " << m_numberOfBars << std::endl;
         builder << "autosens = " << (m_useAutomaticSensitivity ? "1" : "0") << std::endl;
         builder << "sensitivity = " << std::pow(m_sensitivity, 2) << std::endl;
         if(Environment::getOperatingSystem() != OperatingSystem::Windows)

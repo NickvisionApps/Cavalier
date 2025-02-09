@@ -101,19 +101,26 @@ namespace Nickvision::Cavalier::Shared::Models
             }
             std::unique_lock<std::mutex> lock{ m_mutex };
             std::vector<std::string> frames{ StringHelpers::split(m_process->getOutput(), std::string(1, CAVA_FRAME_DELIMITER)) };
-            std::string lastFrame{ frames[frames.size() - 1] };
-            size_t numberOfBarsInFrame{ static_cast<size_t>(m_options.getNumberOfBars()) * 2 };
-            if(std::count(lastFrame.begin(), lastFrame.end(), CAVA_BAR_DELIMITER) != numberOfBarsInFrame) //Frame not complete
+            std::vector<std::string> bars;
+            for(int i = frames.size() - 1; i >= 0; i--)
             {
-                lastFrame = frames[frames.size() - 2];
+                const std::string& lastFrame{ frames[i] };
+                if(std::count(lastFrame.begin(), lastFrame.end(), CAVA_BAR_DELIMITER) == m_options.getNumberOfBars())
+                {
+                    bars = StringHelpers::split(lastFrame, std::string(1, CAVA_BAR_DELIMITER));
+                    break;
+                }
             }
-            std::vector<std::string> bars{ StringHelpers::split(lastFrame, std::string(1, CAVA_BAR_DELIMITER)) };
-            std::vector<float> sample(numberOfBarsInFrame);
-            for(size_t i = 0; i < numberOfBarsInFrame; i++)
+            if(bars.empty())
+            {
+                continue;
+            }
+            std::vector<float> sample(static_cast<size_t>(m_options.getNumberOfBars()));
+            for(unsigned int i = 0; i < m_options.getNumberOfBars(); i++)
             {
                 sample[i] = std::stof(bars[i].empty() ? "0" : bars[i]) / CAVA_ASCII_MAX_RANGE;
             }
-            if(std::count(sample.begin(), sample.end(), 0.0f) == numberOfBarsInFrame) //No audio being received
+            if(std::count(sample.begin(), sample.end(), 0.0f) == m_options.getNumberOfBars()) //No audio being received
             {
                 m_isRecevingAudio = false;
                 lock.unlock();

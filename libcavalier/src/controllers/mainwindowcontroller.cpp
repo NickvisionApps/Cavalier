@@ -33,7 +33,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_appInfo.setVersion({ "2025.2.0-next" });
         m_appInfo.setShortName(_("Cavalier"));
         m_appInfo.setDescription(_("Visualize audio with CAVA"));
-        m_appInfo.setChangelog("- Initial Release");
+        m_appInfo.setChangelog("- Rewrote Cavalier in C++ for faster and smoother performance\n- Added a Qt version of Cavalier which also runs on Windows\n- Added the ability to specify the `CAVALIER_INPUT_SOURCE` environment variable to change Cavalier's audio source\n- Increased the maximuim number of bars to 200\n- Updated dependencies");
         m_appInfo.setSourceRepo("https://github.com/NickvisionApps/Cavalier");
         m_appInfo.setIssueTracker("https://github.com/NickvisionApps/Cavalier/issues/new");
         m_appInfo.setSupportUrl("https://github.com/NickvisionApps/Cavalier/discussions");

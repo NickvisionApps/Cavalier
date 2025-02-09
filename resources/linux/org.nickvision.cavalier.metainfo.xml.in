@@ -58,7 +58,11 @@
   <releases>
     <release version="2025.2.0-next" date="2025-02-01">
       <description translate="no">
-        <p>- Initial Release</p>
+        <p>- Rewrote Cavalier in C++ for faster and smoother performance</p>
+        <p>- Added a Qt version of Cavalier which also runs on Windows</p>
+        <p>- Added the ability to specify the `CAVALIER_INPUT_SOURCE` environment variable to change Cavalier's audio source</p>
+        <p>- Increased the maximuim number of bars to 200</p>
+        <p>- Updated dependencies</p>
       </description>
     </release>
   </releases>
