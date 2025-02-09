@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <filesystem>
 #include <functional>
+#include <numbers>
 #include <skia/include/codec/SkCodec.h>
 #include <skia/include/core/SkBitmap.h>
 #include <skia/include/core/SkColor.h>
@@ -15,6 +16,8 @@
 
 #define INNER_RADIUS 0.5f
 #define LINE_THICKNESS 5
+#define PI std::numbers::pi_v<float>
+#define ROTATION 0.0f
 
 namespace Nickvision::Cavalier::Shared::Models
 {
@@ -382,17 +385,17 @@ namespace Nickvision::Cavalier::Shared::Models
             {
                 flipImage = args.getDirection() == DrawingDirection::TopToBottom;
                 //Create a list of points of where the curve must pass through
-                for(int i = 0; i < args.getSample().size(); i++)
+                for(size_t i = 0; i < args.getSample().size(); i++)
                 {
                     points[i] = { step * i, args.getEnd().getY() * (1 - args.getSample()[i]) };
                 }
                 //Calculate gradient between the two neighbouring points for each point
-                for(int i = 0; i < points.size(); i++)
+                for(size_t i = 0; i < points.size(); i++)
                 {
                     //Determine the previous and next point
                     //If there isn't one, use the current point
-                    const Point& previous{ points[std::max(i - 1, 0)] };
-                    const Point& next{ points[std::min(i + 1, static_cast<int>(points.size()) - 1)] };
+                    const Point& previous{ points[std::max(i - 1, static_cast<size_t>(0))] };
+                    const Point& next{ points[std::min(i + 1, points.size() - 1)] };
                     float gradient{ next.getY() - previous.getY() };
                     //If using the current point (when at the edges), then the run is rise/run = 1
                     //Otherwise, a two step run exists
@@ -400,7 +403,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 }
                 float yOffset{ args.getStart().getY() + (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS / 2) };
                 path.moveTo(args.getStart().getX() + points[0].getX(), yOffset + flipCoord(points[0].getY(), args.getEnd().getY(), flipImage));
-                for(int i = 0; i < points.size() - 1; i++)
+                for(size_t i = 0; i < points.size() - 1; i++)
                 {
                     SkPoint a{ args.getStart().getX() + points[i].getX() + step * 0.5f, yOffset + flipCoord(points[i].getY() + gradients[i] * 0.5f, args.getEnd().getY(), flipImage) };
                     SkPoint b{ args.getStart().getX() + points[i + 1].getX() + step * -0.5f, yOffset + flipCoord(points[i + 1].getY() + gradients[i + 1] * -0.5f, args.getEnd().getY(), flipImage) };
@@ -419,20 +422,20 @@ namespace Nickvision::Cavalier::Shared::Models
             case DrawingDirection::RightToLeft:
             {
                 flipImage = args.getDirection() == DrawingDirection::RightToLeft;
-                for(int i = 0; i < args.getSample().size(); i++)
+                for(size_t i = 0; i < args.getSample().size(); i++)
                 {
                     points[i] = { args.getEnd().getX() * args.getSample()[i], step * i };
                 }
-                for(int i = 0; i < points.size(); i++)
+                for(size_t i = 0; i < points.size(); i++)
                 {
-                    const Point& previous{ points[std::max(i - 1, 0)] };
-                    const Point& next{ points[std::min(i + 1, static_cast<int>(points.size()) - 1)] };
+                    const Point& previous{ points[std::max(i - 1, static_cast<size_t>(0))] };
+                    const Point& next{ points[std::min(i + 1, points.size() - 1)] };
                     float gradient{ next.getX() - previous.getX() };
                     gradients[i] = i == 0 || i == points.size() - 1 ? gradient : gradient / 2;
                 }
                 float xOffset{ args.getStart().getX() - (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS / 2) };
                 path.moveTo(xOffset + flipCoord(points[0].getX(), args.getEnd().getX(), flipImage), args.getStart().getY() + points[0].getY());
-                for(int i = 0; i < points.size() - 1; i++)
+                for(size_t i = 0; i < points.size() - 1; i++)
                 {
                     SkPoint a{ xOffset + flipCoord(points[i].getX() + gradients[i] * 0.5f, args.getEnd().getX(), flipImage), args.getStart().getY() + points[i].getY() + step * 0.5f };
                     SkPoint b{ xOffset + flipCoord(points[i + 1].getX() + gradients[i + 1] * -0.5f, args.getEnd().getX(), flipImage), args.getStart().getY() + points[i + 1].getY() + step * -0.5f };
@@ -450,9 +453,40 @@ namespace Nickvision::Cavalier::Shared::Models
             }
             (*m_canvas)->drawPath(path, args.getPaint());
         }
-        else //Circle
+        else if(args.getMode() == DrawingMode::Circle)
         {
-            //TODO
+            float fullRadius{ std::min(args.getEnd().getX(), args.getEnd().getY()) / 2.0f };
+            float innerRadius{ fullRadius * INNER_RADIUS };
+            float radius{ fullRadius - innerRadius };
+            SkPaint paint{ args.getPaint() };
+            SkPath path;
+            (*m_canvas)->save();
+            (*m_canvas)->translate(args.getStart().getX(), args.getStart().getY());
+            paint.setStyle(SkPaint::kStroke_Style);
+            paint.setStrokeWidth(m_drawingArea.getFillShape() ? radius : LINE_THICKNESS);
+            path.moveTo(args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION));
+            for(size_t i = 0; i < args.getSample().size() - 1; i++)
+            {
+                SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION) };
+                SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION) };
+                SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + ROTATION) };
+                path.cubicTo(a, b, c);
+            }
+            SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION) };
+            SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION) };
+            SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION) };
+            path.cubicTo(a, b, c);
+            path.close();
+            if(m_drawingArea.getFillShape())
+            {
+                (*m_canvas)->clipPath(path, SkClipOp::kIntersect, true);
+                (*m_canvas)->drawCircle({ args.getEnd().getX() / 2, args.getEnd().getY() / 2 }, innerRadius + radius / 2, paint);
+            }
+            else
+            {
+                (*m_canvas)->drawPath(path, paint);
+            }
+            (*m_canvas)->restore();
         }
     }
 
@@ -462,7 +496,7 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             //TODO
         }
-        else //Circle
+        else if(args.getMode() == DrawingMode::Circle)
         {
             //TODO
         }
@@ -486,7 +520,7 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             //TODO
         }
-        else //Circle
+        else if(args.getMode() == DrawingMode::Circle)
         {
             //TODO
         }
@@ -498,7 +532,7 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             //TODO
         }
-        else //Circle
+        else if(args.getMode() == DrawingMode::Circle)
         {
             //TODO
         }
@@ -510,7 +544,7 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             //TODO
         }
-        else //Circle
+        else if(args.getMode() == DrawingMode::Circle)
         {
             //TODO
         }
@@ -522,7 +556,7 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             //TODO
         }
-        else //Circle
+        else if(args.getMode() == DrawingMode::Circle)
         {
             //TODO
         }
