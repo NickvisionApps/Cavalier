@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 13:49-0500\n"
-"PO-Revision-Date: 2023-08-13 23:35+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2025-02-10 12:16-0500\n"
+"PO-Revision-Date: 2025-02-04 13:02+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/nickvision-"
 "cavalier/app/fi/>\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libcavalier/src/controllers/mainwindowcontroller.cpp:34
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
@@ -261,9 +261,8 @@ msgid "Cava"
 msgstr "Cavalier"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
-#, fuzzy
 msgid "Channels"
-msgstr "Jaa kanavat"
+msgstr "Kanavat"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
 msgid "Mono"
@@ -385,7 +384,7 @@ msgstr "Kierto"
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
-msgstr "Sovelluksen teema"
+msgstr "Cavalier"
 
 #. MenuBar
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
@@ -440,10 +439,6 @@ msgstr ""
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
 msgid "Automatically Check for Updates"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Application"
-#~ msgstr "Sovellus"
 
 #~ msgid "Add"
 #~ msgstr "Lisää"
@@ -528,6 +523,9 @@ msgstr ""
 
 #~ msgid "Add Profile"
 #~ msgstr "Lisää profiili"
+
+#~ msgid "Application Theme"
+#~ msgstr "Sovelluksen teema"
 
 #~ msgid "Foreground Colors"
 #~ msgstr "Edustavärit"

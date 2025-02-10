@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 13:49-0500\n"
+"POT-Creation-Date: 2025-02-10 12:16-0500\n"
 "PO-Revision-Date: 2024-04-20 23:07+0000\n"
 "Last-Translator: araujoviana <araujomatheusgabriel1@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -263,9 +263,8 @@ msgid "Cava"
 msgstr "Cavalier"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
-#, fuzzy
 msgid "Channels"
-msgstr "Separar Canais"
+msgstr "Canais"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
 msgid "Mono"
@@ -392,7 +391,7 @@ msgstr "Rotação"
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
-msgstr "Tema do aplicativo"
+msgstr "Cavalier"
 
 #. MenuBar
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
@@ -449,10 +448,6 @@ msgstr ""
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
 msgid "Automatically Check for Updates"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Application"
-#~ msgstr "Aplicação"
 
 #~ msgid "Add"
 #~ msgstr "Adicionar"
@@ -600,6 +595,9 @@ msgstr ""
 #, fuzzy
 #~ msgid "Add Profile"
 #~ msgstr "Adicione um novo perfil"
+
+#~ msgid "Application Theme"
+#~ msgstr "Tema do aplicativo"
 
 #~ msgid "Foreground Colors"
 #~ msgstr "Cores do primeiro plano"

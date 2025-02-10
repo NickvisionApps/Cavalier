@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 13:49-0500\n"
+"POT-Creation-Date: 2025-02-10 12:16-0500\n"
 "PO-Revision-Date: 2024-03-14 14:01+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nickvision-"
@@ -262,9 +262,8 @@ msgid "Cava"
 msgstr "Cavalier"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
-#, fuzzy
 msgid "Channels"
-msgstr "Kanalları Ayır"
+msgstr "Kanallar"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
 msgid "Mono"
@@ -391,7 +390,7 @@ msgstr "Döndürme"
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
-msgstr "Uygulama Teması"
+msgstr "Cavalier"
 
 #. MenuBar
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
@@ -446,10 +445,6 @@ msgstr ""
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
 msgid "Automatically Check for Updates"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Application"
-#~ msgstr "Uygulama"
 
 #~ msgid "Add"
 #~ msgstr "Ekle"
@@ -590,6 +585,9 @@ msgstr ""
 
 #~ msgid "Add Profile"
 #~ msgstr "Profil Ekle"
+
+#~ msgid "Application Theme"
+#~ msgstr "Uygulama Teması"
 
 #~ msgid "Foreground Colors"
 #~ msgstr "Ön Plan Rengi"

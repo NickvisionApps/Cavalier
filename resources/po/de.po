@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 13:49-0500\n"
+"POT-Creation-Date: 2025-02-10 12:16-0500\n"
 "PO-Revision-Date: 2024-10-13 14:16+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/nickvision-"
@@ -234,14 +234,12 @@ msgid "Area Margin"
 msgstr "Rand um die Zeichenfläche"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
-#, fuzzy
 msgid "Area X Offset"
-msgstr "Rand um die Zeichenfläche"
+msgstr ""
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
-#, fuzzy
 msgid "Area Y Offset"
-msgstr "Rand um die Zeichenfläche"
+msgstr ""
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
 msgid "Item Spacing"
@@ -258,9 +256,8 @@ msgid "Cava"
 msgstr "Cavalier"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
-#, fuzzy
 msgid "Channels"
-msgstr "Kanäle teilen"
+msgstr "Kanäle"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
 msgid "Mono"
@@ -387,7 +384,7 @@ msgstr "Drehung"
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
-msgstr "Anwendungsthema"
+msgstr "Cavalier"
 
 #. MenuBar
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
@@ -444,10 +441,6 @@ msgstr ""
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
 msgid "Automatically Check for Updates"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Application"
-#~ msgstr "Anwendung"
 
 #~ msgid "Add"
 #~ msgstr "Hinzufügen"
@@ -591,6 +584,9 @@ msgstr ""
 
 #~ msgid "Add Profile"
 #~ msgstr "Profil hinzufügen"
+
+#~ msgid "Application Theme"
+#~ msgstr "Anwendungsthema"
 
 #~ msgid "Foreground Colors"
 #~ msgstr "Vordergrundfarben"

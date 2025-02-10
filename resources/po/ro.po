@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 13:49-0500\n"
-"PO-Revision-Date: 2024-08-19 04:09+0000\n"
-"Last-Translator: EnderIce2 <xalexgabriel@gmail.com>\n"
+"POT-Creation-Date: 2025-02-10 12:16-0500\n"
+"PO-Revision-Date: 2025-01-11 09:00+0000\n"
+"Last-Translator: EnderIce2 <enderice2@protonmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/nickvision-"
 "cavalier/app/ro/>\n"
 "Language: ro\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 5.7\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libcavalier/src/controllers/mainwindowcontroller.cpp:34
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
@@ -263,9 +263,8 @@ msgid "Cava"
 msgstr "Cavalier"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
-#, fuzzy
 msgid "Channels"
-msgstr "Împarte Canalele"
+msgstr "Canale"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
 msgid "Mono"
@@ -392,7 +391,7 @@ msgstr "Rotire"
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
-msgstr "Tema Aplicației"
+msgstr "Cavalier"
 
 #. MenuBar
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
@@ -448,15 +447,11 @@ msgstr ""
 msgid "Automatically Check for Updates"
 msgstr ""
 
-#, fuzzy
-#~ msgid "Application"
-#~ msgstr "Aplicație"
-
 #~ msgid "Add"
 #~ msgstr "Adaugă"
 
 #~ msgid "Add New Profile"
-#~ msgstr "Adaugă profil nou"
+#~ msgstr "Adaugă Profil Nou"
 
 #, csharp-format
 #~ msgid "Are you sure you want to delete profile \"{0}\"?"
@@ -593,6 +588,9 @@ msgstr ""
 
 #~ msgid "Add Profile"
 #~ msgstr "Adaugă Profil"
+
+#~ msgid "Application Theme"
+#~ msgstr "Tema Aplicației"
 
 #~ msgid "Foreground Colors"
 #~ msgstr "Culori Prim-plan"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 13:49-0500\n"
+"POT-Creation-Date: 2025-02-10 12:16-0500\n"
 "PO-Revision-Date: 2024-09-04 15:09+0000\n"
 "Last-Translator: Fjuro <fjuro@alius.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
@@ -264,9 +264,8 @@ msgid "Cava"
 msgstr "Cavalier"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
-#, fuzzy
 msgid "Channels"
-msgstr "Rozdělit kanály"
+msgstr "Kanály"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
 msgid "Mono"
@@ -393,7 +392,7 @@ msgstr "Otočení"
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
-msgstr "Vzhled aplikace"
+msgstr "Cavalier"
 
 #. MenuBar
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
@@ -448,10 +447,6 @@ msgstr ""
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
 msgid "Automatically Check for Updates"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Application"
-#~ msgstr "Aplikace"
 
 #~ msgid "Add"
 #~ msgstr "Přidat"
@@ -592,6 +587,9 @@ msgstr ""
 
 #~ msgid "Add Profile"
 #~ msgstr "Přidat profil"
+
+#~ msgid "Application Theme"
+#~ msgstr "Vzhled aplikace"
 
 #~ msgid "Foreground Colors"
 #~ msgstr "Barvy popředí"

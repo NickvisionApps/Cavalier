@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 13:49-0500\n"
-"PO-Revision-Date: 2023-08-08 10:00+0000\n"
-"Last-Translator: rene-coty <irenee.thirion@e.email>\n"
+"POT-Creation-Date: 2025-02-10 12:16-0500\n"
+"PO-Revision-Date: 2025-01-24 10:02+0000\n"
+"Last-Translator: AFCMS <afcm.contact@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/nickvision-"
 "cavalier/app/fr/>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libcavalier/src/controllers/mainwindowcontroller.cpp:34
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
@@ -261,9 +261,8 @@ msgid "Cava"
 msgstr "Cavalier"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
-#, fuzzy
 msgid "Channels"
-msgstr "Séparer les canaux"
+msgstr "Canaux"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
 msgid "Mono"
@@ -390,7 +389,7 @@ msgstr "Rotation"
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
-msgstr "Thème de l’application"
+msgstr "Cavalier"
 
 #. MenuBar
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
@@ -447,10 +446,6 @@ msgstr ""
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
 msgid "Automatically Check for Updates"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Application"
-#~ msgstr "Application"
 
 #~ msgid "Add"
 #~ msgstr "Ajouter"
@@ -599,31 +594,29 @@ msgstr ""
 #~ msgid "Add Profile"
 #~ msgstr "Ajouter un profil"
 
+#~ msgid "Application Theme"
+#~ msgstr "Thème de l’application"
+
 #~ msgid "Foreground Colors"
 #~ msgstr "Couleurs de premier-plan"
 
-#, fuzzy
 #~ msgid "Add foreground color"
-#~ msgstr "Couleurs de premier-plan"
+#~ msgstr "Ajouter une couleur de premier-plan"
 
 #~ msgid "Background Colors"
 #~ msgstr "Couleurs d’arrière-plan"
 
-#, fuzzy
 #~ msgid "Add background color"
-#~ msgstr "Couleurs d’arrière-plan"
+#~ msgstr "Ajouter une couleur d’arrière-plan"
 
-#, fuzzy
 #~ msgid "Images"
-#~ msgstr "Image"
+#~ msgstr "Images"
 
-#, fuzzy
 #~ msgid "Background"
-#~ msgstr "Couleurs d’arrière-plan"
+#~ msgstr "Arrière-plan"
 
-#, fuzzy
 #~ msgid "Foreground"
-#~ msgstr "Couleurs de premier-plan"
+#~ msgstr "Premier-plan"
 
 #~ msgid "Add Image"
 #~ msgstr "Ajouter une image"
@@ -631,9 +624,17 @@ msgstr ""
 #~ msgid "Scale"
 #~ msgstr "Mise à l’échelle"
 
-#, fuzzy
+#~ msgid "Alpha"
+#~ msgstr "Transparence"
+
+#~ msgid "Foreground image is only shown with Box drawing modes."
+#~ msgstr "L'image de premier-plan est visible uniquement en mode boîte."
+
 #~ msgid "No Images"
-#~ msgstr "Aucune image"
+#~ msgstr "Aucune images"
+
+#~ msgid "Add an image to use it in Cavalier."
+#~ msgstr "Ajoutez une image pour l'utiliser dans Cavalier."
 
 #~ msgid "No Image"
 #~ msgstr "Aucune image"
@@ -689,25 +690,20 @@ msgstr ""
 #~ msgid "Other"
 #~ msgstr "Autre"
 
-#, fuzzy
 #~ msgid "Change Background Image Scale"
-#~ msgstr "Changer l’image d’arrière-plan"
+#~ msgstr "Modifier l'échelle de l'image d'arrière-plan"
 
-#, fuzzy
 #~ msgid "Change Background Image Alpha"
-#~ msgstr "Changer l’image d’arrière-plan"
+#~ msgstr "Modifier la transparence de l'image d'arrière-plan"
 
-#, fuzzy
 #~ msgid "Change Foreground Image"
-#~ msgstr "Changer l’image d’arrière-plan"
+#~ msgstr "Changer l’image de premier-plan"
 
-#, fuzzy
 #~ msgid "Change Foreground Image Scale"
-#~ msgstr "Changer l’échelle de l’image"
+#~ msgstr "Changer l’échelle de l’image de premier-plan"
 
-#, fuzzy
 #~ msgid "Change Foreground Image Alpha"
-#~ msgstr "Changer l’image d’arrière-plan"
+#~ msgstr "Changer la transparence de l’image d’arrière-plan"
 
 #~ msgid "Toggle Fullscreen"
 #~ msgstr "Basculer en plein écran"

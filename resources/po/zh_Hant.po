@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 13:49-0500\n"
+"POT-Creation-Date: 2025-02-10 12:16-0500\n"
 "PO-Revision-Date: 2023-08-12 17:18+0000\n"
 "Last-Translator: Wolf yuan <h1030035@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -264,9 +264,8 @@ msgid "Cava"
 msgstr "Cavalier"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
-#, fuzzy
 msgid "Channels"
-msgstr "左右聲道分離"
+msgstr "頻道數"
 
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
 msgid "Mono"
@@ -393,7 +392,7 @@ msgstr "旋轉"
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 #, fuzzy
 msgid "Cavalier (Preview)"
-msgstr "應用程式主題"
+msgstr "Cavalier"
 
 #. MenuBar
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
@@ -448,10 +447,6 @@ msgstr ""
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
 msgid "Automatically Check for Updates"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Application"
-#~ msgstr "應用程式"
 
 #~ msgid "Add"
 #~ msgstr "新增"
@@ -594,6 +589,9 @@ msgstr ""
 
 #~ msgid "Add Profile"
 #~ msgstr "新增設定檔"
+
+#~ msgid "Application Theme"
+#~ msgstr "應用程式主題"
 
 #~ msgid "Foreground Colors"
 #~ msgstr "前景顏色"
