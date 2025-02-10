@@ -21,14 +21,14 @@ namespace Nickvision::Cavalier::Shared::Models
     }
 
     CavaOptions::CavaOptions(boost::json::object json)
-        : m_framerate{ json["Framerate"].is_uint64() ? json["Framerate"].as_uint64() : 60 },
-        m_numberOfBars{ json["NumberOfBars"].is_uint64() ? json["NumberOfBars"].as_uint64() : 24 },
+        : m_framerate{ json["Framerate"].is_uint64() ? static_cast<unsigned int>(json["Framerate"].as_uint64()) : 60 },
+        m_numberOfBars{ json["NumberOfBars"].is_uint64() ? static_cast<unsigned int>(json["NumberOfBars"].as_uint64()) : 24 },
         m_reverseBarOrder{ json["ReverseBarOrder"].is_bool() ? json["ReverseBarOrder"].as_bool() : false },
         m_useAutomaticSensitivity{ json["UseAutomaticSensitivity"].is_bool() ? json["UseAutomaticSensitivity"].as_bool() : true },
-        m_sensitivity{ json["Sensitivity"].is_uint64() ? json["Sensitivity"].as_uint64() : 10 },
+        m_sensitivity{ json["Sensitivity"].is_uint64() ? static_cast<unsigned int>(json["Sensitivity"].as_uint64()) : 10 },
         m_channels{ json["Channels"].is_int64() ? static_cast<ChannelType>(json["Channels"].as_int64()) : ChannelType::Stereo },
         m_useMonstercatSmoothing{ json["UseMonstercatSmoothing"].is_bool() ? json["UseMonstercatSmoothing"].as_bool() : true },
-        m_noiseReductionFactor{ json["NoiseReductionFactor"].is_uint64() ? json["NoiseReductionFactor"].as_uint64() : 77 }
+        m_noiseReductionFactor{ json["NoiseReductionFactor"].is_uint64() ? static_cast<unsigned int>(json["NoiseReductionFactor"].as_uint64()) : 77 }
     {
 
     }

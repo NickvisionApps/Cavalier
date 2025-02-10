@@ -31,9 +31,12 @@ namespace Nickvision::Cavalier::Shared::Models
         sk_sp<SkData> data{ SkData::MakeFromFileName(path.string().c_str()) };
         std::unique_ptr<SkCodec> codec{ SkCodec::MakeFromData(data) };
         SkImageInfo info{ codec->getInfo().makeColorType(kN32_SkColorType).makeAlphaType(kPremul_SkAlphaType) };
-        bitmap->tryAllocPixels(info);
-        codec->getPixels(info, bitmap->getPixels(), bitmap->rowBytes());
-        return bitmap;
+        if(bitmap->tryAllocPixels(info))
+        {
+            codec->getPixels(info, bitmap->getPixels(), bitmap->rowBytes());
+            return bitmap;
+        }
+        return nullptr;
     }
 
     static float flipCoord(float coordinate, float screenDimension, bool enabled)
@@ -138,7 +141,7 @@ namespace Nickvision::Cavalier::Shared::Models
             const Color& color{ m_colorProfile.getBackgroundColors()[0] };
             bgPaint.setColor(SkColorSetARGB(color.getA(), color.getR(), color.getG(), color.getB()));
         }
-        (*m_canvas)->drawRect({ 0, 0, width, height }, bgPaint);
+        (*m_canvas)->drawRect({ 0, 0, static_cast<float>(width), static_cast<float>(height) }, bgPaint);
         //Draw Background Image
         if(m_backgroundImage)
         {
@@ -146,7 +149,7 @@ namespace Nickvision::Cavalier::Shared::Models
             if(backgroundBitmap)
             {
                 //Scale Image
-                float scale{ std::max(width / backgroundBitmap->width(), height / backgroundBitmap->height()) * (m_backgroundImage->getScale() / 100) };
+                float scale{ static_cast<float>(std::max(width / backgroundBitmap->width(), height / backgroundBitmap->height())) * (m_backgroundImage->getScale() / 100.0f) };
                 float newWidth{ backgroundBitmap->width() * scale };
                 float newHeight{ backgroundBitmap->height() * scale };
                 SkBitmap* newBitmap{ new SkBitmap() };
@@ -210,8 +213,8 @@ namespace Nickvision::Cavalier::Shared::Models
             break;
         }
         //Draw Shape
-        Point start{ (width + m_drawingArea.getMargin() * 2) * m_drawingArea.getXOffset() + m_drawingArea.getMargin(), (height + m_drawingArea.getMargin() * 2) * m_drawingArea.getYOffset() + m_drawingArea.getMargin() };
-        Point end{ width, height };
+        Point start{ static_cast<float>((width + m_drawingArea.getMargin() * 2) * m_drawingArea.getXOffset() + m_drawingArea.getMargin()), static_cast<float>((height + m_drawingArea.getMargin() * 2) * m_drawingArea.getYOffset() + m_drawingArea.getMargin()) };
+        Point end{ static_cast<float>(width), static_cast<float>(height) };
         Point reverseEnd{ getMirrorWidth(width), getMirrorHeight(height) };
         if(m_drawingArea.getMirrorMode() == MirrorMode::Full || m_drawingArea.getMirrorMode() == MirrorMode::ReverseFull)
         {
@@ -309,26 +312,26 @@ namespace Nickvision::Cavalier::Shared::Models
         {
         case DrawingDirection::TopToBottom:
         {
-            points[0] = { m_drawingArea.getMargin(), m_drawingArea.getMargin() + height + m_drawingArea.getYOffset() };
-            points[1] = { m_drawingArea.getMargin(), height * (1 + m_drawingArea.getYOffset()) };
+            points[0] = { static_cast<float>(m_drawingArea.getMargin()), static_cast<float>(m_drawingArea.getMargin() + height + m_drawingArea.getYOffset()) };
+            points[1] = { static_cast<float>(m_drawingArea.getMargin()), static_cast<float>(height * (1 + m_drawingArea.getYOffset())) };
             break;
         }
         case DrawingDirection::BottomToTop:
         {
-            points[0] = { m_drawingArea.getMargin(), height * (1 + m_drawingArea.getYOffset()) };
-            points[1] = { m_drawingArea.getMargin(), m_drawingArea.getMargin() + height * m_drawingArea.getYOffset() };
+            points[0] = { static_cast<float>(m_drawingArea.getMargin()), static_cast<float>(height * (1 + m_drawingArea.getYOffset())) };
+            points[1] = { static_cast<float>(m_drawingArea.getMargin()), static_cast<float>(m_drawingArea.getMargin() + height * m_drawingArea.getYOffset()) };
             break;
         }
         case DrawingDirection::LeftToRight:
         {
-            points[0] = { m_drawingArea.getMargin() + width * m_drawingArea.getXOffset(), m_drawingArea.getMargin() };
-            points[1] = { width * (1 + m_drawingArea.getXOffset()), m_drawingArea.getMargin() };
+            points[0] = { static_cast<float>(m_drawingArea.getMargin() + width * m_drawingArea.getXOffset()), static_cast<float>(m_drawingArea.getMargin()) };
+            points[1] = { static_cast<float>(width * (1 + m_drawingArea.getXOffset())), static_cast<float>(m_drawingArea.getMargin()) };
             break;
         }
         default:
         {
-            points[0] = { width * (1 + m_drawingArea.getXOffset()), m_drawingArea.getMargin() };
-            points[1] = { m_drawingArea.getMargin() + width * m_drawingArea.getXOffset(), m_drawingArea.getMargin() };
+            points[0] = { static_cast<float>(width * (1 + m_drawingArea.getXOffset())), static_cast<float>(m_drawingArea.getMargin()) };
+            points[1] = { static_cast<float>(m_drawingArea.getMargin() + width * m_drawingArea.getXOffset()), static_cast<float>(m_drawingArea.getMargin()) };
             break;
         }
         }
@@ -364,8 +367,8 @@ namespace Nickvision::Cavalier::Shared::Models
             return SkGradientShader::MakeRadial({ width / 2, height / 2 }, fullRadius, &skColors[0], &positions[0], skColors.size(), SkTileMode::kClamp);
         }
         std::vector<SkPoint> points(2);
-        points[0] = { m_drawingArea.getMargin(), std::min(width, height) * INNER_RADIUS / 2 };
-        points[1] = { m_drawingArea.getMargin(), std::min(width, height) / 2 };
+        points[0] = { static_cast<float>(m_drawingArea.getMargin()), std::min(width, height) * INNER_RADIUS / 2.0f };
+        points[1] = { static_cast<float>(m_drawingArea.getMargin()), std::min(width, height) / 2.0f };
         return SkGradientShader::MakeLinear(&points[0], &skColors[0], nullptr, skColors.size(), SkTileMode::kClamp);
     }
 

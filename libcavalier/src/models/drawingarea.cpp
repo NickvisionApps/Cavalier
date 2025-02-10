@@ -23,11 +23,11 @@ namespace Nickvision::Cavalier::Shared::Models
         m_direction{ json["Direction"].is_int64() ? static_cast<DrawingDirection>(json["Direction"].as_int64()) : DrawingDirection::BottomToTop },
         m_fillShape{ json["FillShape"].is_bool() ? json["FillShape"].as_bool() : true },
         m_mirrorMode{ json["MirrorMode"].is_int64() ? static_cast<MirrorMode>(json["MirrorMode"].as_int64()) : MirrorMode::Off },
-        m_margin{ json["Margin"].is_uint64() ? json["Margin"].as_uint64() : 0 },
-        m_xOffset{ json["XOffset"].is_int64() ? json["XOffset"].as_int64() : 0 },
-        m_yOffset{ json["YOffset"].is_int64() ? json["YOffset"].as_int64() : 0 },
-        m_itemSpacing{ json["ItemSpacing"].is_uint64() ? json["ItemSpacing"].as_uint64() : 10 },
-        m_itemRoundness{ json["ItemRoundness"].is_uint64() ? json["ItemRoundness"].as_uint64() : 50 }
+        m_margin{ json["Margin"].is_uint64() ? static_cast<unsigned int>(json["Margin"].as_uint64()) : 0 },
+        m_xOffset{ json["XOffset"].is_int64() ? static_cast<int>(json["XOffset"].as_int64()) : 0 },
+        m_yOffset{ json["YOffset"].is_int64() ? static_cast<int>(json["YOffset"].as_int64()) : 0 },
+        m_itemSpacing{ json["ItemSpacing"].is_uint64() ? static_cast<unsigned int>(json["ItemSpacing"].as_uint64()) : 10 },
+        m_itemRoundness{ json["ItemRoundness"].is_uint64() ? static_cast<unsigned int>(json["ItemRoundness"].as_uint64()) : 50 }
     {
 
     }

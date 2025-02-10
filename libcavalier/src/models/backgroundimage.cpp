@@ -20,8 +20,8 @@ namespace Nickvision::Cavalier::Shared::Models
 
     BackgroundImage::BackgroundImage(boost::json::object json)
         : m_path{ json["Path"].is_string() ? std::string(json["Path"].as_string()) : "" },
-        m_scale{ json["Scale"].is_uint64() ? json["Scale"].as_uint64() : 100 },
-        m_alpha{ json["Alpha"].is_uint64() ? json["Alpha"].as_uint64() : 100 }
+        m_scale{ json["Scale"].is_uint64() ? static_cast<unsigned int>(json["Scale"].as_uint64()) : 100 },
+        m_alpha{ json["Alpha"].is_uint64() ? static_cast<unsigned int>(json["Alpha"].as_uint64()) : 100 }
     {
 
     }

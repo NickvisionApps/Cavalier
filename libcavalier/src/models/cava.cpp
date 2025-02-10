@@ -102,7 +102,7 @@ namespace Nickvision::Cavalier::Shared::Models
             std::unique_lock<std::mutex> lock{ m_mutex };
             std::vector<std::string> frames{ StringHelpers::split(m_process->getOutput(), std::string(1, CAVA_FRAME_DELIMITER)) };
             std::vector<std::string> bars;
-            for(int i = frames.size() - 1; i >= 0; i--)
+            for(size_t i = frames.size() - 1; i >= 0; i--)
             {
                 const std::string& lastFrame{ frames[i] };
                 if(std::count(lastFrame.begin(), lastFrame.end(), CAVA_BAR_DELIMITER) == m_options.getNumberOfBars())

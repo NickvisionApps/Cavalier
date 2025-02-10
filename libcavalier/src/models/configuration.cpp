@@ -110,7 +110,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     int Configuration::getActiveColorProfileIndex() const
     {
-        return m_json["ActiveColorProfileIndex"].is_int64() ? m_json["ActiveColorProfileIndex"].as_int64() : 0;
+        return m_json["ActiveColorProfileIndex"].is_int64() ? static_cast<int>(m_json["ActiveColorProfileIndex"].as_int64()) : 0;
     }
 
     void Configuration::setActiveColorProfileIndex(int index)
@@ -150,7 +150,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     int Configuration::getActiveBackgroundImageIndex() const
     {
-        return m_json["ActiveBackgroundImageIndex"].is_int64() ? m_json["ActiveBackgroundImageIndex"].as_int64() : -1;
+        return m_json["ActiveBackgroundImageIndex"].is_int64() ? static_cast<int>(m_json["ActiveBackgroundImageIndex"].as_int64()) : -1;
     }
 
     void Configuration::setActiveBackgroundImageIndex(int index)

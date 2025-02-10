@@ -161,10 +161,10 @@ namespace Nickvision::Cavalier::Shared::Models
     }
 
     Color::Color(boost::json::object json)
-        : m_r{ json["R"].is_uint64() ? json["R"].as_uint64() : 0 },
-        m_g{ json["G"].is_uint64() ? json["G"].as_uint64() : 0 },
-        m_b{ json["B"].is_uint64() ? json["B"].as_uint64() : 0 },
-        m_a{ json["A"].is_uint64() ? json["A"].as_uint64() : 0 }
+        : m_r{ json["R"].is_uint64() ? static_cast<unsigned char>(json["R"].as_uint64()) : static_cast<unsigned char>(0) },
+        m_g{ json["G"].is_uint64() ? static_cast<unsigned char>(json["G"].as_uint64()) : static_cast<unsigned char>(0) },
+        m_b{ json["B"].is_uint64() ? static_cast<unsigned char>(json["B"].as_uint64()) : static_cast<unsigned char>(0) },
+        m_a{ json["A"].is_uint64() ? static_cast<unsigned char>(json["A"].as_uint64()) : static_cast<unsigned char>(0) }
     {
 
     }
