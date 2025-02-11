@@ -527,7 +527,7 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(args.getMode() == DrawingMode::Box)
         {
-            float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / static_cast<float>(args.getSample().size()) };
+            float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / args.getSample().size() };
             float fill{ m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f };
             float itemWidth{ (args.getDirection() < DrawingDirection::LeftToRight ? step : args.getEnd().getX() / 10.0f) * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - fill };
             float itemHeight{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getY() / 10.0f : step) * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - fill };
@@ -556,13 +556,13 @@ namespace Nickvision::Cavalier::Shared::Models
                     case DrawingDirection::LeftToRight:
                         rect = { args.getStart().getX() + args.getEnd().getX() / 10.0f * j + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
                                  args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
-                                 args.getStart().getX() + args.getEnd().getX() / 10.0f * j + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight,
+                                 args.getStart().getX() + args.getEnd().getX() / 10.0f * j + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemWidth,
                                  args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
                         break;
                     case DrawingDirection::RightToLeft:
                         rect = { args.getStart().getX() + args.getEnd().getX() / 10.0f * (9 - j) + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
                                  args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
-                                 args.getStart().getX() + args.getEnd().getX() / 10.0f * (9 - j) + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight,
+                                 args.getStart().getX() + args.getEnd().getX() / 10.0f * (9 - j) + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemWidth,
                                  args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
                         break;
                     }
@@ -602,11 +602,68 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(args.getMode() == DrawingMode::Box)
         {
-            //TODO
+            float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / args.getSample().size() };
+            float fill{ m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f };
+            float itemWidth{ (args.getDirection() < DrawingDirection::LeftToRight ? step : args.getEnd().getX() / 11.0f) * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - fill };
+            float itemHeight{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getY() / 11.0f : step) * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - fill };
+            float rx{ itemWidth / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f) };
+            float ry{ itemHeight / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f) };
+            SkPath path;
+            for(size_t i = 0; i < args.getSample().size(); i++)
+            {
+                SkRect rect;
+                switch(m_drawingArea.getDirection())
+                {
+                case DrawingDirection::TopToBottom:
+                    rect = { args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                             args.getStart().getY() + args.getEnd().getY() / 11.0f * 10.0f * args.getSample()[i] + args.getEnd().getY() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                             args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + itemWidth,
+                             args.getStart().getY() + args.getEnd().getY() / 11.0f * 10.0f * args.getSample()[i] + args.getEnd().getY() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight };
+                    break;
+                case DrawingDirection::BottomToTop:
+                    rect = { args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                            args.getStart().getY() + args.getEnd().getY() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getY() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                            args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + itemWidth,
+                            args.getStart().getY() + args.getEnd().getY() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getY() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight };
+                    break;
+                case DrawingDirection::LeftToRight:
+                    rect = { args.getStart().getX() + args.getEnd().getX() / 11.0f * 10.0f * args.getSample()[i] + args.getEnd().getX() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                             args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                             args.getStart().getX() + args.getEnd().getX() / 11.0f * 10.0f * args.getSample()[i] + args.getEnd().getX() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemWidth,
+                             args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
+                    break;
+                case DrawingDirection::RightToLeft:
+                    rect = { args.getStart().getX() + args.getEnd().getX() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getX() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                            args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                            args.getStart().getX() + args.getEnd().getX() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getX() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemWidth,
+                            args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
+                    break;
+                }
+                path.addRoundRect(rect, rx, ry);
+            }
+            (*m_canvas)->drawPath(path, args.getPaint());
         }
         else //Circle
         {
-            //TODO
+            float fullRadius{ std::min(args.getEnd().getX(), args.getEnd().getY()) / 2.0f };
+            float innerRadius{ fullRadius * INNER_RADIUS };
+            float radius{ fullRadius - innerRadius };
+            float barWidth{ 2.0f * PI * innerRadius / args.getSample().size() };
+            float rx{ (barWidth * (1 - (m_drawingArea.getItemSpacing() / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS)) * (m_drawingArea.getItemRoundness() / 100.0f) };
+            float ry{ radius / 10.0f * (1 - (m_drawingArea.getItemSpacing() / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS) * (m_drawingArea.getItemRoundness() / 100.0f) };
+            for(size_t i = 0; i < args.getSample().size(); i++)
+            {
+                (*m_canvas)->save();
+                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                                       args.getStart().getY() + args.getEnd().getY() / 2.0f);
+                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + ROTATION));
+                SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
+                                             innerRadius + radius / 10.0f * 9 * args.getSample()[i] + radius / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
+                                             barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS),
+                                             radius / 10.0f * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS)) };
+                (*m_canvas)->drawRoundRect(rect, rx, ry, args.getPaint());
+                (*m_canvas)->restore();
+            }
         }
     }
 
