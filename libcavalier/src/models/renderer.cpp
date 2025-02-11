@@ -42,7 +42,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     static float flipCoord(float coordinate, float screenDimension, bool enabled)
     {
-        float max{ std::max(0.f, std::min(coordinate, screenDimension)) };
+        float max{ std::max(0.0f, std::min(coordinate, screenDimension)) };
         return enabled ? screenDimension - max : max;
     }
 
@@ -58,8 +58,6 @@ namespace Nickvision::Cavalier::Shared::Models
             return DrawingDirection::RightToLeft;
         case DrawingDirection::RightToLeft:
             return DrawingDirection::LeftToRight;
-        default:
-            return DrawingDirection::TopToBottom;
         }
     }
 
@@ -245,14 +243,15 @@ namespace Nickvision::Cavalier::Shared::Models
         }
         //Draw Shape
         Point start{ static_cast<float>((width + m_drawingArea.getMargin() * 2) * (m_drawingArea.getXOffset() / 100.0f) + m_drawingArea.getMargin()), static_cast<float>((height + m_drawingArea.getMargin() * 2) * (m_drawingArea.getYOffset() / 100.0f) + m_drawingArea.getMargin()) };
+        Point mirrorStart{ static_cast<float>((width + m_drawingArea.getMargin() * 2) * (m_drawingArea.getXOffset() / 100.0f) + getMirrorX(width)), static_cast<float>((height + m_drawingArea.getMargin() * 2) * (m_drawingArea.getYOffset() / 100.0f) + getMirrorY(height)) };
         Point end{ static_cast<float>(width), static_cast<float>(height) };
-        Point reverseEnd{ getMirrorWidth(width), getMirrorHeight(height) };
+        Point mirrorEnd{ getMirrorWidth(width), getMirrorHeight(height) };
         if(m_drawingArea.getMirrorMode() == MirrorMode::Full || m_drawingArea.getMirrorMode() == MirrorMode::ReverseFull)
         {
             std::vector<float> reverseSample = sample;
             std::reverse(reverseSample.begin(), reverseSample.end());
-            drawFunction({ sample, m_drawingArea.getMode(), m_drawingArea.getDirection(), start, reverseEnd, 0, fgPaint });
-            drawFunction({ m_drawingArea.getMirrorMode() == MirrorMode::ReverseFull ? reverseSample : sample, m_drawingArea.getMode(), getMirrorDirection(m_drawingArea.getDirection()), start, reverseEnd, 0, fgPaint });
+            drawFunction({ sample, m_drawingArea.getMode(), m_drawingArea.getDirection(), start, mirrorEnd, ROTATION, fgPaint });
+            drawFunction({ m_drawingArea.getMirrorMode() == MirrorMode::ReverseFull ? reverseSample : sample, m_drawingArea.getMode(), getMirrorDirection(m_drawingArea.getDirection()), mirrorStart, mirrorEnd, -ROTATION, fgPaint });
         }
         else if(m_drawingArea.getMirrorMode() == MirrorMode::SplitChannels || m_drawingArea.getMirrorMode() == MirrorMode::ReverseSplitChannels)
         {
@@ -260,12 +259,12 @@ namespace Nickvision::Cavalier::Shared::Models
             std::vector<float> splitSampleEnd{ sample.begin() + (sample.size() / 2), sample.end() };
             std::vector<float> reverseSplitSampleEnd = splitSampleEnd;
             std::reverse(reverseSplitSampleEnd.begin(), reverseSplitSampleEnd.end());
-            drawFunction({ splitSample, m_drawingArea.getMode(), m_drawingArea.getDirection(), start, reverseEnd, 0, fgPaint });
-            drawFunction({ m_drawingArea.getMirrorMode() == MirrorMode::ReverseSplitChannels ? splitSampleEnd : reverseSplitSampleEnd, m_drawingArea.getMode(), getMirrorDirection(m_drawingArea.getDirection()), start, reverseEnd, 0, fgPaint });
+            drawFunction({ splitSample, m_drawingArea.getMode(), m_drawingArea.getDirection(), start, mirrorEnd, ROTATION, fgPaint });
+            drawFunction({ m_drawingArea.getMirrorMode() == MirrorMode::ReverseSplitChannels ? splitSampleEnd : reverseSplitSampleEnd, m_drawingArea.getMode(), getMirrorDirection(m_drawingArea.getDirection()), mirrorStart, mirrorEnd, -ROTATION, fgPaint });
         }
         else
         {
-            drawFunction({ sample, m_drawingArea.getMode(), m_drawingArea.getDirection(), start, end, 0, fgPaint });
+            drawFunction({ sample, m_drawingArea.getMode(), m_drawingArea.getDirection(), start, end, ROTATION, fgPaint });
         }
         //Get PNG Image
         sk_sp<SkImage> image{ m_canvas->getSkiaSurface()->makeImageSnapshot() };
@@ -284,7 +283,7 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(m_drawingArea.getDirection() == DrawingDirection::LeftToRight || m_drawingArea.getDirection() == DrawingDirection::RightToLeft)
         {
-            return width / 2;
+            return width / 2.0f;
         }
         return width;
     }
@@ -293,7 +292,7 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(m_drawingArea.getDirection() == DrawingDirection::TopToBottom || m_drawingArea.getDirection() == DrawingDirection::BottomToTop)
         {
-            return height / 2;
+            return height / 2.0f;
         }
         return height;
     }
@@ -302,7 +301,7 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(m_drawingArea.getDirection() == DrawingDirection::LeftToRight || m_drawingArea.getDirection() == DrawingDirection::RightToLeft)
         {
-            return x / 2 + m_drawingArea.getMargin();
+            return x / 2.0f + m_drawingArea.getMargin();
         }
         return m_drawingArea.getMargin();
     }
@@ -311,7 +310,7 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(m_drawingArea.getDirection() == DrawingDirection::TopToBottom || m_drawingArea.getDirection() == DrawingDirection::BottomToTop)
         {
-            return y / 2 + m_drawingArea.getMargin();
+            return y / 2.0f + m_drawingArea.getMargin();
         }
         return m_drawingArea.getMargin();
     }
@@ -548,24 +547,24 @@ namespace Nickvision::Cavalier::Shared::Models
             (*m_canvas)->translate(args.getStart().getX(), args.getStart().getY());
             paint.setStyle(SkPaint::kStroke_Style);
             paint.setStrokeWidth(m_drawingArea.getFillShape() ? radius : LINE_THICKNESS);
-            path.moveTo(args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION),
-                        args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION));
+            path.moveTo(args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + args.getRotation()),
+                        args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + args.getRotation()));
             for(size_t i = 0; i < args.getSample().size() - 1; i++)
             {
-                SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION),
-                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION) };
-                SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION),
-                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION) };
-                SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + ROTATION),
-                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + ROTATION) };
+                SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + args.getRotation()),
+                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + args.getRotation()) };
+                SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + args.getRotation()),
+                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + args.getRotation()) };
+                SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + args.getRotation()),
+                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + args.getRotation()) };
                 path.cubicTo(a, b, c);
             }
-            SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION),
-                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION) };
-            SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION),
-                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION) };
-            SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION),
-                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION) };
+            SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + args.getRotation()),
+                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + args.getRotation()) };
+            SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + args.getRotation()),
+                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + args.getRotation()) };
+            SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + args.getRotation()),
+                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + args.getRotation()) };
             path.cubicTo(a, b, c);
             path.close();
             if(m_drawingArea.getFillShape())
@@ -642,7 +641,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 (*m_canvas)->save();
                 (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f);
-                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + ROTATION));
+                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
                 for(float j = 0; j < std::floor(args.getSample()[i] * 10.0f); j++)
                 {
                     SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
@@ -714,7 +713,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 (*m_canvas)->save();
                 (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f);
-                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + ROTATION));
+                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
                 SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                              innerRadius + radius / 10.0f * 9 * args.getSample()[i] + radius / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                              barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS),
@@ -781,7 +780,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 (*m_canvas)->save();
                 (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f);
-                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + ROTATION));
+                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
                 SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                              innerRadius + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                              barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS),
@@ -838,7 +837,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 (*m_canvas)->save();
                 (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f);
-                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + ROTATION));
+                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
                 SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                               innerRadius - itemSize * args.getSample()[i] / 2.0f,
                                               itemSize * args.getSample()[i],
@@ -989,7 +988,7 @@ namespace Nickvision::Cavalier::Shared::Models
             for(size_t i = 0; i < args.getSample().size(); i++)
             {
                 (*m_canvas)->save();
-                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f + innerRadius * std::cos(ROTATION + PI / 2.0f + PI * 2.0f * i / args.getSample().size()),
+                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f + innerRadius * std::cos(args.getRotation() + PI / 2.0f + PI * 2.0f * i / args.getSample().size()),
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f + innerRadius * std::sin(PI / 2.0f + PI * 2 * i / args.getSample().size()));
                 (*m_canvas)->scale(args.getSample()[i], args.getSample()[i]);
                 (*m_canvas)->drawPath(getHeartPath(itemSize), getPaintForSpine(args.getPaint(), args.getSample()[i]));
