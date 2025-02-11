@@ -77,18 +77,83 @@ namespace Nickvision::Cavalier::Shared::Models
         std::optional<PngImage> draw(const std::vector<float>& sample);
 
     private:
+        /**
+         * @brief Gets a mirrored width according to drawing area configuration.
+         * @param width The width to mirror
+         * @return The mirrored width
+         */
         float getMirrorWidth(float width);
+        /**
+         * @brief Gets a mirrored height according to drawing area configuration.
+         * @param height The height to mirror
+         * @return The mirrored height
+         */
         float getMirrorHeight(float height);
+        /**
+         * @brief Gets a mirrored x-value according to drawing area configuration.
+         * @param x The x-value to mirror
+         * @return The mirrored x-value
+         */
         float getMirrorX(float x);
+        /**
+         * @brief Gets a mirrored y-value according to drawing area configuration.
+         * @param y The y-value to mirror
+         * @return The mirrored y-value
+         */
         float getMirrorY(float y);
-        sk_sp<SkShader> createBackgroundGradient(const std::vector<Color>& colors, float width, float height);
-        sk_sp<SkShader> createForegroundGradient(const std::vector<Color>& colors, float width, float height);
+        /**
+         * @brief Gets a gradient based on the current color profile's background colors.
+         * @param useForegroundColors Whether or not to use the color profile's foreground colors for the background gradient instead.
+         * @return The background color gradient
+         */
+        sk_sp<SkShader> getBackgroundGradient(bool useForegroundColors = false);
+        /**
+         * @brief Gets a gradient based on the current color profile's background colors.
+         * @return The background color gradient
+         */
+        sk_sp<SkShader> getForegroundGradient();
+        /**
+         * @brief Gets a paint brush for a spine drawing.
+         * @param paint The paint brush to modify
+         * @param sample The sample value
+         * @return The modified paint brush
+         */
+        SkPaint getPaintForSpine(const SkPaint& paint, float sample);
+        /**
+         * @brief Creates a wave drawing.
+         * @param args The DrawingFunctionArguments
+         */
         void drawWave(const DrawingFunctionArguments& args);
+        /**
+         * @brief Creates a levels drawing.
+         * @param args The DrawingFunctionArguments
+         */
         void drawLevels(const DrawingFunctionArguments& args);
+        /**
+         * @brief Creates a particles drawing.
+         * @param args The DrawingFunctionArguments
+         */
         void drawParticles(const DrawingFunctionArguments& args);
+        /**
+         * @brief Creates a bars drawing.
+         * @param args The DrawingFunctionArguments
+         */
         void drawBars(const DrawingFunctionArguments& args);
+        /**
+         * @brief Creates a spine drawing.
+         * @param args The DrawingFunctionArguments
+         */
         void drawSpine(const DrawingFunctionArguments& args);
+        /**
+         * @brief Creates a splitter drawing.
+         * @param args The DrawingFunctionArguments
+         * @note The splitter shape does not support circle mode. Thus, this function will always draw in box mode.
+         */
         void drawSplitter(const DrawingFunctionArguments& args);
+        /**
+         * @brief Creates a hearts drawing.
+         * @param args The DrawingFunctionArguments
+         */
         void drawHearts(const DrawingFunctionArguments& args);
         mutable std::mutex m_mutex;
         std::optional<Canvas> m_canvas;

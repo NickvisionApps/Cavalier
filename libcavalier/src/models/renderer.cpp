@@ -1,5 +1,6 @@
 #include "models/renderer.h"
 #include <algorithm>
+#include <cmath>
 #include <filesystem>
 #include <functional>
 #include <numbers>
@@ -60,6 +61,26 @@ namespace Nickvision::Cavalier::Shared::Models
         default:
             return DrawingDirection::TopToBottom;
         }
+    }
+
+    static SkPath getHeartPath(float itemSize)
+    {
+        SkPath path;
+        path.moveTo(0.0f, itemSize / 2.0f);
+        path.cubicTo(0.0f, itemSize / 2.2f,
+                     -itemSize / 1.8f, itemSize / 3.0f,
+                     -itemSize / 2.0f, -itemSize / 6.0f);
+        path.cubicTo(-itemSize / 2.5f, -itemSize / 2.0f,
+                     -itemSize / 6.5f, -itemSize / 2.0f,
+                     0.0, -itemSize / 5.5f);
+        path.cubicTo(itemSize / 6.5f, -itemSize / 2.0f,
+                     itemSize / 2.5f, -itemSize / 2.0f,
+                     itemSize / 2.0f, -itemSize / 6.0f);
+        path.cubicTo(itemSize / 1.8f, itemSize / 3.0f,
+                     0.0f, itemSize / 2.2f,
+                     0.0f, itemSize / 2.0f);
+        path.close();
+        return path;
     }
 
     Renderer::Renderer(const std::optional<Canvas>& canvas)
@@ -134,7 +155,7 @@ namespace Nickvision::Cavalier::Shared::Models
         bgPaint.setAntiAlias(true);
         if(m_colorProfile.getBackgroundColors().size() > 1)
         {
-            bgPaint.setShader(createBackgroundGradient(m_colorProfile.getBackgroundColors(), width, height));
+            bgPaint.setShader(getBackgroundGradient());
         }
         else
         {
@@ -176,7 +197,7 @@ namespace Nickvision::Cavalier::Shared::Models
         fgPaint.setAntiAlias(true);
         if(m_colorProfile.getForegroundColors().size() > 1 && m_drawingArea.getShape() != DrawingShape::Spine)
         {
-            fgPaint.setShader(createForegroundGradient(m_colorProfile.getForegroundColors(), width, height));
+            fgPaint.setShader(getForegroundGradient());
         }
         else
         {
@@ -285,13 +306,17 @@ namespace Nickvision::Cavalier::Shared::Models
         return m_drawingArea.getMargin();
     }
 
-    sk_sp<SkShader> Renderer::createBackgroundGradient(const std::vector<Color>& colors, float width, float height)
+    sk_sp<SkShader> Renderer::getBackgroundGradient(bool useForegroundColors)
     {
-        std::vector<SkColor> skColors(colors.size());
-        for(size_t i = colors.size(); i > 0; i--)
+        if(!m_canvas || (!useForegroundColors ? m_colorProfile.getBackgroundColors().size() <= 1: m_colorProfile.getForegroundColors().size() <= 1))
         {
-            const Color& color{ colors[i - 1] };
-            skColors[i] = SkColorSetARGB(color.getA(), color.getR(), color.getG(), color.getB());
+            return nullptr;
+        }
+        std::vector<SkColor> skColors(!useForegroundColors ? m_colorProfile.getBackgroundColors().size() : m_colorProfile.getForegroundColors().size());
+        for(size_t i = skColors.size(); i > 0; i--)
+        {
+            const Color& color{ !useForegroundColors ? m_colorProfile.getBackgroundColors()[i - 1] : m_colorProfile.getForegroundColors()[i - 1] };
+            skColors[i - 1] = SkColorSetARGB(color.getA(), color.getR(), color.getG(), color.getB());
         }
         if(m_drawingArea.getMirrorMode() != MirrorMode::Off)
         {
@@ -313,32 +338,32 @@ namespace Nickvision::Cavalier::Shared::Models
         case DrawingDirection::TopToBottom:
         {
             points[0] = { static_cast<float>(m_drawingArea.getMargin()),
-                          static_cast<float>(m_drawingArea.getMargin() + height + m_drawingArea.getYOffset()) };
+                          static_cast<float>(m_drawingArea.getMargin() + m_canvas->getHeight() + m_drawingArea.getYOffset()) };
             points[1] = { static_cast<float>(m_drawingArea.getMargin()),
-                          static_cast<float>(height * (1 + m_drawingArea.getYOffset())) };
+                          static_cast<float>(m_canvas->getHeight() * (1 + m_drawingArea.getYOffset())) };
             break;
         }
         case DrawingDirection::BottomToTop:
         {
             points[0] = { static_cast<float>(m_drawingArea.getMargin()),
-                          static_cast<float>(height * (1 + m_drawingArea.getYOffset())) };
+                          static_cast<float>(m_canvas->getHeight() * (1 + m_drawingArea.getYOffset())) };
             points[1] = { static_cast<float>(m_drawingArea.getMargin()),
-                          static_cast<float>(m_drawingArea.getMargin() + height * m_drawingArea.getYOffset()) };
+                          static_cast<float>(m_drawingArea.getMargin() + m_canvas->getHeight() * m_drawingArea.getYOffset()) };
             break;
         }
         case DrawingDirection::LeftToRight:
         {
-            points[0] = { static_cast<float>(m_drawingArea.getMargin() + width * m_drawingArea.getXOffset()),
+            points[0] = { static_cast<float>(m_drawingArea.getMargin() + m_canvas->getWidth() * m_drawingArea.getXOffset()),
                           static_cast<float>(m_drawingArea.getMargin()) };
-            points[1] = { static_cast<float>(width * (1 + m_drawingArea.getXOffset())),
+            points[1] = { static_cast<float>(m_canvas->getWidth() * (1 + m_drawingArea.getXOffset())),
                           static_cast<float>(m_drawingArea.getMargin()) };
             break;
         }
         default:
         {
-            points[0] = { static_cast<float>(width * (1 + m_drawingArea.getXOffset())),
+            points[0] = { static_cast<float>(m_canvas->getWidth() * (1 + m_drawingArea.getXOffset())),
                           static_cast<float>(m_drawingArea.getMargin()) };
-            points[1] = { static_cast<float>(m_drawingArea.getMargin() + width * m_drawingArea.getXOffset()),
+            points[1] = { static_cast<float>(m_drawingArea.getMargin() + m_canvas->getWidth() * m_drawingArea.getXOffset()),
                           static_cast<float>(m_drawingArea.getMargin()) };
             break;
         }
@@ -346,17 +371,23 @@ namespace Nickvision::Cavalier::Shared::Models
         return SkGradientShader::MakeLinear(&points[0], &skColors[0], nullptr, skColors.size(), SkTileMode::kClamp);
     }
 
-    sk_sp<SkShader> Renderer::createForegroundGradient(const std::vector<Color>& colors, float width, float height)
+    sk_sp<SkShader> Renderer::getForegroundGradient()
     {
-        std::vector<SkColor> skColors(colors.size());
-        for(size_t i = colors.size(); i > 0; i--)
+        if(!m_canvas || m_colorProfile.getForegroundColors().size() <= 1)
         {
-            const Color& color{ colors[i - 1] };
-            skColors[i] = SkColorSetARGB(color.getA(), color.getR(), color.getG(), color.getB());
+            return nullptr;
+        }
+        std::vector<SkColor> skColors(m_colorProfile.getForegroundColors().size());
+        float width{ static_cast<float>(m_canvas->getWidth()) };
+        float height{ static_cast<float>(m_canvas->getHeight()) };
+        for(size_t i = skColors.size(); i > 0; i--)
+        {
+            const Color& color{ m_colorProfile.getForegroundColors()[i - 1] };
+            skColors[i - 1] = SkColorSetARGB(color.getA(), color.getR(), color.getG(), color.getB());
         }
         if(m_drawingArea.getMode() == DrawingMode::Box || m_drawingArea.getShape() == DrawingShape::Splitter)
         {
-            return createBackgroundGradient(colors, width, height);
+            return getBackgroundGradient(true);
         }
         if(m_drawingArea.getMirrorMode() == MirrorMode::Off)
         {
@@ -380,6 +411,23 @@ namespace Nickvision::Cavalier::Shared::Models
         points[1] = { static_cast<float>(m_drawingArea.getMargin()),
                       std::min(width, height) / 2.0f };
         return SkGradientShader::MakeLinear(&points[0], &skColors[0], nullptr, skColors.size(), SkTileMode::kClamp);
+    }
+
+    SkPaint Renderer::getPaintForSpine(const SkPaint& paint, float sample)
+    {
+        SkPaint newPaint{ paint };
+        if(m_colorProfile.getForegroundColors().size() > 1)
+        {
+            float pos{ (m_colorProfile.getForegroundColors().size() - 1) * (1 - sample) };
+            const Color& color1{ m_colorProfile.getForegroundColors()[static_cast<size_t>(std::floor(pos))] };
+            const Color& color2{ m_colorProfile.getForegroundColors()[static_cast<size_t>(std::ceil(pos))] };
+            float weight{ sample < 1 ? std::fmod(pos, 1.0f) : 1.0f };
+            newPaint.setColor(SkColorSetARGB(color1.getA() * (1 - weight) + color2.getA() * weight,
+                                             color1.getR() * (1 - weight) + color2.getR() * weight,
+                                             color1.getG() * (1 - weight) + color2.getG() * weight,
+                                             color1.getB() * (1 - weight) + color2.getB() * weight));
+        }
+        return newPaint;
     }
 
     void Renderer::drawWave(const DrawingFunctionArguments& args)
@@ -738,18 +786,61 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(args.getMode() == DrawingMode::Box)
         {
-            //TODO
+            float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / args.getSample().size() };
+            float itemSize{ step * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS) };
+            for(size_t i = 0; i < args.getSample().size(); i++)
+            {
+                if(args.getSample()[i] == 0)
+                {
+                    continue;
+                }
+                float r{ itemSize * args.getSample()[i] / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f) };
+                SkRect rect;
+                switch(m_drawingArea.getDirection())
+                {
+                case DrawingDirection::TopToBottom:
+                case DrawingDirection::BottomToTop:
+                    rect = SkRect::MakeXYWH(args.getStart().getX() + step * (i + 0.5f) + (1 - itemSize * args.getSample()[i]) / 2.0f,
+                                            args.getStart().getY() + args.getEnd().getY() / 2.0f - itemSize * args.getSample()[i] / 2.0f,
+                                            itemSize * args.getSample()[i],
+                                            itemSize * args.getSample()[i]);
+                    break;
+                case DrawingDirection::LeftToRight:
+                case DrawingDirection::RightToLeft:
+                    rect = SkRect::MakeXYWH(args.getStart().getX() + args.getEnd().getX() / 2.0f - itemSize * args.getSample()[i] / 2.0f,
+                                            args.getStart().getY() + step * (i + 0.5f) + (1 - itemSize * args.getSample()[i]) / 2.0f,
+                                            itemSize * args.getSample()[i],
+                                            itemSize * args.getSample()[i]);
+                    break;
+                }
+                (*m_canvas)->drawRoundRect(rect, r, r, getPaintForSpine(args.getPaint(), args.getSample()[i]));
+            }
         }
         else if(args.getMode() == DrawingMode::Circle)
         {
-            //TODO
+            float fullRadius{ std::min(args.getEnd().getX(), args.getEnd().getY()) / 2.0f };
+            float innerRadius{ fullRadius * INNER_RADIUS };
+            float barWidth{ 2.0f * PI * innerRadius / args.getSample().size() };
+            float itemSize{ barWidth * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS) };
+            for(size_t i = 0; i < args.getSample().size(); i++)
+            {
+                float r{ itemSize * args.getSample()[i] / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f) };
+                (*m_canvas)->save();
+                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                                       args.getStart().getY() + args.getEnd().getY() / 2.0f);
+                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + ROTATION));
+                SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
+                                              innerRadius - itemSize * args.getSample()[i] / 2.0f,
+                                              itemSize * args.getSample()[i],
+                                              itemSize * args.getSample()[i]) };
+                (*m_canvas)->drawRoundRect(rect, r, r, getPaintForSpine(args.getPaint(), args.getSample()[i]));
+                (*m_canvas)->restore();
+            }
         }
     }
 
     void Renderer::drawSplitter(const DrawingFunctionArguments& args)
     {
-        // Splitter shape does not support circle mode
-        // Will always draw in box mode
         float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / args.getSample().size() };
         float orient{ 1.0f };
         SkPath path;
@@ -852,11 +943,48 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(args.getMode() == DrawingMode::Box)
         {
-            //TODO
+            float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / args.getSample().size() };
+            float itemSize{ step * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS) };
+            for(size_t i = 0; i < args.getSample().size(); i++)
+            {
+                if(args.getSample()[i] == 0)
+                {
+                    continue;
+                }
+                (*m_canvas)->save();
+                switch(m_drawingArea.getDirection())
+                {
+                case DrawingDirection::TopToBottom:
+                case DrawingDirection::BottomToTop:
+                    (*m_canvas)->translate(args.getStart().getX() + step * i + step / 2.0f,
+                                           args.getStart().getY() + args.getEnd().getY() / 2.0f);
+                    break;
+                case DrawingDirection::LeftToRight:
+                case DrawingDirection::RightToLeft:
+                    (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                                           args.getStart().getY() + step * i + step / 2.0f);
+                    break;
+                }
+                (*m_canvas)->scale(args.getSample()[i], args.getSample()[i]);
+                (*m_canvas)->drawPath(getHeartPath(itemSize), getPaintForSpine(args.getPaint(), args.getSample()[i]));
+                (*m_canvas)->restore();
+            }
         }
         else if(args.getMode() == DrawingMode::Circle)
         {
-            //TODO
+            float fullRadius{ std::min(args.getEnd().getX(), args.getEnd().getY()) / 2.0f };
+            float innerRadius{ fullRadius * INNER_RADIUS };
+            float barWidth{ 2.0f * PI * innerRadius / args.getSample().size() };
+            float itemSize{ barWidth * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS) };
+            for(size_t i = 0; i < args.getSample().size(); i++)
+            {
+                (*m_canvas)->save();
+                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f + innerRadius * std::cos(ROTATION + PI / 2.0f + PI * 2.0f * i / args.getSample().size()),
+                                       args.getStart().getY() + args.getEnd().getY() / 2.0f + innerRadius * std::sin(PI / 2.0f + PI * 2 * i / args.getSample().size()));
+                (*m_canvas)->scale(args.getSample()[i], args.getSample()[i]);
+                (*m_canvas)->drawPath(getHeartPath(itemSize), getPaintForSpine(args.getPaint(), args.getSample()[i]));
+                (*m_canvas)->restore();
+            }
         }
     }
 }
