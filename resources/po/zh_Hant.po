@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 12:16-0500\n"
+"POT-Creation-Date: 2025-02-10 19:36-0500\n"
 "PO-Revision-Date: 2023-08-12 17:18+0000\n"
 "Last-Translator: Wolf yuan <h1030035@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -51,16 +51,16 @@ msgstr "David Lapshin"
 msgid "translator-credits"
 msgstr "翻譯者"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:165
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:174
 msgid "New update available"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:179
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:188
 msgid ""
 "The update is downloading in the background and will start once it finishes"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:184
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:193
 msgid "Unable to download and install update"
 msgstr ""
 

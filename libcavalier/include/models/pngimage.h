@@ -2,6 +2,7 @@
 #define PNGIMAGE_H
 
 #include <cstdint>
+#include <filesystem>
 #include <vector>
 
 namespace Nickvision::Cavalier::Shared::Models
@@ -35,6 +36,13 @@ namespace Nickvision::Cavalier::Shared::Models
          * @return The image bytes
          */
         const std::vector<std::uint8_t>& getBytes() const;
+        /**
+         * @brief Saves the file to disk.
+         * @param file The file path
+         * @return True if saved successfully
+         * @return False if error
+         */
+        bool save(const std::filesystem::path& file) const;
 
     private:
         int m_width;

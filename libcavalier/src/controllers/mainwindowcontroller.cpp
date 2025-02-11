@@ -91,6 +91,15 @@ namespace Nickvision::Cavalier::Shared::Controllers
     std::string MainWindowController::getDebugInformation(const std::string& extraInformation) const
     {
         std::stringstream builder;
+        //cava
+        if(Environment::findDependency("cava").empty())
+        {
+            builder << "cava not found" << std::endl;
+        }
+        else
+        {
+            builder << Environment::exec(Environment::findDependency("cava").string() + " -v");
+        }
         //Extra
         if(!extraInformation.empty())
         {

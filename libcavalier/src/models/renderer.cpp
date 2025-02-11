@@ -312,26 +312,34 @@ namespace Nickvision::Cavalier::Shared::Models
         {
         case DrawingDirection::TopToBottom:
         {
-            points[0] = { static_cast<float>(m_drawingArea.getMargin()), static_cast<float>(m_drawingArea.getMargin() + height + m_drawingArea.getYOffset()) };
-            points[1] = { static_cast<float>(m_drawingArea.getMargin()), static_cast<float>(height * (1 + m_drawingArea.getYOffset())) };
+            points[0] = { static_cast<float>(m_drawingArea.getMargin()),
+                          static_cast<float>(m_drawingArea.getMargin() + height + m_drawingArea.getYOffset()) };
+            points[1] = { static_cast<float>(m_drawingArea.getMargin()),
+                          static_cast<float>(height * (1 + m_drawingArea.getYOffset())) };
             break;
         }
         case DrawingDirection::BottomToTop:
         {
-            points[0] = { static_cast<float>(m_drawingArea.getMargin()), static_cast<float>(height * (1 + m_drawingArea.getYOffset())) };
-            points[1] = { static_cast<float>(m_drawingArea.getMargin()), static_cast<float>(m_drawingArea.getMargin() + height * m_drawingArea.getYOffset()) };
+            points[0] = { static_cast<float>(m_drawingArea.getMargin()),
+                          static_cast<float>(height * (1 + m_drawingArea.getYOffset())) };
+            points[1] = { static_cast<float>(m_drawingArea.getMargin()),
+                          static_cast<float>(m_drawingArea.getMargin() + height * m_drawingArea.getYOffset()) };
             break;
         }
         case DrawingDirection::LeftToRight:
         {
-            points[0] = { static_cast<float>(m_drawingArea.getMargin() + width * m_drawingArea.getXOffset()), static_cast<float>(m_drawingArea.getMargin()) };
-            points[1] = { static_cast<float>(width * (1 + m_drawingArea.getXOffset())), static_cast<float>(m_drawingArea.getMargin()) };
+            points[0] = { static_cast<float>(m_drawingArea.getMargin() + width * m_drawingArea.getXOffset()),
+                          static_cast<float>(m_drawingArea.getMargin()) };
+            points[1] = { static_cast<float>(width * (1 + m_drawingArea.getXOffset())),
+                          static_cast<float>(m_drawingArea.getMargin()) };
             break;
         }
         default:
         {
-            points[0] = { static_cast<float>(width * (1 + m_drawingArea.getXOffset())), static_cast<float>(m_drawingArea.getMargin()) };
-            points[1] = { static_cast<float>(m_drawingArea.getMargin() + width * m_drawingArea.getXOffset()), static_cast<float>(m_drawingArea.getMargin()) };
+            points[0] = { static_cast<float>(width * (1 + m_drawingArea.getXOffset())),
+                          static_cast<float>(m_drawingArea.getMargin()) };
+            points[1] = { static_cast<float>(m_drawingArea.getMargin() + width * m_drawingArea.getXOffset()),
+                          static_cast<float>(m_drawingArea.getMargin()) };
             break;
         }
         }
@@ -367,8 +375,10 @@ namespace Nickvision::Cavalier::Shared::Models
             return SkGradientShader::MakeRadial({ width / 2, height / 2 }, fullRadius, &skColors[0], &positions[0], skColors.size(), SkTileMode::kClamp);
         }
         std::vector<SkPoint> points(2);
-        points[0] = { static_cast<float>(m_drawingArea.getMargin()), std::min(width, height) * INNER_RADIUS / 2.0f };
-        points[1] = { static_cast<float>(m_drawingArea.getMargin()), std::min(width, height) / 2.0f };
+        points[0] = { static_cast<float>(m_drawingArea.getMargin()),
+                      std::min(width, height) * INNER_RADIUS / 2.0f };
+        points[1] = { static_cast<float>(m_drawingArea.getMargin()),
+                      std::min(width, height) / 2.0f };
         return SkGradientShader::MakeLinear(&points[0], &skColors[0], nullptr, skColors.size(), SkTileMode::kClamp);
     }
 
@@ -390,7 +400,8 @@ namespace Nickvision::Cavalier::Shared::Models
                 //Create a list of points of where the curve must pass through
                 for(size_t i = 0; i < args.getSample().size(); i++)
                 {
-                    points[i] = { step * i, args.getEnd().getY() * (1 - args.getSample()[i]) };
+                    points[i] = { step * i,
+                                  args.getEnd().getY() * (1 - args.getSample()[i]) };
                 }
                 //Calculate gradient between the two neighbouring points for each point
                 for(size_t i = 0; i < points.size(); i++)
@@ -408,15 +419,20 @@ namespace Nickvision::Cavalier::Shared::Models
                 path.moveTo(args.getStart().getX() + points[0].getX(), yOffset + flipCoord(points[0].getY(), args.getEnd().getY(), flipImage));
                 for(size_t i = 0; i < points.size() - 1; i++)
                 {
-                    SkPoint a{ args.getStart().getX() + points[i].getX() + step * 0.5f, yOffset + flipCoord(points[i].getY() + gradients[i] * 0.5f, args.getEnd().getY(), flipImage) };
-                    SkPoint b{ args.getStart().getX() + points[i + 1].getX() + step * -0.5f, yOffset + flipCoord(points[i + 1].getY() + gradients[i + 1] * -0.5f, args.getEnd().getY(), flipImage) };
-                    SkPoint c{ args.getStart().getX() + points[i + 1].getX(), yOffset + flipCoord(points[i + 1].getY(), args.getEnd().getY(), flipImage) };
+                    SkPoint a{ args.getStart().getX() + points[i].getX() + step * 0.5f,
+                               yOffset + flipCoord(points[i].getY() + gradients[i] * 0.5f, args.getEnd().getY(), flipImage) };
+                    SkPoint b{ args.getStart().getX() + points[i + 1].getX() + step * -0.5f,
+                               yOffset + flipCoord(points[i + 1].getY() + gradients[i + 1] * -0.5f, args.getEnd().getY(), flipImage) };
+                    SkPoint c{ args.getStart().getX() + points[i + 1].getX(),
+                               yOffset + flipCoord(points[i + 1].getY(), args.getEnd().getY(), flipImage) };
                     path.cubicTo(a, b, c);
                 }
                 if(m_drawingArea.getFillShape())
                 {
-                    path.lineTo({ args.getStart().getX() + args.getEnd().getX(), args.getStart().getY() + flipCoord(args.getEnd().getY(), args.getEnd().getY(), flipImage) });
-                    path.lineTo({ args.getStart().getX(), args.getStart().getY() + flipCoord(args.getEnd().getY(), args.getEnd().getY(), flipImage) });
+                    path.lineTo({ args.getStart().getX() + args.getEnd().getX(),
+                                  args.getStart().getY() + flipCoord(args.getEnd().getY(), args.getEnd().getY(), flipImage) });
+                    path.lineTo({ args.getStart().getX(),
+                                  args.getStart().getY() + flipCoord(args.getEnd().getY(), args.getEnd().getY(), flipImage) });
                     path.close();
                 }
                 break;
@@ -440,15 +456,20 @@ namespace Nickvision::Cavalier::Shared::Models
                 path.moveTo(xOffset + flipCoord(points[0].getX(), args.getEnd().getX(), flipImage), args.getStart().getY() + points[0].getY());
                 for(size_t i = 0; i < points.size() - 1; i++)
                 {
-                    SkPoint a{ xOffset + flipCoord(points[i].getX() + gradients[i] * 0.5f, args.getEnd().getX(), flipImage), args.getStart().getY() + points[i].getY() + step * 0.5f };
-                    SkPoint b{ xOffset + flipCoord(points[i + 1].getX() + gradients[i + 1] * -0.5f, args.getEnd().getX(), flipImage), args.getStart().getY() + points[i + 1].getY() + step * -0.5f };
-                    SkPoint c{ xOffset + flipCoord(points[i + 1].getX(), args.getEnd().getX(), flipImage), args.getStart().getY() + points[i + 1].getY() };
+                    SkPoint a{ xOffset + flipCoord(points[i].getX() + gradients[i] * 0.5f, args.getEnd().getX(), flipImage),
+                               args.getStart().getY() + points[i].getY() + step * 0.5f };
+                    SkPoint b{ xOffset + flipCoord(points[i + 1].getX() + gradients[i + 1] * -0.5f, args.getEnd().getX(), flipImage),
+                               args.getStart().getY() + points[i + 1].getY() + step * -0.5f };
+                    SkPoint c{ xOffset + flipCoord(points[i + 1].getX(), args.getEnd().getX(), flipImage),
+                               args.getStart().getY() + points[i + 1].getY() };
                     path.cubicTo(a, b, c);
                 }
                 if(m_drawingArea.getFillShape())
                 {
-                    path.lineTo({ args.getStart().getX() + flipCoord(0, args.getEnd().getX(), flipImage), args.getStart().getY() + args.getEnd().getY() });
-                    path.lineTo({ args.getStart().getX() + flipCoord(0, args.getEnd().getX(), flipImage), args.getStart().getY() });
+                    path.lineTo({ args.getStart().getX() + flipCoord(0, args.getEnd().getX(), flipImage),
+                                  args.getStart().getY() + args.getEnd().getY() });
+                    path.lineTo({ args.getStart().getX() + flipCoord(0, args.getEnd().getX(), flipImage),
+                                  args.getStart().getY() });
                     path.close();
                 }
                 break;
@@ -470,14 +491,20 @@ namespace Nickvision::Cavalier::Shared::Models
             path.moveTo(args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION));
             for(size_t i = 0; i < args.getSample().size() - 1; i++)
             {
-                SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION) };
-                SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION) };
-                SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + ROTATION) };
+                SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION),
+                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION) };
+                SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION),
+                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION) };
+                SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::cos(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + ROTATION),
+                           args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[i + 1]) * std::sin(PI / 2 + PI * 2 * (i + 1.0f) / args.getSample().size() + ROTATION) };
                 path.cubicTo(a, b, c);
             }
-            SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION) };
-            SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION) };
-            SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION) };
+            SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION),
+                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[args.getSample().size() - 1]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION) };
+            SkPoint b{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION),
+                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + PI * 2 * (args.getSample().size() - 0.5f) / args.getSample().size() + ROTATION) };
+            SkPoint c{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION),
+                       args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION) };
             path.cubicTo(a, b, c);
             path.close();
             if(m_drawingArea.getFillShape())
@@ -497,7 +524,47 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         if(args.getMode() == DrawingMode::Box)
         {
-            //TODO
+            float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / static_cast<float>(args.getSample().size()) };
+            float fill{ m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f };
+            float itemWidth{ (args.getDirection() < DrawingDirection::LeftToRight ? step : args.getEnd().getX() / 10.0f) * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - fill };
+            float itemHeight{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getY() / 10.0f : step) * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - fill };
+            SkPath path;
+            for(size_t i = 0; i < args.getSample().size(); i++)
+            {
+                for(float j = 0; j < std::floor(args.getSample()[i] * 10.0f); j++)
+                {
+                    SkRect rect;
+                    switch(m_drawingArea.getDirection())
+                    {
+                    case DrawingDirection::TopToBottom:
+                        rect = { args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                                 args.getStart().getY() + args.getEnd().getY() / 10.0f * j + args.getEnd().getY() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                                 args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + itemWidth,
+                                 args.getStart().getY() + args.getEnd().getY() / 10.0f * j + args.getEnd().getY() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight };
+                        break;
+                    case DrawingDirection::BottomToTop:
+                        rect = { args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                                 args.getStart().getY() + args.getEnd().getY() / 10.0f * (9 - j) + args.getEnd().getY() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                                 args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + itemWidth,
+                                 args.getStart().getY() + args.getEnd().getY() / 10.0f * (9 - j) + args.getEnd().getY() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight };
+                        break;
+                    case DrawingDirection::LeftToRight:
+                        rect = { args.getStart().getX() + args.getEnd().getX() / 10.0f * j + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                                 args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                                 args.getStart().getX() + args.getEnd().getX() / 10.0f * j + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight,
+                                 args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
+                        break;
+                    case DrawingDirection::RightToLeft:
+                        rect = { args.getStart().getX() + args.getEnd().getX() / 10.0f * (9 - j) + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                                 args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                                 args.getStart().getX() + args.getEnd().getX() / 10.0f * (9 - j) + args.getEnd().getX() / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight,
+                                 args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
+                        break;
+                    }
+                    path.addRoundRect(rect, itemWidth / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f), itemHeight / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f));
+                }
+            }
+            (*m_canvas)->drawPath(path, args.getPaint());
         }
         else if(args.getMode() == DrawingMode::Circle)
         {
