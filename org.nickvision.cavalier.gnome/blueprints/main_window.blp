@@ -43,9 +43,10 @@ Adw.ApplicationWindow root {
 
         Adw.ViewStackPage {
           name: "Image";
-          child: Gtk.Image renderImage {
+          child: Gtk.Picture renderImage {
             hexpand: true;
             vexpand: true;
+            content-fit: fill;
           };
         }
       }

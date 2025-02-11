@@ -12,8 +12,6 @@
 #include "helpers/qthelpers.h"
 #include "views/settingsdialog.h"
 
-#define DEFAULT_IMAGE_MARGIN 12
-
 using namespace Nickvision::App;
 using namespace Nickvision::Cavalier::Qt::Controls;
 using namespace Nickvision::Cavalier::Qt::Helpers;

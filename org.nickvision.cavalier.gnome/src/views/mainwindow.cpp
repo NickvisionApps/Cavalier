@@ -132,7 +132,7 @@ namespace Nickvision::Cavalier::GNOME::Views
         adw_view_stack_set_visible_child_name(m_builder.get<AdwViewStack>("viewStack"), "Image");
         GBytes* bytes{ g_bytes_new(&args.getParam().getBytes()[0], args.getParam().getBytes().size()) };
         GdkTexture* texture{ gdk_texture_new_from_bytes(bytes, nullptr) };
-        gtk_image_set_from_paintable(m_builder.get<GtkImage>("renderImage"), GDK_PAINTABLE(texture));
+        gtk_picture_set_paintable(m_builder.get<GtkPicture>("renderImage"), GDK_PAINTABLE(texture));
         g_object_unref(texture);
         g_bytes_unref(bytes);
     }
