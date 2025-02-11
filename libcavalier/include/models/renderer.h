@@ -26,8 +26,17 @@ namespace Nickvision::Cavalier::Shared::Models
     public:
         /**
          * @brief Constructs a Renderer.
+         * @param canvas The optional canvas to render too
          */
         Renderer(const std::optional<Canvas>& canvas = std::nullopt);
+        /**
+         * @brief Constructs a Renderer.
+         * @param drawingArea The drawing area options
+         * @param colorProfile The active color profile
+         * @param backgroundImage The optional background image to render
+         * @param canvas The optional canvas to render too
+         */
+        Renderer(const DrawingArea& drawingArea, const ColorProfile& colorProfile, const std::optional<BackgroundImage>& backgroundImage = std::nullopt, const std::optional<Canvas>& canvas = std::nullopt);
         /**
          * @brief Gets the canvas.
          * @return The canvas

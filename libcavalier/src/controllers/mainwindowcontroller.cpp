@@ -28,7 +28,8 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_args{ args },
         m_appInfo{ "org.nickvision.cavalier", "Nickvision Cavalier", "Cavalier" },
         m_dataFileManager{ m_appInfo.getName() },
-        m_cava{ m_dataFileManager.get<Configuration>("config").getCavaOptions(), m_appInfo.getName() }
+        m_cava{ m_dataFileManager.get<Configuration>("config").getCavaOptions(), m_appInfo.getName() },
+        m_renderer{ m_dataFileManager.get<Configuration>("config").getDrawingArea(), m_dataFileManager.get<Configuration>("config").getColorProfiles()[m_dataFileManager.get<Configuration>("config").getActiveColorProfileIndex()] }
     {
         m_appInfo.setVersion({ "2025.2.0-next" });
         m_appInfo.setShortName(_("Cavalier"));
@@ -49,6 +50,11 @@ namespace Nickvision::Cavalier::Shared::Controllers
 #ifdef _WIN32
         m_updater = std::make_shared<Updater>(m_appInfo.getSourceRepo());
 #endif
+        if(m_dataFileManager.get<Configuration>("config").getActiveBackgroundImageIndex() != -1)
+        {
+            m_renderer.setBackgroundImage(m_dataFileManager.get<Configuration>("config").getBackgroundImages()[m_dataFileManager.get<Configuration>("config").getActiveBackgroundImageIndex()]);
+        }
+        //Events
         m_dataFileManager.get<Configuration>("config").saved() +=  [this](const EventArgs&){ onConfigurationSaved(); };
         m_cava.outputReceived() += [this](const ParamEventArgs<std::vector<float>>& args){ onOutputReceived(args); };
     }
@@ -136,6 +142,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
         }
         //Load configuration
         info.setWindowGeometry(m_dataFileManager.get<Configuration>("config").getWindowGeometry());
+        m_renderer.setCanvas(Canvas{ static_cast<int>(info.getWindowGeometry().getWidth()), static_cast<int>(info.getWindowGeometry().getHeight()) });
         //Load taskbar item
 #ifdef _WIN32
         m_taskbar.connect(hwnd);
@@ -197,9 +204,9 @@ namespace Nickvision::Cavalier::Shared::Controllers
     }
 #endif
 
-    void MainWindowController::setCanvas(const std::optional<Canvas>& canvas)
+    void MainWindowController::updateCanvasSize(int width, int height)
     {
-        m_renderer.setCanvas(canvas);
+        m_renderer.setCanvas(Canvas{ width, height });
     }
 
     void MainWindowController::onConfigurationSaved()

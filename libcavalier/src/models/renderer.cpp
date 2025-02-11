@@ -84,7 +84,17 @@ namespace Nickvision::Cavalier::Shared::Models
     }
 
     Renderer::Renderer(const std::optional<Canvas>& canvas)
-        : m_canvas{ canvas }
+        : m_canvas{ canvas },
+        m_backgroundImage{ std::nullopt }
+    {
+
+    }
+
+    Renderer::Renderer(const DrawingArea& drawingArea, const ColorProfile& colorProfile, const std::optional<BackgroundImage>& backgroundImage, const std::optional<Canvas>& canvas)
+        : m_canvas{ canvas },
+        m_drawingArea{ drawingArea },
+        m_colorProfile{ colorProfile },
+        m_backgroundImage{ backgroundImage }
     {
 
     }
@@ -264,7 +274,7 @@ namespace Nickvision::Cavalier::Shared::Models
             sk_sp<SkData> png{ SkPngEncoder::Encode(nullptr, image.get(), {}) };
             if(png)
             {
-                return PngImage{ width, height, png->bytes(), png->size() };
+                return PngImage{ m_canvas->getWidth(), m_canvas->getHeight(), png->bytes(), png->size() };
             }
         }
         return std::nullopt;

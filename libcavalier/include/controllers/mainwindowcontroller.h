@@ -17,7 +17,6 @@
 #include <libnick/taskbar/taskbaritem.h>
 #include <libnick/update/updater.h>
 #include "controllers/preferencesviewcontroller.h"
-#include "models/canvas.h"
 #include "models/cava.h"
 #include "models/pngimage.h"
 #include "models/renderer.h"
@@ -118,10 +117,11 @@ namespace Nickvision::Cavalier::Shared::Controllers
         void windowsUpdate();
 #endif
         /**
-         * @brief Sets the canvas to render to.
-         * @param canvas The canvas to render to
+         * @brief Updates the size of the drawing canvas.
+         * @param width The new canvas width
+         * @param height The new canvas height
          */
-        void setCanvas(const std::optional<Models::Canvas>& canvas);
+        void updateCanvasSize(int width, int height);
 
     private:
         /**

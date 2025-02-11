@@ -103,7 +103,7 @@ namespace Nickvision::Cavalier::GNOME::Views
         int width;
         int height;
         gtk_window_get_default_size(GTK_WINDOW(m_window), &width, &height);
-        m_controller->setCanvas(Canvas{ width, height });
+        m_controller->updateCanvasSize(width, height);
     }
 
     void MainWindow::onNotificationSent(const NotificationSentEventArgs& args)

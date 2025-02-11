@@ -12,6 +12,8 @@
 #include "helpers/qthelpers.h"
 #include "views/settingsdialog.h"
 
+#define DEFAULT_IMAGE_MARGIN 12
+
 using namespace Nickvision::App;
 using namespace Nickvision::Cavalier::Qt::Controls;
 using namespace Nickvision::Cavalier::Qt::Helpers;
@@ -49,7 +51,7 @@ namespace Nickvision::Cavalier::Qt::Views
         m_ui->actionGitHubRepo->setText(_("GitHub Repo"));
         m_ui->actionReportABug->setText(_("Report a Bug"));
         m_ui->actionDiscussions->setText(_("Discussions"));
-        m_ui->actionAbout->setText(_("About Application"));
+        m_ui->actionAbout->setText(_("About Cavalier"));
         //Home Page
         m_ui->lblHomeGreeting->setText(_("Visualize Your Audio"));
         m_ui->lblHomeDescription->setText(_("Play some music or watch a video and see your sound come to life"));
@@ -89,7 +91,6 @@ namespace Nickvision::Cavalier::Qt::Views
             showMaximized();
         }
         m_ui->viewStack->setCurrentIndex(MainWindowPages::Home);
-        m_controller->setCanvas(Canvas{ static_cast<int>(info.getWindowGeometry().getWidth()), static_cast<int>(info.getWindowGeometry().getHeight()) });
     }
 
     void MainWindow::closeEvent(QCloseEvent* event)
@@ -104,7 +105,8 @@ namespace Nickvision::Cavalier::Qt::Views
 
     void MainWindow::resizeEvent(QResizeEvent* event)
     {
-        //TODO
+        QMainWindow::resizeEvent(event);
+        m_controller->updateCanvasSize(m_ui->lblImage->width(), m_ui->lblImage->height());
     }
 
     void MainWindow::settings()
@@ -182,7 +184,7 @@ namespace Nickvision::Cavalier::Qt::Views
     void MainWindow::onImageRendered(const ParamEventArgs<PngImage>& args)
     {
         m_ui->viewStack->setCurrentIndex(MainWindowPages::Render);
-        QByteArray bytes{ reinterpret_cast<const char*>(&args.getParam().getBytes()[0]), args.getParam().getBytes().size() };
+        QByteArray bytes{ reinterpret_cast<const char*>(&args.getParam().getBytes()[0]), static_cast<qsizetype>(args.getParam().getBytes().size()) };
         QPixmap pixmap{ args.getParam().getWidth(), args.getParam().getHeight() };
         pixmap.loadFromData(bytes, "PNG");
         m_ui->lblImage->setPixmap(pixmap);

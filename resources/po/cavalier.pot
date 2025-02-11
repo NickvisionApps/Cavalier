@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-11 00:17-0500\n"
+"POT-Creation-Date: 2025-02-11 00:55-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,45 +17,45 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:34
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
 msgid "Cavalier"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
 msgid "Visualize audio with CAVA"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:40
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
 msgid "Matrix Chat"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:42
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
 msgid "Contributors on GitHub"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:44
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
 msgid "Fyodor Sobolev"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:46
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
 msgid "David Lapshin"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
 msgid "translator-credits"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:174
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:181
 msgid "New update available"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:188
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:195
 msgid ""
 "The update is downloading in the background and will start once it finishes"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:193
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:200
 msgid "Unable to download and install update"
 msgstr ""
 
@@ -77,6 +77,7 @@ msgstr ""
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
 #: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:32
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
 msgid "About Cavalier"
 msgstr ""
 
@@ -85,13 +86,13 @@ msgid "Main Menu"
 msgstr ""
 
 #. Home Page
-#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:40
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:56
 msgid "Visualize Your Audio"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:55
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:41
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:57
 msgid "Play some music or watch a video and see your sound come to life"
 msgstr ""
 
@@ -296,7 +297,6 @@ msgid "Application"
 msgstr ""
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
 msgid "About Application"
 msgstr ""
 
@@ -305,12 +305,12 @@ msgid "Quit"
 msgstr ""
 
 #: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:170
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:172
 msgid "Open"
 msgstr ""
 
 #: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:181
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
 msgid "GitHub Repo"
 msgstr ""
 
@@ -351,45 +351,45 @@ msgstr ""
 msgid "Notification"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:42
 msgid "Cavalier (Preview)"
 msgstr ""
 
 #. MenuBar
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
 msgid "File"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
 msgid "Exit"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
 msgid "Edit"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
 msgid "Settings"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
 msgid "Help"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
 msgid "Check for Updates"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
 msgid "Report a Bug"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:53
 msgid "Discussions"
 msgstr ""
 
-#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:158
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:160
 msgid "Update"
 msgstr ""
 
