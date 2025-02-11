@@ -11,6 +11,7 @@ using namespace Nickvision::Helpers;
 using namespace Nickvision::System;
 
 #define CAVA_RAW_MAX 65530.0f
+#define CAVA_WAIT std::chrono::milliseconds(10)
 
 namespace Nickvision::Cavalier::Shared::Models
 {
@@ -96,15 +97,15 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             if(m_process->getOutput().empty()) //Wait for startup
             {
-                std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                std::this_thread::sleep_for(CAVA_WAIT);
                 continue;
             }
             std::unique_lock<std::mutex> lock{ m_mutex };
             std::vector<std::string> frames{ StringHelpers::split(m_process->getOutput(), std::string(1, CAVA_FRAME_DELIMITER)) };
             std::vector<std::string> bars;
-            for(size_t i = frames.size() - 1; i >= 0; i--)
+            for(std::vector<std::string>::const_reverse_iterator itr = frames.rbegin(); itr != frames.rend(); ++itr)
             {
-                const std::string& lastFrame{ frames[i] };
+                const std::string& lastFrame{ *itr };
                 if(std::count(lastFrame.begin(), lastFrame.end(), CAVA_BAR_DELIMITER) == m_options.getNumberOfBars())
                 {
                     bars = StringHelpers::split(lastFrame, std::string(1, CAVA_BAR_DELIMITER));
@@ -113,6 +114,7 @@ namespace Nickvision::Cavalier::Shared::Models
             }
             if(bars.empty())
             {
+                std::this_thread::sleep_for(CAVA_WAIT);
                 continue;
             }
             std::vector<float> sample(static_cast<size_t>(m_options.getNumberOfBars()));
@@ -137,6 +139,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 sentEmptyOutput = false;
                 m_outputReceived.invoke({ sample });
             }
+            std::this_thread::sleep_for(CAVA_WAIT);
         }
         std::lock_guard<std::mutex> lock{ m_mutex };
         m_isRecevingAudio = false;

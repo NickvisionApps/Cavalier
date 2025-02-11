@@ -416,7 +416,8 @@ namespace Nickvision::Cavalier::Shared::Models
                     gradients[i] = i == 0 || i == points.size() - 1 ? gradient : gradient / 2;
                 }
                 float yOffset{ args.getStart().getY() + (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS / 2) };
-                path.moveTo(args.getStart().getX() + points[0].getX(), yOffset + flipCoord(points[0].getY(), args.getEnd().getY(), flipImage));
+                path.moveTo(args.getStart().getX() + points[0].getX(),
+                            yOffset + flipCoord(points[0].getY(), args.getEnd().getY(), flipImage));
                 for(size_t i = 0; i < points.size() - 1; i++)
                 {
                     SkPoint a{ args.getStart().getX() + points[i].getX() + step * 0.5f,
@@ -453,7 +454,8 @@ namespace Nickvision::Cavalier::Shared::Models
                     gradients[i] = i == 0 || i == points.size() - 1 ? gradient : gradient / 2;
                 }
                 float xOffset{ args.getStart().getX() - (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS / 2) };
-                path.moveTo(xOffset + flipCoord(points[0].getX(), args.getEnd().getX(), flipImage), args.getStart().getY() + points[0].getY());
+                path.moveTo(xOffset + flipCoord(points[0].getX(), args.getEnd().getX(), flipImage),
+                            args.getStart().getY() + points[0].getY());
                 for(size_t i = 0; i < points.size() - 1; i++)
                 {
                     SkPoint a{ xOffset + flipCoord(points[i].getX() + gradients[i] * 0.5f, args.getEnd().getX(), flipImage),
@@ -488,7 +490,8 @@ namespace Nickvision::Cavalier::Shared::Models
             (*m_canvas)->translate(args.getStart().getX(), args.getStart().getY());
             paint.setStyle(SkPaint::kStroke_Style);
             paint.setStrokeWidth(m_drawingArea.getFillShape() ? radius : LINE_THICKNESS);
-            path.moveTo(args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION), args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION));
+            path.moveTo(args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + ROTATION),
+                        args.getEnd().getY() / 2 + (innerRadius + radius * args.getSample()[0]) * std::sin(PI / 2 + ROTATION));
             for(size_t i = 0; i < args.getSample().size() - 1; i++)
             {
                 SkPoint a{ args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[i]) * std::cos(PI / 2 + PI * 2 * (i + 0.5f) / args.getSample().size() + ROTATION),
@@ -528,6 +531,8 @@ namespace Nickvision::Cavalier::Shared::Models
             float fill{ m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f };
             float itemWidth{ (args.getDirection() < DrawingDirection::LeftToRight ? step : args.getEnd().getX() / 10.0f) * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - fill };
             float itemHeight{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getY() / 10.0f : step) * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - fill };
+            float rx{ itemWidth / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f) };
+            float ry{ itemHeight / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f) };
             SkPath path;
             for(size_t i = 0; i < args.getSample().size(); i++)
             {
@@ -561,14 +566,35 @@ namespace Nickvision::Cavalier::Shared::Models
                                  args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
                         break;
                     }
-                    path.addRoundRect(rect, itemWidth / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f), itemHeight / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f));
+                    path.addRoundRect(rect, rx, ry);
                 }
             }
             (*m_canvas)->drawPath(path, args.getPaint());
         }
         else if(args.getMode() == DrawingMode::Circle)
         {
-            //TODO
+            float fullRadius{ std::min(args.getEnd().getX(), args.getEnd().getY()) / 2.0f };
+            float innerRadius{ fullRadius * INNER_RADIUS };
+            float radius{ fullRadius - innerRadius };
+            float barWidth{ 2.0f * PI * innerRadius / args.getSample().size() };
+            float rx{ (barWidth * (1 - (m_drawingArea.getItemSpacing() / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS)) * (m_drawingArea.getItemRoundness() / 100.0f) };
+            float ry{ radius / 10.0f * (1 - (m_drawingArea.getItemSpacing() / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS) * (m_drawingArea.getItemRoundness() / 100.0f) };
+            for(size_t i = 0; i < args.getSample().size(); i++)
+            {
+                (*m_canvas)->save();
+                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                                       args.getStart().getY() + args.getEnd().getY() / 2.0f);
+                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + ROTATION));
+                for(float j = 0; j < std::floor(args.getSample()[i] * 10.0f); j++)
+                {
+                    SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
+                                                  innerRadius + radius / 10.0f * j + radius / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
+                                                  barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS),
+                                                  radius / 10.0f * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS)) };
+                    (*m_canvas)->drawRoundRect(rect, rx, ry, args.getPaint());
+                }
+                (*m_canvas)->restore();
+            }
         }
     }
 
