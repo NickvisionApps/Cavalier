@@ -55,12 +55,15 @@ namespace Nickvision::Cavalier::Shared::Models
     void Cava::setOptions(const CavaOptions& options)
     {
         std::unique_lock<std::mutex> lock{ m_mutex };
-        m_options = options;
-        updateConfigFile();
-        lock.unlock();
-        if(m_process->isRunning())
+        if(options.toCavaOptionsString() != m_options.toCavaOptionsString()) //Options updated
         {
-            start();
+            m_options = options;
+            updateConfigFile();
+            lock.unlock();
+            if(m_process->isRunning())
+            {
+                start();
+            }
         }
     }
 

@@ -244,7 +244,7 @@ namespace Nickvision::Cavalier::Shared::Models
             break;
         }
         //Draw Shape
-        Point start{ static_cast<float>((width + m_drawingArea.getMargin() * 2) * m_drawingArea.getXOffset() + m_drawingArea.getMargin()), static_cast<float>((height + m_drawingArea.getMargin() * 2) * m_drawingArea.getYOffset() + m_drawingArea.getMargin()) };
+        Point start{ static_cast<float>((width + m_drawingArea.getMargin() * 2) * (m_drawingArea.getXOffset() / 100.0f) + m_drawingArea.getMargin()), static_cast<float>((height + m_drawingArea.getMargin() * 2) * (m_drawingArea.getYOffset() / 100.0f) + m_drawingArea.getMargin()) };
         Point end{ static_cast<float>(width), static_cast<float>(height) };
         Point reverseEnd{ getMirrorWidth(width), getMirrorHeight(height) };
         if(m_drawingArea.getMirrorMode() == MirrorMode::Full || m_drawingArea.getMirrorMode() == MirrorMode::ReverseFull)
