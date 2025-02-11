@@ -622,9 +622,9 @@ namespace Nickvision::Cavalier::Shared::Models
                     break;
                 case DrawingDirection::BottomToTop:
                     rect = { args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
-                            args.getStart().getY() + args.getEnd().getY() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getY() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
-                            args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + itemWidth,
-                            args.getStart().getY() + args.getEnd().getY() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getY() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight };
+                             args.getStart().getY() + args.getEnd().getY() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getY() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
+                             args.getStart().getX() + step * (i + (m_drawingArea.getItemSpacing() / 100.0f)) + itemWidth,
+                             args.getStart().getY() + args.getEnd().getY() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getY() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemHeight };
                     break;
                 case DrawingDirection::LeftToRight:
                     rect = { args.getStart().getX() + args.getEnd().getX() / 11.0f * 10.0f * args.getSample()[i] + args.getEnd().getX() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
@@ -634,9 +634,9 @@ namespace Nickvision::Cavalier::Shared::Models
                     break;
                 case DrawingDirection::RightToLeft:
                     rect = { args.getStart().getX() + args.getEnd().getX() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getX() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + fill,
-                            args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
-                            args.getStart().getX() + args.getEnd().getX() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getX() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemWidth,
-                            args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
+                             args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + fill,
+                             args.getStart().getX() + args.getEnd().getX() / 11.0f * 10.0f * (1 - args.getSample()[i]) + args.getEnd().getX() / 11.0f * (m_drawingArea.getItemSpacing() / 100.0f) + itemWidth,
+                             args.getStart().getY() + step * (i * (m_drawingArea.getItemSpacing() / 100.0f)) + itemHeight };
                     break;
                 }
                 path.addRoundRect(rect, rx, ry);
@@ -748,13 +748,103 @@ namespace Nickvision::Cavalier::Shared::Models
 
     void Renderer::drawSplitter(const DrawingFunctionArguments& args)
     {
-        if(args.getMode() == DrawingMode::Box)
+        // Splitter shape does not support circle mode
+        // Will always draw in box mode
+        float step{ (args.getDirection() < DrawingDirection::LeftToRight ? args.getEnd().getX() : args.getEnd().getY()) / args.getSample().size() };
+        float orient{ 1.0f };
+        SkPath path;
+        switch(m_drawingArea.getDirection())
         {
-            //TODO
+        case DrawingDirection::TopToBottom:
+            path.moveTo(args.getStart().getX(),
+                        args.getStart().getY() + args.getEnd().getY() / 2.0f * (1 + args.getSample()[0]));
+            break;
+        case DrawingDirection::BottomToTop:
+            orient = -1;
+            path.moveTo(args.getStart().getX(),
+                        args.getStart().getY() + args.getEnd().getY() / 2.0f * (1 + args.getSample()[0] * orient));
+            break;
+        case DrawingDirection::LeftToRight:
+            path.moveTo(args.getStart().getX() + args.getEnd().getX() / 2.0f * (1 + args.getSample()[0]),
+                        args.getStart().getY());
+            break;
+        case DrawingDirection::RightToLeft:
+            orient = -1;
+            path.moveTo(args.getStart().getX() + args.getEnd().getX() / 2.0f * (1 + args.getSample()[0] * orient),
+                        args.getStart().getY());
+            break;
         }
-        else if(args.getMode() == DrawingMode::Circle)
+        for(size_t i = 0; i < args.getSample().size(); i++)
         {
-            //TODO
+            switch(m_drawingArea.getDirection())
+            {
+            case DrawingDirection::TopToBottom:
+            case DrawingDirection::BottomToTop:
+            {
+                if(i > 0)
+                {
+                    path.lineTo(args.getStart().getX() + step * i,
+                                args.getStart().getY() + args.getEnd().getY() / 2.0f);
+                }
+                path.lineTo(args.getStart().getX() + step * i,
+                            args.getStart().getY() + args.getEnd().getY() / 2.0f * (1 + args.getSample()[i] * (i % 2 == 0 ? orient : -orient)));
+                path.lineTo(args.getStart().getX() + step * (i + 1),
+                            args.getStart().getY() + args.getEnd().getY() / 2.0f * (1 + args.getSample()[i] * (i % 2 == 0 ? orient : -orient)));
+                if(i < args.getSample().size() - 1)
+                {
+                    path.lineTo(args.getStart().getX() + step * (i + 1),
+                                args.getStart().getY() + args.getEnd().getY() / 2.0f);
+                }
+                break;
+            }
+            case DrawingDirection::LeftToRight:
+            case DrawingDirection::RightToLeft:
+            {
+                if(i > 0)
+                {
+                    path.lineTo(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                                args.getStart().getY() + step * i);
+                }
+                path.lineTo(args.getStart().getX() + args.getEnd().getX() / 2.0f * (1 + args.getSample()[i] * (i % 2 == 0 ? orient : -orient)),
+                            args.getStart().getY() + step * i);
+                path.lineTo(args.getStart().getX() + args.getEnd().getX() / 2.0f * (1 + args.getSample()[i] * (i % 2 == 0 ? orient : -orient)),
+                            args.getStart().getY() + step * (i + 1));
+                if(i < args.getSample().size() - 1)
+                {
+                    path.lineTo(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                                args.getStart().getY() + step * (i + 1));
+                }
+                break;
+            }
+            }
+        }
+        if(!m_drawingArea.getFillShape())
+        {
+            (*m_canvas)->drawPath(path, args.getPaint());
+        }
+        switch(m_drawingArea.getDirection())
+        {
+        case DrawingDirection::TopToBottom:
+            path.lineTo(args.getStart().getX() + args.getEnd().getX(), args.getStart().getY());
+            path.lineTo(args.getStart().getX(), args.getStart().getY());
+            break;
+        case DrawingDirection::BottomToTop:
+            path.lineTo(args.getStart().getX() + args.getEnd().getX(), args.getStart().getY() + args.getEnd().getY());
+            path.lineTo(args.getStart().getX(), args.getStart().getY() + args.getEnd().getY());
+            break;
+        case DrawingDirection::LeftToRight:
+            path.lineTo(args.getStart().getX(), args.getStart().getY() + args.getEnd().getY());
+            path.lineTo(args.getStart().getX(), args.getStart().getY());
+            break;
+        case DrawingDirection::RightToLeft:
+            path.lineTo(args.getStart().getX() + args.getEnd().getX(), args.getStart().getY() + args.getEnd().getY());
+            path.lineTo(args.getStart().getX() + args.getEnd().getX(), args.getStart().getY());
+            break;
+        }
+        path.close();
+        if(m_drawingArea.getFillShape())
+        {
+            (*m_canvas)->drawPath(path, args.getPaint());
         }
     }
 
