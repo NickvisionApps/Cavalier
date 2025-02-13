@@ -1,5 +1,5 @@
---- a/config.c	2025-01-12 08:48:59.406480995 -0500
-+++ b/config.c	2025-01-12 08:51:44.700054483 -0500
+--- a/config.c	2025-02-13 18:27:37.349197294 -0500
++++ b/config.c	2025-02-13 18:28:49.815723797 -0500
 @@ -4,7 +4,7 @@
  
  #include <ctype.h>
@@ -9,7 +9,7 @@
  #endif
  #include <math.h>
  
-@@ -684,13 +684,8 @@
+@@ -750,13 +750,8 @@
      if (p->userEQ_keys > 0) {
          p->userEQ_enabled = 1;
          p->userEQ = (double *)calloc(p->userEQ_keys + 1, sizeof(double));

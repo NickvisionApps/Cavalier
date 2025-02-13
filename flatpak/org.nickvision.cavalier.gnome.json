@@ -124,7 +124,7 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/karlstav/cava.git",
-                    "tag" : "0.10.3"
+                    "tag" : "0.10.4"
                 },
                 {
                     "type" : "patch",
