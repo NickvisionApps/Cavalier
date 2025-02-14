@@ -62,7 +62,9 @@
         <p>- Added a Qt version of Cavalier which also runs on Windows</p>
         <p>- Added the ability to specify the `CAVALIER_INPUT_SOURCE` environment variable to change Cavalier's audio source</p>
         <p>- Increased the maximuim number of bars to 200</p>
-        <p>- Updated dependencies</p>
+        <p>- Removed the ability to control Cavalier via CLI. If enough users ask, we will add it back</p>
+        <p>- Removed the ability to set a foreground image in the drawing area</p>
+        <p>- Updated cava</p>
       </description>
     </release>
   </releases>

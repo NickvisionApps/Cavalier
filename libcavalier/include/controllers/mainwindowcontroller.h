@@ -2,6 +2,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
+#if (defined(_WIN32) && !defined(NOMINMAX))
+#define NOMINMAX
+#endif
+
 #ifndef MAINWINDOWCONTROLLER_H
 #define MAINWINDOWCONTROLLER_H
 

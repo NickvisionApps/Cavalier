@@ -180,21 +180,21 @@ namespace Nickvision::Cavalier::Shared::Models
             if(backgroundBitmap)
             {
                 //Scale Image
-                float scale{ static_cast<float>(std::max(width / backgroundBitmap->width(), height / backgroundBitmap->height())) * (m_backgroundImage->getScale() / 100.0f) };
-                float newWidth{ backgroundBitmap->width() * scale };
-                float newHeight{ backgroundBitmap->height() * scale };
+                int scale{ std::max(width / backgroundBitmap->width(), height / backgroundBitmap->height()) * static_cast<int>(m_backgroundImage->getScale() / 100) };
+                int newWidth{ backgroundBitmap->width() * scale };
+                int newHeight{ backgroundBitmap->height() * scale };
                 SkBitmap* newBitmap{ new SkBitmap() };
                 SkImageInfo newInfo{ SkImageInfo::Make(newWidth, newHeight, kN32_SkColorType, kPremul_SkAlphaType) };
                 SkCanvas canvas{ *newBitmap };
                 newBitmap->setInfo(newInfo);
                 newBitmap->allocPixels();
-                canvas.drawImageRect(backgroundBitmap->asImage(), SkRect::MakeWH(newWidth, newHeight), SkSamplingOptions(SkFilterMode::kLinear));
+                canvas.drawImageRect(backgroundBitmap->asImage(), SkRect::MakeWH(static_cast<float>(newWidth), static_cast<float>(newHeight)), SkSamplingOptions(SkFilterMode::kLinear));
                 delete backgroundBitmap;
                 backgroundBitmap = newBitmap;
                 //Draw Image
                 SkPaint paint;
                 paint.setColor(SkColorSetARGB(255 * (m_backgroundImage->getAlpha() / 100), SkColorGetR(paint.getColor()), SkColorGetG(paint.getColor()), SkColorGetB(paint.getColor())));
-                (*m_canvas)->drawImage(backgroundBitmap->asImage(), width / 2 - backgroundBitmap->width() / 2, height / 2 - backgroundBitmap->height() / 2, SkSamplingOptions(SkFilterMode::kLinear), &paint);
+                (*m_canvas)->drawImage(backgroundBitmap->asImage(), width / 2.0f - backgroundBitmap->width() / 2.0f, height / 2.0f - backgroundBitmap->height() / 2.0f, SkSamplingOptions(SkFilterMode::kLinear), &paint);
                 delete backgroundBitmap;
             }
         }
@@ -244,10 +244,12 @@ namespace Nickvision::Cavalier::Shared::Models
             break;
         }
         //Draw Shape
-        Point start{ static_cast<float>((width + m_drawingArea.getMargin() * 2) * (m_drawingArea.getXOffset() / 100.0f) + m_drawingArea.getMargin()), static_cast<float>((height + m_drawingArea.getMargin() * 2) * (m_drawingArea.getYOffset() / 100.0f) + m_drawingArea.getMargin()) };
-        Point mirrorStart{ static_cast<float>((width + m_drawingArea.getMargin() * 2) * (m_drawingArea.getXOffset() / 100.0f) + getMirrorX(width)), static_cast<float>((height + m_drawingArea.getMargin() * 2) * (m_drawingArea.getYOffset() / 100.0f) + getMirrorY(height)) };
+        Point start{ static_cast<float>((width + m_drawingArea.getMargin() * 2.0f) * (m_drawingArea.getXOffset() / 100.0f) + m_drawingArea.getMargin()),
+                     static_cast<float>((height + m_drawingArea.getMargin() * 2.0f) * (m_drawingArea.getYOffset() / 100.0f) + m_drawingArea.getMargin()) };
+        Point mirrorStart{ static_cast<float>((width + m_drawingArea.getMargin() * 2.0f) * (m_drawingArea.getXOffset() / 100.0f) + getMirrorX(static_cast<float>(width))), 
+                           static_cast<float>((height + m_drawingArea.getMargin() * 2.0f) * (m_drawingArea.getYOffset() / 100.0f) + getMirrorY(static_cast<float>(height))) };
         Point end{ static_cast<float>(width), static_cast<float>(height) };
-        Point mirrorEnd{ getMirrorWidth(width), getMirrorHeight(height) };
+        Point mirrorEnd{ getMirrorWidth(static_cast<float>(width)), getMirrorHeight(static_cast<float>(height)) };
         if(m_drawingArea.getMirrorMode() == MirrorMode::Full || m_drawingArea.getMirrorMode() == MirrorMode::ReverseFull)
         {
             std::vector<float> reverseSample = sample;
@@ -305,7 +307,7 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             return x / 2.0f + m_drawingArea.getMargin();
         }
-        return m_drawingArea.getMargin();
+        return static_cast<float>(m_drawingArea.getMargin());
     }
 
     float Renderer::getMirrorY(float y)
@@ -314,7 +316,7 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             return y / 2.0f + m_drawingArea.getMargin();
         }
-        return m_drawingArea.getMargin();
+        return static_cast<float>(m_drawingArea.getMargin());
     }
 
     sk_sp<SkShader> Renderer::getBackgroundGradient(bool useForegroundColors)
@@ -379,7 +381,7 @@ namespace Nickvision::Cavalier::Shared::Models
             break;
         }
         }
-        return SkGradientShader::MakeLinear(&points[0], &skColors[0], nullptr, skColors.size(), SkTileMode::kClamp);
+        return SkGradientShader::MakeLinear(&points[0], &skColors[0], nullptr, static_cast<int>(skColors.size()), SkTileMode::kClamp);
     }
 
     sk_sp<SkShader> Renderer::getForegroundGradient()
@@ -414,14 +416,14 @@ namespace Nickvision::Cavalier::Shared::Models
             {
                 positions[i] = (i + (skColors.size() - i - 1) * innerRadius / fullRadius) / (skColors.size() - 1);
             }
-            return SkGradientShader::MakeRadial({ width / 2, height / 2 }, fullRadius, &skColors[0], &positions[0], skColors.size(), SkTileMode::kClamp);
+            return SkGradientShader::MakeRadial({ width / 2, height / 2 }, fullRadius, &skColors[0], &positions[0], static_cast<int>(skColors.size()), SkTileMode::kClamp);
         }
         std::vector<SkPoint> points(2);
         points[0] = { static_cast<float>(m_drawingArea.getMargin()),
                       std::min(width, height) * INNER_RADIUS / 2.0f };
         points[1] = { static_cast<float>(m_drawingArea.getMargin()),
                       std::min(width, height) / 2.0f };
-        return SkGradientShader::MakeLinear(&points[0], &skColors[0], nullptr, skColors.size(), SkTileMode::kClamp);
+        return SkGradientShader::MakeLinear(&points[0], &skColors[0], nullptr, static_cast<int>(skColors.size()), SkTileMode::kClamp);
     }
 
     SkPaint Renderer::getPaintForSpine(const SkPaint& paint, float sample)
@@ -462,12 +464,12 @@ namespace Nickvision::Cavalier::Shared::Models
                     points[i] = { step * i,
                                   args.getEnd().getY() * (1 - args.getSample()[i]) };
                 }
-                //Calculate gradient between the two neighbouring points for each point
+                //Calculate gradient between the two neighboring points for each point
                 for(size_t i = 0; i < points.size(); i++)
                 {
                     //Determine the previous and next point
                     //If there isn't one, use the current point
-                    const Point& previous{ points[std::max(i - 1, static_cast<size_t>(0))] };
+                    const Point& previous{ points[std::max(i == 0 ? 0 : i - 1, static_cast<size_t>(0))] };
                     const Point& next{ points[std::min(i + 1, points.size() - 1)] };
                     float gradient{ next.getY() - previous.getY() };
                     //If using the current point (when at the edges), then the run is rise/run = 1
@@ -507,7 +509,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 }
                 for(size_t i = 0; i < points.size(); i++)
                 {
-                    const Point& previous{ points[std::max(i - 1, static_cast<size_t>(0))] };
+                    const Point& previous{ points[std::max(i == 0 ? 0 : i - 1, static_cast<size_t>(0))] };
                     const Point& next{ points[std::min(i + 1, points.size() - 1)] };
                     float gradient{ next.getX() - previous.getX() };
                     gradients[i] = i == 0 || i == points.size() - 1 ? gradient : gradient / 2;
