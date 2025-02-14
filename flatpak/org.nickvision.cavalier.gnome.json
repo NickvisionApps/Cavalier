@@ -161,7 +161,7 @@
             "buildsystem": "simple",
             "build-commands": [
                 "gn gen out/Release --args='is_debug=false is_official_build=true is_component_build=true skia_use_dng_sdk=false skia_use_system_libjpeg_turbo=false skia_use_system_libpng=false skia_use_system_libwebp=false'",
-                "ninja -C out/Release",
+                "ninja -C out/Release skia modules",
                 "cp out/Release/*.a /app/lib",
                 "cp out/Release/*.so /app/lib",
                 "mkdir -p /app/include/skia/include",
