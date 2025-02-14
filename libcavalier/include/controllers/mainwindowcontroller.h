@@ -149,9 +149,6 @@ namespace Nickvision::Cavalier::Shared::Controllers
         Nickvision::Events::Event<Nickvision::Events::ParamEventArgs<Models::PngImage>> m_imageRendered;
         Models::Cava m_cava;
         Models::Renderer m_renderer;
-        bool m_createCanvas;
-        int m_canvasWidth;
-        int m_canvasHeight;
     };
 }
 

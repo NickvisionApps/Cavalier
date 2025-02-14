@@ -29,10 +29,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_appInfo{ "org.nickvision.cavalier", "Nickvision Cavalier", "Cavalier" },
         m_dataFileManager{ m_appInfo.getName() },
         m_cava{ m_dataFileManager.get<Configuration>("config").getCavaOptions(), m_appInfo.getName() },
-        m_renderer{ m_dataFileManager.get<Configuration>("config").getDrawingArea(), m_dataFileManager.get<Configuration>("config").getColorProfiles()[m_dataFileManager.get<Configuration>("config").getActiveColorProfileIndex()] },
-        m_createCanvas{ true },
-        m_canvasWidth{ DEFAULT_CANVAS_WIDTH },
-        m_canvasHeight{ DEFAULT_CANVAS_HEIGHT }
+        m_renderer{ m_dataFileManager.get<Configuration>("config").getDrawingArea(), m_dataFileManager.get<Configuration>("config").getColorProfiles()[m_dataFileManager.get<Configuration>("config").getActiveColorProfileIndex()] }
     {
         m_appInfo.setVersion({ "2025.2.0-next" });
         m_appInfo.setShortName(_("Cavalier"));
@@ -145,8 +142,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
         }
         //Load configuration
         info.setWindowGeometry(m_dataFileManager.get<Configuration>("config").getWindowGeometry());
-        m_canvasWidth = static_cast<int>(info.getWindowGeometry().getWidth());
-        m_canvasHeight = static_cast<int>(info.getWindowGeometry().getHeight());
+        m_renderer.setCanvasSize(static_cast<int>(info.getWindowGeometry().getWidth()), static_cast<int>(info.getWindowGeometry().getHeight()));
         //Load taskbar item
 #ifdef _WIN32
         m_taskbar.connect(hwnd);
@@ -210,9 +206,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
 
     void MainWindowController::setCanvasSize(int width, int height)
     {
-        m_createCanvas = true;
-        m_canvasWidth = width;
-        m_canvasHeight = height;
+        m_renderer.setCanvasSize(width, height);
     }
 
     void MainWindowController::onConfigurationSaved()
@@ -233,11 +227,6 @@ namespace Nickvision::Cavalier::Shared::Controllers
 
     void MainWindowController::onOutputReceived(const ParamEventArgs<std::vector<float>>& args)
     {
-        if(m_createCanvas)
-        {
-            m_renderer.setCanvas({ m_canvasWidth, m_canvasHeight });
-            m_createCanvas = false;
-        }
         if(args.getParam().empty())
         {
             m_cavaOutputStopped.invoke({});

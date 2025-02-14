@@ -85,7 +85,10 @@ namespace Nickvision::Cavalier::Shared::Models
 
     Renderer::Renderer()
         : m_canvas{ DEFAULT_CANVAS_WIDTH, DEFAULT_CANVAS_HEIGHT },
-        m_backgroundImage{ std::nullopt }
+        m_backgroundImage{ std::nullopt },
+        m_createCanvas{ true },
+        m_canvasWidth{ DEFAULT_CANVAS_WIDTH },
+        m_canvasHeight{ DEFAULT_CANVAS_HEIGHT }
     {
 
     }
@@ -94,15 +97,23 @@ namespace Nickvision::Cavalier::Shared::Models
         : m_canvas{ DEFAULT_CANVAS_WIDTH, DEFAULT_CANVAS_HEIGHT },
         m_drawingArea{ drawingArea },
         m_colorProfile{ colorProfile },
-        m_backgroundImage{ backgroundImage }
+        m_backgroundImage{ backgroundImage },
+        m_createCanvas{ true },
+        m_canvasWidth{ DEFAULT_CANVAS_WIDTH },
+        m_canvasHeight{ DEFAULT_CANVAS_HEIGHT }
     {
 
     }
 
-    void Renderer::setCanvas(const Canvas& canvas)
+    void Renderer::setCanvasSize(int width, int height)
     {
         std::lock_guard<std::mutex> lock{ m_mutex };
-        m_canvas = canvas;
+        if(m_canvasWidth != width && m_canvasHeight != height)
+        {
+            m_createCanvas = true;
+            m_canvasWidth = width;
+            m_canvasHeight = height;
+        }
     }
 
     const DrawingArea& Renderer::getDrawingArea() const
@@ -144,6 +155,11 @@ namespace Nickvision::Cavalier::Shared::Models
     std::optional<PngImage> Renderer::draw(const std::vector<float>& sample)
     {
         std::lock_guard<std::mutex> lock{ m_mutex };
+        if(m_createCanvas)
+        {
+            m_canvas = { m_canvasWidth, m_canvasHeight };
+            m_createCanvas = false;
+        }
         if(!m_canvas || sample.empty())
         {
             return std::nullopt;

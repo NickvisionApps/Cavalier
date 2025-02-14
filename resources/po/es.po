@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-14 14:35-0500\n"
+"POT-Creation-Date: 2025-02-14 14:48-0500\n"
 "PO-Revision-Date: 2023-10-29 05:18+0000\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted."
 "weblate.org>\n"
@@ -20,46 +20,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.2-dev\n"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:38
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
 msgid "Cavalier"
 msgstr "Cavalier"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:39
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
 msgid "Visualize audio with CAVA"
 msgstr "Visualice el audio con CAVA"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:44
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
 msgid "Matrix Chat"
 msgstr "Chat de Matrix"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:46
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
 #, fuzzy
 msgid "Contributors on GitHub"
 msgstr "Colaboradores en GitHub ❤️"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
 msgid "Fyodor Sobolev"
 msgstr "Fyodor Sobolev"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:50
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
 msgid "David Lapshin"
 msgstr "David Lapshin"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:51
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
 msgid "translator-credits"
 msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:185
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:181
 msgid "New update available"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:199
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:195
 msgid ""
 "The update is downloading in the background and will start once it finishes"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:204
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:200
 msgid "Unable to download and install update"
 msgstr ""
 

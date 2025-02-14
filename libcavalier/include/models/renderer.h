@@ -37,10 +37,10 @@ namespace Nickvision::Cavalier::Shared::Models
          */
         Renderer(const DrawingArea& drawingArea, const ColorProfile& colorProfile, const std::optional<BackgroundImage>& backgroundImage = std::nullopt);
         /**
-         * @brief Sets the canvas.
-         * @param canvas The new canvas
+         * @brief Sets the canvas' size.
+         * @param canvas The new canvas size
          */
-        void setCanvas(const Canvas& canvas);
+        void setCanvasSize(int width, int height);
         /**
          * @brief Gets the drawing area options.
          * @return The drawing area options
@@ -163,6 +163,9 @@ namespace Nickvision::Cavalier::Shared::Models
         DrawingArea m_drawingArea;
         ColorProfile m_colorProfile;
         std::optional<BackgroundImage> m_backgroundImage;
+        bool m_createCanvas;
+        int m_canvasWidth;
+        int m_canvasHeight;
     };
 }
 
