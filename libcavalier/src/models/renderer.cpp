@@ -58,6 +58,8 @@ namespace Nickvision::Cavalier::Shared::Models
             return DrawingDirection::RightToLeft;
         case DrawingDirection::RightToLeft:
             return DrawingDirection::LeftToRight;
+        default:
+            return DrawingDirection::TopToBottom;
         }
     }
 

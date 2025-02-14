@@ -55,7 +55,7 @@ namespace Nickvision::Cavalier::Shared::Models
     void Cava::setOptions(const CavaOptions& options)
     {
         std::unique_lock<std::mutex> lock{ m_mutex };
-        if(options.toCavaOptionsString() != m_options.toCavaOptionsString()) //Options updated
+        if(m_options != options)
         {
             m_options = options;
             updateConfigFile();

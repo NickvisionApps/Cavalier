@@ -168,4 +168,22 @@ namespace Nickvision::Cavalier::Shared::Models
         obj["NoiseReductionFactor"] = m_noiseReductionFactor;
         return obj;
     }
+
+    bool CavaOptions::operator==(const CavaOptions& other) const
+    {
+        return m_framerate == other.m_framerate &&
+               m_numberOfBars == other.m_numberOfBars &&
+               m_reverseBarOrder == other.m_reverseBarOrder &&
+               m_useAutomaticSensitivity == other.m_useAutomaticSensitivity &&
+               m_sensitivity == other.m_sensitivity &&
+               m_channels == other.m_channels &&
+               m_useMonstercatSmoothing == other.m_useMonstercatSmoothing &&
+               m_noiseReductionFactor == other.m_noiseReductionFactor;
+    }
+
+    bool CavaOptions::operator!=(const CavaOptions& other) const
+    {
+        return !(operator==(other));
+    }
+
 }

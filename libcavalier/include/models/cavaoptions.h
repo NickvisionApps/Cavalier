@@ -119,6 +119,20 @@ namespace Nickvision::Cavalier::Shared::Models
          * @return The JSON object
          */
         boost::json::object toJson() const;
+        /**
+         * @brief Compares this CavaOptions to oter via ==.
+         * @param other The CavaOptions to compare
+         * @return True if this == other
+         * @return False if this != other
+         */
+        bool operator==(const CavaOptions& other) const;
+        /**
+         * @brief Compares this CavaOptions to oter via !=.
+         * @param other The CavaOptions to compare
+         * @return True if this != other
+         * @return False if this == other
+         */
+        bool operator!=(const CavaOptions& other) const;
 
     private:
         unsigned int m_framerate;
