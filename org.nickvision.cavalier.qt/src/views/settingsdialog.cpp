@@ -23,7 +23,10 @@ namespace Nickvision::Cavalier::Qt::Views
         m_ui->cmbTheme->addItem(_("System"));
         m_ui->lblUpdates->setText(_("Automatically Check for Updates"));
         //Add Navigation Items
-        m_ui->listNavigation->addItem(new QListWidgetItem(QIcon::fromTheme(QIcon::ThemeIcon::Computer), _("User Interface"), m_ui->listNavigation));
+        m_ui->listNavigation->addItem(new QListWidgetItem(QIcon::fromTheme(QIcon::ThemeIcon::Computer), _("Interface"), m_ui->listNavigation));
+        m_ui->listNavigation->addItem(new QListWidgetItem(QIcon::fromTheme(QIcon::ThemeIcon::Computer), _("Cava"), m_ui->listNavigation));
+        m_ui->listNavigation->addItem(new QListWidgetItem(QIcon::fromTheme(QIcon::ThemeIcon::Computer), _("Colors"), m_ui->listNavigation));
+        m_ui->listNavigation->addItem(new QListWidgetItem(QIcon::fromTheme(QIcon::ThemeIcon::InsertImage), _("Images"), m_ui->listNavigation));
         //Load
         m_ui->listNavigation->setCurrentRow(0);
         m_ui->viewStack->setCurrentIndex(0);

@@ -1,6 +1,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include <memory>
 #include <mutex>
 #include <optional>
 #include <vector>
@@ -26,27 +27,20 @@ namespace Nickvision::Cavalier::Shared::Models
     public:
         /**
          * @brief Constructs a Renderer.
-         * @param canvas The optional canvas to render too
          */
-        Renderer(const std::optional<Canvas>& canvas = std::nullopt);
+        Renderer();
         /**
          * @brief Constructs a Renderer.
          * @param drawingArea The drawing area options
          * @param colorProfile The active color profile
          * @param backgroundImage The optional background image to render
-         * @param canvas The optional canvas to render too
          */
-        Renderer(const DrawingArea& drawingArea, const ColorProfile& colorProfile, const std::optional<BackgroundImage>& backgroundImage = std::nullopt, const std::optional<Canvas>& canvas = std::nullopt);
-        /**
-         * @brief Gets the canvas.
-         * @return The canvas
-         */
-        const std::optional<Canvas>& getCanvas() const;
+        Renderer(const DrawingArea& drawingArea, const ColorProfile& colorProfile, const std::optional<BackgroundImage>& backgroundImage = std::nullopt);
         /**
          * @brief Sets the canvas.
          * @param canvas The new canvas
          */
-        void setCanvas(const std::optional<Canvas>& canvas);
+        void setCanvas(const Canvas& canvas);
         /**
          * @brief Gets the drawing area options.
          * @return The drawing area options
@@ -165,7 +159,7 @@ namespace Nickvision::Cavalier::Shared::Models
          */
         void drawHearts(const DrawingFunctionArguments& args);
         mutable std::mutex m_mutex;
-        std::optional<Canvas> m_canvas;
+        Canvas m_canvas;
         DrawingArea m_drawingArea;
         ColorProfile m_colorProfile;
         std::optional<BackgroundImage> m_backgroundImage;

@@ -83,15 +83,15 @@ namespace Nickvision::Cavalier::Shared::Models
         return path;
     }
 
-    Renderer::Renderer(const std::optional<Canvas>& canvas)
-        : m_canvas{ canvas },
+    Renderer::Renderer()
+        : m_canvas{ DEFAULT_CANVAS_WIDTH, DEFAULT_CANVAS_HEIGHT },
         m_backgroundImage{ std::nullopt }
     {
 
     }
 
-    Renderer::Renderer(const DrawingArea& drawingArea, const ColorProfile& colorProfile, const std::optional<BackgroundImage>& backgroundImage, const std::optional<Canvas>& canvas)
-        : m_canvas{ canvas },
+    Renderer::Renderer(const DrawingArea& drawingArea, const ColorProfile& colorProfile, const std::optional<BackgroundImage>& backgroundImage)
+        : m_canvas{ DEFAULT_CANVAS_WIDTH, DEFAULT_CANVAS_HEIGHT },
         m_drawingArea{ drawingArea },
         m_colorProfile{ colorProfile },
         m_backgroundImage{ backgroundImage }
@@ -99,13 +99,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     }
 
-    const std::optional<Canvas>& Renderer::getCanvas() const
-    {
-        std::lock_guard<std::mutex> lock{ m_mutex };
-        return m_canvas;
-    }
-
-    void Renderer::setCanvas(const std::optional<Canvas>& canvas)
+    void Renderer::setCanvas(const Canvas& canvas)
     {
         std::lock_guard<std::mutex> lock{ m_mutex };
         m_canvas = canvas;
@@ -156,9 +150,9 @@ namespace Nickvision::Cavalier::Shared::Models
         }
         //Setup
         SkBitmap* backgroundBitmap{ nullptr };
-        int width{ m_canvas->getWidth() };
-        int height{ m_canvas->getHeight() };
-        ((*m_canvas))->clear(SkColors::kTransparent);
+        int width{ m_canvas.getWidth() };
+        int height{ m_canvas.getHeight() };
+        m_canvas->clear(SkColors::kTransparent);
         //Draw Background Colors
         SkPaint bgPaint;
         bgPaint.setStyle(SkPaint::kFill_Style);
@@ -172,7 +166,7 @@ namespace Nickvision::Cavalier::Shared::Models
             const Color& color{ m_colorProfile.getBackgroundColors()[0] };
             bgPaint.setColor(SkColorSetARGB(color.getA(), color.getR(), color.getG(), color.getB()));
         }
-        (*m_canvas)->drawRect({ 0, 0, static_cast<float>(width), static_cast<float>(height) }, bgPaint);
+        m_canvas->drawRect({ 0, 0, static_cast<float>(width), static_cast<float>(height) }, bgPaint);
         //Draw Background Image
         if(m_backgroundImage)
         {
@@ -194,7 +188,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 //Draw Image
                 SkPaint paint;
                 paint.setColor(SkColorSetARGB(255 * (m_backgroundImage->getAlpha() / 100), SkColorGetR(paint.getColor()), SkColorGetG(paint.getColor()), SkColorGetB(paint.getColor())));
-                (*m_canvas)->drawImage(backgroundBitmap->asImage(), width / 2.0f - backgroundBitmap->width() / 2.0f, height / 2.0f - backgroundBitmap->height() / 2.0f, SkSamplingOptions(SkFilterMode::kLinear), &paint);
+                m_canvas->drawImage(backgroundBitmap->asImage(), width / 2.0f - backgroundBitmap->width() / 2.0f, height / 2.0f - backgroundBitmap->height() / 2.0f, SkSamplingOptions(SkFilterMode::kLinear), &paint);
                 delete backgroundBitmap;
             }
         }
@@ -270,14 +264,15 @@ namespace Nickvision::Cavalier::Shared::Models
         {
             drawFunction({ sample, m_drawingArea.getMode(), m_drawingArea.getDirection(), start, end, ROTATION, fgPaint });
         }
+        m_canvas.flush();
         //Get PNG Image
-        sk_sp<SkImage> image{ m_canvas->getSkiaSurface()->makeImageSnapshot() };
+        sk_sp<SkImage> image{ m_canvas.getSkiaSurface()->makeImageSnapshot() };
         if(image)
         {
-            sk_sp<SkData> png{ SkPngEncoder::Encode(nullptr, image.get(), {}) };
+            sk_sp<SkData> png{ SkPngEncoder::Encode(m_canvas.getSkiaContext(), image.get(), {}) };
             if(png)
             {
-                return PngImage{ m_canvas->getWidth(), m_canvas->getHeight(), png->bytes(), png->size() };
+                return PngImage{ m_canvas.getWidth(), m_canvas.getHeight(), png->bytes(), png->size() };
             }
         }
         return std::nullopt;
@@ -321,7 +316,7 @@ namespace Nickvision::Cavalier::Shared::Models
 
     sk_sp<SkShader> Renderer::getBackgroundGradient(bool useForegroundColors)
     {
-        if(!m_canvas || (!useForegroundColors ? m_colorProfile.getBackgroundColors().size() <= 1: m_colorProfile.getForegroundColors().size() <= 1))
+        if(!useForegroundColors ? m_colorProfile.getBackgroundColors().size() <= 1: m_colorProfile.getForegroundColors().size() <= 1)
         {
             return nullptr;
         }
@@ -351,32 +346,32 @@ namespace Nickvision::Cavalier::Shared::Models
         case DrawingDirection::TopToBottom:
         {
             points[0] = { static_cast<float>(m_drawingArea.getMargin()),
-                          static_cast<float>(m_drawingArea.getMargin() + m_canvas->getHeight() + m_drawingArea.getYOffset()) };
+                          static_cast<float>(m_drawingArea.getMargin() + m_canvas.getHeight() + m_drawingArea.getYOffset()) };
             points[1] = { static_cast<float>(m_drawingArea.getMargin()),
-                          static_cast<float>(m_canvas->getHeight() * (1 + m_drawingArea.getYOffset())) };
+                          static_cast<float>(m_canvas.getHeight() * (1 + m_drawingArea.getYOffset())) };
             break;
         }
         case DrawingDirection::BottomToTop:
         {
             points[0] = { static_cast<float>(m_drawingArea.getMargin()),
-                          static_cast<float>(m_canvas->getHeight() * (1 + m_drawingArea.getYOffset())) };
+                          static_cast<float>(m_canvas.getHeight() * (1 + m_drawingArea.getYOffset())) };
             points[1] = { static_cast<float>(m_drawingArea.getMargin()),
-                          static_cast<float>(m_drawingArea.getMargin() + m_canvas->getHeight() * m_drawingArea.getYOffset()) };
+                          static_cast<float>(m_drawingArea.getMargin() + m_canvas.getHeight() * m_drawingArea.getYOffset()) };
             break;
         }
         case DrawingDirection::LeftToRight:
         {
-            points[0] = { static_cast<float>(m_drawingArea.getMargin() + m_canvas->getWidth() * m_drawingArea.getXOffset()),
+            points[0] = { static_cast<float>(m_drawingArea.getMargin() + m_canvas.getWidth() * m_drawingArea.getXOffset()),
                           static_cast<float>(m_drawingArea.getMargin()) };
-            points[1] = { static_cast<float>(m_canvas->getWidth() * (1 + m_drawingArea.getXOffset())),
+            points[1] = { static_cast<float>(m_canvas.getWidth() * (1 + m_drawingArea.getXOffset())),
                           static_cast<float>(m_drawingArea.getMargin()) };
             break;
         }
         default:
         {
-            points[0] = { static_cast<float>(m_canvas->getWidth() * (1 + m_drawingArea.getXOffset())),
+            points[0] = { static_cast<float>(m_canvas.getWidth() * (1 + m_drawingArea.getXOffset())),
                           static_cast<float>(m_drawingArea.getMargin()) };
-            points[1] = { static_cast<float>(m_drawingArea.getMargin() + m_canvas->getWidth() * m_drawingArea.getXOffset()),
+            points[1] = { static_cast<float>(m_drawingArea.getMargin() + m_canvas.getWidth() * m_drawingArea.getXOffset()),
                           static_cast<float>(m_drawingArea.getMargin()) };
             break;
         }
@@ -386,13 +381,13 @@ namespace Nickvision::Cavalier::Shared::Models
 
     sk_sp<SkShader> Renderer::getForegroundGradient()
     {
-        if(!m_canvas || m_colorProfile.getForegroundColors().size() <= 1)
+        if(m_colorProfile.getForegroundColors().size() <= 1)
         {
             return nullptr;
         }
         std::vector<SkColor> skColors(m_colorProfile.getForegroundColors().size());
-        float width{ static_cast<float>(m_canvas->getWidth()) };
-        float height{ static_cast<float>(m_canvas->getHeight()) };
+        float width{ static_cast<float>(m_canvas.getWidth()) };
+        float height{ static_cast<float>(m_canvas.getHeight()) };
         for(size_t i = skColors.size(); i > 0; i--)
         {
             const Color& color{ m_colorProfile.getForegroundColors()[i - 1] };
@@ -538,7 +533,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 break;
             }
             }
-            (*m_canvas)->drawPath(path, args.getPaint());
+            m_canvas->drawPath(path, args.getPaint());
         }
         else if(args.getMode() == DrawingMode::Circle)
         {
@@ -547,8 +542,8 @@ namespace Nickvision::Cavalier::Shared::Models
             float radius{ fullRadius - innerRadius };
             SkPaint paint{ args.getPaint() };
             SkPath path;
-            (*m_canvas)->save();
-            (*m_canvas)->translate(args.getStart().getX(), args.getStart().getY());
+            m_canvas->save();
+            m_canvas->translate(args.getStart().getX(), args.getStart().getY());
             paint.setStyle(SkPaint::kStroke_Style);
             paint.setStrokeWidth(m_drawingArea.getFillShape() ? radius : LINE_THICKNESS);
             path.moveTo(args.getEnd().getX() / 2 + (innerRadius + radius * args.getSample()[0]) * std::cos(PI / 2 + args.getRotation()),
@@ -573,14 +568,14 @@ namespace Nickvision::Cavalier::Shared::Models
             path.close();
             if(m_drawingArea.getFillShape())
             {
-                (*m_canvas)->clipPath(path, SkClipOp::kIntersect, true);
-                (*m_canvas)->drawCircle({ args.getEnd().getX() / 2, args.getEnd().getY() / 2 }, innerRadius + radius / 2, paint);
+                m_canvas->clipPath(path, SkClipOp::kIntersect, true);
+                m_canvas->drawCircle({ args.getEnd().getX() / 2, args.getEnd().getY() / 2 }, innerRadius + radius / 2, paint);
             }
             else
             {
-                (*m_canvas)->drawPath(path, paint);
+                m_canvas->drawPath(path, paint);
             }
-            (*m_canvas)->restore();
+            m_canvas->restore();
         }
     }
 
@@ -630,7 +625,7 @@ namespace Nickvision::Cavalier::Shared::Models
                     path.addRoundRect(rect, rx, ry);
                 }
             }
-            (*m_canvas)->drawPath(path, args.getPaint());
+            m_canvas->drawPath(path, args.getPaint());
         }
         else if(args.getMode() == DrawingMode::Circle)
         {
@@ -642,19 +637,19 @@ namespace Nickvision::Cavalier::Shared::Models
             float ry{ radius / 10.0f * (1 - (m_drawingArea.getItemSpacing() / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS) * (m_drawingArea.getItemRoundness() / 100.0f) };
             for(size_t i = 0; i < args.getSample().size(); i++)
             {
-                (*m_canvas)->save();
-                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                m_canvas->save();
+                m_canvas->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f);
-                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
+                m_canvas->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
                 for(float j = 0; j < std::floor(args.getSample()[i] * 10.0f); j++)
                 {
                     SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                                   innerRadius + radius / 10.0f * j + radius / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                                   barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS),
                                                   radius / 10.0f * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS)) };
-                    (*m_canvas)->drawRoundRect(rect, rx, ry, args.getPaint());
+                    m_canvas->drawRoundRect(rect, rx, ry, args.getPaint());
                 }
-                (*m_canvas)->restore();
+                m_canvas->restore();
             }
         }
     }
@@ -702,7 +697,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 }
                 path.addRoundRect(rect, rx, ry);
             }
-            (*m_canvas)->drawPath(path, args.getPaint());
+            m_canvas->drawPath(path, args.getPaint());
         }
         else //Circle
         {
@@ -714,16 +709,16 @@ namespace Nickvision::Cavalier::Shared::Models
             float ry{ radius / 10.0f * (1 - (m_drawingArea.getItemSpacing() / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS) * (m_drawingArea.getItemRoundness() / 100.0f) };
             for(size_t i = 0; i < args.getSample().size(); i++)
             {
-                (*m_canvas)->save();
-                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                m_canvas->save();
+                m_canvas->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f);
-                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
+                m_canvas->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
                 SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                              innerRadius + radius / 10.0f * 9 * args.getSample()[i] + radius / 10.0f * (m_drawingArea.getItemSpacing() / 100.0f) + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                              barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS),
                                              radius / 10.0f * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS)) };
-                (*m_canvas)->drawRoundRect(rect, rx, ry, args.getPaint());
-                (*m_canvas)->restore();
+                m_canvas->drawRoundRect(rect, rx, ry, args.getPaint());
+                m_canvas->restore();
             }
         }
     }
@@ -771,7 +766,7 @@ namespace Nickvision::Cavalier::Shared::Models
                 }
                 path.addRect(rect);
             }
-            (*m_canvas)->drawPath(path, args.getPaint());
+            m_canvas->drawPath(path, args.getPaint());
         }
         else if(args.getMode() == DrawingMode::Circle)
         {
@@ -781,16 +776,16 @@ namespace Nickvision::Cavalier::Shared::Models
             float barWidth{ 2.0f * PI * innerRadius / args.getSample().size() };
             for(size_t i = 0; i < args.getSample().size(); i++)
             {
-                (*m_canvas)->save();
-                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                m_canvas->save();
+                m_canvas->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f);
-                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
+                m_canvas->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
                 SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                              innerRadius + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                              barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS),
                                              radius * args.getSample()[i] - (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS) + 1) };
-                (*m_canvas)->drawRect(rect, args.getPaint());
-                (*m_canvas)->restore();
+                m_canvas->drawRect(rect, args.getPaint());
+                m_canvas->restore();
             }
         }
     }
@@ -826,7 +821,7 @@ namespace Nickvision::Cavalier::Shared::Models
                                             itemSize * args.getSample()[i]);
                     break;
                 }
-                (*m_canvas)->drawRoundRect(rect, r, r, getPaintForSpine(args.getPaint(), args.getSample()[i]));
+                m_canvas->drawRoundRect(rect, r, r, getPaintForSpine(args.getPaint(), args.getSample()[i]));
             }
         }
         else if(args.getMode() == DrawingMode::Circle)
@@ -838,16 +833,16 @@ namespace Nickvision::Cavalier::Shared::Models
             for(size_t i = 0; i < args.getSample().size(); i++)
             {
                 float r{ itemSize * args.getSample()[i] / 2.0f * (m_drawingArea.getItemRoundness() / 100.0f) };
-                (*m_canvas)->save();
-                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                m_canvas->save();
+                m_canvas->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f);
-                (*m_canvas)->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
+                m_canvas->rotate(SkRadiansToDegrees(2.0f * PI * (i + 0.5f) / args.getSample().size() + args.getRotation()));
                 SkRect rect{ SkRect::MakeXYWH(-barWidth * (1 - (m_drawingArea.getItemSpacing() * 2.0f / 100.0f)) / 2.0f + (m_drawingArea.getFillShape() ? 0.0f : LINE_THICKNESS / 2.0f),
                                               innerRadius - itemSize * args.getSample()[i] / 2.0f,
                                               itemSize * args.getSample()[i],
                                               itemSize * args.getSample()[i]) };
-                (*m_canvas)->drawRoundRect(rect, r, r, getPaintForSpine(args.getPaint(), args.getSample()[i]));
-                (*m_canvas)->restore();
+                m_canvas->drawRoundRect(rect, r, r, getPaintForSpine(args.getPaint(), args.getSample()[i]));
+                m_canvas->restore();
             }
         }
     }
@@ -924,7 +919,7 @@ namespace Nickvision::Cavalier::Shared::Models
         }
         if(!m_drawingArea.getFillShape())
         {
-            (*m_canvas)->drawPath(path, args.getPaint());
+            m_canvas->drawPath(path, args.getPaint());
         }
         switch(m_drawingArea.getDirection())
         {
@@ -948,7 +943,7 @@ namespace Nickvision::Cavalier::Shared::Models
         path.close();
         if(m_drawingArea.getFillShape())
         {
-            (*m_canvas)->drawPath(path, args.getPaint());
+            m_canvas->drawPath(path, args.getPaint());
         }
     }
 
@@ -964,23 +959,23 @@ namespace Nickvision::Cavalier::Shared::Models
                 {
                     continue;
                 }
-                (*m_canvas)->save();
+                m_canvas->save();
                 switch(m_drawingArea.getDirection())
                 {
                 case DrawingDirection::TopToBottom:
                 case DrawingDirection::BottomToTop:
-                    (*m_canvas)->translate(args.getStart().getX() + step * i + step / 2.0f,
+                    m_canvas->translate(args.getStart().getX() + step * i + step / 2.0f,
                                            args.getStart().getY() + args.getEnd().getY() / 2.0f);
                     break;
                 case DrawingDirection::LeftToRight:
                 case DrawingDirection::RightToLeft:
-                    (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
+                    m_canvas->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f,
                                            args.getStart().getY() + step * i + step / 2.0f);
                     break;
                 }
-                (*m_canvas)->scale(args.getSample()[i], args.getSample()[i]);
-                (*m_canvas)->drawPath(getHeartPath(itemSize), getPaintForSpine(args.getPaint(), args.getSample()[i]));
-                (*m_canvas)->restore();
+                m_canvas->scale(args.getSample()[i], args.getSample()[i]);
+                m_canvas->drawPath(getHeartPath(itemSize), getPaintForSpine(args.getPaint(), args.getSample()[i]));
+                m_canvas->restore();
             }
         }
         else if(args.getMode() == DrawingMode::Circle)
@@ -991,12 +986,12 @@ namespace Nickvision::Cavalier::Shared::Models
             float itemSize{ barWidth * (1 - (m_drawingArea.getItemSpacing() / 100.0f) * 2) - (m_drawingArea.getFillShape() ? 0 : LINE_THICKNESS) };
             for(size_t i = 0; i < args.getSample().size(); i++)
             {
-                (*m_canvas)->save();
-                (*m_canvas)->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f + innerRadius * std::cos(args.getRotation() + PI / 2.0f + PI * 2.0f * i / args.getSample().size()),
+                m_canvas->save();
+                m_canvas->translate(args.getStart().getX() + args.getEnd().getX() / 2.0f + innerRadius * std::cos(args.getRotation() + PI / 2.0f + PI * 2.0f * i / args.getSample().size()),
                                        args.getStart().getY() + args.getEnd().getY() / 2.0f + innerRadius * std::sin(PI / 2.0f + PI * 2 * i / args.getSample().size()));
-                (*m_canvas)->scale(args.getSample()[i], args.getSample()[i]);
-                (*m_canvas)->drawPath(getHeartPath(itemSize), getPaintForSpine(args.getPaint(), args.getSample()[i]));
-                (*m_canvas)->restore();
+                m_canvas->scale(args.getSample()[i], args.getSample()[i]);
+                m_canvas->drawPath(getHeartPath(itemSize), getPaintForSpine(args.getPaint(), args.getSample()[i]));
+                m_canvas->restore();
             }
         }
     }

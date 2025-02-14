@@ -121,11 +121,11 @@ namespace Nickvision::Cavalier::Shared::Controllers
         void windowsUpdate();
 #endif
         /**
-         * @brief Updates the size of the drawing canvas.
+         * @brief Sets the size of the drawing canvas.
          * @param width The new canvas width
          * @param height The new canvas height
          */
-        void updateCanvasSize(int width, int height);
+        void setCanvasSize(int width, int height);
 
     private:
         /**
@@ -149,6 +149,9 @@ namespace Nickvision::Cavalier::Shared::Controllers
         Nickvision::Events::Event<Nickvision::Events::ParamEventArgs<Models::PngImage>> m_imageRendered;
         Models::Cava m_cava;
         Models::Renderer m_renderer;
+        bool m_createCanvas;
+        int m_canvasWidth;
+        int m_canvasHeight;
     };
 }
 

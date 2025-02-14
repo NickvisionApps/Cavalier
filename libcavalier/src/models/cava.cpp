@@ -98,11 +98,6 @@ namespace Nickvision::Cavalier::Shared::Models
         bool sentEmptyOutput{ false };
         while(m_process->isRunning())
         {
-            if(m_process->getOutput().empty()) //Wait for startup
-            {
-                std::this_thread::sleep_for(CAVA_WAIT);
-                continue;
-            }
             std::unique_lock<std::mutex> lock{ m_mutex };
             std::vector<std::string> frames{ StringHelpers::split(m_process->getOutput(), std::string(1, CAVA_FRAME_DELIMITER)) };
             std::vector<std::string> bars;

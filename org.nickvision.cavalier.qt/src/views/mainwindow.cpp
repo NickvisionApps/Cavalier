@@ -63,7 +63,7 @@ namespace Nickvision::Cavalier::Qt::Views
         connect(m_ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
         m_controller->notificationSent() += [&](const NotificationSentEventArgs& args) { QtHelpers::dispatchToMainThread([this, args]() { onNotificationSent(args); }); };
         m_controller->shellNotificationSent() += [&](const ShellNotificationSentEventArgs& args) { onShellNotificationSent(args); };
-        m_controller->cavaOutputStopped() += [&](const EventArgs& args) { QtHelpers::dispatchToMainThread([this]() { onCavaOutputStopped(); }); };
+        m_controller->cavaOutputStopped() += [&](const EventArgs&) { QtHelpers::dispatchToMainThread([this]() { onCavaOutputStopped(); }); };
         m_controller->imageRendered() += [&](const ParamEventArgs<PngImage>& args) { QtHelpers::dispatchToMainThread([this, args]() { onImageRendered(args); }); };
     }
 
@@ -104,7 +104,7 @@ namespace Nickvision::Cavalier::Qt::Views
     void MainWindow::resizeEvent(QResizeEvent* event)
     {
         QMainWindow::resizeEvent(event);
-        m_controller->updateCanvasSize(m_ui->lblImage->width(), m_ui->lblImage->height());
+        m_controller->setCanvasSize(m_ui->lblImage->width(), m_ui->lblImage->height());
     }
 
     void MainWindow::settings()

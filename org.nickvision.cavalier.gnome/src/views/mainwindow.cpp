@@ -41,7 +41,7 @@ namespace Nickvision::Cavalier::GNOME::Views
         g_signal_connect(m_window, "notify::default-height", G_CALLBACK(+[](GObject*, GParamSpec*, gpointer data){ reinterpret_cast<MainWindow*>(data)->onWindowResized(); }), this);
         m_controller->notificationSent() += [&](const NotificationSentEventArgs& args) { GtkHelpers::dispatchToMainThread([this, args]() { onNotificationSent(args); }); };
         m_controller->shellNotificationSent() += [&](const ShellNotificationSentEventArgs& args) { onShellNotificationSent(args); };
-        m_controller->cavaOutputStopped() += [&](const EventArgs& args) { GtkHelpers::dispatchToMainThread([this]() { onCavaOutputStopped(); }); };
+        m_controller->cavaOutputStopped() += [&](const EventArgs&) { GtkHelpers::dispatchToMainThread([this]() { onCavaOutputStopped(); }); };
         m_controller->imageRendered() += [&](const ParamEventArgs<PngImage>& args) { GtkHelpers::dispatchToMainThread([this, args]() { onImageRendered(args); }); };
         //Quit Action
         GSimpleAction* actQuit{ g_simple_action_new("quit", nullptr) };
@@ -103,7 +103,7 @@ namespace Nickvision::Cavalier::GNOME::Views
         int width;
         int height;
         gtk_window_get_default_size(GTK_WINDOW(m_window), &width, &height);
-        m_controller->updateCanvasSize(width, height);
+        m_controller->setCanvasSize(width, height);
     }
 
     void MainWindow::onNotificationSent(const NotificationSentEventArgs& args)
