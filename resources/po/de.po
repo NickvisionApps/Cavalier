@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-11 00:57-0500\n"
+"POT-Creation-Date: 2025-02-13 23:09-0500\n"
 "PO-Revision-Date: 2024-10-13 14:16+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/nickvision-"
@@ -101,221 +101,260 @@ msgid "Play some music or watch a video and see your sound come to life"
 msgstr ""
 
 #. Add Navigation Items
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
 msgid "User Interface"
 msgstr ""
 
 #. Localize Strings
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
 msgid "Theme"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 #, fuzzy
 msgctxt "Theme"
 msgid "Light"
 msgstr "Hell"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 #, fuzzy
 msgctxt "Theme"
 msgid "Dark"
 msgstr "Dunkel"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 msgctxt "Theme"
 msgid "System"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "Zeichenmodus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
 msgid "Drawing Mode"
 msgstr "Zeichenmodus"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
 msgid "Box"
 msgstr "Box"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
 msgid "Circle"
 msgstr "Kreis"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
 #, fuzzy
 msgid "Drawing Shape"
 msgstr "Zeichenmodus"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Wave"
 msgstr "Welle"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Levels"
 msgstr "Stufen"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Particles"
 msgstr "Partikel"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Bars"
 msgstr "Säulen"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Spine"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Splitter"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Hearts"
 msgstr "Herzen"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
 #, fuzzy
 msgid "Drawing Direction"
 msgstr "Zeichnungsrichtung"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Top to Bottom"
 msgstr "Oben nach unten"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Bottom to Top"
 msgstr "Unten nach oben"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Left to Right"
 msgstr "Links nach rechts"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Right to Left"
 msgstr "Rechts nach links"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
 msgid "Fill Shapes"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
 #, fuzzy
 msgid "Mirror Mode"
 msgstr "Spiegelungsmodus ändern"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Off"
 msgstr "Aus"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Full"
 msgstr "Vollständig"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Split Channels"
 msgstr "Kanäle teilen"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Full Reverse"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 #, fuzzy
 msgid "Split Channels Reverse"
 msgstr "Kanäle teilen"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
 #, fuzzy
 msgid "Area Margin"
 msgstr "Rand um die Zeichenfläche"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
 msgid "Area X Offset"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
 msgid "Area Y Offset"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
 msgid "Item Spacing"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
 #, fuzzy
 msgid "Item Roundness"
 msgstr "Rundung der Elemente ändern"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
 #, fuzzy
 msgid "Cava"
 msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
 msgid "Channels"
 msgstr "Kanäle"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
 msgid "Mono"
 msgstr "Mono"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
 msgid "Stereo"
 msgstr "Stereo"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
 msgid "Framerate"
 msgstr "Bildwiederholrate"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
 #, fuzzy
 msgid "Number of Bars"
 msgstr "Anzahl der Säulen"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
 #, fuzzy
 msgid "Reverse Bar Order"
 msgstr "Reihenfolge umkehren"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
 #, fuzzy
 msgid "Automatic Sensitivity"
 msgstr "Automatische Empfindlichkeit"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
 #, fuzzy
 msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
 msgstr "Empfindlichkeit senken, wenn die Säulen den Höchststand erreichen."
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
 #, fuzzy
 msgid "Manual Sensitivity"
 msgstr "Empfindlichkeit"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
 #, fuzzy
 msgid "Monstercat Smoothing"
 msgstr "Ebenung"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
 #, fuzzy
 msgid "Noise Reduction Factor"
 msgstr "Lärmreduktion"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
-#, fuzzy
-msgid "Color Profiles"
-msgstr "Farbprofil ändern"
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "Farben"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "Profil hinzufügen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "Profil löschen"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+msgid "Images"
+msgstr "Bilder"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
 #, fuzzy
 msgid "Background Images"
 msgstr "Hintergrundbild ändern"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "Bild hinzufügen"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgctxt "Shortcut"
@@ -442,8 +481,9 @@ msgstr ""
 msgid "Automatically Check for Updates"
 msgstr ""
 
-#~ msgid "Add"
-#~ msgstr "Hinzufügen"
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "Farbprofil ändern"
 
 #~ msgid "Add New Profile"
 #~ msgstr "Neues Profil hinzufügen"
@@ -457,9 +497,6 @@ msgstr ""
 
 #~ msgid "Delete"
 #~ msgstr "Löschen"
-
-#~ msgid "Delete Profile"
-#~ msgstr "Profil löschen"
 
 #~ msgid "JPEG and PNG images"
 #~ msgstr "JPEG und PNG Bilder"
@@ -579,12 +616,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Ob die Reihenfolge der Balken für jeden Kanal umgekehrt werden soll."
 
-#~ msgid "Colors"
-#~ msgstr "Farben"
-
-#~ msgid "Add Profile"
-#~ msgstr "Profil hinzufügen"
-
 #~ msgid "Application Theme"
 #~ msgstr "Anwendungsthema"
 
@@ -600,17 +631,11 @@ msgstr ""
 #~ msgid "Add background color"
 #~ msgstr "Hintergrundfarben hinzufügen"
 
-#~ msgid "Images"
-#~ msgstr "Bilder"
-
 #~ msgid "Background"
 #~ msgstr "Hintergrund"
 
 #~ msgid "Foreground"
 #~ msgstr "Vordergrund"
-
-#~ msgid "Add Image"
-#~ msgstr "Bild hinzufügen"
 
 #~ msgid "Scale"
 #~ msgstr "Skalierung"

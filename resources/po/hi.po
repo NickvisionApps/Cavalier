@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-11 00:57-0500\n"
+"POT-Creation-Date: 2025-02-13 23:09-0500\n"
 "PO-Revision-Date: 2024-07-07 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/nickvision-"
@@ -104,224 +104,263 @@ msgstr ""
 "ध्वनि जीवंत हो गई है!"
 
 #. Add Navigation Items
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
 msgid "User Interface"
 msgstr ""
 
 #. Localize Strings
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
 msgid "Theme"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 #, fuzzy
 msgctxt "Theme"
 msgid "Light"
 msgstr "हल्की"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 #, fuzzy
 msgctxt "Theme"
 msgid "Dark"
 msgstr "गहरी"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 msgctxt "Theme"
 msgid "System"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "ड्राइंग मोड"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
 #, fuzzy
 msgid "Drawing Mode"
 msgstr "ड्राइंग मोड"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
 msgid "Box"
 msgstr "बक्सा"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
 msgid "Circle"
 msgstr "वृत्त"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
 #, fuzzy
 msgid "Drawing Shape"
 msgstr "ड्राइंग मोड"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Wave"
 msgstr "तरंग"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Levels"
 msgstr "स्तरों"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Particles"
 msgstr "कण"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Bars"
 msgstr "बार्स"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Spine"
 msgstr "स्पाइन"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Splitter"
 msgstr "विभाजक"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Hearts"
 msgstr "दिल"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
 #, fuzzy
 msgid "Drawing Direction"
 msgstr "ड्राइंग दिशा"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Top to Bottom"
 msgstr "ऊपर से नीचे"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Bottom to Top"
 msgstr "नीचे से ऊपर"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Left to Right"
 msgstr "बाएं से दाएं"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Right to Left"
 msgstr "दाएं से बाएं"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
 msgid "Fill Shapes"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
 #, fuzzy
 msgid "Mirror Mode"
 msgstr "मिरर मोड बदलें"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Off"
 msgstr "बंद"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Full"
 msgstr "भरा हुआ"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Split Channels"
 msgstr "विभाजित चैनल"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Full Reverse"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 #, fuzzy
 msgid "Split Channels Reverse"
 msgstr "विभाजित चैनल"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
 #, fuzzy
 msgid "Area Margin"
 msgstr "ड्राइंग क्षेत्र मार्जिन"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
 #, fuzzy
 msgid "Area X Offset"
 msgstr "ड्राइंग क्षेत्र X ऑफसेट"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
 #, fuzzy
 msgid "Area Y Offset"
 msgstr "ड्राइंग क्षेत्र Y ऑफसेट"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
 msgid "Item Spacing"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
 #, fuzzy
 msgid "Item Roundness"
 msgstr "वस्तुओं की गोलाई बदलें"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
 #, fuzzy
 msgid "Cava"
 msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
 msgid "Channels"
 msgstr "चैनल्स"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
 msgid "Mono"
 msgstr "मोनो"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
 msgid "Stereo"
 msgstr "स्टीरियो"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
 msgid "Framerate"
 msgstr "फ्रेम रेट"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
 #, fuzzy
 msgid "Number of Bars"
 msgstr "बारों की संख्या"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
 #, fuzzy
 msgid "Reverse Bar Order"
 msgstr "उलटा क्रम"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
 #, fuzzy
 msgid "Automatic Sensitivity"
 msgstr "स्वचालित संवेदनशीलता"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
 #, fuzzy
 msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
 msgstr "यदि बार्स चरम पर हों तो संवेदनशीलता कम करने का प्रयास करें।"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
 #, fuzzy
 msgid "Manual Sensitivity"
 msgstr "संवेदनशीलता"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
 #, fuzzy
 msgid "Monstercat Smoothing"
 msgstr "Monstercat स्मूथिंग"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
 #, fuzzy
 msgid "Noise Reduction Factor"
 msgstr "शोर में कमी"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
-#, fuzzy
-msgid "Color Profiles"
-msgstr "प्रोफाइल का रंग बदलें"
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "रंग"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "प्रोफाइल जोड़ें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "जोड़ें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "प्रोफाइल मिटाएं"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+msgid "Images"
+msgstr "छवियां"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
 #, fuzzy
 msgid "Background Images"
 msgstr "पृष्ठभूमि छवि बदलें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "छवि जोड़ें"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgctxt "Shortcut"
@@ -446,8 +485,9 @@ msgstr ""
 msgid "Automatically Check for Updates"
 msgstr ""
 
-#~ msgid "Add"
-#~ msgstr "जोड़ें"
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "प्रोफाइल का रंग बदलें"
 
 #~ msgid "Add New Profile"
 #~ msgstr "नई प्रोफाइल जोड़ें"
@@ -461,9 +501,6 @@ msgstr ""
 
 #~ msgid "Delete"
 #~ msgstr "मिटाएं"
-
-#~ msgid "Delete Profile"
-#~ msgstr "प्रोफाइल मिटाएं"
 
 #~ msgid "JPEG and PNG images"
 #~ msgstr "JPEG और PNG छवियां"
@@ -579,12 +616,6 @@ msgstr ""
 #~ msgid "Whether to reverse order of bars for each channel."
 #~ msgstr "क्या प्रत्येक चैनल के लिए बार के क्रम को उलटना है।"
 
-#~ msgid "Colors"
-#~ msgstr "रंग"
-
-#~ msgid "Add Profile"
-#~ msgstr "प्रोफाइल जोड़ें"
-
 #~ msgid "Application Theme"
 #~ msgstr "अनुप्रयोग थीम"
 
@@ -600,17 +631,11 @@ msgstr ""
 #~ msgid "Add background color"
 #~ msgstr "पृष्ठभूमि रंग जोड़ें"
 
-#~ msgid "Images"
-#~ msgstr "छवियां"
-
 #~ msgid "Background"
 #~ msgstr "पृष्ठभूमि"
 
 #~ msgid "Foreground"
 #~ msgstr "अग्रभूमि"
-
-#~ msgid "Add Image"
-#~ msgstr "छवि जोड़ें"
 
 #~ msgid "Scale"
 #~ msgstr "पैमाना"

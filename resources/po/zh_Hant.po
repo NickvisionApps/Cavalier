@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-11 00:57-0500\n"
+"POT-Creation-Date: 2025-02-13 23:09-0500\n"
 "PO-Revision-Date: 2023-08-12 17:18+0000\n"
 "Last-Translator: Wolf yuan <h1030035@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -104,226 +104,266 @@ msgid "Play some music or watch a video and see your sound come to life"
 msgstr "Cavalier 會聆聽您電腦的聲音。播放一些音樂或影片來讓你的音樂動起來！"
 
 #. Add Navigation Items
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:12
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
 msgid "User Interface"
 msgstr ""
 
 #. Localize Strings
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
 #: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
 msgid "Theme"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 #, fuzzy
 msgctxt "Theme"
 msgid "Light"
 msgstr "亮色"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 #, fuzzy
 msgctxt "Theme"
 msgid "Dark"
 msgstr "深色"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:17
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
 msgctxt "Theme"
 msgid "System"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:27
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "繪圖模式"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
 #, fuzzy
 msgid "Drawing Mode"
 msgstr "繪圖模式"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
 msgid "Box"
 msgstr "箱型"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:29
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
 msgid "Circle"
 msgstr "圓圈"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:39
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
 #, fuzzy
 msgid "Drawing Shape"
 msgstr "繪圖模式"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Wave"
 msgstr "波浪"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Levels"
 msgstr "音量"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Particles"
 msgstr "顆粒"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Bars"
 msgstr "條狀"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Spine"
 msgstr "錐形"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 msgid "Splitter"
 msgstr "分隔"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:41
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
 #, fuzzy
 msgid "Hearts"
 msgstr "愛心"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:51
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
 #, fuzzy
 msgid "Drawing Direction"
 msgstr "繪圖方向"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Top to Bottom"
 msgstr "從上到下"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Bottom to Top"
 msgstr "從下到上"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Left to Right"
 msgstr "從左到右"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:53
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
 #, fuzzy
 msgid "Right to Left"
 msgstr "從右到左"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:63
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
 msgid "Fill Shapes"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:72
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
 #, fuzzy
 msgid "Mirror Mode"
 msgstr "變更鏡像模式"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Off"
 msgstr "關"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 #, fuzzy
 msgid "Full"
 msgstr "完整"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Split Channels"
 msgstr "左右聲道分離"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 msgid "Full Reverse"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:74
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
 #, fuzzy
 msgid "Split Channels Reverse"
 msgstr "左右聲道分離"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:84
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
 #, fuzzy
 msgid "Area Margin"
 msgstr "繪圖邊距"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:99
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
 #, fuzzy
 msgid "Area X Offset"
 msgstr "X 軸偏移"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:114
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
 #, fuzzy
 msgid "Area Y Offset"
 msgstr "Y 軸偏移"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:129
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
 msgid "Item Spacing"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:144
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
 #, fuzzy
 msgid "Item Roundness"
 msgstr "變更項目的圓角"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:161
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
 #, fuzzy
 msgid "Cava"
 msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:164
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
 msgid "Channels"
 msgstr "頻道數"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
 msgid "Mono"
 msgstr "單聲道"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:166
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
 msgid "Stereo"
 msgstr "雙聲道"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
 msgid "Framerate"
 msgstr "幀數"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:192
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
 #, fuzzy
 msgid "Number of Bars"
 msgstr "欄數"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:208
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
 #, fuzzy
 msgid "Reverse Bar Order"
 msgstr "反向排序"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:217
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
 #, fuzzy
 msgid "Automatic Sensitivity"
 msgstr "自動偵測靈敏度"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:218
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
 #, fuzzy
 msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
 msgstr "當圖形超過限制後嘗試降低靈敏度。"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:227
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
 #, fuzzy
 msgid "Manual Sensitivity"
 msgstr "靈敏度"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:243
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
 #, fuzzy
 msgid "Monstercat Smoothing"
 msgstr "Monstercat 平滑"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:252
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
 #, fuzzy
 msgid "Noise Reduction Factor"
 msgstr "減少噪音"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:269
-#, fuzzy
-msgid "Color Profiles"
-msgstr "變更顏色設定檔"
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "顏色"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:273
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "新增設定檔"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "新增"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "刪除設定檔"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+#, fuzzy
+msgid "Images"
+msgstr "圖片"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
 #, fuzzy
 msgid "Background Images"
 msgstr "變更背景圖片"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "新增圖片"
 
 #: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
 msgctxt "Shortcut"
@@ -448,8 +488,9 @@ msgstr ""
 msgid "Automatically Check for Updates"
 msgstr ""
 
-#~ msgid "Add"
-#~ msgstr "新增"
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "變更顏色設定檔"
 
 #~ msgid "Add New Profile"
 #~ msgstr "新增設定檔"
@@ -463,9 +504,6 @@ msgstr ""
 
 #~ msgid "Delete"
 #~ msgstr "刪除"
-
-#~ msgid "Delete Profile"
-#~ msgstr "刪除設定檔"
 
 #~ msgid "JPEG and PNG images"
 #~ msgstr "JPEG 及 PNG 圖片"
@@ -584,12 +622,6 @@ msgstr ""
 #~ msgid "Whether to reverse order of bars for each channel."
 #~ msgstr "是否要將每個頻道的圖形顛倒。"
 
-#~ msgid "Colors"
-#~ msgstr "顏色"
-
-#~ msgid "Add Profile"
-#~ msgstr "新增設定檔"
-
 #~ msgid "Application Theme"
 #~ msgstr "應用程式主題"
 
@@ -608,19 +640,12 @@ msgstr ""
 #~ msgstr "背景顏色"
 
 #, fuzzy
-#~ msgid "Images"
-#~ msgstr "圖片"
-
-#, fuzzy
 #~ msgid "Background"
 #~ msgstr "背景顏色"
 
 #, fuzzy
 #~ msgid "Foreground"
 #~ msgstr "前景顏色"
-
-#~ msgid "Add Image"
-#~ msgstr "新增圖片"
 
 #~ msgid "Scale"
 #~ msgstr "縮放"

@@ -8,6 +8,9 @@ Adw.PreferencesDialog root {
   title: _("Preferences");
 
   Adw.PreferencesPage {
+    title: _("Interface");
+    icon-name: "hig-symbolic";
+
     Adw.PreferencesGroup {
       title: _("User Interface");
 
@@ -22,6 +25,10 @@ Adw.PreferencesDialog root {
           icon-name: "dark-mode-symbolic";
         }
       }
+    }
+
+    Adw.PreferencesGroup {
+      title: _("Drawing Area");
 
       Adw.ComboRow drawingModeRow {
         title: _("Drawing Mode");
@@ -156,9 +163,14 @@ Adw.PreferencesDialog root {
         }
       }
     }
+  }
+
+  Adw.PreferencesPage {
+    title: _("Cava");
+    icon-name: "utilities-terminal-symbolic";
 
     Adw.PreferencesGroup {
-      title: _("Cava");
+      title: _("Options");
 
       Adw.ComboRow channelsRow {
         title: _("Channels");
@@ -264,13 +276,63 @@ Adw.PreferencesDialog root {
         }
       }
     }
+  }
+
+  Adw.PreferencesPage {
+    title: _("Colors");
+    icon-name: "preferences-color-symbolic";
 
     Adw.PreferencesGroup {
-      title: _("Color Profiles");
+      title: _("Profiles");
+
+      header-suffix: Gtk.Box {
+        Gtk.Button addColorProfileButton {
+          Adw.ButtonContent {
+            label: _("Add");
+            icon-name: "list-add-symbolic";
+          }
+        }
+
+        styles [ "toolbar" ]
+      };
+
+      Adw.ComboRow activeColorProfileRow {
+        title: _("Active Profile");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "check-round-outline-symbolic";
+        }
+      }
     }
+  }
+
+  Adw.PreferencesPage {
+    title: _("Images");
+    icon-name: "image-x-generic-symbolic";
 
     Adw.PreferencesGroup {
       title: _("Background Images");
+
+      header-suffix: Gtk.Box {
+        Gtk.Button addBackgroundImageRow {
+          Adw.ButtonContent {
+            label: _("Add");
+            icon-name: "list-add-symbolic";
+          }
+        }
+
+        styles [ "toolbar" ]
+      };
+
+      Adw.ComboRow activeBackgroundImageRow {
+        title: _("Active Image");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "check-round-outline-symbolic";
+        }
+      }
     }
   }
 }
