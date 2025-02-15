@@ -1,4 +1,5 @@
 #include "controllers/preferencesviewcontroller.h"
+#include <libnick/localization/gettext.h>
 
 using namespace Nickvision::Cavalier::Shared::Models;
 
@@ -60,6 +61,16 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_configuration.setColorProfiles(profiles);
     }
 
+    std::vector<std::string> PreferencesViewController::getColorProfileNames()  const
+    {
+        std::vector<std::string> names;
+        for(const ColorProfile& profile : m_configuration.getColorProfiles())
+        {
+            names.push_back(profile.getName());
+        }
+        return names;
+    }
+
     int PreferencesViewController::getActiveColorProfileIndex() const
     {
         return m_configuration.getActiveColorProfileIndex();
@@ -80,13 +91,32 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_configuration.setBackgroundImages(images);
     }
 
+    std::vector<std::string> PreferencesViewController::getBackgroundImageNames()  const
+    {
+        std::vector<std::string> names;
+        for(const BackgroundImage& image : m_configuration.getBackgroundImages())
+        {
+            names.push_back(image.getPath().filename());
+        }
+        if(names.empty())
+        {
+            names.push_back(_("None"));
+        }
+        return names;
+    }
+
     int PreferencesViewController::getActiveBackgroundImageIndex() const
     {
-        return m_configuration.getActiveBackgroundImageIndex();
+        int index{ m_configuration.getActiveBackgroundImageIndex() };
+        return index == -1 ? 0 : index;
     }
 
     void PreferencesViewController::setActiveBackgroundImageIndex(int index)
     {
+        if(m_configuration.getBackgroundImages().size() == 0)
+        {
+            index = -1;
+        }
         m_configuration.setActiveBackgroundImageIndex(index);
     }
 

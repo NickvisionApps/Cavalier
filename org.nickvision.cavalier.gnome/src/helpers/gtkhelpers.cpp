@@ -73,4 +73,9 @@ namespace Nickvision::Cavalier::GNOME::Helpers
         adw_combo_row_set_model(row, G_LIST_MODEL(list));
         adw_combo_row_set_selected(row, selectedIndex);
     }
+
+    void GtkHelpers::setComboRowModel(AdwComboRow* row, const std::vector<std::string>& strs, size_t selected, bool allowEllipse)
+    {
+        setComboRowModel(row, strs, strs[selected], allowEllipse);
+    }
 }

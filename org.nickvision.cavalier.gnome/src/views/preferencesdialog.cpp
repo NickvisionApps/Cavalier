@@ -1,5 +1,9 @@
 #include "views/preferencesdialog.h"
+#include <utility>
+#include <libnick/localization/gettext.h>
+#include "helpers/gtkhelpers.h"
 
+using namespace Nickvision::Cavalier::GNOME::Helpers;
 using namespace Nickvision::Cavalier::Shared::Controllers;
 using namespace Nickvision::Cavalier::Shared::Models;
 using namespace Nickvision::Events;
@@ -32,9 +36,87 @@ namespace Nickvision::Cavalier::GNOME::Views
         adw_spin_row_set_value(m_builder.get<AdwSpinRow>("sensitivityRow"), static_cast<double>(cava.getSensitivity()));
         adw_switch_row_set_active(m_builder.get<AdwSwitchRow>("monstercatRow"), cava.getUseMonstercatSmoothing());
         adw_spin_row_set_value(m_builder.get<AdwSpinRow>("nosieReductionRow"), static_cast<double>(cava.getNoiseReductionFactor()));
+        GtkHelpers::setComboRowModel(m_builder.get<AdwComboRow>("activeColorProfileRow"), m_controller->getColorProfileNames(), m_controller->getActiveColorProfileIndex());
+        int i{ 0 };
+        for(const ColorProfile& profile : m_controller->getColorProfiles())
+        {
+            GtkButton* btnEdit{ GTK_BUTTON(gtk_button_new()) };
+            gtk_button_set_icon_name(btnEdit, "document-edit-symbolic");
+            gtk_widget_set_valign(GTK_WIDGET(btnEdit), GTK_ALIGN_CENTER);
+            gtk_widget_add_css_class(GTK_WIDGET(btnEdit), "flat");
+            g_signal_connect_data(btnEdit, "clicked", GCallback(+[](GtkButton*, gpointer data)
+            {
+                std::pair<PreferencesDialog*, int>* pair{ reinterpret_cast<std::pair<PreferencesDialog*, int>*>(data) };
+                pair->first->editColorProfile(pair->second);
+            }), new std::pair<PreferencesDialog*, int>(this, i), GClosureNotify(+[](gpointer data, GClosure*)
+            {
+                delete reinterpret_cast<std::pair<PreferencesDialog*, int>*>(data);
+            }), G_CONNECT_DEFAULT);
+            AdwActionRow* row{ ADW_ACTION_ROW(adw_action_row_new()) };
+            adw_preferences_row_set_title(ADW_PREFERENCES_ROW(row), profile.getName().c_str());
+            adw_action_row_add_suffix(row, GTK_WIDGET(btnEdit));
+            adw_action_row_set_activatable_widget(row, GTK_WIDGET(btnEdit));
+            if(profile.getName() != _("Default"))
+            {
+                GtkButton* btnDelete{ GTK_BUTTON(gtk_button_new()) };
+                gtk_button_set_icon_name(btnDelete, "user-trash-symbolic");
+                gtk_widget_set_valign(GTK_WIDGET(btnDelete), GTK_ALIGN_CENTER);
+                gtk_widget_add_css_class(GTK_WIDGET(btnDelete), "flat");
+                adw_action_row_add_suffix(row, GTK_WIDGET(btnDelete));
+                g_signal_connect_data(btnEdit, "clicked", GCallback(+[](GtkButton*, gpointer data)
+                {
+                    std::pair<PreferencesDialog*, int>* pair{ reinterpret_cast<std::pair<PreferencesDialog*, int>*>(data) };
+                    pair->first->deleteColorProfile(pair->second);
+                }), new std::pair<PreferencesDialog*, int>(this, i), GClosureNotify(+[](gpointer data, GClosure*)
+                {
+                    delete reinterpret_cast<std::pair<PreferencesDialog*, int>*>(data);
+                }), G_CONNECT_DEFAULT);
+            }
+            adw_preferences_group_add(m_builder.get<AdwPreferencesGroup>("colorProfilesGroup"), GTK_WIDGET(row));
+            i++;
+        }
+        GtkHelpers::setComboRowModel(m_builder.get<AdwComboRow>("activeBackgroundImageRow"), m_controller->getBackgroundImageNames(), m_controller->getActiveBackgroundImageIndex());
+        i = 0;
+        for(const BackgroundImage& image : m_controller->getBackgroundImages())
+        {
+            GtkButton* btnEdit{ GTK_BUTTON(gtk_button_new()) };
+            gtk_button_set_icon_name(btnEdit, "document-edit-symbolic");
+            gtk_widget_set_valign(GTK_WIDGET(btnEdit), GTK_ALIGN_CENTER);
+            gtk_widget_add_css_class(GTK_WIDGET(btnEdit), "flat");
+            g_signal_connect_data(btnEdit, "clicked", GCallback(+[](GtkButton*, gpointer data)
+            {
+                std::pair<PreferencesDialog*, int>* pair{ reinterpret_cast<std::pair<PreferencesDialog*, int>*>(data) };
+                pair->first->editBackgroundImage(pair->second);
+            }), new std::pair<PreferencesDialog*, int>(this, i), GClosureNotify(+[](gpointer data, GClosure*)
+            {
+                delete reinterpret_cast<std::pair<PreferencesDialog*, int>*>(data);
+            }), G_CONNECT_DEFAULT);
+            GtkButton* btnDelete{ GTK_BUTTON(gtk_button_new()) };
+            gtk_button_set_icon_name(btnDelete, "user-trash-symbolic");
+            gtk_widget_set_valign(GTK_WIDGET(btnDelete), GTK_ALIGN_CENTER);
+            gtk_widget_add_css_class(GTK_WIDGET(btnDelete), "flat");
+            g_signal_connect_data(btnEdit, "clicked", GCallback(+[](GtkButton*, gpointer data)
+            {
+                std::pair<PreferencesDialog*, int>* pair{ reinterpret_cast<std::pair<PreferencesDialog*, int>*>(data) };
+                pair->first->deleteBackgroundImage(pair->second);
+            }), new std::pair<PreferencesDialog*, int>(this, i), GClosureNotify(+[](gpointer data, GClosure*)
+            {
+                delete reinterpret_cast<std::pair<PreferencesDialog*, int>*>(data);
+            }), G_CONNECT_DEFAULT);
+            AdwActionRow* row{ ADW_ACTION_ROW(adw_action_row_new()) };
+            adw_preferences_row_set_title(ADW_PREFERENCES_ROW(row), image.getPath().filename().string().c_str());
+            adw_action_row_set_subtitle(row, image.getPath().parent_path().string().c_str());
+            adw_action_row_add_suffix(row, GTK_WIDGET(btnEdit));
+            adw_action_row_set_activatable_widget(row, GTK_WIDGET(btnEdit));
+            adw_action_row_add_suffix(row, GTK_WIDGET(btnDelete));
+            adw_preferences_group_add(m_builder.get<AdwPreferencesGroup>("backgroundImagesGroup"), GTK_WIDGET(row));
+            i++;
+        }
         //Signals
         m_closed += [&](const EventArgs&){ onClosed(); };
         g_signal_connect(m_builder.get<GObject>("themeRow"), "notify::selected-item", G_CALLBACK(+[](GObject*, GParamSpec* pspec, gpointer data){ reinterpret_cast<PreferencesDialog*>(data)->onThemeChanged(); }), this);
+        g_signal_connect(m_builder.get<GObject>("addColorProfileButton"), "clicked", G_CALLBACK(+[](GtkButton*, gpointer data){ reinterpret_cast<PreferencesDialog*>(data)->addColorProfile(); }), this);
+        g_signal_connect(m_builder.get<GObject>("addBackgroundImageButton"), "clicked", G_CALLBACK(+[](GtkButton*, gpointer data){ reinterpret_cast<PreferencesDialog*>(data)->addBackgroundImage(); }), this);
     }
     
     void PreferencesDialog::onClosed()
@@ -61,6 +143,8 @@ namespace Nickvision::Cavalier::GNOME::Views
         cava.setNoiseReductionFactor(adw_spin_row_get_value(m_builder.get<AdwSpinRow>("nosieReductionRow")));
         m_controller->setDrawingArea(drawing);
         m_controller->setCavaOptions(cava);
+        m_controller->setActiveColorProfileIndex(adw_combo_row_get_selected(m_builder.get<AdwComboRow>("activeColorProfileRow")));
+        m_controller->setActiveBackgroundImageIndex(adw_combo_row_get_selected(m_builder.get<AdwComboRow>("activeBackgroundImageRow")));
         m_controller->saveConfiguration();
     }
 
@@ -79,5 +163,35 @@ namespace Nickvision::Cavalier::GNOME::Views
             adw_style_manager_set_color_scheme(adw_style_manager_get_default(), ADW_COLOR_SCHEME_DEFAULT);
             break;
         }
+    }
+
+    void PreferencesDialog::addColorProfile()
+    {
+
+    }
+
+    void PreferencesDialog::editColorProfile(int index)
+    {
+
+    }
+
+    void PreferencesDialog::deleteColorProfile(int index)
+    {
+
+    }
+
+    void PreferencesDialog::addBackgroundImage()
+    {
+
+    }
+
+    void PreferencesDialog::editBackgroundImage(int index)
+    {
+
+    }
+
+    void PreferencesDialog::deleteBackgroundImage(int index)
+    {
+
     }
 }

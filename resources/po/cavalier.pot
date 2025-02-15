@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-14 14:49-0500\n"
+"POT-Creation-Date: 2025-02-15 17:00-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,8 +59,13 @@ msgstr ""
 msgid "Unable to download and install update"
 msgstr ""
 
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:103
+msgid "None"
+msgstr ""
+
 #: libcavalier/src/models/colorprofile.cpp:11
 #: libcavalier/src/models/colorprofile.cpp:27
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:60
 msgid "Default"
 msgstr ""
 
@@ -345,7 +350,7 @@ msgstr ""
 msgid "Open"
 msgstr ""
 
-#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:181
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:180
 #: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
 msgid "GitHub Repo"
 msgstr ""

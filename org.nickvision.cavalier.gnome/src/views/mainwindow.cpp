@@ -124,7 +124,6 @@ namespace Nickvision::Cavalier::GNOME::Views
     void MainWindow::onCavaOutputStopped()
     {
         adw_view_stack_set_visible_child_name(m_builder.get<AdwViewStack>("viewStack"), "Home");
-        gtk_image_clear(m_builder.get<GtkImage>("renderImage"));
     }
 
     void MainWindow::onImageRendered(const ParamEventArgs<PngImage>& args)

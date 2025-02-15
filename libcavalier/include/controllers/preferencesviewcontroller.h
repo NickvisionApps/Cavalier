@@ -2,6 +2,7 @@
 #define PREFERENCESVIEWCONTROLLER_H
 
 #include <string>
+#include <vector>
 #include "models/configuration.h"
 
 namespace Nickvision::Cavalier::Shared::Controllers
@@ -68,6 +69,11 @@ namespace Nickvision::Cavalier::Shared::Controllers
          */
         void setColorProfiles(const std::vector<Models::ColorProfile>& profiles);
         /**
+         * @brief Gets the names of the color profiles for the application.
+         * @return The list of names of the color profiles
+         */
+        std::vector<std::string> getColorProfileNames() const;
+        /**
          * @brief Gets the index of the active color profile for the application.
          * @return The index of the active color profile
          */
@@ -87,6 +93,11 @@ namespace Nickvision::Cavalier::Shared::Controllers
          * @param images The new lsit of background images
          */
         void setBackgroundImages(const std::vector<Models::BackgroundImage>& images);
+        /**
+         * @brief Gets the names of the background images for the application.
+         * @return The list of names of the background images
+         */
+        std::vector<std::string> getBackgroundImageNames() const;
         /**
          * @brief Gets the index of the active background image for the application.
          * @return The index of the active background image

@@ -30,6 +30,34 @@ namespace Nickvision::Cavalier::GNOME::Views
          * @brief Handles when the theme preference is changed.
          */
         void onThemeChanged();
+        /**
+         * @brief Prompts the user to create a color profile.
+         */
+        void addColorProfile();
+        /**
+         * @brief Prompts the user to edit a color profile.
+         * @param index The index of the profile to edit
+         */
+        void editColorProfile(int index);
+        /**
+         * @brief Prompts the user to delete a color profile.
+         * @param index The index of the profile to delete
+         */
+        void deleteColorProfile(int index);
+        /**
+         * @brief Prompts the user to add a background image.
+         */
+        void addBackgroundImage();
+        /**
+         * @brief Prompts the user to edit a background image.
+         * @param index The index of the image to edit
+         */
+        void editBackgroundImage(int index);
+        /**
+         * @brief Prompts the user to delete a background image.
+         * @param index The index of the image to delete
+         */
+        void deleteBackgroundImage(int index);
         std::shared_ptr<Shared::Controllers::PreferencesViewController> m_controller;
     };
 }
