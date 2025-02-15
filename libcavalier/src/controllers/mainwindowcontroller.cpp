@@ -106,6 +106,8 @@ namespace Nickvision::Cavalier::Shared::Controllers
         {
             builder << Environment::exec(Environment::findDependency("cava").string() + " -v");
         }
+        //Render
+        builder << "GPU Rendering: " << (m_renderer.isGPURendering() ? "Enabled\n" : "Disabled\n") << std::endl;
         //Extra
         if(!extraInformation.empty())
         {

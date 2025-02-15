@@ -105,6 +105,11 @@ namespace Nickvision::Cavalier::Shared::Models
 
     }
 
+    bool Renderer::isGPURendering() const
+    {
+        return m_canvas.isGPUCanvas();
+    }
+
     void Renderer::setCanvasSize(int width, int height)
     {
         std::lock_guard<std::mutex> lock{ m_mutex };

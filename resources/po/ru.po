@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cavalier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-15 16:58-0500\n"
+"POT-Creation-Date: 2025-02-15 17:11-0500\n"
 "PO-Revision-Date: 2023-09-22 03:17+0000\n"
 "Last-Translator: Fyodor Sobolev <fyodor-sobolev@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nickvision-"
@@ -50,16 +50,16 @@ msgstr "Давид Лапшин"
 msgid "translator-credits"
 msgstr "Фёдор Соболев https://github.com/fsobolev"
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:181
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:183
 msgid "New update available"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:195
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:197
 msgid ""
 "The update is downloading in the background and will start once it finishes"
 msgstr ""
 
-#: libcavalier/src/controllers/mainwindowcontroller.cpp:200
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:202
 msgid "Unable to download and install update"
 msgstr ""
 
@@ -69,7 +69,7 @@ msgstr ""
 
 #: libcavalier/src/models/colorprofile.cpp:11
 #: libcavalier/src/models/colorprofile.cpp:27
-#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:60
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:59
 msgid "Default"
 msgstr "По умолчанию"
 

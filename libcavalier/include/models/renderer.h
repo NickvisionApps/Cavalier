@@ -37,6 +37,12 @@ namespace Nickvision::Cavalier::Shared::Models
          */
         Renderer(const DrawingArea& drawingArea, const ColorProfile& colorProfile, const std::optional<BackgroundImage>& backgroundImage = std::nullopt);
         /**
+         * @brief Gets whether or not the GPU is being used for rendering.
+         * @return True if using GPU
+         * @return False is using CPU
+         */
+        bool isGPURendering() const;
+        /**
          * @brief Sets the canvas' size.
          * @param canvas The new canvas size
          */
