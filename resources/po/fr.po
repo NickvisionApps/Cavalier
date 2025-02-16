@@ -1,0 +1,955 @@
+# French translation for the cavalier's package.
+# Copyright (C) 2022 Fyodor Sobolev
+# This file is distributed under the same license as the cavalier package.
+# Irénée Thirion <irenee.thirion@e.email>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cavalier\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
+"PO-Revision-Date: 2025-01-24 10:02+0000\n"
+"Last-Translator: AFCMS <afcm.contact@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr "Visualisez de l’audio avec CAVA"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "Discussion Matrix"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "Contributeurs sur GitHub ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "Fyodor Sobolev"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "David Lapshin"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr "Irénée Thirion"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:183
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:197
+msgid ""
+"The update is downloading in the background and will start once it finishes"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:202
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
+msgid "None"
+msgstr ""
+
+#: libcavalier/src/models/colorprofile.cpp:11
+#: libcavalier/src/models/colorprofile.cpp:27
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
+msgid "Default"
+msgstr "Par défaut"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr "Mise à l’échelle"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr "Transparence"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+msgid "Preferences"
+msgstr "Préférences"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Keyboard Shortcuts"
+msgstr "Raccourcis clavier"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:32
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "About Cavalier"
+msgstr "À propos de Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:23
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#. Home Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+#, fuzzy
+msgid "Visualize Your Audio"
+msgstr "Visualisez de l’audio avec CAVA"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:55
+#, fuzzy
+msgid "Play some music or watch a video and see your sound come to life"
+msgstr ""
+"Cavalier écoute le son de votre système. Jouez de la musique ou une vidéo "
+"pour le voir prendre vie !"
+
+#. Add Navigation Items
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+msgid "User Interface"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "Clair"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "Sombre"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "Mode de dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
+msgid "Drawing Mode"
+msgstr "Mode de dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Box"
+msgstr "Boîte"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Circle"
+msgstr "Cercle"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Mode de dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Wave"
+msgstr "Ondulations"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Levels"
+msgstr "Niveaux"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Particles"
+msgstr "Particules"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Bars"
+msgstr "Barres"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Spine"
+msgstr "Colonne vertébrale"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Splitter"
+msgstr "Séparateur"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Hearts"
+msgstr "Cœurs"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Direction du dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "De haut en bas"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "De bas en haut"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Left to Right"
+msgstr "De gauche à droite"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Right to Left"
+msgstr "De droite à gauche"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Changer le mode du miroir"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Off"
+msgstr "Désactivé"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full"
+msgstr "Intégral"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Split Channels"
+msgstr "Séparer les canaux"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Séparer les canaux"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
+#, fuzzy
+msgid "Area Margin"
+msgstr "Marge autour de l’aire de dessin"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Marge autour de l’aire de dessin X"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Marge autour de l’aire de dessin Y"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Modifier la rondeur des éléments"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Channels"
+msgstr "Canaux"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Mono"
+msgstr "Mono"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Stereo"
+msgstr "Stéréo"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
+msgid "Framerate"
+msgstr "Fréquence"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Nombre de barres"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Inverser l’ordre"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "Sensibilité automatique"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "Essayer de diminuer la sensibilité si les barres atteignent un pic."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "Sensibilité"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Lissage Monstercat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Réduction de bruit"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "Couleurs"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "Ajouter un profil"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "Ajouter"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "Supprimer le profil"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+msgid "Images"
+msgstr "Images"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
+#, fuzzy
+msgid "Background Images"
+msgstr "Changer l’image d’arrière-plan"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "Ajouter une image"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "Application"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
+#, fuzzy
+msgid "About Application"
+msgstr "Application"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:30
+msgid "Quit"
+msgstr "Quitter"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:170
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:180
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "GitHub Repo"
+msgstr "Dépôt GitHub"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "Supprimer le profil"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "Êtes-vous sûr⋅e de vouloir supprimer le profil « {0} » ?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "Changer l’image d’arrière-plan"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "Supprimer le profil"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "Êtes-vous sûr⋅e de vouloir supprimer le profil « {0} » ?"
+
+#. Load
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
+msgid "About"
+msgstr "À propos"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:35
+#, fuzzy
+msgid "Changelog"
+msgstr "Canaux"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:36
+msgid "Credits"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Debugging"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:44
+#, fuzzy
+msgid "Developers"
+msgstr "Niveaux"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:46
+msgid "Designers"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:48
+msgid "Artists"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:50
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/infobar.cpp:14
+#, fuzzy
+msgid "Notification"
+msgstr "Rotation"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Cavalier"
+
+#. MenuBar
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
+#, fuzzy
+msgid "File"
+msgstr "Tous les fichiers"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+msgid "Exit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Edit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
+#, fuzzy
+msgid "Settings"
+msgstr "Paramètres d’importation"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:158
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:21
+msgid "Light"
+msgstr "Clair"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:22
+msgid "Dark"
+msgstr "Sombre"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "Changer le profil de couleur"
+
+#~ msgid "Add New Profile"
+#~ msgstr "Ajouter un nouveau profil"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuler"
+
+#~ msgid "Delete"
+#~ msgstr "Supprimer"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "Images JPEG et PNG"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr "Le nouveau profil de couleur sera une copie du profil actif actuel."
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "Nicholas Logozzo"
+
+#~ msgid "On"
+#~ msgstr "Activé"
+
+#~ msgid "Profile Name"
+#~ msgstr "Nom du profil"
+
+#~ msgid "Select an image"
+#~ msgstr "Sélectionnez une image"
+
+#~ msgid "Command Help"
+#~ msgstr "Aide de commande"
+
+#~ msgid "Let's dance!"
+#~ msgstr "Dansons !"
+
+#~ msgid "Radius"
+#~ msgstr "Rayon"
+
+#~ msgid "Mirror"
+#~ msgstr "Miroir"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "Miroir inversé"
+
+#~ msgid "Size of gaps around drawing area (in pixels)."
+#~ msgstr "Espace (en pixels) laissé autour de l’aire dessinée."
+
+#~ msgid "Offset between items"
+#~ msgstr "Espace entre les éléments"
+
+#~ msgid "The size of spaces between elements (in percent)."
+#~ msgstr "Taille des espaces entre les éléments (en pourcentages)."
+
+#~ msgid "Roundness of items"
+#~ msgstr "Rondeur des éléments"
+
+#~ msgid "How much rounded the elements should be (in percent)."
+#~ msgstr "Ajuste la rondeur des éléments (en pourcentages)."
+
+#~ msgid "Filling"
+#~ msgstr "Remplissage"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "Indique si les formes devraient être remplies délimitées."
+
+#~ msgid "Thickness of lines"
+#~ msgstr "Épaisseur des lignes"
+
+#~ msgid "Thickness of lines when filling is off (in pixels)."
+#~ msgstr ""
+#~ "Épaisseur des lignes quand le remplissage est désactivé (en pixels)."
+
+#~ msgid "Borderless window"
+#~ msgstr "Fenêtre sans bordures"
+
+#~ msgid "Whether to disable window shadow and borders."
+#~ msgstr "Indique s’il faut désactiver l’ombre et les bordures de la fenêtre."
+
+#~ msgid "Sharp corners"
+#~ msgstr "Angles saillants"
+
+#~ msgid "Whether the main window corners should be sharp."
+#~ msgstr ""
+#~ "Indique si les angles de la fenêtre principale doivent être saillants."
+
+#~ msgid "Window controls"
+#~ msgstr "Contrôles de la fenêtre"
+
+#~ msgid "Whether to show window control buttons."
+#~ msgstr "Indique s’il faut afficher les boutons de contrôle de la fenêtre."
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "Masquer automatiquement la barre supérieure"
+
+#~ msgid "Whether to hide headerbar when main window is not focused."
+#~ msgstr ""
+#~ "Indique s’il faut masquer la barre supérieure lorsque la fenêtre n’est "
+#~ "pas focalisée."
+
+#~ msgid "Number of frames per second."
+#~ msgstr "Nombre d’images par secondes."
+
+#~ msgid "Custom"
+#~ msgstr "Personnalisé"
+
+#~ msgid "Custom Framerate"
+#~ msgstr "Fréquence personnalisée"
+
+#~ msgid ""
+#~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
+#~ "be the initial value."
+#~ msgstr ""
+#~ "Sensibilité définie manuellement. Si la sensibilité automatique est "
+#~ "activée, ce sera la valeur initiale."
+
+#~ msgid "Whether to enable the so-called «Monstercat smoothing»."
+#~ msgstr "Indique s’il faut activer le « lissage Monstercat »."
+
+#~ msgid "Noise reduction"
+#~ msgstr "Réduction de bruit"
+
+#~ msgid ""
+#~ "This factor adjusts the integral and gravity filters to keep the signal "
+#~ "smooth.\n"
+#~ "Higher value leads to a slower and smoother result."
+#~ msgstr ""
+#~ "Ce facteur ajuste les filtres de gravité et d’intégrale pour garder un "
+#~ "signal lisse.\n"
+#~ "Plus la valeur est élevée, plus le rendu sera lent et lisse."
+
+#~ msgid "Whether to reverse order of bars for each channel."
+#~ msgstr "Indique s’il faut inverser l’ordre des barres pour chaque canal."
+
+#~ msgid "Application Theme"
+#~ msgstr "Thème de l’application"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "Couleurs de premier-plan"
+
+#~ msgid "Add foreground color"
+#~ msgstr "Ajouter une couleur de premier-plan"
+
+#~ msgid "Background Colors"
+#~ msgstr "Couleurs d’arrière-plan"
+
+#~ msgid "Add background color"
+#~ msgstr "Ajouter une couleur d’arrière-plan"
+
+#~ msgid "Background"
+#~ msgstr "Arrière-plan"
+
+#~ msgid "Foreground"
+#~ msgstr "Premier-plan"
+
+#~ msgid "Foreground image is only shown with Box drawing modes."
+#~ msgstr "L'image de premier-plan est visible uniquement en mode boîte."
+
+#~ msgid "No Images"
+#~ msgstr "Aucune images"
+
+#~ msgid "Add an image to use it in Cavalier."
+#~ msgstr "Ajoutez une image pour l'utiliser dans Cavalier."
+
+#~ msgid "No Image"
+#~ msgstr "Aucune image"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "Changer le mode de dessin"
+
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "Changer le rayon dans le mode Cercle"
+
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "Changer la rotation dans le mode Cercle"
+
+#~ msgid "Toggle Reverse Mirror"
+#~ msgstr "Basculer le miroir d’inversion"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "Modifier la marge autour de l’aire de dessin"
+
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "Modifier la marge autour de l’aire de dessin X"
+
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "Modifier la marge autour de l’aire de dessin Y"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "Changer la direction du dessin"
+
+#~ msgid "Change Offset Between Items"
+#~ msgstr "Modifier l’espace entre les éléments"
+
+#~ msgid "Toggle Filling"
+#~ msgstr "Activer/désactiver le remplissage"
+
+#~ msgid "Change Lines Thickness"
+#~ msgstr "Modifier l’épaisseur des lignes"
+
+#~ msgid "Toggle Window Borders"
+#~ msgstr "Afficher/masquer les bordures de la fenêtre"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "Activer / désactiver les angles saillants"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "Changer le nombre de barres"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "Changer le canal"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "Basculer l’inversion de l’ordre"
+
+#~ msgid "Other"
+#~ msgstr "Autre"
+
+#~ msgid "Change Background Image Scale"
+#~ msgstr "Modifier l'échelle de l'image d'arrière-plan"
+
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "Modifier la transparence de l'image d'arrière-plan"
+
+#~ msgid "Change Foreground Image"
+#~ msgstr "Changer l’image de premier-plan"
+
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "Changer l’échelle de l’image de premier-plan"
+
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "Changer la transparence de l’image d’arrière-plan"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "Basculer en plein écran"
+
+#~ msgid "Resizing..."
+#~ msgstr "Redimensionnement…"
+
+#~ msgid ""
+#~ "Cavalier is an audio visualizer based on CAVA with customizable interface."
+#~ msgstr ""
+#~ "Cavalier est un visualiseur audio basé sur CAVA avec une interface "
+#~ "personnalisable."
+
+#~ msgid "11 drawing modes!"
+#~ msgstr "11 modes de dessin !"
+
+#, fuzzy
+#~ msgid "Set any color, a gradient or an image for background and foreground."
+#~ msgstr ""
+#~ "Définissez une couleur ou un dégradé pour l’arrière-plan et le premier-"
+#~ "plan."
+
+#~ msgid "Configure smoothing, noise reduction and a few other CAVA settings."
+#~ msgstr ""
+#~ "Configurez le lissage, la réduction du bruit et d’autres paramètres CAVA."
+
+#, csharp-format
+#~ msgid ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Contributors on GitHub ❤️ {2}"
+#~ msgstr ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Contributeurs sur GitHub ❤️ {2}"
+
+#~ msgid "Toggle Window Controls"
+#~ msgstr "Afficher / masquer les contrôles de la fenêtre"
+
+#~ msgid "Toggle Autohide Headerbar"
+#~ msgstr "Masquage automatique de la barre supérieure"
+
+#~ msgid "Set any color or gradient for background and foreground."
+#~ msgstr ""
+#~ "Définissez une couleur ou un dégradé pour l’arrière-plan et le premier-"
+#~ "plan."
+
+#, fuzzy
+#~ msgid "Audio visualizer based on CAVA"
+#~ msgstr "Visualiseur audio basé sur CAVA."
+
+#~ msgid "Audio Visualizer"
+#~ msgstr "Visualiseur audio"
+
+#~ msgid "Second release of Cavalier."
+#~ msgstr "Seconde version de Cavalier."
+
+#~ msgid "New drawing mode — Particles!"
+#~ msgstr "Nouveau mode de dessin — Particules !"
+
+#~ msgid ""
+#~ "Color profiles! Create as many as you want and change between them "
+#~ "instantly. Unfortunately, this new feature required to change how the "
+#~ "application saves colors, and because of this your previous colors "
+#~ "settings will be lost after installing this update."
+#~ msgstr ""
+#~ "Profils de couleurs ! Créez-en autant que vous le souhaitez et basculez "
+#~ "de l’un à l’autre instantanément. Malheureusement, cette nouvelle "
+#~ "fonctionnalité requiert de modifier la façon dont l’application "
+#~ "enregistre les couleurs, ce qui fera que vos paramètres de couleurs "
+#~ "précédents seront perdus après cette mise à jour."
+
+#~ msgid "Added keyboard shortcuts to change most of the settings on the fly."
+#~ msgstr ""
+#~ "Ajout de raccourcis clavier pour changer la plupart des paramètres à la "
+#~ "volée."
+
+#~ msgid "Added option to show/hide window controls."
+#~ msgstr ""
+#~ "Ajout d’une option pour afficher ou masquer les boutons de contrôle de la "
+#~ "fenêtre."
+
+#~ msgid ""
+#~ "Added option to autohide headerbar when the main window is not focused."
+#~ msgstr ""
+#~ "Ajout d’une option pour masquer automatiquement la barre supérieure quand "
+#~ "la fenêtre principale n’est pas focalisée."
+
+#~ msgid ""
+#~ "Added option to change roundness of items in \"levels\" and \"particles\" "
+#~ "modes."
+#~ msgstr ""
+#~ "Ajout d’une option permettant de modifier la rondeur des objets dans les "
+#~ "modes « niveaux » et « particules »."
+
+#~ msgid "Import/Export Settings"
+#~ msgstr "Paramètres d’importation / exportation"
+
+#~ msgid "Window size"
+#~ msgstr "Taille de la fenêtre"
+
+#~ msgid "Window maximized state"
+#~ msgstr "État maximisé de la fenêtre"
+
+#~ msgid "Whether main window is maximized or not"
+#~ msgstr "Indique si la fenêtre principale est maximisée ou non"
+
+#~ msgid "Defines what the visualizer looks like."
+#~ msgstr "Définit l’apparence du visualiseur."
+
+#~ msgid "This setting only affects \"levels\" and \"particles\" modes."
+#~ msgstr "Ce paramètre n’affecte que les modes « niveaux » et « particules »."
+
+#~ msgid "Number of bars in CAVA config"
+#~ msgstr "Nombre de barres dans la configuration CAVA"
+
+#~ msgid "Mono or stereo"
+#~ msgstr "Mono ou stéréo"
+
+#~ msgid "Smoothing"
+#~ msgstr "Lissage"
+
+#~ msgid "Widgets style"
+#~ msgstr "Style des widgets"
+
+#~ msgid "Style used by Adwaita widgets."
+#~ msgstr "Style des widgets Adwaita."
+
+#~ msgid "Index of active color profile"
+#~ msgstr "Index des profils de couleur actifs"
+
+#~ msgid ""
+#~ "This setting only affects \"levels\" and \"particles\" modes.\n"
+#~ "0 - square, 1 - round"
+#~ msgstr ""
+#~ "Ce paramètre n’affecte que les modes « niveaux » et « particules ».\n"
+#~ "0 - carré, 1 - rond"
+
+#~ msgid "Import"
+#~ msgstr "Importer"
+
+#~ msgid "Export"
+#~ msgstr "Exporter"
+
+#~ msgid "0 - noisy, 1 - smooth"
+#~ msgstr "0 - bruyant, 1 - doux"
+
+#~ msgid "Type a name for a new profile"
+#~ msgstr "Saisissez un nom pour le nouveau profil"
+
+#~ msgid "Remove profile"
+#~ msgstr "Supprimer le profil"
+
+#~ msgid "Remove"
+#~ msgstr "Supprimer"
+
+#~ msgid "<b>Foreground</b>"
+#~ msgstr "<b>Premier plan</b>"
+
+#~ msgid "<b>Background</b>"
+#~ msgstr "<b>Arrière-plan</b>"
+
+#~ msgid "Select color"
+#~ msgstr "Sélectionner une couleur"
+
+#~ msgid "Remove color"
+#~ msgstr "Supprimer la couleur"
+
+#~ msgid "Add color"
+#~ msgstr "Ajouter une couleur"
+
+#~ msgid "This name is already in use."
+#~ msgstr "Ce nom est déjà utilisé."
+
+#~ msgid "Cavalier Settings File (*.cavalier)"
+#~ msgstr "Fichier de paramètres Cavalier (*.cavalier)"
+
+#~ msgid "Export Settings"
+#~ msgstr "Paramètres d’exportation"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrer"
+
+#~ msgid "Toggle Widgets Style"
+#~ msgstr "Changer les styles des widgets"

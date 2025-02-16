@@ -6,31 +6,47 @@ on:
     types: [ "review_requested", "ready_for_review" ]
   workflow_dispatch:
 name: Flatpak
+permissions:
+  id-token: write
+  contents: read
 jobs:
   gnome-flatpak:
     name: "GNOME on Flatpak"
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.user.login != 'weblate' }}
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-45
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-47
       options: --privileged
     strategy:
       matrix:
-        # As of the time of writing (February 2023), GitHub Actions only provides x86_64 runners. While Flatpak does
-        # provide cross-building for other architectures, it uses QEMU to do so, and dotnet does not play well under
-        # QEMU for arm64. See below links for potential updates:
-        # - https://github.com/dotnet/runtime/issues/13648
-        # - https://github.com/actions/runner-images/issues/5631
         arch: [x86_64]
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v4
+      - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
         with:
-          submodules: recursive
-      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6.3
+          bundle: org.nickvision.cavalier.gnome.flatpak
+          manifest-path: flatpak/org.nickvision.cavalier.gnome.json
+          cache-key: flatpak-builder-gnome-${{ github.sha }}
+          arch: ${{ matrix.arch }}
+          restore-cache: true
+  qt-flatpak:
+    name: "QT on Flatpak"
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.user.login != 'weblate' }}
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.8
+      options: --privileged
+    strategy:
+      matrix:
+        arch: [x86_64]
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
         with:
-          bundle: org.nickvision.cavalier.flatpak
-          manifest-path: flatpak/org.nickvision.cavalier.json
-          cache-key: flatpak-builder-${{ github.sha }}
+          bundle: org.nickvision.cavalier.qt.flatpak
+          manifest-path: flatpak/org.nickvision.cavalier.qt.json
+          cache-key: flatpak-builder-qt-${{ github.sha }}
           arch: ${{ matrix.arch }}
           restore-cache: true

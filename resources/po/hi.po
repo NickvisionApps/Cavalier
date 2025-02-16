@@ -1,0 +1,767 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
+"PO-Revision-Date: 2024-07-07 17:09+0000\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/hi/>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.7-dev\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr "CAVA के साथ ऑडियो विज़ुअलाइज़ करें"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "मैट्रिक्स चैट"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "GitHub पर योगदानकर्ता ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "फेडर सोबोलेव"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "डेविड लापशिन"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:183
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:197
+msgid ""
+"The update is downloading in the background and will start once it finishes"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:202
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
+msgid "None"
+msgstr ""
+
+#: libcavalier/src/models/colorprofile.cpp:11
+#: libcavalier/src/models/colorprofile.cpp:27
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
+msgid "Default"
+msgstr "तयशुदा"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr "पैमाना"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr "अल्फा"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+msgid "Preferences"
+msgstr "प्राथमिकताएं"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:32
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "About Cavalier"
+msgstr "Cavalier के बारे में"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:23
+msgid "Main Menu"
+msgstr "मुख्य मेनू"
+
+#. Home Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+#, fuzzy
+msgid "Visualize Your Audio"
+msgstr "CAVA के साथ ऑडियो विज़ुअलाइज़ करें"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:55
+#, fuzzy
+msgid "Play some music or watch a video and see your sound come to life"
+msgstr ""
+"Cavalier आपके सिस्टम की ध्वनि सुनता है। कुछ संगीत बजाएं या वीडियो देखें और देखें कि आपकी "
+"ध्वनि जीवंत हो गई है!"
+
+#. Add Navigation Items
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+msgid "User Interface"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "हल्की"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "गहरी"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "ड्राइंग मोड"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "ड्राइंग मोड"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Box"
+msgstr "बक्सा"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Circle"
+msgstr "वृत्त"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "ड्राइंग मोड"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Wave"
+msgstr "तरंग"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Levels"
+msgstr "स्तरों"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Particles"
+msgstr "कण"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Bars"
+msgstr "बार्स"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Spine"
+msgstr "स्पाइन"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Splitter"
+msgstr "विभाजक"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Hearts"
+msgstr "दिल"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "ड्राइंग दिशा"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "ऊपर से नीचे"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "नीचे से ऊपर"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Left to Right"
+msgstr "बाएं से दाएं"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Right to Left"
+msgstr "दाएं से बाएं"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "मिरर मोड बदलें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Off"
+msgstr "बंद"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full"
+msgstr "भरा हुआ"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Split Channels"
+msgstr "विभाजित चैनल"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "विभाजित चैनल"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
+#, fuzzy
+msgid "Area Margin"
+msgstr "ड्राइंग क्षेत्र मार्जिन"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
+#, fuzzy
+msgid "Area X Offset"
+msgstr "ड्राइंग क्षेत्र X ऑफसेट"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "ड्राइंग क्षेत्र Y ऑफसेट"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
+#, fuzzy
+msgid "Item Roundness"
+msgstr "वस्तुओं की गोलाई बदलें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Channels"
+msgstr "चैनल्स"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Mono"
+msgstr "मोनो"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Stereo"
+msgstr "स्टीरियो"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
+msgid "Framerate"
+msgstr "फ्रेम रेट"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
+#, fuzzy
+msgid "Number of Bars"
+msgstr "बारों की संख्या"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "उलटा क्रम"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "स्वचालित संवेदनशीलता"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "यदि बार्स चरम पर हों तो संवेदनशीलता कम करने का प्रयास करें।"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "संवेदनशीलता"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Monstercat स्मूथिंग"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "शोर में कमी"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "रंग"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "प्रोफाइल जोड़ें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "जोड़ें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "प्रोफाइल मिटाएं"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+msgid "Images"
+msgstr "छवियां"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
+#, fuzzy
+msgid "Background Images"
+msgstr "पृष्ठभूमि छवि बदलें"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "छवि जोड़ें"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "आवेदन"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
+#, fuzzy
+msgid "About Application"
+msgstr "आवेदन"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:30
+msgid "Quit"
+msgstr "बंद करें"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:170
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:180
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "GitHub Repo"
+msgstr "GitHub रेपो"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "प्रोफाइल मिटाएं"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "क्या आप वाकई प्रोफाइल \"{0}\" को मिटाना चाहते हैं?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "पृष्ठभूमि छवि बदलें"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "प्रोफाइल मिटाएं"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "क्या आप वाकई प्रोफाइल \"{0}\" को मिटाना चाहते हैं?"
+
+#. Load
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
+msgid "About"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:35
+#, fuzzy
+msgid "Changelog"
+msgstr "चैनल्स"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:36
+msgid "Credits"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Debugging"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:44
+#, fuzzy
+msgid "Developers"
+msgstr "स्तरों"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:46
+msgid "Designers"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:48
+msgid "Artists"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:50
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/infobar.cpp:14
+#, fuzzy
+msgid "Notification"
+msgstr "घूर्णन"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Cavalier"
+
+#. MenuBar
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
+msgid "File"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+msgid "Exit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Edit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
+msgid "Settings"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:158
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:21
+msgid "Light"
+msgstr "हल्की"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:22
+msgid "Dark"
+msgstr "गहरी"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "प्रोफाइल का रंग बदलें"
+
+#~ msgid "Add New Profile"
+#~ msgstr "नई प्रोफाइल जोड़ें"
+
+#~ msgid "Cancel"
+#~ msgstr "रद्द करें"
+
+#~ msgid "Delete"
+#~ msgstr "मिटाएं"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "JPEG और PNG छवियां"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr "नई रंगीन प्रोफाइल वर्तमान सक्रिय प्रोफाइल की एक प्रति होगी।"
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "निकोलस लोगोज़ो"
+
+#~ msgid "On"
+#~ msgstr "चालू"
+
+#~ msgid "Profile Name"
+#~ msgstr "प्रोफाइल नाम"
+
+#~ msgid "Select an image"
+#~ msgstr "एक छवि चुनें"
+
+#~ msgid "Command Help"
+#~ msgstr "आदेश सहायता"
+
+#~ msgid "Let's dance!"
+#~ msgstr "आओ नाचें!"
+
+#~ msgid "Radius"
+#~ msgstr "त्रिज्या"
+
+#~ msgid "Mirror"
+#~ msgstr "दर्पण"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "उलटा दर्पण"
+
+#~ msgid "Size of gaps around drawing area (in pixels)."
+#~ msgstr "ड्राइंग क्षेत्र के चारों ओर अंतराल का आकार (पिक्सेल में)।"
+
+#~ msgid "Offset between items"
+#~ msgstr "वस्तुओं के बीच ऑफसेट"
+
+#~ msgid "The size of spaces between elements (in percent)."
+#~ msgstr "तत्वों के बीच रिक्त स्थान का आकार (प्रतिशत में)।"
+
+#~ msgid "Roundness of items"
+#~ msgstr "वस्तुओं की गोलाई"
+
+#~ msgid "How much rounded the elements should be (in percent)."
+#~ msgstr "तत्व कितने गोलाकार होने चाहिए (प्रतिशत में)।"
+
+#~ msgid "Filling"
+#~ msgstr "भराव"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "क्या आकृतियां भरी जानी चाहिए या रेखांकित की जानी चाहिए।"
+
+#~ msgid "Thickness of lines"
+#~ msgstr "रेखाओं की मोटाई"
+
+#~ msgid "Thickness of lines when filling is off (in pixels)."
+#~ msgstr "भरना बंद होने पर लाइनों की मोटाई (पिक्सेल में)।"
+
+#~ msgid "Borderless window"
+#~ msgstr "सीमाहीन खिड़की"
+
+#~ msgid "Whether to disable window shadow and borders."
+#~ msgstr "विंडो शैडो और बॉर्डर को अक्षम करना है या नहीं।"
+
+#~ msgid "Sharp corners"
+#~ msgstr "नुकीले कोने"
+
+#~ msgid "Whether the main window corners should be sharp."
+#~ msgstr "मुख्य खिड़की के कोने नुकीले होने चाहिए या नहीं।"
+
+#~ msgid "Window controls"
+#~ msgstr "विंडो नियंत्रण"
+
+#~ msgid "Whether to show window control buttons."
+#~ msgstr "विंडो नियंत्रण बटन दिखाना है या नहीं।"
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "शीर्षलेख पट्टी को स्वतः छिपाएं"
+
+#~ msgid "Whether to hide headerbar when main window is not focused."
+#~ msgstr "मुख्य विंडो फोकस न होने पर शीर्षलेख पट्टी छिपाना है या नहीं।"
+
+#~ msgid "Number of frames per second."
+#~ msgstr "प्रति सेकंड फ़्रेम की संख्या।"
+
+#~ msgid "Custom"
+#~ msgstr "तदनुकूल"
+
+#~ msgid "Custom Framerate"
+#~ msgstr "तदनुकूल फ़्रेमरेट"
+
+#~ msgid ""
+#~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
+#~ "be the initial value."
+#~ msgstr ""
+#~ "मैनुअल संवेदनशीलता. यदि स्वचालित संवेदनशीलता सक्षम है, तो यह केवल प्रारंभिक मान होगा।"
+
+#~ msgid "Whether to enable the so-called «Monstercat smoothing»."
+#~ msgstr "क्या तथाकथित «Monstercat स्मूथिंग» को सक्षम करना है।"
+
+#~ msgid ""
+#~ "This factor adjusts the integral and gravity filters to keep the signal "
+#~ "smooth.\n"
+#~ "Higher value leads to a slower and smoother result."
+#~ msgstr ""
+#~ "यह कारक सिग्नल को सुचारू रखने के लिए इंटीग्रल और ग्रेविटी फिल्टर को समायोजित करता "
+#~ "है।\n"
+#~ "उच्च मूल्य से धीमा और सहज परिणाम प्राप्त होता है।"
+
+#~ msgid "Whether to reverse order of bars for each channel."
+#~ msgstr "क्या प्रत्येक चैनल के लिए बार के क्रम को उलटना है।"
+
+#~ msgid "Application Theme"
+#~ msgstr "अनुप्रयोग थीम"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "अग्रभूमि रंग"
+
+#~ msgid "Add foreground color"
+#~ msgstr "अग्रभूमि रंग जोड़ें"
+
+#~ msgid "Background Colors"
+#~ msgstr "पृष्ठभूमि रंग"
+
+#~ msgid "Add background color"
+#~ msgstr "पृष्ठभूमि रंग जोड़ें"
+
+#~ msgid "Background"
+#~ msgstr "पृष्ठभूमि"
+
+#~ msgid "Foreground"
+#~ msgstr "अग्रभूमि"
+
+#~ msgid "Foreground image is only shown with Box drawing modes."
+#~ msgstr "अग्रभूमि छवि केवल बॉक्स ड्राइंग मोड के साथ दिखाई जाती है।"
+
+#~ msgid "No Images"
+#~ msgstr "कोई छवियां नहीं"
+
+#~ msgid "Add an image to use it in Cavalier."
+#~ msgstr "Cavalier में इसका उपयोग करने के लिए एक छवि जोड़ें।"
+
+#~ msgid "No Image"
+#~ msgstr "कोई छवियां नहीं"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "ड्राइंग मोड बदलें"
+
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "सर्कल मोड में त्रिज्या बदलें"
+
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "सर्कल मोड में रोटेशन बदलें"
+
+#~ msgid "Toggle Reverse Mirror"
+#~ msgstr "उल्टा दर्पण टॉगल करें"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "ड्राइंग एरिया मार्जिन बदलें"
+
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "ड्राइंग एरिया X ऑफसेट बदलें"
+
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "ड्राइंग एरिया Y ऑफसेट बदलें"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "ड्राइंग की दिशा बदलें"
+
+#~ msgid "Change Offset Between Items"
+#~ msgstr "वस्तुओं के बीच ऑफसेट बदलें"
+
+#~ msgid "Toggle Filling"
+#~ msgstr "भरना टॉगल करें"
+
+#~ msgid "Change Lines Thickness"
+#~ msgstr "लाइनों की मोटाई बदलें"
+
+#~ msgid "Toggle Window Borders"
+#~ msgstr "विंडो बॉर्डर टॉगल करें"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "नुकीले कोनों को टॉगल करें"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "बार्स की संख्या बदलें"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "चैनल टॉगल करें"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "रिवर्स ऑर्डर टॉगल करें"
+
+#~ msgid "Other"
+#~ msgstr "अन्य"
+
+#~ msgid "Change Background Image Scale"
+#~ msgstr "पृष्ठभूमि छवि स्केल बदलें"
+
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "पृष्ठभूमि छवि अल्फा बदलें"
+
+#~ msgid "Change Foreground Image"
+#~ msgstr "अग्रभूमि छवि बदलें"
+
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "अग्रभूमि छवि स्केल बदलें"
+
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "अग्रभूमि छवि अल्फा बदलें"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "संपूर्ण स्क्रीन टॉगल करें"
+
+#~ msgid "Resizing..."
+#~ msgstr "आकार बदल रहा है…"

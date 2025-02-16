@@ -1,0 +1,701 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
+"PO-Revision-Date: 2025-02-04 13:02+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/fi/>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr "Visualisoi ääntä CAVA:lla"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "Matrix-keskustelu"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "Avustajat GitHubissa ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "Fyodor Sobolev"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "David Lapshin"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr "Jiri Grönroos"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:183
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:197
+msgid ""
+"The update is downloading in the background and will start once it finishes"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:202
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
+msgid "None"
+msgstr ""
+
+#: libcavalier/src/models/colorprofile.cpp:11
+#: libcavalier/src/models/colorprofile.cpp:27
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
+msgid "Default"
+msgstr "Oletus"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+msgid "Preferences"
+msgstr "Asetukset"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Keyboard Shortcuts"
+msgstr "Pikanäppäimet"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:32
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "About Cavalier"
+msgstr "Tietoja - Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:23
+msgid "Main Menu"
+msgstr "Päävalikko"
+
+#. Home Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+#, fuzzy
+msgid "Visualize Your Audio"
+msgstr "Visualisoi ääntä CAVA:lla"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:55
+#, fuzzy
+msgid "Play some music or watch a video and see your sound come to life"
+msgstr ""
+"Cavalier kuuntelee järjestelmän tuottamia ääniä. Toista musiikkia tai katso "
+"video, ja näe, kuinka ääni herää eloon!"
+
+#. Add Navigation Items
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+msgid "User Interface"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "Vaalea"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "Tumma"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "Piirtotila"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "Piirtotila"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Box"
+msgstr "Laatikko"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Circle"
+msgstr "Ympyrä"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Piirtotila"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Wave"
+msgstr "Aalto"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Levels"
+msgstr "Tasot"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Particles"
+msgstr "Partikkelit"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Bars"
+msgstr "Palkit"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Spine"
+msgstr "Piikki"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Splitter"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Hearts"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Piirtosuunta"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "Ylhäältä alas"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "Alhaalta ylös"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Left to Right"
+msgstr "Vasemmalta oikealle"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Right to Left"
+msgstr "Oikealta vasemmalle"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Vaihda peilitilaa"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Off"
+msgstr "Pois"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full"
+msgstr "Täysi"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Split Channels"
+msgstr "Jaa kanavat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Jaa kanavat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
+#, fuzzy
+msgid "Area Margin"
+msgstr "Piirtoalueen reunus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Piirtoalueen X-siirtymä"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Piirtoalueen Y-siirtymä"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
+msgid "Item Roundness"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Channels"
+msgstr "Kanavat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Mono"
+msgstr "Mono"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Stereo"
+msgstr "Stereo"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
+msgid "Framerate"
+msgstr "Kuvanopeus"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Palkkien määrä"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Käänteinen järjestys"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
+msgid "Automatic Sensitivity"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
+msgid "Manual Sensitivity"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
+msgid "Monstercat Smoothing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
+msgid "Noise Reduction Factor"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "Värit"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "Lisää profiili"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "Lisää"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "Poista profiili"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+#, fuzzy
+msgid "Images"
+msgstr "Kuva"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
+#, fuzzy
+msgid "Background Images"
+msgstr "Vaihda taustakuva"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "Lisää kuva"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "Sovellus"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
+#, fuzzy
+msgid "About Application"
+msgstr "Sovellus"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:30
+msgid "Quit"
+msgstr "Lopeta"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:170
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:180
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "GitHub Repo"
+msgstr "GitHub-tietovarasto"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "Poista profiili"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "Haluatko varmasti poistaa profiilin \"{0}\"?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "Vaihda taustakuva"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "Poista profiili"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "Haluatko varmasti poistaa profiilin \"{0}\"?"
+
+#. Load
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
+msgid "About"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:35
+#, fuzzy
+msgid "Changelog"
+msgstr "Kanavat"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:36
+msgid "Credits"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Debugging"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:44
+#, fuzzy
+msgid "Developers"
+msgstr "Tasot"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:46
+msgid "Designers"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:48
+msgid "Artists"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:50
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/infobar.cpp:14
+#, fuzzy
+msgid "Notification"
+msgstr "Kierto"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Cavalier"
+
+#. MenuBar
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
+msgid "File"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+msgid "Exit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Edit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
+msgid "Settings"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:158
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:21
+msgid "Light"
+msgstr "Vaalea"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:22
+msgid "Dark"
+msgstr "Tumma"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "Vaihda väriprofiilia"
+
+#~ msgid "Add New Profile"
+#~ msgstr "Lisää uusi profiili"
+
+#~ msgid "Cancel"
+#~ msgstr "Peru"
+
+#~ msgid "Delete"
+#~ msgstr "Poista"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "JPEG- ja PNG-kuvat"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr ""
+#~ "Uusi väriprofiili tulee olemaan kopio nykyisestä aktiivisesta profiilista."
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "Nicholas Logozzo"
+
+#~ msgid "On"
+#~ msgstr "Päällä"
+
+#~ msgid "Profile Name"
+#~ msgstr "Profiilin nimi"
+
+#~ msgid "Select an image"
+#~ msgstr "Valitse kuva"
+
+#~ msgid "Let's dance!"
+#~ msgstr "Tanssitaan!"
+
+#~ msgid "Radius"
+#~ msgstr "Säde"
+
+#~ msgid "Mirror"
+#~ msgstr "Peili"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "Käänteinen peili"
+
+#~ msgid "Offset between items"
+#~ msgstr "Siirtymä kohteiden välillä"
+
+#~ msgid "Filling"
+#~ msgstr "Täyttö"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "Ovatko muodot täytettyjä vai reunustettuja."
+
+#~ msgid "Thickness of lines"
+#~ msgstr "Viivojen paksuus"
+
+#~ msgid "Borderless window"
+#~ msgstr "Reunaton ikkuna"
+
+#~ msgid "Sharp corners"
+#~ msgstr "Terävät kulmat"
+
+#~ msgid "Window controls"
+#~ msgstr "Ikkunasäätimet"
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "Piilota otsakepalkki automaattisesti"
+
+#, fuzzy
+#~ msgid "Custom Framerate"
+#~ msgstr "Kuvanopeus"
+
+#~ msgid "Application Theme"
+#~ msgstr "Sovelluksen teema"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "Edustavärit"
+
+#, fuzzy
+#~ msgid "Add foreground color"
+#~ msgstr "Edustavärit"
+
+#~ msgid "Background Colors"
+#~ msgstr "Taustavärit"
+
+#, fuzzy
+#~ msgid "Add background color"
+#~ msgstr "Taustavärit"
+
+#, fuzzy
+#~ msgid "Background"
+#~ msgstr "Taustavärit"
+
+#, fuzzy
+#~ msgid "Foreground"
+#~ msgstr "Edustavärit"
+
+#, fuzzy
+#~ msgid "No Images"
+#~ msgstr "Ei kuvaa"
+
+#~ msgid "No Image"
+#~ msgstr "Ei kuvaa"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "Vaihda piirtotilaa"
+
+#, fuzzy
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "Vaihda piirtotilaa"
+
+#, fuzzy
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "Vaihda piirtotilaa"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "Vaihda piirtoalueen reunusta"
+
+#, fuzzy
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "Vaihda piirtoalueen reunusta"
+
+#, fuzzy
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "Vaihda piirtoalueen reunusta"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "Vaihda piirtosuuntaa"
+
+#~ msgid "Other"
+#~ msgstr "Muut"
+
+#, fuzzy
+#~ msgid "Change Background Image Scale"
+#~ msgstr "Vaihda taustakuva"
+
+#, fuzzy
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "Vaihda taustakuva"
+
+#, fuzzy
+#~ msgid "Change Foreground Image"
+#~ msgstr "Vaihda taustakuva"
+
+#, fuzzy
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "Vaihda taustakuva"
+
+#, fuzzy
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "Vaihda taustakuva"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "Koko näyttö päälle/pois"
+
+#~ msgid "Resizing..."
+#~ msgstr "Asetetaan uutta kokoa..."
+
+#~ msgid "11 drawing modes!"
+#~ msgstr "11 piirtotilaa!"
+
+#, csharp-format
+#~ msgid ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Contributors on GitHub ❤️ {2}"
+#~ msgstr ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Avustajat GitHubissa ❤️ {2}"

@@ -1,0 +1,769 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
+"PO-Revision-Date: 2024-08-14 17:09+0000\n"
+"Last-Translator: Semiurg <semiurg1@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.7-dev\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr "Візуалізувати аудіо за допомогою CAVA"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "Чат Matrix"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "Співавтори на Github ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "Федір Соболєв"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "Давид Лапшин"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr "Maksym Khimka <semiurg1@gmail.com>"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:183
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:197
+msgid ""
+"The update is downloading in the background and will start once it finishes"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:202
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
+msgid "None"
+msgstr ""
+
+#: libcavalier/src/models/colorprofile.cpp:11
+#: libcavalier/src/models/colorprofile.cpp:27
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr "Масштаб"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr "Альфа"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+msgid "Preferences"
+msgstr "Налаштування"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Keyboard Shortcuts"
+msgstr "Сполучення клавіш"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:32
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "About Cavalier"
+msgstr "Про Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:23
+msgid "Main Menu"
+msgstr "Головне меню"
+
+#. Home Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+#, fuzzy
+msgid "Visualize Your Audio"
+msgstr "Візуалізувати аудіо за допомогою CAVA"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:55
+#, fuzzy
+msgid "Play some music or watch a video and see your sound come to life"
+msgstr ""
+"Cavalier слухає аудіо вашої системи. Включіть музику або відео, та дивіться "
+"як ваш звук приходить в рух!"
+
+#. Add Navigation Items
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+msgid "User Interface"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "Світла"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "Темна"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "Режим відмальовки"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "Режим відмальовки"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Box"
+msgstr "Коробка"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Circle"
+msgstr "Круг"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Режим відмальовки"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Wave"
+msgstr "Хвиля"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Levels"
+msgstr "Рівні"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Particles"
+msgstr "Частинки"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Bars"
+msgstr "Бари"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Spine"
+msgstr "Хребет"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Splitter"
+msgstr "Розділювач"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Hearts"
+msgstr "Сердечки"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Напрямок відмальовки"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "Зверху донизу"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "Знизу вверх"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Left to Right"
+msgstr "Зліва направо"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Right to Left"
+msgstr "Справа вліво"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Змінити режим Дзеркала"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Off"
+msgstr "Вимкнуто"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full"
+msgstr "Повне"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Split Channels"
+msgstr "Розділити канали"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Розділити канали"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
+#, fuzzy
+msgid "Area Margin"
+msgstr "Відступ області відмальовки"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Відхилення області відмальовки по осі X"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Відхилення області відмальовки по осі Y"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Змінити закругленість елементів"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Channels"
+msgstr "Канали"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Mono"
+msgstr "Моно"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Stereo"
+msgstr "Стерео"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
+msgid "Framerate"
+msgstr "Частота кадрів"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Кількість барів"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Зворотній напрямок"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "Автоматична чутливість"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "Спробувати зменшити чутливість якщо бари досягають максимуму."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "Чутливість"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Згладжування Monstercat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Зменшення шуму"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "Кольори"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "Додати профіль"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "Додати"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "Видалити профіль"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+msgid "Images"
+msgstr "Зображення"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
+#, fuzzy
+msgid "Background Images"
+msgstr "Змінити фонове зображення"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "Додати зображення"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "Програма"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
+#, fuzzy
+msgid "About Application"
+msgstr "Програма"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:30
+msgid "Quit"
+msgstr "Вийти"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:170
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:180
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "GitHub Repo"
+msgstr "Репозиторій GitHub"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "Видалити профіль"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "Ви впевнені що хочете видалити профіль \"{0}\"?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "Змінити фонове зображення"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "Видалити профіль"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "Ви впевнені що хочете видалити профіль \"{0}\"?"
+
+#. Load
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
+msgid "About"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:35
+#, fuzzy
+msgid "Changelog"
+msgstr "Канали"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:36
+msgid "Credits"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Debugging"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:44
+#, fuzzy
+msgid "Developers"
+msgstr "Рівні"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:46
+msgid "Designers"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:48
+msgid "Artists"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:50
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/infobar.cpp:14
+#, fuzzy
+msgid "Notification"
+msgstr "Нахил"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Cavalier"
+
+#. MenuBar
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
+msgid "File"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+msgid "Exit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Edit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
+msgid "Settings"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:158
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:21
+msgid "Light"
+msgstr "Світла"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:22
+msgid "Dark"
+msgstr "Темна"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "Змінити профіль кольорів"
+
+#~ msgid "Add New Profile"
+#~ msgstr "Додати новий профіль"
+
+#~ msgid "Cancel"
+#~ msgstr "Відмінити"
+
+#~ msgid "Delete"
+#~ msgstr "Видалити"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "JPEG і PNG зображення"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr "Новий кольоровий профіль буде копією поточного активного профілю."
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "Ніколас Логоццо"
+
+#~ msgid "On"
+#~ msgstr "Ввімкнуто"
+
+#~ msgid "Profile Name"
+#~ msgstr "Назва профілю"
+
+#~ msgid "Select an image"
+#~ msgstr "Вибрати зображення"
+
+#~ msgid "Command Help"
+#~ msgstr "Допомога з командами"
+
+#~ msgid "Let's dance!"
+#~ msgstr "Давайте танцювати!"
+
+#~ msgid "Radius"
+#~ msgstr "Радіус"
+
+#~ msgid "Mirror"
+#~ msgstr "Дзеркало"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "Розвернуте дзеркало"
+
+#~ msgid "Size of gaps around drawing area (in pixels)."
+#~ msgstr "Розмір відступів навколо області відмальовки (у пікселях)."
+
+#~ msgid "Offset between items"
+#~ msgstr "Відступ між елементами"
+
+#~ msgid "The size of spaces between elements (in percent)."
+#~ msgstr "Розмір простору між елементами (у відсотках)."
+
+#~ msgid "Roundness of items"
+#~ msgstr "Закругленість елементів"
+
+#~ msgid "How much rounded the elements should be (in percent)."
+#~ msgstr "Наскільки закругленими повинні бути елементи (у відсотках)."
+
+#~ msgid "Filling"
+#~ msgstr "Заповнення"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "Чи повинні форми бути заповнені чи обведені."
+
+#~ msgid "Thickness of lines"
+#~ msgstr "Товщина ліній"
+
+#~ msgid "Thickness of lines when filling is off (in pixels)."
+#~ msgstr "Товщина ліній коли заповнення виключено (у пікселях)."
+
+#~ msgid "Borderless window"
+#~ msgstr "Безрамкове вікно"
+
+#~ msgid "Whether to disable window shadow and borders."
+#~ msgstr "Чи потрібно відключити тінь та рамки вікна."
+
+#~ msgid "Sharp corners"
+#~ msgstr "Гострі кути"
+
+#~ msgid "Whether the main window corners should be sharp."
+#~ msgstr "Чи повинні кути головного вікна бути гострими."
+
+#~ msgid "Window controls"
+#~ msgstr "Керування вікном"
+
+#~ msgid "Whether to show window control buttons."
+#~ msgstr "Чи показувати кнопки контролю вікна."
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "Автоматично ховати заголовок"
+
+#~ msgid "Whether to hide headerbar when main window is not focused."
+#~ msgstr "Чи ховати заголовок коли головне вікно не у фокусі."
+
+#~ msgid "Number of frames per second."
+#~ msgstr "Кількість кадрів в секунду."
+
+#~ msgid "Custom"
+#~ msgstr "Власне"
+
+#~ msgid "Custom Framerate"
+#~ msgstr "Своя частота кадрів"
+
+#~ msgid ""
+#~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
+#~ "be the initial value."
+#~ msgstr ""
+#~ "Ручна чутливість. Якщо ввімкнено автоматичну чутливість, це буде тільки "
+#~ "початкове значення."
+
+#~ msgid "Whether to enable the so-called «Monstercat smoothing»."
+#~ msgstr "Чи увімкнути так зване \"згладжування Monstercat\"."
+
+#~ msgid ""
+#~ "This factor adjusts the integral and gravity filters to keep the signal "
+#~ "smooth.\n"
+#~ "Higher value leads to a slower and smoother result."
+#~ msgstr ""
+#~ "Цей параметр регулює інтегральний та гравітаційний фільтри щоб тримати "
+#~ "сигнал гладким.\n"
+#~ "Високе значення веде до повільнішого та гладкого результату."
+
+#~ msgid "Whether to reverse order of bars for each channel."
+#~ msgstr "Чи потрібно змінити порядок барів для кожного каналу."
+
+#~ msgid "Application Theme"
+#~ msgstr "Тема програми"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "Кольори переднього плану"
+
+#~ msgid "Add foreground color"
+#~ msgstr "Додати колір переднього плану"
+
+#~ msgid "Background Colors"
+#~ msgstr "Колір фону"
+
+#~ msgid "Add background color"
+#~ msgstr "Додати колір фону"
+
+#~ msgid "Background"
+#~ msgstr "Фон"
+
+#~ msgid "Foreground"
+#~ msgstr "Передній план"
+
+#~ msgid "Foreground image is only shown with Box drawing modes."
+#~ msgstr "Зображення переднього плану видно лише в режимах типу Коробка."
+
+#~ msgid "No Images"
+#~ msgstr "Немає зображень"
+
+#~ msgid "Add an image to use it in Cavalier."
+#~ msgstr "Додати зображення для використання у Cavalier."
+
+#~ msgid "No Image"
+#~ msgstr "Немає зображення"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "Змінити режим відмальовки"
+
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "Змінити радіус у режимах типу Круг"
+
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "Змінити нахил у режимах типу Круг"
+
+#~ msgid "Toggle Reverse Mirror"
+#~ msgstr "Увімкнути розвернуте дзеркало"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "Змінити відступ зони відмальовки"
+
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "Змінити відхилення зони відмальовки по осі X"
+
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "Змінити відхилення зони відмальовки по осі Y"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "Змінити напрямок відмальовки"
+
+#~ msgid "Change Offset Between Items"
+#~ msgstr "Змінити відстань між елементами"
+
+#~ msgid "Toggle Filling"
+#~ msgstr "Увімкнути заповнення"
+
+#~ msgid "Change Lines Thickness"
+#~ msgstr "Змінити товщину ліній"
+
+#~ msgid "Toggle Window Borders"
+#~ msgstr "Увімкнути межі вікна"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "Увімкнути гострі кути"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "Змінити кількість барів"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "Переключити канал"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "Увімкнути зворотній напрямок"
+
+#~ msgid "Other"
+#~ msgstr "Інше"
+
+#~ msgid "Change Background Image Scale"
+#~ msgstr "Змінити масштаб фонового зоюраження"
+
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "Змінити альфу фонового зображення"
+
+#~ msgid "Change Foreground Image"
+#~ msgstr "Змінити зображення переднього плану"
+
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "Змінити розмір зображення переднього плану"
+
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "Змінити альфу зображення переднього плану"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "Увімкнути повний екран"
+
+#~ msgid "Resizing..."
+#~ msgstr "Змінюєм розмір..."

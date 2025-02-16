@@ -1,0 +1,803 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
+"PO-Revision-Date: 2024-09-04 15:09+0000\n"
+"Last-Translator: Fjuro <fjuro@alius.cz>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/cs/>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.7.2-rc\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+msgid "Visualize audio with CAVA"
+msgstr "Vizualizace zvuku s CAVA"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "Matrix Chat"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "Přispěvatelě na GitHubu ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "Fyodor Sobolev"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "David Lapshin"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+msgid "translator-credits"
+msgstr ""
+"Písek Pískovec\n"
+"Jonáš Loskot <osobni@jonasloskot.cz>, 2024"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:183
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:197
+msgid ""
+"The update is downloading in the background and will start once it finishes"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:202
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
+msgid "None"
+msgstr ""
+
+#: libcavalier/src/models/colorprofile.cpp:11
+#: libcavalier/src/models/colorprofile.cpp:27
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
+msgid "Default"
+msgstr "Výchozí"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr "Měřítko"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr "Alfa"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+msgid "Preferences"
+msgstr "Předvolby"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Keyboard Shortcuts"
+msgstr "Klávesové zkratky"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:32
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "About Cavalier"
+msgstr "O aplikaci Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:23
+msgid "Main Menu"
+msgstr "Hlavní nabídka"
+
+#. Home Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+#, fuzzy
+msgid "Visualize Your Audio"
+msgstr "Vizualizace zvuku s CAVA"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:55
+#, fuzzy
+msgid "Play some music or watch a video and see your sound come to life"
+msgstr ""
+"Cavalier poslouchá zvuk vašeho systému. Pusťte si hudbu nebo se podívejte na "
+"video a sledujte, jak váš zvuk ožije!"
+
+#. Add Navigation Items
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+msgid "User Interface"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "Světlý"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "Tmavý"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "Režim vykreslování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "Režim vykreslování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Box"
+msgstr "Čtverec"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Circle"
+msgstr "Kruh"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "Režim vykreslování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Wave"
+msgstr "Vlna"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Levels"
+msgstr "Úrovně"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Particles"
+msgstr "Částečky"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Bars"
+msgstr "Tyče"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Spine"
+msgstr "Páteř"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Splitter"
+msgstr "Rozdělovač"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Hearts"
+msgstr "Srdíčka"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "Směr vykreslování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "Shora dolů"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "Zdola nahoru"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Left to Right"
+msgstr "Zleva doprava"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Right to Left"
+msgstr "Zprava doleva"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "Změnit režim zrcadlení"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Off"
+msgstr "Vypnuto"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full"
+msgstr "Plný"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Split Channels"
+msgstr "Rozdělit kanály"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "Rozdělit kanály"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
+#, fuzzy
+msgid "Area Margin"
+msgstr "Okraje vykreslovací plochy"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
+#, fuzzy
+msgid "Area X Offset"
+msgstr "Posunutí X vykreslované oblasti"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Posunutí Y vykreslované oblasti"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
+#, fuzzy
+msgid "Item Roundness"
+msgstr "Změnit zaoblení položek"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Channels"
+msgstr "Kanály"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Mono"
+msgstr "Mono"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Stereo"
+msgstr "Stereo"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
+msgid "Framerate"
+msgstr "Snímková frekvence"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
+#, fuzzy
+msgid "Number of Bars"
+msgstr "Počet tyčí"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "Opačné pořadí"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "Automatická citlivost"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "Pokus snížit citlivost když tyče jsou na vrcholu."
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "Citlivost"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Monstercat vyhlazování"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "Redukce šumu"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "Barvy"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "Přidat profil"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "Přidat"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "Smazat Profil"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+msgid "Images"
+msgstr "Obrázky"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
+#, fuzzy
+msgid "Background Images"
+msgstr "Změnit obrázek na pozadí"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "Přidat obrázek"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "Aplikace"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
+#, fuzzy
+msgid "About Application"
+msgstr "Aplikace"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:30
+msgid "Quit"
+msgstr "Ukončit"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:170
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:180
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "GitHub Repo"
+msgstr "Repozitář GitHub"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "Smazat Profil"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "Opravdu chcete odstranit profil „{0}“?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "Změnit obrázek na pozadí"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "Smazat Profil"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "Opravdu chcete odstranit profil „{0}“?"
+
+#. Load
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
+msgid "About"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:35
+#, fuzzy
+msgid "Changelog"
+msgstr "Kanály"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:36
+msgid "Credits"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Debugging"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:44
+#, fuzzy
+msgid "Developers"
+msgstr "Úrovně"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:46
+msgid "Designers"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:48
+msgid "Artists"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:50
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/infobar.cpp:14
+#, fuzzy
+msgid "Notification"
+msgstr "Otočení"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Cavalier"
+
+#. MenuBar
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
+msgid "File"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+msgid "Exit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Edit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
+msgid "Settings"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:158
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:21
+msgid "Light"
+msgstr "Světlý"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:22
+msgid "Dark"
+msgstr "Tmavý"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "Změnit barevný profil"
+
+#~ msgid "Add New Profile"
+#~ msgstr "Přidat nový profil"
+
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgid "Delete"
+#~ msgstr "Smazat"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "Obrázky JPEG a PNG"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr "Nový barevný profil bude kopie současně aktivního profilu."
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "Nicholas Logozzo"
+
+#~ msgid "On"
+#~ msgstr "Zapnuto"
+
+#~ msgid "Profile Name"
+#~ msgstr "Název profilu"
+
+#~ msgid "Select an image"
+#~ msgstr "Vybrat obrázek"
+
+#~ msgid "Command Help"
+#~ msgstr "Nápověda k příkazům"
+
+#~ msgid "Let's dance!"
+#~ msgstr "Jdeme tančit!"
+
+#~ msgid "Radius"
+#~ msgstr "Poloměr"
+
+#~ msgid "Mirror"
+#~ msgstr "Zrcadlo"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "Opačné zrcadlení"
+
+#~ msgid "Size of gaps around drawing area (in pixels)."
+#~ msgstr "Velikost mezer okolo vykreslovací oblasti (v pixelech)."
+
+#~ msgid "Offset between items"
+#~ msgstr "Odsazení mezi položkami"
+
+#~ msgid "The size of spaces between elements (in percent)."
+#~ msgstr "Velikost mezer mezi prvky (v procentech)."
+
+#~ msgid "Roundness of items"
+#~ msgstr "Zaoblení položek"
+
+#~ msgid "How much rounded the elements should be (in percent)."
+#~ msgstr "Jak moc zaoblené prvky budou (v procentech)."
+
+#~ msgid "Filling"
+#~ msgstr "Výplň"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "Zda tvary budou vyplněny nebo obtáhnuty."
+
+#~ msgid "Thickness of lines"
+#~ msgstr "Tloušťka čar"
+
+#~ msgid "Thickness of lines when filling is off (in pixels)."
+#~ msgstr "Tloušťka čar když vyplňování je vypnuto (v pixelech)."
+
+#~ msgid "Borderless window"
+#~ msgstr "Bezrámečkové okno"
+
+#~ msgid "Whether to disable window shadow and borders."
+#~ msgstr "Zda vypnout stín a rám okna."
+
+#~ msgid "Sharp corners"
+#~ msgstr "Ostré rohy"
+
+#~ msgid "Whether the main window corners should be sharp."
+#~ msgstr "Zda budou rohy hlavního okna ostré."
+
+#~ msgid "Window controls"
+#~ msgstr "Ovládání okna"
+
+#~ msgid "Whether to show window control buttons."
+#~ msgstr "Zda zobrazovat tlačítka ovládání okna."
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "Automaticky skrýt záhlaví"
+
+#~ msgid "Whether to hide headerbar when main window is not focused."
+#~ msgstr "Zda skrýt záhlaví hlavního okna pokud není zaměřené."
+
+#~ msgid "Number of frames per second."
+#~ msgstr "Počet snímků za vteřinu."
+
+#~ msgid "Custom"
+#~ msgstr "Vlastní"
+
+#~ msgid "Custom Framerate"
+#~ msgstr "Vlastní snímková frekvence"
+
+#~ msgid ""
+#~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
+#~ "be the initial value."
+#~ msgstr ""
+#~ "Ruční citlivost. Pokud je povolena automatická citlivost, toto bude pouze "
+#~ "prvotní hodnota."
+
+#~ msgid "Whether to enable the so-called «Monstercat smoothing»."
+#~ msgstr "Zda zapnout takzvané «Monstercat smoothing»."
+
+#~ msgid ""
+#~ "This factor adjusts the integral and gravity filters to keep the signal "
+#~ "smooth.\n"
+#~ "Higher value leads to a slower and smoother result."
+#~ msgstr ""
+#~ "Tento faktor upravuje integrální a gravitační filtry pro udržení hladkého "
+#~ "signálu.\n"
+#~ "Vyšší hodnota vede k pomalejšímu a hladšímu výsledku."
+
+#~ msgid "Whether to reverse order of bars for each channel."
+#~ msgstr "Zda obrátit pořadí tyčí každého kanálu."
+
+#~ msgid "Application Theme"
+#~ msgstr "Vzhled aplikace"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "Barvy popředí"
+
+#~ msgid "Add foreground color"
+#~ msgstr "Přidat barvu popředí"
+
+#~ msgid "Background Colors"
+#~ msgstr "Barvy pozadí"
+
+#~ msgid "Add background color"
+#~ msgstr "Přidat barvu pozadí"
+
+#~ msgid "Background"
+#~ msgstr "Pozadí"
+
+#~ msgid "Foreground"
+#~ msgstr "Popředí"
+
+#~ msgid "Foreground image is only shown with Box drawing modes."
+#~ msgstr ""
+#~ "Obrázek na popředí je zobrazen pouze v krychlových režimech vykreslování."
+
+#~ msgid "No Images"
+#~ msgstr "Žádné obrázky"
+
+#~ msgid "Add an image to use it in Cavalier."
+#~ msgstr "Přidejte obrázek pro použití v aplikaci Cavalier."
+
+#~ msgid "No Image"
+#~ msgstr "Žádný obrázek"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "Změnit režim vykreslování"
+
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "Změnit poloměr v režimu Kruhu"
+
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "Změnit otočení v režimech Kruhu"
+
+#~ msgid "Toggle Reverse Mirror"
+#~ msgstr "Přepnout opačné zrcadlení"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "Změnit odsazení vykreslované oblasti"
+
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "Změnit odsazení X vykreslované oblasti"
+
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "Změnit odsazení Y vykreslované oblasti"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "Změnit směr vykreslování"
+
+#~ msgid "Change Offset Between Items"
+#~ msgstr "Změnit odsazení mezi položkami"
+
+#~ msgid "Toggle Filling"
+#~ msgstr "Přepnout výplň"
+
+#~ msgid "Change Lines Thickness"
+#~ msgstr "Změnit tloušťku čar"
+
+#~ msgid "Toggle Window Borders"
+#~ msgstr "Přepnout okraje okna"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "Přepnout ostré rohy"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "Změnit počet sloupců"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "Přepnout kanály"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "Přepnout opačné pořadí"
+
+#~ msgid "Other"
+#~ msgstr "Jiné"
+
+#~ msgid "Change Background Image Scale"
+#~ msgstr "Změnit velikost obrázku na pozadí"
+
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "Změnit alfu obrázku na pozadí"
+
+#~ msgid "Change Foreground Image"
+#~ msgstr "Změnit obrázek na popředí"
+
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "Změnit velikost obrázku na popředí"
+
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "Změnit alfu obrázku na popředí"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "Přepnout na celou obrazovku"
+
+#~ msgid "Resizing..."
+#~ msgstr "Změna velikosti..."
+
+#~ msgid ""
+#~ "Cavalier is an audio visualizer based on CAVA with customizable interface."
+#~ msgstr ""
+#~ "Cavalier je vizualizér zvuku založený na CAVA s přizpůsobitelným "
+#~ "prostředím."
+
+#~ msgid "11 drawing modes!"
+#~ msgstr "11 vykreslovacích režimů!"
+
+#~ msgid "Set any color, a gradient or an image for background and foreground."
+#~ msgstr ""
+#~ "Nastavte jakoukoliv barvu, přechod nebo obrázek pro pozadí a popředí."
+
+#~ msgid "Configure smoothing, noise reduction and a few other CAVA settings."
+#~ msgstr "Nastavte vyhlazení, redukci šumu a pár dalších CAVA nastavení."
+
+#, csharp-format
+#~ msgid ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Contributors on GitHub ❤️ {2}"
+#~ msgstr ""
+#~ "Fyodor Sobolev {0}\n"
+#~ "Nicholas Logozzo {1}\n"
+#~ "Přispěvatelé na GitHubu ❤️ {2}"
+
+#~ msgid "Toggle Window Controls"
+#~ msgstr "Přepnout ovládání okna"
+
+#~ msgid "Toggle Autohide Headerbar"
+#~ msgstr "Přepnout automatické skrývání záhlaví"

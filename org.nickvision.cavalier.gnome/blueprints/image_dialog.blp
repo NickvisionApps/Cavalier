@@ -1,0 +1,61 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.Dialog root {
+  child: Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar {
+      title-widget: Adw.WindowTitle windowTitle { };
+    }
+
+    content: Adw.Clamp {
+      margin-start: 12;
+      margin-end: 12;
+      margin-bottom: 12;
+      child: Gtk.Box {
+        orientation: vertical;
+
+        Gtk.Picture picture {
+          valign: center;
+          halign: center;
+
+          styles [ "card" ]
+        }
+
+        Adw.PreferencesGroup {
+          title: _("Options");
+
+          Adw.SpinRow scaleRow {
+            title: _("Scale");
+            numeric: true;
+            adjustment: Gtk.Adjustment {
+              lower: 0;
+              upper: 100;
+              step-increment: 1;
+            };
+
+            [prefix]
+            Gtk.Image {
+              icon-name: "zoom-fit-best-symbolic";
+            }
+          }
+
+          Adw.SpinRow alphaRow {
+            title: _("Alpha");
+            numeric: true;
+            adjustment: Gtk.Adjustment {
+              lower: 0;
+              upper: 100;
+              step-increment: 1;
+            };
+
+            [prefix]
+            Gtk.Image {
+              icon-name: "checkerboard-symbolic";
+            }
+          }
+        }
+      };
+    };
+  };
+}

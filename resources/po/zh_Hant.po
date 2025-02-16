@@ -1,0 +1,792 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
+"PO-Revision-Date: 2023-08-12 17:18+0000\n"
+"Last-Translator: Wolf yuan <h1030035@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/zh_Hant/>\n"
+"Language: zh_Hant\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.0-dev\n"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:35
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+msgid "Cavalier"
+msgstr "Cavalier"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:36
+#, fuzzy
+msgid "Visualize audio with CAVA"
+msgstr "使用 CAVA 可視化音訊"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:41
+msgid "Matrix Chat"
+msgstr "Matrix 聊天室"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:43
+#, fuzzy
+msgid "Contributors on GitHub"
+msgstr "在 GitHub 上貢獻 ❤️"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:45
+msgid "Fyodor Sobolev"
+msgstr "Fyodor Sobolev"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:47
+msgid "David Lapshin"
+msgstr "David Lapshin"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:48
+#, fuzzy
+msgid "translator-credits"
+msgstr "翻譯者"
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:183
+msgid "New update available"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:197
+msgid ""
+"The update is downloading in the background and will start once it finishes"
+msgstr ""
+
+#: libcavalier/src/controllers/mainwindowcontroller.cpp:202
+msgid "Unable to download and install update"
+msgstr ""
+
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
+msgid "None"
+msgstr ""
+
+#: libcavalier/src/models/colorprofile.cpp:11
+#: libcavalier/src/models/colorprofile.cpp:27
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
+msgid "Default"
+msgstr "預設"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr "縮放"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:15
+msgid "Preferences"
+msgstr "設定"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:6
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:20
+msgid "Keyboard Shortcuts"
+msgstr "快捷鍵"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:7
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:32
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:52
+msgid "About Cavalier"
+msgstr "關於 Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:23
+msgid "Main Menu"
+msgstr "主選單"
+
+#. Home Page
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:37
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:54
+#, fuzzy
+msgid "Visualize Your Audio"
+msgstr "使用 CAVA 可視化音訊"
+
+#: org.nickvision.cavalier.gnome/blueprints/main_window.blp:38
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:55
+#, fuzzy
+msgid "Play some music or watch a video and see your sound come to life"
+msgstr "Cavalier 會聆聽您電腦的聲音。播放一些音樂或影片來讓你的音樂動起來！"
+
+#. Add Navigation Items
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:11
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:26
+msgid "Interface"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:15
+msgid "User Interface"
+msgstr ""
+
+#. Localize Strings
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:18
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:20
+msgid "Theme"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Light"
+msgstr "亮色"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+#, fuzzy
+msgctxt "Theme"
+msgid "Dark"
+msgstr "深色"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:20
+msgctxt "Theme"
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:31
+#, fuzzy
+msgid "Drawing Area"
+msgstr "繪圖模式"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:34
+#, fuzzy
+msgid "Drawing Mode"
+msgstr "繪圖模式"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Box"
+msgstr "箱型"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:36
+msgid "Circle"
+msgstr "圓圈"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:46
+#, fuzzy
+msgid "Drawing Shape"
+msgstr "繪圖模式"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Wave"
+msgstr "波浪"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Levels"
+msgstr "音量"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Particles"
+msgstr "顆粒"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Bars"
+msgstr "條狀"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Spine"
+msgstr "錐形"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+msgid "Splitter"
+msgstr "分隔"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:48
+#, fuzzy
+msgid "Hearts"
+msgstr "愛心"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:58
+#, fuzzy
+msgid "Drawing Direction"
+msgstr "繪圖方向"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Top to Bottom"
+msgstr "從上到下"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Bottom to Top"
+msgstr "從下到上"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Left to Right"
+msgstr "從左到右"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:60
+#, fuzzy
+msgid "Right to Left"
+msgstr "從右到左"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:70
+msgid "Fill Shapes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:79
+#, fuzzy
+msgid "Mirror Mode"
+msgstr "變更鏡像模式"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Off"
+msgstr "關"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+#, fuzzy
+msgid "Full"
+msgstr "完整"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Split Channels"
+msgstr "左右聲道分離"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+msgid "Full Reverse"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:81
+#, fuzzy
+msgid "Split Channels Reverse"
+msgstr "左右聲道分離"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:91
+#, fuzzy
+msgid "Area Margin"
+msgstr "繪圖邊距"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:106
+#, fuzzy
+msgid "Area X Offset"
+msgstr "X 軸偏移"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:121
+#, fuzzy
+msgid "Area Y Offset"
+msgstr "Y 軸偏移"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:136
+msgid "Item Spacing"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:151
+#, fuzzy
+msgid "Item Roundness"
+msgstr "變更項目的圓角"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:169
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:27
+#, fuzzy
+msgid "Cava"
+msgstr "Cavalier"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
+msgid "Channels"
+msgstr "頻道數"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Mono"
+msgstr "單聲道"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:178
+msgid "Stereo"
+msgstr "雙聲道"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:188
+msgid "Framerate"
+msgstr "幀數"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:204
+#, fuzzy
+msgid "Number of Bars"
+msgstr "欄數"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:220
+#, fuzzy
+msgid "Reverse Bar Order"
+msgstr "反向排序"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:229
+#, fuzzy
+msgid "Automatic Sensitivity"
+msgstr "自動偵測靈敏度"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:230
+#, fuzzy
+msgid "Cavalier will attempt to decrease sensitivity if the bars peak."
+msgstr "當圖形超過限制後嘗試降低靈敏度。"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:239
+#, fuzzy
+msgid "Manual Sensitivity"
+msgstr "靈敏度"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:255
+#, fuzzy
+msgid "Monstercat Smoothing"
+msgstr "Monstercat 平滑"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:264
+#, fuzzy
+msgid "Noise Reduction Factor"
+msgstr "減少噪音"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:282
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:28
+msgid "Colors"
+msgstr "顏色"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:286
+#, fuzzy
+msgid "Profiles"
+msgstr "新增設定檔"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:291
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:320
+msgid "Add"
+msgstr "新增"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:300
+#, fuzzy
+msgid "Active Profile"
+msgstr "刪除設定檔"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:311
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:29
+#, fuzzy
+msgid "Images"
+msgstr "圖片"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:315
+#, fuzzy
+msgid "Background Images"
+msgstr "變更背景圖片"
+
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:329
+#, fuzzy
+msgid "Active Image"
+msgstr "新增圖片"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:12
+msgctxt "Shortcut"
+msgid "Application"
+msgstr "應用程式"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:25
+#, fuzzy
+msgid "About Application"
+msgstr "應用程式"
+
+#: org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp:30
+msgid "Quit"
+msgstr "退出"
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:118
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:170
+msgid "Open"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/mainwindow.cpp:180
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:49
+msgid "GitHub Repo"
+msgstr "GitHub 儲存庫"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "刪除設定檔"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "你確定你要刪除設定檔 \"{0}\"?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "變更背景圖片"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "刪除設定檔"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "你確定你要刪除設定檔 \"{0}\"?"
+
+#. Load
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
+msgid "About"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:35
+#, fuzzy
+msgid "Changelog"
+msgstr "頻道數"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:36
+msgid "Credits"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:37
+msgid "Debugging"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:44
+#, fuzzy
+msgid "Developers"
+msgstr "音量"
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:46
+msgid "Designers"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:48
+msgid "Artists"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:50
+msgid "Copy Debug Information"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/controls/infobar.cpp:14
+#, fuzzy
+msgid "Notification"
+msgstr "旋轉"
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:40
+#, fuzzy
+msgid "Cavalier (Preview)"
+msgstr "Cavalier"
+
+#. MenuBar
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:43
+msgid "File"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:44
+msgid "Exit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:45
+msgid "Edit"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:46
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:18
+msgid "Settings"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:47
+msgid "Help"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:48
+msgid "Check for Updates"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:50
+msgid "Report a Bug"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:51
+msgid "Discussions"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/mainwindow.cpp:158
+msgid "Update"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:21
+msgid "Light"
+msgstr "亮色"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:22
+msgid "Dark"
+msgstr "深色"
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:23
+msgid "System"
+msgstr ""
+
+#: org.nickvision.cavalier.qt/src/views/settingsdialog.cpp:24
+msgid "Automatically Check for Updates"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Color Profiles"
+#~ msgstr "變更顏色設定檔"
+
+#~ msgid "Add New Profile"
+#~ msgstr "新增設定檔"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgid "Delete"
+#~ msgstr "刪除"
+
+#~ msgid "JPEG and PNG images"
+#~ msgstr "JPEG 及 PNG 圖片"
+
+#~ msgid "New color profile will be a copy of the current active profile."
+#~ msgstr "新的顏色設定檔將會是目前設定檔的副本。"
+
+#~ msgid "Nicholas Logozzo"
+#~ msgstr "Nicholas Logozzo"
+
+#~ msgid "On"
+#~ msgstr "開"
+
+#~ msgid "Profile Name"
+#~ msgstr "設定擋名稱"
+
+#~ msgid "Select an image"
+#~ msgstr "選取圖檔"
+
+#~ msgid "Command Help"
+#~ msgstr "指令說明"
+
+#, fuzzy
+#~ msgid "Let's dance!"
+#~ msgstr "來跳舞吧!"
+
+#~ msgid "Radius"
+#~ msgstr "半徑"
+
+#~ msgid "Mirror"
+#~ msgstr "鏡像"
+
+#~ msgid "Reverse mirror"
+#~ msgstr "反向鏡像"
+
+#~ msgid "Size of gaps around drawing area (in pixels)."
+#~ msgstr "距離繪圖範圍到邊緣的距離 (像素)。"
+
+#, fuzzy
+#~ msgid "Offset between items"
+#~ msgstr "項目之間的偏移"
+
+#, fuzzy
+#~ msgid "The size of spaces between elements (in percent)."
+#~ msgstr "兩個項目之間的間隔百分比。"
+
+#~ msgid "Roundness of items"
+#~ msgstr "圓角強度"
+
+#~ msgid "How much rounded the elements should be (in percent)."
+#~ msgstr "項目的圓角強度 (百分比)。"
+
+#~ msgid "Filling"
+#~ msgstr "填滿"
+
+#~ msgid "Whether shapes should be filled or outlined."
+#~ msgstr "圖形是否要填滿或是僅顯示外框。"
+
+#~ msgid "Thickness of lines"
+#~ msgstr "線條粗細"
+
+#~ msgid "Thickness of lines when filling is off (in pixels)."
+#~ msgstr "填滿關閉時，線條的粗細 (像素)。"
+
+#~ msgid "Borderless window"
+#~ msgstr "無邊框視窗"
+
+#~ msgid "Whether to disable window shadow and borders."
+#~ msgstr "是否要調用視窗邊框及陰影。"
+
+#~ msgid "Sharp corners"
+#~ msgstr "尖角"
+
+#~ msgid "Whether the main window corners should be sharp."
+#~ msgstr "視窗的邊角是否為尖角。"
+
+#~ msgid "Window controls"
+#~ msgstr "視窗控制"
+
+#~ msgid "Whether to show window control buttons."
+#~ msgstr "是否要顯示視窗控制按鈕。"
+
+#~ msgid "Autohide headerbar"
+#~ msgstr "自動隱藏控制欄"
+
+#, fuzzy
+#~ msgid "Whether to hide headerbar when main window is not focused."
+#~ msgstr "是否要在視窗未選取時隱藏控制欄。"
+
+#~ msgid "Number of frames per second."
+#~ msgstr "每秒的幀數。"
+
+#~ msgid "Custom"
+#~ msgstr "自訂"
+
+#~ msgid "Custom Framerate"
+#~ msgstr "自訂幀數"
+
+#~ msgid ""
+#~ "Manual sensitivity. If automatic sensitivity is enabled, this will only "
+#~ "be the initial value."
+#~ msgstr "手動設置靈敏度。如果啟用自動靈敏度，這將會是一個初始值。"
+
+#~ msgid "Whether to enable the so-called «Monstercat smoothing»."
+#~ msgstr "是否要啟用 \"Monstercat\" 平滑。"
+
+#, fuzzy
+#~ msgid ""
+#~ "This factor adjusts the integral and gravity filters to keep the signal "
+#~ "smooth.\n"
+#~ "Higher value leads to a slower and smoother result."
+#~ msgstr ""
+#~ "這項數值可使訊號穩定且順滑。\n"
+#~ "更高的數值會使影像反應更慢，但是會更滑順。"
+
+#~ msgid "Whether to reverse order of bars for each channel."
+#~ msgstr "是否要將每個頻道的圖形顛倒。"
+
+#~ msgid "Application Theme"
+#~ msgstr "應用程式主題"
+
+#~ msgid "Foreground Colors"
+#~ msgstr "前景顏色"
+
+#, fuzzy
+#~ msgid "Add foreground color"
+#~ msgstr "前景顏色"
+
+#~ msgid "Background Colors"
+#~ msgstr "背景顏色"
+
+#, fuzzy
+#~ msgid "Add background color"
+#~ msgstr "背景顏色"
+
+#, fuzzy
+#~ msgid "Background"
+#~ msgstr "背景顏色"
+
+#, fuzzy
+#~ msgid "Foreground"
+#~ msgstr "前景顏色"
+
+#, fuzzy
+#~ msgid "No Images"
+#~ msgstr "沒有圖片"
+
+#~ msgid "No Image"
+#~ msgstr "沒有圖片"
+
+#~ msgid "Change Drawing Mode"
+#~ msgstr "變更繪圖方式"
+
+#~ msgid "Change radius in Circle modes"
+#~ msgstr "變更圓圈半徑"
+
+#~ msgid "Change rotation in Circle modes"
+#~ msgstr "變更圓圈模式的角度"
+
+#~ msgid "Toggle Reverse Mirror"
+#~ msgstr "啟用/關閉反向鏡像"
+
+#~ msgid "Change Drawing Area Margin"
+#~ msgstr "變更繪圖邊距"
+
+#~ msgid "Change Drawing Area X Offset"
+#~ msgstr "變更繪圖區域 X 軸偏移"
+
+#~ msgid "Change Drawing Area Y Offset"
+#~ msgstr "變更繪圖區域 Y 軸偏移"
+
+#~ msgid "Change Drawing Direction"
+#~ msgstr "變更繪圖方向"
+
+#, fuzzy
+#~ msgid "Change Offset Between Items"
+#~ msgstr "變更項目之間的間隔"
+
+#~ msgid "Toggle Filling"
+#~ msgstr "開啟/關閉填滿模式"
+
+#~ msgid "Change Lines Thickness"
+#~ msgstr "變更線條粗細"
+
+#~ msgid "Toggle Window Borders"
+#~ msgstr "開啟/關閉視窗邊框"
+
+#~ msgid "Toggle Sharp Corners"
+#~ msgstr "開啟/關閉視窗尖角"
+
+#~ msgid "Change Number of Bars"
+#~ msgstr "變更條數"
+
+#~ msgid "Toggle Channels"
+#~ msgstr "變更頻道數"
+
+#~ msgid "Toggle Reverse Order"
+#~ msgstr "開啟/關閉反向排序"
+
+#~ msgid "Other"
+#~ msgstr "其他"
+
+#, fuzzy
+#~ msgid "Change Background Image Scale"
+#~ msgstr "變更背景圖片"
+
+#, fuzzy
+#~ msgid "Change Background Image Alpha"
+#~ msgstr "變更背景圖片"
+
+#, fuzzy
+#~ msgid "Change Foreground Image"
+#~ msgstr "變更背景圖片"
+
+#, fuzzy
+#~ msgid "Change Foreground Image Scale"
+#~ msgstr "變更圖片縮放"
+
+#, fuzzy
+#~ msgid "Change Foreground Image Alpha"
+#~ msgstr "變更背景圖片"
+
+#~ msgid "Toggle Fullscreen"
+#~ msgstr "全螢幕"
+
+#~ msgid "Resizing..."
+#~ msgstr "縮放中,,,"
+
+#~ msgid ""
+#~ "Cavalier is an audio visualizer based on CAVA with customizable interface."
+#~ msgstr "Cavalier 是基於 Cava 製作的高度自訂音訊可視化程式。"
+
+#~ msgid "11 drawing modes!"
+#~ msgstr "11 種繪圖模式！"
+
+#, fuzzy
+#~ msgid "Set any color, a gradient or an image for background and foreground."
+#~ msgstr "將任何顏色或漸層設為背景或是前景色。"
+
+#~ msgid "Configure smoothing, noise reduction and a few other CAVA settings."
+#~ msgstr "變更平滑程度，噪音減少以及部份的 CAVA 設定。"

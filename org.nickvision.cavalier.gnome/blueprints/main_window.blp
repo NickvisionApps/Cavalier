@@ -1,0 +1,55 @@
+using Gtk 4.0;
+using Adw 1;
+
+menu mainMenu {
+  item(_("Preferences"), "win.preferences")
+  item(_("Keyboard Shortcuts"), "win.keyboardShortcuts")
+  item(_("About Cavalier"), "win.about")
+}
+
+Adw.ApplicationWindow root {
+  width-request: 360;
+  height-request: 200;
+
+  Adw.ToolbarView toolbarView {
+    [top]
+    Adw.HeaderBar headerBar {
+      title-widget: Adw.WindowTitle title {};
+      
+      [end]
+      Gtk.MenuButton {
+        direction: none;
+        menu-model: mainMenu;
+        tooltip-text: _("Main Menu");
+        primary: true;
+      }
+    }
+
+    content: Adw.ToastOverlay toastOverlay {
+      hexpand: true;
+      vexpand: true;
+      
+      Adw.ViewStack viewStack {
+        Adw.ViewStackPage {
+          name: "Home";
+          child: Adw.StatusPage pageGreeting {
+            icon-name: "org.nickvision.cavalier";
+            title: _("Visualize Your Audio");
+            description: _("Play some music or watch a video and see your sound come to life");
+            
+            styles ["icon-dropshadow"]
+          };
+        }
+
+        Adw.ViewStackPage {
+          name: "Image";
+          child: Gtk.Picture renderImage {
+            hexpand: true;
+            vexpand: true;
+            content-fit: fill;
+          };
+        }
+      }
+    };
+  }
+}
