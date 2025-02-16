@@ -94,30 +94,26 @@ namespace Nickvision::Cavalier::Shared::Controllers
     std::vector<std::string> PreferencesViewController::getBackgroundImageNames()  const
     {
         std::vector<std::string> names;
+        names.push_back(_("None"));
         for(const BackgroundImage& image : m_configuration.getBackgroundImages())
         {
             names.push_back(image.getPath().filename());
-        }
-        if(names.empty())
-        {
-            names.push_back(_("None"));
         }
         return names;
     }
 
     int PreferencesViewController::getActiveBackgroundImageIndex() const
     {
-        int index{ m_configuration.getActiveBackgroundImageIndex() };
-        return index == -1 ? 0 : index;
+        return m_configuration.getActiveBackgroundImageIndex() + 1;
     }
 
     void PreferencesViewController::setActiveBackgroundImageIndex(int index)
     {
         if(m_configuration.getBackgroundImages().size() == 0)
         {
-            index = -1;
+            index = 0;
         }
-        m_configuration.setActiveBackgroundImageIndex(index);
+        m_configuration.setActiveBackgroundImageIndex(index - 1);
     }
 
     void PreferencesViewController::saveConfiguration()

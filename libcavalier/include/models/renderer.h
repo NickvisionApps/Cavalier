@@ -5,17 +5,16 @@
 #include <mutex>
 #include <optional>
 #include <vector>
+#include <skia/include/core/SkBitmap.h>
 #include <skia/include/core/SkPath.h>
 #include <skia/include/core/SkRefCnt.h>
 #include <skia/include/core/SkShader.h>
 #include "backgroundimage.h"
 #include "canvas.h"
-#include "color.h"
 #include "colorprofile.h"
 #include "drawingarea.h"
 #include "drawingfunctionarguments.h"
 #include "pngimage.h"
-#include "point.h"
 
 namespace Nickvision::Cavalier::Shared::Models
 {
@@ -169,6 +168,7 @@ namespace Nickvision::Cavalier::Shared::Models
         DrawingArea m_drawingArea;
         ColorProfile m_colorProfile;
         std::optional<BackgroundImage> m_backgroundImage;
+        std::shared_ptr<SkBitmap> m_backgroundBitmap;
         bool m_createCanvas;
         int m_canvasWidth;
         int m_canvasHeight;

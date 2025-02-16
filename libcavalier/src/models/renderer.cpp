@@ -14,6 +14,8 @@
 #include <skia/include/core/SkTileMode.h>
 #include <skia/include/effects/SkGradientShader.h>
 #include <skia/include/encode/SkPngEncoder.h>
+#include "models/color.h"
+#include "models/point.h"
 
 #define INNER_RADIUS 0.5f
 #define LINE_THICKNESS 5
@@ -22,13 +24,13 @@
 
 namespace Nickvision::Cavalier::Shared::Models
 {
-    static SkBitmap* newBitmapFromImagePath(const std::filesystem::path& path)
+    static std::shared_ptr<SkBitmap> newBitmapFromImagePath(const std::filesystem::path& path)
     {
         if(!std::filesystem::exists(path))
         {
             return nullptr;
         }
-        SkBitmap* bitmap{ new SkBitmap() };
+        std::shared_ptr<SkBitmap> bitmap{ std::make_shared<SkBitmap>() };
         sk_sp<SkData> data{ SkData::MakeFromFileName(path.string().c_str()) };
         std::unique_ptr<SkCodec> codec{ SkCodec::MakeFromData(data) };
         SkImageInfo info{ codec->getInfo().makeColorType(kN32_SkColorType).makeAlphaType(kPremul_SkAlphaType) };
@@ -155,6 +157,7 @@ namespace Nickvision::Cavalier::Shared::Models
     {
         std::lock_guard<std::mutex> lock{ m_mutex };
         m_backgroundImage = image;
+        m_backgroundBitmap.reset();
     }
 
     std::optional<PngImage> Renderer::draw(const std::vector<float>& sample)
@@ -163,6 +166,7 @@ namespace Nickvision::Cavalier::Shared::Models
         if(m_createCanvas)
         {
             m_canvas = { m_canvasWidth, m_canvasHeight };
+            m_backgroundBitmap.reset();
             m_createCanvas = false;
         }
         if(!m_canvas || sample.empty())
@@ -170,7 +174,6 @@ namespace Nickvision::Cavalier::Shared::Models
             return std::nullopt;
         }
         //Setup
-        SkBitmap* backgroundBitmap{ nullptr };
         int width{ m_canvas.getWidth() };
         int height{ m_canvas.getHeight() };
         m_canvas->clear(SkColors::kTransparent);
@@ -191,27 +194,24 @@ namespace Nickvision::Cavalier::Shared::Models
         //Draw Background Image
         if(m_backgroundImage)
         {
-            backgroundBitmap = newBitmapFromImagePath(m_backgroundImage->getPath());
-            if(backgroundBitmap)
+            if(!m_backgroundBitmap)
             {
+                m_backgroundBitmap = newBitmapFromImagePath(m_backgroundImage->getPath());
                 //Scale Image
-                int scale{ std::max(width / backgroundBitmap->width(), height / backgroundBitmap->height()) * static_cast<int>(m_backgroundImage->getScale() / 100) };
-                int newWidth{ backgroundBitmap->width() * scale };
-                int newHeight{ backgroundBitmap->height() * scale };
-                SkBitmap* newBitmap{ new SkBitmap() };
-                SkImageInfo newInfo{ SkImageInfo::Make(newWidth, newHeight, kN32_SkColorType, kPremul_SkAlphaType) };
-                SkCanvas canvas{ *newBitmap };
-                newBitmap->setInfo(newInfo);
+                float scale{ std::max(static_cast<float>(width) / static_cast<float>(m_backgroundBitmap->width()), static_cast<float>(height) / static_cast<float>(m_backgroundBitmap->height())) };
+                int newWidth{ static_cast<int>(m_backgroundBitmap->width() * scale * (m_backgroundImage->getScale() / 100.0f)) };
+                int newHeight{ static_cast<int>(m_backgroundBitmap->height() * scale * (m_backgroundImage->getScale() / 100.0f)) };
+                std::shared_ptr<SkBitmap> newBitmap{ std::make_shared<SkBitmap>() };
+                newBitmap->setInfo(SkImageInfo::Make(newWidth, newHeight, kN32_SkColorType, kPremul_SkAlphaType));
                 newBitmap->allocPixels();
-                canvas.drawImageRect(backgroundBitmap->asImage(), SkRect::MakeWH(static_cast<float>(newWidth), static_cast<float>(newHeight)), SkSamplingOptions(SkFilterMode::kLinear));
-                delete backgroundBitmap;
-                backgroundBitmap = newBitmap;
-                //Draw Image
-                SkPaint paint;
-                paint.setColor(SkColorSetARGB(255 * (m_backgroundImage->getAlpha() / 100), SkColorGetR(paint.getColor()), SkColorGetG(paint.getColor()), SkColorGetB(paint.getColor())));
-                m_canvas->drawImage(backgroundBitmap->asImage(), width / 2.0f - backgroundBitmap->width() / 2.0f, height / 2.0f - backgroundBitmap->height() / 2.0f, SkSamplingOptions(SkFilterMode::kLinear), &paint);
-                delete backgroundBitmap;
+                SkCanvas canvas{ *newBitmap };
+                canvas.drawImageRect(m_backgroundBitmap->asImage(), SkRect::MakeWH(static_cast<float>(newWidth), static_cast<float>(newHeight)), SkSamplingOptions(SkFilterMode::kLinear));
+                m_backgroundBitmap = newBitmap;
             }
+            //Draw Image
+            SkPaint paint;
+            paint.setColor(SkColorSetARGB(255 * (m_backgroundImage->getAlpha() / 100), SkColorGetR(paint.getColor()), SkColorGetG(paint.getColor()), SkColorGetB(paint.getColor())));
+            m_canvas->drawImage(m_backgroundBitmap->asImage(), width / 2 - m_backgroundBitmap->width() / 2.0f, height / 2 - m_backgroundBitmap->height() / 2.0f, SkSamplingOptions(SkFilterMode::kLinear), &paint);
         }
         //Draw Foreground Colors
         width -= m_drawingArea.getMargin() * 2;
