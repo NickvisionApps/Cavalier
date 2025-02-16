@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-15 17:11-0500\n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
 "PO-Revision-Date: 2025-01-20 14:21+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/nickvision-"
@@ -62,15 +62,28 @@ msgstr ""
 msgid "Unable to download and install update"
 msgstr ""
 
-#: libcavalier/src/controllers/preferencesviewcontroller.cpp:103
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
 msgid "None"
 msgstr ""
 
 #: libcavalier/src/models/colorprofile.cpp:11
 #: libcavalier/src/models/colorprofile.cpp:27
-#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:59
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
 msgid "Default"
 msgstr "இயல்புநிலை"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr "அளவு"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr "அகர"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
@@ -277,10 +290,6 @@ msgstr "உருப்படிகளை மாற்றவும்"
 msgid "Cava"
 msgstr "காவலியர்"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
-msgid "Options"
-msgstr ""
-
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
 msgid "Channels"
 msgstr "சேனல்கள்"
@@ -391,6 +400,41 @@ msgstr ""
 msgid "GitHub Repo"
 msgstr "அறிவிலிமையம் ரெப்போ"
 
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "சுயவிவரத்தை நீக்கு"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "சுயவிவரத்தை \"{0}\" நீக்க விரும்புகிறீர்களா?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "பின்னணி படத்தை மாற்றவும்"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "சுயவிவரத்தை நீக்கு"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "சுயவிவரத்தை \"{0}\" நீக்க விரும்புகிறீர்களா?"
+
 #. Load
 #: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
 msgid "About"
@@ -496,10 +540,6 @@ msgstr ""
 
 #~ msgid "Add New Profile"
 #~ msgstr "புதிய சுயவிவரத்தைச் சேர்க்கவும்"
-
-#, csharp-format
-#~ msgid "Are you sure you want to delete profile \"{0}\"?"
-#~ msgstr "சுயவிவரத்தை \"{0}\" நீக்க விரும்புகிறீர்களா?"
 
 #~ msgid "Cancel"
 #~ msgstr "ரத்துசெய்"
@@ -642,12 +682,6 @@ msgstr ""
 
 #~ msgid "Foreground"
 #~ msgstr "முன்புறம்"
-
-#~ msgid "Scale"
-#~ msgstr "அளவு"
-
-#~ msgid "Alpha"
-#~ msgstr "அகர"
 
 #~ msgid "Foreground image is only shown with Box drawing modes."
 #~ msgstr "முன்புற படம் பெட்டி வரைதல் முறைகளுடன் மட்டுமே காட்டப்பட்டுள்ளது."

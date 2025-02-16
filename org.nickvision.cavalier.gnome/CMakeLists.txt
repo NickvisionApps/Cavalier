@@ -4,6 +4,7 @@ if(NOT WIN32)
     set(STARTUP_NOTIFY true)
 
     add_executable(${OUTPUT_NAME}
+        "src/controls/imagedialog.cpp"
         "src/helpers/builder.cpp"
         "src/helpers/dialogbase.cpp"
         "src/helpers/gtkhelpers.cpp"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-15 17:11-0500\n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
 "PO-Revision-Date: 2024-09-04 15:09+0000\n"
 "Last-Translator: Fjuro <fjuro@alius.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/nickvision-"
@@ -64,15 +64,28 @@ msgstr ""
 msgid "Unable to download and install update"
 msgstr ""
 
-#: libcavalier/src/controllers/preferencesviewcontroller.cpp:103
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
 msgid "None"
 msgstr ""
 
 #: libcavalier/src/models/colorprofile.cpp:11
 #: libcavalier/src/models/colorprofile.cpp:27
-#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:59
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
 msgid "Default"
 msgstr "Výchozí"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr "Měřítko"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr "Alfa"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
@@ -279,10 +292,6 @@ msgstr "Změnit zaoblení položek"
 msgid "Cava"
 msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
-msgid "Options"
-msgstr ""
-
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
 msgid "Channels"
 msgstr "Kanály"
@@ -393,6 +402,41 @@ msgstr ""
 msgid "GitHub Repo"
 msgstr "Repozitář GitHub"
 
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "Smazat Profil"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "Opravdu chcete odstranit profil „{0}“?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "Změnit obrázek na pozadí"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "Smazat Profil"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "Opravdu chcete odstranit profil „{0}“?"
+
 #. Load
 #: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
 msgid "About"
@@ -498,10 +542,6 @@ msgstr ""
 
 #~ msgid "Add New Profile"
 #~ msgstr "Přidat nový profil"
-
-#, csharp-format
-#~ msgid "Are you sure you want to delete profile \"{0}\"?"
-#~ msgstr "Opravdu chcete odstranit profil „{0}“?"
 
 #~ msgid "Cancel"
 #~ msgstr "Zrušit"
@@ -644,12 +684,6 @@ msgstr ""
 
 #~ msgid "Foreground"
 #~ msgstr "Popředí"
-
-#~ msgid "Scale"
-#~ msgstr "Měřítko"
-
-#~ msgid "Alpha"
-#~ msgstr "Alfa"
 
 #~ msgid "Foreground image is only shown with Box drawing modes."
 #~ msgstr ""

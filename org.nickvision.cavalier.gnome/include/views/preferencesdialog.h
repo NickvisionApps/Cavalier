@@ -2,6 +2,7 @@
 #define PREFERENCESDIALOG_H
 
 #include <memory>
+#include <unordered_map>
 #include <adwaita.h>
 #include "controllers/preferencesviewcontroller.h"
 #include "helpers/dialogbase.h"
@@ -58,7 +59,17 @@ namespace Nickvision::Cavalier::GNOME::Views
          * @param index The index of the image to delete
          */
         void deleteBackgroundImage(int index);
+        /**
+         * @brief Loads color profile rows.
+         */
+        void loadColorProfiles();
+        /**
+         * @brief Loads background image rows.
+         */
+        void loadBackgroundImages();
         std::shared_ptr<Shared::Controllers::PreferencesViewController> m_controller;
+        std::vector<AdwActionRow*> m_colorProfileRows;
+        std::vector<AdwActionRow*> m_backgroundImageRows;
     };
 }
 

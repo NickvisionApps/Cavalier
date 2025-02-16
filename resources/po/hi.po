@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-15 17:11-0500\n"
+"POT-Creation-Date: 2025-02-16 11:44-0500\n"
 "PO-Revision-Date: 2024-07-07 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/nickvision-"
@@ -62,15 +62,28 @@ msgstr ""
 msgid "Unable to download and install update"
 msgstr ""
 
-#: libcavalier/src/controllers/preferencesviewcontroller.cpp:103
+#: libcavalier/src/controllers/preferencesviewcontroller.cpp:97
 msgid "None"
 msgstr ""
 
 #: libcavalier/src/models/colorprofile.cpp:11
 #: libcavalier/src/models/colorprofile.cpp:27
-#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:59
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:220
 msgid "Default"
 msgstr "तयशुदा"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:26
+#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
+msgid "Options"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:29
+msgid "Scale"
+msgstr "पैमाना"
+
+#: org.nickvision.cavalier.gnome/blueprints/image_dialog.blp:44
+msgid "Alpha"
+msgstr "अल्फा"
 
 #: org.nickvision.cavalier.gnome/blueprints/main_window.blp:5
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:8
@@ -277,10 +290,6 @@ msgstr "वस्तुओं की गोलाई बदलें"
 msgid "Cava"
 msgstr "Cavalier"
 
-#: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:173
-msgid "Options"
-msgstr ""
-
 #: org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp:176
 msgid "Channels"
 msgstr "चैनल्स"
@@ -391,6 +400,41 @@ msgstr ""
 msgid "GitHub Repo"
 msgstr "GitHub रेपो"
 
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Delete Profile?"
+msgstr "प्रोफाइल मिटाएं"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:109
+#, fuzzy
+msgid "Are you sure you want to delete this profile?"
+msgstr "क्या आप वाकई प्रोफाइल \"{0}\" को मिटाना चाहते हैं?"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "Yes"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:110
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:170
+msgid "No"
+msgstr ""
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:134
+#, fuzzy
+msgid "Select Background Image"
+msgstr "पृष्ठभूमि छवि बदलें"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Delete Image?"
+msgstr "प्रोफाइल मिटाएं"
+
+#: org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp:169
+#, fuzzy
+msgid "Are you sure you want to delete this image?"
+msgstr "क्या आप वाकई प्रोफाइल \"{0}\" को मिटाना चाहते हैं?"
+
 #. Load
 #: org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp:34
 msgid "About"
@@ -496,10 +540,6 @@ msgstr ""
 
 #~ msgid "Add New Profile"
 #~ msgstr "नई प्रोफाइल जोड़ें"
-
-#, csharp-format
-#~ msgid "Are you sure you want to delete profile \"{0}\"?"
-#~ msgstr "क्या आप वाकई प्रोफाइल \"{0}\" को मिटाना चाहते हैं?"
 
 #~ msgid "Cancel"
 #~ msgstr "रद्द करें"
@@ -641,12 +681,6 @@ msgstr ""
 
 #~ msgid "Foreground"
 #~ msgstr "अग्रभूमि"
-
-#~ msgid "Scale"
-#~ msgstr "पैमाना"
-
-#~ msgid "Alpha"
-#~ msgstr "अल्फा"
 
 #~ msgid "Foreground image is only shown with Box drawing modes."
 #~ msgstr "अग्रभूमि छवि केवल बॉक्स ड्राइंग मोड के साथ दिखाई जाती है।"

@@ -85,7 +85,7 @@ namespace Nickvision::Cavalier::GNOME::Helpers
          * @brief Returns the underlying pointer.
          * @return T*
          */
-        T* operator->()
+        T* operator->() const
         {
             return m_ptr;
         }
