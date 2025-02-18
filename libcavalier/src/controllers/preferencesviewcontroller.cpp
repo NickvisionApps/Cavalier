@@ -97,7 +97,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
         names.push_back(_("None"));
         for(const BackgroundImage& image : m_configuration.getBackgroundImages())
         {
-            names.push_back(image.getPath().filename());
+            names.push_back(image.getPath().filename().string());
         }
         return names;
     }
