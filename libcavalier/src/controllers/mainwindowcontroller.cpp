@@ -6,11 +6,9 @@
 #include <libnick/helpers/codehelpers.h>
 #include <libnick/helpers/stringhelpers.h>
 #include <libnick/localization/gettext.h>
+#include <libnick/notifications/appnotification.h>
 #include <libnick/system/environment.h>
 #include "models/configuration.h"
-#ifdef _WIN32
-#include <windows.h>
-#endif
 
 using namespace Nickvision::App;
 using namespace Nickvision::Cavalier::Shared::Models;
@@ -31,7 +29,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
         m_cava{ m_dataFileManager.get<Configuration>("config").getCavaOptions(), m_appInfo.getName() },
         m_renderer{ m_dataFileManager.get<Configuration>("config").getDrawingArea(), m_dataFileManager.get<Configuration>("config").getColorProfiles()[m_dataFileManager.get<Configuration>("config").getActiveColorProfileIndex()] }
     {
-        m_appInfo.setVersion({ "2025.2.0-next" });
+        m_appInfo.setVersion({ "2025.4.0-next" });
         m_appInfo.setShortName(_("Cavalier"));
         m_appInfo.setDescription(_("Visualize audio with CAVA"));
         m_appInfo.setChangelog("- Rewrote Cavalier in C++ for faster and smoother performance\n- Added a Qt version of Cavalier which also runs on Windows\n- Added the ability to specify the `CAVALIER_INPUT_SOURCE` environment variable to change Cavalier's audio source\n- Increased the maximuim number of bars to 200\n- Removed the ability to control Cavalier via CLI. If enough users ask, we will add it back\n- Removed the ability to set a foreground image in the drawing area\n- Updated cava");
@@ -66,12 +64,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
 
     Event<NotificationSentEventArgs>& MainWindowController::notificationSent()
     {
-        return m_notificationSent;
-    }
-
-    Event<ShellNotificationSentEventArgs>& MainWindowController::shellNotificationSent()
-    {
-        return m_shellNotificationSent;
+        return AppNotification::sent();
     }
 
     Event<EventArgs>& MainWindowController::cavaOutputStopped()
@@ -180,7 +173,7 @@ namespace Nickvision::Cavalier::Shared::Controllers
             {
                 if(latest > m_appInfo.getVersion())
                 {
-                    m_notificationSent.invoke({ _("New update available"), NotificationSeverity::Success, "update" });
+                    AppNotification::send({ _("New update available"), NotificationSeverity::Success, "update" });
                 }
             }
         } };
@@ -194,12 +187,12 @@ namespace Nickvision::Cavalier::Shared::Controllers
         {
             return;
         }
-        m_notificationSent.invoke({ _("The update is downloading in the background and will start once it finishes"), NotificationSeverity::Informational });
+        AppNotification::send({ _("The update is downloading in the background and will start once it finishes"), NotificationSeverity::Informational });
         std::thread worker{ [this]()
         {
             if(!m_updater->windowsUpdate(VersionType::Stable))
             {
-                m_notificationSent.invoke({ _("Unable to download and install update"), NotificationSeverity::Error });
+                AppNotification::send({ _("Unable to download and install update"), NotificationSeverity::Error });
             }
         } };
         worker.detach();

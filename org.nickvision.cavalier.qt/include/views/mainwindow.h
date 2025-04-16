@@ -86,11 +86,6 @@ namespace Nickvision::Cavalier::Qt::Views
          */
         void onNotificationSent(const Notifications::NotificationSentEventArgs& args);
         /**
-         * @brief Handles when a shell notification is sent.
-         * @param args The ShellNotificationSentEventArgs
-         */
-        void onShellNotificationSent(const Notifications::ShellNotificationSentEventArgs& args);
-        /**
          * @brief Handles when cava stops outputting data.
          */
         void onCavaOutputStopped();

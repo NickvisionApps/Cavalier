@@ -17,7 +17,6 @@
 #include <libnick/app/windowgeometry.h>
 #include <libnick/events/event.h>
 #include <libnick/notifications/notificationsenteventargs.h>
-#include <libnick/notifications/shellnotificationsenteventargs.h>
 #include <libnick/taskbar/taskbaritem.h>
 #include <libnick/update/updater.h>
 #include "controllers/preferencesviewcontroller.h"
@@ -50,11 +49,6 @@ namespace Nickvision::Cavalier::Shared::Controllers
          * @return The notification sent event
          */
         Nickvision::Events::Event<Nickvision::Notifications::NotificationSentEventArgs>& notificationSent();
-        /**
-         * @brief Gets the event for when a shell notification is sent.
-         * @return The shell notification sent event
-         */
-        Nickvision::Events::Event<Nickvision::Notifications::ShellNotificationSentEventArgs>& shellNotificationSent();
         /**
          * @brief Gets the event for when cava stops outputting data.
          * @return The cava output stopped event
@@ -143,8 +137,6 @@ namespace Nickvision::Cavalier::Shared::Controllers
         Nickvision::App::DataFileManager m_dataFileManager;
         std::shared_ptr<Nickvision::Update::Updater> m_updater;
         Nickvision::Taskbar::TaskbarItem m_taskbar;
-        Nickvision::Events::Event<Nickvision::Notifications::NotificationSentEventArgs> m_notificationSent;
-        Nickvision::Events::Event<Nickvision::Notifications::ShellNotificationSentEventArgs> m_shellNotificationSent;
         Nickvision::Events::Event<Nickvision::Events::EventArgs> m_cavaOutputStopped;
         Nickvision::Events::Event<Nickvision::Events::ParamEventArgs<Models::PngImage>> m_imageRendered;
         Models::Cava m_cava;

@@ -37,7 +37,7 @@ jobs:
         with:
           pkgs: glfw3 libnick skia[core,fontconfig,freetype,gl,harfbuzz,icu,vulkan] qtbase qtsvg qttools
           triplet: x64-windows
-          revision: 74ec888e385d189b42d6b398d0bbaa6f1b1d3b0e
+          revision: e946021fec2f993d6933f361e5b59e0433a750a7
           token: ${{ secrets.GITHUB_TOKEN }}
           github-binarycache: true
       - name: "Build"

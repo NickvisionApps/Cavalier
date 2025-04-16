@@ -3,7 +3,6 @@
 #include <format>
 #include <libnick/app/appinfo.h>
 #include <libnick/helpers/codehelpers.h>
-#include <libnick/notifications/shellnotification.h>
 #include <libnick/localization/gettext.h>
 #include "helpers/dialogptr.h"
 #include "helpers/gtkhelpers.h"
@@ -40,7 +39,6 @@ namespace Nickvision::Cavalier::GNOME::Views
         g_signal_connect(m_window, "notify::default-width", G_CALLBACK(+[](GObject*, GParamSpec*, gpointer data){ reinterpret_cast<MainWindow*>(data)->onWindowResized(); }), this);
         g_signal_connect(m_window, "notify::default-height", G_CALLBACK(+[](GObject*, GParamSpec*, gpointer data){ reinterpret_cast<MainWindow*>(data)->onWindowResized(); }), this);
         m_controller->notificationSent() += [&](const NotificationSentEventArgs& args) { GtkHelpers::dispatchToMainThread([this, args]() { onNotificationSent(args); }); };
-        m_controller->shellNotificationSent() += [&](const ShellNotificationSentEventArgs& args) { onShellNotificationSent(args); };
         m_controller->cavaOutputStopped() += [&](const EventArgs&) { GtkHelpers::dispatchToMainThread([this]() { onCavaOutputStopped(); }); };
         m_controller->imageRendered() += [&](const ParamEventArgs<PngImage>& args) { GtkHelpers::dispatchToMainThread([this, args]() { onImageRendered(args); }); };
         //Quit Action
@@ -110,15 +108,6 @@ namespace Nickvision::Cavalier::GNOME::Views
     {
         AdwToast* toast{ adw_toast_new(args.getMessage().c_str()) };
         adw_toast_overlay_add_toast(m_builder.get<AdwToastOverlay>("toastOverlay"), toast);
-    }
-
-    void MainWindow::onShellNotificationSent(const ShellNotificationSentEventArgs& args)
-    {
-#ifdef __linux__
-        ShellNotification::send(args, m_controller->getAppInfo().getId(), _("Open"));
-#else
-        ShellNotification::send(args);
-#endif
     }
 
     void MainWindow::onCavaOutputStopped()

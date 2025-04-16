@@ -43,12 +43,7 @@ namespace Nickvision::Cavalier::GNOME::Views
          * @brief Handles when a notification is sent to the window.
          * @param args Nickvision::Notifications::NotificationSentEventArgs 
          */
-        void onNotificationSent(const Nickvision::Notifications::NotificationSentEventArgs& args);
-        /**
-         * @brief Handles when a shell notification is sent to the window.
-         * @param args Nickvision::Notifications::ShellNotificationSentEventArgs
-         */
-        void onShellNotificationSent(const Nickvision::Notifications::ShellNotificationSentEventArgs& args);
+        void onNotificationSent(const Nickvision::Notifications::NotificationSentEventArgs& args);\
         /**
          * @brief Handles when cava stops outputting data.
          */
