@@ -192,8 +192,8 @@
                 {
                     "type": "git",
                     "dest": "third_party/externals/wuffs",
-                    "url": "https://skia.googlesource.com/external/github.com/google/wuffs/",
-                    "commit": "3f919ccfe3ef542cfc983a82146070258fb57f8"
+                    "url": "https://skia.googlesource.com/external/github.com/google/wuffs-mirror-release-c",
+                    "commit": "e3f919ccfe3ef542cfc983a82146070258fb57f8"
                 },
                 {
                     "type": "git",
