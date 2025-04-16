@@ -1,7 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text eol=lf
-*.csproj eol=crlf
-*.sln eol=crlf
 *.png binary
 *.jpg binary
 *.ico binary

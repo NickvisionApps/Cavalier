@@ -1,0 +1,13 @@
+libcavalier/src/controllers/mainwindowcontroller.cpp
+libcavalier/src/controllers/preferencesviewcontroller.cpp
+libcavalier/src/models/colorprofile.cpp
+org.nickvision.cavalier.gnome/blueprints/image_dialog.blp
+org.nickvision.cavalier.gnome/blueprints/main_window.blp
+org.nickvision.cavalier.gnome/blueprints/preferences_dialog.blp
+org.nickvision.cavalier.gnome/blueprints/shortcuts_dialog.blp
+org.nickvision.cavalier.gnome/src/views/mainwindow.cpp
+org.nickvision.cavalier.gnome/src/views/preferencesdialog.cpp
+org.nickvision.cavalier.qt/src/controls/aboutdialog.cpp
+org.nickvision.cavalier.qt/src/controls/infobar.cpp
+org.nickvision.cavalier.qt/src/views/mainwindow.cpp
+org.nickvision.cavalier.qt/src/views/settingsdialog.cpp

@@ -1,0 +1,338 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.PreferencesDialog root {
+  content-width: 600;
+  content-height: 600;
+  search-enabled: true;
+  title: _("Preferences");
+
+  Adw.PreferencesPage {
+    title: _("Interface");
+    icon-name: "hig-symbolic";
+
+    Adw.PreferencesGroup {
+      title: _("User Interface");
+
+      Adw.ComboRow themeRow {
+        title: _("Theme");
+        model: Gtk.StringList {
+          strings [C_("Theme", "Light"), C_("Theme", "Dark"), C_("Theme", "System")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "dark-mode-symbolic";
+        }
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: _("Drawing Area");
+
+      Adw.ComboRow drawingModeRow {
+        title: _("Drawing Mode");
+        model: Gtk.StringList {
+          strings [_("Box"), _("Circle")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "app-icon-design-symbolic";
+        }
+      }
+
+      Adw.ComboRow drawingShapeRow {
+        title: _("Drawing Shape");
+        model: Gtk.StringList {
+          strings [_("Wave"), _("Levels"), _("Particles"), _("Bars"), _("Spine"), _("Splitter"), _("Hearts")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "shapes-symbolic";
+        }
+      }
+
+      Adw.ComboRow drawingDirectionRow {
+        title: _("Drawing Direction");
+        model: Gtk.StringList {
+          strings [_("Top to Bottom"), _("Bottom to Top"), _("Left to Right"), _("Right to Left")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "double-ended-arrows-vertical-symbolic";
+        }
+      }
+
+      Adw.SwitchRow fillShapeRow {
+        title: _("Fill Shapes");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "square-filled-symbolic";
+        }
+      }
+
+      Adw.ComboRow mirrowModeRow {
+        title: _("Mirror Mode");
+        model: Gtk.StringList {
+          strings [_("Off"), _("Full"), _("Split Channels"), _("Full Reverse"), _("Split Channels Reverse")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "view-mirror-symbolic";
+        }
+      }
+
+      Adw.SpinRow drawingMarginRow {
+        title: _("Area Margin");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 0;
+          upper: 40;
+          step-increment: 1;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "resize-mode-symbolic";
+        }
+      }
+
+      Adw.SpinRow drawingXOffset {
+        title: _("Area X Offset");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: -5;
+          upper: 5;
+          step-increment: 1;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "move-tool-symbolic";
+        }
+      }
+
+      Adw.SpinRow drawingYOffset {
+        title: _("Area Y Offset");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: -5;
+          upper: 5;
+          step-increment: 1;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "move-tool-symbolic";
+        }
+      }
+
+      Adw.SpinRow itemSpacingRow {
+        title: _("Item Spacing");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 0;
+          upper: 20;
+          step-increment: 1;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "stacked-plates-symbolic";
+        }
+      }
+
+      Adw.SpinRow itemRoundnessRow {
+        title: _("Item Roundness");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 0;
+          upper: 100;
+          step-increment: 1;
+          page-increment: 10;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "circle-filled-symbolic";
+        }
+      }
+    }
+  }
+
+  Adw.PreferencesPage {
+    title: _("Cava");
+    icon-name: "utilities-terminal-symbolic";
+
+    Adw.PreferencesGroup {
+      title: _("Options");
+
+      Adw.ComboRow channelsRow {
+        title: _("Channels");
+        model: Gtk.StringList {
+          strings [_("Mono"), _("Stereo")]
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speaker-symbolic";
+        }
+      }
+
+      Adw.SpinRow framerateRow {
+        title: _("Framerate");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 0;
+          upper: 200;
+          step-increment: 1;
+          page-increment: 30;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speedometer5-symbolic";
+        }
+      }
+
+      Adw.SpinRow numberOfBarsRow {
+        title: _("Number of Bars");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 6;
+          upper: 200;
+          step-increment: 1;
+          page-increment: 6;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "strength-bars-1-symbolic";
+        }
+      }
+
+      Adw.SwitchRow reverseBarOrderRow {
+        title: _("Reverse Bar Order");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "double-ended-arrows-horizontal-symbolic";
+        }
+      }
+
+      Adw.SwitchRow automaticSensitivityRow {
+        title: _("Automatic Sensitivity");
+        subtitle: _("Cavalier will attempt to decrease sensitivity if the bars peak.");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speaker-4-symbolic";
+        }
+      }
+
+      Adw.SpinRow sensitivityRow {
+        title: _("Manual Sensitivity");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 10;
+          upper: 100;
+          step-increment: 1;
+          page-increment: 10;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speaker-2-symbolic";
+        }
+      }
+
+      Adw.SwitchRow monstercatRow {
+        title: _("Monstercat Smoothing");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "smoothen-symbolic";
+        }
+      }
+
+      Adw.SpinRow nosieReductionRow {
+        title: _("Noise Reduction Factor");
+        numeric: true;
+        adjustment: Gtk.Adjustment {
+          lower: 15;
+          upper: 95;
+          step-increment: 1;
+          page-increment: 5;
+        };
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "speaker-1-symbolic";
+        }
+      }
+    }
+  }
+
+  Adw.PreferencesPage {
+    title: _("Colors");
+    icon-name: "preferences-color-symbolic";
+
+    Adw.PreferencesGroup colorProfilesGroup {
+      title: _("Profiles");
+
+      header-suffix: Gtk.Box {
+        Gtk.Button addColorProfileButton {
+          Adw.ButtonContent {
+            label: _("Add");
+            icon-name: "list-add-symbolic";
+          }
+        }
+
+        styles [ "toolbar" ]
+      };
+
+      Adw.ComboRow activeColorProfileRow {
+        title: _("Active Profile");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "check-round-outline-symbolic";
+        }
+      }
+    }
+  }
+
+  Adw.PreferencesPage {
+    title: _("Images");
+    icon-name: "image-x-generic-symbolic";
+
+    Adw.PreferencesGroup backgroundImagesGroup {
+      title: _("Background Images");
+
+      header-suffix: Gtk.Box {
+        Gtk.Button addBackgroundImageButton {
+          Adw.ButtonContent {
+            label: _("Add");
+            icon-name: "list-add-symbolic";
+          }
+        }
+
+        styles [ "toolbar" ]
+      };
+
+      Adw.ComboRow activeBackgroundImageRow {
+        title: _("Active Image");
+
+        [prefix]
+        Gtk.Image {
+          icon-name: "check-round-outline-symbolic";
+        }
+      }
+    }
+  }
+}
