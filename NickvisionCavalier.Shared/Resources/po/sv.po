@@ -8,22 +8,25 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-11-08 13:51+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"nickvision-cavalier/app/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1207
 msgid "Add"
-msgstr ""
+msgstr "Lägg till"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:23
 msgid "Add New Profile"
-msgstr ""
+msgstr "Lägg till ny profil"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1078
 #, csharp-format
