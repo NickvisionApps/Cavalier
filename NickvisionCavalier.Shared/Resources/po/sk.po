@@ -8,367 +8,366 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 08:33-0500\n"
-"PO-Revision-Date: 2025-06-21 16:01+0000\n"
-"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/"
-"nickvision-cavalier/app/ta/>\n"
-"Language: ta\n"
+"PO-Revision-Date: 2026-05-16 11:11+0000\n"
+"Last-Translator: Peter Vančo <petervanco347@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/nickvision-"
+"cavalier/app/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.6.dev0\n"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:42
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1207
 msgid "Add"
-msgstr "கூட்டு"
+msgstr "Pridať"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:23
 msgid "Add New Profile"
-msgstr "புதிய சுயவிவரத்தைச் சேர்க்கவும்"
+msgstr "Pridať nový profil"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1078
 #, csharp-format
 msgid "Are you sure you want to delete profile \"{0}\"?"
-msgstr "சுயவிவரத்தை \"{0}\" நீக்க விரும்புகிறீர்களா?"
+msgstr "Naozaj chcete odstrániť profil „{0}\"?"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:39
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1080
 msgid "Cancel"
-msgstr "ரத்துசெய்"
+msgstr "Zrušiť"
 
 #: ../../../Controllers/MainWindowController.cs:61
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:13
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:12
 msgid "Cavalier"
-msgstr "காவலியர்"
+msgstr "Cavalier"
 
 #: ../../../Controllers/MainWindowController.cs:70
 msgid "Contributors on GitHub ❤️"
-msgstr "கிட்அப்பில் பங்களிப்பாளர்கள்"
+msgstr "Prispievatelia na GitHub ❤️"
 
 #: ../../../Controllers/MainWindowController.cs:72
 msgid "David Lapshin"
-msgstr "டேவிட் லாப்சின்"
+msgstr "David Lapshin"
 
 #: ../../../Models/ColorProfile.cs:33
 msgid "Default"
-msgstr "இயல்புநிலை"
+msgstr "Predvolené"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1083
 msgid "Delete"
-msgstr "நீக்கு"
+msgstr "Odstrániť"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1078
 msgid "Delete Profile"
-msgstr "சுயவிவரத்தை நீக்கு"
+msgstr "Odstrániť profil"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:810
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:957
 msgid "Full"
-msgstr "முழு"
+msgstr "Plné"
 
 #: ../../../Controllers/MainWindowController.cs:68
 #: ../../../Controllers/MainWindowController.cs:71
 msgid "Fyodor Sobolev"
-msgstr "ஃபெடோர் சோபோலெவ்"
+msgstr "Fyodor Sobolev"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/MainWindow.cs:277
 msgid "GitHub Repo"
-msgstr "அறிவிலிமையம் ரெப்போ"
+msgstr "Repozitár na GitHub"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:994
 msgid "Hearts"
-msgstr "இதயங்கள்"
+msgstr "Srdcia"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1209
 msgid "JPEG and PNG images"
-msgstr "JPEG மற்றும் PNG படங்கள்"
+msgstr "Obrázky JPEG a PNG"
 
 #: ../../../Controllers/MainWindowController.cs:67
 msgid "Matrix Chat"
-msgstr "அணி அரட்டை"
+msgstr "Chat Matrix"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:23
 msgid "New color profile will be a copy of the current active profile."
-msgstr ""
-"புதிய வண்ண சுயவிவரம் தற்போதைய செயலில் உள்ள சுயவிவரத்தின் நகலாக இருக்கும்."
+msgstr "Nový farebný profil bude kópiou aktuálneho aktívneho profilu."
 
 #: ../../../Controllers/MainWindowController.cs:69
 msgid "Nicholas Logozzo"
-msgstr "நிக்கோலச் லோகோச்சோ"
+msgstr "Nicholas Logozzo"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:810
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:815
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:957
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:962
 msgid "Off"
-msgstr "அணை"
+msgstr "Vypnuté"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:815
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:962
 msgid "On"
-msgstr "ஆன்"
+msgstr "Zapnuté"
 
 #: ../../../../NickvisionCavalier.GNOME/Controls/AddProfileDialog.cs:29
 msgid "Profile Name"
-msgstr "சுயவிவர பெயர்"
+msgstr "Názov profilu"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:1206
 msgid "Select an image"
-msgstr "ஒரு படத்தைத் தேர்ந்தெடுக்கவும்"
+msgstr "Vyberte obrázok"
 
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:810
 #: ../../../../NickvisionCavalier.GNOME/Views/PreferencesDialog.cs:957
 msgid "Split Channels"
-msgstr "பிளவு சேனல்கள்"
+msgstr "Rozdelené kanály"
 
 #: ../../../Controllers/MainWindowController.cs:73
 msgid "translator-credits"
-msgstr "மொழிபெயர்ப்பாளர்-வரவு"
+msgstr "Peter Vančo"
 
 #: ../../../Controllers/MainWindowController.cs:62
 msgid "Visualize audio with CAVA"
-msgstr "காவாவுடன் ஆடியோவை காட்சிப்படுத்துங்கள்"
+msgstr "Vizuálne znázornenie zvuku pomocou CAVA"
 
 #: NickvisionCavalier.GNOME/Blueprints/command_help_dialog.blp:20
 msgid "Command Help"
-msgstr "கட்டளை உதவி"
+msgstr "Pomocník príkazov"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:25
 msgid "Let's dance!"
-msgstr "நடனமாடுவோம்!"
+msgstr "Poďme sa baviť!"
 
 #: NickvisionCavalier.GNOME/Blueprints/drawing_view.blp:26
 msgid ""
 "Cavalier listens to your system sound. Play some music or watch a video and "
 "see your sound come to life!"
 msgstr ""
-"காவலியர் உங்கள் கணினி ஒலியைக் கேட்கிறார். கொஞ்சம் இசையை வாசிக்கவும் அல்லது வீடியோவைப் "
-"பார்க்கவும், உங்கள் ஒலி உயிர்ப்பிக்கவும்!"
+"Aplikácia Cavalier počúva zvuk vášho systému. Spustite hudbu alebo si "
+"pozrite video a sledujte, ako zvuk ožíva!"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:10
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:157
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:5
 msgid "Preferences"
-msgstr "விருப்பத்தேர்வுகள்"
+msgstr "Predvoľby"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:17
 msgid "Drawing mode"
-msgstr "வரைதல் முறை"
+msgstr "Režim kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:24
 msgid "Box"
-msgstr "பெட்டி"
+msgstr "Krabica"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:28
 msgid "Circle"
-msgstr "வட்டம்"
+msgstr "Kruh"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:36
 msgid "Wave"
-msgstr "அலை"
+msgstr "Vlna"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:44
 msgid "Levels"
-msgstr "நிலைகள்"
+msgstr "Úrovne"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:54
 msgid "Particles"
-msgstr "துகள்கள்"
+msgstr "Častice"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:64
 msgid "Bars"
-msgstr "பார்கள்"
+msgstr "Stĺpce"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:74
 msgid "Spine"
-msgstr "வளைமுள்"
+msgstr "Ihlica"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:84
 msgid "Splitter"
-msgstr "ச்ப்ளிட்டர்"
+msgstr "Rozdeľovač"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:99
 msgid "Radius"
-msgstr "ஆரம்"
+msgstr "Polomer"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:114
 msgid "Rotation"
-msgstr "சுழற்சி"
+msgstr "Otočenie"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:131
 msgid "Mirror"
-msgstr "கண்ணாடி"
+msgstr "Zrkadlo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:135
 msgid "Reverse mirror"
-msgstr "தலைகீழ் கண்ணாடி"
+msgstr "Obrátené zrkadlo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:141
 msgid "Drawing direction"
-msgstr "வரைதல் திசை"
+msgstr "Smer kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Top to bottom"
-msgstr "மேலிருந்து கீழே"
+msgstr "Zhora nadol"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Bottom to top"
-msgstr "கீழே முதல்"
+msgstr "Zdola nahor"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Left to right"
-msgstr "இடமிருந்து வலமாக"
+msgstr "Zľava doprava"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:143
 msgid "Right to left"
-msgstr "வலமிருந்து இடமாக"
+msgstr "Sprava doľava"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:148
 msgid "Drawing area margin"
-msgstr "வரைதல் பகுதி விளிம்பு"
+msgstr "Okraj oblasti kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:149
 msgid "Size of gaps around drawing area (in pixels)."
-msgstr "வரைதல் பகுதியைச் சுற்றியுள்ள இடைவெளிகளின் அளவு (பிக்சல்களில்)."
+msgstr "Veľkosť medzier okolo oblasti kreslenia (v pixeloch)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:166
 msgid "Drawing area X offset"
-msgstr "வரைதல் பகுதி ஃச் ஆஃப்செட்"
+msgstr "Posun X oblasti kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:181
 msgid "Drawing area Y offset"
-msgstr "வரைதல் பகுதி ஒய் ஆஃப்செட்"
+msgstr "Posun Y oblasti kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:196
 msgid "Offset between items"
-msgstr "உருப்படிகளுக்கு இடையில் ஈடுசெய்யவும்"
+msgstr "Medzera medzi položkami"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:197
 msgid "The size of spaces between elements (in percent)."
-msgstr "உறுப்புகளுக்கு இடையிலான இடைவெளிகளின் அளவு (சதவீதத்தில்)."
+msgstr "Veľkosť priestorov medzi prvkami (v percentách)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:214
 msgid "Roundness of items"
-msgstr "பொருட்களின் சுற்று"
+msgstr "Zaoblenie položiek"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:215
 msgid "How much rounded the elements should be (in percent)."
-msgstr "உறுப்புகள் எவ்வளவு வட்டமானதாக இருக்க வேண்டும் (சதவீதத்தில்)."
+msgstr "Ako zaoblené by mali byť prvky (v percentách)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:232
 msgid "Filling"
-msgstr "நிரப்புதல்"
+msgstr "Výplň"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:233
 msgid "Whether shapes should be filled or outlined."
-msgstr "வடிவங்கள் நிரப்பப்பட வேண்டுமா அல்லது கோடிட்டுக் காட்டப்பட வேண்டுமா."
+msgstr "Či majú byť tvary vyplnené alebo len ohraničené."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:237
 msgid "Thickness of lines"
-msgstr "கோடுகளின் தடிமன்"
+msgstr "Hrúbka čiary"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:238
 msgid "Thickness of lines when filling is off (in pixels)."
-msgstr "நிரப்பும்போது (பிக்சல்களில்) வரிகளின் தடிமன்."
+msgstr "Hrúbka čiary, keď je výplň vypnutá (v pixeloch)."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:258
 msgid "Borderless window"
-msgstr "எல்லையற்ற சாளரம்"
+msgstr "Okno bez okraja"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:259
 msgid "Whether to disable window shadow and borders."
-msgstr "சாளர நிழல் மற்றும் எல்லைகளை முடக்க வேண்டுமா."
+msgstr "Či vypnúť tieň a okraje okna."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:263
 msgid "Sharp corners"
-msgstr "கூர்மையான மூலைகள்"
+msgstr "Ostré rohy"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:264
 msgid "Whether the main window corners should be sharp."
-msgstr "முதன்மையான சாளர மூலைகள் கூர்மையாக இருக்க வேண்டுமா."
+msgstr "Či majú byť rohy hlavného okna ostré."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:268
 msgid "Window controls"
-msgstr "சாளர கட்டுப்பாடுகள்"
+msgstr "Ovládacie prvky okna"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:269
 msgid "Whether to show window control buttons."
-msgstr "சாளர கட்டுப்பாட்டு பொத்தான்களைக் காட்ட வேண்டுமா."
+msgstr "Či zobraziť tlačidlá ovládania okna."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:273
 msgid "Autohide headerbar"
-msgstr "ஆட்டோஐட் எடர்பார்"
+msgstr "Automatické skrytie hlavičky"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:274
 msgid "Whether to hide headerbar when main window is not focused."
-msgstr "முதன்மையான சாளரம் கவனம் செலுத்தாதபோது எடர்பாரை மறைக்க வேண்டுமா."
+msgstr "Či skryť hlavičku, keď hlavné okno nie je aktívne."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:285
 msgid "Framerate"
-msgstr "பிரேம்ரேட்"
+msgstr "Snímok za sekundu"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:286
 msgid "Number of frames per second."
-msgstr "நொடிக்கு பிரேம்களின் எண்ணிக்கை."
+msgstr "Počet snímok za sekundu."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:288
 msgid "Custom"
-msgstr "தனிப்பயன்"
+msgstr "Vlastné"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:294
 msgid "Custom Framerate"
-msgstr "தனிப்பயன் பிரேம்ரேட்"
+msgstr "Vlastná rýchlosť snímok"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:299
 msgid "Number of bars"
-msgstr "பார்களின் எண்ணிக்கை"
+msgstr "Počet stĺpcov"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:316
 msgid "Automatic sensitivity"
-msgstr "தானியங்கி உணர்திறன்"
+msgstr "Automatická citlivosť"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:317
 msgid "Attempt to decrease sensitivity if the bars peak."
-msgstr "பார்கள் உச்சம் இருந்தால் உணர்திறனைக் குறைக்க முயற்சிக்கவும்."
+msgstr "Pokúsiť sa znížiť citlivosť, ak stĺpce dosiahnu maximum."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:321
 msgid "Sensitivity"
-msgstr "உணர்திறன்"
+msgstr "Citlivosť"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:322
 msgid ""
 "Manual sensitivity. If automatic sensitivity is enabled, this will only be "
 "the initial value."
 msgstr ""
-"கையேடு உணர்திறன். தானியங்கி உணர்திறன் இயக்கப்பட்டிருந்தால், இது ஆரம்ப மதிப்பாக மட்டுமே "
-"இருக்கும்."
+"Manuálna citlivosť. Ak je zapnutá automatická citlivosť, toto bude iba "
+"počiatočná hodnota."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:337
 msgid "Channels"
-msgstr "சேனல்கள்"
+msgstr "Kanály"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:344
 msgid "Mono"
-msgstr "மோனோ"
+msgstr "Mono"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:348
 msgid "Stereo"
-msgstr "ச்டீரியோ"
+msgstr "Stereo"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:357
 msgid "Monstercat smoothing"
-msgstr "மான்ச்டர்காட் மென்மையானது"
+msgstr "Vyhladzovanie Monstercat"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:358
 msgid "Whether to enable the so-called «Monstercat smoothing»."
-msgstr "«மான்ச்டர்காட் மென்மையானது» என்று அழைக்கப்படுவதை இயக்க வேண்டுமா."
+msgstr "Či povoliť takzvané „vyhladzovanie Monstercat\"."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:362
 msgid "Noise reduction"
-msgstr "ஒலி குறைப்பு"
+msgstr "Potlačenie šumu"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:363
 msgid ""
@@ -376,226 +375,226 @@ msgid ""
 "smooth.\n"
 "Higher value leads to a slower and smoother result."
 msgstr ""
-"இந்த காரணி சமிக்ஞையை மென்மையாக வைத்திருக்க ஒருங்கிணைந்த மற்றும் ஈர்ப்பு வடிப்பான்களை "
-"சரிசெய்கிறது.\n"
-" அதிக மதிப்பு மெதுவான மற்றும் மென்மையான முடிவுக்கு வழிவகுக்கிறது."
+"Tento faktor upravuje integračný a gravitačný filter, aby sa signál udržal "
+"hladký.\n"
+"Vyššia hodnota vedie k pomalšiemu a hladšiemu výsledku."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:380
 msgid "Reverse order"
-msgstr "தலைகீழ் ஒழுங்கு"
+msgstr "Obrátené poradie"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:381
 msgid "Whether to reverse order of bars for each channel."
-msgstr "ஒவ்வொரு சேனலுக்கும் பார்களின் வரிசையை மாற்றியமைக்க வேண்டுமா."
+msgstr "Či obrátiť poradie stĺpcov pre každý kanál."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:387
 msgid "Colors"
-msgstr "நிறங்கள்"
+msgstr "Farby"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:410
 msgid "Add Profile"
-msgstr "சுயவிவரத்தைச் சேர்க்கவும்"
+msgstr "Pridať profil"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:433
 msgid "Application Theme"
-msgstr "பயன்பாட்டு கருப்பொருள்"
+msgstr "Téma aplikácie"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:441
 msgid "Light"
-msgstr "ஒளி"
+msgstr "Svetlá"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:445
 msgid "Dark"
-msgstr "இருண்ட"
+msgstr "Tmavá"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:469
 msgid "Foreground Colors"
-msgstr "முன்புற வண்ணங்கள்"
+msgstr "Farby popredia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:477
 msgid "Add foreground color"
-msgstr "முன்புற வண்ணத்தைச் சேர்க்கவும்"
+msgstr "Pridať farbu popredia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:492
 msgid "Background Colors"
-msgstr "பின்னணி வண்ணங்கள்"
+msgstr "Farby pozadia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:499
 msgid "Add background color"
-msgstr "பின்னணி நிறத்தைச் சேர்க்கவும்"
+msgstr "Pridať farbu pozadia"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:513
 msgid "Images"
-msgstr "படங்கள்"
+msgstr "Obrázky"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:527
 msgid "Background"
-msgstr "பின்னணி"
+msgstr "Pozadie"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:532
 msgid "Foreground"
-msgstr "முன்புறம்"
+msgstr "Popredie"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:547
 msgid "Add Image"
-msgstr "படத்தைச் சேர்க்கவும்"
+msgstr "Pridať obrázok"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:558
 msgid "Scale"
-msgstr "அளவு"
+msgstr "Mierka"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:581
 msgid "Alpha"
-msgstr "அகர"
+msgstr "Alpha"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:602
 msgid "Foreground image is only shown with Box drawing modes."
-msgstr "முன்புற படம் பெட்டி வரைதல் முறைகளுடன் மட்டுமே காட்டப்பட்டுள்ளது."
+msgstr "Obrázok popredia sa zobrazuje iba v režime kreslenia Krabica."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:614
 msgid "No Images"
-msgstr "படங்கள் இல்லை"
+msgstr "Žiadne obrázky"
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:615
 msgid "Add an image to use it in Cavalier."
-msgstr "கேவலியரில் பயன்படுத்த ஒரு படத்தைச் சேர்க்கவும்."
+msgstr "Pridajte obrázok, aby ste ho mohli použiť v aplikácii Cavalier."
 
 #: NickvisionCavalier.GNOME/Blueprints/preferences_dialog.blp:633
 msgid "No Image"
-msgstr "படம் இல்லை"
+msgstr "Žiadny obrázok"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:15
 msgid "Change Drawing Mode"
-msgstr "வரைதல் பயன்முறையை மாற்றவும்"
+msgstr "Zmeniť režim kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:20
 msgid "Change radius in Circle modes"
-msgstr "வட்ட முறைகளில் ஆரம் மாற்றவும்"
+msgstr "Zmeniť polomer v režimoch Kruh"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:25
 msgid "Change rotation in Circle modes"
-msgstr "வட்ட முறைகளில் சுழற்சியை மாற்றவும்"
+msgstr "Zmeniť otočenie v režimoch Kruh"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:30
 msgid "Change Mirror Mode"
-msgstr "கண்ணாடி பயன்முறையை மாற்றவும்"
+msgstr "Zmeniť režim zrkadla"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:35
 msgid "Toggle Reverse Mirror"
-msgstr "தலைகீழ் கண்ணாடியை மாற்றவும்"
+msgstr "Prepnúť obrátené zrkadlo"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:40
 msgid "Change Drawing Area Margin"
-msgstr "வரைதல் பகுதி விளிம்பை மாற்றவும்"
+msgstr "Zmeniť okraj oblasti kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:45
 msgid "Change Drawing Area X Offset"
-msgstr "வரைதல் பகுதி ஃச் ஆஃப்செட் மாற்றவும்"
+msgstr "Zmeniť posun X oblasti kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:50
 msgid "Change Drawing Area Y Offset"
-msgstr "வரைதல் பகுதி ஒய் ஆஃப்செட் மாற்றவும்"
+msgstr "Zmeniť posun Y oblasti kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:55
 msgid "Change Drawing Direction"
-msgstr "வரைதல் திசையை மாற்றவும்"
+msgstr "Zmeniť smer kreslenia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:60
 msgid "Change Offset Between Items"
-msgstr "உருப்படிகளுக்கு இடையில் ஆஃப்செட்டை மாற்றவும்"
+msgstr "Zmeniť medzeru medzi položkami"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:65
 msgid "Change Items Roundness"
-msgstr "உருப்படிகளை மாற்றவும்"
+msgstr "Zmeniť zaoblenie položiek"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:70
 msgid "Toggle Filling"
-msgstr "நிரப்புதல் நிலைமாற்று"
+msgstr "Prepnúť výplň"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:75
 msgid "Change Lines Thickness"
-msgstr "கோடுகள் தடிமன் மாற்றவும்"
+msgstr "Zmeniť hrúbku čiary"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:80
 msgid "Toggle Window Borders"
-msgstr "சாளர எல்லைகளை மாற்றவும்"
+msgstr "Prepnúť okraje okna"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:85
 msgid "Toggle Sharp Corners"
-msgstr "கூர்மையான மூலைகளை மாற்றவும்"
+msgstr "Prepnúť ostré rohy"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:94
 msgid "Change Number of Bars"
-msgstr "பார்களின் எண்ணிக்கையை மாற்றவும்"
+msgstr "Zmeniť počet stĺpcov"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:99
 msgid "Toggle Channels"
-msgstr "சேனல்களை மாற்றவும்"
+msgstr "Prepnúť kanály"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:104
 msgid "Toggle Reverse Order"
-msgstr "தலைகீழ் வரிசையை மாற்றவும்"
+msgstr "Prepnúť obrátené poradie"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:110
 msgid "Other"
-msgstr "மற்றொன்று"
+msgstr "Ostatné"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:113
 msgid "Change Color Profile"
-msgstr "வண்ண சுயவிவரத்தை மாற்றவும்"
+msgstr "Zmeniť farebný profil"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:118
 msgid "Change Background Image"
-msgstr "பின்னணி படத்தை மாற்றவும்"
+msgstr "Zmeniť obrázok pozadia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:123
 msgid "Change Background Image Scale"
-msgstr "பின்னணி பட அளவை மாற்றவும்"
+msgstr "Zmeniť mierku obrázka pozadia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:128
 msgid "Change Background Image Alpha"
-msgstr "பின்னணி பட ஆல்பாவை மாற்றவும்"
+msgstr "Zmeniť alpha kanál obrázka pozadia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:133
 msgid "Change Foreground Image"
-msgstr "முன்புற படத்தை மாற்றவும்"
+msgstr "Zmeniť obrázok popredia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:138
 msgid "Change Foreground Image Scale"
-msgstr "முன்புற பட அளவை மாற்றவும்"
+msgstr "Zmeniť mierku obrázka popredia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:143
 msgid "Change Foreground Image Alpha"
-msgstr "முன்புற பட ஆல்பாவை மாற்றவும்"
+msgstr "Zmeniť alpha kanál obrázka popredia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:149
 msgctxt "Shortcut"
 msgid "Application"
-msgstr "பயன்பாடு"
+msgstr "Aplikácia"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:152
 msgid "Toggle Fullscreen"
-msgstr "மாற்று முழுத்திரை"
+msgstr "Prepnúť režim celej obrazovky"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:162
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:6
 msgid "Keyboard Shortcuts"
-msgstr "விசைப்பலகை குறுக்குவழிகள்"
+msgstr "Klávesové skratky"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:167
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:7
 msgid "About Cavalier"
-msgstr "காவலியர் பற்றி"
+msgstr "O aplikácii Cavalier"
 
 #: NickvisionCavalier.GNOME/Blueprints/shortcuts_dialog.blp:172
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:8
 msgid "Quit"
-msgstr "வெளியேறு"
+msgstr "Ukončiť"
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:42
 msgid "Resizing..."
-msgstr "மறுஅளவிடுதல் ..."
+msgstr "Zmenšovanie..."
 
 #: NickvisionCavalier.GNOME/Blueprints/window.blp:67
 msgid "Main Menu"
-msgstr "பட்டியல் விளையாடுங்கள்"
+msgstr "Hlavná ponuka"
